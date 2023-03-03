@@ -1,30 +1,18 @@
-# Victorian-Flavor-Mod
+# The Steam Road
 
-Discord: https://discord.gg/kJwkHk8t43
+Discord: https://discord.gg/HcnrcqAW
 
-Steam Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2880089689
+Steam Workshop: 
 
-Paradox Forum: https://forum.paradoxplaza.com/forum/threads/mod-victorian-flavor-mod-a-comprehensive-overhaul.1550303/
+Paradox Forum:
 
 
 
 Credits:
 
-Early Modding Period - Radsterman, Cynic, Tawani, Steelwind
-
-Development - Cruci, Cynic, Davi Cerqueira, Doble, Engram, Obstination, OmegaCorps, Orine, Paul, Question-Asker, Radserman, Steelwind, stjern, Tawani, Timur the Lame, Typhion, UlfDerDritte, vjw, woojin, Wrench, YashaCarry
-
-Simplified Chinese Translation - VXCN1812, leaves13
-
-Portuguese Translation - Davi Cerqueira, Orine, Chrysocyon
-
-Spanish Translation - Sith Kermit
-
-
-VFM wouldn't be possible without the contributions of these developers, the community on the Modding Co-op, and the many mods for Victoria 2 that inspired it.
-
-
-The following sources were used in the creation of many aspects of the mod's map:
-https://www.hydrosheds.org/
-https://censusmosaic.demog.berkeley.edu/home
-https://gis.harvard.edu/
+Incorporated Mods:
+1. (Base) Victorian Flavor Mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2880089689
+2. More States: https://steamcommunity.com/sharedfiles/filedetails/?id=2881527989
+3. Eurasia Revamp: https://steamcommunity.com/sharedfiles/filedetails/?id=2884846196
+4. (Need Compatch) Ultra Historical Politics: https://steamcommunity.com/sharedfiles/filedetails/?id=2918521358
+5. (Need Compatch) Ultra Historical Research and Education: https://steamcommunity.com/sharedfiles/filedetails/?id=2897378189

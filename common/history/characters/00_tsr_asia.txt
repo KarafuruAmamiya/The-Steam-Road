@@ -1,0 +1,342 @@
+﻿CHARACTERS = {
+	c:AKN = {
+		create_character = {
+			first_name = "Ali_IV"
+			last_name = "Aq_Qoyunlu"
+			ruler = yes
+			female = no
+			birth_date = 1796.5.4
+    		culture = cu:kavuni
+			
+			interest_group = ig_devout
+			ideology = ideology_pious
+			traits = {
+				
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		
+		create_character = {
+			first_name = "Halil"
+			last_name = "Aq_Qoyunlu"
+			female = no
+			heir = yes
+			culture = cu:kavuni
+			birth_date=1817.9.21
+		}
+	}
+	c:CHI = {
+		create_character = {
+			first_name = "Jixi"
+			last_name = "Ren"
+			ruler = yes
+			female = no
+			birth_date = 1815.1.21
+    		culture = cu:han
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			traits = {
+				arrogant meticulous
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+	c:MUG = {
+		create_character = {
+			first_name = "Babur_III"
+			last_name = "Timurid"
+			ruler = yes
+			birth_date = 1795.8.9
+    		religion = rel:shiite
+			culture = cu:uzbek
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				cautious  
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+	c:PER = {
+		create_character = {
+			is_general = yes
+			first_name = "Hosayn_I"
+			last_name = "Safavid"
+			ruler = yes
+			birth_date = 1788.5.23
+    		religion = rel:shiite
+			dna = dna_hosayn_safavid
+			culture = cu:persian
+			interest_group = ig_armed_forces
+			ideology = ideology_jingoist_leader
+			traits = {
+				ambitious persistent explorer
+			}
+			on_created = {
+				set_variable = {
+					name = is_hosayn_safavid
+				}
+			}
+		}	
+
+		create_character = {
+			first_name = "Mohammad_Sadiq"
+			last_name = "Safavid"
+			heir = yes
+			birth_date=1835.9.25
+    		religion = rel:shiite
+			dna = dna_mohammad_sadiq_safavid
+			culture = cu:persian
+			interest_group = ig_intelligentsia
+			ideology = ideology_abolitionist
+			traits = {
+				innovative hedonist demagogue
+			}
+		}
+		
+		# IG Leaders
+		
+		create_character = {
+			first_name = "Armeen"
+			last_name = "Pahlavi"
+			culture = cu:persian
+			religion = rel:shiite
+			interest_group = ig_landowners
+			ig_leader = yes
+			ideology = ideology_royalist
+			birth_date = 1787.3.12
+			traits = {
+				imperious
+				basic_diplomat
+				expensive_tastes
+			}
+		}
+		
+		create_character = {
+			first_name = "Kourosh"
+			last_name = "Shirazi"
+			culture = cu:persian
+			religion = rel:shiite
+			interest_group = ig_intelligentsia
+			ig_leader = yes
+			ideology = ideology_abolitionist
+			birth_date = 1790.1.09
+			traits = {
+				experienced_political_operator
+				charismatic
+			}
+		}
+		
+		create_character = {
+			first_name = "Ebrahim"
+			last_name = "Kazemi"
+			culture = cu:persian
+			religion = rel:shiite
+			interest_group = ig_devout
+			ig_leader = yes
+			ideology = ideology_traditionalist
+			birth_date = 1790.2.22
+			traits = {
+				firebrand
+				imperious
+				ambitious
+			}
+		}
+		
+		# Generals
+		
+		create_character = {
+			is_general = yes
+			first_name = Rajab_Ali
+			last_name = Qazai
+			age = 58
+			culture = cu:persian
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			hq = region_indochina
+			commander_rank = commander_rank_3
+			traits = {
+				mountain_commander
+				cautious
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Farrukh
+			last_name = Ansari
+			age = 45
+			culture = cu:azerbaijani
+			interest_group = ig_armed_forces
+			ideology = ideology_jingoist_leader
+			hq = region_south_india
+			commander_rank = commander_rank_3
+			traits = {
+				resupply_commander
+				cruel
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Farajollah
+			last_name = Daei
+			age = 50
+			culture = cu:persian
+			hq = region_north_india
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			commander_rank = commander_rank_3
+			traits = {
+				experienced_artillery_commander
+				cruel
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Ulugh
+			last_name = Jahagir
+			culture = cu:uzbek
+			religion = rel:shiite
+			interest_group = ig_intelligentsia
+			ideology = ideology_radical
+			age = 42
+			hq = region_central_asia
+			commander_rank = commander_rank_2
+			traits = {
+				plains_commander
+				wrathful
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = "Joneid"
+			last_name = "Houshian"
+			culture = cu:caspian
+			hq = region_persia
+			commander_rank = commander_rank_3
+			interest_group = ig_intelligentsia
+			ideology = ideology_abolitionist
+			age = 59
+			traits = {
+				basic_diplomat
+				firebrand
+				experienced_naval_commander
+				tactful
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = Halîl
+			last_name = Azizi
+			culture = cu:kurdish
+			hq = region_north_india
+			interest_group = ig_intelligentsia
+			ideology = ideology_jingoist_leader
+			commander_rank = commander_rank_3
+			age = 51
+			traits = {
+				convoy_raider_commander
+				brave
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = Solaymân
+			last_name = Jafari
+			hq = region_south_india
+			culture = cu:persian
+			interest_group = ig_armed_forces
+			ideology = ideology_slaver
+			commander_rank = commander_rank_3
+			age = 40
+			traits = {
+				basic_naval_commander
+				romantic
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = Shahqoli
+			last_name = Khan
+			hq = region_arabic
+			culture = cu:azerbaijani
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+			commander_rank = commander_rank_3
+			age = 46
+			traits = {
+				dockyard_master
+				experienced_naval_commander
+				meticulous
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			commander_rank = commander_rank_3
+			first_name = Farid
+			last_name = Fatemi
+			culture = cu:persian
+			religion = rel:shiite
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			birth_date = 1778.7.05
+			hq = region_arabic
+			traits = {
+				ambitious
+				direct
+				popular_commander
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			commander_rank = commander_rank_4
+			first_name = "Abbas"
+			last_name = "Sabbet"
+			culture = cu:persian
+			religion = rel:shiite
+			interest_group = ig_armed_forces
+			ig_leader = yes
+			ideology = ideology_reformer
+			birth_date = 1775.3.21
+			hq = region_persia
+			traits = {
+				expert_artillery_commander
+				mountain_commander
+				innovative
+			}
+		}
+	}
+	c:TUR = {
+		create_character = {
+			first_name = "Suleyman_II"
+			last_name = "Osmanoglu"
+			ruler = yes
+			female = no
+			birth_date = 1808.12.1
+    		religion = rel:sunni
+			interest_group = ig_landowners
+			dna = dna_suleyman_ii_osmanoglu
+			ideology = ideology_traditionalist
+			traits = {
+				brave expert_offensive_planner
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+}

@@ -1,0 +1,168 @@
+﻿# Root = Country
+on_monthly_pulse_country = {
+	events = {
+		communism.8 # Red Army
+		peoples_springtime.1
+		low_countries_events.3
+		low_countries_events.4
+		opium_wars.1
+		native_resettlement.1
+		meiji.13
+		treaty_of_villafranca.1
+		italy_1848.1
+		italy_1848.3
+		italy_1848.6
+		italy_1848.7
+		italy_1848.18
+		italy_1848.19
+		italy_1848.20
+		italy_1848.22
+		italy_1848.23
+		italy_1848.24
+		italy_1848.27
+		italy_1848.30
+		italy_1848.31
+		italy_1848.32
+		italy_1848.35
+		italy_flavor.1
+		italy_flavor.2
+		exp_thousand.3
+		exp_thousand.5
+		exp_thousand.7
+		exp_thousand.8
+	}
+	# Election Events
+	random_events = {
+		50 = 0
+		1 = election_liberal_events.1
+		1 = election_liberal_events.2
+		1 = election_liberal_events.3
+		1 = election_liberal_events.4
+		1 = election_conservative_events.1
+		1 = election_conservative_events.2
+		1 = election_conservative_events.3
+		1 = election_conservative_events.4
+		1 = election_moderate_events.1
+		1 = election_moderate_events.2
+		1 = election_contextual_events.1
+		1 = election_contextual_events.2
+		1 = election_contextual_events.3
+		1 = election_contextual_events.4
+		1 = election_contextual_events.5
+		1 = election_contextual_events.6
+		1 = election_contextual_events.7
+		1 = election_contextual_events.8
+		1 = election_neutral.1
+		1 = election_neutral.2
+		1 = election_neutral.3
+		1 = election_neutral.4
+		1 = election_neutral.5
+		1 = election_neutral.6
+		1 = election_neutral.7
+		1 = election_neutral.8
+		1 = election_other_parties_events.1
+		1 = election_other_parties_events.2
+		1 = election_other_parties_events.3
+		1 = election_other_parties_events.4
+		1 = election_other_parties_events.5
+		1 = ig_leaders.3
+	}
+}
+
+# Root = Colony state
+on_colony_created = {
+	effect = {
+		owner = {
+			if = {
+				limit = {
+					has_journal_entry = je_tutorial_colonize_state
+				}
+				root = {
+					set_variable = {
+						name = tut_colony_target
+					}
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = {
+					owner = c:RUS
+					OR = {
+						c:RUS = {
+							has_state_in_state_region = STATE_SAKHALIN 
+						}
+						c:RUS = {
+							has_state_in_state_region = STATE_HOKKAIDO 
+						}
+					}
+					NOT = {
+						has_global_variable = japanese_response
+					}
+				}
+				set_global_variable = japanese_response
+				c:JAP = {
+					create_diplomatic_play = {
+						name = testname
+						war = yes
+						type = dp_annex_war
+						
+						target_state = s:STATE_HOKKAIDO.region_state:AIN
+					}
+				}
+			}
+		}
+	}
+}
+
+# Root = country
+on_native_uprising = {
+	effect = {
+		post_notification = native_uprising_notification
+		
+		every_country = {
+			limit = {
+				is_country_type = decentralized
+				is_diplomatic_play_enemy_of = root
+				NOT = { has_war_with = root }
+			}
+			save_scope_as = native_nation
+		}
+		every_diplomatic_play = {
+			limit = {
+				any_scope_play_involved = {
+					this = scope:native_nation
+				}
+			}
+			end_play = yes
+		}
+		create_diplomatic_play = {
+			target_country = scope:native_nation
+			war = yes
+			type = dp_native_uprising
+		}
+	}
+}
+
+# Root = Country
+on_capitulation = {
+	effect = {
+		if = {
+			limit = {
+				is_country_type = decentralized
+			}
+			every_country = {
+				limit = {
+					has_truce_with = root
+				}
+				set_tension = { 
+					country = root 
+					value = 0 
+				}
+				end_truce = {
+					country = root
+				}
+			}
+		}
+	}
+}

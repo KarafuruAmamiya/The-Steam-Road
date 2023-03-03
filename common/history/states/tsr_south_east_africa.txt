@@ -1,0 +1,683 @@
+﻿STATES = {
+	s:STATE_BASUTOLAND = {
+		create_state = {
+			country = c:BST
+			owned_provinces = { xF06050 x6DB7E8 xE1EAA4 x8C39B6 x3B4B19 xD121F1 xB6892A }
+		}
+		
+		add_homeland = sotho
+		add_homeland = zulu
+		add_homeland = xhosa
+	}
+	s:STATE_NATAL = {
+		create_state = {
+			country = c:ZUL
+			owned_provinces = { xBBCA32 x552449 xDE0EDE x85695F xB1F868 x7ACC38 x3CED3D x11A090 x279045 x5B124F xE0EB02 xFF0EF1 }
+		}
+		
+		add_homeland = boer
+		add_homeland = sotho
+		add_homeland = zulu
+		add_homeland = xhosa
+	}
+	s:STATE_ZULULAND = {
+		create_state = {
+			country = c:ZUL
+			owned_provinces = { xBE6FEE x1A084B xBFA16B x9E9742 x88FAD4 x904EBE xE882CE xE1E455 x41C070 }
+		}
+		
+		add_homeland = sotho
+		add_homeland = zulu
+		add_homeland = xhosa
+	}
+	s:STATE_VRYSTAAT = {
+		create_state = {
+			country = c:BST
+			owned_provinces = { x589888 x4F31B5 xC5B1AF xB59D45 x46FA9A xCCC4D7 x0DFB0C x739206 xFA9C37 xAAC657 x7BA736 x52B31E xF17D3D xF95B36  xF075D7 x373E53 xFEA822 x5365DF x0A09B9 xCEE3D2 x9D6A16 xED7851 x424E43 x56929D x8EF6E1 x1B784D x83E266 x75FA4B x19AE59 x6253E3 }
+		}
+		
+		add_homeland = boer
+		add_homeland = sotho
+		add_homeland = nguni
+	}
+	s:STATE_SWAZILAND = {
+		create_state = {
+			country = c:SWZ
+			owned_provinces = { xA30505 x90A090 x884936 }
+		}
+		
+		add_homeland = sotho
+		add_homeland = nguni
+		add_homeland = tswana
+		add_homeland = zulu
+	}
+
+	s:STATE_TRANSVAAL = {
+		create_state = {
+			country = c:MTB
+			owned_provinces = { x8BDC4D xD0A010 xBE553D xA22DC2 xCF2BAB x3B06D4 x8B4610 xF52530 x1EFDDB xD02190 xC74943 xA8089A xFF01F0 x3D3057 x6C1786 x9A137B x6E419C xD02011 xD72273 xCBC63D x902190 xB98B42 x91CA59 xF7F196 x04FA29 xA84679 x9037B0 x7470A2 x452304 x50A011 x3A4578 x7F6508 xAFDF6D xDC7726 xBD0AEB x972FB2 x0591EA x2917E2 xFF97A1 xD9521C x3E338E xD022FF xF14024 x336285 xDF169D x927F5A x7E986B x5078AD x50A011 x73CDE8 x25A652 x73CDE8 x25A652 x8DF37C xDABE56 xD34CB1 x3DA2B5 xCAEAEB x8CD439 x4760DD xB19AFE x9EC141 xDB7D32 x24A528 x5C4C78 x775CAE xC9D165 }
+		}
+		
+		add_homeland = boer
+		add_homeland = sotho
+		add_homeland = nguni
+		add_homeland = tswana
+		add_homeland = zulu
+	}
+	s:STATE_EASTERN_CAPE = {
+		create_state = {
+			country = c:IBE
+			owned_provinces = { x91C345 x6E36BF x1A6FE4 x3160D0 xFC7DA6 x641309 xA25B89 x23F468 x3DB9B6 xCE073B xC84364 x3073EF xD8C05A x1CB5AB x527410 xB060CF xFBBD05 x910230 xE60DC5 x2282A0 x7524D4 xFEA452 x37E0C8 x678D6E x706050 x910230 xCA8474 x8B9EB1 xA3B602 x9DBF3E xC57FEF xB0DFD0 x30E0CF xAEA56B x708ADB xCD31DB x7F00DE x2A2EAD x7CEA40 xA66043 }
+			state_type = unincorporated
+		}
+		
+		add_homeland = xhosa
+		add_homeland = khoisan
+		add_homeland = griqua
+	}
+	s:STATE_CAPE_COLONY = {
+		create_state = {
+			country = c:IBE
+			owned_provinces = { x59D2D7 x6ABC89 xCA52E6 x1F8B77 xD497D5 x8C303E x826376 x6C917D x306050 x0D23B6 x39A19A xD13AD2 xC9BCA7 x10CCF3 x8A5F5F xA18690 x43FDEA xB06050 xE156BB xA4187E x407453 xEF2B27 x31E050 xC400D3 x55A52C x2392F9 x964401 xAF5637 x3560D3 xEF4150 x86C29A xA6837D x60F62D x97EAD8 x5B12AF x4E1F70 x7543E0 x0EEAD6 xC95189 x026A9C xA885D9 x3D70BA x0C9F79 }
+			state_type = unincorporated
+		}
+		
+		add_homeland = boer
+		add_homeland = sotho
+		add_homeland = khoisan		
+		add_homeland = griqua
+	}
+	s:STATE_NORTHERN_CAPE = {
+		create_state = {
+			country = c:IBE
+			owned_provinces = { xB1E8B2 x249AFA x81E032 xB0E050 xB86E73 x60DD97 x0214EF x0B12FC x085035 xBCEB7E xD69701 xF764EA xE03EC5 xD91514 xC4DD4E xA08E78 x70C050 x356B73 x7F413D x6702FF x42E06B xBD4BDE x419127 xD7C096 x63A9DF xDF76B4 x8CB7F1 xB99A59 x415FCE x95F398 x181A39 x3EDB2D xD355EF x3062F8 xF86198 x467D89 xF153FA xEA45B9 x047562 x1B5F95 x7040D0 x42408D x934389 x61E8DD }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:TSW
+			owned_provinces = { xA0EE4B x73BD7E x8E325C x20CAA7 xDE2166 xD76CB9 xBD34EB x8BD3D6 x076518 x2CC006 xA494F8 xB38471 x04C5AF x4AFDFD x455C0B x6CF2A2 xD65167 x6BE9A0 x798773 xD0AEA4 xC3D77A x4D517F x642DA4 xC4A7CE x8491F7 x99DD72 x03B0A7 xCFE774 xE4925E x41C0F0 x967E57 x0847D0 x9CB056 x1DDBFF xCD6DBD xEF40CF x68B5E8 x2A12BE x61DACA x20F4FE }
+		}
+		
+		add_homeland = boer
+		add_homeland = sotho
+		add_homeland = khoisan	
+		add_homeland = tswana
+		add_homeland = griqua
+	}
+	s:STATE_LOURENCO_MARQUES = {
+		create_state = {
+			country = c:GZA
+			owned_provinces = { x54CDC5 x6E7B6C x1DAC75 x7A8148 x6FB160 x4D5FD5 xBC9845 x17DAE2 x77C219 xF67484 x778C50 x00BE56 x93BF4B x6A3989 x0D2E92 xBCE7FD x195AAF x7E6D78 x71A3EA x588497 x3F9512 x72A8B7 x1C2C65 x2C2C46 x61DA05 xBD1A31 x963178 xD07030 x89F9FC x68F4FC xAAA76B x3040D0 }
+		}
+		create_state = {
+			country = c:SCA
+			owned_provinces = { x3083D0 x54CDC5 x361897 xB6C38B x7D5F16 x040DB6 xE4494C x51ECCC x8DC2A9 xC41403 x31033A x7E6D78 }
+			state_type = unincorporated
+		}
+		
+		add_homeland = tonga
+		add_homeland = nguni
+		add_homeland = shona
+		add_claim = c:GZA
+		add_claim = c:SCA
+	}
+	s:STATE_WHITE_NILE = {
+		create_state = {
+			country = c:ALO
+			owned_provinces = { "x16A922" "x225C9E" "x4AB4A0" "x51CD3D" "x6A5420" "x8CA984" "xC0D1A9" "xC356F5" "xD07ADF" "xD42E9B" "xE0A090" "xEE4B02" "xEF7C3C" "xFAD09B" }
+		}
+		create_state = {
+			country = c:DNK
+			owned_provinces = { "x06F011" "x0B3FB6" "x169409" "x26B47D" "x281B17" "x405DD1" "x409D75" "x512903" "x5556B9" "x68CEAC" "x836E96" "x87F764" "x90C4B5" "xAC2570" "xB0F9B2" "xE39A37" "xE8D379" "xEA9F9F" "xF2A9C3" "xF73FA3" }
+		}
+		create_state = {
+			country = c:DFT
+			owned_provinces = { "x052C31" "x117111" "x2B99DD" "x387C9A" "x3EBCE9" "x76BED4" "x77E0D1" "x87F523" "x992042" "xA414BD" "xB39074" "xC3E885" "xCAF1C3" "xD13168" "xD4BDA3" "xE14193" "xE4BC4E" "xE53199" "xF39844" "xFCECBC" "xFF0E29" }
+		}
+		create_state = {
+			country = c:NUE
+			owned_provinces = { "x178C0B" "x1D57FB" "x3A7DC2" "x49DC0E" "x597CAA" "x6512D9" "x70B4C9" "x93FD41" "xA479C2" "xBADB79" "xD57816" "xDC6D9E" "xF9F832" "xFD9BB6" }
+		}
+		
+		add_homeland = nuer
+		add_homeland = azande
+		add_homeland = luo
+		add_homeland = dinka
+		add_homeland = nilotic
+	}
+	s:STATE_EQUATORIA = {		
+		create_state = {
+			country = c:DNK
+			owned_provinces = { 
+				xECC166 x3864B4 x40A050 x025267 xB1C8B3 x5852E5 xA2D4A1 x287FA3 x6808DA x2F3E88 x4FFD57 xE63DDF x6875E7 x4B02C7 xBFB2D2 xA02111 xE310D0 x749BFD x19094A xEB0C25 xC6CE6C
+			}
+		}
+		create_state = {
+			country = c:NUE
+			owned_provinces = {
+				x65AAF8 x4D69FC xCC55B4 x6BC8A3
+			}
+		}		
+		create_state = {
+			country = c:TPS
+			owned_provinces = {
+				x3173A5 x7E841A x42AAF1 x997E00 x81EF4E x01C6DC x1EDEEF x1DA390 x8D0D42 xC8E467 x5C007E x458A9A x13B0BB x191199
+			}
+		}
+		create_state = {
+			country = c:DFT
+			owned_provinces = {
+				xE9B9DA x07EC0A x01E0D0 xA3790C x97BCA5 x806050 xB5B4CA xBE1B0B xC10150 x95DC14 xC890D8
+			}
+		}
+		
+		add_homeland = nuer
+		add_homeland = azande
+		add_homeland = luo
+		add_homeland = dinka
+		add_homeland = nilotic
+		add_homeland = fur
+		add_homeland = nuba
+	}
+	s:STATE_OROMIA = {
+		create_state = {
+			country = c:ETH
+			owned_provinces = {
+				x41E0D0 x9D5DFC xE7D29C x435967 x4CE17E xC77DDF x98F62E xC7AA4B x35C9A6 xA8A20B xD033B3 xD6B588 x91C70C x0FBF6B xE04093 x5FDD08 x1A441F
+			}
+		}
+		
+		add_homeland = oromo
+		add_homeland = amhara
+		add_homeland = somali
+		add_homeland = kikuyu
+		add_claim = c:ETH
+	}
+	s:STATE_HARAR = {
+		create_state = {
+			country = c:ADA
+			owned_provinces = { 
+				xB480F1 x513574  x6AEDF6 xDBA052 x35477F xDFB76F x20EBC8 x84C294 x318256 xA51575 x869C8E x107FA1 x4160D0 x077343 x1E8D53 x939EDA x3D8E7B x0FA741 x98DC27 xB9A342 xD26E35 xD20B42 x560028 xCE40EE xAF0800 x156474 x74C88E xD61F68 x82F3F6 x1527DC xC74C78 xBEDF90 xFC0BCC x489C2A xD25F58 x02BFCD x9D4A30 x6075E2 x055C75 x0BB3A0 xD68922 x7FCE33 x4AD726 x14A492 x0E0BF3 xB56BDC x206111 x7A2004 x516EB2 x9B2CD2 x28B782 xAA8CB0 x5C59E3 x396D03 x19A599 x721216 xE1D0E7 x6E7998 x582778 xB41950 xCCBD1F xFD0A16 xE156F9 x3286BD x8F6EB2 xD1CB36 x75E6F0 x6E8CCA x8CA5FB x0D5E96 
+			}
+		}
+		
+		add_homeland = oromo
+		add_homeland = amhara
+		add_homeland = somali
+		add_homeland = kikuyu
+		add_claim = c:ETH
+	}
+	s:STATE_AMHARA = {
+		create_state = {
+			country = c:ETH
+			owned_provinces = { 
+				x92412C x831523 xE071B6 x7F9732 x2D40BF x7A6C4F x0FB7D1 x378A0D xF53F6D x5D4889 x8D694F xB88334 x69B4E9 xC4CB68 x573362 xCF36EB
+			}
+		}
+		create_state = {
+			country = c:WLY
+			owned_provinces = {
+				xD7A4AF xB789A5 xB0D911 x67C506 x366C12 x36A83C xAA7799 x45C93A x507381 xFE53F8 x85562A xE57DDA xD031CA xC060D0 x19FA60 x47D35E x7F7614 x910805 xE77D4B x5A8BBB x10D446 x1F0F14 xBFDFCF x345DC3 x462918
+			}
+		}
+		create_state = {
+			country = c:KFA
+			owned_provinces = {
+				x848437 x0739DC x98BB15 xD769E6 xD27454 xE8D092 xA6F2C6 x62BE5B xB332F3 x1EA108 x5F19EC xDFF064 x29C3A2 x6AEA5C x2D8473 x4681AC x71415B x40BCE0 x3503EC x2AC215 xEE8BD1 x963349 x44DF06 x9EFEE0 x7F617B x870056 x1D098B
+			}
+		}
+
+		add_homeland = oromo
+		add_homeland = amhara
+		add_homeland = sidama
+		add_homeland = kikuyu
+	}
+	s:STATE_GONDER = {
+		create_state = {
+			country = c:ETH
+			owned_provinces = { 
+				xC19466 x0DED25 xDF2090 x536ACF xB87731 x61A2A3 xEFA8BC x7E83AE xA2BCF9 x4A8BE1 xDF37BE x6BA88A xC040E0 xBB012E xC00F88 x5EF353 xCA393F xAFF2F2 x3E9959 x079D31 x82A9D3 x7A0E0D x5A5824 x61A090 xB93109 xED4FE1 x9FA061 x793499 x81DDA7 xB1B90E x5B5305 xF090A0 x28FE62 xA3CD68 x962CFC xDF15B2 x68239C x57AA00 x5CAB2B x1539E2 x1A5869 x7152F3 x2F3AE3 x652B36 xB969A7 x6F31A5 x3BE1BE xE06640 x931306 x251691 xDA7922 x489309 xA50EE3 xD7E040
+			}
+		}
+		
+		add_homeland = oromo
+		add_homeland = amhara
+		add_homeland = tigray
+		add_homeland = kikuyu
+		add_homeland = afar
+	}
+	s:STATE_AWDAL = {
+		create_state = {
+			country = c:ADA
+			owned_provinces = {
+				x184064 xCCC39F x089FE7 xF2A924 x524E91 x0CE1C7 x5C2622 x2C4BFE x48FFF1 xC6A5CB x9DA796 xF9565C x12FDBA x7FBAFA x4A6DFD xE19C5A x9ACA9E x85FD85 xDEFB4F xD85A85 x7D4764 x284319 x8AA210 x3BB51B xAE76D1 xD3EE2E x2FB806 xDF951C x20E090 xD6084C x678D0D xCA0AFC x395C77 xDDAC33
+			}
+		}
+		
+		add_homeland = somali
+		add_homeland = swahili
+	}
+	s:STATE_SOMALILAND = {
+		create_state = {
+			country = c:AJU
+			owned_provinces = {
+				xF30A4D x625125 x337D01 xF26F4C xAFF79D x1CE5E9 x5BF703 x3587B8 x815D01 x3D5BE3 xCEE8F8 x5B7C30 x2F6BB1 x45FEEC xF4A328 x46250C x1017C5 xBFE050 xBC0D72 x1D4152 xDF6111 x407408 x212090 xAABDBD x508D8F xBF3A7A xEDC612 x30521C x6EFA28 x354629 xE44897 xD0BA96 x5DAE68 x3DE547 x992BFC xA1A21B x10CF18 x72DC5E xE65D19 x894078 x0085FA xF0C31D x606011 x655F7E x0F9944 xD191E8 x4BED76 x854A91 xE585C3 x1D4F93 x324717 xCB3B07 x6BA02C x6D66A6 xFE3534 x60EAC8 xDDF9DB xE4636A x76595D x83A1A3 x58307A xB64D3E x049442 xF5E822 x73FE30 xA05C39 x6D0680 x469B34 xA2A857 x529552
+			}
+		}
+		create_state = {
+			country = c:MJT
+			owned_provinces = {
+				xB9F779 xEF3903 x2D75F4 x132465 xF70163 xA0E090 xA6E128 x995FB2 xED2D92 x281ECB xD97AC4 xB72AFB x326FD1 x2CA298 x2D75F4 x560238 xD0FF66
+			}
+		}
+		create_state = {
+			country = c:ENG
+			owned_provinces = {
+				xB19FD2 x42DA4F
+			}
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:NET
+			owned_provinces = {
+				x0C544E
+			}
+			state_type = unincorporated
+		}
+		
+		add_homeland = somali
+		add_homeland = swahili
+	}
+	s:STATE_KENYA = {
+		create_state = {
+			country = c:KKY
+			owned_provinces = { xECA4C0 x089446 x65632F x63DAA0 x405F8E xC2118A x9AE44A xD775AC xFE3DAB x2F7464 xB0DB1C x4E4C18 x03C8B4 xA2D8EF x46B3F6 x356777 x90F646 x58526D xF89944 x8FF25F xBD067F xA7A757 x9BA0B4 x95C403 xE007A1 xE5F986 xA0A011 x0AF9FB xC95AAB x4168F3 x834AD2 xB5BCCC x08B945 xA0A090 x40DE9B x5EA4B6 xA40CF9 x89BA83 x8079E2 xC80CAC x6C071A xBFCF3E xADF3C8 x9A78B7 x30D3AC xD0A631 x005C29 x4816E8 xF59538 x47F824 x996D62 x9FDE2D x88F1D5 xC8B790 x77319E x33566A x5CB34D xFE3967 xD8A2A3 x19CFEC x28843B }
+		}
+		create_state = {
+			country = c:FEA
+			owned_provinces = { xA02190 x6B52F1 x5C1ADA xB97349 x6CCF4B }
+		}
+		
+		add_homeland = somali
+		add_homeland = kikuyu
+		add_homeland = lacustrine_bantu
+		add_homeland = swahili
+		add_homeland = maasai
+	}
+	s:STATE_ZANZIBAR = {
+		create_state = {
+			country = c:ZAN
+			owned_provinces = { x6021AF x6B7D25 xA50F53 x93DC46 x60A0AF x7D05E3 xA06030 xF87B77 }
+		}
+		create_state = {
+			country = c:FEA
+			owned_provinces = { x35554F x21A090 xE0D920 x438029 xE60324 x414325 xE020B0 x941594 x22D39E x65FD48 x9E9F57 xC53497 xE23000 xC52E48 x16F859  }
+		}
+		
+		add_homeland = lacustrine_bantu
+		add_homeland = swahili
+		add_homeland = sukuma
+	}
+	s:STATE_MOCAMBIQUE = {
+		create_state = {
+			country = c:MRV
+			owned_provinces = { x5EC8C1 x46C5DE x20E0B0 x525F8A x496E3D x42BDF4 x091828 x3406CB x78B0B8 x2B8AAC x06621F xFC41E9 x4225C4 x8EBD1B xB359EB xBD46D0 xF6EEBD x02EB92 x30D07F x067381 x4C0097 x9A37E8 x893622 xB8E488 x8D3BFA x17660D x6A057E x34D030 xF53770 x4AFF5E x4E39F7 xFDAF31 xA6DBA7 x4C7393 xF7617F x694CF9 xC139EB x6421B0 x2C40DE xFD8E92 x49E71A x7F5A99 x1C0AF6 x3BC995 xB88D2A xB66F1C xB013D9 x6CE05D x1C4AD1 xA1CEEF x59469D xA061AF x6396AA x7C3CE7 x1CC6C2 x0EFBB3 xC60197 x05A72B x7D1C19 }
+		}
+		create_state = {
+			country = c:ZAN
+			owned_provinces = { x11E090 xFE0A11 x49AFAC xBE355B xA8A6DE x9FE0B0 x876584 x005594 xA32AAD xBF8A54 x72177C x2F77FB xB8E488 xE412DB x771C70 xB230F4 xA5450D xC270F8 x3D00BC x1D7D03 }
+
+		}
+		
+		add_homeland = makua
+		add_homeland = sena
+		add_homeland = chewa
+		add_homeland = yao
+		add_homeland = lomwe
+		add_homeland = lacustrine_bantu
+	}
+	s:STATE_ZAMBEZIA = {
+		create_state = {
+			country = c:FEA
+			owned_provinces = { x667225 x217D32 x277F44 x3F30D0 x71C576 x6EDE1E x30B0D0 x27EEEF xF0ABE1 x8D331C xCA8CD6 x65E3CE x598E16 x94943F x90E090 x0B2E9A xD7451D x19FC5A }
+			state_type = unincorporated
+
+		}
+		create_state = {
+			country = c:MSK
+			owned_provinces = { xD40AFF x4065F0 x85EFA4 xA530D0 x2F3673 xD3F0C6 x6D2A22 xFE2942 x1B94D7 x21A983 x3F4206 xEA6076 x2E9622 xD03083 x357FEE x2AB129 x30D099 }
+		}
+		create_state = {
+			country = c:MNC
+			owned_provinces = { x42453B xF2EC6F xE664C9 x1A4B94 x74D030 xB7D0AC x3D83F2 x665190 x1425A8 }
+		}
+		
+		add_homeland = sena
+		add_homeland = shona
+		add_homeland = lacustrine_bantu
+	}
+	s:STATE_SOUTH_MADAGASCAR = {
+		create_state = {
+			country = c:MAD
+			owned_provinces = { xBFA51F x714D08 x1BB5E5 xDBFAC1 xBCB8C0 x1FAF90 x6D48C1 x2B3FCB x9F5F4C x471161 xE655F6 xEA95C4 x5F8C33 x40C0E0 xFC9FEC xADD893 xF2317F x794F7A xB9259E x44FC6E x9C2288 xF81480 x94059D x5897EC }
+		}
+		create_state = {
+			country = c:SKV
+			owned_provinces = { xE8FA9B x676257 x7A489E x33BDA3 xB5FA86 x4DC413 x071AEC x2D9669 xE6F19B xF18FED xDCB2F8 x15A1AC xB7598B x034485 x9D8997 xE480E0 xDB3D79 x425701 x1B65BD }
+		}
+		create_state = {
+			country = c:FEA
+			owned_provinces = { x606CE0 }
+		}
+		create_state = {
+			country = c:ZAF
+			owned_provinces = { xB0B64A xED95E1 xC910DF x132895 xA58AC5 x10A7DF x5D2D79 x19F69A }
+		}
+		create_state = {
+			country = c:ONI
+			owned_provinces = { x47F3A1 xDF5AED x3CE339 xC6697B xB57D66 x6DAE72 x637E10 x069C0D x097464 x52ED6A }
+		}
+		add_claim = c:MAD
+		add_homeland = malagasy
+	}
+	s:STATE_NORTH_MADAGASCAR = {
+		create_state = {
+			country = c:MAD
+			owned_provinces = { xC2E62D xA11116 x392CDC xD4E1D7 xB1EDB4 xBB70FE xC3F681 x069F1A x3732E1 x3450FE x3619E0 xB27647 xBEC58A xA0D0B6 xBD43D8 x7D2FD8 xF7F009 x215769 x9C3835 xDB635D x50A090 x724867 x2625B9 x285C26 xF41FD5 x7F2785 x2240CA xEFBDB7 x11F67B x054C46 xE0C530 x84B32B x50BAA2 xC3722C x3465B6 xFFB457 x8CF7D2 x00D7F5 x6CC56F xD3049A xC67F91 x1032DF }
+		}
+		create_state = {
+			country = c:SKV
+			owned_provinces = { x6A1582 x0B558A xA99E28 xDF60B0 x88A889 xC89FD5 x35CC6B x0F6E52 x4A0895 xC9BB37 xF7C90E x8E25F6 x25C5DC x6B56F5 xB92804 x678DC5 xA67461 }
+		}
+		create_state = {
+			country = c:FEA
+			owned_provinces = { xF9D98C }
+		}
+		add_claim = c:MAD
+		add_homeland = malagasy
+	}
+	s:STATE_INDIAN_OCEAN_TERRITORY = {
+		create_state = {
+			country = c:IBE
+			owned_provinces = { xD690E0 xD0E090 x60E0B0 x5C2250 x5C2239 }
+			state_type = unincorporated
+
+		}
+	}
+	s:STATE_CONGO_ORIENTALE = {
+		create_state = {
+			country = c:MNB
+			owned_provinces = { 
+				x74FC60 xE70C3A xC8B71B xE31D6A x162FA7 xB2F385 x892521 xD142A3 x1FEDC0 xDCBFE3 x4DC376 xD24A32 x65DC7E x4C5241 x02B17D x0160D0 x7E3537 x894227 x24A74A xCE5D4E xB164FA x485FF5 x95F321 xD67434 xA97CAE xFC2084 x67E98B xE5EAF3 xC31CD2 x2B239A x83B258 x0F3567 xF23E3F x380B3D x2A5811 x86B9C3 x530E61 xEDCBCD x403631 xD6E056 x9E6083 x76F938 x867071 xD39546 xE00EC9 x75430A x94C029 x00EC62 x6C7A9D x3A2B4A xD2FDC0 xD89C62 x26A8CE x223541 x20B1EF xB3BFC1 xF86F76 x0BBD77 x2BDAC0 x1A870C x359C6B x0B03B1 x9D0722 x8D0077 x01E050 x5F8C84 x3AF918
+			}
+		}
+		create_state = {
+			country = c:ZND
+			owned_provinces = {
+				xCC2E74 x44082A x142BDA x209F73 x3202D5 x768554 xF5DD95 x52D55E x60B2BD x4F0B70 x17D507 xA82701 x930D6F x457464 x66D104 x19DDCD xDC7664 x040C3C xEECA6C xFBDA6B xEB5E44 x0243AE x1F2FF9 x281E37 x9C56C4 xD30720 x782AE0 x845B38
+			}
+		}
+		create_state = {
+			country = c:LGA
+			owned_provinces = { x9D9072 x401860 xE06714 x15439F xADE217 x563D5E x153063 xC6AF9F x85AB59 xFD986B x91E008 xE2A642 x67535D x135F4B xDAB788 } 
+		}
+		create_state = {
+			country = c:HMB
+			owned_provinces = { xAFF1B2 xA0A030 x886533 x21A030 x223F0E x668E52 xDA13AB x782089 xE3A90C x28D2E7 x9C9DF0 }
+		}
+		create_state = {
+			country = c:LBA
+			owned_provinces = { x7ABE0E xCCED8E xE42825 x7449D3 xACB239 xBDBDF3 x5247D2 x68D1B6 xEC1630 x85DD57 }
+		}
+		
+		add_homeland = azande
+		add_homeland = luba
+		add_homeland = fluvian_bantu
+	}
+	s:STATE_KATANGA = {
+		create_state = {
+			country = c:KZM
+			owned_provinces = { x3B104F x024FB7 xE5F496 x3FB184 xAD40C0 x87771C xAC4151 x3788AD x1C670A x5361C6 xB982CA x7962AB xB8CA50 x187692 xBD2B47 x75FDD0 xD4C5CC x78528D xBC39DE x47E812 x8FC2E6 xD794FA x90CE04 x9B45C3 xA586BD xF8E616 x750DF0 x1D29C2 x71F6F2 x3141F5 x2A2A05 x07301D xE1BDDB x880D71 x2C1E9F x54A236 x3057A4 x2F00E6 xAD062C x105E7E x620629 x7F1BED xAF4E64 x4575FD xA936E2 x6CFB58 x786C0E x73B1B6 xF51848 xE7A782 xB843E4 xCDD8FC x86D0DF }
+		}
+		create_state = {
+			country = c:LND
+			owned_provinces = {
+				x9D5FE0 x93B1F8 x8833BD x6C2C7C x6C9580 x36A0BB x6268B1 x15E223 xF4CEE0 xC302BC xFA1564 xEDCDD6 x403F31 x58502C x1481BC xEB5598 x1EE911
+			}
+		}
+		create_state = {
+			country = c:LBA
+			owned_provinces = {
+				xE1ECF8 x99E339 x093D6D xB2F68E x7CD240 xB02110 x645FCD xD9B170 xEC29A0 x3C9DE6 x186E7B x4C5E63 x7AF180 x885EAA x4E9500 
+			}
+		}
+		
+		add_homeland = lunda
+		add_homeland = luba
+		add_homeland = fluvian_bantu
+	}
+	s:STATE_TANGANYIKA = {
+		create_state = {
+			country = c:NYM
+			owned_provinces = { 
+				xDD184B x8C8524 xE15FF5 x61218F xD0FF5C x38E17B x425AA5 xF56448 xE5BCC5 xAEEF76 xECBF22 x5073C4 xC8EA56 x6936D4 xCAC52D xCBDC0C x78575F x04F5F9 x4511CE x5F51AC xA9BAF1 x7CE03A x1D96A3 x83BED8 xEBBE80 x958123 xBCE7C6 x89572B x6E958D xE257AF xCA829D x5FB098 x2691C1 x405CA8 x02207F xF3365F x337D6C x2729FD x4F3573 xA9F940 xC40CD1 x46E610 x8F39A2 x206030 xD54938 x8D4D80 x494A2E x8EAA8A x6CFAFE
+			}
+		}
+		create_state = {
+			country = c:MSI
+			owned_provinces = {
+				xDFA030 xF25F2A x7CA754 x858E45 x839660 x940FCF x536B97 x642C7C x33EBC0 x735985 x31DDA2 x56F303 x3F4074 x8C4477 xFDF261 x385BCF x97523A xAD3AA2 x25315B xFCA852 xF56448 xAEEF76 xE5BCC5
+			}
+		}
+		create_state = {
+			country = c:KRG
+			owned_provinces = {
+				x51AA49 xDF9923 x585D0C x0E2596 x4C93A2 xDFB528
+			}
+		}
+		create_state = {
+			country = c:RWD
+			owned_provinces = {
+				x662B31 x5954AA x34EFF0 x80DF50
+			}
+		}
+		create_state = {
+			country = c:BRD
+			owned_provinces = {
+				x5093DF x16915A xD8B2ED
+			}
+		}
+		
+		add_homeland = lacustrine_bantu
+		add_homeland = unyamwezi
+		add_homeland = rundi
+		add_homeland = ruanda
+		add_homeland = sukuma
+		add_homeland = maasai
+		add_homeland = luo
+		add_claim = c:ACH
+		add_claim = c:BNY
+		add_claim = c:BUG
+		add_claim = c:ANK
+		add_claim = c:RWD
+		add_claim = c:BRD
+		add_claim = c:KRG
+	}
+	s:STATE_UGANDA = {
+		create_state = {
+			country = c:BUG
+			owned_provinces = { 
+				xD13A93 xEA2372 xA9859E x42EDCA xFB4215 x55FC3E x17F11F x40D607 xC2D6DE x9130A0 x228B9A x00B0A9 xF9C916 x357FAC xE0A010
+			}
+		}
+		create_state = {
+			country = c:BNY
+			owned_provinces = {
+				xA09C30 x5C340A x7CE297 xCD8D63 x1DDAD8 xE1A791 x1D4C32 xCE3CD0 
+			}
+		}
+		create_state = {
+			country = c:ANK
+			owned_provinces = {
+				x6530A0 x7183F2 x7183C4 
+			}
+		}
+		create_state = {
+			country = c:ACH
+			owned_provinces = {
+				x542630 x1D33CE x0DF37F x721418 x7ACC72 x51AC81 x206060 xE3B2A2 xEE81EC xA4C4FC x7796E6 xD13D78 x19F762 x05C5F1
+			}
+		}
+		
+		add_homeland = baganda
+		add_homeland = lacustrine_bantu
+		add_homeland = luo
+		add_claim = c:ACH
+		add_claim = c:BNY
+		add_claim = c:BUG
+		add_claim = c:ANK
+		add_claim = c:RWD
+		add_claim = c:BRD
+		add_claim = c:KRG
+	}
+	s:STATE_LINDI = {
+		create_state = {
+			country = c:HHE
+			owned_provinces = { 
+				xCF2793 x72D563 xC7D7F6 x3A7D3F x2D3397 x7E6EE2 x70B6A7 xCB8EF7 x6CCEB7 xAB194B x149C1D xFC6EA6 x6FC36F x0EA082 x7B094E x78D2EE x7E8E1C x350192 x698910 x252780 xF33163 x57A481 x28617A xB72DD0 x2A8275 x21E030 x5E470A x1281AB x646A51 xB4ACBD xB9D74D x27D07E xE33646 x257394 x15D846 x32721C x917E72 x3D9ABA xB06689 x23AF7C xD31587 x65D237 x9C371D xD1524C x2C40BD x7CC813 x294144 x5BDBD2 x3760F8 xD98109 xE02030 xC3BD8D x15B4E7 xF04E4E
+			}
+		}
+		create_state = {
+			country = c:GGO
+			owned_provinces = {
+				xB0BE5B x96131D x9C483E x13491A x7A88A9 x339AC4 x8DA7C6 x4A5A15 xA3F0E1 xBE0702 xDA10B8
+			}
+		}
+		create_state = {
+			country = c:SNG
+			owned_provinces = {
+				xCADABE x41E095 xE0A0B0 xF585F7 xB8DCEE xE6BB6C xC4A102 x21747A x95F250 x78E8C9 x392A56 x9CFE3A x527F48
+			}
+		}
+		
+		add_homeland = yao
+		add_homeland = makua
+		add_homeland = unyamwezi
+		add_homeland = lacustrine_bantu
+		add_homeland = chewa
+	}
+	s:STATE_KAZEMBE = {
+		create_state = {
+			country = c:BMB
+			owned_provinces = { 
+				x5C7C1D xBF5420 xBE2516 x7DA49F x3EEA34 xF2A85D xB6C420 x596FF5 x224E12 x773C55 xF294D4 xA0E030 x9898C5 x2AFF3B xBE2801 xAA2629 xA8795C x71C5D6 x541B6A x795579 x9BBF16 x194501 x35B380 xDE3A4D x434520 xB98531 x74BC07 x3B7CF3 xC03E0B x340195 x64393D xD2E030 x82E9A5 x8EF620 x701744 x23CB5A x2160B0 x52BDB8 x644F6A x806329 xEFAC92 x4E5483 x276350 x83B741 xCF3A49 xEC5E35
+			}
+		}
+		create_state = {
+			country = c:KZM
+			owned_provinces = {
+				xC46105 x99BE2B x9C00BD x8D8AA7 xA1E594 xD97719 x3D5129 x99B828 x7CA3C6 xF94CAC x9625E6 xA99CF3 x525175 x872195
+			}
+		}
+		
+		add_homeland = lunda
+		add_homeland = chewa
+		add_homeland = lacustrine_bantu
+	}
+	s:STATE_ZAMBEZI = {
+		create_state = {
+			country = c:RZW
+			owned_provinces = { x86AC48 x717AEE xC5B524 xAF3E35 xA713CF x6BA7ED x297680 x3F5B96 x902111 x5DC4AA x540A1A x1C0736 x6CFDCA xFF008C x261624 xCC95E8 x3AF96A x75DD71 xC5026F x687096 x397111 x4389FD x692FBD xCFB732 x6FD74E x87A1D6 x9EE89D xC8D3A2 xA55697 x8BC875 x24BDE2 x7E355F x503447 x115BA0 x9389EA xEEF770 x26F723 xFB6168 x8AEE59 x84FBAB xC7F1A1 xAE5737 xE640D6 x90A011 x28169C x2121F7 x6CCC83 x479CCF x7E3F56 x4339A9 x13126A x3B335C }
+		}
+		create_state = {
+			country = c:MSH
+			owned_provinces = { x9641D5 xFDD3A8 x9E9DE0 x72538D x1DDFC8 xA265E8 x13D2E6 x2A4E0D x0C1465 x3EC9D7 x9E48A3 xD09450 x9BC892 x4F5BA5 x1E71AD x41B56A xCA6529 xCD5A23 x8CFBA4 x177BB7 x42B2AD xEB2A0C }
+		}
+		create_state = {
+			country = c:MNC
+			owned_provinces = { xF75223 xFFC747 xB04FCB x7C01BF x8FA547 x8C071E }
+		}
+		
+		add_homeland = shona
+		add_homeland = nguni
+		add_homeland = lacustrine_bantu
+	}
+	s:STATE_BOTSWANA = {
+		create_state = {
+			country = c:TSW
+			owned_provinces = { x8BAD21 x38C967 xA77BC0 xB1E75E xD552F5 x760E05 x306DC9 x8B4085 x698277 x819206 x858909 xF92485 xEA71CE x3CE6FF x78A346 x2FE2E3 xDB264E xFF8C04 xD6F5C7 x902564 xEF0542 xD15F17 xF0C0D0 x223C4F x3AE92B xBEEEE8 xDF3B0C x9F9C56 x573D63 x59431C xBF54DA x459352 x06D1B1 xCA6EA0 x1BCFD6 x8DD21F x7D59A8 x832BB2 x15A746 xCCEEA1 xDAF4AF xFC89C7 x03C203 xB6F8AE xF94C98 x4C8326 x76FB79 x19C463 x9FFC78 x2578E8 x925066 xA8ACE2 xDB6DB3 x19C97C xB11821 x05B2DE xE225A2 xD297E1 x1707CC x14CE63 xAB3B20 xF335C3 xC4A648 x8C89B3 xABB3BC x0CC806 xF4C429 x158E45 x1DC5C0 x0B6737 x40B84D x462BFC xB0FE54 xBF4BD6 xA8DF8B x911967 xA557D2 x594654 x8271F9 xD8ACEF x036F2B x1DD5DD x700CC8 xC0E1AD x71C0D0 xDC9F54 x5A7E71 x7DB4A4 xC5B1D0 x1109D2 x054B00 x26D55C xC820AA xDFBC7F xD043BF x0D58B5 x987179 x3C20FD x3D52E8 x246D93 x7DE725 xF311B5 x44CA8D x7B96B9 x32C840 x19247C xB041D0 xFFAA21 x17960C xB71BD8 x1745CC x167727 x7FBDCE x0CE0FB xABDEAA x0C4D4C x128E49 xA3BC0B x31A92F xA522F8 x0906CA x958940 x83A6B2 xB82E36 }
+		}
+		create_state = {
+			country = c:LZO
+			owned_provinces = { x773A13 x4401C5 x3D4350 x6001D0 x0DDFB8 }
+		}
+		
+		add_homeland = tswana
+		add_homeland = herero
+		add_homeland = khoisan
+		add_homeland = nguni
+	}
+	s:STATE_ZAMBIA = {
+		create_state = {
+			country = c:LZO
+			owned_provinces = { 
+				x0F41AA x69FA4E x7DE1CA x6F3B8C x93D445 xEBD5BC x6D63E8 x4BCC5E x319C47 x4E7E66 xC1847A x923EAF xA4660F xA9339C xF4B66F x0FC828 x28FEA8 x70FA3C x81481F xA430E0 x828F71 xC29ED3 x484D42 xDD006D x55D19D x87B33F x5A1BF2 x62BBF1 xC5FD71 xCCB8E0 xCC2E4C x7A1E23 xD9353E x78FFDC xA63EB3 xE24009 xE7EAB5 xCF60FE x60E9CD x71875F x30DEE0 xF9EA9A x79A426 x04EE2A x4A5DD9 xD08043 xC8E1C9 x9C721A x8D6CA6 x137E0F x8866AE x28ECB2 x6FBDD5 x1B9E38 x01DAF2 xDE6D00 x23B4BE x6D48F8 x42585D xA02031 x361062 x4060F0 x887742 x46BE86 xCEF8D6 x8C26BF x38F842 xD79E7A x8F9EE5 xFB17EB x6EBF71 x1A3936 xC05572 x48173A x7F247F x8D503A x3F3C71 x19D221 x339A57 x0D2021 x8F6688 x84DDAA xD8DF07 x036962 x7A1B83 x1EE306 
+			}
+		}
+		create_state = {
+			country = c:BMB
+			owned_provinces = {
+				x31BEE9 xB54AA9 x931020 x778391 xDC956A x076DB2 x8BDDAB x0EB967 x5B459D
+			}
+		}
+		add_homeland = kavango_bantu
+		add_homeland = lunda
+		add_homeland = chewa
+	}
+	s:STATE_NAMAQUALAND = {
+		create_state = {
+			country = c:NAM
+			owned_provinces = { x8031D0 x3CEB63 x461811 x15D768 x153812 x0110CC x75A3C7 x8FA699 x2BF7F9 xB66BA7 xEAB4ED xE0CFF7 x76EB28 x941F1C x4CA340 x495827 x945542 x7AC60C x8BFB79 xB81EA9 xDEAA3C x30C050 x53CC81 x8D6395 xD65EC0 x310FAB x952547 x90470A xE4DABE x7B1965 xA675EF xA4D764 xEC2F99 xB30706 xEE0812 x9C401C xA7D909 x14E0BE x21DD01 xF47B63 x071B9C xB4D966 xBEF6A8 xE6D4ED x79558D xBF1B94 xE1E7FB xB0C0D0 xAD1C61 xB1A012 xC80AD0 x6D4B24 xBA329D x078A45 x1FDB07 x59895A x509BE4 x1CB738 xE1AA90 xBA68AA xCDCBC6 xB74897 xAE08D3 xF0C050 x8947C8 }
+		}
+		add_homeland = khoisan
+		add_homeland = tswana
+		add_homeland = griqua
+	}
+	s:STATE_HEREROLAND = {
+		create_state = {
+			country = c:HRO
+			owned_provinces = { 
+				x7D55B9 x5901AF x8A73C1 x64E1B5 xED7D31 xCAF799 x7089A0 xB0C050 x3427F8 x0B876A x2AF92F xF6513D x4E7778 x47C098 xB1939F x6D7765 x84AACD xF75A35 x564386 x561F11 x4FDB52 x5C7F2F xA3E79D x3C1493 xED8DCE x1ECD5B x847069 xA5CD6D x06C424 xB04050 x86DA45 x5A22BC x7AC3ED xEFB6F7 x7B118B x9E0E3A xCE2A3D x565EB1 x04B63B xB44E98 x3D9A9F xEF65BA x5A4493 x162888 x8B2C03 x596D31 x3B0BA0 x9BAEE0 x5292C6 x403D16 x044063 x822432 xC8BA9F xDB8506 xC473EF xE86D4B x607767 x944C62 x4236F1 xBC1E8C xA5022A x718AF3 x253319 xAF6FBF x20AAA5 x6FBB94 xF74B80 xF300F3 x59DF11 x316161 x5A60AE xA77A64 xAC7354 x1904A5 x64D01D x239C9A x05E02E xC6B2A3 x30A6E6 x9F987B x307287 x0A43E7 xDBAE1E x52CD99 x7A982D x3B58C1 xAE2535 x31C0D0 x0B7112 x06E7E7 x6FE9F7 x44827F xC0F73F x880037 x6B6B85 xBE1120 x57B67D x94ED16 xD3A784 x4CD75E x229650 x9E8D05 x59AF4d xDD25A3 xEDB5D6
+			}
+		}
+		add_homeland = herero
+		add_homeland = khoisan
+		add_homeland = kavango_bantu
+		add_homeland = griqua
+	}
+	s:STATE_RIFT_VALLEY = {
+		create_state = {
+			country = c:MSI
+			owned_provinces = { 
+				xF14E14 x209F10 xF6B009 x9374F3 x667CE1 x3CA803 x834B1E xAE1D62 x0E632A xF02E37 xADF7C0 xF27D1C x04ADAD x73AB85 x52CFCA xC0F3D2 xE02111 xCF4C38 x92CECB x3E97BF 
+			}
+		}
+		create_state = {
+			country = c:LUO
+			owned_provinces = {
+				x787130 x935F28
+			}
+		}
+		create_state = {
+			country = c:TRK
+			owned_provinces = {
+				x5C88B8 xB5E965 x2DBD09 x6BE070 xA09C0F xF03E07 xF2EBEC x63C8FD xD3CE4A x848FA1 x7D6876
+			}
+		}
+		
+		add_homeland = luo
+		add_homeland = nilotic
+		add_homeland = maasai
+		add_homeland = kikuyu
+	}
+}

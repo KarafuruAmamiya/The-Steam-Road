@@ -1,0 +1,687 @@
+﻿STATES = {
+	# Burma
+	s:STATE_PEGU = {
+		create_state = {
+			country = c:PER
+			owned_provinces = { x020CFE xB0B0A0 x595BB6 x1070E0 x2BD769 x2F9F98 xA85E24 xB13330 xC2EA2C xF0F78C xC9BBA0 x81D108 x2906F0 x2D91EF x1FD921 xC0E31F xCF7060 x02F3AF }
+			state_type = unincorporated
+		}
+		
+		add_devastation = 70
+		add_homeland = karen
+		add_homeland = mon
+		add_homeland = burmese
+		add_claim = c:TAU
+	}
+	s:STATE_RAKHINE = {
+		create_state = {
+			country = c:PER
+			owned_provinces = { xB316F6 x11F060 x9A018D xE85BF0 xD5DB0B x6305C9 xF691D2 x67520F xB030A0 }
+			state_type = unincorporated
+		}
+		
+		add_devastation = 70
+		add_homeland = karen
+		add_homeland = mon
+		add_homeland = burmese
+		add_claim = c:TAU
+	}
+	s:STATE_BURMA = {
+		create_state = {
+			country = c:PER
+			owned_provinces = { "x212FE8" "x26A2E9" "x6E8FA2" "x75BE27" "x9070DF" "xD2F36A" "xD5035C" "xDEFDA8" "xE15EF6" "x3E75FA" "x90EF60" "x634D79" }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:TAU
+			owned_provinces = { xA6F4C3 x60CBBF xDA0253 x620442 x3DB5A9 x2FF9BD x397139 xE2C923 xA17AB8 x546B18 x2497E7 xB7E202 }
+		}
+		add_devastation = 50
+		add_homeland = burmese
+		add_homeland = kachin	
+		add_claim = c:TAU
+		add_claim = c:PER
+	}
+	s:STATE_SAGAING = {
+		create_state = {
+			country = c:PER
+			owned_provinces = { "x0BDB4D" "x234C64" "x319B9E" "x363A85" "x401054" "x47C5A9" "x4D31CA" "x675150" "x6CF865" "x7D320E" "x8E1E5B" "x9D320D" "xB51155" "xB8B1D2" "xC1940E" "xCD31D0" "xD18BAA" "xD7A648" "xE0645B" "xF212BD" "xFB1A2B" "xFE971F" "xF5193B" "x118ECF" }
+			state_type = unincorporated
+		}
+		
+		add_devastation = 70
+		add_homeland = burmese
+		add_homeland = kachin
+		add_homeland = shan
+		add_claim = c:TAU
+	}
+	s:STATE_KACHIN = {
+		create_state = {
+			country = c:TAU
+			owned_provinces = { x096B34 x9339DC x964B33 x81E012 x47B561 x0F9164 x695CD8 x9DE9F6 x9AA00A xECACD2 x077F7F xF84302 xCFEFDF xB46F84 x3002EA x3E79B6 }
+		}
+		
+		add_homeland = burmese
+		add_homeland = kachin
+		add_homeland = shan
+		add_claim = c:PER
+	}
+	s:STATE_SHAN_STATES = {
+		create_state = {
+			country = c:TAU
+			owned_provinces = { xF6A5C7 x4D639B x36C9CC x66C0CA x2C8D05 xF65E92 xEAF30B x2414D9 x90EFDF x9F7026 xA125B4 xF1F906 x1D8BBD xC20B31 x334200 x27DBA6 x772D64 xE7608F x7D71CA x5116F0 x375F42 x766EA5 x26A4FC x5745FF x747429 xD9D4B0 x887519 xD04A7B xDF2487 x34E09D x422870 x70292A xAFC613 xB09BEA x97D55A x39659E }
+		}
+		
+		add_homeland = kachin
+		add_homeland = shan
+		add_claim = c:PER
+	}
+	
+	# Laos
+	
+	s:STATE_LUANG_PRABANG = {
+		create_state = {
+			country = c:TAU
+			owned_provinces = { xED7937 x874BED x6BA60C xDA6CAB x578898 x8D4D75 x625009 xEAEF3A xDE87E1 x46CCB6 x6C400A x61478F }
+		}
+		create_state = {
+			country = c:LXA
+			owned_provinces = { x1E6D3C xE8A817 x89F1F9 x70B3CE xDFCAA8 xB0B020 x8D0FE2 x1F8AE4 xCD2D5D x3130A0 }
+		}
+		create_state = {
+			country = c:MPH
+			owned_provinces = { x1957E0 x2DE84E x8BFF1F x0B160B }
+		}
+		
+		add_homeland = lao
+		add_homeland = khmu
+		add_claim = c:LXA
+	}
+	s:STATE_SAVANH_NAKHONE = {
+		create_state = {
+			country = c:LXA
+			owned_provinces = { x7E2810 x02CE70 x9EFC82 xB9A4C0 xB07020 xF03D75 x987E5B xB246DC xF3D3B6 x3E70A9 xB0EF20 x9751B6 }
+		}	
+		
+		add_homeland = lao
+		add_homeland = khmu
+	}
+	s:STATE_CHAMPASAK = {
+		create_state = {
+			country = c:LXA
+			owned_provinces = { xB0EFA0 x30EFA0 x3E6297 x036ED6 x32A2B1 x21D9CC xC8AFB5 x94CA13 x899047 }
+		}	
+		
+		add_homeland = lao
+		add_homeland = khmu
+	}
+	
+	# Vietnam and Cambodia
+	s:STATE_TONKIN = {
+		create_state = {
+			country = c:YEN
+			owned_provinces = { x88BB78 x70B09F xCF906A x7B8217 x32BFFB x65FE48 x799EA4 x738D72 xCD0D1D xD27C1B x5083AB xF031A0 x36F847 x98FD84 xF0E531 x61145A x60458E xF0B0A0 x64BE62 xD49EE0 x4BB178 x5AB75C xC37AF1 }
+		}
+		
+		add_homeland = vietnamese
+	}
+	s:STATE_ANNAM = {
+		create_state = {
+			country = c:YEN
+			owned_provinces = { x7A5ACC xE63DDE xEEB5DD x307020 x9E5CF8 x0BE805 x5109BC }
+		}
+		create_state = {
+			country = c:LXA
+			owned_provinces = { x3070A0 xB070A0 xC08B17 xA01EF1 xEDBFB1 xEF3060 xFAB663 xC46194 }
+		}
+		create_state = {
+			country = c:PER
+			owned_provinces = { x2A870A xF22C8B }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:FRA
+			owned_provinces = { x5109BC }
+			state_type = unincorporated
+		}
+		
+		add_homeland = vietnamese
+		add_claim = c:CHI
+		add_claim = c:YEN
+	}
+	s:STATE_MEKONG = {
+		create_state = {
+			country = c:CAM
+			owned_provinces = { x246E58 x474B0B x4080B0 x223DD3 x1D9718 x4923A3 xDF070D xE5A4DA x217F68 x0C662E x7D46C6 xB366DB x248BCA xA4DBB7 x00C0B0 xD8BFF1 xFD66E6 x5F0DAB x47ADCE x841E31 x72E436 x1C5BE6 xC080B0 x5E16EB x58B174 x70B060 x3C8C22 }
+		}
+		
+		add_homeland = vietnamese
+		add_homeland = khmer
+	}
+	s:STATE_CAMBODIA = {
+		create_state = {
+			country = c:CAM
+			owned_provinces = { xA0B065 x36D7BA xDF21D5 x712EFF x7A5B5E xEFEF20 x989BA9 x2E84A3 x810F9E xFA2C44 xD45279 x81EF79 xA3B8D9 xA9542D xB5755C x73E2F0 x319927 x65369D x20D113 x7070A0 x4BA220 x9EEF57 xD125AB xF0FC47 xFB565E x7691D4 x529791 xE2C782 x70F021 xC2C8CF x76C9B7 x5BA8A8 x1A549C x9F8A85 }
+		}
+		
+		add_homeland = khmer
+	}
+	
+	# Thailand
+	
+	s:STATE_CHIANG_MAI = {
+		create_state = {
+			country = c:CMI
+			owned_provinces = { "x01087A" "x2C97B1" "x32744C" "x32B1BD" "x3AAF2B" "x4AEF8A" "x507060" "x77FDDB" "x94A916" "xA93401" "xAB195B" "xB17111" "xBD159F" "xD6A9D8" "xEE6A10" xABF7A2 x7BB73F xFBF0A4 x09C664 x88EF9B }
+		}
+		
+		add_homeland = thai
+		add_homeland = shan
+		add_claim = c:SIA
+	}
+	s:STATE_SUKHOTAI = {
+		create_state = {
+			country = c:SIA
+			owned_provinces = { x47E1BB xED5FC5 xF32BB5 x118CA3 x541AFB xCE49D1 x194621 xADC4DA xA0084E xDF3CAD xAA42AD x99A1C0 }
+		}
+		
+		add_homeland = thai
+		add_homeland = shan
+		add_claim = c:SIA
+	}
+	s:STATE_BANGKOK = {
+		create_state = {
+			country = c:SIA
+			owned_provinces = { "x060F5C" "x09DC04" "x10AFE0" "x154B0D" "x20DFD0" "x2C4B2F" "x5B0F13" "x98384C" "xAD234F" "xEEFF94" "xF36077" }
+		}
+		
+		add_homeland = thai
+	}
+	s:STATE_CHONBURI = {
+		create_state = {
+			country = c:SIA
+			owned_provinces = { xA4A851 x23B4B7 x4B58FD x29EB28 x742F1F x62B39D x9030DF x37DC38 }
+		}
+		
+		add_homeland = thai
+	}
+	s:STATE_NAKHON_RATCHASIMA = {
+		create_state = {
+			country = c:SIA
+			owned_provinces = { "x01D94F" "x0A49C7" "x108DB4" "x1417E7" "x18C6F5" "x1CFFD0" "x311E4F" "x449632" "x45FABD" "x4E9753" "x50CE4E" "x56E44C" "x57E793" "x5C3070" "x6BB1AD" "x6FC6A1" "x707020" "x732208" "x8795AE" "x934893" "x9E031E" "xA3D6B8" "xB30E09" "xB48097" "xB9C742" "xBF6988" "xC90993" "xCD871B" "xEAD71D" "xF22DE6" "xFB1F7E" "x30EF20" "x552E9A" }
+		}
+		
+		add_homeland = thai
+	}
+	s:STATE_NORTHERN_TENASSERIM = {
+		create_state = {
+			country = c:KED
+			owned_provinces = { x9381F1 xB36203 x94B7B9 x3911C1 xFE3639 xD0EF60 x1BB979 x169A4D x9F6BAC x958E99 x59E0CA x3F4145 }
+			state_type = unincorporated
+		}
+		
+		add_homeland = burmese
+		add_homeland = karen
+		add_claim = c:TAU
+		add_claim = c:PER
+	}
+	s:STATE_SOUTHERN_TENASSERIM = {
+		create_state = {
+			country = c:KED
+			owned_provinces = { x8000B0 x47B039 x2160CF x9E6CEE xD070DF xC0362D x289F37 x5070E0 x31852E xC6D6FB x7F8C95 x6D56E2 x173AAB x2231CD }
+		}
+		create_state = {
+			country = c:PTT
+			owned_provinces = { xBE9208 xFB4ADA xA060D0 }
+		}
+		
+		add_homeland = thai
+		add_homeland = malay
+	}
+	
+	# Malaysia and Indonesia
+	
+	s:STATE_MALAYA = {
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x23578B x8E3305 xC84C4C x8080B0 x76546D xC00130 }
+		}
+		create_state = {
+			country = c:KED
+			owned_provinces = { x08673B xAA2287 x78EF92 xCF3E8D xD8E596 xE87C53 xF9F87A x80C0B0 x0080B0 x374A68 xAF3737 x66170B x660411 xB6B53D x6CFA94 }
+		}
+		create_state = {
+			country = c:KEL
+			owned_provinces = { xCAB9F2 xFCBAFC }
+		}
+		
+		add_homeland = malay
+		add_claim = c:KED
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_ACEH = {
+		create_state = {
+			country = c:ACE
+			owned_provinces = { x1C8420 xC5091B xEB815E x5BDF4D xA0DFD0 x07B7F0 x0DDF49 xC266CF }
+		}
+		add_homeland = sumatran
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_NORTH_SUMATRA = {
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x4F7793 xD4118B x616150 x388ABB xE3CB2E x60E050 x9A7E0B xFF8B60 }
+		}
+		create_state = {
+			country = c:ACE
+			owned_provinces = { x4544B1 xD5A22C }
+		}
+		create_state = {
+			country = c:BAR
+			owned_provinces = { xAB0290 x9377DF }
+		}
+		create_state = {
+			country = c:BAK
+			owned_provinces = { xBE17D2 x30AED9 }
+		}
+		create_state = {
+			country = c:PER
+			owned_provinces = { x7E3D68 }
+			state_type = unincorporated
+		}
+		
+		add_homeland = sumatran
+		add_claim = c:KED
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_RIAU = {
+		create_state = {
+			country = c:KED
+			owned_provinces = { x8171EA x48428B x6021D0 x35213F x91B001 xD3A66E x339E85 xA1341F x7C7431 x01C030 }
+		}
+		create_state = {
+			country = c:PLB
+			owned_provinces = { "x27FD1C" "x0F65F5" "x7A4DC8" }
+		}
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x01317D x3F7EA0 x677AA6 x87F7B6 xA0CEED xEAF2DC x8B7A14 x5BE3D2 x983FEB }
+		}
+		add_homeland = sumatran
+		add_claim = c:KED
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_WEST_SUMATRA = {
+		create_state = {
+			country = c:CEI
+			owned_provinces = { x8A3E15 xD2D88C x257D2C x79A66E x85B004 x4E9BC1 x9D4BD1 xDC4677 xE0A0F0 }
+		}
+		add_homeland = sumatran
+	}
+	s:STATE_JAMBI = {
+		create_state = {
+			country = c:JMB
+			owned_provinces = { x5157D3 xDA82F4 x7AC280 xAE71B4 xEC5DEA }
+		}
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x6ED39E xE4C2D6 xA2F773 }
+		}
+		add_homeland = sumatran
+		add_claim = c:KED
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_SOUTH_SUMATRA = {
+		create_state = {
+			country = c:FEI
+			owned_provinces = { "x067967" "x31E5B1" "x74812B" "x847F76" "x8527A9" "x8FBCF4" "xA97585" "xCC1A24" "xD10CCE" "xDBE794" "xE226FB" "xE962F4" "xFB099E" }
+		}
+		create_state = {
+			country = c:PLB
+			owned_provinces = { "xD2193E" "x3441E9" "x42D05B" "x03CEC7" "xB0F538" "x3099D2" "x7D6D54" }
+		}
+		add_homeland = sumatran
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_BENGKULU = {
+		create_state = {
+			country = c:ENG
+			owned_provinces = { x00F15A "x4CF770" "x7FFD6B" "x0D0BEB" "x174432" "x7945C0" "xE49A2F" }
+			state_type = unincorporated
+		}
+		add_homeland = sumatran
+	}
+	s:STATE_WEST_JAVA = {
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x5CC6B6 x71D392 xA0DFEF xB944CF x975BCA xCE4107 x6345B2 xD70117 }
+		}
+		
+		add_homeland = javan
+	}
+	s:STATE_EAST_JAVA = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { x2060EF x1D38B7 xEF70EC xA8B603 xC226AF xD91A27 xA0E070 xAD1F3C }
+		}
+		
+		add_homeland = javan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_CENTRAL_JAVA = {
+		create_state = {
+			country = c:FEI
+			owned_provinces = { x62742E x9C517C x01B3D5 xA12ED1 x727A46 }
+		}
+		create_state = {
+			country = c:TER
+			owned_provinces = { xEB0621 x20DF70 x14F9F5 }
+		}
+		create_state = {
+			country = c:MTR
+			owned_provinces = { xD19D2E x143969 }
+		}
+		create_state = {
+			country = c:DMK
+			owned_provinces = { xA06070 }
+		}
+		
+		add_homeland = javan
+		add_claim = c:MTR
+		add_claim = c:DMK
+		add_claim = c:TER
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_SUNDA_ISLANDS = {
+		create_state = {
+			country = c:BAL
+			owned_provinces = { x5ABA94 }
+		}
+		create_state = {
+			country = c:NET
+			owned_provinces = { x4EE71E x3CCE91 x7F4592 x108090 x4CFCE1 x699245 xCF8A98 x5F978F }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:TER
+			owned_provinces = { x100090 x900090 x908090 x929145 x7D205E xE90740 x28EC3F }
+		}
+		
+		add_homeland = moluccan
+		add_homeland = balinese
+		add_claim = c:BAL
+		add_claim = c:TER
+		add_claim = c:NET
+	}
+	s:STATE_MOLUCCAS = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { "x079110" "x0D5E42" "x22A870" "x3CEE2E" "x51EA06" "x7A7A6E" "x91B395" "xB346EB" "xC1DDAE" "xD02FE9" "xD3A69B" "xD986F1" "xF0CE19" "xF88172" "xF94D86" }
+		}
+		create_state = {
+			country = c:FEI
+			owned_provinces = { xAF6607 }
+			state_type = treaty_port
+		}
+		
+		add_homeland = moluccan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_WESTERN_NEW_GUINEA = {
+		create_state = {
+			country = c:PPU
+			owned_provinces = { x1650EE x300043 x43C265 xCC9AB1 x4BE0B0 x35E1AE x97A569 x9CD217 x9D6313 x4013C3 x3F6260 x4FF4F9 xB324A4 x3E2E8C xC0D7B0 xE87A71 xBAE381 xB41206 x9E801B x9B4105 xD34DF4 x8611C3 x17B500 xC28486 x059DEC xDF8B88 x8A6BB0 x51BE37 xB4F5FA x706C6E x5C88B7 x66C85A x30EFC8 x5541DA x459264 x8EFC0A xA8E93D x95939C xDBA9DB x4FDEFE xCD7250 }
+		}
+		create_state = {
+			country = c:TER
+			owned_provinces = { xD3B54D x0A9EBC x39DD3B x42EB5E x3ECEED x12A1F1 xB40E08 x1C9F62 xAFF001 xC8615D x524F67 xC8A7EB xB4957C x918FAF x0DC0D2 x1EFBC7 x54B094 xA2083C x185D9A xBA1AF0 x51FF7F xB4FAF7 xE8222C xA5F7BC xC7965B x83923F x5A8ABF x817083 x822774 xC153E3 xFC62DC x9769DB xC6416E xD729BB }
+		}
+		
+		add_homeland = melanesian
+		add_claim = c:FRA
+		add_claim = c:FEI
+		add_claim = c:TER
+	}
+	s:STATE_EASTERN_NEW_GUINEA = {
+		create_state = {
+			country = c:PPU
+			owned_provinces = { 
+				x84D755 x719040 x5CB0C9 xC0F58B x3F9623 x071EFB x37312C x8911A4 x3779A1 x5FAB3F x1E1C1E x8FFC12 xE8CE3B xDE6B8C xD97577 xC02D48 x8C0F91 x565E21 xA28ED1 x09E796 xF69700 x80BAE9 xB6A59D x904090 x3BBE48 x5F7475 x56DA8C x9D11EA x46CE7D x459277 xA6DD0C x8641E9 xC1716D x36076B x37A04B xA3C163 xE3D5C3 xA61876 xAABA77 x8AEFF9 x9ACD2A x318B7B xAB408F xB6A316 xE341AE x26A798 x34E353 xF8C709 x5779B1 x203BC2 x686A28 xF87B6B xD2799B xCD3B1A x19E120 xDDB6D3 x61F645 x10C090 xF8FBAC 
+				xF5408C x7CF0A5 xDF122B x5475FF x7D3A30 x9DCD67 xA9E11D xA054CD x75B70D x51173D x47A347 x0BF948 x45CE87 x6B52DF x16403B
+				xB9E7DF xEECD03 xCD473D xB3C1C3 x64ED4C x854391 xC9167B x44454B xA95FFF x6CE5CC x104090
+			}
+		}
+		
+		add_homeland = melanesian
+	}
+	s:STATE_NORTH_CELEBES = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { x0C7820 x8080F0 xC04B6D x886F1C x4DA1DC }
+		}
+		
+		add_homeland = moluccan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_CENTRAL_CELEBES = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { x79D69A xE82A26 x0CA6B2 x10547F xC00170 xA22F3F x08BE67 xD12748 x7BD240 x7A4DF4 }
+		}
+		
+		add_homeland = moluccan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_SOUTH_CELEBES = {
+		create_state = {
+			country = c:LUW
+			owned_provinces = { xB3682E xB14D58 x5585BD xB67D4D xE2401F }
+		}
+		create_state = {
+			country = c:ENG
+			owned_provinces = { x63E362 x7A4D9B x5D959D }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:FEI
+			owned_provinces = { xBF46E7 x9A5C23 x7AA69B }
+			state_type = unincorporated
+		}
+		
+		add_homeland = moluccan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_SOUTHEAST_CELEBES = {
+		create_state = {
+			country = c:BTN
+			owned_provinces = { x58A658 xF0B7F7 xF0B767 x908010 }
+		}
+		create_state = {
+			country = c:KNA
+			owned_provinces = { x613129 x7EF242 xEDDB5F }
+		}
+		create_state = {
+			country = c:LUW
+			owned_provinces = { x507A4B xFEA2EE }
+		}
+		
+		add_homeland = moluccan
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_WEST_BORNEO = {
+		create_state = {
+			country = c:SMB
+			owned_provinces = { x60FDC2 x42973E x6D4CDF x706E00 x71D428 xFFE074 xB7B05B x4DD36E xA91194 }
+		}
+		create_state = {
+			country = c:SLI
+			owned_provinces = { x477680 xCF4105 x56FE77 x9910E9 x04BB3B }
+		}	
+		create_state = {
+			country = c:KAT
+			owned_provinces = { xAD54BC x4408AB xF8375D x1C7417 x2A3D46 xE02CB6 }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:STG
+			owned_provinces = { xA6D36E x7FFBF0 xBC374E xA5A916 x445D59 x939612 }
+		}
+		
+		add_homeland = bornean
+		add_homeland = dayak
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_CENTRAL_BORNEO = {
+		create_state = {
+			country = c:KAT
+			owned_provinces = { xD735DB xE3C4F2 xC29C28 xA67A6E x638173 x76E306 xF9BDCB xFCFD83 x029E85 x8A69A7 }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:BNJ
+			owned_provinces = {
+				x9B7A4D x496AEF xDF0BCF x0ED6AA xE9E984 xDB778E xEA35E9 x71A232 x3660F5 x9C48FE x38416A x6A70EA x88A1EC xFF0B89 x10645D x0E858D x8D8D4A x8F8FDE x0596C2 x0A7250 x0A8175 xFF8539 xF37396 xC72ED3 x3E96AF x8B9E4E
+			}
+		}
+		
+		add_homeland = bornean
+		add_homeland = dayak
+		add_claim = c:FRA
+		add_claim = c:FEI
+		add_claim = c:TER
+	}
+	s:STATE_EAST_BORNEO = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { x018070 x9F4941 x8BD8AF xB8D3B7 x0FFCAE x4F7415 }
+		}
+		create_state = {
+			country = c:KTI
+			owned_provinces = { 
+				 x9ED038 x2D539F x7BA8AD xDFE51D xC7410C x952BEE xCC69E2 x8B8321 x13DD1D xA57C37 x3631B8 x718F24 xD6E8B0 x413B50 x527DD4 
+			}
+		}
+		create_state = {
+			country = c:PAS
+			owned_provinces = { x672606 x4D4D9B x2695FB xD5155A }
+		}
+		
+		add_homeland = bornean
+		add_homeland = dayak
+		add_claim = c:FRA
+		add_claim = c:FEI
+	}
+	s:STATE_NORTH_BORNEO = {
+		create_state = {
+			country = c:BLG
+			owned_provinces = {
+				xF8DD56 xE49DDE x3EE142 x1F6009 x6728CB xFBB6C2 x69AF77 x330B36 x3BE572 x1DF499
+			}
+		}
+		create_state = {
+			country = c:TER
+			owned_provinces = {
+				xAC440F xF6BB4E xFD2E40 xC03A53
+			}
+		}
+		create_state = {
+			country = c:SUL
+			owned_provinces = { x2EE734 xD78953 x3CCBAA xC0B7FD xCED863 x808070 x461E0E x75D5D2 x821B67 xC531AE xD0AC5F }
+		}
+		
+		add_homeland = bornean
+		add_homeland = dayak
+		add_claim = c:FRA
+		add_claim = c:FEI
+		add_claim = c:TER
+	}
+	s:STATE_SARAWAK = {
+		create_state = {
+			country = c:BRU
+			owned_provinces = {
+				x800170 xE9FB27 x91B40F x0141B0 x278E1E x6D3CF9 xF61121 x905338 x242519 x26DE63 xEF6FBE xFC8025 x9E0616 x1C6623 x8041B0 xC65120 x0F01DC x762FBA xE66512 x002310 x61FE7A xFB18B8 xDD9CFE xF2BC79 x6FEE71 x763646  x965EF0 xB689E6
+			}
+		}
+		
+		add_homeland = bornean
+		add_homeland = dayak
+	}
+	
+	# Phillipines
+	s:STATE_PALAWAN = {
+		create_state = {
+			country = c:SUL
+			owned_provinces = { x946A22 xB0F0B0 x1B9953 }
+		}
+		
+		add_homeland = filipino
+		add_homeland = moro
+		add_claim = c:IBE
+		add_claim = c:CEI
+	}
+	s:STATE_SULU = {
+		create_state = {
+			country = c:SUL
+			owned_provinces = { x99D030 x0180F0 }
+		}
+		
+		add_homeland = filipino
+		add_homeland = moro
+		add_claim = c:IBE
+		add_claim = c:CEI
+	}
+	s:STATE_LUZON = {
+		create_state = {
+			country = c:CEI
+			owned_provinces = { "x0D8236" "x1C8BCF" "x2291B3" "x31F0E0" "x33B5F8" "x51BC8C" "x5C0D4C" "x5ED347" "x63FA56" "x6D44B5" "x707061" "x795BD8" "x95102A" "x97B9E0" "xB08546" "xB0F0E0" "xCDE626" "xD2AEEB" "xE173C4" "xEB310E" "xECF5E9" "xF4CD9C" }
+		}
+		
+		add_homeland = filipino
+	}
+	s:STATE_VISAYAS = {
+		create_state = {
+			country = c:CEI
+			owned_provinces = { xE2086C x46EA60 x8ABD23 x8001F0 x48B8C8 x591034 x223245 x05FD19 xCFAFEE xF001E2 xB971C4 }
+		}
+		create_state = {
+			country = c:TER
+			owned_provinces = { x90F80A xB4699E x02E634 xD2CA4A }
+			state_type = unincorporated
+		}
+		
+		add_homeland = filipino
+		add_homeland = moro
+		add_claim = c:IBE
+		add_claim = c:CEI
+	}
+	s:STATE_MINDANAO = {
+		create_state = {
+			country = c:TER
+			owned_provinces = { x2D5E65 x988CCA xCAFE73 xC3EC2D x7B364D xBC5002 }
+			state_type = unincorporated
+		}
+		create_state = {
+			country = c:MGD
+			owned_provinces = { x62D16D xAA1CA3 x4C67A7 x355FBE x678557 xE90347 x585200 xE804B7 xF0014A }
+		}
+		
+		add_homeland = filipino
+		add_homeland = moro
+		add_claim = c:IBE
+		add_claim = c:CEI
+	}
+}

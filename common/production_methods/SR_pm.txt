@@ -1,0 +1,41 @@
+﻿pm_default_building_argebam = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_armed_forces_pol_str_mult = 0.1
+			country_army_power_projection_add = 5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+		}
+
+		level_scaled = {
+			building_employment_soldiers_add = 970
+			building_employment_officers_add = 30
+		}
+		
+		unscaled = {
+			unit_provinces_lost_mult = -0.15
+		}
+	}
+}
+
+default_building_illegal_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {
+			# output goods	
+			building_output_opium_add = 10
+		}
+
+		level_scaled = {
+			# profit
+			building_employment_laborers_add = 2000
+			building_employment_farmers_add = 400
+		}
+	}
+}

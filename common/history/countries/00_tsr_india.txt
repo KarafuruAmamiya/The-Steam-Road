@@ -1,0 +1,374 @@
+﻿COUNTRIES = {
+	c:ASM = { # Assam/Ahom
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:BAS = { # Bastar
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:BGL = { # Bengal
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:BHU = { # Bhutan
+		effect_starting_technology_tier_4_tech = yes
+
+		# representing the Druk Desi ("Thunder Dragon Regent") within the Bhutanese dual system of government
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_vajrayana_monks
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:BUN = { # Bundelkhand
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:DEC = { # Deccan
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+	c:DLH = { # Delhi
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:DNG = { # Dang
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_hindu_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:GRK = { # Gorkha
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_hindu_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:GWA = { # Gwalior
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:GWL = { # Garhwal
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_hindu_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:HNS = { # Hindustan
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:JNT = { # Jaintia
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+	}
+	c:KCH = { # Koch
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:MLW = { # Malwa
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:MNP = { # Manipur
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_hindu_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:MRT = { # Marathas
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:MDU = { # Madurai
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:MEW = { # Mewar
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:MUG = { # Mughals
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+	c:MYS = { # Mysore
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+	c:NAG = { # Nagpur
+		effect_starting_technology_tier_4_tech = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_serfdom
+		effect_starting_politics_traditional= yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:ORI = { # Orissa
+		effect_starting_technology_tier_4_tech = yes
+		
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_debt_slavery
+
+		effect_starting_politics_traditional = yes
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_hindu_moralist
+			add_ideology = ideology_hindu_moralist
+		}
+	}
+	c:SIN = { # Sindh
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		add_technology_researched = urban_planning
+		add_technology_researched = sericulture
+		add_technology_researched = academia
+		add_technology_researched = mandatory_service
+		add_technology_researched = romanticism
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+}

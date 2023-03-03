@@ -1,0 +1,102 @@
+﻿COUNTRIES = {
+	c:ADA = { # Adal
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+		
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism	
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_right_of_assembly
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}	
+	}
+	c:AJU = { # Ajuuran
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+		
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism	
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_right_of_assembly
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}	
+	}
+	c:FEA = { # French East African Company
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		effect_starting_technology_tier_3_tech = yes
+
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_colonial_exploitation
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:MAD = { # Imerina
+		effect_starting_technology_tier_6_tech = yes
+
+		effect_starting_politics_traditional = yes	
+		activate_law = law_type:law_slave_trade	
+		
+	}
+	c:MJT = { # Majerteen
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+		
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism	
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_right_of_assembly
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}				
+	}
+	c:SKV = { # Sakalava
+		effect_starting_technology_tier_6_tech = yes
+
+		effect_starting_politics_traditional = yes	
+		activate_law = law_type:law_slave_trade
+
+	}
+	c:ZAN = { # Kilwa
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+		
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism	
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_right_of_assembly
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}	
+	}
+}

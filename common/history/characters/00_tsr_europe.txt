@@ -1,0 +1,293 @@
+﻿CHARACTERS = {
+	c:AUS = {
+		create_character = {
+			first_name = "Ludwig_I"
+			last_name = "von_Habsburg"
+			ruler = yes
+			female = no
+			birth_date = 1807.10.5
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+	c:ARN = {
+		create_character = {
+			first_name = "Joan_V"
+			last_name = "de_Trastamare"
+			ruler = yes
+			female = no
+			birth_date = 1778.2.12
+    		religion = rel:catholic
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Teresa"
+			last_name = "de_Trastamare"
+			female = yes
+			heir = yes
+			birth_date=1822.2.7
+    		religion = rel:catholic
+			interest_group = ig_armed_forces
+			ideology = ideology_jingoist
+			traits = {
+				
+			}
+		}
+	}
+	c:ENG = {
+		create_character = {
+			first_name = Ernest_II
+			last_name = Oliver
+			ruler = yes
+			noble = yes
+			birth_date = 1769.2.9
+			culture = cu:british
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_moderate
+			traits = {
+				ambitious
+			}
+			on_created = {
+				set_variable = {
+					name = is_billy
+				}				
+			}
+		}	
+	
+		create_character = {
+			first_name = Victoria
+			last_name = Oliver
+			heir = yes
+			female = yes
+			noble = yes
+			birth_date = 1819.4.25
+			dna = dna_queen_victoria
+			culture = cu:british
+			interest_group = ig_industrialists
+			ideology = ideology_moderate
+			traits = {
+				direct
+			}
+			on_created = {
+				set_variable = {
+					name = is_victoria
+				}				
+			}
+		}
+	}
+	c:FRA = {
+		create_character = {
+			first_name = "Charles_XI"
+			last_name = "de_Trastamare"
+			ruler = yes
+			female = no
+			birth_date = 1811.6.7
+    		religion = rel:catholic
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				charismatic romantic
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Francois"
+			last_name = "de_Trastamare"
+			female = no
+			heir = yes
+			birth_date=1835.6.18
+    		religion = rel:catholic
+		}
+	}
+	c:IBE = {
+		create_character = {
+			first_name = "Ana"
+			last_name = "de_Avalos"
+			ruler = yes
+			female = yes
+			birth_date = 1793.7.10
+    		religion = rel:catholic
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				cautious experienced_diplomat
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Jose"
+			last_name = "de_Avalos"
+			female = no
+			heir = yes
+			birth_date=1823.11.8
+    		religion = rel:catholic
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+			traits = {
+				wrathful bigoted
+			}
+		}
+	}
+	c:ITA = {
+		create_character = {
+			
+			first_name = Marco
+			last_name = Rossi
+			culture = cu:north_italian
+			ruler = yes
+			ig_leader = yes
+			interest_group = ig_intelligentsia
+			ideology = ideology_atheist
+			birth_date = 1787.10.11
+			traits = {
+				meticulous brave experienced_political_operator
+			}
+		}
+	}
+	c:NET = {
+		create_character = {
+			first_name = "Lodewijk"
+			last_name = "van_Brabant"
+			ruler = yes
+			female = no
+			birth_date = 1816.12.4
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_moderate
+			traits = {
+				cautious reserved  
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Willem"
+			last_name = "van_Brabant"
+			female = no
+			heir = yes
+			birth_date=1835.9.25
+		}
+	}
+	c:PLT = {
+		create_character = {
+			first_name = "Karl_III"
+			last_name = "von_Wittelsbach"
+			ruler = yes
+			female = no
+			birth_date = 1803.4.9
+			interest_group = ig_intelligentsia
+			ideology = ideology_jingoist_leader
+			traits = {
+				hedonist
+				persistent
+				innovative
+			}
+		}
+		
+		create_character = {
+			first_name = "Karl_Theodor"
+			last_name = "von_Wittelsbach"
+			female = no
+			heir = yes
+			birth_date=1830.3.1
+		}
+	}
+	c:RYA = {
+		create_character = {
+			first_name = Ivan_IV
+			last_name = Naryshkin
+			ruler = yes
+			birth_date = 1818.4.26
+			interest_group = ig_intelligentsia
+			ideology = ideology_moderate
+			traits = {
+				meticulous
+			}
+		}
+	}
+	c:SAX = {
+		create_character = {
+			first_name = "Christian_Albrecht_II"
+			last_name = "Askanier"
+			ruler = yes
+			female = no
+			birth_date = 1815.12.13
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				hedonist  
+			}
+		}
+	}
+	c:SCA = {
+		create_character = {
+			first_name = "Eleonora"
+			last_name = "von_Nassau"
+			ruler = yes
+			female = yes
+			birth_date = 1800.3.25
+    		religion = rel:catholic
+			culture = cu:swedish
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				cautious  
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Gustav_III"
+			last_name = "Rurik"
+			female = no
+			heir = yes
+			birth_date=1822.7.15
+    		religion = rel:catholic
+			culture = cu:swedish
+			interest_group = ig_landowners
+			ideology = ideology_jingoist_leader
+			traits = {
+				pious
+			}
+		}
+	}
+	c:TTR = {
+		create_character = {
+			first_name = "Muhammad_Qadir"
+			last_name = "bin_Kuchuk"
+			ruler = yes
+			female = no
+			birth_date = 1821.7.18
+    		culture = cu:tatar
+			
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				
+			}
+		}
+	}
+}

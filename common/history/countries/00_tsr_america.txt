@@ -1,0 +1,348 @@
+﻿COUNTRIES = {
+	c:AMR = { # America
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_agrarianism
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		add_taxed_goods = g:liquor
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:BTC = { # Batavian Company
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+	}
+	c:CHL = { # Chile
+		# presidential election did occur around this date but only uncomment if giving Chile a voting franchise
+		# set_next_election_date = 1836.3.15
+		
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_no_police
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms	
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+	}
+	c:CLD = { # New Caledonia
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_slavery_banned
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+	}
+	c:CSP = { # Cisplatina
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_no_police
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:KNM = { # Kuntermark Company
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+	}
+	c:MRL = { # Marialvia
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_no_police
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:NBR = { # New Brabant Company
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+	}
+	c:NWX = { # New Wessex
+		# set_next_election_date = ???
+		
+		effect_starting_technology_tier_2_tech = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_right_of_assembly
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_anglican_church
+		}
+		add_taxed_goods = g:grain
+	}
+	c:ORC = { # Orenoco / New Provence
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_no_police
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:PEU = { # Peru
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools	
+		activate_law = law_type:law_no_police
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:TPL = { # Transplatina
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_national_militia
+
+		add_taxed_goods = g:tobacco
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}		
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church
+		}
+		ig:ig_rural_folk = {
+			remove_ideology = ideology_isolationist
+			add_ideology = ideology_isolationist_expansionism
+		}
+	}
+	c:VML = { # Vlaamsland Company
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+	}
+	c:WLM = { # Willemsland Company
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+	}
+	
+	# Decentralized Tribes
+	c:GNI = { # Guarani
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_10 = yes
+	}
+	c:PAT = { # Wallmapu
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_10 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

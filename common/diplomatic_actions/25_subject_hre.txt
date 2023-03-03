@@ -1,0 +1,47 @@
+﻿hre = {
+	can_select = no
+	can_use_obligations = no
+	
+	potential = {
+		always = no
+	}
+	
+	possible = {
+		always = no
+	}
+	
+	pact = {
+		cost = 25
+	
+		is_customs_union = yes
+		has_junior_participant = yes
+		recipient_pays_maintenance = no
+		
+		target_requires_approval_to_break = yes	
+		
+		subject_type = subject_type_hre
+		
+		actor_can_break = {
+			always = no
+		}
+
+		target_can_break = {
+			always = no
+		}
+
+		break_effect = {
+			
+		}
+	}
+
+	ai = {
+		check_acceptance_for_will_break = no
+			
+		will_break = {
+			always = no		
+		}
+		owe_obligation_chance = {
+			value = 0			
+		}	
+	}
+}

@@ -1,0 +1,354 @@
+﻿COUNTRIES = {
+	c:AKN = { # Ak Koyunlu
+		effect_starting_technology_tier_3_tech = yes
+		
+		add_technology_researched = napoleonic_warfare
+		
+		set_tax_level = medium
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation	
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_serfdom
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_local_governors
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:ARD = { # Ardalan
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = logistics
+		add_technology_researched = empiricism
+		add_technology_researched = banking
+		add_technology_researched = lathe
+		
+		set_tax_level = medium
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}	
+	}
+	c:HDJ = { # Hedjaz
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		effect_starting_politics_reactionary = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}	
+	}
+	c:JAB = { # Jabal Shammar
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:KAL = { # Kalat
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:KAT = { # Kathiri
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
+		add_technology_researched = banking
+		
+		set_tax_level = medium
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+	c:NEJ = { # Najd
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:OMA = { # Oman
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+		}
+	}
+	c:PER = { # Persia
+		set_next_election_date = 1838.10.3
+	
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = logistics
+		add_technology_researched = central_archives
+		add_technology_researched = empiricism
+		add_technology_researched = banking
+		add_technology_researched = lathe
+		
+		set_tax_level = medium
+		
+		add_taxed_goods = g:opium
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship # The government is slowly backtracking from promises made during Ebrahim's reign
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_legacy_slavery # While technically banned, except in certain states slavery is still around but "discouraged"
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_poor_laws
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 2
+		}
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+			add_ruling_interest_group = yes
+		}
+		
+		add_journal_entry = { type = je_matter_of_shirvan }
+	}
+	c:SRV = { # Shirvan
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_shia_madrasahs
+		}
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = logistics
+		add_technology_researched = empiricism
+		add_technology_researched = banking
+		add_technology_researched = lathe
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_local_police
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		set_tax_level = medium
+	}
+	c:SYR = { # Syria
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_reactionary = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}	
+	}
+	c:TUR = { # Ottoman Empire
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		add_technology_researched = logistics
+		add_technology_researched = empiricism
+		add_technology_researched = banking
+		
+		set_tax_level = medium
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation	
+		activate_law = law_type:law_slave_trade	
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 2
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_local_governors
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	
+	# Decentralized
+	c:ANZ	= { # Anizah
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_8 = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:TRC	= { # Turkmen Tribes
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_8 = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:RAK	= { # Rub' al Khali
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_8 = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+}

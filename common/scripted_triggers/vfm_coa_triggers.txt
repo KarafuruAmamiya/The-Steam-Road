@@ -1,0 +1,23 @@
+﻿
+coa_def_protectorate_trigger = {
+	OR = {
+		NOT = { exists = scope:target }
+		AND = {
+			exists = scope:target
+			scope:target = { 
+				OR = {
+					is_subject_type = subject_type_protectorate
+				}
+			}
+		}
+	}
+}
+
+coa_time_bol_trigger = {
+	game_date > 1888.1.1
+}
+
+coa_def_time_bol_flag_trigger = {
+	exists = scope:actor
+	scope:actor = { coa_time_bol_trigger  = yes }
+}

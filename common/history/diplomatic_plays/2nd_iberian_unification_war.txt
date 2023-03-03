@@ -1,0 +1,37 @@
+﻿DIPLOMATIC_PLAYS = {
+	c:IBE = {
+		create_diplomatic_play = {
+			name = 2nd_iberian_unification_war
+		
+			target_state = s:STATE_CATALONIA.region_state:ARN
+			
+			war = yes
+			
+			type = dp_return_state
+
+			add_war_goal = {
+				holder = c:ARN
+				type = return_state
+				target_state = s:STATE_CATALONIA.region_state:IBE
+			}
+			
+			add_war_goal = {
+				holder = c:ARN
+				type = return_state
+				target_state = s:STATE_ARAGON.region_state:IBE
+			}
+			
+			add_war_goal = {
+				holder = c:ARN
+				type = return_state
+				target_state = s:STATE_VALENCIA.region_state:IBE
+			}
+			
+			add_war_goal = {
+				holder = c:IBE
+				type = return_state
+				target_state = s:STATE_BALEARES.region_state:ARN
+			}
+		}			
+	}
+}

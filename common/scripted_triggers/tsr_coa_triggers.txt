@@ -1,0 +1,8 @@
+﻿coa_non_colonial_overlord_trigger = {
+	exists = scope:target
+	scope:target = { 
+		any_overlord_or_above = {
+			NOT = { is_country_type = colonial }
+		}
+	}
+}

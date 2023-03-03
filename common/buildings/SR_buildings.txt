@@ -1,0 +1,53 @@
+﻿building_argebam = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/argebam.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_argebam
+	}
+	
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_KERMAN
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_illegal_opium_plantation = {
+	building_group = bg_illegal_opium_plantations
+	texture = "gfx/interface/icons/building_icons/opium_plantation.dds"
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	city_type = farm
+	levels_per_mesh = 2.5
+	
+	production_method_groups = {
+		pmg_base_building_illegal_opium_plantation
+	}
+	
+	buildable = no
+	expandable = no
+	downsizeable = no
+}

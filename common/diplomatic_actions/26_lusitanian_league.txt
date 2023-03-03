@@ -1,0 +1,48 @@
+﻿lusitanian_league = {
+	can_select = no
+	can_use_obligations = no
+	
+	potential = {
+		always = no
+	}
+	
+	possible = {
+		always = no
+	}
+	
+	pact = {
+		cost = 25
+	
+		is_trade_agreement = yes
+		is_defensive_pact = yes
+		recipient_pays_maintenance = no
+		
+		relations_progress_per_day = 1 # At 100, +1 relations
+		relations_improvement_max = 80	
+		
+		target_requires_approval_to_break = yes	
+		
+		actor_can_break = {
+			always = no
+		}
+
+		target_can_break = {
+			always = no
+		}
+
+		break_effect = {
+			
+		}
+	}
+
+	ai = {
+		check_acceptance_for_will_break = no
+			
+		will_break = {
+			always = no		
+		}
+		owe_obligation_chance = {
+			value = 0			
+		}	
+	}
+}

@@ -1,0 +1,94 @@
+﻿COUNTRIES = {
+	c:EGY = { # Egypt
+		effect_starting_technology_tier_3_tech = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:FEZ = { # Fezzan
+		effect_starting_technology_tier_4_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:MOR = { # Morocco
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_land_based_taxation		
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:TUN = { # Hafsids
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+
+	# Decentralized Tribes
+	c:AHG	= { # Ahaggar
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_5 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:TUA	= { # Tuat
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_8 = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:SAL	= { # Libyan Desert
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_8 = yes
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+}

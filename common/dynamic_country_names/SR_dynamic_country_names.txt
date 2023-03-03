@@ -1,0 +1,465 @@
+﻿SLV = { # Slovakia
+	dynamic_country_name = { # Nitra
+		name = dyn_c_nitra
+		adjective = dyn_c_nitra_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { NOT = { has_technology_researched = nationalism } }
+		}
+	}
+}
+
+SLO = { # Slovenia
+	dynamic_country_name = { # Cilli
+		name = dyn_c_cilli
+		adjective = dyn_c_cilli_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { NOT = { has_technology_researched = nationalism } }
+		}
+	}
+}
+
+TUN = { # Tunisia
+	dynamic_country_name = { # Hafsid Sultanate
+		name = dyn_c_hafsid_sultanate
+		adjective = dyn_c_hafsid_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { 
+					has_technology_researched = nationalism 
+					owns_entire_state_region = s:STATE_TUNISIA
+				}
+			}
+		}
+	}
+}
+
+BYE = { # Belarus
+	dynamic_country_name = { # Polotsk
+		name = dyn_c_polotsk
+		adjective = dyn_c_polotsk_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:TUR
+			}
+		}
+	}
+}
+
+UKR = { # Ukraine
+	dynamic_country_name = { # Kiev
+		name = dyn_c_kiev
+		adjective = dyn_c_kiev_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:TUR
+			}
+		}
+	}
+}
+
+LVN = { # Livonia
+	dynamic_country_name = { # Livland
+		name = dyn_c_livland
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:SCA
+			}
+		}
+	}
+}
+
+EST = { # Estonia
+	dynamic_country_name = { # Estland
+		name = dyn_c_estland
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:SCA
+			}
+		}
+	}
+}
+
+ING = { # Ingria
+	dynamic_country_name = { # Ingermanland
+		name = dyn_c_ingermanland
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:SCA
+			}
+		}
+	}
+}
+
+SRB = { # Sorbia
+	dynamic_country_name = { # Lusatia
+		name = dyn_c_lusatia
+		adjective = dyn_c_lusatia_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+			}
+		}
+	}
+}
+
+AUR = { # Aurelia
+	dynamic_country_name = { # Aurelian Republic
+		name = dyn_c_aurrep
+		adjective = dyn_c_aurrep_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				OR = {
+					has_law = law_type:law_parliamentary_republic
+					has_law = law_type:law_presidential_republic
+				}
+				country_has_voting_franchise = yes
+			}
+		}
+	}
+}
+
+USC = { # United States of Columbia
+	dynamic_country_name = {
+		name = dyn_c_united_states_columbia
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+			NOT = { coa_def_communist_flag_trigger = yes }
+		}
+	}
+	
+	dynamic_country_name = {
+		name = dyn_c_united_senators_columbia
+		priority = 1
+		
+		trigger = {
+			exists = c:USA
+			c:USA = {			
+				any_scope_state = {
+					state_region = { has_variable = district_of_columbia }
+					count > 0
+				}
+				any_scope_state = {
+					state_region = { NOT = { has_variable = district_of_columbia } }
+					count < 1
+				}			
+			}			
+		}
+	}	
+
+	dynamic_country_name = {
+		name = dyn_c_united_sovereign_archduchy_columbia
+		adjective = dyn_c_united_sovereign_archduchy_columbia_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+
+	dynamic_country_name = {
+		name = dyn_c_united_syndicates_columbia
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}	
+
+	dynamic_country_name = {
+		name = dyn_c_united_synods_columbia
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}
+}
+
+BRL = { # Borealia
+	dynamic_country_name = { # North Pacific Company
+		name = dyn_c_borcolonial
+		adjective = dyn_c_borcolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:FRA
+			}
+		}
+	}
+}
+
+KRL = { # Karolia
+	dynamic_country_name = { # Vinland
+		name = dyn_c_krlcolonial
+		adjective = dyn_c_krlcolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:SCA
+			}
+		}
+	}
+	dynamic_country_name = { # Karolean Federation
+		name = dyn_c_krlrep
+		adjective = dyn_c_krlrep_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				NOT = { is_subject = yes }
+				OR = {
+					has_law = law_type:law_parliamentary_republic
+					has_law = law_type:law_presidential_republic
+				}
+				country_has_voting_franchise = yes
+			}
+		}
+	}
+}
+
+MYP = { # Mayapan
+	dynamic_country_name = { # New Holland
+		name = dyn_c_mypcolonial
+		adjective = dyn_c_mypcolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:NET
+			}
+		}
+	}
+}
+
+ORC = { # Orenoco
+	dynamic_country_name = { # New Provence
+		name = dyn_c_orccolonial
+		adjective = dyn_c_orccolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:FRA
+			}
+		}
+	}
+}
+
+HON = { # Honduras
+	dynamic_country_name = { # New Castile
+		name = dyn_c_honcolonial
+		adjective = dyn_c_honcolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:IBE
+			}
+		}
+	}
+}
+
+PER = { 
+	dynamic_country_name = {
+		name = dyn_c_persia # Safavid Persia
+		adjective = dyn_c_persia_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				has_law = law_type:law_monarchy
+				country_tier = empire
+			}
+		}
+	}
+}
+
+BUK = { 
+	dynamic_country_name = {
+		name = dyn_c_bukhara # Bukharan Khaganate
+		adjective = dyn_c_bukhara_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				has_law = law_type:law_monarchy
+				country_tier = empire
+			}
+		}
+	}
+}
+
+XIN = { # Uyghuristan
+	dynamic_country_name = {
+		name = dyn_c_yarkent # Yarkent Khanate
+		adjective = dyn_c_yarkent_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				NOT = { has_technology_researched = nationalism }
+				is_subject_of = c:BUK
+			}
+		}
+	}
+}
+
+CHI = { # China
+	dynamic_country_name = {
+		name = dyn_c_great_qing
+		adjective = dyn_c_great_qing_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+			scope:actor = {
+				country_has_primary_culture = cu:manchu
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_great_liang
+		adjective = dyn_c_great_liang_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				NOT = { country_has_primary_culture = cu:manchu }
+				has_law = law_type:law_monarchy
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_peoples_republic_of_china
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+AKN = { # Akturkistan
+	dynamic_country_name = {
+		name = dyn_c_akc # Kavunid Empire
+		adjective = dyn_c_akc_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+}
+
+AMR = { # America
+	dynamic_country_name = {
+		name = dyn_c_american_empire
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+}

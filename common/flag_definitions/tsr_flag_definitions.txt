@@ -1,0 +1,244 @@
+﻿SLD = { # Solarado
+	flag_definition = {
+		coa = SLD
+		subject_canton = SLD
+		priority = 1
+	}
+}
+
+AKN = { # Ak Koyunlu
+	flag_definition = {
+		coa = AKN
+		subject_canton = AKN
+		priority = 1
+	}
+}
+
+ARN = { # Aragon
+	flag_definition = {
+		coa = ARN
+		subject_canton = ARN
+		priority = 1
+	}
+}
+
+IBE = { # Iberia
+	flag_definition = {
+		coa = IBE
+		subject_canton = IBE
+		allow_overlord_canton = no
+		priority = 1
+	}
+}
+
+FRA = { # France
+	flag_definition = {
+		coa = FRA
+		subject_canton = FRA_bourbon
+		allow_overlord_canton = yes
+		coa_with_overlord_canton = FRA_subject
+		priority = 1
+	}
+}
+
+RPU = { # Royal Prussia
+	flag_definition = {
+		coa = RPU
+		subject_canton = RPU
+		priority = 1
+	}
+}
+
+MSC = { # Muscovy
+	flag_definition = {
+		coa = MSC
+		subject_canton = MSC
+		coa_with_overlord_canton = MSC_subject
+		allow_overlord_canton = yes		
+		priority = 1
+	}
+}
+
+PLT = { # The Palatinate
+	flag_definition = {
+		coa = PLT
+		subject_canton = PLT
+		priority = 1
+	}
+}
+
+RYA = { # Ryazan
+	flag_definition = {
+		coa = RYA
+		subject_canton = RYA
+		coa_with_overlord_canton = RYA_subject
+		allow_overlord_canton = yes		
+		priority = 1
+	}
+}
+
+SRV = { # Shirvan
+	flag_definition = {
+		coa = SRV
+		subject_canton = SRV
+		allow_overlord_canton = no
+		priority = 1
+	}
+}
+
+TSN = { # Transoxiana
+	flag_definition = {
+		coa = TSN
+		subject_canton = TSN
+		coa_with_overlord_canton = TSN_subject
+		allow_overlord_canton = yes		
+		priority = 1
+	}
+}
+
+TAU = { # Taungoo Empire
+	flag_definition = {
+		coa = TAU
+		subject_canton = TAU
+		coa_with_overlord_canton = TAU_subject
+		allow_overlord_canton = yes		
+		priority = 1
+	}
+}
+
+TER = { # Ternate
+	flag_definition = {
+		coa = TER
+		subject_canton = TER
+		priority = 1
+	}
+}
+
+MRL = { # Marialvia
+	flag_definition = {
+		coa = MRL
+		subject_canton = MRL
+		priority = 1
+	}
+}
+
+ATL = { # The Antilles
+	flag_definition = {
+		coa = ATL
+		subject_canton = ATL
+		priority = 1
+	}
+}
+
+KRL = { # Karolia
+	flag_definition = {
+		coa = KRL
+		allow_overlord_canton = no			
+		priority = 1
+	}
+	flag_definition = {
+		coa = KRL_subject
+		subject_canton = KRL
+		allow_overlord_canton = yes		
+		priority = 100
+		trigger = { 
+			coa_non_colonial_overlord_trigger = yes
+		}
+	}
+}
+
+MEX = { # Mexico
+	flag_definition = {
+		coa = MEX
+		allow_overlord_canton = no			
+		priority = 1
+	}
+	flag_definition = {
+		coa = MEX_subject
+		subject_canton = MEX
+		allow_overlord_canton = yes		
+		priority = 100
+		trigger = { 
+			coa_non_colonial_overlord_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = MEX_absolute_monarchy
+		subject_canton = MEX_absolute_monarchy
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = MEX_subject			
+		priority = 20
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = MEX_dictatorship
+		subject_canton = MEX_dictatorship
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = MEX_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = MEX_subject_USA
+		priority = 50
+		trigger = { 
+			coa_def_american_ensign_trigger = yes
+		}
+	}	
+}
+
+CHI = { # China
+	flag_definition = {
+		coa = CHI
+		coa_with_overlord_canton = CHI
+		priority = 1
+		trigger = { 
+			scope:actor = {
+				NOT = { country_has_primary_culture = cu:manchu }
+				has_law = law_type:law_monarchy
+			}
+		}
+	}
+	flag_definition = {
+		coa = CHI_republic
+		subject_canton = CHI_republic
+		allow_overlord_canton = yes
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = CHI_dictatorship
+		subject_canton = CHI_dictatorship
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = CHI_theocracy
+		subject_canton = CHI_theocracy
+		subject_canton = CHI_absolute_monarchy
+		priority = 20
+		trigger = { 
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = CHI_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}

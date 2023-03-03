@@ -1,0 +1,24 @@
+﻿DIPLOMATIC_PLAYS = {
+	c:PER = {
+		create_diplomatic_play = {
+			name = safavid_conquest_of_burma
+		
+			target_country = c:TAU
+
+			war = yes
+			
+			type = dp_make_puppet
+
+			add_war_goal = {
+				holder = c:TAU
+				type = return_state
+				target_state = s:STATE_BURMA.region_state:PER
+			}
+			add_war_goal = {
+				holder = c:TAU
+				type = return_state
+				target_state = s:STATE_PEGU.region_state:PER
+			}
+		}		
+	}
+}

@@ -1,0 +1,1909 @@
+﻿COUNTRIES = {
+	c:ANH = { # Anhalt
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:ARN = { # Aragon
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		add_technology_researched = napoleonic_warfare
+
+		set_tax_level = medium
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		add_taxed_goods = g:liquor
+			
+
+		ig:ig_intelligentsia = { 
+			set_ig_suppression = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:AUS = { # Austria
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+			
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+		}
+	}
+	c:BOH = { # Bohemia
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		add_technology_researched = dialectics	
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:BLN = { # Bayern-Landshut
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+		}
+	}
+	c:BRA = { # Brunswick
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}			
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:BRK = { # Brandenburg-Kustrin
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church 
+		}			
+	}
+	c:BYE = { # Belarus / Polack
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:CHR = { # Chernigov
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:COB = { # Coburg
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+	}
+	c:COR = { # Corsica
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:CRL = { # Courland
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy # needed so that e.g. Poles are discriminated against
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+
+		add_journal_entry = {
+			type = je_latvia_awakening
+		}
+
+	}
+	c:DOR = { # Dortmund
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:ENG = { # England
+		set_next_election_date = 1838.2.1
+		
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		effect_starting_technology_tier_2_tech = yes
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+	
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_national_militia
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+	
+		ig:ig_landowners = { 
+			set_interest_group_name = ig_landed_gentry
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_anglican_church
+		}
+	}
+	c:EST = { # Estonia
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy # needed so that e.g. Poles are discriminated against
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		add_journal_entry = {
+			type = je_estonia_awakening
+		}
+
+	}
+	c:FLA = { # Flanders
+		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		
+		set_tax_level = medium
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:FRA = { # France
+		set_next_election_date = 1837.11.4
+		
+		effect_starting_technology_tier_1_tech = yes
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_guard
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}	
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = {
+			set_ig_suppression = yes
+		}
+	}
+	c:FRM = { # Frankfurt
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_liberal = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_professional_army
+		
+		set_tax_level = medium
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+			add_ruling_interest_group = yes
+		}
+	}
+	c:FRN = { # Franconia
+		effect_starting_technology_tier_2_tech = yes		
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_autocracy 
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:GAL = {
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		set_tax_level = medium
+
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 2
+		}		
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+		}
+
+	}
+	c:GLG = { # Glogow
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		add_technology_researched = dialectics	
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:GOS = { # Goslar
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+
+	}
+	c:GRE = { # Greece
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
+		add_technology_researched = urban_planning
+		add_technology_researched = law_enforcement
+		add_technology_researched = currency_standards
+		
+		effect_starting_politics_liberal = yes
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_census_voting
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_militia
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms		
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_rural_folk = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	c:HES = { # Hesse
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church 
+		}			
+	}
+	c:HSA = { # Hanseatic Provinces
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+	}
+	c:HUN = { # Hungary
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}		
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:IBE = { # Iberia
+		effect_starting_technology_tier_2_tech = yes
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_charitable_health_system
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+		}
+		
+		ig:ig_landowners = {
+			add_ideology = ideology_pious
+		}
+	}
+	c:ING = { # Ingria
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+	}
+	c:IRE = { # Ireland
+		effect_starting_technology_tier_2_tech = yes
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+			add_ruling_interest_group = yes
+		}
+	}
+	c:ITA = { # Italy
+		set_next_election_date = 1838.12.7
+
+		set_tax_level = medium
+		
+		effect_starting_technology_tier_1_tech = yes
+	
+		effect_starting_politics_liberal = yes
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_census_voting
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_dedicated_police
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+		
+		ig:ig_industrialists = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_landowners = {
+			add_ideology = ideology_republican_paternalistic
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:KNZ = { # Konstanz
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+        set_ruling_interest_groups = {
+        	ig_devout
+        }
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+		}
+		ig:ig_devout = {
+			set_ig_bolstering = yes
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:LIT = { # Lithuania
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_catholic_church
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:LVN = { # Livonia
+		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = napoleonic_warfare
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy # needed so that e.g. Poles are discriminated against
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		add_journal_entry = {
+			type = je_livonia_partition
+		}
+	}
+	c:LOR = { # Lorraine
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		
+		set_tax_level = medium
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:MML = { # Memel
+		# set_next_election_date = ???
+		
+		effect_starting_technology_tier_3_tech = yes
+		
+		add_technology_researched = dialectics	
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_public_schools	
+		activate_law = law_type:law_censorship
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:MOL = { # Moldavia
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		add_journal_entry = { type = je_unify_romania }
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	c:MSC = { # Muscovy
+		effect_starting_technology_tier_3_tech = yes
+		
+		add_technology_researched = napoleonic_warfare
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:MUN = { # Muenster
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+        set_ruling_interest_groups = {
+        	ig_devout
+        }
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+		}
+		ig:ig_devout = {
+			set_ig_bolstering = yes
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:MUL = { # Mulhouse
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+	}
+	c:MVA = { # Moravia
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+        set_ruling_interest_groups = {
+        	ig_devout
+        }
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+		}
+		ig:ig_devout = {
+			set_ig_bolstering = yes
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:NET = { # Netherlands
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_denominational_exclusion
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_per_capita_based_taxation
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+		
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_industrialists = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:PAP = { # Pope
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+        set_ruling_interest_groups = {
+        	ig_devout
+        }
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+		
+		ig:ig_landowners = {
+			set_interest_group_name = ig_roman_landowners
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_papal_paternalistic
+		}
+		ig:ig_intelligentsia = {
+			remove_ideology = ideology_anti_clerical
+		}
+
+		ig:ig_devout = {
+			set_ig_bolstering = yes
+			set_interest_group_name = ig_roman_curia
+		}
+	}
+	c:SLB = { # Sloboda Host
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:PLT = { # The Palatinate
+		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_per_capita_based_taxation
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+		
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_rural_folk = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+		}
+	}
+	c:POL = { # Poland
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_catholic_church
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:PRM = { # Perm
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	c:RHI = { # Rhineland
+		set_next_election_date = 1838.10.02
+
+		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_liberal = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_professional_army
+		
+		set_tax_level = medium
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:RIG = { # Riga
+		# set_next_election_date = ???
+		
+		effect_starting_technology_tier_2_tech = yes
+		
+		add_technology_researched = dialectics	
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_private_schools	
+		activate_law = law_type:law_censorship
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}	
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:RPU = { # Royal Prussia
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+	}
+	c:RYA = { # Ryazan
+		effect_starting_technology_tier_3_tech = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_intelligentsia = { 
+			set_ig_suppression = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_russian_patriarch
+		}
+
+		ig:ig_landowners = {
+			set_interest_group_name = ig_gentry_assembly
+		}
+	}
+	c:SAX = { # Saxony
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_reactionary = yes
+		
+		add_technology_researched = mechanical_tools
+		add_technology_researched = intensive_agriculture
+		add_technology_researched = atmospheric_engine
+		
+		set_tax_level = medium
+
+		add_taxed_goods = g:liquor
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+		
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_denominational_exclusion
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_ig_bolstering = yes
+			add_ruling_interest_group = yes
+			set_interest_group_name = ig_evangelical_church
+		}
+		
+		add_modifier = {
+			name = hre_emperor
+			
+		}
+	}
+	c:SCA = { # Scandinavia
+		effect_starting_technology_tier_1_tech = yes
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_censorship
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+		
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_intelligentsia = {
+			set_ig_suppression = yes
+		}
+	}
+	c:SCO = { # Scotland
+		set_next_election_date = 1838.2.1
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		effect_starting_technology_tier_2_tech = yes
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:liquor
+	
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_national_militia
+		
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+	
+		ig:ig_landowners = { 
+			set_interest_group_name = ig_landed_gentry
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:SLO = { # Slovenia / Cilli
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:SLV = { # Slovakia / Nitra
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		set_tax_level = medium		
+		
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = { 
+			set_interest_group_name = ig_catholic_church 
+			add_ruling_interest_group = yes
+		}
+	}
+	c:SMO = { # Smolensk
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:SRB = { # Sorbia / Lusatia
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:SWI = { # Switzerland
+		# set_next_election_date = ???
+		
+		effect_starting_technology_tier_2_tech = yes
+		add_technology_researched = dialectics
+		
+		effect_starting_politics_liberal = yes
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_census_voting
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_militia
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms		
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 3
+		}
+		
+		ig:ig_rural_folk = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:THU = { # Thuringia
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_conservative = yes
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+	c:TRS = { # Transylvania
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	c:TTR = { # Tatarstan
+		effect_starting_technology_tier_3_tech = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_intelligentsia = { 
+			set_ig_suppression = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:TYR = { # Tyrol
+		# set_next_election_date = ???
+		
+		effect_starting_technology_tier_2_tech = yes
+		
+		effect_starting_politics_liberal = yes
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_census_voting
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_militia
+		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms		
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+		
+		ig:ig_rural_folk = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church 
+		}
+	}
+	c:ZAP = { # Zaporizhian Host
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:ULM = { # Ulm
+		effect_starting_technology_tier_2_tech = yes
+		# set_next_election_date = ???
+		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+	}
+	c:WAL = { # Wallachia
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_slave_trade
+
+		add_journal_entry = { type = je_unify_romania }
+		
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_orthodox_church
+			remove_ideology = ideology_patriarchal
+			add_ideology = ideology_orthodox_patriarch
+		}
+	}
+	c:WUR = { # Wurttemberg
+		effect_starting_technology_tier_2_tech = yes		
+		effect_starting_politics_conservative = yes
+		activate_law = law_type:law_autocracy 
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
+		}
+	}
+}

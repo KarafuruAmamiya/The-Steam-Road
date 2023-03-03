@@ -1,0 +1,38 @@
+﻿DIPLOMATIC_PLAYS = {
+	c:KRL = {
+		create_diplomatic_play = {
+			name = karolean_independence_war
+		
+			target_country = c:SCA
+			
+			war = yes
+			
+			type = dp_independence
+
+			add_initiator_backers = {
+				c:FRA
+			}
+			
+			add_target_backers = {
+				c:USC
+			}
+
+			add_war_goal = {
+				holder = c:SCA
+				type = annex_country
+				target_country = c:KRL
+			}
+			
+			add_war_goal = {
+				holder = c:USC
+				type = return_state
+				target_state = s:STATE_VASTERLAND.region_state:KRL
+			}
+			add_war_goal = {
+				holder = c:USC
+				type = return_state
+				target_state = s:STATE_GRYNINGSLAND.region_state:KRL
+			}
+		}			
+	}
+}

@@ -1,0 +1,156 @@
+﻿tsr_persia_leader_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			OR = {
+				OR = {
+					country_has_primary_culture = cu:persian
+					country_has_primary_culture = cu:jonubi
+				}
+				AND = {
+					is_subject_of = c:PER
+					OR = {
+						owner = { exists = c:SRV c:SRV = this }
+						owner = { exists = c:TSN c:TSN = this }
+						owner = { exists = c:SIN c:SIN = this }
+						owner = { exists = c:ARD c:ARD = this }
+					}
+				}
+			}
+		}
+	}
+}
+
+tsr_persia_pop_trigger = {
+	exists = scope:character
+	scope:pop = {
+		owner = {
+			OR = {
+				OR = {
+					country_has_primary_culture = cu:persian
+					country_has_primary_culture = cu:jonubi
+				}
+				AND = {
+					is_subject_of = c:PER
+					OR = {
+						owner = { exists = c:SRV c:SRV = this }
+						owner = { exists = c:TSN c:TSN = this }
+						owner = { exists = c:SIN c:SIN = this }
+						owner = { exists = c:ARD c:ARD = this }
+					}
+				}
+			}
+		}
+	}
+}
+
+tsr_ottoman_leader_trigger = {
+	exists = scope:character
+	scope:character = {
+		owner = {
+			country_has_primary_culture = cu:turkish
+		}
+	}
+}
+
+british_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			AND = {
+				exists = c:GBR
+				owner = {
+					OR = {
+						AND = {
+							c:GBR = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:GBR
+					}		
+				}
+			}
+			AND = {
+				exists = c:ENG
+				owner = {
+					OR = {
+						AND = {
+							c:ENG = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:ENG
+					}		
+				}
+			}
+		}
+	}
+}
+
+british_empire_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:GBR
+		owner = {
+			OR = {
+			AND = {
+				exists = c:GBR
+				owner = {
+					OR = {
+						AND = {
+							c:GBR = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:GBR
+					}		
+				}
+			}
+			AND = {
+				exists = c:ENG
+				owner = {
+					OR = {
+						AND = {
+							c:ENG = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:ENG
+					}		
+				}
+			}
+		}		
+		}
+	}
+}
+
+british_empire_clothes_p_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:GBR
+		owner = {
+			OR = {
+			AND = {
+				exists = c:GBR
+				owner = {
+					OR = {
+						AND = {
+							c:GBR = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:GBR
+					}		
+				}
+			}
+			AND = {
+				exists = c:ENG
+				owner = {
+					OR = {
+						AND = {
+							c:ENG = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:ENG
+					}		
+				}
+			}
+		}		
+		}
+	}
+}

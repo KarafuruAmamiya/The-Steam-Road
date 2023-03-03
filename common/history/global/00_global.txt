@@ -1,0 +1,12 @@
+﻿# This is executed last among all history
+GLOBAL = {
+	every_country = {
+		limit = { NOT = { has_law = law_type:law_slavery_banned } }
+		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
+	}
+	every_country = {
+		limit = { country_is_in_middle_east = yes }
+		set_variable = { name = lorebox_me } 
+	}
+}
+

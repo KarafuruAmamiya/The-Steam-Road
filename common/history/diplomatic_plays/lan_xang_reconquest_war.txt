@@ -1,0 +1,19 @@
+﻿DIPLOMATIC_PLAYS = {
+	c:LXA = {
+		create_diplomatic_play = {
+			name = lan_xang_reconquest_war
+		
+			target_state = s:STATE_LUANG_PRABANG.region_state:TAU
+
+			war = yes
+			
+			type = dp_return_state
+
+			add_war_goal = {
+				holder = c:TAU
+				type = humiliation
+                target_country = c:LXA
+			}
+		}		
+	}
+}

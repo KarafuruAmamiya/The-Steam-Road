@@ -1,0 +1,370 @@
+﻿gov_hre = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_KAISER"
+	female_ruler = "RULER_TITLE_KAISERINE" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = empire
+		exists = c:SAX
+		c:SAX = ROOT
+	}
+}
+
+gov_elector_palatinate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_PFALZ"
+	female_ruler = "RULER_TITLE_PFALZ_F" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PLT
+		c:PLT = ROOT
+	}
+}
+
+gov_electorate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_ELECTOR"
+	female_ruler = "RULER_TITLE_ELECTOR_F" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = principality
+		or = {
+			AND = { exists = c:BOH c:BOH = ROOT }
+			AND = { exists = c:HNU c:HNU = ROOT }
+			AND = { exists = c:FRN c:FRN = ROOT }
+			AND = { exists = c:MUN c:MUN = ROOT }
+			AND = { exists = c:KNZ c:KNZ = ROOT }
+		}
+	}
+}
+
+gov_electorate_boh = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_KELECTOR"
+	female_ruler = "RULER_TITLE_KELECTOR_F" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = kingdom
+		exists = c:BOH
+		c:BOH = ROOT
+	}
+}
+
+gov_electorate_theocracy = {
+	transfer_of_power = dictatorial
+	
+	male_ruler = "RULER_TITLE_AELECTOR"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_theocracy
+		country_tier = principality
+		or = {
+			AND = { exists = c:KNZ c:KNZ = ROOT }
+			AND = { exists = c:MUN c:MUN = ROOT }
+		}
+	}
+}
+
+gov_free_city = {
+	transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_BURGOMASTER"
+	female_ruler = "RULER_TITLE_BURGOMASTER"
+	
+	possible = {
+		OR = {
+			AND = { exists = c:ULM c:ULM = ROOT }
+			AND = { exists = c:ANH c:ANH = ROOT }
+			AND = { exists = c:RIG c:RIG = ROOT }
+			AND = { exists = c:MML c:MML = ROOT }
+			AND = { exists = c:GOS c:GOS = ROOT }
+			AND = { exists = c:MUL c:MUL = ROOT }
+			AND = { exists = c:COB c:COB = ROOT }
+		}
+		any_scope_state = {
+			count <= 1
+		}
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = yes
+	}
+}
+
+gov_serene_republic = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_DOGE"
+	female_ruler = "RULER_TITLE_DOGE"
+	
+	possible = {
+		exists = c:ITA
+		c:ITA = ROOT
+		has_law = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+	}
+}
+
+gov_sister_republic = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		has_law = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+		AND = { exists = c:ITA is_subject_of = c:ITA }
+	}
+}
+
+gov_archduchy = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_ARCHDUKE"
+	female_ruler = "RULER_TITLE_ARCHDESS" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = principality
+		exists = c:AUS
+		c:AUS = ROOT
+	}
+}
+
+gov_shah = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SHAH"
+	female_ruler = "RULER_TITLE_SHAHBANU"
+
+	male_heir = "RULER_TITLE_SHAHPUR"
+	female_heir = "RULER_TITLE_SHAHDOKHT"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:SRV
+		c:SRV = ROOT
+	}			
+}
+
+gov_persian_empire = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SHAHANSHAH"
+	female_ruler = "RULER_TITLE_SHAHBANU"
+
+	male_heir = "RULER_TITLE_SHAHPUR"
+	female_heir = "RULER_TITLE_SHAHDOKHT"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = empire
+		exists = c:PER
+		c:PER = ROOT
+	}			
+}
+
+gov_ottoman_empire = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_PADISHAH"
+	female_ruler = ""
+
+	male_heir = "RULER_TITLE_IMPERIAL_PRINCE"
+	female_heir = ""
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = empire
+		exists = c:TUR
+		c:TUR = ROOT
+	}			
+}
+
+gov_satrapies = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = "RULER_TITLE_SATRAP"
+	
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = "RULER_TITLE_CROWN_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		AND = { exists = c:PER is_subject_of = c:PER }
+		NOT = { c:MRT = ROOT }
+		NOT = { c:SRV = ROOT }
+		NOT = { c:MUG = ROOT }
+		NOT = { c:DEC = ROOT }
+		OR = {
+			is_subject_type = subject_type_dominion
+			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_dependency
+		}
+	}
+}
+
+gov_special_satrapies_muslim = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SULTAN"
+	female_ruler = "RULER_TITLE_SULTANA"
+	
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = "RULER_TITLE_CROWN_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PER 
+		is_subject_of = c:PER 
+		c:PER = {
+			has_law = law_type:law_monarchy
+		}
+		is_subject_type = subject_type_dominion
+		OR = {
+			country_has_state_religion = rel:sunni
+			country_has_state_religion = rel:shiite
+		}
+	}
+}
+
+gov_special_satrapies_hindu = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_RAJA"
+	female_ruler = "RULER_TITLE_RANI"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PER 
+		is_subject_of = c:PER 
+		c:PER = {
+			has_law = law_type:law_monarchy
+		}
+		is_subject_type = subject_type_dominion
+		country_has_state_religion = rel:hindu
+	}
+}
+
+gov_iberian_viceroyalty = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_VICEROY"
+	female_ruler = "RULER_TITLE_VICEROY"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		exists = c:IBE
+		is_subject_of = c:IBE
+		is_subject_type = subject_type_puppet
+		is_country_type = colonial
+		top_overlord = { NOT = { is_country_type = colonial } }
+		any_primary_culture = {
+			has_discrimination_trait = european_heritage
+		}
+		country_is_in_europe = no
+	}
+}
+
+gov_puppet_shogunate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SHOGUN"
+	female_ruler = "RULER_TITLE_SHOGUN" 
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+	
+	possible = {
+		exists = c:UES
+		c:UES = ROOT
+		has_law = law_type:law_monarchy
+		AND = { exists = c:FRA is_subject_of = c:FRA }
+	}
+}
+
+gov_daimyo = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_DAIMYO"
+	female_ruler = "RULER_TITLE_DAIMYO" 
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			AND = { exists = c:ASK is_subject_of = c:ASK }
+			AND = { exists = c:UES is_subject_of = c:UES }
+		}
+		OR = {
+			country_has_primary_culture = cu:japanese
+			country_has_primary_culture = cu:ryukyan
+		}
+	}
+}
+
+gov_hetmanate = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_HETMAN"
+	female_ruler = "RULER_TITLE_HETMAN"
+
+    possible = {
+        has_law = law_type:law_presidential_republic
+        has_law = law_type:law_peasant_levies
+        OR = {
+            AND = {
+                exists = c:SLB
+                c:SLB = ROOT
+            }
+            AND = {
+                exists = c:ZAP
+                c:ZAP = ROOT
+            }
+			AND = {
+                exists = c:UKR
+                c:UKR = ROOT
+				OR = {
+					was_formed_from = c:ZAP
+					was_formed_from = c:SLB
+				}
+            }
+        }
+    }
+}

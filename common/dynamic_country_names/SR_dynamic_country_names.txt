@@ -77,8 +77,22 @@ UKR = { # Ukraine
 		trigger = {
 			exists = scope:actor
 			scope:actor = { 
-				NOT = { has_technology_researched = nationalism }
 				is_subject_of = c:TUR
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_free_territory
+		adjective = dyn_c_free_territory_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_law = law_type:law_council_republic
+				has_law = law_type:law_anarchy
 			}
 		}
 	}
@@ -384,7 +398,7 @@ XIN = { # Uyghuristan
 		adjective = dyn_c_yarkent_adj
 		
 		is_main_tag_only = yes
-		priority = 5
+		priority = 0
 		
 		trigger = {
 			exists = scope:actor
@@ -421,7 +435,7 @@ CHI = { # China
 		trigger = {
 			scope:actor = {
 				NOT = { country_has_primary_culture = cu:manchu }
-				has_law = law_type:law_monarchy
+				coa_def_monarchy_flag_trigger = yes
 			}
 		}
 	}
@@ -435,11 +449,25 @@ CHI = { # China
 			coa_def_communist_flag_trigger = yes
 		}
 	}
+	dynamic_country_name = {
+		name = dyn_c_empire_of_china
+		adjective = dyn_c_empire_of_china_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+			scope:actor = {
+				is_country_type = recognized
+			}
+		}
+	}
 }
 
 AKN = { # Akturkistan
 	dynamic_country_name = {
-		name = dyn_c_akc # Kavunid Empire
+		name = dyn_c_akc # Akkovin Empire
 		adjective = dyn_c_akc_adj
 		
 		is_main_tag_only = yes

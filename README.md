@@ -8,8 +8,6 @@ Paradox Forum:
 
 
 
-Credits:
-
 Incorporated Mods:
 1. (Base) Victorian Flavor Mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2880089689
 2. More States: https://steamcommunity.com/sharedfiles/filedetails/?id=2881527989

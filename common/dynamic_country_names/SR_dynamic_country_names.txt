@@ -358,6 +358,51 @@ HON = { # Honduras
 	}
 }
 
+NSB = { # Sibirstan
+	dynamic_country_name = { # New Sibir
+		name = dyn_c_sibcolonial
+		adjective = dyn_c_sibcolonial_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:BUK
+			}
+		}
+	}
+}
+
+DAI = { # Dai Viet
+	dynamic_country_name = {
+		name = dyn_c_yuenan
+		adjective = dyn_c_yuenan_adj
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = c:CHI
+			c:CHI = {
+				OR = {
+					has_diplomatic_pact = {
+						who = c:DAI
+						type = vassal
+						is_initiator = yes
+					}
+					has_diplomatic_pact = {
+						who = c:DAI
+						type = puppet
+						is_initiator = yes
+					}
+				}
+			}
+		}
+	}
+}
+
 PER = { 
 	dynamic_country_name = {
 		name = dyn_c_persia # Safavid Persia
@@ -394,7 +439,7 @@ BUK = {
 
 XIN = { # Uyghuristan
 	dynamic_country_name = {
-		name = dyn_c_yarkent # Yarkent Khanate
+		name = dyn_c_yarkent # Kashgar Khanate
 		adjective = dyn_c_yarkent_adj
 		
 		is_main_tag_only = yes
@@ -403,8 +448,39 @@ XIN = { # Uyghuristan
 		trigger = {
 			exists = scope:actor
 			scope:actor = { 
-				NOT = { has_technology_researched = nationalism }
-				is_subject_of = c:BUK
+				coa_def_monarchy_flag_trigger = yes
+			}
+		}
+	}
+}
+
+DZU = { # Dzungaria
+	dynamic_country_name = {
+		name = dyn_c_dzungar_khanate # Dzungar Khanate
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				coa_def_monarchy_flag_trigger = yes
+			}
+		}
+	}
+}
+
+MGL = { # Mongolia
+	dynamic_country_name = {
+		name = dyn_c_mongol_khanate # Mongol Khanate
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				coa_def_monarchy_flag_trigger = yes
 			}
 		}
 	}

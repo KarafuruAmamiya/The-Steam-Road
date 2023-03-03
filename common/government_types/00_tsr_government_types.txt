@@ -209,6 +209,23 @@ gov_ottoman_empire = {
 	}			
 }
 
+gov_akkovin_empire = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_PADISHAH"
+	female_ruler = ""
+
+	male_heir = "RULER_TITLE_IMPERIAL_PRINCE"
+	female_heir = ""
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = empire
+		exists = c:AKN
+		c:AKN = ROOT
+	}			
+}
+
 gov_satrapies = {
 	transfer_of_power = hereditary
 
@@ -367,4 +384,21 @@ gov_hetmanate = {
             }
         }
     }
+}
+
+gov_khaganate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KHAGAN"
+	female_ruler = "RULER_TITLE_KHATUN"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = empire
+		exists = c:BUK
+		c:BUK = ROOT
+	}
 }

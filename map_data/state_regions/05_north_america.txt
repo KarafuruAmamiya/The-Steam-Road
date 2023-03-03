@@ -700,28 +700,30 @@ STATE_MISSISSIPI = {
     }
 }
 
-STATE_NAPESTE = {
+STATE_PENSACOLA = {
     id = 292
     subsistence_building = "building_subsistence_farms"
-    provinces = { x6510ED x492B79 x3837AA x407040 x169E1F x20B000 x40A911 x8E9218 xEE9129 x9DD556 xCDE01B xB3D9D8 }
+    provinces = { x6510ED x492B79 x3837AA x407040 x169E1F x20B000 x40A911 x8E9218 xEE9129 x9DD556 xCDE01B xB3D9D8 x807000 x6E31DE x976584 x23B4D0 x8C16F9 xA03000 }
     traits = { "state_trait_american_chestnuts" "state_trait_cotton_belt" }
     city = ""
     port = ""
     farm = ""
     mine = ""
     wood = ""
-    arable_land = 90
+    arable_land = 130
     arable_resources = { "bg_maize_farms" "bg_livestock_ranches" "bg_cotton_plantations" "bg_tobacco_plantations" "bg_sugar_plantations" }
     capped_resources = {
         bg_coal_mining = 28
         bg_iron_mining = 30
         bg_lead_mining = 24
         bg_logging = 17
+		bg_fishing = 10
     }
     resource = {
         type = "bg_oil_extraction"
         undiscovered_amount = 5
     }
+    naval_exit_id = 3060
 }
 
 STATE_NEW_EVORA = {
@@ -751,20 +753,20 @@ STATE_NEW_EVORA = {
 STATE_SOLARADO = {
     id = 720
     subsistence_building = "building_subsistence_farms"
-    provinces = { x371B1B xC51912 xA03000 xE41653 x6E31DE xC1273E x407000 x807000 x976584 x9A7554 x13B0C7 x4FA3C4 x23B4D0 x18D465 x86BC13 x68C793 x39D7A2 xC0F080 x8C16F9 }
+    provinces = { x371B1B xC51912 xE41653 xC1273E x407000 x9A7554 x13B0C7 x4FA3C4 x18D465 x86BC13 x68C793 x39D7A2 xC0F080 }
     traits = { "state_trait_mississippi_river" "state_trait_cotton_belt" }
     city = ""
     port = ""
     farm = ""
     mine = ""
     wood = ""
-    arable_land = 300
+    arable_land = 270
     arable_resources = { "bg_maize_farms" "bg_livestock_ranches" "bg_cotton_plantations" "bg_sugar_plantations" }
     capped_resources = {
 		bg_coal_mining = 24
         bg_sulfur_mining = 32
         bg_logging = 23
-        bg_fishing = 15
+        bg_fishing = 10
     }
     resource = {
         type = "bg_oil_extraction"

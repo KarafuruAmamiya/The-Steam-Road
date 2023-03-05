@@ -700,6 +700,12 @@
 			direction = import
 			target = c:NET.market
 		}
+		create_trade_route = {
+			goods = luxury_furniture
+			level = 1
+			direction = import
+			target = c:AUR.market
+		}
 	}
 	
 	# Solarado
@@ -763,7 +769,13 @@
 			level = 3
 			direction = export
 			target = c:USC.market
-		}	
+		}
+		create_trade_route = {
+			goods = luxury_furniture
+			level = 1
+			direction = import
+			target = c:AUR.market
+		}
 	}
 	
 	# The Antilles
@@ -776,9 +788,9 @@
 		}
 		create_trade_route = {
 			goods = coffee
-			level = 3
+			level = 1
 			direction = export
-			target = c:ENG.market
+			target = c:MRL.market
 		}
 		create_trade_route = {
 			goods = clothes
@@ -823,14 +835,8 @@
 			target = c:NET.market
 		}
 		create_trade_route = {
-			goods = coffee
-			level = 2
-			direction = export
-			target = c:NET.market
-		}
-		create_trade_route = {
 			goods = fabric
-			level = 10
+			level = 6
 			direction = import
 			target = c:SLD.market
 		}
@@ -841,10 +847,246 @@
 			target = c:IBE.market
 		}
 		create_trade_route = {
-			goods = iron
+			goods = furniture
+			level = 2
+			direction = import
+			target = c:AUR.market
+		}
+	}
+	
+	# Marialvia
+	c:MRL = {
+		create_trade_route = {
+			goods = grain
+			level = 4
+			direction = import
+			target = c:ATL.market
+		}
+		create_trade_route = {
+			goods = luxury_clothes
+			level = 3
+			direction = import
+			target = c:AUR.market
+		}
+		create_trade_route = {
+			goods = furniture
+			level = 2
+			direction = import
+			target = c:AUR.market
+		}
+		create_trade_route = {
+			goods = luxury_furniture
+			level = 3
+			direction = import
+			target = c:AUR.market
+		}
+		create_trade_route = {
+			goods = grain
+			level = 4
+			direction = import
+			target = c:TPL.market
+		}
+		create_trade_route = {
+			goods = grain
+			level = 3
+			direction = import
+			target = c:AUR.market
+		}
+		create_trade_route = {
+			goods = hardwood
+			level = 4
+			direction = import
+			target = c:ATL.market
+		}
+		create_trade_route = {
+			goods = wood
+			level = 4
+			direction = import
+			target = c:AMR.market
+		}
+	}
+	
+	# Aurelia
+	c:AUR = {
+		create_trade_route = {
+			goods = small_arms
+			level = 1
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = dye
+			level = 2
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = fabric
+			level = 3
+			direction = import
+			target = c:CSP.market
+		}
+		create_trade_route = {
+			goods = silk
+			level = 1
+			direction = import
+			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = silk
+			level = 1
+			direction = import
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = hardwood
+			level = 2
+			direction = import
+			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = hardwood
 			level = 2
 			direction = import
 			target = c:ENG.market
+		}
+		create_trade_route = {
+			goods = artillery
+			level = 1
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = clippers
+			level = 1
+			direction = import
+			target = c:ATL.market
+		}
+		create_trade_route = {
+			goods = tools
+			level = 3
+			direction = export
+			target = c:IBE.market
+		}
+	}
+	
+	# Transplatina
+	c:TPL = {
+		create_trade_route = {
+			goods = iron
+			level = 2
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = clippers
+			level = 2
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = clothes
+			level = 4
+			direction = export
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = clothes
+			level = 3
+			direction = export
+			target = c:ATL.market
+		}
+		create_trade_route = {
+			goods = luxury_clothes
+			level = 2
+			direction = import
+			target = c:AUR.market
+		}
+		create_trade_route = {
+			goods = manowars
+			level = 1
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = artillery
+			level = 3
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = small_arms
+			level = 2
+			direction = import
+			target = c:MRL.market
+		}
+	}
+	
+	# Cisplatina
+	c:CSP = {
+		create_trade_route = {
+			goods = clippers
+			level = 2
+			direction = import
+			target = c:MRL.market
+		}
+		create_trade_route = {
+			goods = small_arms
+			level = 1
+			direction = import
+			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = artillery
+			level = 1
+			direction = import
+			target = c:IBE.market
+		}
+	}
+	
+	# America
+	c:AMR = {
+		create_trade_route = {
+			goods = small_arms
+			level = 2
+			direction = import
+			target = c:NET.market
+		}
+		create_trade_route = {
+			goods = artillery
+			level = 2
+			direction = import
+			target = c:NET.market
+		}
+		create_trade_route = {
+			goods = coffee
+			level = 6
+			direction = export
+			target = c:NET.market
+		}
+		create_trade_route = {
+			goods = wood
+			level = 7
+			direction = export
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = tobacco
+			level = 7
+			direction = import
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = sugar
+			level = 2
+			direction = export
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = sugar
+			level = 2
+			direction = export
+			target = c:NET.market
 		}
 	}
 	

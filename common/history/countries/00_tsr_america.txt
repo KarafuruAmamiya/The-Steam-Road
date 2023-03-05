@@ -119,6 +119,29 @@
 			set_interest_group_name = ig_catholic_church
 		}
 	}
+	c:JUL = { # Juliana
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_no_police
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_catholic_church
+		}
+	}
 	c:KNM = { # Kuntermark Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
@@ -155,6 +178,10 @@
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_catholic_church
+		}
+		
+		add_modifier = {
+			name = lusitanian_league
 		}
 	}
 	c:NBR = { # New Brabant Company
@@ -301,6 +328,10 @@
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
+		}
+		
+		add_modifier = {
+			name = lusitanian_league
 		}
 	}
 	c:VML = { # Vlaamsland Company

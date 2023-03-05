@@ -314,20 +314,6 @@
 		region_state:UNG={
 		}
 	}
-	s:STATE_WASHINGTON={
-		region_state:COL={
-		}
-	}
-	s:STATE_OREGON={
-		region_state:COL={
-			create_building={
-				building="building_logging_camp"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
-			}
-		}
-	}
 	s:STATE_IDAHO={
 		region_state:COL={
 		}
@@ -1810,12 +1796,14 @@
 			}
 		}
 	}
-	s:STATE_NEVADA={
-		region_state:MEX={
+	s:STATE_SERRA_TORRES={
+		region_state:PAI={
+		}
+		region_state:SHS={
 		}
 	}
-	s:STATE_ARIZONA={
-		region_state:MEX={
+	s:STATE_WEST_CORADO={
+		region_state:NWV={
 		}
 		region_state:NVJ={
 		}
@@ -1828,12 +1816,222 @@
 		region_state:APC={
 		}
 	}
-	s:STATE_CALIFORNIA={
-		region_state:MEX={
+	s:STATE_NEW_ARAGON={
+		region_state:NAR={
+			create_building={
+				building="building_logging_camp"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
+			}
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
 		}
 	}
-	s:STATE_SONORA={
-		region_state:MEX={
+	s:STATE_COLOMBO={
+		region_state:NAR={
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
+			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
+			}
+		}
+		region_state:AUR={
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
+			create_building={
+				building="building_coal_mine"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
+			}
+			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
+			}
+		}
+	}
+	s:STATE_COSTA_DO_OURO={
+		region_state:AUR={
+			create_building={
+				building="building_government_administration"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
+				building="building_construction_sector"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_wooden_buildings" }
+			}
+			create_building={
+				building="building_paper_mills"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_pulp_pressing" "pm_automation_disabled" "pm_merchant_guilds_building_paper_mills" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=6
+				reserves=1
+				activate_production_methods={ "pm_privately_owned" "pm_simple_farming" "pm_tools_disabled" "pm_no_secondary" }
+			}
+			create_building={
+				building="building_gold_mine"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_gold_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_gold_mine" }
+			}
+			create_building={
+				building="building_tooling_workshops"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
+			}
+			create_building={
+				building="building_iron_mine"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_iron_mine" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+			}
+			create_building={
+				building="building_shipyards"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_basic_shipbuilding" "pm_merchant_guilds_building_shipyards" "pm_military_shipbuilding_wooden" }
+			}
+			create_building={
+				building="building_naval_base"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_power_of_the_purse" }
+			}
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
+			create_building={
+				building="building_port"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		}
+	}
+	s:STATE_PAPAGO={
+		region_state:AUR={
+			create_building={
+				building="building_government_administration"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_textile_mills"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+			}
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		}
+	}
+	s:STATE_SINALOLA={
+		region_state:AUR={
+			create_building={
+				building="building_government_administration"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_furniture_manufacturies"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_lathe" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+			}
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		}
+	}
+	s:STATE_ALTA_TORRES={
+		region_state:AUR={
+			create_building={
+				building="building_barracks"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
+			}
 		}
 	}
 	s:STATE_CHIHUAHUA={
@@ -1932,16 +2130,6 @@
 	}
 	s:STATE_DURANGO={
 		region_state:SLD={
-			create_building={
-				building="building_livestock_ranch"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-		}
-	}
-	s:STATE_SINALOA={
-		region_state:MEX={
 			create_building={
 				building="building_livestock_ranch"
 				level=1
@@ -2406,10 +2594,6 @@
 				reserves=1
 				activate_production_methods={ "default_building_banana_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
-		}
-	}
-	s:STATE_BAJA_CALIFORNIA={
-		region_state:MEX={
 		}
 	}
 }

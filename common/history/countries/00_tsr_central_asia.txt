@@ -29,7 +29,7 @@
 			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
-	c:BUK = { # Bukharan Empire
+	c:BUK = { # Bukharan Khaganate
 		effect_starting_technology_tier_4_tech = yes
 		add_technology_researched = urban_planning
 		add_technology_researched = sericulture
@@ -54,6 +54,12 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
+		activate_law = law_type:law_colonial_resettlement
+		
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -63,7 +69,7 @@
 			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
-	c:NSB = { # New Sibirstan
+	c:DZU = { # Dzungaria
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -72,15 +78,7 @@
 		add_technology_researched = urban_planning
 		add_technology_researched = colonization
 		
-		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_colonial_resettlement
-		
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
-		}
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes

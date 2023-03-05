@@ -650,10 +650,10 @@
 				activate_production_methods={ "pm_pulp_pressing" "pm_automation_disabled" "pm_merchant_guilds_building_paper_mills" }
 			}
 			create_building={
-				building="building_wheat_farm"
-				level=1
+				building="building_glassworks"
+				level=3
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
+				activate_production_methods={ "pm_forest_glass" "pm_merchant_guilds_building_glassworks" "pm_manual_glassblowing" "pm_ceramics" }
 			}
 			create_building={
 				building="building_furniture_manufacturies"
@@ -828,6 +828,18 @@
 				level=3
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_opium_plantation"
+				level=4
+				reserves=1
+				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_tea_plantation"
+				level=4
+				reserves=1
+				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_furniture_manufacturies"

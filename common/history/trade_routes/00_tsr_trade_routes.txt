@@ -1037,16 +1037,22 @@
 			target = c:MRL.market
 		}
 		create_trade_route = {
-			goods = small_arms
-			level = 1
+			goods = sugar
+			level = 3
 			direction = import
 			target = c:IBE.market
 		}
 		create_trade_route = {
-			goods = artillery
-			level = 1
+			goods = hardwood
+			level = 3
 			direction = import
 			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = iron
+			level = 2
+			direction = import
+			target = c:ENG.market
 		}
 	}
 	
@@ -1054,11 +1060,17 @@
 	c:AMR = {
 		create_trade_route = {
 			goods = small_arms
-			level = 2
+			level = 3
 			direction = import
 			target = c:NET.market
 		}
 		create_trade_route = {
+			goods = small_arms
+			level = 1
+			direction = import
+			target = c:CSP.market
+		}
+		create_trade_route = { 
 			goods = artillery
 			level = 2
 			direction = import
@@ -1087,12 +1099,6 @@
 			level = 2
 			direction = export
 			target = c:FRA.market
-		}
-		create_trade_route = {
-			goods = sugar
-			level = 2
-			direction = export
-			target = c:NET.market
 		}
 	}
 	

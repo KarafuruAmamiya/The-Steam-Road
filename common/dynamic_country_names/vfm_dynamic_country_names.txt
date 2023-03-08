@@ -54,7 +54,7 @@ KOR = { # Korea
 			
 			scope:actor = {
 				is_subject = yes
-				 has_law = law_type:law_monarchy
+				has_law = law_type:law_monarchy
 			}
 		}
 	}
@@ -81,7 +81,21 @@ KOR = { # Korea
 		priority = 2
 		
 		trigger = {
-			coa_def_chinese_ensign_trigger = yes
+			exists = c:CHI
+			c:CHI = {
+				OR = {
+					has_diplomatic_pact = {
+						who = c:KOR
+						type = vassal
+						is_initiator = yes
+					}
+					has_diplomatic_pact = {
+						who = c:KOR
+						type = puppet
+						is_initiator = yes
+					}
+				}
+			}
 		}
 	}
     dynamic_country_name = { # Korean Empire

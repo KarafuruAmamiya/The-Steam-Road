@@ -302,6 +302,8 @@ in_earthquake_zone = {
 	OR = {
 		region = sr:region_indonesia
 		region = sr:region_indochina
+		region = sr:region_anatolia
+		region = sr:region_persia
 		region = sr:region_south_china
 		region = sr:region_north_china
 		region = sr:region_manchuria
@@ -313,6 +315,7 @@ in_earthquake_zone = {
 		region = sr:region_central_america
 		region = sr:region_mexico
 		region = sr:region_pacific_coast
+		region = sr:region_borealia
 	}
 }
 
@@ -326,6 +329,7 @@ in_volcanic_zone = {
 		region = sr:region_central_america
 		region = sr:region_mexico
 		region = sr:region_pacific_coast
+		region = sr:region_borealia
 		region = sr:region_zanj
 		region = sr:region_south_italy
 		state_region = s:STATE_ICELAND
@@ -467,30 +471,50 @@ owned_central_asia_region_states = {
 	owns_entire_state_region = STATE_UZBEKIA
 	owns_entire_state_region = STATE_TURKMENIA
 	owns_entire_state_region = STATE_KHIVA
+	owns_entire_state_region = STATE_YAIK 
+	owns_entire_state_region = STATE_SYRDARYA 
+	owns_entire_state_region = STATE_SAMARKAND 
+	owns_entire_state_region = STATE_GHULJA 
+	owns_entire_state_region = STATE_URUMCHI 
+	owns_entire_state_region = STATE_HAMI_TURPAN 
+	owns_entire_state_region = STATE_WESTERN_TARIM 
+	owns_entire_state_region = STATE_SOUTHERN_TARIM
+	owns_entire_state_region = STATE_MERV 
+	owns_entire_state_region = STATE_BADAKSHAN 
+	owns_entire_state_region = STATE_ORENBURG 
+	owns_entire_state_region = STATE_CHELYABINSK
 }
 
 owned_great_plains_region_states = {
-	owns_entire_state_region = STATE_MONTANA
-	owns_entire_state_region = STATE_NORTH_DAKOTA
-	owns_entire_state_region = STATE_SOUTH_DAKOTA
-	owns_entire_state_region = STATE_NEBRASKA
-	owns_entire_state_region = STATE_WYOMING
-	owns_entire_state_region = STATE_COLORADO
-	owns_entire_state_region = STATE_KANSAS
-	owns_entire_state_region = STATE_OKLAHOMA
-	owns_entire_state_region = STATE_NEW_MEXICO
-	owns_entire_state_region = STATE_TEXAS
+	owns_entire_state_region = STATE_ROCHOSAS
+	owns_entire_state_region = STATE_VIOMINGUE
+	owns_entire_state_region = STATE_DACOTA
+	owns_entire_state_region = STATE_OMANHA
+	owns_entire_state_region = STATE_MISSEADOZ
+	owns_entire_state_region = STATE_RIO_VERMELHO_DO_NORTE
+	owns_entire_state_region = STATE_SANTA_FE
+	owns_entire_state_region = STATE_PIAPAS
+	owns_entire_state_region = STATE_ESPIRITO_SANTO
+	owns_entire_state_region = STATE_QUIVIRA
+	owns_entire_state_region = STATE_RIO_CEDRO
+	owns_entire_state_region = STATE_APACHES
+	owns_entire_state_region = STATE_TAUACONI
+	owns_entire_state_region = STATE_VARA_DURA
+	owns_entire_state_region = STATE_NEW_GALICIA
+	owns_entire_state_region = STATE_NEW_PORTO
+	owns_entire_state_region = STATE_TACHA
 }
 
 owned_pacific_coast_region_states = {
-	owns_entire_state_region = STATE_WASHINGTON
-	owns_entire_state_region = STATE_IDAHO
-	owns_entire_state_region = STATE_OREGON
-	owns_entire_state_region = STATE_NEVADA
-	owns_entire_state_region = STATE_UTAH
-	owns_entire_state_region = STATE_ARIZONA
-	owns_entire_state_region = STATE_CALIFORNIA
-	owns_entire_state_region = STATE_BAJA_CALIFORNIA
+	owns_entire_state_region = STATE_COSTA_DO_OURO
+	owns_entire_state_region = STATE_ALTA_TORRES
+	owns_entire_state_region = STATE_SERRA_TORRES
+	owns_entire_state_region = STATE_WEST_CORADO
+	owns_entire_state_region = STATE_PAPAGO
+	owns_entire_state_region = STATE_SINALOLA
+	owns_entire_state_region = STATE_NEW_ARAGON
+	owns_entire_state_region = STATE_PACIFICO_NOROESTE
+	owns_entire_state_region = STATE_COLOMBO
 }
 
 french_treaty_ports = {
@@ -552,6 +576,7 @@ italian_treaty_ports = {
 		owns_treaty_port_in = STATE_VENETIA
 		owns_treaty_port_in = STATE_ISTRIA
 		owns_treaty_port_in = STATE_EMILIA
+		owns_treaty_port_in = STATE_LIGURIA
 	}
 }
 	
@@ -567,6 +592,9 @@ iberian_treaty_ports = {
 		owns_treaty_port_in = STATE_BEIRA
 		owns_treaty_port_in = STATE_ESTREMADURA
 		owns_treaty_port_in = STATE_ALENTEJO
+		owns_treaty_port_in = STATE_MURCIA
+		owns_treaty_port_in = STATE_PORTO
+		owns_treaty_port_in = STATE_VASCONGADAS
 	}
 }
 
@@ -594,6 +622,12 @@ european_colonies_north_africa = {
 		owns_entire_state_region = STATE_INNER_MOROCCO
 		owns_entire_state_region = STATE_FEZ
 		owns_entire_state_region = STATE_MARRAKECH
+		owns_entire_state_region = STATE_FEZZAN
+		owns_entire_state_region = STATE_SFAX
+		owns_entire_state_region = STATE_OUJDA
+		owns_entire_state_region = STATE_ERRACHIDIA
+		owns_entire_state_region = STATE_DERNA
+		owns_entire_state_region = STATE_MISRATA
 	}
 }
 
@@ -639,6 +673,13 @@ european_colonies_nile_basin = {
 		owns_entire_state_region = STATE_MATRUH
 		owns_entire_state_region = STATE_LOWER_EGYPT
 		owns_entire_state_region = STATE_SINAI
+		owns_entire_state_region = STATE_BENI_SUEF
+		owns_entire_state_region = STATE_LUXOR
+		owns_entire_state_region = STATE_ASWAN
+		owns_entire_state_region = STATE_SUAKIN
+		owns_entire_state_region = STATE_KASSALA
+		owns_entire_state_region = STATE_WHITE_NILE
+		owns_entire_state_region = STATE_ALEXANDRIA
 	}
 }
 
@@ -676,6 +717,8 @@ european_colonies_east_africa = {
 		owns_entire_state_region = STATE_MOCAMBIQUE
 		owns_entire_state_region = STATE_NORTH_MADAGASCAR
 		owns_entire_state_region = STATE_SOUTH_MADAGASCAR
+		owns_entire_state_region = STATE_HARAR
+		owns_entire_state_region = STATE_AWDAL
 	}
 }
 
@@ -697,10 +740,16 @@ european_colonies_south_africa = {
 
 owned_andes_region_states = {
 	owns_entire_state_region = STATE_LA_PAZ
-	owns_entire_state_region = STATE_PASTAZA
-	owns_entire_state_region = STATE_JUJUY
+	owns_entire_state_region = STATE_SALTA
+	owns_entire_state_region = STATE_TARAPACA
+	owns_entire_state_region = STATE_CUSCO
+	owns_entire_state_region = STATE_CHIQUIAGO
+	owns_entire_state_region = STATE_TAIXA
+	owns_entire_state_region = STATE_GUAYAQUIL
+	owns_entire_state_region = STATE_PUCARA
+	owns_entire_state_region = STATE_AZUAY
+	owns_entire_state_region = STATE_LA_CONVENCION
 	owns_entire_state_region = STATE_ECUADOR
-	owns_entire_state_region = STATE_SANTA_CRUZ
 	owns_entire_state_region = STATE_AREQUIPA
 	owns_entire_state_region = STATE_CAJAMARCA
 	owns_entire_state_region = STATE_ICA
@@ -708,34 +757,52 @@ owned_andes_region_states = {
 	owns_entire_state_region = STATE_POTOSI
 	owns_entire_state_region = STATE_TARAPACA
 	owns_entire_state_region = STATE_ANTOFAGASTA
-	owns_entire_state_region = STATE_ACRE
+	owns_entire_state_region = STATE_LOS_RIOS
+	owns_entire_state_region = STATE_CANDELARIA
+	owns_entire_state_region = STATE_PLANALTINA
+	owns_entire_state_region = STATE_SAN_MARTIN
+	owns_entire_state_region = STATE_JUNIN
+	owns_entire_state_region = STATE_ARAUCANIA
 }
 
 owned_gran_colombia_region_states = {
-	owns_entire_state_region = STATE_BOLIVAR
+	owns_entire_state_region = STATE_BATAVIA
 	owns_entire_state_region = STATE_CUNDINAMARCA
 	owns_entire_state_region = STATE_CAUCA
-	owns_entire_state_region = STATE_GUAVIARE
+	owns_entire_state_region = STATE_WILLEMSLAND
 	owns_entire_state_region = STATE_ZULIA
-	owns_entire_state_region = STATE_ANTIOQUIA
-	owns_entire_state_region = STATE_MIRANDA
-	owns_entire_state_region = STATE_GUAYANA
+	owns_entire_state_region = STATE_CAROU
+	owns_entire_state_region = STATE_PAYS_DE_GRACE
+	owns_entire_state_region = STATE_ESSEQUIBO
+	owns_entire_state_region = STATE_MARONI
+	owns_entire_state_region = STATE_MAIRE
+	owns_entire_state_region = STATE_LES_PLAINES
 }
 
 owned_la_plata_region_states = {
-	owns_entire_state_region = STATE_SANTIAGO
-	owns_entire_state_region = STATE_PATAGONIA
-	owns_entire_state_region = STATE_ARAUCANIA
-	owns_entire_state_region = STATE_LOS_RIOS
 	owns_entire_state_region = STATE_SOUTH_ATLANTIC_ISLANDS
 	owns_entire_state_region = STATE_BAJO_PARAGUAY
 	owns_entire_state_region = STATE_ALTO_PARAGUAY
-	owns_entire_state_region = STATE_BUENOS_AIRES
+	owns_entire_state_region = STATE_SAO_JOAO
 	owns_entire_state_region = STATE_CHACO
 	owns_entire_state_region = STATE_TUCUMAN
 	owns_entire_state_region = STATE_CORRIENTES
-	owns_entire_state_region = STATE_SANTA_FE
-	owns_entire_state_region = STATE_RIO_NEGRO
+	owns_entire_state_region = STATE_CAMPOS_GERAIS
+	owns_entire_state_region = STATE_SANTA_QUITERIA
+	owns_entire_state_region = STATE_RIO_DA_PRATA
+	owns_entire_state_region = STATE_MARACAY
+	owns_entire_state_region = STATE_TUNUIAO
+	owns_entire_state_region = STATE_BRAGA
+	owns_entire_state_region = STATE_NOVA_BEIRA
+	owns_entire_state_region = STATE_CATAMARCA
+	owns_entire_state_region = STATE_ENTRE_RIOS
+	owns_entire_state_region = STATE_URUGUAY
+	owns_entire_state_region = STATE_CISPLATINA
+	owns_entire_state_region = STATE_BAIA_BRANCA
+	owns_entire_state_region = STATE_JULIANA
+	owns_entire_state_region = STATE_LOURINHA
+	owns_entire_state_region = STATE_PEREIRA
+	owns_entire_state_region = STATE_PATAGONIA
 }
 
 is_farm_building = {
@@ -969,6 +1036,12 @@ language_accepted = {
 			}
 		}
 		AND = {
+			culture = { has_discrimination_trait = latin_speaking }
+			owner = {
+				any_primary_culture = { has_discrimination_trait = latin_speaking }
+			}
+		}
+		AND = {
 			culture = { has_discrimination_trait = anglophone }
 			owner = {
 				any_primary_culture = { has_discrimination_trait = anglophone }
@@ -984,12 +1057,6 @@ language_accepted = {
 			culture = { has_discrimination_trait = italophone }
 			owner = {
 				any_primary_culture = { has_discrimination_trait = italophone }
-			}
-		}
-		AND = {
-			culture = { has_discrimination_trait = arab_speaking }
-			owner = {
-				any_primary_culture = { has_discrimination_trait = arab_speaking }
 			}
 		}
 		AND = {

@@ -40,12 +40,12 @@ GLOBAL = {
 	}
 	
 	every_country = {
-		limit = {
-			exists = c:TUR
-			this = c:TUR
-		}
-		post_notification = lorebox_me
-	}
+		limit = { country_is_in_middle_east = yes }
+        trigger_event = {
+            id = lorebox.1
+            days = 1
+        }
+    }
 	
 	c:IBE = {
 		every_scope_state = {

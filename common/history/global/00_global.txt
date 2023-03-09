@@ -4,9 +4,63 @@ GLOBAL = {
 		limit = { NOT = { has_law = law_type:law_slavery_banned } }
 		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
 	}
-	every_country = {
-		limit = { country_is_in_middle_east = yes }
-		set_variable = { name = lorebox_me } 
+	
+	set_global_variable = {
+		name = number_of_mega_earthquakes
+		value = 0
+	}
+
+	set_global_variable = {
+		name = number_of_mega_floods
+		value = 0
+	}
+	
+	set_global_variable = {
+		name = number_of_mega_eruptions
+		value = 0
+	}
+	
+	s:STATE_DISTRICT_OF_COLUMBIA = {	
+		set_variable = {
+            name = usa_state_flag_block
+            value = yes
+        }
+
+        set_variable = {
+            name = district_of_columbia
+            value = yes
+        }
+	}
+	
+	s:STATE_WEST_VIRGINIA = {	
+        set_variable = {
+            name = usa_state_flag_block
+            value = yes
+        }
+	}
+	
+	c:IBE = {
+		every_scope_state = {
+            limit = {
+                OR = {
+                    state_region = s:STATE_PORTO
+                    state_region = s:STATE_ESTREMADURA 
+					state_region = s:STATE_BEIRA
+					state_region = s:STATE_ALENTEJO
+					state_region = s:STATE_ARAGON
+					state_region = s:STATE_VALENCIA
+					state_region = s:STATE_CATALONIA
+                }
+            }
+            add_radicals = {
+                value = medium_radicals
+                culture = cu:portuguese
+            }
+            add_radicals = {
+                value = 1.5
+                culture = cu:catalan
+            }
+        }
 	}
 }
 

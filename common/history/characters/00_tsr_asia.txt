@@ -5,6 +5,7 @@
 			last_name = "Aq_Qoyunlu"
 			ruler = yes
 			female = no
+			dna = dna_ali_iv
 			birth_date = 1796.5.4
     		culture = cu:kavuni
 			
@@ -25,6 +26,40 @@
 			heir = yes
 			culture = cu:kavuni
 			birth_date=1817.9.21
+		}
+	}
+	c:BUK = {
+		create_character = {
+			first_name = "Muhammad_Khan"
+			last_name = "Shaybanid"
+			ruler = yes
+			female = no
+			dna = dna_muhammad_khan
+			birth_date = 1785.12.4
+    		culture = cu:uzbek
+			
+			interest_group = ig_landowners
+			ideology = ideology_jingoist_leader
+			traits = {
+				cautious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		
+		create_character = {
+			first_name = "Iskander"
+			last_name = "Shaybanid"
+			female = no
+			heir = yes
+			culture = cu:uzbek
+			birth_date=1810.8.19
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			on_created = {
+				set_variable = is_married
+			}
 		}
 	}
 	c:CHI = {

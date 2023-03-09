@@ -39,6 +39,14 @@ GLOBAL = {
         }
 	}
 	
+	every_country = {
+		limit = {
+			exists = c:TUR
+			this = c:TUR
+		}
+		post_notification = lorebox_me
+	}
+	
 	c:IBE = {
 		every_scope_state = {
             limit = {

@@ -10,3 +10,29 @@ lorebox.1 = {
 		post_notification = lorebox_me
 	}
 }
+
+lorebox.2 = {
+	type = country_event
+	hidden = yes
+	trigger = {
+		country_is_in_europe = yes
+	}
+	immediate = {
+		post_notification = lorebox_eu
+	}
+}
+
+lorebox.3 = {
+	type = country_event
+	hidden = yes
+	trigger = {
+		OR = {
+			country_is_in_east_asia = yes
+			country_is_in_central_asia = yes
+			country_is_in_southeast_asia = yes
+		}
+	}
+	immediate = {
+		post_notification = lorebox_as
+	}
+}

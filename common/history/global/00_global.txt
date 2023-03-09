@@ -47,6 +47,28 @@ GLOBAL = {
         }
     }
 	
+	every_country = {
+		limit = { country_is_in_europe = yes }
+        trigger_event = {
+            id = lorebox.2
+            days = 1
+        }
+    }
+	
+	every_country = {
+		limit = { 
+			OR = {
+				country_is_in_east_asia = yes
+				country_is_in_central_asia = yes
+				country_is_in_southeast_asia = yes
+			}
+		}
+        trigger_event = {
+            id = lorebox.3
+            days = 1
+        }
+    }
+	
 	c:IBE = {
 		every_scope_state = {
             limit = {

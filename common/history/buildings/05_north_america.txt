@@ -115,6 +115,12 @@
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
+			create_building={
+				building="building_conscription_center"
+				level=31
+				reserves=1
+				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry_conscription" "pm_cavalry_scouts_conscription" "pm_no_specialists_conscription" "pm_mobile_artillery_conscription" }
+			}
 		}
 	}
 	if = {
@@ -493,6 +499,12 @@
 				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
 			}
 			create_building={
+				building="building_arms_industry"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_muskets" "pm_merchant_guilds_building_arms_industry" "pm_cannons" }
+			}
+			create_building={
 				building="building_livestock_ranch"
 				level=2
 				reserves=1
@@ -684,7 +696,7 @@
 			}
 			create_building={
 				building="building_arms_industry"
-				level=1
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_muskets" "pm_merchant_guilds_building_arms_industry" "pm_cannons" }
 			}	
@@ -1148,6 +1160,12 @@
 				reserves=1
 				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
 			}
+			create_building={
+				building="building_conscription_center"
+				level=14
+				reserves=1
+				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry_conscription" "pm_cavalry_scouts_conscription" "pm_no_specialists_conscription" "pm_mobile_artillery_conscription" }
+			}
 		}
 	}
 	s:STATE_NEW_JERSEY={
@@ -1380,9 +1398,9 @@
 			}
 			create_building={
 				building="building_wheat_farm"
-				level=1
+				level=2
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -1494,7 +1512,7 @@
 			}
 			create_building={
 				building="building_furniture_manufacturies"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_lathe" "pm_no_luxuries" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
@@ -1586,7 +1604,7 @@
 			}
 			create_building={
 				building="building_tooling_workshops"
-				level=2
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
 			}

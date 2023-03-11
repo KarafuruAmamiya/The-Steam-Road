@@ -282,7 +282,10 @@ KRL = { # Karolia
 		trigger = {
 			exists = scope:actor
 			scope:actor = {
-				is_subject_of = c:SCA
+				OR = {
+					is_subject_of = c:SCA
+					has_variable = karolean_independence_war
+				}
 			}
 		}
 	}
@@ -296,7 +299,7 @@ KRL = { # Karolia
 		trigger = {
 			exists = scope:actor
 			scope:actor = {
-				NOT = { is_subject = yes }
+				NOT = { has_variable = karolean_independence_war }
 				OR = {
 					has_law = law_type:law_parliamentary_republic
 					has_law = law_type:law_presidential_republic

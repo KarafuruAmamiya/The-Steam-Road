@@ -1,26 +1,26 @@
 ﻿DIPLOMATIC_PLAYS = {
-	c:KRL = {
+	c:SCA = {
 		create_diplomatic_play = {
 			name = karolean_independence_war
 		
-			target_country = c:SCA
+			target_country = c:KRL
 			
 			war = yes
 			
-			type = dp_independence
+			type = dp_make_puppet
 
 			add_initiator_backers = {
-				c:FRA
+				c:USC
 			}
 			
 			add_target_backers = {
-				c:USC
+				c:FRA
 			}
 
 			add_war_goal = {
-				holder = c:SCA
-				type = annex_country
-				target_country = c:KRL
+				holder = c:KRL
+				type = humiliation
+				target_country = c:SCA
 			}
 		}			
 	}

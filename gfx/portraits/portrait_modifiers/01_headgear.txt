@@ -631,8 +631,16 @@
                 exists = scope:character
                 scope:character = {
                     owner = {
-                        exists = c:TUR
-                        c:TUR = this
+						OR = {
+							AND = {
+								exists = c:TUR
+								c:TUR = this
+							}
+							AND = {
+								exists = c:AKN
+								c:AKN = this
+							}
+						}
                     }
                     OR = {
                         military_clothes_trigger = yes
@@ -645,8 +653,16 @@
                 exists = scope:character
                 scope:character = {
                     owner = {
-                        exists = c:TUR
-                        c:TUR = this
+						OR = {
+							AND = {
+								exists = c:TUR
+								c:TUR = this
+							}
+							AND = {
+								exists = c:AKN
+								c:AKN = this
+							}
+						}
                     }
                     OR = {
 						soldier_clothes_pop_trigger = yes

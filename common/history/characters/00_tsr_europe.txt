@@ -27,7 +27,7 @@
 			interest_group = ig_landowners
 			ideology = ideology_royalist
 			traits = {
-				
+				cautious
 			}
 			on_created = {
 				set_variable = is_married
@@ -44,7 +44,7 @@
 			interest_group = ig_armed_forces
 			ideology = ideology_jingoist
 			traits = {
-				
+				charismatic firebrand
 			}
 		}
 	}
@@ -52,6 +52,7 @@
 		create_character = {
 			first_name = Ernest_II
 			last_name = Oliver
+			dna = dna_king_ernest
 			ruler = yes
 			noble = yes
 			birth_date = 1769.2.9
@@ -115,6 +116,9 @@
 			heir = yes
 			birth_date=1835.6.18
     		religion = rel:catholic
+			traits = {
+				reckless expert_political_operator
+			}
 		}
 	}
 	c:IBE = {
@@ -188,7 +192,7 @@
 			last_name = "van_Brabant"
 			female = no
 			heir = yes
-			birth_date=1835.9.25
+			birth_date=1825.9.25
 		}
 	}
 	c:PLT = {
@@ -276,14 +280,13 @@
 			last_name = "Rurik"
 			female = no
 			heir = yes
-			dna = dna_gustav_iii
 			birth_date=1824.7.15
     		religion = rel:catholic
 			culture = cu:swedish
 			interest_group = ig_landowners
 			ideology = ideology_jingoist_leader
 			traits = {
-				pious
+				persistent
 			}
 		}
 	}
@@ -299,7 +302,7 @@
 			interest_group = ig_landowners
 			ideology = ideology_moderate
 			traits = {
-				
+				direct
 			}
 		}
 	}

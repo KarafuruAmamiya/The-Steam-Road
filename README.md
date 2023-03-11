@@ -1,7 +1,5 @@
 # The Steam Road
 
-Discord: https://discord.gg/HcnrcqAW
-
 Steam Workshop: 
 
 Paradox Forum:

@@ -222,6 +222,7 @@
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_dedicated_police
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_per_capita_based_taxation
@@ -240,6 +241,11 @@
 		}
 		
 		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+		
+		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 2
 		}
@@ -248,17 +254,15 @@
 			set_interest_group_name = ig_catholic_church
 		}
 		
-		ig:ig_petty_bourgeoisie = {
-			add_ruling_interest_group = yes
-		}
-		
-		ig:ig_industrialists = {
-			add_ruling_interest_group = yes
-		}
-		
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_landowners = { 
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
 		}
 		
 		ig:ig_intelligentsia = {

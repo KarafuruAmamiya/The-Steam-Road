@@ -1,3 +1,269 @@
 ﻿COUNTRIES = {
-	
+	c:ASH = { # Ashanti
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes		
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+	}
+	c:BEN	= { # Benin
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery 
+	}
+	c:BGI = { # Bagirmi
+		effect_starting_technology_tier_6_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:BOR	= { # Bornu
+		effect_starting_technology_tier_5_tech = yes
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+			
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:DAH = { # Dahomey
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes		
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+	}
+	c:FTJ = { # Futa Jalon
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+	}
+	c:FTJ = { # Futa Toro
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+	}
+	c:JNN = { # Djenne
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+	}
+	c:KNG = { # Kong
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes		
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+	}
+	c:MAL = { Mali
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+	}
+	c:NUP = { # Nupe
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_slave_trade	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:OYO	= { # Oyo
+		effect_starting_technology_tier_5_tech = yes
+		add_technology_researched = international_trade
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:SGU	= { # Segu
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+	}
+	c:SNH = { # Songhai
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_slave_trade	
+
+		ig:ig_devout = {
+			set_interest_group_name = ig_sunni_madrasahs
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:WAD = { # Wadai
+		effect_starting_technology_tier_6_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs
+		}
+	}
+	c:YAT = { # Yatenga
+		effect_starting_technology_tier_5_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_isolationism
+
+		ig:ig_devout = { 
+			set_interest_group_name = ig_sunni_madrasahs 
+		}
+	}
+
+	# Decentralzied
+	c:ADG	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_5 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:OUA	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:SAH	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:TRZ	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:JLF	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:SRR	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:KBU	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:SSU	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:MDK	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:KBD	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:BLE	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:AYI	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:EWE	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:IBO	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:ADM	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:AIR	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:DLA	= {
+		effect_starting_technology_tier_6_tech = yes
+		effect_starting_politics_traditional = yes
+		effect_native_conscription_6 = yes
+		activate_law = law_type:law_debt_slavery
+	}
 }

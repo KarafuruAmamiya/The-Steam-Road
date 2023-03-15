@@ -1,0 +1,195 @@
+﻿namespace = krl_independence
+
+# War criticsm in the US
+krl_independence.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.1.t
+	desc = krl_independence.1.d
+	flavor = krl_independence.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:USC
+		this = c:USC
+	}
+
+	option = { # We will do what we can
+		name = krl_independence.1.a
+		random_diplomatic_play = {
+			limit = { 
+				initiator_is = c:SCA
+				target_is = c:KRL
+			}
+			war = {
+				add_war_war_support = {
+					target = c:USC
+					value = -50
+				}
+			}
+		}
+	}
+}
+
+# The people demand the end of the war
+krl_independence.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.2.t
+	desc = krl_independence.2.d
+	flavor = krl_independence.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:USC
+		this = c:USC
+		any_diplomatic_play = {
+			initiator_is = c:SCA
+			target_is = c:KRL
+			war = {
+				has_war_support = {
+					target = c:USC
+					value < 0
+				}
+			}
+		}
+	}
+
+	option = { # We must support our allies
+		name = krl_independence.2.a
+		change_relations = {
+			country = c:SCA
+			value = 50
+		}
+		ig:ig_armed_forces = {
+			add_modifier = {
+				name = did_not_pull_out_of_the_war_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = did_not_pull_out_of_the_war_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = did_not_pull_out_of_the_war_negative
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = did_not_pull_out_of_the_war_negative
+				months = normal_modifier_time
+			}
+		}
+		ai_chance = 25
+	}
+
+	option = { # The people has spoken
+		name = krl_independence.2.b
+		default_option = yes
+		ai_chance = 75
+		random_diplomatic_play = {
+			limit = { 
+				initiator_is = c:SCA
+				target_is = c:KRL
+			}
+			war = {
+				add_war_war_support = {
+					target = c:USC
+					value = -100
+				}
+			}
+		}
+		change_relations = {
+			country = c:SCA
+			value = -80
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = pulled_out_of_the_war_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = pulled_out_of_the_war_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_armed_forces = {
+			add_modifier = {
+				name = pulled_out_of_the_war_negative
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = pulled_out_of_the_war_negative
+				months = normal_modifier_time
+			}
+		}
+		remove_variable = karolean_independence_war
+	}
+}
+
+# Karolia wins
+krl_independence.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.3.t
+	desc = krl_independence.3.d
+	flavor = krl_independence.3.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:KRL
+		this = c:KRL
+		NOT = { is_subject_of = c:SCA }
+	}
+
+	option = { # The fallen heroes shall never be forgotten!
+		name = krl_independence.3.a
+		remove_variable = karolean_independence_war
+		remove_modifier = karolean_independence_war
+	}
+}

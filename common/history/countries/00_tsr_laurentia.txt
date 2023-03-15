@@ -240,6 +240,11 @@
 		activate_law = law_type:law_colonial_resettlement
 		activate_law = law_type:law_national_militia
 		
+		set_tariffs_import_priority = g:artillery
+		set_tariffs_import_priority = g:small_arms
+
+		add_taxed_goods = g:liquor
+		
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 1
@@ -522,6 +527,8 @@
 		ig:ig_petty_bourgeoisie = {
 			add_ruling_interest_group = yes
 		}
+		
+		set_variable = karolean_independence_war
 	}
 
 	# Decentralized Tribes

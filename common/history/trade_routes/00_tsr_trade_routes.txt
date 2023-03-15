@@ -9,6 +9,12 @@
 			target = c:PER.market
 		}
 		create_trade_route = {
+			goods = glass
+			level = 3
+			direction = import
+			target = c:SAX.market
+		}
+		create_trade_route = {
 			goods = wood
 			level = 6
 			direction = export
@@ -141,7 +147,13 @@
 			level = 3
 			direction = import
 			target = c:FRA.market
-		}	
+		}
+		create_trade_route = {
+			goods = sugar
+			level = 2
+			direction = import
+			target = c:NET.market
+		}
 		create_trade_route = {
 			goods = dye
 			level = 2
@@ -230,12 +242,6 @@
 	c:NET = {
 		create_trade_route = {
 			goods = luxury_clothes
-			level = 4
-			direction = export
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = luxury_clothes
 			level = 10
 			direction = export
 			target = c:CHI.market
@@ -254,27 +260,15 @@
 		}
 		create_trade_route = {
 			goods = fabric
-			level = 7
-			direction = import
-			target = c:TUR.market
-		}
-		create_trade_route = {
-			goods = grain
-			level = 7
-			direction = import
-			target = c:TUR.market
-		}
-		create_trade_route = {
-			goods = iron
 			level = 6
 			direction = import
-			target = c:SAX.market
+			target = c:TUR.market
 		}
 		create_trade_route = {
 			goods = iron
-			level = 4
+			level = 3
 			direction = import
-			target = c:ENG.market
+			target = c:SAX.market
 		}
 		create_trade_route = {
 			goods = hardwood
@@ -286,11 +280,17 @@
 			goods = artillery
 			level = 3
 			direction = export
+			target = c:SAX.market
+		}
+		create_trade_route = {
+			goods = lead
+			level = 3
+			direction = export
 			target = c:SCA.market
 		}
 		create_trade_route = {
 			goods = fabric
-			level = 6
+			level = 4
 			direction = import
 			target = c:USC.market
 		}
@@ -307,10 +307,16 @@
 			target = c:CHI.market
 		}
 		create_trade_route = {
-			goods = glass
-			level = 4
+			goods = tools
+			level = 3
 			direction = import
 			target = c:SAX.market
+		}
+		create_trade_route = {
+			goods = iron
+			level = 4
+			direction = import
+			target = c:ENG.market
 		}
 		create_trade_route = {
 			goods = engines
@@ -331,6 +337,12 @@
 			target = c:SCA.market
 		}
 		create_trade_route = {
+			goods = fertilizer
+			level = 1
+			direction = import
+			target = c:SCA.market
+		}
+		create_trade_route = {
 			goods = coal
 			level = 2
 			direction = import
@@ -341,14 +353,8 @@
 	# Saxony
 	c:SAX = {	
 		create_trade_route = {
-			goods = artillery
-			level = 3
-			direction = import
-			target = c:NET.market
-		}
-		create_trade_route = {
 			goods = dye
-			level = 3
+			level = 7
 			direction = import
 			target = c:NET.market
 		}
@@ -717,40 +723,28 @@
 	# Solarado
 	c:SLD = {
 		create_trade_route = {
-			goods = manowars
+			goods = fabric
 			level = 3
-			direction = import
-			target = c:SCA.market
+			direction = export
+			target = c:FRA.market
 		}
 		create_trade_route = {
 			goods = fabric
 			level = 10
 			direction = export
-			target = c:SCA.market
-		}
-		create_trade_route = {
-			goods = fabric
-			level = 6
-			direction = export
 			target = c:NET.market
 		}
 		create_trade_route = {
 			goods = tools
-			level = 5
+			level = 2
 			direction = import
-			target = c:SCA.market
+			target = c:MRL.market
 		}
 		create_trade_route = {
 			goods = sugar
-			level = 7
+			level = 6
 			direction = export
-			target = c:SCA.market
-		}
-		create_trade_route = {
-			goods = dye
-			level = 3
-			direction = export
-			target = c:SCA.market
+			target = c:FRA.market
 		}
 		create_trade_route = {
 			goods = dye
@@ -769,87 +763,15 @@
 			target = c:FRA.market
 		}
 		create_trade_route = {
-			goods = coffee
-			level = 1
-			direction = export
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 3
-			direction = import
-			target = c:USC.market
-		}
-		create_trade_route = {
-			goods = furniture
-			level = 4
-			direction = import
-			target = c:USC.market
-		}
-		create_trade_route = {
-			goods = tobacco
-			level = 2
-			direction = export
-			target = c:SLD.market
-		}
-		create_trade_route = {
-			goods = tobacco
-			level = 2
-			direction = export
-			target = c:FRA.market
-		}
-		create_trade_route = {
-			goods = tobacco
-			level = 1
-			direction = export
-			target = c:ENG.market
-		}
-		create_trade_route = {
-			goods = sugar
-			level = 3
-			direction = export
-			target = c:USC.market
-		}
-		create_trade_route = {
-			goods = sugar
-			level = 2
-			direction = export
-			target = c:NET.market
-		}
-		create_trade_route = {
 			goods = fabric
-			level = 6
+			level = 5
 			direction = import
 			target = c:SLD.market
-		}
-		create_trade_route = {
-			goods = iron
-			level = 2
-			direction = import
-			target = c:IBE.market
 		}
 	}
 	
 	# Marialvia
 	c:MRL = {
-		create_trade_route = {
-			goods = grain
-			level = 4
-			direction = import
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = grain
-			level = 4
-			direction = import
-			target = c:TPL.market
-		}
-		create_trade_route = {
-			goods = hardwood
-			level = 4
-			direction = import
-			target = c:ATL.market
-		}
 		create_trade_route = {
 			goods = wood
 			level = 4
@@ -867,28 +789,16 @@
 			target = c:USC.market
 		}
 		create_trade_route = {
-			goods = artillery
+			goods = silk
 			level = 1
 			direction = import
-			target = c:MRL.market
+			target = c:IBE.market
 		}
 		create_trade_route = {
-			goods = dye
-			level = 2
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = dye
+			goods = silk
 			level = 1
 			direction = import
-			target = c:SLD.market
-		}
-		create_trade_route = {
-			goods = artillery
-			level = 1
-			direction = import
-			target = c:ATL.market
+			target = c:FRA.market
 		}
 		create_trade_route = {
 			goods = clippers
@@ -901,88 +811,6 @@
 			level = 2
 			direction = export
 			target = c:SLD.market
-		}
-		create_trade_route = {
-			goods = iron
-			level = 1
-			direction = export
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = furniture
-			level = 3
-			direction = export
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = furniture
-			level = 3
-			direction = export
-			target = c:TPL.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 2
-			direction = export
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 1
-			direction = export
-			target = c:MRL.market
-		}
-	}
-	
-	# Transplatina
-	c:TPL = {
-		create_trade_route = {
-			goods = iron
-			level = 2
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = clippers
-			level = 2
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 4
-			direction = export
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 3
-			direction = export
-			target = c:ATL.market
-		}
-		create_trade_route = {
-			goods = manowars
-			level = 1
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = artillery
-			level = 3
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = small_arms
-			level = 2
-			direction = import
-			target = c:MRL.market
-		}
-		create_trade_route = {
-			goods = paper
-			level = 1
-			direction = import
-			target = c:AUR.market
 		}
 	}
 	
@@ -1057,12 +885,6 @@
 			level = 2
 			direction = export
 			target = c:FRA.market
-		}
-		create_trade_route = {
-			goods = grain
-			level = 3
-			direction = import
-			target = c:TPL.market
 		}
 	}
 	

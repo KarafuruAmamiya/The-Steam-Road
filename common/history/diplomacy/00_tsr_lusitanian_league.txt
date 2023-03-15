@@ -1,18 +1,4 @@
 ﻿DIPLOMACY = {
-	c:TPL = {
-		create_diplomatic_pact = {
-			country = c:MRL
-			type = lusitanian_league
-		}
-		create_diplomatic_pact = {
-			country = c:ATL
-			type = lusitanian_league
-		}
-		create_diplomatic_pact = {
-			country = c:AUR
-			type = lusitanian_league
-		}
-	}
 	c:MRL = {
 		create_diplomatic_pact = {
 			country = c:ATL
@@ -22,11 +8,25 @@
 			country = c:AUR
 			type = lusitanian_league
 		}
+		create_diplomatic_pact = {
+			country = c:TPL
+			type = lusitanian_league
+		}
 	}
 	c:ATL = {
 		create_diplomatic_pact = {
 			country = c:AUR
-			type = lusitanian_league
+			type = defensive_pact_lusitanian_league
+		}
+		create_diplomatic_pact = {
+			country = c:TPL
+			type = defensive_pact_lusitanian_league
+		}
+	}
+	c:AUR = {
+		create_diplomatic_pact = {
+			country = c:TPL
+			type = defensive_pact_lusitanian_league
 		}
 	}
 }

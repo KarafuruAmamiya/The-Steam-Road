@@ -184,12 +184,14 @@ krl_independence.3 = {
 		has_variable = karolean_independence_war
 		exists = c:KRL
 		this = c:KRL
+		is_at_war = no
 		NOT = { is_subject_of = c:SCA }
 	}
 
 	option = { # The fallen heroes shall never be forgotten!
 		name = krl_independence.3.a
 		remove_variable = karolean_independence_war
+		remove_variable = krl_second_wind
 		remove_modifier = karolean_independence_war
 	}
 }

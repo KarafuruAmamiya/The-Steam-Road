@@ -1,0 +1,37 @@
+﻿je_burmese_war = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	complete = {
+		c:TAU = {
+			is_subject_of = ROOT 
+		}
+	}
+
+	fail = {
+		NOT = {
+			owns_entire_state_region = STATE_PEGU
+			has_war_with = c:TAU
+		}
+	}
+
+	on_complete = {
+		c:TAU = {
+			trigger_event = { id = burmese_war.1 }
+		}
+		c:LXA = {
+			trigger_event = { id = burmese_war.3 }
+		}
+		c:PER = {
+			trigger_event = { id = burmese_war.2 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_burmese_war_status
+			}
+		}
+	}
+	weight = 100
+}

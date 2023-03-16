@@ -1,0 +1,187 @@
+﻿namespace = burmese_war
+
+burmese_war.1 = { # End of the Taungoo Empire (for Burma)
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+	}
+
+	duration = 3
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	title = burmese_war.1.t
+	desc = burmese_war.1.d
+	flavor = burmese_war.1.f
+
+	trigger = {
+		exists = c:TAU
+		this = c:TAU
+	}
+	
+	immediate = {
+		remove_diplomatic_pact = {
+			country = c:YUN 
+			type = tributary
+		} 
+	}
+	
+	option = { # A dark day for the Burmese
+		name = burmese_war.1.a
+		c:TAU = {
+			annex = c:CMI
+			change_tag = BUR 
+			ruler = {
+				kill_character = yes
+			}
+			create_character = {
+				culture = burmese
+				ruler = yes
+				age = 47
+			}
+		}
+		hidden_effect = {
+			s:STATE_PEGU.region_state:PER = {
+				set_state_owner = c:BUR
+			}
+			s:STATE_BURMA.region_state:PER = {
+				set_state_owner = c:BUR
+			}
+			s:STATE_SAGAING.region_state:PER = {
+				set_state_owner = c:BUR
+			}
+			c:BUR = {
+				set_capital = STATE_PEGU
+			}
+			c:PER = {
+				create_diplomatic_pact = {
+					country = c:BUR
+					type = dominion
+				}
+			}
+		}
+	}
+}
+
+burmese_war.2 = { # End of the Taungoo Empire (for Persia)
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+	}
+
+	duration = 3
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	title = burmese_war.2.t
+	desc = burmese_war.2.d
+	flavor = burmese_war.2.f
+	
+	trigger = {
+		exists = c:PER
+		this = c:PER
+	}
+	
+	option = { # Another glorious day for the Safavid Empire
+		name = burmese_war.2.a
+		custom_tooltip = { text = burmese_satrapy.tt }
+		hidden_effect = {
+			c:LXA = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:KED = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:CAM = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:SIA = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:MPH = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:DAI = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+			c:YUN = {
+				change_relations = {
+					country = c:PER
+					value = -50
+				}
+			}
+		}
+	}
+}
+
+burmese_war.3 = { # End the war on Lan Xang's side
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+	}
+
+	duration = 3
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	title = burmese_war.3.t
+	desc = burmese_war.3.d
+	flavor = burmese_war.3.f
+
+	trigger = {
+		exists = c:LXA
+		this = c:LXA
+	}
+	
+	option = { # A blessing and a curse
+		name = burmese_war.3.a
+		c:LXA = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LUANG_PRABANG }
+			}
+			s:STATE_LUANG_PRABANG.region_state:TAU = {
+				set_state_owner = c:LXA
+			}
+		}
+		every_diplomatic_play = {
+			limit = {
+				initiator_is = c:LXA
+				target_is = c:TAU
+			}
+			end_play = yes
+		}
+	}
+}

@@ -10,13 +10,13 @@ krl_independence.1 = {
 	flavor = krl_independence.1.f
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/politicians_arguing"
 
-	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	duration = 3
 
@@ -53,11 +53,11 @@ krl_independence.2 = {
 	flavor = krl_independence.2.f
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/politicians_arguing"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -91,19 +91,13 @@ krl_independence.2 = {
 				months = normal_modifier_time
 			}
 		}
-		ig:ig_landowners = {
-			add_modifier = {
-				name = did_not_pull_out_of_the_war_positive
-				months = normal_modifier_time
-			}
-		}
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = did_not_pull_out_of_the_war_negative
 				months = normal_modifier_time
 			}
 		}
-		ig:ig_petty_bourgeoisie = {
+		ig:ig_devout = {
 			add_modifier = {
 				name = did_not_pull_out_of_the_war_negative
 				months = normal_modifier_time
@@ -116,41 +110,34 @@ krl_independence.2 = {
 		name = krl_independence.2.b
 		default_option = yes
 		ai_chance = 75
-		random_diplomatic_play = {
-			limit = { 
-				initiator_is = c:SCA
-				target_is = c:KRL
-			}
-			war = {
-				add_war_war_support = {
-					target = c:USC
-					value = -100
+		hidden_effects = {
+			random_diplomatic_play = {
+				limit = { 
+					initiator_is = c:SCA
+					target_is = c:KRL
+				}
+				war = {
+					add_war_war_support = {
+						target = c:USC
+						value = -100
+					}
 				}
 			}
 		}
-		change_relations = {
-			country = c:SCA
-			value = -80
-		}
+		custom_tooltip = krl_independence.2.tt
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = pulled_out_of_the_war_positive
 				months = normal_modifier_time
 			}
 		}
-		ig:ig_petty_bourgeoisie = {
+		ig:ig_devout = {
 			add_modifier = {
 				name = pulled_out_of_the_war_positive
 				months = normal_modifier_time
 			}
 		}
 		ig:ig_armed_forces = {
-			add_modifier = {
-				name = pulled_out_of_the_war_negative
-				months = normal_modifier_time
-			}
-		}
-		ig:ig_landowners = {
 			add_modifier = {
 				name = pulled_out_of_the_war_negative
 				months = normal_modifier_time
@@ -170,11 +157,11 @@ krl_independence.3 = {
 	flavor = krl_independence.3.f
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -193,5 +180,145 @@ krl_independence.3 = {
 		remove_variable = karolean_independence_war
 		remove_variable = krl_second_wind
 		remove_modifier = karolean_independence_war
+	}
+}
+
+# Start event for Karolia
+krl_independence.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.4.t
+	desc = krl_independence.4.d
+	flavor = krl_independence.4.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:KRL
+		this = c:KRL
+	}
+
+	option = {
+		name = krl_independence.4.a
+		add_modifier = {
+			name = karolean_independence_war
+			months = normal_modifier_time
+		}
+	}
+}
+
+# Scandinavia Angry
+krl_independence.5 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.5.t
+	desc = krl_independence.5.d
+	flavor = krl_independence.5.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:winston_rodney
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	duration = 3
+	
+	immediate = {
+		c:USC = {
+			ruler = {
+				save_scope_as = winston_rodney
+			}
+		}
+	}
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:SCA
+		this = c:SCA
+		any_diplomatic_play = {
+			initiator_is = c:SCA
+			target_is = c:KRL
+			war = {
+				NOT = {
+					is_war_participant = c:USC
+				}
+			}
+		}
+	}
+
+	option = {
+		name = krl_independence.5.a
+		change_relations = {
+			country = c:USC
+			value = -100
+		}
+		hidden_effects = {
+			set_secret_goal = {
+				country = c:USC
+				secret_goal = antagonize
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:USC
+			type = defensive_pact
+		}
+		every_country = {
+			limit = {
+				OR = {
+					has_interest_marker_in_region = region_vinland
+					has_interest_marker_in_region = region_dixie
+					has_interest_marker_in_region = region_scandinavia
+					has_interest_marker_in_region = region_baltic
+				}
+			}
+			post_notification = us_scandinavia_pact_end
+		}
+		remove_variable = karolean_independence_war
+	}
+}
+
+# Start event for Scandinavia
+krl_independence.6 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.6.t
+	desc = krl_independence.6.d
+	flavor = krl_independence.6.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nations"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:SCA
+		this = c:SCA
+	}
+
+	option = {
+		name = krl_independence.6.a
 	}
 }

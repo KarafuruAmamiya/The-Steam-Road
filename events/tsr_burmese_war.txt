@@ -5,15 +5,15 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+		video = "gfx/event_pictures/unspecific_devastation.bk2"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
-	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	title = burmese_war.1.t
 	desc = burmese_war.1.d
@@ -33,6 +33,20 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	
 	option = { # A dark day for the Burmese
 		name = burmese_war.1.a
+		hidden_effect = {
+			s:STATE_PEGU.region_state:PER = {
+				set_state_owner = c:TAU
+			}
+			s:STATE_BURMA.region_state:PER = {
+				set_state_owner = c:TAU
+			}
+			s:STATE_SAGAING.region_state:PER = {
+				set_state_owner = c:TAU
+			}
+			c:TAU = {
+				set_capital = STATE_PEGU
+			}
+		}
 		c:TAU = {
 			annex = c:CMI
 			change_tag = BUR 
@@ -45,26 +59,6 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 				age = 47
 			}
 		}
-		hidden_effect = {
-			s:STATE_PEGU.region_state:PER = {
-				set_state_owner = c:BUR
-			}
-			s:STATE_BURMA.region_state:PER = {
-				set_state_owner = c:BUR
-			}
-			s:STATE_SAGAING.region_state:PER = {
-				set_state_owner = c:BUR
-			}
-			c:BUR = {
-				set_capital = STATE_PEGU
-			}
-			c:PER = {
-				create_diplomatic_pact = {
-					country = c:BUR
-					type = dominion
-				}
-			}
-		}
 	}
 }
 
@@ -73,15 +67,15 @@ burmese_war.2 = { # End of the Taungoo Empire (for Persia)
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
 
-	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	title = burmese_war.2.t
 	desc = burmese_war.2.d
@@ -147,15 +141,15 @@ burmese_war.3 = { # End the war on Lan Xang's side
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/southamerica_factory_opening.bk2"
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/southamerica/factory_opening"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
-	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	title = burmese_war.3.t
 	desc = burmese_war.3.d

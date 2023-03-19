@@ -69,6 +69,26 @@ GLOBAL = {
         }
     }
 	
+	every_country = {
+		limit = { 
+			OR = {
+				country_is_in_north_america = yes
+				country_is_in_central_asia = yes
+				country_is_in_south_america = yes
+			}
+		}
+		any_state = {
+			limit = {
+				OR = {
+					state_is_in_americas = yes
+					state_is_in_east_asia = yes
+				}
+				is_under_colonization = yes
+			}
+		}
+        add_modifier = colonial_enthusiasm
+    }
+	
 	c:USC = {
         trigger_event = {
             id = krl_independence.1
@@ -78,7 +98,14 @@ GLOBAL = {
 	
 	c:KRL = {
         trigger_event = {
-            id = krl_freedom.1
+            id = krl_independence.4
+            days = 2
+        }
+    }
+	
+	c:SCA = {
+        trigger_event = {
+            id = krl_independence.7
             days = 2
         }
     }

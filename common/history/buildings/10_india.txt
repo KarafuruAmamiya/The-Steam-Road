@@ -890,6 +890,8 @@
 				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 		}
+	}
+	s:STATE_SURGUJA={
 		region_state:NAG={
 			create_building={
 				building="building_opium_plantation"
@@ -912,7 +914,7 @@
 				level=10
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
-			}		
+			}
 			create_building={
 				building="building_silk_plantation"
 				level=8
@@ -1159,7 +1161,7 @@
 			}
 			create_building={
 				building="building_coal_mine"
-				level=15
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
 			}
@@ -1312,6 +1314,12 @@
 				level=4
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
+			}
+			create_building={
+				building="building_coal_mine"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
 			}
 			create_building={
 				building="building_tobacco_plantation"

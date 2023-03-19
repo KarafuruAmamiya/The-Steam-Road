@@ -1,0 +1,77 @@
+﻿namespace = aragon_sicily
+
+aragon_sicily.1 = { # The loss of Catalonia
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_devastation.bk2"
+	}
+
+	duration = 3
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	title = aragon_sicily.1.t
+	desc = aragon_sicily.1.d
+	flavor = aragon_sicily.1.f
+
+	trigger = {
+		exists = c:ARN
+		this = c:ARN
+		c:ARN = {
+			NOT = {
+				owns_entire_state_region = STATE_CATALONIA
+				owns_entire_state_region = STATE_ARAGON
+				owns_entire_state_region = STATE_VALENCIA
+			}
+		}
+		is_at_war = no
+	}
+	
+	option = { # Aragon will rise again!
+		name = aragon_sicily.1.a
+		ai_chance = 25
+		custom_tooltip = aragon_sicily.1.tt
+		hidden_effect = {
+			every_scope_state = {
+				add_radicals = {
+					value = high_radicals
+					culture = cu:south_italian
+				}
+			}
+		}
+	}
+	option = { # We must look to the future
+		name = aragon_sicily.1.b
+		default_option = yes
+		ai_chance = 75
+		s:STATE_ARAGON = {
+			remove_claim = c:ARN
+		}
+		s:STATE_VALENCIA = {
+			remove_claim = c:ARN
+		}
+		s:STATE_CATALONIA = {
+			remove_claim = c:ARN
+		}
+		s:STATE_BALEARES = {
+			remove_claim = c:ARN
+		}
+		c:ARN = {
+			change_tag = SIC
+		}
+		add_primary_culture = cu:south_italian
+		hidden_effect = {
+			every_scope_state = {
+				add_loyalists = {
+					value = high_loyalists
+					culture = cu:south_italian
+				}
+			}
+		}
+	}
+}

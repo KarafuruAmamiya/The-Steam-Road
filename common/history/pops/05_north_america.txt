@@ -518,36 +518,31 @@
 	
 	# Aurelia
 	
-	s:STATE_IDAHO = {
-		if = {
-			limit = {
-			 has_game_rule = yes_NA_decentralized
-			}
-			region_state:COL = {
+	s:STATE_ROCHOSAS = {
+			region_state:BCK = {
 				create_pop = {
 					culture = paiute
-					size = 20000
+					size = 2000
 				}
 			}
-			region_state:NZP = {
+			region_state:SLH = {
 				create_pop = {
-					culture = nez_perce
-					size = 40000
+					culture = salish
+					size = 24000
 				}
 			}
-		}
-		else = {
-			region_state:COL = {
+			region_state:BLF = {
 				create_pop = {
-					culture = paiute
-					size = 20000
-				}
-				create_pop = {
-					culture = nez_perce
-					size = 40000
+					culture = siouan
+					size = 30000
 				}
 			}
-		}
+			region_state:IRC = {
+				create_pop = {
+					culture = siouan
+					size = 10000
+				}
+			}
 	}
 	s:STATE_SANTA_FE = {
 			region_state:ARP = {
@@ -736,10 +731,9 @@
 					size = 3000
 				}
 				create_pop = {
-				culture = paiute
-				size = 5000
-			}
-				
+					culture = paiute
+					size = 5000
+				}
 			}
 			region_state:NVJ = {
 				create_pop = {
@@ -774,7 +768,7 @@
 			region_state:NVJ = {
 				create_pop = {
 					culture = navajo
-					size = 20000
+					size = 25000
 				}
 			}
 			region_state:UTE = {
@@ -890,6 +884,16 @@
 				size = 8000
 			}
 		}
+		region_state:SLD = {
+			create_pop = {
+				culture = paiute
+				size = 3000
+			}
+			create_pop = {
+				culture = siouan
+				size = 2000
+			}
+		}
 		region_state:LKT = {
 			create_pop = {
 				culture = paiute
@@ -925,18 +929,26 @@
 			}
 		}
 	}
-	s:STATE_MONTANA = {
-			region_state:USC = {
+	s:STATE_MISSEADOZ = {
+			region_state:BCK = {
 				create_pop = {
-					culture = siouan
+					culture = paiute
 					size = 7000
 				}
+			}
+			region_state:SLD = {
 				create_pop = {
-					culture = dakota
-					size = 2000
+					culture = paiute
+					size = 3000
 				}
 			}
-			region_state:COL = {
+			region_state:SLH = {
+				create_pop = {
+					culture = siouan
+					size = 3000
+				}
+			}
+			region_state:IRC = {
 				create_pop = {
 					culture = siouan
 					size = 3000
@@ -946,6 +958,10 @@
 				create_pop = {
 					culture = siouan
 					size = 28000
+				}
+				create_pop = {
+					culture = dakota
+					size = 2000
 				}
 			}
 			region_state:LKT = {
@@ -961,12 +977,8 @@
 				}
 			}
 	}
-	s:STATE_NORTH_DAKOTA = {
-		if = {
-			limit = {
-				has_game_rule = yes_NA_decentralized
-			}
-			region_state:USC = {
+	s:STATE_DACOTA = {
+			region_state:ABS = {
 				create_pop = {
 					culture = siouan
 					size = 6000
@@ -982,19 +994,16 @@
 					size = 4000
 				}
 			}
-		}
-		else = {
-			region_state:USC = {
-				create_pop = {
-					culture = siouan
-					size = 10000
-				}
+			region_state:SLD = {
 				create_pop = {
 					culture = dakota
-					size = 30000
+					size = 5000
+				}
+				create_pop = {
+					culture = siouan
+					size = 2000
 				}
 			}
-		}
 	}
 	s:STATE_RIO_VERMELHO_DO_NORTE = {
 			region_state:LKT = {
@@ -1024,7 +1033,7 @@
 			region_state:SLD = {
 				create_pop = {
 					culture = siouan
-					size = 4000
+					size = 6000
 				}
 			}
 			region_state:PWN = {
@@ -1059,7 +1068,7 @@
 					size = 4000
 				}
 			}
-			region_state:PWN = {
+			region_state:SLD = {
 				create_pop = {
 					culture = caddoan
 					size = 3000
@@ -1190,7 +1199,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 402994
+				size = 252994
 			}
 		}
 	}
@@ -1255,7 +1264,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 187057
+				size = 107057
 			}
 		}
 	}
@@ -1264,7 +1273,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 265200
+				size = 165200
 			}
 			create_pop = {
 				culture = portuguese
@@ -1306,7 +1315,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 206172
+				size = 106172
 			}
 		}
 	}
@@ -1327,7 +1336,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 329998
+				size = 129998
 			}
 			create_pop = {
 				culture = cherokee
@@ -1356,7 +1365,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 302300
+				size = 102300
 			}
 			create_pop = {
 				culture = caddoan
@@ -1376,12 +1385,12 @@
 			}
 			create_pop = {
 				culture = afro_brazilian
-				size = 817 # unknown free population in 1830, 817 free in 1840
+				size = 817
 			}
 			create_pop = {
 				pop_type = slaves
 				culture = afro_brazilian
-				size = 31183
+				size = 11183
 			}
 			create_pop = {
 				culture = muskogean
@@ -1395,46 +1404,47 @@
 			}
 		}
 	}
-	s:STATE_UTAH = {
-		if = {
-			limit = {
-				has_game_rule = yes_NA_decentralized
-			}
-			region_state:MEX = {
+	s:STATE_PIAPAS = {
+			region_state:UTE = {
 				create_pop = {
 					culture = paiute
 					size = 3000
 				}
 			}
-			region_state:NVJ = {
+			region_state:NZP = {
 				create_pop = {
 					culture = paiute
 					size = 2000
 				}
 				create_pop = {
-					culture = navajo
-					size = 4000
+					culture = nez_perce
+					size = 40000
 				}
 			}
-			region_state:UTE = {
+			region_state:SLH = {
+				create_pop = {
+					culture = salish
+					size = 2000
+				}
+			}
+			region_state:SHS = {
 				create_pop = {
 					culture = paiute
-					size = 11000
+					size = 20000
 				}
 			}
-		}
-		else = {
-			region_state:MEX = {
+			region_state:BCK = {
 				create_pop = {
 					culture = paiute
-					size = 16000
-				}
-				create_pop = {
-					culture = navajo
-					size = 4000
+					size = 10000
 				}
 			}
-		}
+			region_state:AUR = {
+				create_pop = {
+					culture = paiute
+					size = 3000
+				}
+			}
 	}
 	s:STATE_NEW_GALICIA = {
 			region_state:SLD = {
@@ -1489,7 +1499,7 @@
 			create_pop = {
 				culture = afro_brazilian
 				pop_type = slaves
-				size = 103400
+				size = 53400
 			}
 			create_pop = {
 				culture = mexican
@@ -1881,25 +1891,19 @@
 			}
 		}
 	}
-	s:STATE_ALBERTA = {
-		region_state:HBC = {
+	s:STATE_VILHELMANIA = {
+		region_state:ATB = {
 			create_pop = {
-				culture = anglo_canadian
-				size = 3999
-			}		
+				culture = athabaskan
+				size = 10000
+			}
 			create_pop = {
 				culture = siouan
 				size = 8200
 			}
 			create_pop = {
 				culture = metis
-				size = 7000
-			}
-		}
-		region_state:NWT = {
-			create_pop = {
-				culture = metis
-				size = 7000
+				size = 14000
 			}
 		}
 		region_state:IRC = {
@@ -1923,20 +1927,16 @@
 			}
 		}
 	}
-	s:STATE_SASKATCHEWAN = {
-		region_state:HBC = {
+	s:STATE_KEJSKATJEWAN = {
+		region_state:ATB = {
 			create_pop = {
-				culture = siouan
-				size = 4200
-			}
-			create_pop = {
-				culture = metis
-				size = 12000
+				culture = athabaskan
+				size = 7200
 			}
 		}
-		region_state:NWT = {
+		region_state:BLF = {
 			create_pop = {
-				culture = metis
+				culture = siouan
 				size = 4000
 			}
 		}
@@ -1948,6 +1948,10 @@
 			create_pop = {
 				culture = cree
 				size = 24000
+			}
+			create_pop = {
+				culture = metis
+				size = 16000
 			}
 		}
 	}
@@ -2008,25 +2012,37 @@
 			}
 		}
 	}
-	s:STATE_YUKON_TERRITORY = {
-		region_state:NWT = {
+	s:STATE_DANADA = {
+		region_state:ATB = {
 			create_pop = {
 				culture = athabaskan
 				size = 12000
+			}
+		}
+		region_state:INQ = {
+			create_pop = {
+				culture = inuit
+				size = 6000
+			}
+		}
+		region_state:NNV = {
+			create_pop = {
+				culture = inuit
+				size = 1000
 			}
 		}
 	}
-	s:STATE_NORTHWEST_TERRITORIES = {
-		region_state:HBC = {
+	s:STATE_RURIKLAND = {
+		region_state:NNV = {
 			create_pop = {
-				culture = athabaskan
+				culture = inuit
 				size = 4000
 			}
 		}
-		region_state:NWT = {
+		region_state:ATB = {
 			create_pop = {
 				culture = athabaskan
-				size = 12000
+				size = 16000
 			}
 		}
 	}
@@ -2034,7 +2050,21 @@
 		region_state:NNV = {
 			create_pop = {
 				culture = inuit
-				size = 11980
+				size = 3980
+			}
+		}
+	}
+	s:STATE_NORRA_TERRITORIET = {
+		region_state:NNV = {
+			create_pop = {
+				culture = inuit
+				size = 8000
+			}
+		}
+		region_state:ATB = {
+			create_pop = {
+				culture = athabaskan
+				size = 8000
 			}
 		}
 	}

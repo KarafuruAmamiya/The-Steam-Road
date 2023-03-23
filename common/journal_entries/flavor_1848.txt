@@ -269,7 +269,11 @@
 					NOT = { has_variable = springtime_discrimination }
 					any_scope_culture = {
 						AND = {
-							has_discrimination_trait = european_heritage
+							OR = {
+								has_discrimination_trait = western_european_heritage
+								has_discrimination_trait = eastern_european_heritage
+								has_discrimination_trait = south_european_heritage
+							}
 							culture_is_discriminated_in = ROOT
 						}
 					}
@@ -286,7 +290,11 @@
 					has_variable = springtime_discrimination
 					any_scope_culture = {
 						NAND = {
-							has_discrimination_trait = european_heritage
+							OR = {
+								has_discrimination_trait = western_european_heritage
+								has_discrimination_trait = eastern_european_heritage
+								has_discrimination_trait = south_european_heritage
+							}
 							culture_is_discriminated_in = ROOT
 						}
 					}

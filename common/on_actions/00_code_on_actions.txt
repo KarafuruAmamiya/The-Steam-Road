@@ -138,13 +138,6 @@ on_yearly_pulse_country = {
 		3 = natural_disaster_events.7
 		1 = natural_disaster_events.8
 		
-		# Taiping Heavenly Kingdom
-		20 = heavenly.1
-
-		# Warlords
-		20 = warlord_china_events.110
-		20 = warlord_china_events.301
-		
 		# Assassination
 		10 = assassination_events.1
 
@@ -172,10 +165,6 @@ on_yearly_pulse_country = {
 		50 = strike.5
 		50 = strike.6
 		50 = strike.7
-
-		10 = opium_wars.8
-
-		10 = south_america.3
 		
 		20 = communism.9
 		20 = communism.7
@@ -195,7 +184,6 @@ on_yearly_pulse_country = {
 
 		20 = dreadnought_hoax.1
 
-		10 = patagonia.2
 		10 = amazon.1
 		10 = amazon.2
 
@@ -268,11 +256,6 @@ on_yearly_pulse_country = {
 on_half_yearly_pulse_country = {
 	random_events = {
 		100 = 0
-		
-		# The Attempt on Lincoln's Life
-		40 = acw_followup_events.1
-		10 = acw_followup_events.2
-		50 = acw_followup_events.3
 
 		#Oscar Wilde event for Europe
 		5 = oscar_wilde_events.1
@@ -324,8 +307,77 @@ on_monthly_pulse_state = {
 	random_events = {
 		10 = goldrush.5
 	}
+	effect = {
+		if = {
+			limit = {
+				ROOT = {
+					owner = {
+						has_law = law_type:law_jizya
+					}
+					NOT = { has_modifier = jizya_state }
+				
+					any_scope_pop = {
+						state = { save_temporary_scope_as = m_state }
+	
+						culture = { 
+							has_homeland = scope:m_state
+							NOT = { is_primary_culture_of = root }
+							NOT = { 
+								#Check for muslim cultures to identify muslims,
+								#until I can figure out how to find majority religions of cultures.
+								OR = { 
+									has_discrimination_trait = arabian_heritage
+									has_discrimination_trait = iranian_heritage
+									has_discrimination_trait = turkic_heritage
+									has_discrimination_trait = malay
+									has_discrimination_trait = albanian_language
+								}
+							}
+						}
+						#These muslim cultures don't fit into any specific trait group and need to be pointed out specifically
+						NOT = { 
+							OR = {
+							culture = cu:bosniak
+							culture = cu:fur
+							culture = cu:swahili
+							culture = cu:beja
+							culture = cu:afar
+							culture = cu:hausa
+							culture = cu:fulbe
+							culture = cu:dyula
+							culture = cu:haratin
+							culture = cu:mande
+							culture = cu:maures
+							culture = cu:msonghai
+							culture = cu:tuareg
+							culture = cu:wolof
+							}
+						}
+	
+						religion = {
+							NOT = { has_discrimination_trait = muslim }
+						}
+					}
+				
+				}
+			}
+			add_modifier = jizya_state
+		}
+		else_if = {
+			limit = {
+				ROOT = {
+					owner = {
+						NOT = { has_law = law_type:law_jizya }
+					}
+					has_modifier = jizya_state
+				}
+			}
+			remove_modifier = jizya_state
+		}
+	}
 
 }
+
 on_half_yearly_pulse_state = {}
 on_yearly_pulse_state = {
 	random_events = {
@@ -508,40 +560,6 @@ on_diplomatic_play_started = {
 }
 
 # Root = Character
-on_character_creation = {
-}
-
-# Root = Character
-on_character_death = {
-	effect = {
-		if = {
-			limit = {
-				is_ruler = yes
-				exists = c:HAW
-				owner = c:HAW
-				owner = {
-					has_law = law_type:law_monarchy
-					NOT = { has_variable = death_of_kamehameha }
-					NOT = { has_global_variable = gp_hawaii_interest }
-				}
-			}
-			owner = {
-				trigger_event = hawaii_events.1
-			}
-		}
-		
-		if = {
-			limit = {
-				has_variable = expedition_leader_var
-			}
-			owner = {
-				trigger_event = expedition_events.110
-			}
-		}
-	}
-}
-
-# Root = Character
 on_new_ruler = {
 	#
 }
@@ -689,6 +707,20 @@ on_diplomatic_action_third_party_break_declined = {
 
 # Root = Diplomatic Action
 on_diplomats_expelled = {
+	effect = {
+		if = {
+			limit = {
+				scope:initiator = {
+					has_variable = we_are_not_amused_ach_possible
+				}
+				scope:target = c:FRA
+				scope:initiator = {
+					"relations(scope:target)" >= relations_threshold:cordial
+				}
+			}
+			set_variable = achievement_we_are_not_amused
+		}
+	}
 }
 
 # Root = Diplomatic Pact
@@ -1488,25 +1520,6 @@ on_law_enactment_ended = {
 	}
 }
 
-# Root owner Country of the Law
-# executed when the law is activated for any reason. It's usually because it
-# has been enacted, but script can activate laws directly without going through
-# the enactment process. Normally, it's immediately preceded by
-# on_law_enactment_ended, but if a law is directly set by script, thus
-# bypassing the enactment process, this will execute while
-# on_law_enactment_ended will not
-#
-# NOTE: unlike the other on_law_<something> on-actions, at the point in time
-# when this is triggered the law that was enacted is no longer considered being
-# enacted. Therefore using the `currently_enacting_law` link will return the
-# null law
-on_law_activated = {
-	effect = {
-
-	}
-
-}
-
 # Root = Institution
 on_investment_increased = {
 	effect = {
@@ -1524,31 +1537,6 @@ on_investment_decreased = {
 # Root = Country
 # scope:target = Uprising country
 on_revolution_start = {
-	effect = {
-		if = {
-			limit = {
-				has_journal_entry = je_warlord_china
-				NOT = { has_variable = china_warlord_explosion_revolution }
-			}
-			post_notification = warlord_china_explosion_point_add
-			change_variable = {
-				name = china_warlord_explosion
-				add = 1
-			}
-			set_variable = china_warlord_explosion_revolution
-		}
-		if = {
-			limit = {
-				has_journal_entry = je_meiji_restoration
-				scope:target = {
-					ig:ig_landowners = {
-						is_in_government = yes
-					}
-				}
-			}
-			set_variable = anti_shogunate_civil_war
-		}
-	}
 }
 
 # Root = Country
@@ -1778,17 +1766,6 @@ on_revolution_end = {
 		if = {
 			limit = { 
 				ROOT = { 
-					has_variable = belle_epoque_ach_possible
-				}
-			}
-			scope:target = { 
-				set_variable = belle_epoque_ach_possible
-			}
-		}
-		
-		if = {
-			limit = { 
-				ROOT = { 
 					has_variable = serfs_up_ach_possible
 				}
 			}
@@ -1874,8 +1851,44 @@ on_revolution_end = {
 				set_variable = star_swarmed_banner_ach_possible
 			}
 		}
+
+		if = {
+			limit = { 
+				ROOT = { 
+					has_variable = manifest_mexico_ach_possible
+				}
+			}
+			scope:target = { 
+				set_variable = manifest_mexico_ach_possible
+			}
+		}
+
+		if = {
+			limit = { 
+				ROOT = { 
+					has_variable = grander_colombia_ach_possible
+				}
+			}
+			scope:target = { 
+				set_variable = grander_colombia_ach_possible
+			}
+		}
 	}
 }
+
+# Root = Country
+# scope:target = Uprising country
+on_secession_start = {
+	effect = {
+
+	}
+}
+
+# Root = Country
+# scope:target = Uprising country
+on_secession_end = {
+}
+
 
 # Root = Country
 # This action is triggered after `on_revolution_end`
@@ -1886,18 +1899,6 @@ on_civil_war_won = {
 				has_global_variable = achievement_revo_needed
 			}
 			set_global_variable = achievement_revolutionary
-		}
-		if = {
-			limit = {
-				has_journal_entry = je_meiji_restoration
-				has_variable = anti_shogunate_civil_war
-				has_variable = shogunate_var
-			}
-			change_variable = {
-				name = shogunate_var
-				add = 120
-			}
-			remove_variable = anti_shogunate_civil_war
 		}
 	}
 }
@@ -2071,20 +2072,6 @@ on_party_created = {
 on_party_disbanded = {
 	effect = {
 		debug_log = "[SCOPE.sParty('target').GetNameNoFormatting] Disbanded"
-	}
-}
-
-# Root = Country
-on_election_campaign_start = {
-	effect = {
-		debug_log = "Election Campaign Started"
-	}
-}
-
-# Root = Country
-on_election_campaign_end = {
-	effect = {
-		debug_log = "Election Campaign Ended"
 	}
 }
 

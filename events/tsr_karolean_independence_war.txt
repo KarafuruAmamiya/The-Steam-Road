@@ -277,17 +277,6 @@ krl_independence.5 = {
 			country = c:USC
 			type = defensive_pact
 		}
-		every_country = {
-			limit = {
-				OR = {
-					has_interest_marker_in_region = region_vinland
-					has_interest_marker_in_region = region_dixie
-					has_interest_marker_in_region = region_scandinavia
-					has_interest_marker_in_region = region_baltic
-				}
-			}
-			post_notification = us_scandinavia_pact_end
-		}
 		remove_variable = karolean_independence_war
 	}
 }

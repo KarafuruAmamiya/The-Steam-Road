@@ -6,12 +6,19 @@
 				has_discrimination_trait = east_asian_heritage
 				has_discrimination_trait = south_asian_heritage
 				has_discrimination_trait = southeast_asian_heritage
-				has_discrimination_trait = central_asian_heritage
+				has_discrimination_trait = iranian_asian_heritage
+				has_discrimination_trait = arabian_heritage
 				has_discrimination_trait = north_asian_heritage
-				has_discrimination_trait = middle_eastern_heritage
+				has_discrimination_trait = turkic_heritage
 			}
 		} 
-		NOT = { has_variable = adopt_western_uniforms }
+		NOT = { 
+			OR = {
+				has_variable = adopt_western_uniforms
+				c:PER = this
+				c:TUR = this
+			}
+		}
 	}
 
 	possible = {

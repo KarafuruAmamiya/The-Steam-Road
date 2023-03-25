@@ -160,6 +160,7 @@
 			first_name = Marco
 			last_name = Rossi
 			culture = cu:north_italian
+			dna = dna_marco_rossi
 			ruler = yes
 			ig_leader = yes
 			interest_group = ig_intelligentsia
@@ -167,6 +168,127 @@
 			birth_date = 1787.10.11
 			traits = {
 				meticulous brave experienced_political_operator
+			}
+		}
+
+		# IG Leaders
+		
+		create_character = {
+			first_name = Demetrio
+			last_name = Ludovisi
+			culture = cu:north_italian
+			religion = rel:catholic
+			interest_group = ig_landowners
+			ig_leader = yes
+			ideology = ideology_moderate
+			age = 52
+			traits = {
+				basic_diplomat romantic
+			}
+		}
+		
+		create_character = {
+			first_name = Niccolo
+			last_name = Spinola
+			culture = cu:north_italian
+			religion = rel:catholic
+			interest_group = ig_industrialists
+			ig_leader = yes
+			ideology = ideology_market_liberal
+			age = 43
+			traits = {
+				basic_political_operator
+				ambitious
+			}
+		}
+		
+		create_character = {
+			first_name = Francesco
+			last_name = Pierallini
+			culture = cu:north_italian
+			religion = rel:catholic
+			interest_group = ig_rural_folk
+			ig_leader = yes
+			ideology = ideology_moderate
+			age = 57
+			traits = {
+				cautious tactful
+			}
+			on_created = {
+				set_variable = prime_minister_trigger
+				owner = {
+					set_variable = {
+						name = prime_minister
+						value = PREV
+					}
+				}
+			}
+		}
+		
+		# Generals
+		
+		create_character = {
+			is_general = yes
+			first_name = Ermes
+			last_name = Castagnaro
+			age = 42
+			culture = cu:north_italian
+			interest_group = ig_armed_forces
+			ig_leader = yes
+			ideology = ideology_jingoist_leader
+			hq = region_north_italy
+			commander_rank = commander_rank_4
+			traits = {
+				mountain_commander
+				brave imperious
+			}
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Benedetto
+			last_name = Petrucci
+			age = 40
+			culture = cu:north_italian
+			interest_group = ig_intelligentsia
+			ideology = ideology_moderate
+			hq = region_north_africa
+			commander_rank = commander_rank_3
+			traits = {
+				basic_offensive_planner
+				innovative
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = Alessandro
+			last_name = Pieroni
+			culture = cu:north_italian
+			hq = region_north_italy
+			commander_rank = commander_rank_3
+			interest_group = ig_intelligentsia
+			ideology = ideology_reformer
+			age = 52
+			traits = {
+				experienced_naval_commander
+				tactful
+			}
+		}
+		
+		create_character = {
+			is_admiral = yes
+			first_name = Francesco
+			last_name = Barzagli
+			culture = cu:north_italian
+			hq = region_north_africa
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = commander_rank_3
+			age = 49
+			traits = {
+				experienced_convoy_raider
+				reckless
 			}
 		}
 	}

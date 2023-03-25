@@ -368,6 +368,12 @@
 				activate_production_methods={ "default_building_coffee_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
+				building="building_sulfur_mine"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_sulfur_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_sulfur_mine" }
+			}
+			create_building={
 				building="building_coal_mine"
 				level=1
 				reserves=1
@@ -388,19 +394,7 @@
 		}
 	}
 	s:STATE_CUNDINAMARCA={
-		region_state:KNM={
-			create_building={
-				building="building_government_administration"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_organization" }
-			}		
-			create_building={
-				building="building_coal_mine"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
-			}
+		region_state:KNM={		
 			create_building={
 				building="building_sugar_plantation"
 				level=1
@@ -409,7 +403,7 @@
 			}
 			create_building={
 				building="building_cotton_plantation"
-				level=1
+				level=3
 				reserves=1
 				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
@@ -431,16 +425,10 @@
 	s:STATE_CAUCA={
 		region_state:NBR={
 			create_building={
-				building="building_tobacco_plantation"
+				building="building_cotton_plantation"
 				level=2
 				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_coal_mine"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
+				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_coffee_plantation"

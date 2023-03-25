@@ -89,6 +89,15 @@
 				basic_diplomat
 				direct
 			}
+			on_created = {
+				set_variable = vice_president_trigger
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
+			}
 		}
 		create_character = {
 			first_name = Karl_Johan
@@ -226,10 +235,19 @@
 			birth_date = 1782.3.18
 			ig_leader = yes
 			interest_group = ig_landowners
-			ideology = ideology_slaver
+			ideology = ideology_moderate
 			traits = {
 				bigoted
 				experienced_political_operator
+			}
+			on_created = {
+				set_variable = vice_president_trigger
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
 			}
 		}
 		create_character = {
@@ -244,6 +262,15 @@
 				basic_political_operator
 				expensive_tastes
 				meticulous
+			}
+			on_created = {
+				set_variable = secretary_of_state_trigger
+				owner = {
+					set_variable = {
+						name = secretary_of_state
+						value = PREV
+					}
+				}
 			}
 		}
 		create_character = {

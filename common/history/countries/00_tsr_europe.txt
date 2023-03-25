@@ -835,11 +835,7 @@
 			level = 1
 		}
 		
-		ig:ig_industrialists = {
-			add_ruling_interest_group = yes
-		}
-		
-		ig:ig_petty_bourgeoisie = {
+		ig:ig_rural_folk = {
 			add_ruling_interest_group = yes
 		}
 
@@ -848,6 +844,7 @@
 		}
 		
 		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
 			add_ideology = ideology_republican_paternalistic
 		}
 
@@ -1129,13 +1126,14 @@
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
-		set_tax_level = medium
-		
 		add_taxed_goods = g:liquor
+		
+		set_tax_level = medium
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
-		activate_law = law_type:law_denominational_exclusion
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
@@ -1145,7 +1143,6 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_colonial_exploitation
 		activate_law = law_type:law_per_capita_based_taxation
-		activate_law = law_type:law_poor_laws
 		
 		set_institution_investment_level = {
 			institution = institution_schools

@@ -436,6 +436,12 @@
 				activate_production_methods={ "pm_lathe" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
 			create_building={
+				building="building_tooling_workshops"
+				level=6
+				reserves=1
+				activate_production_methods={ "pm_automation_disabled" "pm_pig_iron" "pm_privately_owned_building_tooling_workshops" }
+			}
+			create_building={
 				building="building_textile_mills"
 				level=5
 				reserves=1
@@ -670,6 +676,12 @@
 				level=3
 				reserves=1
 				activate_production_methods={ "pm_handsewn_clothes" "pm_merchant_guilds_building_textile_mills" "pm_traditional_looms" "pm_craftsman_sewing" }
+			}
+			create_building={
+				building="building_iron_mine"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
 			}
 		    create_building={
 				building="building_silk_plantation"
@@ -1224,6 +1236,12 @@
 				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
+				building="building_logging_camp"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_privately_owned_building_logging_camp" "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
+			}
+			create_building={
 				building="building_tobacco_plantation"
 				level=2
 				reserves=1
@@ -1269,6 +1287,12 @@
 	}
 	s:STATE_ORISSA={
 		region_state:ORI={
+			create_building={
+				building="building_iron_mine"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
+			}
 			create_building={
 				building="building_sugar_plantation"
 				level=4
@@ -1490,7 +1514,13 @@
 				level=5
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
-			}		
+			}
+			create_building={
+				building="building_iron_mine"
+				level=4
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
+			}
 			create_building={
 				building="building_glassworks"
 				level=3

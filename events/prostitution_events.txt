@@ -338,7 +338,11 @@ prostitution.3 = {
 	trigger = {
 		NOT = { has_variable = police_cooldown }
 		any_primary_culture = { # doesn't fit that well outside of the West
-			has_discrimination_trait = european_heritage
+			OR = {
+				has_discrimination_trait = western_european_heritage
+				has_discrimination_trait = eastern_european_heritage
+				has_discrimination_trait = south_european_heritage
+			}
 		}
 		institution_investment_level = {
 			institution = institution_police

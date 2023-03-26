@@ -14,7 +14,11 @@
 		}
 		is_subject_type = subject_type_dependency
 		any_primary_culture = {
-			has_discrimination_trait = european_heritage
+			OR = {
+				has_discrimination_trait = western_european_heritage
+				has_discrimination_trait = eastern_european_heritage
+				has_discrimination_trait = south_european_heritage
+			}
 		}
 		country_is_in_europe = yes
 	}
@@ -127,7 +131,11 @@ gov_colonial_administration = {
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
-					has_discrimination_trait = european_heritage
+					OR = {
+						has_discrimination_trait = western_european_heritage
+						has_discrimination_trait = eastern_european_heritage
+						has_discrimination_trait = south_european_heritage
+					}
 				}
 				country_is_in_europe = no
 			}
@@ -139,7 +147,11 @@ gov_colonial_administration = {
 				}
 				is_country_type = colonial
 				any_primary_culture = {
-					has_discrimination_trait = european_heritage
+					OR = {
+						has_discrimination_trait = western_european_heritage
+						has_discrimination_trait = eastern_european_heritage
+						has_discrimination_trait = south_european_heritage
+					}
 				}
 				country_is_in_europe = no
 			}
@@ -152,7 +164,11 @@ gov_colonial_administration = {
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
-					has_discrimination_trait = european_heritage
+					OR = {
+						has_discrimination_trait = western_european_heritage
+						has_discrimination_trait = eastern_european_heritage
+						has_discrimination_trait = south_european_heritage
+					}
 				}
 				country_is_in_europe = no
 			}
@@ -175,7 +191,11 @@ gov_colonial_administration = {
 				is_country_type = colonial
 				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
-					has_discrimination_trait = european_heritage
+					OR = {
+						has_discrimination_trait = western_european_heritage
+						has_discrimination_trait = eastern_european_heritage
+						has_discrimination_trait = south_european_heritage
+					}
 				}
 				country_is_in_europe = no
 			}
@@ -212,7 +232,11 @@ gov_crown_colony = {
 		is_country_type = colonial
 		top_overlord = { NOT = { is_country_type = colonial } }
 		any_primary_culture = {
-			has_discrimination_trait = european_heritage
+			OR = {
+				has_discrimination_trait = western_european_heritage
+				has_discrimination_trait = eastern_european_heritage
+				has_discrimination_trait = south_european_heritage
+			}
 		}
 		country_is_in_europe = no
 	}

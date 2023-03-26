@@ -2661,40 +2661,6 @@ ai_strategy_default = {
 					}					
 				}										
 			}		
-						
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_target
-					}
-				}
-				add = 25
-			}
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_target
-					}
-					scope:target_state = {
-						state_region = s:STATE_SHAOZHOU
-					}					
-				}
-				add = 1000
-			}
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_target
-					}
-					scope:target_state = {
-						state_region = s:STATE_FORMOSA
-					}					
-				}
-				add = -100
-			}
 
 			if = { #Carving up China
 				limit = {
@@ -3054,16 +3020,6 @@ ai_strategy_default = {
 				}
 				add = 50
 			}			
-		
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_target
-					}
-				}
-				add = 75
-			}
 
 			if = {
 				limit = {

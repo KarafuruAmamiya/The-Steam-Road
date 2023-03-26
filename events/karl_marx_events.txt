@@ -133,7 +133,10 @@ marx_events.1 = {
 			}
 			1 = {
 				trigger = {
-					capital = { state_region = s:STATE_ESTONIA } 
+					OR = {
+						capital = { state_region = s:STATE_NORTH_ESTONIA } 
+						capital = { state_region = s:STATE_SOUTH_ESTONIA } 
+					}
 				}
 				create_character = {
 					first_name = Kras

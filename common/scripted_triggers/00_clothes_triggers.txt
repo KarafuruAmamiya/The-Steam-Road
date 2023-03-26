@@ -547,8 +547,8 @@ american_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		owner = {
-			exists = c:USA
-			c:USA = this
+			exists = c:USC
+			c:USC = this
 			is_subject = no
 		}
 	}
@@ -558,8 +558,8 @@ american_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		owner = {
-			exists = c:USA
-			c:USA = this
+			exists = c:USC
+			c:USC = this
 			is_subject = no
 		}
 	}
@@ -712,7 +712,10 @@ central_asian_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		culture = {
-			has_discrimination_trait = central_asian_heritage
+			OR = {
+				has_discrimination_trait = kipchak
+				has_discrimination_trait = karluk
+			}
 		}   
 	}
 }

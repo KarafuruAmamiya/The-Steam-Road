@@ -35,7 +35,7 @@ canal_events.5 = { #Nation offers to take Panama Treaty port for canal
         default_option = yes
 		random_state = {
 			limit = {
-				state_region = s:STATE_PANAMA
+				state_region = s:STATE_BATAVIA
 			}
 			owner = {
 				trigger_event = { id = canal_events.6 }
@@ -125,7 +125,7 @@ canal_events.7 = { #Deal accepted
 
 	option = {
 		name = canal_events.7.a
-		s:STATE_PANAMA = {
+		s:STATE_BATAVIA = {
 			set_owner_of_provinces = {
 				country = ROOT
 				provinces = {xD0EF40}
@@ -166,108 +166,9 @@ canal_events.8 = { #Deal rejected
 			country = scope:panama_owner_scope
 			value = -20
 		}
-		s:STATE_PANAMA = {
+		s:STATE_BATAVIA = {
  			add_claim = scope:panama_scope
 		}
-	}
-}
-
-# Suez Survey Complete
-canal_events.100 = {
-	type = country_event
-
-	title = expedition_events.400.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = expedition_events.400.d
-				trigger = {
-					any_scope_state = { state_region = s:STATE_SINAI }
-				}
-			}
-			triggered_desc = {
-				desc = canal_events.100.d
-				trigger = {
-					NOT = { any_scope_state = { state_region = s:STATE_SINAI } }
-				}
-			}
-		}
-	}
-	flavor = expedition_events.400.f
-
-	event_image = {
-		video = "gfx/event_pictures/africa_desert_expedition.bk2"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/africa/desert_expedition"
-
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-
-	duration = 3
-
-	trigger = {
-		# triggered by JE
-	}
-
-	immediate = {
-		set_variable = suez_survey_complete
-		s:STATE_SINAI = {
-			save_scope_as = suez_state
-			random_scope_state = {
-				owner = {
-					save_scope_as = suez_owner
-				}
-			}
-		}
-	}
-
-	option = { # we will attempt a diplomatic solution
-		name = canal_events.100.a
-		trigger = {
-			NOT = { any_scope_state = { state_region = s:STATE_SINAI } }
-		}
-		default_option = yes
-		add_journal_entry = {
-			type = je_suez_canal
-		}
-		change_relations = {
-			country = scope:suez_owner
-			value = 10
-		}
-		set_variable = suez_canal_purchase
-		custom_tooltip = suez_canal_purchase_available
-		custom_tooltip = suez_canal_construction_available
-	}
-
-	option = { # we will take it by force
-		name = canal_events.100.b
-		trigger = {
-			NOT = { any_scope_state = { state_region = s:STATE_SINAI } }
-		}
-		add_journal_entry = {
-			type = je_suez_canal
-		}
-		change_relations = {
-			country = scope:suez_owner
-			value = -20
-		}
-		scope:suez_state = {
- 			add_claim = ROOT
-		}
-		set_variable = suez_canal_purchase
-		custom_tooltip = suez_canal_purchase_available
-		custom_tooltip = suez_canal_construction_available
-	}
-	option = { # we should build the canal
-		name = canal_events.100.c
-		trigger = {
-			any_scope_state = { state_region = s:STATE_SINAI }
-		}
-		add_journal_entry = {
-			type = je_suez_canal
-		}
-		custom_tooltip = suez_canal_construction_available
 	}
 }
 
@@ -281,13 +182,13 @@ canal_events.101 = {
 			triggered_desc = {
 				desc = expedition_events.410.d
 				trigger = {
-					any_scope_state = { state_region = s:STATE_PANAMA }
+					any_scope_state = { state_region = s:STATE_BATAVIA }
 				}
 			}
 			triggered_desc = {
 				desc = canal_events.101.d
 				trigger = {
-					NOT = { any_scope_state = { state_region = s:STATE_PANAMA } }
+					NOT = { any_scope_state = { state_region = s:STATE_BATAVIA } }
 				}
 			}
 		}
@@ -324,7 +225,7 @@ canal_events.101 = {
 	option = { # we will attempt a diplomatic solution
 		name = canal_events.100.a
 		trigger = {
-			NOT = { any_scope_state = { state_region = s:STATE_PANAMA } }
+			NOT = { any_scope_state = { state_region = s:STATE_BATAVIA } }
 		}
 		default_option = yes
 		add_journal_entry = {
@@ -342,7 +243,7 @@ canal_events.101 = {
 	option = { # we will take it by force
 		name = canal_events.100.b
 		trigger = {
-			NOT = { any_scope_state = { state_region = s:STATE_PANAMA } }
+			NOT = { any_scope_state = { state_region = s:STATE_BATAVIA } }
 		}
 		add_journal_entry = {
 			type = je_panama_canal
@@ -361,7 +262,7 @@ canal_events.101 = {
 	option = { # we should build the canal
 		name = canal_events.100.c
 		trigger = {
-			any_scope_state = { state_region = s:STATE_PANAMA }
+			any_scope_state = { state_region = s:STATE_BATAVIA }
 		}
 		add_journal_entry = {
 			type = je_panama_canal

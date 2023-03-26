@@ -1,6 +1,6 @@
 ﻿BUILDINGS={
 	s:STATE_NEW_SOUTH_WALES={
-		region_state:NSW={
+		region_state:TIE={
 			create_building={
 				building="building_wheat_farm"
 				level=1
@@ -28,33 +28,17 @@
 		}
 	}
 	s:STATE_VICTORIA={
-		region_state:NSW={
-			create_building={
-				building="building_livestock_ranch"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_butchering_tools" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_barracks"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_mobile_artillery" }
-			}			
+		region_state:WNJ={	
+		}
+		region_state:WGA={	
 		}
 	}
 	s:STATE_TASMANIA={
-		region_state:TAS={
-			create_building={
-				building="building_barracks"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_mobile_artillery" }
-			}		
+		region_state:PLW={		
 		}
 	}
 	s:STATE_QUEENSLAND={
-		region_state:NSW={
+		region_state:TIE={
 			create_building={
 				building="building_livestock_ranch"
 				level=1
@@ -64,45 +48,31 @@
 		}
 	}
 	s:STATE_SOUTH_AUSTRALIA={
-		region_state:SAS={
-			create_building={
-				building="building_wheat_farm"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
-			}
-			create_building={
-				building="building_barracks"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_mobile_artillery" }
-			}		
+		region_state:NRJ={	
+		}
+		region_state:WRU={	
+		}
+		region_state:MRG={	
 		}
 	}
 	s:STATE_WESTERN_AUSTRALIA={
-		region_state:WAS={
+		region_state:JNB={
 			create_building={
-				building="building_barracks"
+				building="building_port"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_wound_dressing" "pm_line_infantry" "pm_cavalry_scouts" "pm_no_specialists" "pm_mobile_artillery" }
-			}		
+				activate_production_methods={ "pm_anchorage" }
+			}	
 		}
 	}
 	s:STATE_NORTHERN_TERRITORY={
-		region_state:NSW={
+		region_state:LAR={
+		}
+		region_state:YLG={
 		}
 	}
 	s:STATE_NORTH_ISLAND={
-		region_state:UNT={
-			create_building={
-				building="building_barracks"
-				level=3
-				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
-			}
-		}
-		region_state:NSW={
+		region_state:TIE={
 			create_building={
 				building="building_port"
 				level=1

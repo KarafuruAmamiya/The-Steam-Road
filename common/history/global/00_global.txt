@@ -72,18 +72,18 @@ GLOBAL = {
 	every_country = {
 		limit = { 
 			OR = {
-				country_is_in_north_america = yes
+				country_is_in_new_word = yes
 				country_is_in_central_asia = yes
-				country_is_in_south_america = yes
 			}
-		}
-		any_state = {
-			limit = {
-				OR = {
-					state_is_in_americas = yes
-					state_is_in_east_asia = yes
+			any_state = {
+				limit = {
+					OR = {
+						state_is_in_americas = yes
+						state_is_in_east_asia = yes
+						state_is_in_oceania = yes
+					}
+					is_under_colonization = yes
 				}
-				is_under_colonization = yes
 			}
 		}
         add_modifier = colonial_enthusiasm

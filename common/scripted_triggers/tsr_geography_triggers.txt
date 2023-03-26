@@ -135,6 +135,10 @@ state_is_in_southeast_asia = {
 	}
 }
 
+state_is_in_oceania = {
+	region = sr:region_oceania
+}
+
 ### Country geography triggers
 # exists = capital checks are necessary only because we may test these triggers and scope switch to capitals before states are initialized properly
 
@@ -148,7 +152,10 @@ country_is_in_europe = {
 country_is_in_new_word = {
 	exists = capital
 	capital = {
-		state_is_in_americas = yes
+		OR = {
+			state_is_in_americas = yes
+			state_is_in_oceania = yes
+		}
 	}
 }
 

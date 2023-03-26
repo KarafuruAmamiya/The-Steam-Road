@@ -135,7 +135,16 @@
 				culture = guajiro
 				size = 4004
 			}
-			
+		}
+		region_state:AWK = {
+			create_pop = {
+				culture = cariban
+				size = 7000
+			}
+			create_pop = {
+				culture = guajiro
+				size = 3000
+			}
 		}
 	}
 	s:STATE_PAYS_DE_GRACE = {
@@ -194,6 +203,98 @@
 			}
 		}
 	}
+	s:STATE_LES_PLAINES = {
+		region_state:GHB = {
+			create_pop = {
+				culture = cariban
+				size = 10000
+			}
+		}
+	}
+	s:STATE_AMAZONIE = {
+		region_state:PNR = {
+			create_pop = {
+				culture = cariban
+				size = 5000
+			}
+		}
+		region_state:YKN = {
+			create_pop = {
+				culture = cariban
+				size = 5000
+			}
+		}
+		region_state:PNV = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+		}
+		region_state:YMM = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+		}
+		region_state:BNW = {
+			create_pop = {
+				culture = amazonian
+				size = 8000
+			}
+		}
+		region_state:TMK = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+		}
+	}
+	s:STATE_RORAIME = {
+		region_state:YMM = {
+			create_pop = {
+				culture = amazonian
+				size = 6000
+			}
+			create_pop = {
+				culture = cariban
+				size = 2000
+			}
+		}
+		region_state:WWI = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+			create_pop = {
+				culture = cariban
+				size = 3000
+			}
+		}
+	}
+	s:STATE_SAINT_GERMAIN = {
+		region_state:KGJ = {
+			create_pop = {
+				culture = amazonian
+				size = 6000
+			}
+			create_pop = {
+				culture = quechua
+				size = 3000
+			}
+		}
+		region_state:BSN = {
+			create_pop = {
+				culture = amazonian
+				size = 3000
+			}
+		}
+		region_state:BOA = {
+			create_pop = {
+				culture = amazonian
+				size = 4000
+			}
+		}
+	}
 	s:STATE_GRANDE_FLEUVE = {
 		region_state:ORC = {
 			create_pop = {
@@ -237,6 +338,66 @@
 				size = 3646
 			}
 		}
+		region_state:YMM = {
+			create_pop = {
+				culture = amazonian
+				size = 10000
+			}
+		}
+		region_state:WWI = {
+			create_pop = {
+				culture = amazonian
+				size = 10000
+			}
+		}
+		region_state:PKN = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+			create_pop = {
+				culture = tupinamba
+				size = 2000
+			}
+		}
+		region_state:KRJ = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+			create_pop = {
+				culture = tupinamba
+				size = 3000
+			}
+		}
+		region_state:KYP = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+			create_pop = {
+				culture = tupinamba
+				size = 2000
+			}
+		}
+		region_state:MKU = {
+			create_pop = {
+				culture = amazonian
+				size = 8000
+			}
+		}
+		region_state:MWE = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+		}
+		region_state:MRA = {
+			create_pop = {
+				culture = amazonian
+				size = 4000
+			}
+		}
 	}
 	s:STATE_AMAZONAS = {
 		region_state:AMR = {
@@ -262,12 +423,70 @@
 				pop_type = slaves
 				culture = afro_antillean
 				size = 940
-			
+			}
 			create_pop = {
 				culture = afro_antillean
 				size = 1980
 			}
-		}		
+		}
+		region_state:YMM = {
+			create_pop = {
+				culture = amazonian
+				size = 6000
+			}
+		}
+		region_state:BNW = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+		}
+		region_state:TMK = {
+			create_pop = {
+				culture = amazonian
+				size = 3000
+			}
+		}
+		region_state:BOA = {
+			create_pop = {
+				culture = amazonian
+				size = 4000
+			}
+		}
+		region_state:MRA = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+		}
+		region_state:APN = {
+			create_pop = {
+				culture = amazonian
+				size = 7000
+			}
+		}
+		region_state:DNI = {
+			create_pop = {
+				culture = amazonian
+				size = 6000
+			}
+		}
+		region_state:TCN = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
+		}
+		region_state:YNW = {
+			create_pop = {
+				culture = amazonian
+				size = 10000
+			}
+			create_pop = {
+				culture = quechua
+				size = 2000
+			}
+		}
 	}
 	s:STATE_BATAVIA = {
 		region_state:BTC = {
@@ -450,6 +669,12 @@
 			}
 			create_pop = {
 				culture = quechua
+				size = 2000
+			}
+		}
+		region_state:BOA = {
+			create_pop = {
+				culture = amazonian
 				size = 2000
 			}
 		}
@@ -870,6 +1095,18 @@
 			create_pop = {
 				culture = amazonian
 				size = 20000
+			}
+		}
+	}
+	s:STATE_UCAYALI = {
+		region_state:YNW = {
+			create_pop = {
+				culture = quechua
+				size = 7000
+			}
+			create_pop = {
+				culture = amazonian
+				size = 10000
 			}
 		}
 	}

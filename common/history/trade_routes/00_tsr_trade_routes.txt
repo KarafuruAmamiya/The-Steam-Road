@@ -555,18 +555,6 @@
 			target = c:ENG.market
 		}
 		create_trade_route = {
-			goods = small_arms
-			level = 3
-			direction = import
-			target = c:PER.market
-		}
-		create_trade_route = {
-			goods = fabric
-			level = 10
-			direction = export
-			target = c:CHI.market
-		}
-		create_trade_route = {
 			goods = tobacco
 			level = 4
 			direction = export
@@ -586,7 +574,7 @@
 		}
 		create_trade_route = {
 			goods = furniture
-			level = 8
+			level = 6
 			direction = import
 			target = c:CHI.market
 		}			
@@ -645,12 +633,6 @@
 			level = 3
 			direction = export
 			target = c:SCA.market
-		}
-		create_trade_route = {
-			goods = tools
-			level = 6
-			direction = export
-			target = c:IBE.market
 		}
 		create_trade_route = {
 			goods = tobacco
@@ -788,12 +770,6 @@
 		}
 		create_trade_route = {
 			goods = sugar
-			level = 3
-			direction = import
-			target = c:IBE.market
-		}
-		create_trade_route = {
-			goods = hardwood
 			level = 3
 			direction = import
 			target = c:IBE.market
@@ -1204,26 +1180,26 @@
 	c:TUN = {
 		create_trade_route = {
 			goods = clippers
-			level = 3
+			level = 2
 			direction = import
 			target = c:TUR.market
-		}			
+		}
 		create_trade_route = {
 			goods = artillery
-			level = 3
+			level = 2
 			direction = import
-			target = c:IBE.market
-		}	
+			target = c:TUR.market
+		}
+		create_trade_route = {
+			goods = artillery
+			level = 1
+			direction = import
+			target = c:ITA.market
+		}			
 	}
 	
 	# Ternate
 	c:TER = {
-		create_trade_route = {
-			goods = paper
-			level = 3
-			direction = import
-			target = c:IBE.market
-		}			
 		create_trade_route = {
 			goods = clippers
 			level = 1
@@ -1298,12 +1274,6 @@
 	
 	# Yue
 	c:YUE = {
-		create_trade_route = {
-			goods = paper
-			level = 2
-			direction = import
-			target = c:IBE.market
-		}
 		create_trade_route = {
 			goods = clippers
 			level = 2

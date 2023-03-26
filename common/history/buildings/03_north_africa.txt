@@ -302,7 +302,7 @@
 				building="building_fishing_wharf"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
 			create_building={
 				building="building_port"
@@ -330,7 +330,7 @@
 				building="building_fishing_wharf"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
 			create_building={
 				building="building_naval_base"
@@ -343,6 +343,28 @@
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
+			}
+		}
+	}
+	s:STATE_SUAKIN={
+		region_state:DGL={
+			create_building={
+				building="building_millet_farm"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_fig_orchards" "pm_tools_disabled" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				level=4
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_barracks"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 		}
 	}
@@ -364,7 +386,7 @@
 		region_state:AKN={
 			create_building={
 				building="building_dye_plantation"
-				level=3
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_dye_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
@@ -377,7 +399,7 @@
 		}
 	}
 	s:STATE_KORDOFAN={
-		region_state:EGY={
+		region_state:FUN={
 			create_building={
 				building="building_livestock_ranch"
 				level=2
@@ -388,12 +410,12 @@
 				building="building_barracks"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 		}
 	}
 	s:STATE_DARFUR={
-		region_state:DFR={
+		region_state:FUN={
 			create_building={
 				building="building_livestock_ranch"
 				level=1
@@ -409,7 +431,7 @@
 		}
 	}
 	s:STATE_BLUE_NILE={
-		region_state:EGY={
+		region_state:ALO={
 			create_building={
 				building="building_millet_farm"
 				level=2
@@ -438,7 +460,35 @@
 				building="building_barracks"
 				level=20
 				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+		}
+	}
+	s:STATE_KASSALA={
+		region_state:BJA={
+			create_building={
+				building="building_millet_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_fig_orchards" "pm_tools_disabled" "pm_privately_owned" }
+			}							
+			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_merchant_guilds_building_logging_camp" "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_barracks"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_no_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
 		}
 	}
@@ -965,7 +1015,7 @@
 				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
 			}
 		}
-		region_state:FEZ={
+		region_state:TUN={
 			create_building={
 				building="building_livestock_ranch"
 				level=3
@@ -979,9 +1029,33 @@
 				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_cannon_artillery" }
 			}
 		}
+		region_state:WRF={
+			create_building={
+				building="building_barracks"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+		}
+	}
+	s:STATE_MISRATA={
+		region_state:ITA={
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+		}
 	}
 	s:STATE_FEZZAN={
-		region_state:FEZ={
+		region_state:AWL={
 			create_building={
 				building="building_livestock_ranch"
 				level=1
@@ -1014,7 +1088,29 @@
 				building="building_barracks"
 				level=6
 				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+				activate_production_methods={ "pm_line_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+		}
+	}
+	s:STATE_DERNA={
+		region_state:EGY={
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
 			}
 		}
 	}

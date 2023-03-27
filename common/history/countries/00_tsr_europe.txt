@@ -417,6 +417,9 @@
 		set_tax_level = medium
 		
 		add_taxed_goods = g:liquor
+		add_taxed_goods = g:luxury_clothes
+		add_taxed_goods = g:luxury_furniture
+		add_taxed_goods = g:wine
 		
 		# Laws
 		activate_law = law_type:law_monarchy
@@ -433,6 +436,8 @@
 		activate_law = law_type:law_colonial_resettlement
 		activate_law = law_type:law_dedicated_police
 		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_migration_controls
@@ -449,7 +454,7 @@
 
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
-			level = 1
+			level = 2
 		}
 
 		ig:ig_landowners = {

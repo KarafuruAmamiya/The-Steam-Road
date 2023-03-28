@@ -1367,6 +1367,13 @@ ai_strategy_default = {
 		}
 		region_la_plata = {
 			if = {
+				limit = {
+					AND = {
+						exists = c:NWX
+						this = c:NWX
+					}
+					add = 1000
+				}
 				limit = { #Persia and Ottomans have no business interfering in the New World
 					country_is_in_europe = no
 					country_is_in_new_word = no
@@ -1969,7 +1976,65 @@ ai_strategy_default = {
 					limit = { has_technology_researched = civilizing_mission }
 					add = 50
 				}					
-			}			
+			}
+			
+			if = { # Unifying China
+				limit = {
+					exists = c:CHI
+					this = c:CHI
+					scope:target_country = {
+						OR = {
+							AND = {
+								exists = c:YUN
+								this = c:YUN
+							}
+							AND = {
+								exists = c:YUE
+								this = c:YUE
+							}
+							AND = {
+								exists = c:HIN
+								this = c:HIN
+							}
+						}
+					}
+				}
+				add = 1000
+			}
+			
+			if = { # French Conquest of Japan
+				limit = {
+					exists = c:FRA
+					this = c:FRA
+					scope:target_country = {
+						AND = {
+							exists = c:ASK
+							this = c:ASK
+						}
+					}
+				}
+				add = 1000
+			}
+			
+			if = { # Mayapan must reclaim New Caledonia and Maya
+				limit = {
+					exists = c:MYP
+					this = c:MYP
+					scope:target_country = {
+						OR = {
+							AND = {
+								exists = c:CLD
+								this = c:CLD
+							}
+							AND = {
+								exists = c:MAY
+								this = c:MAY
+							}
+						}
+					}
+				}
+						add = 1000
+			}
 			
 			if = { 
 				limit = {
@@ -2392,6 +2457,64 @@ ai_strategy_default = {
 							scope:target_state = { has_port = no }
 						}
 						multiply = 0.5
+					}
+					
+					if = { # Unifying China
+						limit = {
+							exists = c:CHI
+							this = c:CHI
+							scope:target_country = {
+								OR = {
+									AND = {
+										exists = c:YUN
+										this = c:YUN
+									}
+									AND = {
+										exists = c:YUE
+										this = c:YUE
+									}
+									AND = {
+										exists = c:HIN
+										this = c:HIN
+									}
+								}
+							}
+						}
+						add = 1000
+					}
+					
+					if = { # French Conquest of Japan
+						limit = {
+							exists = c:FRA
+							this = c:FRA
+							scope:target_country = {
+								AND = {
+									exists = c:ASK
+									this = c:ASK
+								}
+							}
+						}
+						add = 1000
+					}
+					
+					if = { # Mayapan must reclaim New Caledonia and Maya
+						limit = {
+							exists = c:MYP
+							this = c:MYP
+							scope:target_country = {
+								OR = {
+									AND = {
+										exists = c:CLD
+										this = c:CLD
+									}
+									AND = {
+										exists = c:MAY
+										this = c:MAY
+									}
+								}
+							}
+						}
+						add = 1000
 					}
 					
 					if = {

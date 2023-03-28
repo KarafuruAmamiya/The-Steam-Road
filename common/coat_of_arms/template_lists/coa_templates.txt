@@ -136,7 +136,11 @@ coat_of_arms_template_lists = {
 				exists = scope:target
 				scope:target = {
 					any_primary_culture = {
-						has_discrimination_trait = european_heritage
+						OR = {
+							has_discrimination_trait = western_european_heritage
+							has_discrimination_trait = eastern_european_heritage
+							has_discrimination_trait = south_european_heritage
+						}
 					}
 					religion = {
 						has_discrimination_trait = christian
@@ -351,8 +355,11 @@ coat_of_arms_template_lists = {
 			trigger = { 
 				any_primary_culture = {
 					OR = {				
-						has_discrimination_trait = european_heritage
-						has_discrimination_trait = central_asian_heritage
+						has_discrimination_trait = western_european_heritage
+						has_discrimination_trait = eastern_european_heritage
+						has_discrimination_trait = south_european_heritage
+						has_discrimination_trait = turkic_heritage
+						has_discrimination_trait = iranian_heritage
 					}
 				}
 			}

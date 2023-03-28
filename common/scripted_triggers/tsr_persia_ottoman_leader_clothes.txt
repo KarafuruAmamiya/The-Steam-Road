@@ -126,31 +126,31 @@ british_empire_clothes_p_trigger = {
 		exists = c:GBR
 		owner = {
 			OR = {
-			AND = {
-				exists = c:GBR
-				owner = {
-					OR = {
-						AND = {
-							c:GBR = this
-							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
-						}
-						is_subject_of = c:GBR
-					}		
+				AND = {
+					exists = c:GBR
+					owner = {
+						OR = {
+							AND = {
+								c:GBR = this
+								is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+							}
+							is_subject_of = c:GBR
+						}		
+					}
 				}
-			}
-			AND = {
-				exists = c:ENG
-				owner = {
-					OR = {
-						AND = {
-							c:ENG = this
-							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
-						}
-						is_subject_of = c:ENG
-					}		
+				AND = {
+					exists = c:ENG
+					owner = {
+						OR = {
+							AND = {
+								c:ENG = this
+								is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+							}
+							is_subject_of = c:ENG
+						}		
+					}
 				}
-			}
-		}		
+			}		
 		}
 	}
 }

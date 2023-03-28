@@ -338,10 +338,10 @@
 	s:STATE_PURVANCHAL={
 		region_state:HNS={
 			create_building={
-				building="building_wheat_farm"
+				building="building_rice_farm"
 				level=6
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -382,10 +382,10 @@
 	s:STATE_BUNDELKHAND={
 		region_state:HNS={
 			create_building={
-				building="building_wheat_farm"
+				building="building_rice_farm"
 				level=6
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -449,7 +449,7 @@
 			}
 			create_building={
 				building="building_fishing_wharf"
-				level=3
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
@@ -487,7 +487,7 @@
 		region_state:SIN={
 			create_building={
 				building="building_fishing_wharf"
-				level=2
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
@@ -1072,12 +1072,6 @@
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
 			create_building={
-				building="building_tea_plantation"
-				level=2
-				reserves=1
-				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
-			create_building={
 				building="building_livestock_ranch"
 				level=3
 				reserves=1
@@ -1120,10 +1114,10 @@
 		}
 		region_state:DLH={
 			create_building={
-				building="building_millet_farm"
+				building="building_rice_farm"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
 			}
 			create_building={
 				building="building_tobacco_plantation"
@@ -1154,10 +1148,10 @@
 	s:STATE_MARWAR={
 		region_state:SIN={
 			create_building={
-				building="building_millet_farm"
+				building="building_rice_farm"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
 			}
 			create_building={
 				building="building_livestock_ranch"

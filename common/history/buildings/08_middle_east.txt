@@ -653,10 +653,10 @@
 				activate_production_methods={ "pm_handcrafted_furniture" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
 			create_building={
-				building="building_wheat_farm"
+				building="building_rice_farm"
 				level=3
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_no_secondary" }
+				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_no_secondary" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -825,12 +825,6 @@
 				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
-				building="building_rice_farm"
-				level=4
-				reserves=1
-				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_fig_orchards" }
-			}
-			create_building={
 				building="building_barracks"
 				level=10
 				reserves=1
@@ -887,12 +881,6 @@
 				level=5
 				reserves=1
 				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
-			}
-			create_building={
-				building="building_rice_farm"
-				level=3
-				reserves=1
-				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_privately_owned" "pm_tools_disabled" "pm_fig_orchards" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -1092,7 +1080,7 @@
 			}
 			create_building={
 				building="building_textile_mills"
-				level=3
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
 			}
@@ -1109,12 +1097,6 @@
 				activate_production_methods={ "pm_automation_disabled" "pm_pig_iron" "pm_privately_owned_building_tooling_workshops" }
 			}
 			create_building={
-				building="building_wheat_farm"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
-			}
-			create_building={
 				building="building_livestock_ranch"
 				level=3
 				reserves=1
@@ -1125,12 +1107,6 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_traditional_art" }
-			}
-			create_building={
-				building="building_cotton_plantation"
-				level=1
-				reserves=1
-				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_barracks"
@@ -1145,12 +1121,6 @@
 	}
 	s:STATE_YAZD={
 		region_state:PER={
-			create_building={
-				building="building_cotton_plantation"
-				level=2
-				reserves=1
-				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
 			create_building={
 				building="building_textile_mills"
 				level=2
@@ -1640,18 +1610,6 @@
 				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
-				building="building_opium_plantation"
-				level=1
-				reserves=1
-				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				level=1
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
-			create_building={
 				building="building_cotton_plantation"
 				level=2
 				reserves=1
@@ -1878,18 +1836,6 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_coal_mine" }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				level=2
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_tea_plantation"
-				level=2
-				reserves=1
-				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_barracks"

@@ -25,7 +25,7 @@
 		subject_canton = SGF_BAV
 		priority = 2
 		trigger = {
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -34,7 +34,7 @@
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -43,7 +43,7 @@
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 }
@@ -75,7 +75,7 @@ NGF = { # North Germany
 		subject_canton = NGF_SAX
 		priority = 2
 		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -83,7 +83,7 @@ NGF = { # North Germany
 		priority = 20
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -92,32 +92,7 @@ NGF = { # North Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
-		}
-	}
-	flag_definition = {
-		coa = NGF_HAN
-		subject_canton = NGF_HAN
-		priority = 2
-		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = NGF_HAN_absolute_monarchy
-		priority = 20
-		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = NGF_HAN_fascist
-		subject_canton = NGF_HAN_fascist
-		priority = 2500
-		trigger = { 
-			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 }
@@ -167,7 +142,7 @@ GER = { # Germany
 		subject_canton = GER_BAV
 		priority = 2
 		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -176,7 +151,7 @@ GER = { # Germany
 		priority = 7
 		trigger = {
 			coa_def_autocracy_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -185,7 +160,7 @@ GER = { # Germany
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -194,7 +169,7 @@ GER = { # Germany
 		priority = 25
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -202,7 +177,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -211,7 +186,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_BAVARIA } }
+			scope:actor = { was_formed_from = PLT }
 		}
 	}
 	flag_definition = {
@@ -219,7 +194,7 @@ GER = { # Germany
 		subject_canton = GER_SAX
 		priority = 2
 		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -228,7 +203,7 @@ GER = { # Germany
 		priority = 7
 		trigger = {
 			coa_def_autocracy_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -237,7 +212,7 @@ GER = { # Germany
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -246,7 +221,7 @@ GER = { # Germany
 		priority = 25
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -254,7 +229,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -263,59 +238,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_SAXONY } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN
-		subject_canton = GER_HAN
-		priority = 2
-		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN_iron_cross
-		subject_canton = GER_HAN_iron_cross
-		priority = 7
-		trigger = {
-			coa_def_autocracy_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN_modern
-		subject_canton = GER_HAN_modern
-		priority = 20
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN_dictatorship
-		subject_canton = GER_HAN_dictatorship
-		priority = 25
-		trigger = { 
-			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN_communist
-		priority = 2500
-		trigger = { 
-			coa_def_communist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
-		}
-	}
-	flag_definition = {
-		coa = GER_HAN_fascist
-		subject_canton = GER_HAN_fascist
-		priority = 2500
-		trigger = { 
-			coa_def_fascist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_HANNOVER } }
+			scope:actor = { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {

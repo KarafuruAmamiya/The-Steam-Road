@@ -2099,28 +2099,10 @@ GBR = { # Great Britain / United Kingdom
 		}
 	}
 	flag_definition = {
-		coa = MAC
-		subject_canton = MAC
-		priority = 22
-		trigger = { 
-			exists = scope:actor
-			scope:actor = { capital = { state_region = s:STATE_LANCASHIRE } }
-		}
-	}
-	flag_definition = {
-		coa = MAC_communist
-		priority = 23
-		trigger = {
-			coa_def_communist_flag_trigger = yes
-			scope:actor = { capital = { state_region = s:STATE_LANCASHIRE } }
-		}
-	}
-	flag_definition = {
 		coa = GBR_communist
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { NOT = { capital = { state_region = s:STATE_LANCASHIRE } } }
 		}
 	}	
 	flag_definition = {

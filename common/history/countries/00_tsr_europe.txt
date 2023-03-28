@@ -1,4 +1,16 @@
 ﻿COUNTRIES = {
+	c:ANR = { # Andorra
+		effect_starting_technology_tier_3_tech = yes
+		
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_peasant_levies
+
+	}
 	c:ARN = { # Aragon
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
@@ -978,6 +990,7 @@
 		effect_starting_technology_tier_3_tech = yes
 		
 		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_laissez_faire
@@ -986,7 +999,7 @@
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_free_trade
-		activate_law = law_type:law_public_schools	
+		activate_law = law_type:law_religious_schools	
 		activate_law = law_type:law_censorship
 		
 		set_institution_investment_level = {
@@ -1004,7 +1017,6 @@
 	c:MOL = { # Moldavia
 		effect_starting_technology_tier_3_tech = yes
 		
-		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_religious_schools
 		
@@ -1125,6 +1137,20 @@
 		ig:ig_devout = {
 			set_ig_bolstering = yes
 			set_interest_group_name = ig_catholic_church
+		}
+	}
+	c:NAS = { # Nassau
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_reactionary = yes
+		activate_law = law_type:law_religious_schools		
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+		ig:ig_devout = {
+			set_interest_group_name = ig_evangelical_church
 		}
 	}
 	c:NET = { # Netherlands
@@ -1850,12 +1876,10 @@
 	c:WAL = { # Wallachia
 		effect_starting_technology_tier_3_tech = yes
 		
-		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
 
 		add_journal_entry = { type = je_unify_romania }
-		
-		activate_law = law_type:law_religious_schools
 		
 		set_institution_investment_level = {
 			institution = institution_schools

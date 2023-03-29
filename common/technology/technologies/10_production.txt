@@ -268,7 +268,14 @@ atmospheric_engine = {
 				}
 			}
 			add = 2
-		}	
+		}
+		if = { #Persia need to rush railways
+			limit = { 
+				exists = c:PER
+				this = c:PER
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -300,6 +307,13 @@ railways = {
 				}
 			}
 			add = 2
+		}
+		if = { #Persia need to rush railways
+			limit = { 
+				exists = c:PER
+				this = c:PER
+			}
+			add = 1000
 		}		
 	}
 }
@@ -422,6 +436,13 @@ mechanical_tools = {
 	
 	ai_weight = {
 		value = 1		
+		if = { #Persia need to rush railways
+			limit = { 
+				exists = c:PER
+				this = c:PER
+			}
+			add = 1000
+		}
 	}
 }
 

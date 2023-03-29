@@ -300,30 +300,6 @@ coa_def_danish_ensign_trigger = {
 	coa_def_ensign_trigger = yes
 }
 
-coa_def_dominant_scotland_trigger = {
-	OR = {
-		AND = {
-			exists = scope:actor
-			scope:actor = {
-				capital = {
-					state_region = {
-						OR = {
-							this = s:STATE_LOWLANDS
-							this = s:STATE_WEST_LOWLANDS
-							this = s:STATE_HIGHLANDS
-						}
-					}
-				}
-			}			
-		}
-		AND = {
-			exists = c:SCO
-			c:SCO = { save_temporary_scope_as = custom_overlord }
-			coa_def_ensign_trigger = yes
-		}		
-	}
-}
-
 coa_def_spanish_ensign_trigger = {
 	exists = c:IBE
 	c:IBE = { save_temporary_scope_as = custom_overlord }
@@ -405,13 +381,21 @@ coa_def_native_american_trigger = {
 
 coa_def_cross_trigger = {
     religion = {
-    	has_discrimination_trait = christian
+		OR = {
+			has_discrimination_trait = protestant_heritage
+			has_discrimination_trait = orthodox_heritage
+			has_discrimination_trait = catholic_heritage
+		}
     }
 }
 
 coa_def_crescent_trigger = {
     religion = {
-		has_discrimination_trait = muslim
+		OR = {
+			has_discrimination_trait = sunni_heritage
+			has_discrimination_trait = shia_heritage
+			has_discrimination_trait = kharijite_heritage
+		}
     }
 }
 

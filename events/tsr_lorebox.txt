@@ -36,3 +36,18 @@ lorebox.3 = {
 		post_notification = lorebox_as
 	}
 }
+
+lorebox.4 = {
+	type = country_event
+	hidden = yes
+	trigger = {
+		OR = {
+			country_is_in_north_america = yes
+			country_is_in_central_america = yes
+			country_is_in_south_america = yes
+		}
+	}
+	immediate = {
+		post_notification = lorebox_nw
+	}
+}

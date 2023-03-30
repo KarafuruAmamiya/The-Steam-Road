@@ -715,12 +715,6 @@
 				activate_production_methods={ "pm_vertical_filing_cabinets" }
 			}
 			create_building={
-				building="building_construction_sector"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_iron_frame_buildings" }
-			}
-			create_building={
 				building="building_furniture_manufacturies"
 				level=4
 				reserves=1
@@ -980,7 +974,7 @@
 				building="building_textile_mills"
 				level=10
 				reserves=1
-				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_silk_plantation"
@@ -1106,7 +1100,7 @@
 				building="building_textile_mills"
 				level=4
 				reserves=1
-				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_food_industry"
@@ -1149,7 +1143,7 @@
 				building="building_textile_mills"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_silk_plantation"
@@ -1173,6 +1167,12 @@
 	}
 	s:STATE_MAZANDARAN={
 		region_state:PER={
+			create_building={
+				building="building_construction_sector"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_iron_frame_buildings" }
+			}
 			create_building={
 				building="building_coal_mine"
 				level=4
@@ -1271,6 +1271,12 @@
 	}
 	s:STATE_IRAKAJEMI={
 		region_state:PER={
+			create_building={
+				building="building_construction_sector"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_iron_frame_buildings" }
+			}
 			create_building={
 				building="building_textile_mills"
 				level=6
@@ -1423,7 +1429,7 @@
 				building="building_textile_mills"
 				level=4
 				reserves=1
-				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
 				building="building_wheat_farm"

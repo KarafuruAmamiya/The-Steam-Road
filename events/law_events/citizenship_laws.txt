@@ -30,6 +30,9 @@ citizenship_laws.1 = {
 				OR = {
 					has_law = law_type:law_racial_segregation
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_shared_heritage
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
@@ -37,11 +40,27 @@ citizenship_laws.1 = {
 				is_enacting_law = law_type:law_racial_segregation
 				OR = {
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_shared_heritage
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
+					has_law = law_type:law_multicultural
+				}
+			}
+			AND = {
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				has_law = law_type:law_multicultural
 			}
 		}
@@ -120,19 +139,38 @@ citizenship_laws.2 = {
 				is_enacting_law = law_type:law_national_supremacy
 				OR = {
 					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
+					has_law = law_type:law_multicultural
+				}
+			}
+			AND = {
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
 			AND = {
 				is_enacting_law = law_type:law_racial_segregation
 				OR = {
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				has_law = law_type:law_multicultural
 			}
 		}
@@ -228,19 +266,38 @@ citizenship_laws.3 = {
 				is_enacting_law = law_type:law_national_supremacy
 				OR = {
 					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
+					has_law = law_type:law_multicultural
+				}
+			}
+			AND = {
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
 			AND = {
 				is_enacting_law = law_type:law_racial_segregation
 				OR = {
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_cultural_exclusion_europe
+					has_law = law_type:law_cultural_exclusion_me
 					has_law = law_type:law_multicultural
 				}
 			}
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				has_law = law_type:law_multicultural
 			}
 		}
@@ -319,10 +376,23 @@ citizenship_laws.4 = {
 		OR = {
 			is_enacting_law = law_type:law_multicultural
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				OR = {
 					has_law = law_type:law_national_supremacy
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_ethnostate
+				}
+			}
+			AND = {
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_national_supremacy
 					has_law = law_type:law_ethnostate
 				}
 			}
@@ -428,10 +498,23 @@ citizenship_laws.5 = {
 		OR = {
 			is_enacting_law = law_type:law_multicultural
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				OR = {
 					has_law = law_type:law_national_supremacy
+					has_law = law_type:law_shared_heritage
 					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_ethnostate
+				}
+			}
+			AND = {
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_national_supremacy
 					has_law = law_type:law_ethnostate
 				}
 			}
@@ -530,10 +613,23 @@ citizenship_laws.6 = {
 		OR = {
 			is_enacting_law = law_type:law_multicultural
 			AND = {
-				is_enacting_law = law_type:law_cultural_exclusion
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
 				OR = {
 					has_law = law_type:law_national_supremacy
 					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_shared_heritage
+					has_law = law_type:law_ethnostate
+				}
+			}
+			AND = {
+				is_enacting_law = law_type:law_shared_heritage
+				OR = {
+					has_law = law_type:law_racial_segregation
+					has_law = law_type:law_national_supremacy
 					has_law = law_type:law_ethnostate
 				}
 			}

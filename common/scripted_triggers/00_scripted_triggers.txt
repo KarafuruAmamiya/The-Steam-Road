@@ -890,8 +890,24 @@ will_be_accepted_culture = {
             owner = { is_enacting_law = law_type:law_racial_segregation }
             culture = { shares_heritage_trait_with_any_primary_culture = root }
         }
+		AND = {
+            owner = { is_enacting_law = law_type:law_shared_heritage }
+            culture = { 
+				OR = {
+					has_discrimination_trait = eastern_european_heritage
+					has_discrimination_trait = western_european_heritage
+					has_discrimination_trait = south_european_heritage
+				}
+			}
+        }
         AND = {
-            owner = { is_enacting_law = law_type:law_cultural_exclusion }
+            owner = { 
+				OR = {
+					is_enacting_law = law_type:law_cultural_exclusion 
+					is_enacting_law = law_type:law_cultural_exclusion_europe
+					is_enacting_law = law_type:law_cultural_exclusion_me
+				}
+			}
             culture = { shares_trait_with_any_primary_culture = root }
         }
         owner = { is_enacting_law = law_type:law_multicultural }

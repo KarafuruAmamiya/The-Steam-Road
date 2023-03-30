@@ -215,7 +215,7 @@ crime_events.10 = { #First horrific murders makes the newspapers
 	trigger = {
 		is_player = yes
 		any_scope_state = {
-			is_incorporated = yes
+			is_capital = yes
 			any_scope_building = {
 				is_building_type = building_urban_center
 				level >= 10
@@ -230,7 +230,7 @@ crime_events.10 = { #First horrific murders makes the newspapers
 		set_variable = had_serial_killer_event
 		random_scope_state = {
 			limit = {
-				is_incorporated = yes
+				is_capital = yes
 				any_scope_building = {
 					is_building_type = building_urban_center
 					level >= 10
@@ -315,8 +315,8 @@ crime_events.11 = { #The Criminal was caught
 			save_scope_as = important_killer
 		}
 		random_list = {
-			80 = { }
-			20 = {
+			95 = { }
+			5 = {
 				set_variable = important_killer_var
 			}
 		}

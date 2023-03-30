@@ -32,28 +32,70 @@ character_roles_hidden.2 = {
 		has_law = law_type:law_presidential_republic
 		country_has_voting_franchise = yes
 		has_variable = vice_president
-		any_scope_character = {
-			NOT = { has_variable = vice_president_trigger }
+		NOT = { 
+			any_scope_character = {
+				has_variable = vice_president_trigger
+			}
 		}
 	}
 	immediate = {
+		if = {
+			limit = {
+				random_scope_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+							is_heir = yes
+							has_role = general
+							has_role = admiral
+						}
+						interest_group = {
+							is_in_government = yes
+						}
+					}
+				}
+			}
+			random_scope_character = {
+				limit = {
+					NOT = {
+						is_ruler = yes
+						is_heir = yes
+						has_role = general
+						has_role = admiral
+					}
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+				set_variable = vice_president_trigger
+				save_scope_as = new_vice_president
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
+			}
+		}
+		else = {
+			create_character = {
+				on_created = {
+					set_variable = vice_president_trigger
+					owner = {
+						set_variable = {
+							name = vice_president
+							value = PREV
+						}
+					}
+				}		
+			}
+		}
 		random_scope_character = {
 			limit = {
-				NOT = {
-					is_ruler = yes
-					is_heir = yes
-				}
-				interest_group = {
-					is_in_government = yes
-				}
+				has_variable = vice_president_trigger
+				NOT = { THIS = scope:new_vice_president }
 			}
-			set_variable = vice_president_trigger
-			owner = {
-				set_variable = {
-					name = vice_president
-					value = PREV
-				}
-			}
+			remove_variable = vice_president_trigger
 		}
 	}
 }
@@ -65,8 +107,8 @@ character_roles_hidden.3 = {
 	trigger = {
 		NOT = {
 			AND = {
-				has_law = law_type:law_presidential_republic
 				country_has_voting_franchise = yes
+				has_law = law_type:law_presidential_republic
 			}
 		}
 		has_variable = vice_president
@@ -82,16 +124,12 @@ character_roles_hidden.3 = {
 	}
 }
 
-
 #Give Prime Minister Variable and Character
 character_roles_hidden.4 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		OR = {
-			has_law = law_type:law_monarchy
-			has_law = law_type:law_parliamentary_republic
-		}
+		has_law = law_type:law_monarchy
 		country_has_voting_franchise = yes
 		NOT = { has_variable = prime_minister }
 	}
@@ -101,6 +139,8 @@ character_roles_hidden.4 = {
 				NOT = {
 					is_ruler = yes
 					is_heir = yes
+					has_role = general
+					has_role = admiral
 				}
 				interest_group = {
 					is_in_government = yes
@@ -122,15 +162,21 @@ character_roles_hidden.5 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		OR = {
-			has_law = law_type:law_monarchy
-			has_law = law_type:law_parliamentary_republic
-		}
+		has_law = law_type:law_monarchy
 		country_has_voting_franchise = yes
 		has_variable = prime_minister
-		any_scope_character = {
-			NOT = { has_variable = prime_minister_trigger }
-		}
+			NOT = { 
+				any_scope_character = {
+					has_variable = prime_minister_trigger
+				}
+			}
+			
+			#any_scope_character = {
+			#	AND = {
+			#		NOT = { ig = is_in_government = yes }
+			#		has_variable = prime_minister_trigger
+			#	}
+			#}
 	}
 	immediate = {
 		random_scope_character = {
@@ -138,18 +184,28 @@ character_roles_hidden.5 = {
 				NOT = {
 					is_ruler = yes
 					is_heir = yes
+					has_role = general
+					has_role = admiral
 				}
 				interest_group = {
 					is_in_government = yes
 				}
 			}
 			set_variable = prime_minister_trigger
+			save_scope_as = new_prime_minister
 			owner = {
 				set_variable = {
 					name = prime_minister
 					value = PREV
 				}
 			}
+		}
+		every_scope_character = {
+			limit = {
+				has_variable = prime_minister_trigger
+				NOT = { THIS = scope:new_prime_minister }
+			}
+			remove_variable = prime_minister_trigger
 		}
 	}
 }
@@ -161,13 +217,9 @@ character_roles_hidden.6 = {
 	trigger = {
 		NOT = {
 			AND = {
-				OR = {
-					has_law = law_type:law_monarchy
-					has_law = law_type:law_parliamentary_republic
-				}
 				country_has_voting_franchise = yes
+				has_law = law_type:law_monarchy
 			}
-			has_government_type = gov_sultanate
 		}
 		has_variable = prime_minister
 	}

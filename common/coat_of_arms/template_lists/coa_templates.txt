@@ -143,31 +143,6 @@ coat_of_arms_template_lists = {
 				1000 = template_tricolor	
 			}			
 		}	
-
-		special_selection = {
-			trigger = {
-				exists = scope:target
-				scope:target = {
-					religion = {
-						has_discrimination_trait = christian
-					}				
-					OR = {
-					 	coa_def_italian_trigger = yes
-					 	coa_def_iberian_trigger = yes
-					}
-				}
-			}				
-			1000 = template_bicolor 
-			250 = template_cross
-			250 = template_cross_metal		
-			200 = template_cross_charge_in_canton
-			200 = template_cross_charge_in_canton_metal
-			200 = template_cross_charges_in_quadrants
-			200 = template_cross_charges_in_quadrants_metal			
-			500 = template_border_charge	
-			500 = template_stripes
-			400 = template_ordinary
-		}	
 		
 		special_selection = {
 			trigger = {

@@ -15,30 +15,7 @@ colored_emblem_texture_lists = {
 		1 = 	"ce_star_11.dds"
 		1 = 	"ce_star_12.dds"
 		1 = 	"ce_star_13.dds"
-		1 = 	"ce_star_14.dds"	
-		
-		# Christians only
-		special_selection = {
-			trigger = { 
-				coa_def_cross_trigger = yes
-			}
-			10 = "ce_cross_switzerland.dds"
-		}	
-		
-		# Christian theocracies
-		special_selection = {
-			trigger = { 
-				coa_def_cross_trigger = yes
-				coa_def_theocracy_flag_trigger = yes
-			}			
-			25 = "ce_christogram_01.dds"
-			25 = "ce_christogram_02.dds"
-			25 = "ce_christogram_03.dds"
-			25 = "ce_keys_st_peter.dds"
-			25 = "ce_keys_st_peter_knot.dds"
-			25 = "ce_keys_st_peter_crozier.dds"		
-			25 = "ce_sacred_heart.dds"				
-		}			
+		1 = 	"ce_star_14.dds"				
 
 		# Native americans specific
 		special_selection = {
@@ -93,35 +70,6 @@ colored_emblem_texture_lists = {
 			}
 			30 = "ce_sun_xia.dds"
 		}		
-		
-		special_selection = {
-			trigger = { 
-				coa_def_crescent_trigger = yes
-			}
-			20 = "ce_circle.dds"
-			
-			# Crescents
-			25 = "ce_crescent.dds"
-			25 = "ce_crescent_large.dds"
-			25 = "ce_crescent_rotated.dds"
-			25 = "ce_crescent_star_05_rotated.dds"
-			25 = "ce_crescent_pale.dds"
-			25 = "ce_crescent_star_06_pale.dds"
-			25 = "ce_crescent_star_06.dds"
-			25 = "ce_crescent_star_05.dds"
-			25 = "ce_crescent_star_08.dds"
-			25 = "ce_crescent_star_05_pale.dds"
-			25 = "ce_crescent_voided.dds"	
-			25 = "ce_crossed_scimitars.dds"
-			25 = "ce_addorsed_scimitars.dds"
-			50 = "ce_takbir.dds"
-			20 = "ce_hand.dds"
-			
-			# maybe slightly different hand of fatima style			
-			# crescent btw crossed scimitars	
-			# bow and arrow			
-			# India : 4 & 5 bezants india, crescent acc. star				
-		}	
 		special_selection = {
 			trigger = { 
 				country_definition_has_culture = cu:turkish
@@ -192,21 +140,6 @@ colored_emblem_texture_lists = {
 			}
 			20 = "ce_angkor_vat.dds"			
 		}			
-		
-		# More specific to buddhist
-		special_selection = {
-			trigger = { 		
-				coa_def_buddhist_trigger = yes
-			}
-			20 = "ce_buddha.dds"
-			20 = "ce_elephant_erawan.dds"
-			10 = "ce_moon_face.dds"
-			10 = "ce_sun_face.dds"
-			10 = "ce_dharmachakra.dds"
-			10 = "ce_lotus.dds"
-			10 = "ce_endless_knot.dds"
-			
-		}	
 		special_selection = {
 			trigger = { 
 				OR = {
@@ -231,24 +164,6 @@ colored_emblem_texture_lists = {
 			}
 			50 = "ce_dragon_china.dds"			
 		}			
-		# Specific to Hindu
-		special_selection = {
-			trigger = { 
-				any_primary_culture = {
-					has_discrimination_trait = south_asian_heritage
-				}			
-				coa_def_buddhist_trigger = no
-				coa_def_crescent_trigger = no
-			}
-			20 = "ce_katar.dds"
-			20 = "ce_trident.dds"
-			20 = "ce_umbrella.dds"
-			20 = "ce_falcon.dds"
-			
-			# most needed :
-			# Hanuman
-			# Feet of Krishna
-		}		
 		special_selection = {
 			trigger = { 
 				OR = {
@@ -365,8 +280,6 @@ colored_emblem_texture_lists = {
 		special_selection = {
 			trigger = { 
 				coa_def_african_trigger = yes
-				coa_def_crescent_trigger = no
-				coa_def_cross_trigger = no
 			}
 			# Generic
 			100 = "ce_rising_sun.dds"			
@@ -442,25 +355,14 @@ colored_emblem_texture_lists = {
 		10 = "ce_bicolor_left.dds"
 		10 = "ce_bicolor_right.dds"
 		
-		# Christians only
 		special_selection = {
 			trigger = {
-				coa_def_cross_trigger = yes
-			}
-			10 = "ce_cross_england.dds"
-			2 = "ce_cross_england_fimbriated.dds"
-			1 = "ce_cross_burgundy.dds"	
-		}	
-		special_selection = {
-			trigger = {
-				coa_def_cross_trigger = yes
 				coa_def_italian_trigger = yes
 			}
 			10 = "ce_cross_sardinia.dds"
 		}		
 		special_selection = {
 			trigger = {
-				coa_def_cross_trigger = yes
 				coa_def_hispanic_american_trigger = yes
 			}
 			10 = "ce_cross_burgundy.dds"
@@ -497,15 +399,7 @@ colored_emblem_texture_lists = {
 			10 = "ce_fess_fimbriated.dds"
 			# fess fimbriated (botswana), incl in tricolour (kenya, gambia)
 			# pb the two outline stripes are always white
-		}			
-		special_selection = {
-			trigger = { 
-				coa_def_crescent_trigger = yes
-			}
-			10 = "ce_bicolor_left_third.dds"
-			10 = "ce_bicolor_left_third_indented.dds"
-			# thin stripes (5, 6 & 7)
-		}	
+		}				
 		special_selection = {
 			trigger = { 
 				coa_def_native_american_trigger = yes
@@ -605,30 +499,6 @@ colored_emblem_texture_lists = {
 		# cotised
 		# voided
 	}	
-
-	coa_centered_ordinaries = {
-
-		#10 = "ce_solid.dds"
-		10 = "ce_tricolor_vertical.dds"
-		10 = "ce_tricolor_horizontal.dds"	
-		10 = "ce_bicolor_top.dds"
-		10 = "ce_bicolor_bottom.dds"		
-		5 = "ce_per_cross.dds"		
-		1 = "ce_bend_sinister_fimbriated.dds"
-		2 = "ce_bend_sinister.dds"
-		2 = "ce_bend_dexter.dds"
-		1 = "ce_bend_dexter_fimbriated.dds"
-		1 = "ce_saltire.dds"
-		1 = "ce_cross_burgundy.dds"		
-		
-		special_selection = {
-			trigger = { 
-				coa_def_cross_trigger = yes
-			}
-			5 = "ce_cross_england_fimbriated.dds"
-			5 = "ce_cross_england.dds"
-		}		
-	}	
 	
 	full_size_charges = {
 	# Uses charge that fit the canvas horizontally (1300x680)
@@ -651,34 +521,7 @@ colored_emblem_texture_lists = {
 			# move those two to TE cases
 			# 10 = "ce_elephant_asia_decorated.dds"
 			# 10 = "ce_golden_fishes.dds"
-		}		
-		
-		special_selection = {
-			trigger = { 
-				coa_def_buddhist_trigger = yes
-			}
-			25 = "ce_elephant_asia.dds"
-		}			
-		
-		special_selection = {
-			trigger = { 
-				coa_def_crescent_trigger = yes
-			}
-			2 = "ce_solid.dds"
-			25 = "ce_scimitar.dds"
-			25 = "ce_crossed_scimitars_horizontal.dds"				
-			15 = "ce_shahada.dds"
-			15 = "ce_shahada_and_sword.dds"
-			25 = "ce_zulfikar.dds"
-		}			
-		special_selection = {
-			trigger = { 
-				coa_def_crescent_trigger = yes
-				coa_def_theocracy_flag_trigger = yes
-			}			
-			25 = "ce_shahada.dds"
-			25 = "ce_shahada_and_sword.dds"
-		}			
+		}				
 	}	
 	
 	circle_frames = {
@@ -747,13 +590,7 @@ colored_emblem_texture_lists = {
 		# Selection of charges to avoid any odd/misaligned result
 		
 		10 = "ce_hammer_and_sickle.dds"
-		
-		special_selection = {
-			trigger = { 
-				coa_def_cross_trigger = yes
-			}
-			10 = "ce_lion_rampant.dds"			
-		}		
+				
 		special_selection = {
 			trigger = { 
 				coa_def_native_american_trigger = yes
@@ -761,15 +598,7 @@ colored_emblem_texture_lists = {
 			20 = "ce_horse_tribal.dds"		
 			20 = "ce_buffalo.dds"
 			20 = "ce_buffalo_02.dds"		
-		}				
-		special_selection = {
-			trigger = { 
-				coa_def_crescent_trigger = yes
-			}
-			25 = "ce_crescent_pale.dds"	
-			25 = "ce_crossed_scimitars.dds"	
-			25 = "ce_addorsed_scimitars.dds"			
-		}				
+		}							
 		special_selection = {
 			trigger = { 
 				country_definition_has_culture = cu:turkish
@@ -830,18 +659,6 @@ colored_emblem_texture_lists = {
 			200 = "ce_angkor_vat.dds"			
 		}	
 		special_selection = {
-			trigger = { 		
-				coa_def_buddhist_trigger = yes
-			}
-
-			50 = "ce_buddha.dds"
-			50 = "ce_elephant_erawan.dds"
-			100 = "ce_dharmachakra.dds"
-			100 = "ce_lotus.dds"
-			100 = "ce_endless_knot.dds"
-			
-		}	
-		special_selection = {
 			trigger = { 
 				OR = {
 					country_definition_has_culture = cu:nepali
@@ -851,19 +668,7 @@ colored_emblem_texture_lists = {
 
 			50 = "ce_dharmachakra.dds"
 			50 = "ce_snow_lion.dds"
-		}			
-		# Specific to Hindu
-		special_selection = {
-			trigger = { 
-				any_primary_culture = {
-					has_discrimination_trait = south_asian_heritage
-				}			
-				coa_def_buddhist_trigger = no
-				coa_def_crescent_trigger = no
-			}
-			20 = "ce_trident.dds"
-			20 = "ce_umbrella.dds"
-		}	
+		}				
 		special_selection = {
 			trigger = { 
 				OR = {
@@ -965,18 +770,7 @@ colored_emblem_texture_lists = {
 			100 = "ce_star_05_ring.dds"		
 			200 = "ce_hammer_hoe.dds"
 			50 = "ce_hammer_wheat.dds"
-		}	
-		special_selection = {
-			trigger = { 
-				any_primary_culture = {
-					has_discrimination_trait = south_asian_heritage
-				}			
-				coa_def_crescent_trigger = no
-			}
-			100 = "ce_hammer_sickle_india.dds"
-			100 = "ce_hammer_sickle_india_02.dds"
-			100 = "ce_corn_sickle.dds"
-		}			
+		}				
 	}			
 	communist_stars = {
 		100 = "ce_star_05.dds"

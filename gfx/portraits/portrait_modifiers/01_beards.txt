@@ -129,9 +129,7 @@
                         exists = scope:character
                         scope:character = { 
                             age > 16 
-                            religion = {
-                                has_discrimination_trait = jewish
-                            }
+                            religion = rel:jewish
                             interest_group = { 
                                 is_interest_group_type = ig_devout 
                             }
@@ -142,9 +140,7 @@
                         exists = scope:pop
                         scope:pop = {
                             is_pop_type = clergymen
-                            religion = {
-                                has_discrimination_trait = jewish
-                            }
+                            religion = rel:jewish
                         }
                     }
                 }                

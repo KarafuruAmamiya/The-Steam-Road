@@ -114,8 +114,10 @@ religious_party = {
 			triggered_desc = {
 				desc = party_buddhist
 				trigger = {
-					root.religion = {
-						has_discrimination_trait = buddhist
+					OR = {
+						country_has_state_religion = rel:mahayana
+						country_has_state_religion = rel:gelugpa
+						country_has_state_religion = rel:theravada
 					}
 				}
 			}

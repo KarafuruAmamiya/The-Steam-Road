@@ -87,9 +87,7 @@ muslim_clothes_pop_trigger = {
 jewish_clothes_pop_trigger = {
      exists = scope:pop
   	scope:pop = {
-		religion = {
-			has_discrimination_trait = jewish
-		}
+		religion = rel:jewish
 	}
 }
 
@@ -1047,9 +1045,9 @@ buddhist_clothes_pop_trigger = {
      exists = scope:pop
      scope:pop = {
   		OR = {
-			religion = {
-				has_discrimination_trait = buddhist
-			}
+			religion = rel:mahayana
+			religion = rel:theravada
+			religion = rel:gelugpa
 			religion = rel:shinto
 		}
      }

@@ -61,37 +61,7 @@ coat_of_arms_template_lists = {
 		5 = template_border_charge_offset
 		5 = template_border_charge_offset_metal
 		5 = template_border_of_three_charge_offset
-		5 = template_border_of_three_charge_offset_metal
-		
-		special_selection = {
-			trigger = {
-				exists = scope:target
-				scope:target = {
-					coa_def_cross_trigger = no
-				}
-			}				
-			20 = template_border_charge
-			20 = template_border_charge_metal
-			20 = template_border_charge_offset
-			20 = template_border_charge_offset_metal
-			20 = template_border_of_three_charge_offset
-			20 = template_border_of_three_charge_offset_metal
-		}			
-				
-		special_selection = {
-			trigger = {
-				exists = scope:target
-				scope:target = {
-					OR = {
-					 	coa_def_crescent_trigger = yes
-					 	coa_def_buddhist_trigger = yes
-						# for now just those two, but more designs/nations groups should be included
-					}
-				}
-			}					
-			50 = template_plain_flag
-			50 = template_plain_flag_metal			
-		}		
+		5 = template_border_of_three_charge_offset_metal	
 		
 		special_selection = {
 			trigger = {

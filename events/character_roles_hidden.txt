@@ -129,7 +129,10 @@ character_roles_hidden.4 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		has_law = law_type:law_monarchy
+		OR = {
+			has_law = law_type:law_monarchy
+			has_law = law_type:law_parliamentary_republic
+		}
 		country_has_voting_franchise = yes
 		NOT = { has_variable = prime_minister }
 	}
@@ -162,7 +165,10 @@ character_roles_hidden.5 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		has_law = law_type:law_monarchy
+		OR = {
+			has_law = law_type:law_monarchy
+			has_law = law_type:law_parliamentary_republic
+		}
 		country_has_voting_franchise = yes
 		has_variable = prime_minister
 			NOT = { 
@@ -218,7 +224,10 @@ character_roles_hidden.6 = {
 		NOT = {
 			AND = {
 				country_has_voting_franchise = yes
-				has_law = law_type:law_monarchy
+				OR = {
+					has_law = law_type:law_monarchy
+					has_law = law_type:law_parliamentary_republic
+				}
 			}
 		}
 		has_variable = prime_minister

@@ -398,15 +398,28 @@ ideology_radical = {
 							capital.region = sr:region_north_germany
 							capital.region = sr:region_south_germany
 							capital.region = sr:region_england
+							capital.region = sr:region_gaelic
 							capital.region = sr:region_iberia
 							capital.region = sr:region_france
 							capital.region = sr:region_occitania
 							capital.region = sr:region_rhine
-							capital.region = sr:region_italy	
+							capital.region = sr:region_low_countries
+							capital.region = sr:region_north_italy	
+							capital.region = sr:region_south_italy	
 							capital.region = sr:region_poland
-							capital.region = sr:region_danubia
-							capital.region = sr:region_balkans
+							capital.region = sr:region_hungary
+							capital.region = sr:region_west_balkans
+							capital.region = sr:region_east_balkans
+							capital.region = sr:region_greece
 							capital.region = sr:region_baltic
+							capital.region = sr:region_ruthenia
+							capital.region = sr:region_scandinavia
+							capital.region = sr:region_central_russia
+							capital.region = sr:region_dnieper
+							capital.region = sr:region_barents
+							capital.region = sr:region_volga
+							capital.region = sr:region_anatolia
+							capital.region = sr:region_persia
 						}
 					}
 				}
@@ -669,16 +682,6 @@ ideology_abolitionist = {
 			limit = { has_trait = tactful }
 			add = 75
 		}
-		if = {
-			limit = {
-				exists = c:USA
-				owner = { 
-					c:USA = THIS 
-					NOT = { has_variable = csa_will_spawn_var }
-				}
-			}
-			add = 100
-		}
 	}
 }
 
@@ -729,13 +732,6 @@ ideology_slaver = {
 			add = -1000
 		}
 		if = {
-			limit = {
-				exists = c:HAI
-				owner = { c:HAI = THIS }
-			}
-			add = -1000
-		}		
-		if = {
 			limit = { scope:interest_group = { is_interest_group_type = ig_landowners } }
 			add = 500
 		}
@@ -753,8 +749,8 @@ ideology_slaver = {
 		}
 		if = {
 			limit = {
-				exists = c:USA
-				owner = { c:USA = THIS }
+				exists = c:USC
+				owner = { c:USC = THIS }
 			}
 			add = 100
 		}

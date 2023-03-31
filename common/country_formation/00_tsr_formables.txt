@@ -79,18 +79,7 @@ ARA = { # Arabia
 }
 
 KUR = { # Kurdistan
-	states = {
-		STATE_MOSUL
-		STATE_SHAHRIZOR
-		STATE_ANBAR
-		STATE_HARPUT
-		STATE_DEIR_EZ_ZOR
-		STATE_ERZURUM
-		STATE_BITLIS
-		STATE_VAN
-		STATE_ARDALAN
-		STATE_DIYARBAKIR
-	}
+	use_culture_states = yes
 	
 	required_states_fraction = 0.75
 
@@ -100,8 +89,8 @@ KUR = { # Kurdistan
 		has_technology_researched = nationalism
 		NOT = { 
 			AND = {
-				exists = c:AKC
-				this = c:AKC
+				exists = c:AKN
+				this = c:AKN
 			}
 		}
 	}

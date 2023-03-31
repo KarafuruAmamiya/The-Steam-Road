@@ -20,7 +20,10 @@ peoples_springtime.1 = {
 	trigger = {
 		NOT = { has_global_variable = peoples_springtime_happening }
 		NOT = { has_global_variable = peoples_springtime_happened }
-		country_is_in_europe = yes
+		OR = {
+			country_is_in_europe = yes
+			gunpowder_empire_trigger = yes
+		}
 		has_technology_researched = egalitarianism
 		any_interest_group = {
 			is_insurrectionary = yes

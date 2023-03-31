@@ -159,6 +159,17 @@ country_is_in_new_word = {
 	}
 }
 
+gunpowder_empire_trigger = {
+	exists = capital
+	capital = {
+		OR = {
+			state_region = s:STATE_DIYARBAKIR
+			state_region = s:STATE_EASTERN_THRACE
+			state_region = s:STATE_ISFAHAN
+		}
+	}
+}
+
 country_is_in_north_america = {
 	exists = capital
 	capital = {

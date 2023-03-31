@@ -57,6 +57,14 @@ je_abolish_monarchy = {
 		trigger_event = {
 			id = 1848.2
 		}
+		if = {
+			limit = { has_journal_entry = je_1848_buildup }
+			post_notification = springtime_bettered
+			change_variable = {
+				name = springtime_revolt
+				subtract = 1
+			}
+		}
 	}
 
 	invalid = {

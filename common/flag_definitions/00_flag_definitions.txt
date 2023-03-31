@@ -178,48 +178,6 @@ ALB = { # Albania
 	}		
 }	
 
-ALD = { # Algeria
-	flag_definition = {
-		coa = ALD
-		subject_canton = ALD
-		allow_overlord_canton = yes
-		coa_with_overlord_canton = ALD_subject		
-		priority = 1
-	}
-	flag_definition = {
-		coa = MSC
-		subject_canton = MSC
-		allow_overlord_canton = yes
-		coa_with_overlord_canton = ALD_subject
-		priority = 10
-		trigger = { 
-			scope:actor = { capital = { state_region = s:STATE_TLEMCEN } }
-		}
-	}
-	flag_definition = {
-		coa = ALD_republic
-		subject_canton = ALD_republic
-		priority = 20
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = ALD_subject_FRA
-		priority = 30
-		trigger = { 
-			coa_def_french_ensign_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = ALD
-		priority = 30
-		trigger = { 
-			coa_def_turkish_ensign_trigger = yes
-		}
-	}	
-}
-
 AMZ = { # Amazonia
 	flag_definition = {
 		coa = AMZ
@@ -440,10 +398,7 @@ BAS = { # Bastar
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}		
 }
@@ -508,10 +463,7 @@ BER = { # Beroda
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -581,10 +533,7 @@ BIK = { # Bikaner
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -935,10 +884,7 @@ BUN = { # Bundelkhand
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -1133,10 +1079,7 @@ CEY = { # Ceylon
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -1832,85 +1775,6 @@ FLA = {	# Flanders
 	}
 }
 
-FRA = { # France
-	flag_definition = {
-		coa = FRA
-		subject_canton = FRA
-		allow_overlord_canton = yes
-		coa_with_overlord_canton = FRA_subject		
-		priority = 1
-	}
-	flag_definition = {
-		coa = FRA
-		subject_canton = FRA
-		allow_overlord_canton = yes		
-		overlord_canton_scale = { 0.337 0.337 }			
-		priority = 10
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = FRA_dictatorship
-		subject_canton = FRA_dictatorship
-		priority = 20
-		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = FRA_bourbon
-		subject_canton = FRA_bourbon
-		priority = 10
-		allow_overlord_canton = yes
-		coa_with_overlord_canton = FRA_subject			
-		trigger = {			
-			coa_def_undemocratic_monarchy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = FRA_republic
-		subject_canton = FRA_republic
-		coa_with_overlord_canton = FRA_subject			
-		priority = 25
-		trigger = {
-			coa_def_republic_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = FRA_theocracy
-		subject_canton = FRA_theocracy
-		priority = 20
-		trigger = { 
-			coa_def_theocracy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = FRA_communist
-		subject_canton = FRA_communist
-		priority = 1500
-		trigger = { 
-			coa_def_communist_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = FRA_military
-		subject_canton = FRA_military
-		priority = 1500
-		trigger = { 
-			coa_def_military_junta_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = FRA_fascist
-		subject_canton = FRA_fascist
-		priority = 1550
-		trigger = { 
-			coa_def_fascist_flag_trigger = yes
-		}
-	}		
-}
-
 FRM = { # Frankfurt
 	flag_definition = {
 		coa = FRM
@@ -2006,14 +1870,6 @@ GBR = { # Great Britain / United Kingdom
 		}
 	}
 	flag_definition = {
-		coa = GBR_coa_scotland
-		priority = 21
-		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
-			coa_def_dominant_scotland_trigger = yes
-		}
-	}
-	flag_definition = {
 		coa = GBR_coa_france
 		priority = 22
 		trigger = { 
@@ -2035,25 +1891,6 @@ GBR = { # Great Britain / United Kingdom
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
 			coa_def_controls_part_of_ireland = yes
-			coa_def_controls_part_of_france = yes
-		}
-	}
-	flag_definition = {
-		coa = GBR_uk_scotland_coa
-		priority = 24
-		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
-			coa_def_controls_part_of_ireland = yes
-			coa_def_dominant_scotland_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = GBR_uk_scotland_coa_france
-		priority = 25
-		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
-			coa_def_controls_part_of_ireland = yes
-			coa_def_dominant_scotland_trigger = yes
 			coa_def_controls_part_of_france = yes
 		}
 	}
@@ -2259,10 +2096,7 @@ GWA = { # Gwalior
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -2712,10 +2546,7 @@ HYD = { # Hyderabad
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -2758,10 +2589,7 @@ IND = { # Indore
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}		
 }
@@ -2974,10 +2802,7 @@ JAI = { # Jaipur
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -3002,91 +2827,6 @@ JAN = { # Jan Mayen
 	}		
 }
 
-JAP = { # Japan
-	flag_definition = {
-		coa = JAP
-		allow_overlord_canton = yes		
-		coa_with_overlord_canton = JAP_subject			
-		subject_canton = JAP
-		priority = 1		
-	}
-	flag_definition = {
-		coa = JAP_rising_sun
-		subject_canton = JAP_rising_sun		
-		priority = 10
-		trigger = {
-			coa_def_military_junta_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = JAP_tokugawa
-		subject_canton = JAP_tokugawa
-		priority = 20
-		trigger = {
-			scope:actor = { NOT = { has_variable = meiji_var } }
-			coa_def_absolute_monarchy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = JAP_tokugawa_late
-		subject_canton = JAP_tokugawa_late
-		priority = 20
-		trigger = {
-			scope:actor = { NOT = { has_variable = meiji_var } }
-			coa_def_absolute_monarchy_flag_trigger = no
-			coa_def_monarchy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = JAP_absolute_monarchy
-		subject_canton = JAP_absolute_monarchy
-		priority = 20
-		trigger = {
-			scope:actor = { has_variable = meiji_var }
-			coa_def_absolute_monarchy_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = JAP_republic
-		subject_canton = JAP_republic
-		priority = 10
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_dictatorship
-		subject_canton = JAP_dictatorship
-		priority = 20
-		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_theocracy
-		subject_canton = JAP_theocracy
-		priority = 20
-		trigger = { 
-			coa_def_theocracy_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_usa
-		priority = 30
-		trigger = { 
-			coa_def_american_ensign_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_fascist
-		subject_canton = JAP_fascist
-		priority = 1500
-		trigger = { 
-			coa_def_fascist_flag_trigger = yes
-		}
-	}	
-}
-
 JAS = { # Jaisalmer
 	flag_definition = {
 		coa = JAS
@@ -3107,10 +2847,7 @@ JAS = { # Jaisalmer
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -3161,10 +2898,7 @@ JOD = { # Jodhpur
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -3403,30 +3137,6 @@ KOK = { # Kokand
 	}	
 }
 
-KOR = { # Korea
-	flag_definition = {
-		coa = KOR
-		subject_canton = KOR	
-		allow_overlord_canton = yes		
-		coa_with_overlord_canton = KOR_subject			
-		priority = 1
-	}
-	flag_definition = {
-		coa = KOR_subject_CHI		
-		priority = 2
-		trigger = { 
-			coa_def_chinese_ensign_trigger = yes
-		}	
-	}
-	flag_definition = {
-		coa = KOR_communist
-		priority = 1500
-		trigger = { 
-			coa_def_communist_flag_trigger = yes
-		}
-	}	
-}
-
 KTI = { # Kutai
 	flag_definition = {
 		coa = KTI
@@ -3469,10 +3179,7 @@ KUT = { # Kutch
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -3868,55 +3575,10 @@ MEW = { # Mewar
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }	
-
-MEX = { # Mexico
-	flag_definition = {
-		coa = MEX
-		subject_canton = MEX
-		allow_overlord_canton = yes		
-		coa_with_overlord_canton = MEX_subject			
-		priority = 1
-	}
-	flag_definition = {
-		coa = MEX_absolute_monarchy
-		subject_canton = MEX_absolute_monarchy
-		allow_overlord_canton = yes		
-		coa_with_overlord_canton = MEX_subject			
-		priority = 20
-		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = MEX_dictatorship
-		subject_canton = MEX_dictatorship
-		priority = 20
-		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = MEX_communist
-		priority = 1500
-		trigger = { 
-			coa_def_communist_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = MEX_subject_USA
-		priority = 50
-		trigger = { 
-			coa_def_american_ensign_trigger = yes
-		}
-	}	
-}
 
 MGD = { # Maguindanao
 	flag_definition = {
@@ -4207,10 +3869,7 @@ MYS = { # Mysore
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -4228,10 +3887,7 @@ NAG = { # Nagpur
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -4640,10 +4296,7 @@ ORI = { # Orissa
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}
 }
@@ -4828,14 +4481,6 @@ PHI = { # Philippines
 			coa_def_fascist_flag_trigger = yes
 		}
 	}			
-}
-
-POL = { # Poland
-	flag_definition = {
-		coa = POL
-		subject_canton = POL	
-		priority = 1
-	}
 }
 
 PLC = { # Poland-Lithuania
@@ -5407,39 +5052,6 @@ SIA = { # Siam
 	}	
 }
 
-SIC = { # Two Sicilies
-	flag_definition = {
-		coa = SIC
-		coa_with_overlord_canton = SIC_subject		
-		allow_overlord_canton = yes				
-		subject_canton = SIC
-		priority = 1
-	}
-	flag_definition = {
-		coa = SIC_republic
-		subject_canton = SIC_republic
-		priority = 10
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = SIC_dictatorship
-		subject_canton = SIC_dictatorship
-		priority = 20
-		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = SIC_communist
-		priority = 1500
-		trigger = { 
-			coa_def_communist_flag_trigger = yes
-		}
-	}		
-}	
-
 SIK = { # Sikkim
 	flag_definition = {
 		coa = SIK
@@ -5821,10 +5433,7 @@ TRA = { # Travancore
 		allow_overlord_canton = no	
 		priority = 50
 		trigger = { 
-			OR = {
-				coa_def_british_ensign_trigger = yes
-				coa_def_british_india_trigger = yes
-			}
+			coa_def_persian_ensign_trigger = yes
 		}
 	}	
 }
@@ -6398,13 +6007,6 @@ ZIM = { # Zimbabwe
 	flag_definition = {
 		coa = ZIM	
 		subject_canton = ZIM
-		priority = 1
-	}
-}
-LBG = { # Limburg
-	flag_definition = {
-		coa = LBG
-		subject_canton = LBG
 		priority = 1
 	}
 }

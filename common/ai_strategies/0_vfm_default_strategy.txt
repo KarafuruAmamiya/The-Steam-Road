@@ -1372,8 +1372,10 @@ ai_strategy_default = {
 						exists = c:NWX
 						this = c:NWX
 					}
-					add = 1000
 				}
+				add = 1000
+			}
+			if = {
 				limit = { #Persia and Ottomans have no business interfering in the New World
 					country_is_in_europe = no
 					country_is_in_new_word = no
@@ -3094,6 +3096,7 @@ ai_strategy_default = {
 					multiply = 1.5
 				}
 			}
+		}
 
 		humiliation = {
 			value = 25

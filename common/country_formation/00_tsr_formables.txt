@@ -10,6 +10,47 @@
 	}
 }
 
+PER = { # Persia
+	use_culture_states = yes
+
+	required_states_fraction = 0.75
+	
+	ai_will_do = { always = yes }
+	
+	possible = {
+		is_subject = no
+	}
+}
+
+ITA = { # Italy
+	states = {
+		STATE_PIEDMONT
+		STATE_LOMBARDY
+		STATE_VENETIA
+		STATE_LIGURIA
+		STATE_EMILIA
+		STATE_ROMAGNA
+		STATE_TUSCANY
+		STATE_LAZIO
+		STATE_ABRUZZO
+		STATE_CAMPANIA
+		STATE_UMBRIA
+		STATE_CALABRIA
+		STATE_APULIA
+		STATE_SICILY
+		STATE_SARDINIA
+		STATE_CORSICA
+	}
+
+	required_states_fraction = 0.75
+	
+	ai_will_do = { always = yes }
+	
+	possible = {
+		is_subject = no
+	}
+}
+
 RUS = { # Russia
 	use_culture_states = yes
 
@@ -107,40 +148,6 @@ YEM = { # Yemen
 	ai_will_do = { always = yes }
 }
 
-SBR = { # Sibirstan
-	states = { 
-		STATE_URAL
-		STATE_CHELYABINSK
-		STATE_OMSK
-		STATE_NOVOSIBIRSK
-		STATE_KRASNOYARSK
-		STATE_BURYATIA
-		STATE_CHITA
-		STATE_TRANS_BAIKAL
-		STATE_TOBOLSK
-		STATE_OB
-		STATE_TOMSK
-		STATE_IRKUTSK
-		STATE_UPPER_YENISEYSK
-		STATE_YAKUTSK
-		STATE_TUVA
-	}
-
-	required_states_fraction = 0.75
-	
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = pan-nationalism
-		NOT = { 
-			AND = {
-				exists = c:BUK
-				this = c:BUK
-			}
-		}
-	}
-}
-
 ETH = { # Ethiopia
 	use_culture_states = yes
 
@@ -159,7 +166,6 @@ MGL = { # Mongolia
 		STATE_SHILIIN_GOL
 		STATE_GUISUI
 		STATE_CHAKHAR
-		STATE_ALXA
 		STATE_ALASHA
 		STATE_ORDOS
 		STATE_HULUN_BUIR

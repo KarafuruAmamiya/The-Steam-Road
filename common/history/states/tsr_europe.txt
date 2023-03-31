@@ -489,7 +489,7 @@
 	s:STATE_UPPER_SILESIA = {
 		create_state = {
 			country = c:POL
-			owned_provinces = { xAF9F20 x90B12B xFFC300 x186363 x821F52 x7B2F62 x5E9091 x88194B }
+			owned_provinces = { xAF9F20 x90B12B x821F52 x7B2F62 x5E9091 x88194B }
 		}
 		
 		add_homeland = polish
@@ -609,7 +609,7 @@
 	s:STATE_HOME_COUNTIES = {
 		create_state = {
 			country = c:ENG
-			owned_provinces = { xE0E0C0 x7543C8 x60E0C0 x58D3AE x625993 x39F45B x19CECD x800020 xE060C0 }
+			owned_provinces = { "x19CECD" "x39F45B" "x60E0C0" "x625993" "x7543C8" "x800020" "xE060C0" "xE0E0C0" }
 		}
 		
 		add_homeland = british
@@ -674,7 +674,7 @@
 	s:STATE_WEST_COUNTRY = {
 		create_state = {
 			country = c:ENG
-			owned_provinces = { xE020C0 x1E38F8 xC900EF xA2DD9E x63EF7E x65B395 x6060C0 x225544 xEB9862 xE0E040 xB78E54 }
+			owned_provinces = { "x1E38F8" "x225544" "x6060C0" "x63EF7E" "x65B395" "xA2DD9E" "xB78E54" "xC900EF" "xE0E040" "xEB9862" }
 		}
 		
 		add_homeland = british
@@ -792,7 +792,7 @@
 	s:STATE_BAVARIA = {
 		create_state = {
 			country = c:PLT
-			owned_provinces = { x68CE1C xE76994 x18A2E1 x565185 x704A5F xC347B1 xA0983B }
+			owned_provinces = { x68CE1C xE76994 x18A2E1 x565185 x704A5F xC347B1 }
 		}
 		create_state = {
 			country = c:TYR
@@ -897,7 +897,7 @@
 	s:STATE_SAXONY = {
 		create_state = {
 			country = c:SAX
-			owned_provinces = { x169073 x31E0C0 x43CE26 x795368 x917939 xAFDFBF x9E7398 xB59A32 x96826F x8E4D5F }
+			owned_provinces = { x169073 x31E0C0 x43CE26 x795368 x917939 xAFDFBF x9E7398 xB59A32 x96826F }
 		}
 		add_homeland = north_german
 		add_homeland = sorb
@@ -1681,6 +1681,7 @@
 		create_state = {
 			country = c:TUR
 			owned_provinces = { x000AE0 x135B1E x35FCF1 x4202ED x58331B x8A09FD xA1BAF7 xB69E4B xE6C06A xF06161 }
+			state_type = unincorporated
 		}
 		
 		add_homeland = ukrainian
@@ -1697,10 +1698,10 @@
 		create_state = {
 			country = c:TUR
 			owned_provinces = { x055C67 x580D2A x500F88 x87109C x7020DF xAD4F1C xF0E061 }
+			state_type = unincorporated
 		}
 		
 		add_homeland = ukrainian
-		add_homeland = russian
 	}
 	s:STATE_CHERSON = {
 		create_state = {
@@ -1816,6 +1817,7 @@
 		}
 		
 		add_homeland = ukrainian
+		add_homeland = russian
 	}
 	s:STATE_VORONEZH = {
 		create_state = {
@@ -1931,7 +1933,7 @@
 	s:STATE_HUDAVENDIGAR = {
 		create_state = {
 			country = c:TUR
-			owned_provinces = { x13886D x2F78D7 x3020E0 x30A060 x31CD7B xB0A060 xB8FEBB xF040E0 }
+			owned_provinces = { x13886D x2F78D7 x3020E0 x30A060 x31CD7B xB0A060 xB8FEBB }
 		}
 		
 		add_homeland = turkish

@@ -9,8 +9,6 @@ on_monthly_pulse_country = {
 		character_roles_hidden.6
 		communism.8 # Red Army
 		peoples_springtime.1
-		opium_wars.1
-		native_resettlement.1
 	}
 	# Election Events
 	random_events = {
@@ -219,9 +217,9 @@ on_election_ended = {
 		#Septennial Act 1715, 7 year maximum unless Parliament dissolved or Monarch dies
 		if = {
 			limit = {
-				exists = c:GBR
-				this = c:GBR
-				c:GBR = {
+				exists = c:ENG
+				this = c:ENG
+				c:ENG = {
 					has_law = law_type:law_monarchy
 					country_has_voting_franchise = yes
 				}

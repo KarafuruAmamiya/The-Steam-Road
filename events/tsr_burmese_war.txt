@@ -162,18 +162,20 @@ burmese_war.3 = { # End the war on Lan Xang's side
 	
 	option = { # A blessing and a curse
 		name = burmese_war.3.a
-		c:LXA = {
+		if = {
 			limit = {
-				NOT = { owns_entire_state_region = STATE_LUANG_PRABANG }
+				c:LXA = {
+					NOT = { owns_entire_state_region = STATE_LUANG_PRABANG }
+				}
 			}
-			s:STATE_LUANG_PRABANG.region_state:TAU = {
+			s:STATE_LUANG_PRABANG.region_state:BUR = {
 				set_state_owner = c:LXA
 			}
 		}
 		every_diplomatic_play = {
 			limit = {
 				initiator_is = c:LXA
-				target_is = c:TAU
+				target_is = c:BUR
 			}
 			end_play = yes
 		}

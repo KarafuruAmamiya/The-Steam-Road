@@ -389,10 +389,12 @@ place_event = {
 	 }
 
 	text = {
-		OR = {
+		trigger = {
+			OR = {
 				AND = { exists = c:GBR this = c:GBR }
 				AND = { exists = c:ENG this = c:ENG }
 			}
+		}
 		localization_key = place_event_houses_of_parliament
 	}
 
@@ -610,7 +612,7 @@ opera_genitive = {
 }
 
 
-horny_adjective = { bonk
+horny_adjective = { # bonk
 	type = country
 	random_valid = yes
 	text = {

@@ -13,14 +13,6 @@
 	ai_will_do = { always = yes }
 }
 
-UCA = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.5
-	
-	ai_will_do = { always = yes }
-}
-
 
 IRE = {
 	use_culture_states = yes
@@ -39,7 +31,7 @@ FRA = {
 		STATE_RHONE
 		STATE_LOIRE
 		STATE_PICARDY
-		STATE_ALSACE_LORRAINE
+		STATE_LORRAINE
 		STATE_POITOU
 		STATE_ARMAGNAC
 		STATE_LIMOUSIN
@@ -109,22 +101,30 @@ BYZ = {
 }
 
 PLC = {
-	states = {
-		STATE_BREST
-		STATE_EAST_GALICIA
-		STATE_GREATER_POLAND
-		STATE_LESSER_POLAND
-		STATE_LITHUANIA
-		STATE_KOVNO
-		STATE_MAZOVIA
-		STATE_POSEN
-		STATE_VOLHYNIA
-		STATE_WEST_GALICIA
+	states = { 
 		STATE_WEST_PRUSSIA
-		STATE_EAST_PRUSSIA
+		STATE_POSEN
+		STATE_WARSAW
+		STATE_PLOCK
+		STATE_AUGUSTOW
+		STATE_LUBLIN
+		STATE_RADOM
+		STATE_WEST_GALICIA
+		STATE_EAST_GALICIA
+		STATE_VOLHYNIA
+		STATE_MINSK
+		STATE_GRODNO
+		STATE_VILNA
+		STATE_PODOLIA
+		STATE_KIEV
+		STATE_MOGILEV
+		STATE_VITEBSK
+		STATE_KAUNAS
+		STATE_COURLAND
+		STATE_LIVONIA
 	}
 
-	required_states_fraction = 1
+	required_states_fraction = 0.8
 	
 	ai_will_do = { always = yes }
 }
@@ -160,17 +160,6 @@ AOT = {
 	ai_will_do = { always = yes }
 }
 
-WIN = {
-	STATES = {
-		STATE_WEST_INDIES
-		STATE_JAMAICA
-	}
-
-	required_states_fraction = 1
-	
-	ai_will_do = { always = yes }
-}
-
 IBE = {
 	use_culture_states = yes
 
@@ -181,22 +170,6 @@ IBE = {
 	possible = {
 		has_technology_researched = pan-nationalism
 	}
-}
-
-CLM = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.8
-	
-	ai_will_do = { always = yes }
-}
-
-BRZ = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.8
-	
-	ai_will_do = { always = yes }
 }
 
 MEX = {
@@ -228,7 +201,7 @@ USC = {
 	ai_will_do = { always = yes }
 }
 
-FSA = {
+SLD = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.75	
@@ -242,30 +215,6 @@ CZH = {
 	required_states_fraction = 1
 	
 	ai_will_do = { always = yes }
-}
-
-CAN = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-	
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-}
-
-AST = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-	
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
-	}
 }
 
 POL = {
@@ -282,18 +231,6 @@ ROM = {
 	required_states_fraction = 0.375 # Romania has 8 possible homeland states total, 3 are required.
 
 	ai_will_do = { always = yes }
-}
-
-GCO = {
-	use_culture_states = yes
-
-	required_states_fraction = 0.75	
-
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = nationalism
-	}
 }
 
 
@@ -358,10 +295,19 @@ IDN = {
 		STATE_EAST_BORNEO
 		STATE_EAST_JAVA
 		STATE_MALAYA
+		STATE_SARAWAK
 		STATE_MOLUCCAS
-		STATE_CELEBES
+		STATE_NORTH_CELEBES
+		STATE_CENTRAL_CELEBES
+		STATE_SOUTH_CELEBES
+		STATE_SOUTHEAST_CELEBES
 		STATE_NORTH_BORNEO
+		STATE_CENTRAL_BORNEO
 		STATE_NORTH_SUMATRA
+		STATE_RIAU
+		STATE_JAMBI
+		STATE_WEST_SUMATRA
+		STATE_BENGKULU
 		STATE_SOUTH_SUMATRA
 		STATE_SUNDA_ISLANDS
 		STATE_WEST_BORNEO

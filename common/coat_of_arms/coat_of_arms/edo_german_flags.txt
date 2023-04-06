@@ -108,16 +108,18 @@ GER_BAV_iron_cross = {
 	}
 
 	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color1
+		texture = "ce_lion_rampant_crowned.dds"
+		color1 = "yellow"
+		color2 = "red"
+		color3 = "white"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }	
 	}
 }
 GER_BAV_modern = {
 	pattern = "pattern_solid.tga"
 	color1 = "black"
 	color2 = "blue_light"
-	color3 = "yellow"
+	color3 = "green"
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
@@ -138,10 +140,11 @@ GER_BAV_dictatorship = {
 		instance = { scale = { 0.66 0.66 } }
 	}
 	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color3
-		instance = { scale = { 0.7 0.7 } }
+		texture = "ce_lion_rampant_crowned.dds"
+		color1 = "yellow"
+		color2 = "red"
+		color3 = "white"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }	
 	}
 }
 GER_BAV_communist = {
@@ -151,7 +154,7 @@ GER_BAV_communist = {
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
 		color1 = "blue_light"
-		color2 = "yellow"
+		color2 = "green"
 	}	
 	colored_emblem = {
 		texture = "ce_frame_circle.dds"
@@ -329,12 +332,14 @@ GER_SAX_iron_cross = {
 		color1 = color2
 		color2 = color3
 	}
-
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color1
-	}
+	sub = {
+        parent = "sub_AUS_crown" 
+        instance = { scale = { 0.35 0.35 } offset = { 0.23 0.16 } }
+    }
+	sub = {
+        parent = "sub_SAX_coa" 
+        instance = { scale = { 0.7 0.7 } offset = { 0.05 0.2 } }
+    }
 }
 GER_SAX_modern = {
 	pattern = "pattern_solid.tga"
@@ -360,12 +365,10 @@ GER_SAX_dictatorship = {
 		color2 = color3
 		instance = { scale = { 0.66 0.66 } }
 	}
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color3
-		instance = { scale = { 0.7 0.7 } }
-	}
+	sub = {
+        parent = "sub_SAX_coa" 
+        instance = { scale = { 0.7 0.7 } offset = { 0.05 0.1 } }
+    }
 }
 GER_SAX_communist = {
 	pattern = "pattern_solid.tga"
@@ -452,193 +455,4 @@ GGR_fascist = {
 		instance = { scale = { 0.08 0.6 } position = { 0.5 0.5 } }
 		instance = { scale = { 0.4 0.12 } position = { 0.5 0.5 } }		
 	}		
-}
-
-NGF_HAN = { # North German Federation
-	# Actually used the simple tricolor given to GER
-	# version with german state crown
-	
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-	colored_emblem = {
-		texture = "ce_frame_circle.dds"
-		color1 = "white"
-		color2 = "white"
-		instance = { scale = { 0.65 0.65 } position = { 0.5 0.5 } }
-	}	
-	textured_emblem  = {
-		texture = "te_german_state_crown.dds"
-		instance = { scale = { 0.8 0.8 } position = { 0.5 0.48 } }	
-	}	
-}
-NGF_HAN_absolute_monarchy = {
-	# version with prussian eagle
-	
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-	colored_emblem = {
-		texture = "ce_frame_circle.dds"
-		color1 = "white"
-		color2 = "white"
-		instance = { scale = { 0.65 0.65 } position = { 0.5 0.5 } }
-	}	
-	textured_emblem  = {
-		texture = "te_eagle_prussia_monogram_crown.dds"
-		instance = { scale = { 0.66 0.66 } position = { 0.5 0.52 } }	
-	}	
-}
-NGF_HAN_fascist = {		
-	# Same as V2 NGF_HAN	
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-	colored_emblem = {
-		texture = "ce_frame_circle.dds"
-		color1 = "white"
-		color2 = "white"
-		instance = { scale = { 0.66 0.66 } position = { 0.5 0.5 } }
-	}	
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = "white"
-		color2 = "black"
-		instance = { scale = { 0.66 0.66 } position = { 0.5 0.5 } }
-	}	
-}
-
-GER_HAN = {
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-}
-GER_HAN_iron_cross = {
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color1
-	}
-}
-GER_HAN_modern = {
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	color2 = "white"
-	color3 = "yellow"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
-	}
-}
-GER_HAN_dictatorship = {
-	pattern = "pattern_solid.tga"
-	color1 = "yellow"
-	color2 = "white"
-	color3 = "black"
-
-	colored_emblem = {
-		texture = "ce_frame_circle.dds"
-		color1 = color2
-		color2 = color3
-		instance = { scale = { 0.66 0.66 } }
-	}
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = color2
-		color2 = color3
-		instance = { scale = { 0.7 0.7 } }
-	}
-}
-GER_HAN_communist = {
-	pattern = "pattern_solid.tga"
-	color1 = "black"
-	
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = "white"
-		color2 = "yellow"
-	}	
-	colored_emblem = {
-		texture = "ce_frame_circle.dds"
-		color1 = "white"
-		color2 = "white"
-		instance = { scale = { 0.43 0.43 } position = { 0.5 0.5 } }			
-	}		
-	colored_emblem = {
-		texture = "ce_hammer_compass_ddr.dds"
-		color1 = "yellow"
-		color2 = "yellow"
-		instance = { scale = { 0.45 0.45 } position = { 0.5 0.5 } }			
-	}
-	colored_emblem = {
-		texture = "ce_coa_frame_ddr.dds"
-		color1 = "yellow_dark"
-		color2 = "black"
-		color3 = "white"
-		instance = { scale = { 0.7 0.7 } position = { 0.5 0.505 }  }	
-	}
-	colored_emblem = {
-		texture = "ce_coa_frame_ddr.dds"
-		color1 = "yellow"
-		color2 = "black"
-		color3 = "white"
-		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 }  }	
-	}
-}
-GER_HAN_fascist = {	
-	# War ensign with iron cross moved from canton to replace swastika
-	pattern = "pattern_solid.tga"
-	color1 = "red"
-	colored_emblem = {
-		texture = "ce_cross_germany_war_ensign.dds"
-		color1 = "black"
-		color2 = "white"
-	}		
-	colored_emblem = {
-		texture = "ce_iron_cross.dds"
-		color1 = "white"
-		color2 = "black"
-		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
-	}	
 }

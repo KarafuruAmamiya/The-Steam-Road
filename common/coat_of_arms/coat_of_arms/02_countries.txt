@@ -7799,6 +7799,33 @@ GER = {
 		color2 = color3
 	}
 }
+GER_austrian = { # German Confederation
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	color2 = "red"
+	color3 = "yellow"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = color2
+		color2 = color3
+	}
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.33 0.5 } position = { @[third/2] @semy } }
+	}
+
+	colored_emblem = {
+		texture = "ce_eagle_double_headed.dds"
+		color1 = "black"
+		color2 = "yellow_dark"
+		color3 = "white"		
+		instance = { scale = { @[uru_canton_height*0.9] @[uru_canton_height*0.9] } position = { @[third/2] 0.25 } }
+	}
+}
 GER_iron_cross = {
 	pattern = "pattern_solid.tga"
 	color1 = "black"
@@ -11237,15 +11264,16 @@ KTI_subject_GBR = {
 
 KUK = {
 	pattern = "pattern_vertical_split_01.tga"
-	color1 = "red"
-	color2 = "red"
+	color1 = "black"
+	color2 = "black"
 	color3 = "white"
 	color4 = "green"
+	color5 = "blue_light"
 
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
 		color1 = color3
-		color2 = color1
+		color2 = color5
 
 		mask = { 1 }
 	}
@@ -18189,19 +18217,20 @@ SAX = {
 SAX_absolute_monarchy = {
 	pattern = "pattern_solid.tga"
 	color1 = "white"
-				
+
 	colored_emblem = {
 		texture = "ce_bicolor_bottom.dds"
 		color1 = "green"
-		color2 = "green"		
+		color2 = "green"
 	}
-	colored_emblem = {
-		texture = "ce_shield_saxony.dds"
-		color1 = "black"
-		color2 = "yellow"
-		color3 = "green"
-		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }		
-	}				
+	sub = {
+        parent = "sub_AUS_crown" 
+        instance = { scale = { 0.45 0.45 } offset = { 0.275 0.05 } }
+    }
+    sub = {
+        parent = "sub_SAX_coa" 
+        instance = { scale = { 0.9 0.9 } offset = { 0.05 0.1 } }
+    }	
 }
 SAX_republic = {
 	# pre 1815 colours and coa design (barruly)

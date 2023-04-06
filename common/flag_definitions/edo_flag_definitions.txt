@@ -138,28 +138,10 @@ GER = { # Germany
 		}
 	}
 	flag_definition = {
-		coa = GER_BAV
-		subject_canton = GER_BAV
-		priority = 2
-		trigger = { 
-			scope:actor = { was_formed_from = PLT }
-		}
-	}
-	flag_definition = {
-		coa = GER_BAV_iron_cross
-		subject_canton = GER_BAV_iron_cross
-		priority = 7
+		coa = KUK
+		priority = 100
 		trigger = {
-			coa_def_autocracy_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
-		}
-	}
-	flag_definition = {
-		coa = GER_BAV_modern
-		subject_canton = GER_BAV_modern
-		priority = 20
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
+			exists = scope:actor
 			scope:actor = { was_formed_from = PLT }
 		}
 	}
@@ -198,12 +180,14 @@ GER = { # Germany
 		}
 	}
 	flag_definition = {
-		coa = GER_SAX_iron_cross
-		subject_canton = GER_SAX_iron_cross
-		priority = 7
+		coa = GER_austrian
+		priority = 100
 		trigger = {
-			coa_def_autocracy_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			exists = scope:actor
+			scope:actor = {
+				has_law = law_type:law_monarchy
+				was_formed_from = SAX
+			}
 		}
 	}
 	flag_definition = {
@@ -239,27 +223,6 @@ GER = { # Germany
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
 			scope:actor = { was_formed_from = SAX }
-		}
-	}
-	flag_definition = {
-		coa = GER_austrian
-		priority = 100
-		trigger = {
-			exists = scope:actor
-			scope:actor = {
-				has_law = law_type:law_monarchy
-				ruler = {
-					has_culture = cu:south_german
-				}
-				capital = { 
-					OR = {
-						state_region = s:STATE_AUSTRIA
-						state_region = s:STATE_TYROL
-						state_region = s:STATE_SOUTH_TYROL
-						state_region = s:STATE_STYRIA
-					}
-				}
-			}
 		}
 	}
 	# Black-White-Red tricolor is reserved for a Prussian monarchy

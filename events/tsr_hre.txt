@@ -1,0 +1,126 @@
+﻿namespace = hre
+
+hre.1 = { # End of the Holy Roman Empire (for Saxony)
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	duration = 3
+
+	title = hre.1.t
+	desc = hre.1.d
+	flavor = hre.1.f
+	
+	immediate = {
+		c:SAX = { save_scope_as = sax_scope }
+		remove_diplomatic_pact = {
+			country = c:FLA 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:PLT 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:RHI 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:NAS 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:MUN 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:HES 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:FRM 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:BRA 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:GOS 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:BRK 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:LOR 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:MUL 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:KNZ 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:WUR 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:ULM 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:SRB 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:AUS 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:GLG 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:BOH 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:MVA 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:SLV 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:SLO 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:FRN 
+			type = hre
+		}
+		remove_diplomatic_pact = {
+			country = c:COB 
+			type = hre
+		}
+	}
+	
+	option = {
+		name = hre.1.a
+		remove_modifier = hre_emperor
+	}
+}

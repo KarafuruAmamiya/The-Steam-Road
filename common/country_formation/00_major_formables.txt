@@ -1,16 +1,43 @@
 ﻿GER = {
-	use_culture_states = yes
+	states = {
+		STATE_ANHALT
+		STATE_RHINELAND
+		STATE_NORTH_RHINE
+		STATE_BRUNSWICK
+		STATE_SAXONY
+		STATE_HESSE
+		STATE_THURINGIA
+		STATE_WURTTEMBERG
+		STATE_BADEN
+		STATE_FRANCONIA
+		STATE_AUSTRIA
+		STATE_PFALZ
+		STATE_OBERPFALZ
+		STATE_ELSASS
+	}
+
+	required_states_fraction = 1
 	
 	is_major_formation = yes
 	
 	unification_play = dp_unify_germany
 	leadership_play = dp_leadership_germany
-
-	required_states_fraction = 0.8
 	
 	ai_will_do = { always = yes }
 
 	possible = {
+		custom_tooltips = {
+			text = hre_doesnt_exist
+			NOT = {
+				OR = {
+					exists = c:HRE
+					AND = {
+						exists = c:SAX
+						c:SAX = { has_modifier = hre_emperor }
+					}
+				}
+			}
+		}
 		OR = {
 			AND = {
 				country_has_primary_culture = cu:north_german

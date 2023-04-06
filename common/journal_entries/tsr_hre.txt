@@ -1,0 +1,171 @@
+﻿je_hre_falls_apart = { 
+	icon = "gfx/interface/icons/event_icons/event_hre.dds"
+	
+	should_be_pinned_by_default = yes
+
+	complete = {
+		custom_tooltip = {
+			text = hre_complete_tt
+			c:FLA = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:PLT = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:RHI = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:NAS = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:MUN = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:HES = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:FRM = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:BRA = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:GOS = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:BRK = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:LOR = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:MUL = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:KNZ = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:WUR = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:ULM = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:SRB = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:GLG = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:AUS = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:BOH = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:MVA = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:SLV = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:SLO = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:FRN = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:COB = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+		}
+	}
+	
+	fail = {
+		custom_tooltip = {
+			text = hre_fail_tt
+			c:FLA = { NOT = { is_subject_of = c:SAX } }
+			c:PLT = { NOT = { is_subject_of = c:SAX } }
+			c:RHI = { NOT = { is_subject_of = c:SAX } }
+			c:NAS = { NOT = { is_subject_of = c:SAX } }
+			c:MUN = { NOT = { is_subject_of = c:SAX } }
+			c:HES = { NOT = { is_subject_of = c:SAX } }
+			c:FRM = { NOT = { is_subject_of = c:SAX } }
+			c:BRA = { NOT = { is_subject_of = c:SAX } }
+			c:GOS = { NOT = { is_subject_of = c:SAX } }
+			c:BRK = { NOT = { is_subject_of = c:SAX } }
+			c:LOR = { NOT = { is_subject_of = c:SAX } }
+			c:MUL = { NOT = { is_subject_of = c:SAX } }
+			c:KNZ = { NOT = { is_subject_of = c:SAX } }
+			c:WUR = { NOT = { is_subject_of = c:SAX } }
+			c:ULM = { NOT = { is_subject_of = c:SAX } }
+			c:SRB = { NOT = { is_subject_of = c:SAX } }
+			c:GLG = { NOT = { is_subject_of = c:SAX } }
+			c:AUS = { NOT = { is_subject_of = c:SAX } }
+			c:BOH = { NOT = { is_subject_of = c:SAX } }
+			c:MVA = { NOT = { is_subject_of = c:SAX } }
+			c:SLV = { NOT = { is_subject_of = c:SAX } }
+			c:SLO = { NOT = { is_subject_of = c:SAX } }
+			c:FRN = { NOT = { is_subject_of = c:SAX } }
+			c:COB = { NOT = { is_subject_of = c:SAX } }
+		}
+	}
+	
+	timeout = 4380
+	
+	on_fail = {
+		set_global_variable = hre_end
+		c:SAX = { remove_modifier = hre_emperor }
+	}
+
+	on_timeout = {
+		set_global_variable = hre_end
+		c:SAX = { trigger_event = { id = hre.1 } }
+		#every_country = {
+		#	limit = {
+		#		country_is_in_hre = yes
+		#	}
+		#	trigger_event = { id = hre.2 }
+		#}
+		#every_country = {
+		#	limit = {
+		#		has_strategic_adjacency = c:SAX
+		#	}
+		#	trigger_event = { id = hre.3 }
+		#}
+	}
+	
+	weight = 100
+	
+	invalid = {
+		c:SAX = {
+			NOT = { has_modifier = hre_emperor }
+		}
+	}
+	
+	inheritable = no
+}

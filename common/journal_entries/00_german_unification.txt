@@ -2,10 +2,15 @@
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:north_german
+		OR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:baltic_german
+		}
 		OR = {
 			country_tier = kingdom
 			country_tier = principality
+			country_tier = grand_principality
+			country_tier = city_state
 		}
 	}
 
@@ -13,6 +18,60 @@
 		country_rank >= rank_value:major_power
 		has_technology_researched = nationalism
 		is_subject = no
+		has_global_variable = hre_end
+	}
+	
+	immediate = {
+		ROOT = {
+			s:STATE_POMERANIA = {
+				add_claim = ROOT
+			}
+			s:STATE_ELBE = {
+				add_claim = ROOT
+			}
+			s:STATE_WESTPHALIA = {
+				add_claim = ROOT
+			}
+			s:STATE_ANHALT = {
+				add_claim = ROOT
+			}
+			s:STATE_RHINELAND = {
+				add_claim = ROOT
+			}
+			s:STATE_NORTH_RHINE = {
+				add_claim = ROOT
+			}
+			s:STATE_SCHLESWIG_HOLSTEIN = {
+				add_claim = ROOT
+			}
+			s:STATE_HANNOVER = {
+				add_claim = ROOT
+			}
+			s:STATE_BRUNSWICK = {
+				add_claim = ROOT
+			}
+			s:STATE_SAXONY = {
+				add_claim = ROOT
+			}
+			s:STATE_HESSE = {
+				add_claim = ROOT
+			}
+			s:STATE_MECKLENBURG = {
+				add_claim = ROOT
+			}
+			s:STATE_BRANDENBURG = {
+				add_claim = ROOT
+			}
+			s:STATE_THURINGIA = {
+				add_claim = ROOT
+			}
+			s:STATE_WEST_PRUSSIA = {
+				add_claim = ROOT
+			}
+			s:STATE_EAST_PRUSSIA = {
+				add_claim = ROOT
+			}
+		}
 	}
 
 	complete = {
@@ -20,21 +79,13 @@
 			has_variable = je_unification_progress
 		}
 		calc_true_if = {
-			owns_entire_state_region = STATE_POMERANIA
-			owns_entire_state_region = STATE_ELBE
-			owns_entire_state_region = STATE_WESTPHALIA
 			owns_entire_state_region = STATE_ANHALT
 			owns_entire_state_region = STATE_RHINELAND
 			owns_entire_state_region = STATE_NORTH_RHINE
-			owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN
-			owns_entire_state_region = STATE_HANNOVER
 			owns_entire_state_region = STATE_BRUNSWICK
 			owns_entire_state_region = STATE_SAXONY
 			owns_entire_state_region = STATE_HESSE
-			owns_entire_state_region = STATE_MECKLENBURG
-			owns_entire_state_region = STATE_BRANDENBURG
 			owns_entire_state_region = STATE_THURINGIA
-			amount >= 10
 		}
 	}
 
@@ -58,7 +109,7 @@
 
 	status_desc = {
 		first_valid = {
-			triggered_desc = { 
+			triggered_desc = {
 				desc = je_north_german_status
 			}
 		}
@@ -73,6 +124,7 @@ je_german_unification = {
 	is_shown_when_inactive = {
 		OR = {
 			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:baltic_german
 			country_has_primary_culture = cu:south_german
 		}
 	}
@@ -81,6 +133,7 @@ je_german_unification = {
 		country_rank >= rank_value:major_power
 		has_technology_researched = pan-nationalism
 		is_subject = no
+		has_global_variable = hre_end
 	}
 
 	complete = {
@@ -88,29 +141,20 @@ je_german_unification = {
 			has_variable = je_unification_progress
 		}
 		calc_true_if = {
-			amount >= 17
-			owns_entire_state_region = STATE_POMERANIA
-			owns_entire_state_region = STATE_ELBE
-			owns_entire_state_region = STATE_WESTPHALIA
 			owns_entire_state_region = STATE_ANHALT
 			owns_entire_state_region = STATE_RHINELAND
 			owns_entire_state_region = STATE_NORTH_RHINE
-			owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN
-			owns_entire_state_region = STATE_HANNOVER
 			owns_entire_state_region = STATE_BRUNSWICK
 			owns_entire_state_region = STATE_SAXONY
 			owns_entire_state_region = STATE_HESSE
-			owns_entire_state_region = STATE_MECKLENBURG
-			owns_entire_state_region = STATE_BRANDENBURG
+			owns_entire_state_region = STATE_THURINGIA
 			owns_entire_state_region = STATE_WURTTEMBERG
 			owns_entire_state_region = STATE_BADEN
-			owns_entire_state_region = STATE_BAVARIA
 			owns_entire_state_region = STATE_FRANCONIA
 			owns_entire_state_region = STATE_AUSTRIA
 			owns_entire_state_region = STATE_PFALZ
 			owns_entire_state_region = STATE_OBERPFALZ
 			owns_entire_state_region = STATE_ELSASS
-			owns_entire_state_region = STATE_THURINGIA
 		}
 	}
 
@@ -136,9 +180,9 @@ je_german_unification = {
 			triggered_desc = {
 				desc = je_german_status
 				trigger = {
-					OR = {
-						country_tier = kingdom
-						country_tier = principality
+					NOT = { 
+						country_tier = empire
+						country_tier = hegemony
 					}
 				}
 			}
@@ -156,6 +200,8 @@ je_south_german_unification = {
 		OR = {
 			country_tier = kingdom
 			country_tier = principality
+			country_tier = grand_principality
+			country_tier = city_state
 		}
 	}
 
@@ -163,6 +209,42 @@ je_south_german_unification = {
 		country_rank >= rank_value:major_power
 		has_technology_researched = nationalism
 		is_subject = no
+		has_global_variable = hre_end
+	}
+	
+	immediate = {
+		ROOT = {
+			s:STATE_WURTTEMBERG = {
+				add_claim = ROOT
+			}
+			s:STATE_BADEN = {
+				add_claim = ROOT
+			}
+			s:STATE_BAVARIA = {
+				add_claim = ROOT
+			}
+			s:STATE_FRANCONIA = {
+				add_claim = ROOT
+			}
+			s:STATE_AUSTRIA = {
+				add_claim = ROOT
+			}
+			s:STATE_STYRIA = {
+				add_claim = ROOT
+			}
+			s:STATE_TYROL = {
+				add_claim = ROOT
+			}
+			s:STATE_PFALZ = {
+				add_claim = ROOT
+			}
+			s:STATE_OBERPFALZ = {
+				add_claim = ROOT
+			}
+			s:STATE_ELSASS = {
+				add_claim = ROOT
+			}
+		}
 	}
 
 	complete = {
@@ -170,10 +252,8 @@ je_south_german_unification = {
 			has_variable = je_unification_progress
 		}
 		calc_true_if = {
-			amount >= 6
 			owns_entire_state_region = STATE_WURTTEMBERG
 			owns_entire_state_region = STATE_BADEN
-			owns_entire_state_region = STATE_BAVARIA
 			owns_entire_state_region = STATE_FRANCONIA
 			owns_entire_state_region = STATE_AUSTRIA
 			owns_entire_state_region = STATE_PFALZ

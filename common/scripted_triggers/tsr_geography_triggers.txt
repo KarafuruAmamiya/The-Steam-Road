@@ -33,7 +33,7 @@ state_is_in_north_america = {
 	OR = {
 		region = sr:region_canada
 		region = sr:region_borealia
-		region = sr:region_solarado
+		region = sr:region_soalleiro
 		region = sr:region_new_england
 		region = sr:region_pacific_coast
 		region = sr:region_great_plains
@@ -159,6 +159,21 @@ country_is_in_new_word = {
 	}
 }
 
+country_is_in_hre = {
+	exists = capital
+	capital = {
+		OR = {
+			region = sr:region_north_germany
+			region = sr:region_south_germany
+			state_region = s:STATE_FLANDERS
+			state_region = s:STATE_UPPER_SILESIA
+			state_region = s:STATE_WEST_SLOVAKIA
+			state_region = s:STATE_SLOVENIA
+			state_region = s:STATE_LORRAINE
+		}
+	}
+}
+
 gunpowder_empire_trigger = {
 	exists = capital
 	capital = {
@@ -277,7 +292,7 @@ is_subtropic_farmland = {
 		region = sr:region_la_plata
 		region = sr:region_caribbean
 		region = sr:region_pacific_coast
-		region = sr:region_solarado
+		region = sr:region_soalleiro
 		region = sr:region_amazon
 	}
 }

@@ -159,6 +159,14 @@
 		#}
 	}
 	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_hre_falls_apart_status
+			}
+		}
+	}
+	
 	weight = 100
 	
 	invalid = {
@@ -166,6 +174,34 @@
 			NOT = { has_modifier = hre_emperor }
 		}
 	}
+	
+	inheritable = no
+}
+
+je_reconquer_germany = { 
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	should_be_pinned_by_default = yes
+
+	complete = {
+		owns_entire_state_region = STATE_HANNOVER
+		owns_entire_state_region = STATE_WESTPHALIA
+		owns_entire_state_region = STATE_ELBE
+		owns_entire_state_region = STATE_POMERANIA
+		owns_entire_state_region = STATE_BRANDENBURG
+		owns_entire_state_region = STATE_BAVARIA
+		owns_entire_state_region = STATE_MECKLENBURG
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_reconquer_germany_war_status
+			}
+		}
+	}
+	
+	weight = 100
 	
 	inheritable = no
 }

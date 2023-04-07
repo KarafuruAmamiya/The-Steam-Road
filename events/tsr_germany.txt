@@ -1,0 +1,61 @@
+﻿namespace = german_events
+
+german_events.1 = { # Rückeroberung start event
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	duration = 3
+
+	title = german_events.1.t
+	desc = german_events.1.d
+	flavor = german_events.1.f
+	
+	trigger = {
+		exists = c:GER
+		this = c:GER
+		NOT = {
+			owns_entire_state_region = STATE_HANNOVER
+			owns_entire_state_region = STATE_WESTPHALIA
+			owns_entire_state_region = STATE_ELBE
+			owns_entire_state_region = STATE_POMERANIA
+			owns_entire_state_region = STATE_BRANDENBURG
+			owns_entire_state_region = STATE_BAVARIA
+			owns_entire_state_region = STATE_MECKLENBURG
+		}
+	}
+	
+	option = {
+		name = german_events.1.a
+		s:STATE_HANNOVER = {
+			add_claim = c:GER
+		}
+		s:STATE_WESTPHALIA = {
+			add_claim = c:GER
+		}
+		s:STATE_ELBE = {
+			add_claim = c:GER
+		}
+		s:STATE_POMERANIA = {
+			add_claim = c:GER
+		}
+		s:STATE_BRANDENBURG = {
+			add_claim = c:GER
+		}
+		s:STATE_BAVARIA = {
+			add_claim = c:GER
+		}
+		s:STATE_MECKLENBURG = {
+			add_claim = c:GER
+		}
+		add_journal_entry = { type = je_reconquer_germany }
+	}
+}

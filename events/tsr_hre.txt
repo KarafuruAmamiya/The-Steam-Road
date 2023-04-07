@@ -21,6 +21,7 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	
 	immediate = {
 		c:SAX = { save_scope_as = sax_scope }
+		set_global_variable = hre_end
 		remove_diplomatic_pact = {
 			country = c:FLA 
 			type = hre
@@ -122,5 +123,136 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	option = {
 		name = hre.1.a
 		remove_modifier = hre_emperor
+	}
+}
+
+hre.4 = { # Pre-SGF
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	duration = 3
+
+	title = hre.4.t
+	desc = hre.4.d
+	flavor = hre.4.f
+	
+	trigger = {
+		has_global_variable = hre_end
+		exists = c:PLT
+		this = c:PLT
+		is_subject = no
+	}
+	
+	immediate = {
+		c:WUR = {
+			change_relations = {
+				country = c:PLT
+				value = 80
+			}
+		}
+		c:ULM = {
+			change_relations = {
+				country = c:PLT
+				value = 80
+			}
+		}
+		c:KNZ = {
+			change_relations = {
+				country = c:PLT
+				value = 80
+			}
+		}
+		c:MUL = {
+			change_relations = {
+				country = c:PLT
+				value = 80
+			}
+		}
+		c:FRN = {
+			change_relations = {
+				country = c:PLT
+				value = 80
+			}
+		}
+		c:SAX = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
+	}
+	
+	option = {
+		name = hre.4.a
+		default_option = yes
+		ai_chance = 75
+		c:PLT = {
+			create_diplomatic_pact = {
+				country = c:WUR
+				type = customs_union
+			}
+			create_diplomatic_pact = {
+				country = c:ULM
+				type = customs_union
+			}
+			create_diplomatic_pact = {
+				country = c:KNZ
+				type = customs_union
+			}
+			create_diplomatic_pact = {
+				country = c:MUL
+				type = customs_union
+			}
+			create_diplomatic_pact = {
+				country = c:FRN
+				type = customs_union
+			}
+			hidden_effect = {
+				set_strategy = ai_strategy_unify_germany
+			}
+		}
+	}
+	option = {
+		name = hre.4.b
+		ai_chance = 25
+		c:WUR = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
+		c:ULM = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
+		c:KNZ = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
+		c:MUL = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
+		c:FRN = {
+			change_relations = {
+				country = c:PLT
+				value = -80
+			}
+		}
 	}
 }

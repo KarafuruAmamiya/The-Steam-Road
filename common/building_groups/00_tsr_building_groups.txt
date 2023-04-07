@@ -22,7 +22,17 @@
 # hires_unemployed_only = yes			If yes, buildings in this group may only hire from the unemployment pool. Default no.
 
 bg_illegal_opium_plantations = {
-	parent_group = bg_plantations
+	category = rural
+	
+	economy_of_scale = yes
+	
+	lens = plantation
+	
+	can_use_slaves = yes
+	cash_reserves_max = 25000
+	
+	urbanization = 0
+	infrastructure_usage_per_level = 0
 	
 	always_possible = yes
 	

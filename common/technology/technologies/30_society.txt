@@ -406,6 +406,14 @@ pharmaceuticals = {
 	
 	ai_weight = {
 		value = 1
+		
+		if = { # French East Africa need to colonize Africa obviously
+			limit = { 
+				exists = c:FEA
+				this = c:FEA
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -456,6 +464,13 @@ quinine = {
 				is_country_type = recognized
 			}
 			add = 1
+		}
+		if = { # French East Africa need to colonize Africa obviously
+			limit = { 
+				exists = c:FEA
+				this = c:FEA
+			}
+			add = 1000
 		}
 		if = {
 			limit = { 

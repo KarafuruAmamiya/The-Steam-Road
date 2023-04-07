@@ -147,9 +147,11 @@ hre.4 = { # Pre-SGF
 	
 	trigger = {
 		has_global_variable = hre_end
+		NOT = { has_variable = pre_sgf_done }
 		exists = c:PLT
 		this = c:PLT
 		is_subject = no
+		is_at_war = no
 	}
 	
 	immediate = {
@@ -198,28 +200,29 @@ hre.4 = { # Pre-SGF
 		c:PLT = {
 			create_diplomatic_pact = {
 				country = c:WUR
-				type = customs_union
+				type = trade_agreement
 			}
 			create_diplomatic_pact = {
 				country = c:ULM
-				type = customs_union
+				type = trade_agreement
 			}
 			create_diplomatic_pact = {
 				country = c:KNZ
-				type = customs_union
+				type = trade_agreement
 			}
 			create_diplomatic_pact = {
 				country = c:MUL
-				type = customs_union
+				type = trade_agreement
 			}
 			create_diplomatic_pact = {
 				country = c:FRN
-				type = customs_union
+				type = trade_agreement
 			}
 			hidden_effect = {
 				set_strategy = ai_strategy_unify_germany
 			}
 		}
+		set_variable = pre_sgf_done
 	}
 	option = {
 		name = hre.4.b
@@ -254,5 +257,11 @@ hre.4 = { # Pre-SGF
 				value = -80
 			}
 		}
+		hidden_effect = {
+			c:PLT = {
+				set_strategy = ai_strategy_unify_germany
+			}
+		}
+		set_variable = pre_sgf_done
 	}
 }

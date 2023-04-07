@@ -9,6 +9,7 @@
 	
 	possible = {
 		has_law = law_type:law_monarchy
+		has_modifier = hre_emperor
 		country_tier = empire
 		exists = c:SAX
 		c:SAX = ROOT
@@ -28,6 +29,8 @@ gov_elector_palatinate = {
 		has_law = law_type:law_monarchy
 		exists = c:PLT
 		c:PLT = ROOT
+		is_subject_of = c:SAX
+		NOT = { has_global_variable = hre_end }
 	}
 }
 
@@ -50,6 +53,8 @@ gov_electorate = {
 			AND = { exists = c:MUN c:MUN = ROOT }
 			AND = { exists = c:KNZ c:KNZ = ROOT }
 		}
+		is_subject_of = c:SAX
+		NOT = { has_global_variable = hre_end }
 	}
 }
 
@@ -67,6 +72,8 @@ gov_electorate_boh = {
 		country_tier = kingdom
 		exists = c:BOH
 		c:BOH = ROOT
+		is_subject_of = c:SAX
+		NOT = { has_global_variable = hre_end }
 	}
 }
 
@@ -86,6 +93,8 @@ gov_electorate_theocracy = {
 			AND = { exists = c:KNZ c:KNZ = ROOT }
 			AND = { exists = c:MUN c:MUN = ROOT }
 		}
+		is_subject_of = c:SAX
+		NOT = { has_global_variable = hre_end }
 	}
 }
 

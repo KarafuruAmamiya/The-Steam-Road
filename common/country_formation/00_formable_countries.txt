@@ -245,9 +245,17 @@ ZIM = {
 }
 
 NGF = {
-	use_culture_states = yes
+	states = {
+		STATE_ANHALT
+		STATE_RHINELAND
+		STATE_NORTH_RHINE
+		STATE_BRUNSWICK
+		STATE_SAXONY
+		STATE_HESSE
+		STATE_THURINGIA
+	}
 
-	required_states_fraction = 0.75
+	required_states_fraction = 1
 
 	possible = {
 		has_technology_researched = nationalism
@@ -257,9 +265,17 @@ NGF = {
 }
 
 SGF = {
-	use_culture_states = yes
+	states = {
+		STATE_WURTTEMBERG
+		STATE_BADEN
+		STATE_FRANCONIA
+		STATE_AUSTRIA
+		STATE_PFALZ
+		STATE_OBERPFALZ
+		STATE_ELSASS
+	}
 
-	required_states_fraction = 0.75
+	required_states_fraction = 1
 	
 	ai_will_do = { always = yes }
 }

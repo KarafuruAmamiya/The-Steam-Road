@@ -339,13 +339,34 @@
                 exists = scope:character
                 scope:character = {
                     owner = {
-                        exists = c:AUS
-                        c:AUS = this
+						OR = {
+							AND = {
+								OR = {
+									country_has_primary_culture = cu:persian
+									country_has_primary_culture = cu:jonubi
+								}
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:SRV
+								c:SRV = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:ARD
+								c:ARD = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								has_variable = adopt_western_uniforms
+							}
+						}
                     }
                 }
                 OR = {
                     scope:character = {
                         has_role = general
+						NOT = { is_ruler = yes }
                     }
                     AND = {
                         politician_clothes_trigger = yes
@@ -371,7 +392,30 @@
                 add = 1001
                 exists = scope:character
                 scope:character = {
-                    tsr_persia_leader_trigger = yes
+                    owner = {
+						OR = {
+							AND = {
+								OR = {
+									country_has_primary_culture = cu:persian
+									country_has_primary_culture = cu:jonubi
+								}
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:SRV
+								c:SRV = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:ARD
+								c:ARD = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								has_variable = adopt_western_uniforms
+							}
+						}
+                    }
                     officers_clothes_pop_trigger = yes
                 }
             }

@@ -34,6 +34,22 @@ gov_elector_palatinate = {
 	}
 }
 
+gov_palatinate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_PFALZGRAF"
+	female_ruler = "RULER_TITLE_PFALZGRAF_F" 
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PLT
+		c:PLT = ROOT
+	}
+}
+
 gov_electorate = {
 	transfer_of_power = hereditary
 	

@@ -21,7 +21,6 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	
 	immediate = {
 		c:SAX = { save_scope_as = sax_scope }
-		set_global_variable = hre_end
 		remove_diplomatic_pact = {
 			country = c:FLA 
 			type = hre
@@ -126,7 +125,39 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	}
 }
 
-hre.4 = { # Pre-SGF
+hre.2 = { # End of the Holy Roman Empire (for everyone else)
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	duration = 3
+
+	title = hre.2.t
+	desc = hre.2.d
+	flavor = hre.2.f
+	
+	immediate = {
+		c:SAX = { save_scope_as = sax_scope }
+	}
+	
+	option = {
+		name = hre.2.a
+	}
+	option = {
+		name = hre.2.b
+		default_option = yes
+	}
+}
+
+hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 	type = country_event
 	placement = ROOT
 

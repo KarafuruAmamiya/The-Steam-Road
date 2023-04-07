@@ -147,18 +147,15 @@ je_hre_falls_apart = {
 	on_timeout = {
 		set_global_variable = hre_end
 		c:SAX = { trigger_event = { id = hre.1 } }
-		#every_country = {
-		#	limit = {
-		#		country_is_in_hre = yes
-		#	}
-		#	trigger_event = { id = hre.2 }
-		#}
-		#every_country = {
-		#	limit = {
-		#		has_strategic_adjacency = c:SAX
-		#	}
-		#	trigger_event = { id = hre.3 }
-		#}
+		every_country = {
+			limit = {
+				OR = {
+					country_is_in_hre = yes
+					has_strategic_adjacency = c:SAX
+				}
+			}
+			trigger_event = { id = hre.2 }
+		}
 	}
 	
 	status_desc = {

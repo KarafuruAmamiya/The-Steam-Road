@@ -61,10 +61,10 @@
 						} 						
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_protectorate
+					save_scope_as = new_fei_protectorate
 					c:FEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_protectorate
+							country = scope:new_fei_protectorate
 							type = protectorate
 						}
 					}
@@ -79,10 +79,10 @@
 						} 
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_vassal
+					save_scope_as = new_fei_vassal
 					c:FEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_vassal
+							country = scope:new_fei_vassal
 							type = puppet
 						}
 					}
@@ -97,10 +97,10 @@
 						} 
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_puppet
+					save_scope_as = new_fei_puppet
 					c:FEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_puppet
+							country = scope:new_fei_puppet
 							type = puppet
 						}
 					}
@@ -119,7 +119,7 @@ ibe_expand_east_indies = {
 		exists = c:CEI
 		c:CEI = {
 			is_subject_of = ROOT
-			is_subject_type = subject_type_dominion
+			is_subject_type = subject_type_puppet
 		}
 	}
 	possible = {
@@ -176,10 +176,10 @@ ibe_expand_east_indies = {
 						} 						
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_protectorate
+					save_scope_as = new_cei_protectorate
 					c:CEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_protectorate
+							country = scope:new_cei_protectorate
 							type = protectorate
 						}
 					}
@@ -194,10 +194,10 @@ ibe_expand_east_indies = {
 						} 
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_vassal
+					save_scope_as = new_cei_vassal
 					c:CEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_vassal
+							country = scope:new_cei_vassal
 							type = puppet
 						}
 					}
@@ -212,10 +212,10 @@ ibe_expand_east_indies = {
 						} 
 					}
 					hidden_effect = { make_independent = yes }
-					save_scope_as = new_dei_puppet
+					save_scope_as = new_cei_puppet
 					c:CEI = {
 						create_diplomatic_pact = {
-							country = scope:new_dei_puppet
+							country = scope:new_cei_puppet
 							type = puppet
 						}
 					}

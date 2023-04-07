@@ -329,13 +329,13 @@
                 mode = add
                 gene = headgear
                 template = austrian_military_headgear
-                range = { 0 1 } # For the randomness to work correctly
+                range = { 0.5 0.5 } # For the randomness to work correctly
             }
         }
         weight = {
             base = 0
             modifier = {
-                add = 101
+                add = 10000
                 exists = scope:character
                 scope:character = {
                     owner = {
@@ -383,13 +383,13 @@
                 mode = add
                 gene = headgear
                 template = austrian_military_headgear
-                range = { 0 1 } # For the randomness to work correctly
+                range = { 0.5 0.5 } # For the randomness to work correctly
             }
         }
         weight = {
             base = 0
             modifier = {
-                add = 1001
+                add = 10000
                 exists = scope:character
                 scope:character = {
                     owner = {
@@ -561,8 +561,9 @@
         weight = {
             base = 0
             modifier = {
-                add = 100
+                add = 1000
                 arabic_clothes_trigger = yes
+				tsr_persia_leader_trigger = no
             }
         }
     }
@@ -585,28 +586,7 @@
             }
         }
     }
-    arabic_fez = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = arabic_fez
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 200
-                AND = {
-                    arabic_clothes_trigger = yes
-                    arabic_fez_trigger = yes
-					tsr_persia_leader_trigger = no
-                }
-            }
-        }
-    }
-    ottoman_military_fez = {
+	ottoman_military_fez = {
         dna_modifiers = {
             accessory = {
                 mode = add
@@ -624,12 +604,36 @@
                     owner = {
 						OR = {
 							AND = {
+								exists = c:TUN
+								c:TUN = this
+							}
+							AND = {
+								exists = c:MOR
+								c:MOR = this
+							}
+							AND = {
 								exists = c:TUR
 								c:TUR = this
 							}
 							AND = {
 								exists = c:AKN
 								c:AKN = this
+							}
+							AND = {
+								is_subject_of = c:TUR
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:AKN
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:MOR
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:TUN
+								arabic_clothes_trigger = yes
 							}
 						}
                     }
@@ -646,12 +650,36 @@
                     owner = {
 						OR = {
 							AND = {
+								exists = c:TUN
+								c:TUN = this
+							}
+							AND = {
+								exists = c:MOR
+								c:MOR = this
+							}
+							AND = {
 								exists = c:TUR
 								c:TUR = this
 							}
 							AND = {
 								exists = c:AKN
 								c:AKN = this
+							}
+							AND = {
+								is_subject_of = c:TUR
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:AKN
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:MOR
+								arabic_clothes_trigger = yes
+							}
+							AND = {
+								is_subject_of = c:TUN
+								arabic_clothes_trigger = yes
 							}
 						}
                     }
@@ -961,26 +989,6 @@
             modifier = {
                 add = 100
                 native_american_clothes_pop_trigger = yes   
-            }
-        }
-    }
-
-    arabic_military_fez = { # Excludes the fancy female headgear meant for high class pops
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = arabic_military_fez
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 200
-                arabic_military_fez_pop_trigger = yes
-                soldier_clothes_pop_trigger = yes
-				tsr_persia_leader_trigger = no
             }
         }
     }

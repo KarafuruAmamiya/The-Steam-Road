@@ -81,7 +81,7 @@
                 mode = add
                 gene = epaulettes
                 template = all_epaulettes
-                range = { 0 1 } # For the randomness to work correctly
+                range = { 0.65 0.75 } # For the randomness to work correctly
             }
 			accessory = {
                  mode = add
@@ -134,6 +134,106 @@
 			}
         }
 	}
+	persian_accessories_officer = {
+        dna_modifiers = {
+            accessory = {
+                 mode = add
+                 gene = epaulettes
+                 template = all_epaulettes
+                 range = { 0.65 0.75 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+			modifier = {
+				add = 1500
+				exists = scope:pop
+				scope:pop = {
+                    owner = {
+						OR = {
+							AND = {
+								OR = {
+									country_has_primary_culture = cu:persian
+									country_has_primary_culture = cu:jonubi
+								}
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:SRV
+								c:SRV = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:ARD
+								c:ARD = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								has_variable = adopt_western_uniforms
+							}
+						}
+                    }
+				}
+				AND = {
+					#arabic_clothes_pop_trigger = yes
+					officers_clothes_pop_trigger = yes
+				}
+			}
+        }
+    }
+    persian_accessories_soldier = {
+        dna_modifiers = {
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+			modifier = {
+				add = 1500
+				exists = scope:pop
+				scope:pop = {
+                    owner = {
+						OR = {
+							AND = {
+								OR = {
+									country_has_primary_culture = cu:persian
+									country_has_primary_culture = cu:jonubi
+								}
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:SRV
+								c:SRV = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								exists = c:ARD
+								c:ARD = this
+							}
+							AND = {
+								is_subject_of = c:PER
+								has_variable = adopt_western_uniforms
+							}
+						}
+                    }
+				}
+				AND = {
+					#arabic_clothes_pop_trigger = yes
+					soldier_clothes_pop_trigger = yes
+				}
+			}
+        }
+    }
 
 
     prussian_accessories = {

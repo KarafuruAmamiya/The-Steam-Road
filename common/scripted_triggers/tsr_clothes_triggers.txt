@@ -11,8 +11,6 @@
 					is_subject_of = c:PER
 					OR = {
 						owner = { exists = c:SRV c:SRV = this }
-						owner = { exists = c:TSN c:TSN = this }
-						owner = { exists = c:SIN c:SIN = this }
 						owner = { exists = c:ARD c:ARD = this }
 					}
 				}

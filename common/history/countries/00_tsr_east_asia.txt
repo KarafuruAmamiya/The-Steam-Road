@@ -321,6 +321,8 @@
 			remove_ideology = ideology_moralist
 			add_ideology = ideology_confucian
 		}
+		
+		add_journal_entry = { type = je_reconquer_china }
 	}
 	c:CMI = { # Lan Na
 		effect_starting_technology_tier_4_tech = yes
@@ -1352,10 +1354,12 @@
 		add_technology_researched = sericulture
 		add_technology_researched = academia
 		add_technology_researched = law_enforcement
+		add_technology_researched = stock_exchange
 				
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_cultural_exclusion

@@ -1118,10 +1118,17 @@ ai_strategy_default = {
 				}
 				add = 1000
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1134,10 +1141,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1150,10 +1164,17 @@ ai_strategy_default = {
 				}
 				add = 1000
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1174,10 +1195,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1198,10 +1226,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1226,10 +1261,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1250,10 +1292,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1266,10 +1315,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1282,10 +1338,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1298,53 +1361,65 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
 				}
 				add = -1000
 			}
-		}
-		region_central_america = {
 			if = {
 				limit = {
-					exists = c:IBE
-					this = c:IBE
-				}
-				add = 100
-			}
-			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
-					country_is_in_europe = no
-					country_is_in_new_word = no
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
 		}
 		region_new_england = {
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
 		}
 		region_midwest = {
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
+				}
+				add = -1000
+			}
 		}
 		region_borealia = {
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1357,10 +1432,17 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
@@ -1375,28 +1457,49 @@ ai_strategy_default = {
 				}
 				add = 1000
 			}
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}
 		}
 		region_andes = {
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
+				}
+				add = -1000
+			}
 		}
 		region_gran_colombia = {
+			# Persia and Ottomans have no business interfering in the New World
 			if = {
-				limit = { #Persia and Ottomans have no business interfering in the New World
+				limit = {
 					country_is_in_europe = no
 					country_is_in_new_word = no
+				}
+				add = -1000
+			}
+			if = {
+				limit = {
+					gunpowder_empire_trigger = yes
 				}
 				add = -1000
 			}

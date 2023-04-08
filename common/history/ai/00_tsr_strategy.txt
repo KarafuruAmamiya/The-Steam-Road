@@ -119,7 +119,11 @@
 		set_strategy = ai_strategy_conservative_agenda
 	}	
 	c:PER = {
-		set_strategy = ai_strategy_industrial_expansion
+		random_list = {	
+			55 = { set_strategy = ai_strategy_plantation_economy }
+			35 = { set_strategy = ai_strategy_resource_expansion }
+			10 = { set_strategy = ai_strategy_industrial_expansion }
+		}
 		random_list = {	
 			75 = { set_strategy = ai_strategy_colonial_expansion }
 			25 = { set_strategy = ai_strategy_economic_imperialism }
@@ -137,8 +141,8 @@
 	}
 	c:AKN = {
 		random_list = {	
-			75 = { set_strategy = ai_strategy_plantation_economy }
-			25 = { set_strategy = ai_strategy_industrial_expansion }
+			75 = { set_strategy = ai_strategy_placate_population }
+			25 = { set_strategy = ai_strategy_resource_expansion }
 		}		
 		set_strategy = ai_strategy_maintain_power_balance
 		set_strategy = ai_strategy_conservative_agenda

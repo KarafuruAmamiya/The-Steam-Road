@@ -186,6 +186,7 @@ gov_colonial_administration = {
 				AND = { exists = c:SCA is_subject_of = c:SCA }
 				OR = {
 					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial

@@ -365,25 +365,6 @@ ideology_radical = {
 				}
 				add = 50
 			}
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							has_law = law_type:law_national_guard
-							has_law = law_type:law_secret_police
-							has_law = law_type:law_outlawed_dissent
-							has_law = law_type:law_autocracy
-							has_law = law_type:law_oligarchy
-							has_law = law_type:law_censorship
-							has_law = law_type:law_landed_voting
-						}
-						has_technology_researched = egalitarianism
-						is_ai = yes
-					}
-					year > 1840
-				}
-				add = 100 # So 1848 is more likely to trigger for AI
-			}
 			# less likely if issues are not relevant
 			if = {
 				limit = {

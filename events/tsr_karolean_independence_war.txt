@@ -178,7 +178,6 @@ krl_independence.3 = {
 	option = { # The fallen heroes shall never be forgotten!
 		name = krl_independence.3.a
 		remove_variable = karolean_independence_war
-		remove_variable = krl_second_wind
 		remove_modifier = karolean_independence_war
 	}
 }
@@ -309,5 +308,91 @@ krl_independence.6 = {
 
 	option = {
 		name = krl_independence.6.a
+	}
+}
+
+# Karolia loses
+krl_independence.7 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.7.t
+	desc = krl_independence.7.d
+	flavor = krl_independence.7.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_devastation.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:KRL
+		this = c:KRL
+		is_at_war = no
+		is_subject_of = c:SCA
+	}
+
+	option = {
+		name = krl_independence.7.a #This is not over yet!
+		ruler = {
+			kill_character = yes
+		}
+		create_character = {
+			culture = cu:swedish
+			ruler = yes
+		}
+		every_scope_state = {
+            add_radicals = {
+                value = 1.5
+                culture = cu:vinlandish
+            }
+            add_radicals = {
+                value = 1.5
+                culture = cu:kanadian
+            }
+        }
+		remove_variable = karolean_independence_war
+		remove_modifier = karolean_independence_war
+	}
+}
+
+# Karolia loses (Scandinavia)
+krl_independence.8 = {
+	type = country_event
+	placement = ROOT
+
+	title = krl_independence.8.t
+	desc = krl_independence.8.d
+	flavor = krl_independence.8.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+		has_variable = karolean_independence_war
+		exists = c:SCA
+		this = c:SCA
+		is_at_war = no
+		c:KRL = { is_subject_of = c:SCA }
+	}
+
+	option = {
+		name = krl_independence.8.a #They shall not dare to defy us again!
+		c:KRL = { change_subject_type = subject_type_dependency }
 	}
 }

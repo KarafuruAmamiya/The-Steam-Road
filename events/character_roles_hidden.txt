@@ -79,6 +79,7 @@ character_roles_hidden.2 = {
 		}
 		else = {
 			create_character = {
+				ruler = no
 				on_created = {
 					set_variable = vice_president_trigger
 					owner = {
@@ -239,6 +240,79 @@ character_roles_hidden.6 = {
 				has_variable = prime_minister_trigger
 			}
 			remove_variable = prime_minister_trigger
+		}
+	}
+}
+
+#Remove Vice President Role (if ruler)
+character_roles_hidden.7 = {
+	type = country_event
+	hidden = yes
+	trigger = {
+		any_scope_character = {
+			has_variable = vice_president_trigger
+			is_ruler = yes
+		}
+	}
+	immediate = {
+		if = {
+			limit = {
+				random_scope_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+							is_heir = yes
+							has_role = general
+							has_role = admiral
+						}
+						interest_group = {
+							is_in_government = yes
+						}
+					}
+				}
+			}
+			random_scope_character = {
+				limit = {
+					NOT = {
+						is_ruler = yes
+						is_heir = yes
+						has_role = general
+						has_role = admiral
+					}
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+				set_variable = vice_president_trigger
+				save_scope_as = new_vice_president
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
+			}
+		}
+		else = {
+			create_character = {
+				ruler = no
+				on_created = {
+					set_variable = vice_president_trigger
+					owner = {
+						set_variable = {
+							name = vice_president
+							value = PREV
+						}
+					}
+				}		
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = vice_president_trigger
+				NOT = { THIS = scope:new_vice_president }
+			}
+			remove_variable = vice_president_trigger
 		}
 	}
 }

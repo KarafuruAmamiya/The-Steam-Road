@@ -348,16 +348,6 @@
 							}
 							AND = {
 								is_subject_of = c:PER
-								exists = c:SRV
-								c:SRV = this
-							}
-							AND = {
-								is_subject_of = c:PER
-								exists = c:ARD
-								c:ARD = this
-							}
-							AND = {
-								is_subject_of = c:PER
 								has_variable = adopt_western_uniforms
 							}
 						}
@@ -367,6 +357,7 @@
                     scope:character = {
                         has_role = general
 						NOT = { is_ruler = yes }
+						NOT = { is_heir = yes }
                     }
                     AND = {
                         politician_clothes_trigger = yes
@@ -399,16 +390,6 @@
 									country_has_primary_culture = cu:persian
 									country_has_primary_culture = cu:jonubi
 								}
-							}
-							AND = {
-								is_subject_of = c:PER
-								exists = c:SRV
-								c:SRV = this
-							}
-							AND = {
-								is_subject_of = c:PER
-								exists = c:ARD
-								c:ARD = this
 							}
 							AND = {
 								is_subject_of = c:PER
@@ -1158,6 +1139,8 @@
 						military_clothes_trigger = yes
 						monarchy_clothes_trigger = yes
 					}
+					NOT = { is_ruler = yes }
+					NOT = { is_heir = yes }
 				}
 			}
 		}

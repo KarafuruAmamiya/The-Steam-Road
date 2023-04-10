@@ -4,7 +4,10 @@ lorebox.1 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		country_is_in_middle_east = yes
+		OR = {
+			country_is_in_middle_east = yes
+			gunpowder_empire_trigger = yes
+		}
 	}
 	immediate = {
 		post_notification = lorebox_me

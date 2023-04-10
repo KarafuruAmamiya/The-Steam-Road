@@ -542,7 +542,7 @@ CHI = { # China
 
 AKN = { # Akturkistan
 	dynamic_country_name = {
-		name = dyn_c_akc # Akkovin Empire
+		name = dyn_c_akc # Akkovin Confederation
 		adjective = dyn_c_akc_adj
 		
 		is_main_tag_only = yes
@@ -550,6 +550,7 @@ AKN = { # Akturkistan
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
+			NOT = { is_subject = yes }
 		}
 	}
 }

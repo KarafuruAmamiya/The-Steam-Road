@@ -29,6 +29,15 @@
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
 		}
+		
+		add_modifier = {
+			name = outmoded_bureaucracy
+			months = -1
+		}
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
 	}
 	c:ARD = { # Ardalan
 		effect_starting_technology_tier_3_tech = yes
@@ -255,6 +264,11 @@
 			institution = institution_schools
 			level = 1
 		}
+		
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
 
 		set_tax_level = medium
 	}
@@ -312,6 +326,11 @@
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
+		}
+		
+		add_modifier = {
+			name = cizye_tax
+			months = -1
 		}
 	}
 	

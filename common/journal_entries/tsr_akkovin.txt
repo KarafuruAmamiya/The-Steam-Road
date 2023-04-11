@@ -1,0 +1,120 @@
+﻿je_akkovin_crisis = { # Crisis of the Akkovin Confederation
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+	
+	should_be_pinned_by_default = yes
+
+	complete = {
+		c:SYR = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+			NOT = { has_variable = arab_uprising }
+		}
+		c:HJZ = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+			NOT = { has_variable = arab_uprising }
+		}
+		c:NEJ = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+			NOT = { has_variable = arab_uprising }
+		}
+		c:JAB = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+			NOT = { has_variable = arab_uprising }
+		}
+		every_scope_state = {	
+			turmoil < 0.20
+		}
+	}
+	
+	fail = {
+		OR = {
+			any_scope_state = {
+				limit = {
+					is_incorporated = yes
+				}
+				count < 9
+			}
+			NOT = { c:SYR = { is_subject_of = c:ROOT } }
+			NOT = { c:JAB = { is_subject_of = c:ROOT } }
+			NOT = { c:HJZ = { is_subject_of = c:ROOT } }
+			NOT = { c:NEJ = { is_subject_of = c:ROOT } }
+			exists = c:ARA
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = akkovin_crisis.2 }
+	}
+
+	on_complete = {
+		trigger_event = { id = akkovin_crisis.3 }
+	}
+	
+	weight = 10000
+	
+	inheritable = no
+
+	invalid = {
+		NOT = { exists = c:AKN }
+	}
+}
+
+je_akkovin_reform = { # Internal Reforms
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = akkovin_crisis.4
+		}
+	}
+
+	fail = {
+		has_variable = akkovin_fail
+	}
+	
+	on_fail = {
+		set_country_type = unrecognized
+	}
+
+	current_value = {
+		value = var:akc_reform_var
+	}
+
+	goal_add_value = {
+		add = 8
+	}
+
+	progressbar = yes
+
+	weight = 10000
+	should_be_pinned_by_default = yes
+	
+	invalid = {
+		NOT = { exists = c:AKN }
+	}
+}

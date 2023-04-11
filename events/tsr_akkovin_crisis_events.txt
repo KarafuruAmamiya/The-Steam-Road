@@ -1,0 +1,291 @@
+﻿namespace = akkovin_crisis
+
+# Start event
+akkovin_crisis.1 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.1.t
+	desc = akkovin_crisis.1.d
+	flavor = akkovin_crisis.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = {
+			name = akc_reform_var
+			value = 0
+		}
+		add_journal_entry = {
+			type = je_akkovin_crisis
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.1.a
+		add_journal_entry = {
+			type = je_akkovin_reform
+		}
+	}
+}
+
+# Fail event
+akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
+	type = country_event
+	placement = root
+	title = akkovin_crisis.2.t
+	desc = akkovin_crisis.2.d
+	flavor = akkovin_crisis.2.f
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	trigger = {
+	}
+
+	immediate = {
+		set_variable = akkovin_fail
+	}
+	
+	option = {
+		name = akkovin_crisis.2.a
+		if = {
+			limit = {
+				any_subject_or_below = {
+					OR = {
+						country_is_in_europe = yes
+						country_is_in_middle_east = yes
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					OR = {
+						country_is_in_europe = yes
+						country_is_in_middle_east = yes
+					}
+				}
+				make_independent = yes
+			}
+		}
+		#Beginning of Akkovin partition for their neighbors
+	}
+
+#MOVE THIS ALL TO ARAB REVOLUTION JE
+#	option = {
+#		name = akkovin_crisis.2.a # Reconquer our subjects
+#		default_option = yes
+#		ai_value = 100
+#		hidden_effect = {
+#			c:SYR = {
+#				create_diplomatic_pact = {
+#					country = c:JAB
+#					type = defensive_pact
+#				}
+#				create_diplomatic_pact = {
+#					country = c:NEJ
+#					type = defensive_pact
+#				}
+#				create_diplomatic_pact = {
+#					country = c:HJZ
+#					type = defensive_pact
+#				}
+#				change_relations = {
+#					country = c:JAB
+#					value = 100
+#				}
+#				change_relations = {
+#					country = c:NEJ
+#					value = 100
+#				}
+#				change_relations = {
+#					country = c:HJZ
+#					value = 100
+#				}
+#				set_tariffs_import_priority = g:small_arms
+#				set_tariffs_import_priority = g:artillery
+#			}
+#			c:JAB = {
+#				create_diplomatic_pact = {
+#					country = c:NEJ
+#					type = defensive_pact
+#				}
+#				create_diplomatic_pact = {
+#					country = c:HJZ
+#					type = defensive_pact
+#				}
+#				change_relations = {
+#					country = c:NEJ
+#					value = 100
+#				}
+#				change_relations = {
+#					country = c:HJZ
+#					value = 100
+#				}
+#			}
+#			c:NEJ = {
+#				create_diplomatic_pact = {
+#					country = c:HJZ
+#					type = defensive_pact
+#				}
+#				change_relations = {
+#					country = c:HJZ
+#					value = 100
+#				}
+#			}
+#			c:HJZ = {
+#				set_tariffs_import_priority = g:small_arms
+#				set_tariffs_import_priority = g:artillery
+#			}
+#		}
+#		create_diplomatic_play = {
+#			name = arab_independence_war
+#			target_country = c:SYR
+#			war = yes
+#			type = dp_make_puppet
+#			
+#			add_initiator_backers = {
+#				c:PER #In the future only if they choose to support you in the Arab Wars JE
+#				#c:SCA (wait until the Arab Wars JE)
+#			}
+#			
+#			add_target_backers = {
+#				c:TUR  #In the future only if they choose to support you in the Arab Wars JE
+#				#c:FRA (wait until the Arab Wars JE)
+#			}
+#			
+#			add_war_goal = {
+#				holder = c:AKN
+#				type = make_puppet
+#				target_country = c:HJZ
+#			}
+#			add_war_goal = {
+#				holder = c:AKN
+#				type = make_puppet
+#				target_country = c:NEJ
+#			}
+#			add_war_goal = {
+#				holder = c:AKN
+#				type = make_puppet
+#				target_country = c:JAB
+#			}
+#			add_war_goal = {
+#				holder = c:SYR
+#				type = return_state
+#				target_state = s:STATE_ALEPPO.region_state:AKN
+#			}
+#		}
+#	}
+#	option = {
+#		name = akkovin_crisis.2.b # Back down
+#		ai_value = 0
+#		add_modifier = {
+#			name = akn_back_down_arab_wars
+#			months = normal_modifier_time
+#		}
+#	}
+}
+
+# Crisis averted
+akkovin_crisis.3 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.3.t
+	desc = akkovin_crisis.3.d
+	flavor = akkovin_crisis.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		#set_variable = akc_success
+	}
+
+	option = {
+		name = akkovin_crisis.3.a
+		add_modifier = {
+			name = akn_crisis_averted_country
+			months = normal_modifier_time
+		}
+		every_interest_group = {
+			limit = {
+				NOT = { is_interest_group_type = ig_trade_unions }
+			}
+			add_modifier = {
+				name = akn_crisis_averted_ig
+				months = normal_modifier_time
+			}
+		}
+		add_loyalists = {
+			culture = cu:kavuni
+			value = 0.25
+		}
+		add_loyalists = {
+			culture = cu:kurdish
+			value = 0.25
+		}
+	}
+}
+
+# Reforms successful
+akkovin_crisis.4 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.4.t
+	desc = akkovin_crisis.4.d
+	flavor = akkovin_crisis.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		#set_variable = akc_reforms_complete
+		remove_modifier = outmoded_bureaucracy
+		remove_modifier = cizye_tax
+	}
+
+	option = {
+		name = akkovin_crisis.4.a
+		#Will have to wait for the reform JEs
+	}
+}

@@ -868,33 +868,13 @@ ai_strategy_default = {
 			}
 		}
 		region_arabic = {
-			if = { #Stop New World minors from declaring interest in random places
+			if = {
 				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
 				}
-				add = -1000
+				add = 100 #More likely to interfere during Arab Wars
 			}
-		}
-		region_levant = {
-			if = { #Stop New World minors from declaring interest in random places
-				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
-				}
-				add = -1000
-			}
-		}
-		region_mesopotamia = {
-			if = { #Stop New World minors from declaring interest in random places
-				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
-				}
-				add = -1000
-			}
-		}
-		region_south_arabia = {
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
 					country_rank <= rank_value:great_power

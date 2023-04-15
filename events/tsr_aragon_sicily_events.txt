@@ -35,7 +35,9 @@ aragon_sicily.1 = { # The loss of Catalonia
 	
 	option = { # Aragon will rise again!
 		name = aragon_sicily.1.a
-		ai_chance = 25
+		ai_chance = {
+			base = 25
+		}
 		custom_tooltip = aragon_sicily.1.tt
 		hidden_effect = {
 			every_scope_state = {
@@ -49,7 +51,9 @@ aragon_sicily.1 = { # The loss of Catalonia
 	option = { # We must look to the future
 		name = aragon_sicily.1.b
 		default_option = yes
-		ai_chance = 75
+		ai_chance = {
+			base = 75
+		}
 		s:STATE_ARAGON = {
 			remove_claim = c:ARN
 		}

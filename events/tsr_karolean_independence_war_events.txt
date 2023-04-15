@@ -103,13 +103,17 @@ krl_independence.2 = {
 				months = normal_modifier_time
 			}
 		}
-		ai_chance = 25
+		ai_chance = {
+			base = 25
+		}
 	}
 
 	option = { # The people has spoken
 		name = krl_independence.2.b
 		default_option = yes
-		ai_chance = 75
+		ai_chance = {
+			base = 75
+		}
 		hidden_effect = {
 			random_diplomatic_play = {
 				limit = { 

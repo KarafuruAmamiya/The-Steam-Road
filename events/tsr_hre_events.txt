@@ -227,7 +227,9 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 	option = {
 		name = hre.4.a
 		default_option = yes
-		ai_chance = 75
+		ai_chance = {
+			base = 75
+		}
 		c:PLT = {
 			create_diplomatic_pact = {
 				country = c:WUR
@@ -257,7 +259,9 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 	}
 	option = {
 		name = hre.4.b
-		ai_chance = 25
+		ai_chance = {
+			base = 25
+		}
 		c:WUR = {
 			change_relations = {
 				country = c:PLT

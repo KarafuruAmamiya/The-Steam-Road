@@ -550,7 +550,28 @@ AKN = { # Akturkistan
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			is_subject = no
+			OR = {
+				c:SYR = { is_subject_of = c:AKN }
+				c:NEJ = { is_subject_of = c:AKN }
+				c:JAB = { is_subject_of = c:AKN }
+				c:HJZ = { is_subject_of = c:AKN }
+				c:TTR = { is_subject_of = c:AKN }
+				c:RYA = { is_subject_of = c:AKN }
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_akn_sultanate # Akkovin Sultanate
+		adjective = dyn_c_akc_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+			scope:actor = {
+				has_variable = akkovin_fail
+			}
 		}
 	}
 }

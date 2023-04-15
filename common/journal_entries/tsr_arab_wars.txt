@@ -1,0 +1,105 @@
+﻿je_arab_nationalism_subject = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	is_shown_when_inactive = {
+		OR = {
+			country_is_in_middle_east = yes
+			capital = { region = sr:region_north_africa }
+			capital = { region = sr:region_nile_basin }
+		}
+		any_primary_culture = {
+			has_discrimination_trait = arabic_heritage
+		}
+		is_subject = yes
+		any_overlord_or_above = {
+			NOT = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+			}
+		}
+		NOT = { exists = c:KAT c:KAT = this }
+	}
+	
+	possible = {
+		has_technology_researched = nationalism
+	}
+	
+	immediate = {
+		trigger_event = { id = arab_wars.1 }
+	}
+
+	complete = {
+		is_subject = no
+	}
+
+	on_complete = {
+		
+	}
+
+	on_monthly_pulse = {
+		
+	}
+
+	invalid = {
+	}
+
+	weight = 10000
+	should_be_pinned_by_default = yes
+
+	inheritable = yes
+
+	timeout = 3650
+}
+
+je_arab_nationalism_overlord = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	is_shown_when_inactive = {
+		any_subject_or_below = {
+			any_primary_culture = {
+				has_discrimination_trait = arabic_heritage
+			}
+		}
+		NOT = {
+			any_primary_culture = {
+				has_discrimination_trait = arabic_heritage
+			}
+		}
+	}
+	
+	possible = {
+		has_global_variable = arab_rev
+	}
+	
+	fail = {
+		custom_tooltip = {
+			text = arab_rev_fail_tt
+			NOT = {
+				any_subject_or_below = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		
+	}
+
+	on_monthly_pulse = {
+		
+	}
+
+	invalid = {
+	}
+
+	weight = 10000
+	should_be_pinned_by_default = yes
+
+	inheritable = yes
+
+	timeout = 3650
+}

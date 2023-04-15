@@ -1,0 +1,75 @@
+﻿namespace = arab_wars
+
+# Start event (for subject)
+arab_wars.1 = {
+	type = country_event
+	placement = root
+	title = arab_wars.1.t
+	desc = arab_wars.1.d
+	flavor = arab_wars.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					country_is_in_middle_east = yes
+					capital = { region = sr:region_north_africa }
+					capital = { region = sr:region_nile_basin }
+				}
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				is_subject = yes
+				any_overlord_or_above = {
+					NOT = {
+						any_primary_culture = {
+							has_discrimination_trait = arabic_heritage
+						}
+					}
+				}
+				NOT = { has_technology_researched = nationalism }
+				NOT = { exists = c:KAT c:KAT = this }
+			}
+			add_technology_researched = nationalism
+		}
+		every_overlord_or_above = {
+			limit = {
+				NOT = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+			}
+			save_scope_as = non_arab_overlord
+		}
+	}
+
+	option = {
+		name = arab_wars.1.a
+		change_relations = {
+			country = scope:non_arab_overlord
+			value = -1000
+		}
+		hidden_effect = {
+			set_secret_goal = {
+				country = scope:non_arab_overlord
+				secret_goal = antagonize
+			}
+		}
+		set_global_variable = arab_rev
+	}
+}

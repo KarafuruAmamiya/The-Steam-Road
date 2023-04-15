@@ -34,6 +34,12 @@ arab_wars.1 = {
 					has_discrimination_trait = arabic_heritage
 				}
 				is_subject = yes
+				OR = {
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
+					is_subject_type = subject_type_vassal
+					is_subject_type = subject_type_dominion
+				}
 				any_overlord_or_above = {
 					NOT = {
 						any_primary_culture = {
@@ -42,7 +48,6 @@ arab_wars.1 = {
 					}
 				}
 				NOT = { has_technology_researched = nationalism }
-				NOT = { exists = c:KAT c:KAT = this }
 			}
 			add_technology_researched = nationalism
 		}
@@ -71,5 +76,60 @@ arab_wars.1 = {
 			}
 		}
 		set_global_variable = arab_rev
+	}
+}
+
+# Start event (for overlord)
+arab_wars.2 = {
+	type = country_event
+	placement = root
+	title = arab_wars.2.t
+	desc = arab_wars.2.d
+	flavor = arab_wars.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait = arabic_heritage
+				NOT = { has_discrimination_trait = jewish_group }
+			}
+			save_scope_as = arab_culture
+		}
+	}
+
+	option = {
+		name = arab_wars.2.a
+		every_scope_state = {
+			limit = {
+                any_scope_pop = {
+					culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+					pop_is_discriminated = yes
+				}
+            }
+			add_radicals = {
+                value = very_large_radicals
+                culture = scope:arab_culture
+            }
+			add_modifier = {
+				name = arab_revolt
+				years = 10
+			}
+		}
 	}
 }

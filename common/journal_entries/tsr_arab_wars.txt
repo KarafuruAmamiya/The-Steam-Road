@@ -2,7 +2,7 @@
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
 	is_shown_when_inactive = {
-		OR = {
+		OR = 
 			country_is_in_middle_east = yes
 			capital = { region = sr:region_north_africa }
 			capital = { region = sr:region_nile_basin }
@@ -11,6 +11,12 @@
 			has_discrimination_trait = arabic_heritage
 		}
 		is_subject = yes
+		OR = {
+			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_dependency
+			is_subject_type = subject_type_vassal
+			is_subject_type = subject_type_dominion
+		}
 		any_overlord_or_above = {
 			NOT = {
 				any_primary_culture = {
@@ -18,11 +24,11 @@
 				}
 			}
 		}
-		NOT = { exists = c:KAT c:KAT = this }
 	}
 	
 	possible = {
 		has_technology_researched = nationalism
+		#will add more criterias soon
 	}
 	
 	immediate = {
@@ -30,7 +36,13 @@
 	}
 
 	complete = {
-		is_subject = no
+		OR = {
+			is_subject = no
+			OR = {
+				is_subject_type = subject_type_protectorate
+				is_subject_type = subject_type_tributary
+			}
+		}
 	}
 
 	on_complete = {
@@ -71,6 +83,8 @@ je_arab_nationalism_overlord = {
 	possible = {
 		has_global_variable = arab_rev
 	}
+	
+	trigger_event = { id = arab_wars.2 }
 	
 	fail = {
 		custom_tooltip = {

@@ -43,6 +43,7 @@
 		every_scope_state = {	
 			turmoil < 0.20
 		}
+		has_variable = akc_reforms_complete
 	}
 	
 	fail = {
@@ -53,10 +54,10 @@
 				}
 				count < 9
 			}
-			NOT = { c:SYR = { is_subject_of = c:ROOT } }
-			NOT = { c:JAB = { is_subject_of = c:ROOT } }
-			NOT = { c:HDJ = { is_subject_of = c:ROOT } }
-			NOT = { c:NEJ = { is_subject_of = c:ROOT } }
+			NOT = { c:SYR = { is_subject_of = ROOT } }
+			NOT = { c:JAB = { is_subject_of = ROOT } }
+			NOT = { c:HDJ = { is_subject_of = ROOT } }
+			NOT = { c:NEJ = { is_subject_of = ROOT } }
 			exists = c:ARA
 		}
 	}

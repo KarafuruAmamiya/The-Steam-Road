@@ -82,7 +82,7 @@ arab_wars.1 = {
 # Start event (for overlord)
 arab_wars.2 = {
 	type = country_event
-	placement = root
+	placement = scope:arab_state
 	title = arab_wars.2.t
 	desc = arab_wars.2.d
 	flavor = arab_wars.2.f
@@ -109,10 +109,6 @@ arab_wars.2 = {
 			}
 			save_scope_as = arab_culture
 		}
-	}
-
-	option = {
-		name = arab_wars.2.a
 		every_scope_state = {
 			limit = {
                 any_scope_pop = {
@@ -121,7 +117,18 @@ arab_wars.2 = {
 					}
 					pop_is_discriminated = yes
 				}
+				state_region = { 
+					is_homeland = scope:arab_culture
+				}
+				state_is_in_middle_east = yes
             }
+			save_scope_as = arab_state
+		}
+	}
+
+	option = {
+		name = arab_wars.2.a
+		scope:arab_state = {
 			add_radicals = {
                 value = very_large_radicals
                 culture = scope:arab_culture

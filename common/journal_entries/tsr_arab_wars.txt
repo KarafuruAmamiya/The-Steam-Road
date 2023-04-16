@@ -28,6 +28,7 @@
 	
 	possible = {
 		has_technology_researched = nationalism
+		has_global_variable = nahda_start
 		#will add more criterias soon
 	}
 	
@@ -68,10 +69,49 @@ je_arab_nationalism_overlord = {
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
 	is_shown_when_inactive = {
-		any_subject_or_below = {
-			any_primary_culture = {
-				has_discrimination_trait = arabic_heritage
+		any_scope_state = {
+			any_scope_pop = {
+				culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				pop_is_discriminated = yes
+            }
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+				state_region = { 
+					is_homeland = cu:berber 
+				}
+				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
+					is_homeland = cu:hadramhi 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
 			}
+			state_is_in_middle_east = yes
 		}
 		NOT = {
 			any_primary_culture = {

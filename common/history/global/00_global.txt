@@ -169,6 +169,11 @@ GLOBAL = {
 	
 	every_country = {
 		limit = {
+			NOT = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+			}
 			any_scope_pop = {
 				culture = {
 					has_discrimination_trait = arabic_heritage

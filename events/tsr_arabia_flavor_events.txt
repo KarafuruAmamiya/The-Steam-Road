@@ -1,0 +1,158 @@
+﻿namespace = arabia_flavor
+
+# Spread of the Nahḍa (Arabic Renaissance)
+arabia_flavor.1 = {
+	type = country_event
+	placement = scope:nahda_state
+	title = arabia_flavor.1.t
+	desc = arabia_flavor.1.d
+	flavor = arabia_flavor.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_islam.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/islam" 
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	trigger = {
+		game_date >= 1845.1.1
+		has_technology_researched = romanticism
+		#Link to Akkovin reforms
+		NOT = { has_global_variable = nahda_start }
+		any_scope_state = {
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+			state_population >= 300000
+		}
+	}
+
+	immediate = {
+		set_global_variable = nahda_start
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_is_in_middle_east = yes
+					state_is_in_north_africa = yes
+				}
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+				}
+				state_population >= 300000 
+			}
+			save_scope_as = nahda_state
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 3500 technology = nationalism }
+		}
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait = arabic_heritage
+				NOT = { has_discrimination_trait = jewish_group }
+			}
+			save_scope_as = arab_culture
+		}
+	}
+
+	option = { #Encourage the movement
+		name = arabia_flavor.1.a
+		default_option = yes
+		scope:nahda_state = {
+			add_modifier = {
+				name = nahda_center
+				months = -1
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = nahda_ig_modifier
+				months = -1
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				NOT = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+				add = -1000
+			}		
+		}
+	}
+	
+	option = { #Suppress the movement
+		name = arabia_flavor.1.b
+		scope:nahda_state = {
+			add_modifier = {
+				name = nahda_stronghold
+				months = -1
+			}
+		}
+		add_radicals = {
+			value = large_radicals
+			culture = scope:arab_culture
+        }
+		ai_chance = {
+			base = 0
+			modifier = {
+				NOT = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+				add = 1000
+			}
+		}
+	}
+}

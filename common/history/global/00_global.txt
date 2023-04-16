@@ -160,6 +160,13 @@ GLOBAL = {
         set_variable = arab_uprising
     }
 	
+	s:STATE_HEDJAZ.region_state:HDJ = {
+		add_modifier = {
+			name = kabah
+			months = -1
+		}
+	}
+	
 	every_country = {
 		limit = {
 			any_scope_pop = {

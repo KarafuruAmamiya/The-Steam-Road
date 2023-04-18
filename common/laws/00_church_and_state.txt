@@ -213,7 +213,7 @@ law_shared_roots = {
 		OR = {
 			religion = { has_discrimination_trait = christian }
 			religion = { has_discrimination_trait = muslim }
-			religion = { has_discrimination_trait = jewish }
+			religion = { has_discrimination_trait = jewish_religion_heritage }
 		}
 	}
 	
@@ -221,7 +221,7 @@ law_shared_roots = {
 		OR = {
 			religion = { has_discrimination_trait = christian }
 			religion = { has_discrimination_trait = muslim }
-			religion = { has_discrimination_trait = jewish }
+			religion = { has_discrimination_trait = jewish_religion_heritage }
 		}
 	}
 	
@@ -232,9 +232,28 @@ law_shared_roots = {
 	religious_acceptance_rule = {
 		custom_tooltip = {
 			text = shared_roots_tt
-			OR = {
-				has_discrimination_trait = christian
-				has_discrimination_trait = muslim
+			trigger_if = {
+				limit = {
+					scope:country = {
+						OR = {
+							country_has_primary_culture = cu:persian
+							country_has_primary_culture = cu:jonubi
+						}
+					}
+				}
+				OR = {
+					has_discrimination_trait = zoroastrian_heritage
+					has_discrimination_trait = christian
+					has_discrimination_trait = muslim
+					has_discrimination_trait = jewish_religion_heritage
+				}
+			}
+			trigger_else = {
+				OR = {
+					has_discrimination_trait = christian
+					has_discrimination_trait = muslim
+					has_discrimination_trait = jewish_religion_heritage
+				}
 			}
 		}
 	}

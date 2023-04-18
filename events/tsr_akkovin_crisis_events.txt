@@ -35,7 +35,34 @@ akkovin_crisis.1 = {
 	option = {
 		name = akkovin_crisis.1.a
 		add_journal_entry = {
-			type = je_akkovin_reform
+			type = je_akkovin_reform_economy
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_education
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_army
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_navy
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_bureaucracy
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_sovereignty
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_kurdish
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_arabia
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_minorities
+		}
+		add_journal_entry = {
+			type = je_akkovin_reform_nationalism
 		}
 	}
 }
@@ -86,6 +113,7 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 				make_independent = yes
 			}
 		}
+		set_country_type = unrecognized
 		#Beginning of Akkovin partition for their neighbors
 	}
 
@@ -227,11 +255,11 @@ akkovin_crisis.3 = {
 	}
 
 	immediate = {
-		#set_variable = akc_success
-	}
-
-	option = {
-		name = akkovin_crisis.3.a
+		set_variable = akc_reforms_complete
+		remove_modifier = akkovin_crisis
+		remove_modifier = outmoded_bureaucracy
+		remove_modifier = tribal_structures
+		remove_modifier = cizye_tax
 		add_modifier = {
 			name = akn_crisis_averted_country
 			months = normal_modifier_time
@@ -254,9 +282,86 @@ akkovin_crisis.3 = {
 			value = 0.25
 		}
 	}
+
+	option = {
+		name = akkovin_crisis.3.a
+		default_option = yes
+		trigger = {
+			has_variable = completed_sick_man_army_je
+		}
+		add_modifier = {
+			name = akkovin_army_reform
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = akkovin_crisis.3.b
+		trigger = {
+			AND = {
+				has_variable = completed_akkovin_reform_sovereignty_je
+				has_variable = completed_akkovin_reform_arabia_je
+			}
+			NAND = {
+				owns_entire_state_region = STATE_HARPUT
+				owns_entire_state_region = STATE_SIVAS
+				owns_entire_state_region = STATE_CYPRUS
+				owns_entire_state_region = STATE_SHAHRIZOR
+				owns_entire_state_region = STATE_KARS
+				owns_entire_state_region = STATE_ARMENIA
+			}
+		}
+		s:STATE_HARPUT = {
+			add_claim = ROOT
+		}
+		s:STATE_SIVAS = {
+			add_claim = ROOT
+		}
+		s:STATE_CYPRUS = {
+			add_claim = ROOT
+		}
+		s:STATE_SHAHRIZOR = {
+			add_claim = ROOT
+		}
+		s:STATE_KARS = {
+			add_claim = ROOT
+		}
+		s:STATE_ARMENIA = {
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = akkovin_crisis.3.c
+		trigger = {
+			has_variable = completed_akkovin_reform_economy_je
+		}
+		add_modifier = {
+			name = akkovin_urbanization
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = akkovin_crisis.3.d
+		trigger = {
+			has_variable = completed_akkovin_reform_education_je
+		}
+		add_modifier = {
+			name = akkovin_education
+			months = normal_modifier_time
+		}
+	}
+	option = {
+		name = akkovin_crisis.3.e
+		trigger = {
+			has_variable = completed_akkovin_reform_bureaucracy_je
+		}
+		add_modifier = {
+			name = akkovin_bureaucracy
+			months = normal_modifier_time
+		}
+	}
 }
 
-# Reforms successful
+# Fate of the Gunpowder Alliance (For Safavids)
 akkovin_crisis.4 = {
 	type = country_event
 	placement = root
@@ -276,16 +381,83 @@ akkovin_crisis.4 = {
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	trigger = {
+		AND = { exists = c:PER c:PER = this }
+		year > 1838
+		has_diplomatic_pact = {
+			who = c:AKN
+			type = trade_agreement
+		}
+		NOT = { has_variable = pre_treaty }
 	}
 
 	immediate = {
-		set_variable = akc_reforms_complete
-		remove_modifier = outmoded_bureaucracy
-		remove_modifier = cizye_tax
+		set_variable = pre_treaty
 	}
 
 	option = {
 		name = akkovin_crisis.4.a
-		#Will have to wait for the reform JEs
+	}
+}
+
+# An Agreement with the Safavid Empire?
+akkovin_crisis.5 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.5.t
+	desc = akkovin_crisis.5.d
+	flavor = akkovin_crisis.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = akkovin_crisis.5.a
+	}
+}
+
+# The Treaty of Baglar
+akkovin_crisis.6 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.6.t
+	desc = akkovin_crisis.6.d
+	flavor = akkovin_crisis.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+	}
+
+	option = {
+		name = akkovin_crisis.6.a
+		add_modifier = {
+			name = treaty_of_baglar
+			months = -1
+		}
+		#Tooltip = The treaty marks the beginning of Persian enroachment into Akkovin politics
 	}
 }

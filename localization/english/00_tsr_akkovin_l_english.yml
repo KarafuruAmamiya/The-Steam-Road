@@ -2,14 +2,38 @@
  # Crisis of the Akkovin Confederation JE
  je_akkovin_crisis: "Crisis of the Akkovin Confederation"
  je_akkovin_crisis_reason: "Since the beginning of the 19th century, the Akkovin Confederation, the dominant political entity in Arabia, has been in an unprecedented decline. Lack of further modernization efforts, political instability, and increasing polarization has stunted our growth. Meanwhile, our Arabian subjects are undoubtedly biding their time to break free from our weakening hold. No matter what happens, we must avert the Confederation's demise."
+ je_akkovin_crisis_goal: "Complete at least 8 of the 10 'Tanzimat' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ finished_reforms_tt: "Has completed the Reform the Confederation [concept_journal_entry]"
+ akkovin_fail_tt: "The Confederation no longer exists"
+ western_clothes_tt: "We have adopted Western uniforms"
+ no_arab_wars_tt: "We have finished the Rise of Arab Nationalism [concept_journal_entry]"
  
- # Akkovin Reforms JE
- je_akkovin_reform: "Reform the Confederation"
- je_akkovin_reform_reason: "To avert the Confederation's demise, we must first modernize our country."
- je_akkovin_reform_goal: "Complete 4 'Tanzimat' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ je_akkovin_reform_economy: "Tanzimat: Economic Growth"
+ je_akkovin_reform_economy_reason: "Our economy is largely agrarian and deeply rural. This suits the purposes of our conservative local Beys and Sanjaks as well as the clergy of the various milleti, who largely subsist on rents and fees extracted from peasants, it does not provide a suitable foundation for a modern power. We should expand manufacturing and our urban centres."
+ je_sick_man_economy_goal: "Double your GDP."
+ 
+ je_akkovin_reform_education: "Tanzimat: Education Reform"
+ je_akkovin_reform_education_reason: "A principal problem facing our agenda of reform is the lack of educated and lettered men amoung our population. This stymies our efforts to create not only a modern economy and military, but also to break down the cultural barriers between our diverse population. This problem is especially accute in our Muslim subjects, leading to a Christian middle-class dominating economic life in many of our cities. The establishment of educational institutions and the growth of literacy must be a top priority."
+ je_sick_man_education_goal: "Increase the literacy rate of your people by 25%."
+ 
+ je_akkovin_reform_army: "Tanzimat: Army Modernization"
+ je_akkovin_reform_army_reason: "We must create a professional army and ensure its discipline holds, lest it contribute to internal unrest and undermine reform. We presently also rely heavily on Kurdish and tribal irregulars for garrison duty and the enforcement of our will throughout the Levant, however their brutality and fierce devotion to Islam is a hinderance as often as it is a help. Creating a disciplined, loyal and modern army will not be easy, but it will be worth it."
+ 
+ je_akkovin_reform_navy: "Tanzimat: Naval Reform"
+ je_akkovin_reform_navy_reason: "The navy has been long-neglected and is a hotbed of disloyalty. During our earlier skirmishes in the Oriental Crisis, our navy threatened to defect to the Ottomans multiple times, and we are forced to rely on the support of foreign powers to defend our coasts and the straits. Renovating the navy by developing our officer corps, fielding new detatchments and outfitting new, larger ships must be a priority."
+
+ je_akkovin_reform_bureaucracy: "Tanzimat: Bureaucratic Reform"
+ je_akkovin_reform_bureaucracy_reason: "Our bureaucracy is a patchwork of archaic laws and systems, with corrupt, autonomous Beys barely exerting control over the Empire's provinces. If we are to overcome the many challenges to our rule, we must modernize our administrative system."
  
  # Akkovin Crisis Events
  akkovin_crisis.1.t: "Crisis of the Akkovin Confederation"
  akkovin_crisis.1.d: "The [ROOT.GetCountry.GetName] is in a period of steady decline. If we do not reassert [ROOT.GetCountry.GetAdjectiveNoFormatting] sovereignty and put our subjects back in line, we risk catastrophe."
  akkovin_crisis.1.f: "Once part of the great Gunpowder Empires, the current state of our realm has made us the laughing stock of the Middle East. However, not all hope is lost. First, we must rid our military of all tribal structures and establish a truly modern military force. But in addition, we must catch up to at least the reforms of our neighbors in the Ottoman and Safavid Empires. Education, urbanization, and sovereignty shall be the top items of the [ROOT.GetCountry.GetAdjectiveNoFormatting] agenda."
  akkovin_crisis.1.a: "Great reform is needed."
+ 
+ # Decisions
+ proclaim_erzurum_irade: "Issue the Erzurum Hatt-i Serif"
+ proclaim_erzurum_irade_desc: "We must begin an ambitious project of change and reform in the Empire, aimed at ending the differences in status between the Turks, Arabs, Kurds, and the Dhimmi"
+ erzurum_edict: "Erzurum Edict"
+ erzurum_edict_tt: "We have signed the Treaty of Baglar"
+ erzurum_edict_issued_tt: "The Erzurum Hatt-i Serif has been issued"

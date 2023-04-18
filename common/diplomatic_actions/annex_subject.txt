@@ -73,6 +73,17 @@
 		is_at_war = no
 		scope:target_country = { is_at_war = no }
 
+		trigger_if = {
+			limit = {
+				exists = c:AKN
+				c:AKN = this
+			}
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+		}
+
 	}
 	
 	accept_effect = {

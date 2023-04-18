@@ -577,7 +577,17 @@
 					value = -1000
 				}
 			}
-	 
+			
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_AKN"
+				if = {
+					limit = {
+						scope:target_country = { has_journal_entry = je_akkovin_reform_sovereignty }
+					}
+					value = -1000
+				}
+			}
+			
 		}
 		
 		will_break = { 

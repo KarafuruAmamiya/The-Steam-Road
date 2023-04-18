@@ -4,46 +4,9 @@
 	should_be_pinned_by_default = yes
 
 	complete = {
-		c:SYR = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-			NOT = { has_variable = arab_uprising }
+		scope:journal_entry = {
+			is_goal_complete = yes
 		}
-		c:HDJ = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-			NOT = { has_variable = arab_uprising }
-		}
-		c:NEJ = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-			NOT = { has_variable = arab_uprising }
-		}
-		c:JAB = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-			NOT = { has_variable = arab_uprising }
-		}
-		every_scope_state = {	
-			turmoil < 0.20
-		}
-		has_variable = akc_reforms_complete
 	}
 	
 	fail = {
@@ -54,10 +17,41 @@
 				}
 				count < 9
 			}
-			NOT = { c:SYR = { is_subject_of = ROOT } }
-			NOT = { c:JAB = { is_subject_of = ROOT } }
-			NOT = { c:HDJ = { is_subject_of = ROOT } }
-			NOT = { c:NEJ = { is_subject_of = ROOT } }
+			NOT = {
+				country_or_subject_owns_entire_state_region = STATE_SYRIA
+				country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+				country_or_subject_owns_entire_state_region = STATE_PALESTINE
+				country_or_subject_owns_entire_state_region = STATE_LEBANON
+				country_or_subject_owns_entire_state_region = STATE_HAMA
+				country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+				country_or_subject_owns_entire_state_region = STATE_MEDINA
+				trigger_if = {
+					limit = {
+						exists = c:NEJ
+					}
+					c:NEJ = {
+						is_subject_of = c:AKN
+					}
+				}
+				trigger_else = {
+					c:AKN = {
+						has_state_in_state_region = STATE_NEJD
+					}
+				}
+				trigger_if = {
+					limit = {
+						exists = c:JAB
+					}
+					c:JAB = {
+						is_subject_of = c:AKN
+					}
+				}
+				trigger_else = {
+					c:AKN = {
+						has_state_in_state_region = STATE_HAIL
+					}
+				}
+			}
 			exists = c:ARA
 		}
 	}
@@ -70,38 +64,6 @@
 		trigger_event = { id = akkovin_crisis.3 }
 	}
 	
-	weight = 10000
-	
-	inheritable = no
-
-	invalid = {
-		NOT = { exists = c:AKN }
-	}
-}
-
-je_akkovin_reform = { # Internal Reforms
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
-	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
-		}
-	}
-
-	on_complete = {
-		trigger_event = {
-			id = akkovin_crisis.4
-		}
-	}
-
-	fail = {
-		has_variable = akkovin_fail
-	}
-	
-	on_fail = {
-		set_country_type = unrecognized
-	}
-
 	current_value = {
 		value = var:akc_reform_var
 	}
@@ -111,11 +73,794 @@ je_akkovin_reform = { # Internal Reforms
 	}
 
 	progressbar = yes
-
-	weight = 10000
-	should_be_pinned_by_default = yes
 	
+	weight = 10000
+	
+	inheritable = no
+
 	invalid = {
 		NOT = { exists = c:AKN }
 	}
+}
+
+je_akkovin_reform_economy = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		taking_loans = no
+		any_scope_state = {
+			is_incorporated = yes
+			has_building = building_urban_center
+			percent >= 0.75
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_economy_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+	
+	current_value = {
+		value = root.gdp
+	}
+
+	goal_add_value = {
+		value = root.gdp
+		multiply = 1
+	}
+	
+	fail = {
+		in_default = yes
+	}
+	
+	on_fail = {
+		#trigger_event = { id = opda_events.1 }
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+	progressbar = yes
+}
+
+# Literacy and Universities
+je_akkovin_reform_education = {
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		any_scope_building = {
+			is_building_type = building_university
+			occupancy > 0.9
+			level >= 6
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_education_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	current_value = {
+		value = root.literacy_rate
+	}
+
+	goal_add_value = {
+		value = root.literacy_rate
+		add = 0.2
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+	
+	#Add events to send foreign students to Europe
+
+	inheritable = no
+
+	weight = 5000
+
+	progressbar = yes
+}
+
+# Army Reform
+je_akkovin_reform_army = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+
+	complete = {
+		army_size >= 100
+		has_technology_researched = general_staff
+		has_technology_researched = percussion_cap
+		NOT = {
+			has_law = law_type:law_peasant_levies
+			any_scope_building = {
+				is_building_type = building_barracks
+				building_has_goods_shortage = yes
+				has_active_production_method = pm_irregular_infantry
+				OR = {
+					has_active_production_method = pm_no_artillery
+					has_active_production_method = pm_cannon_artillery
+				}
+			}
+		}
+		custom_tooltip = {
+			text = western_clothes_tt
+			has_variable = adopt_western_uniforms
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_army_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+		remove_modifier = tribal_structures
+	}
+
+	on_monthly_pulse = {
+		#events = {
+		#	tanzimat_events.10 # Tanzimat Draft Question
+		#}
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+#Navy reform
+je_akkovin_reform_navy = {
+	icon = "gfx/interface/icons/event_icons/event_naval.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+
+	complete = {
+		navy_size >= 50
+		has_technology_researched = power_of_the_purse
+		has_technology_researched = screw_frigate
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_naval_base
+				has_active_production_method = pm_no_naval_theory
+			}
+		}
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_shipyards
+				has_active_production_method = pm_basic_shipbuilding
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_navy_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+		#events = {
+		#	tanzimat_events.10 # Tanzimat Draft Question
+		#}
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+
+# Bureaucractic Reform
+je_akkovin_reform_bureaucracy = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		NOR = { 
+			has_law = law_type:law_hereditary_bureaucrats 
+			has_law = law_type:law_land_based_taxation
+			has_law = law_type:law_consumption_based_taxation
+		}
+		bureaucracy >= 0 
+		approaching_bureaucracy_shortage = no
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_bureaucracy_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+		remove_modifier = outmoded_bureaucracy
+	}
+
+	on_monthly_pulse = {
+		#random_events = {
+		#	100 = 0
+		#	10 = tanzimat_events.9 # Land registration resisted
+		#}
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Assert Our Sovereignty
+je_akkovin_reform_sovereignty = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			NOT = { has_modifier = treaty_of_baglar }
+		}
+		custom_tooltip = {
+			text = ottoman_vilayet_organisation_tt
+			NOT = {
+				any_scope_state = {
+					NOT = {
+						tax_capacity_balance >= 0
+					}
+				}
+			}
+		}
+		institution_investment_level = {
+			institution = institution_home_affairs
+			value >= 2
+		}
+		institution_investment_level = {
+			institution = institution_police
+			value >= 2
+		}
+		every_scope_state = {	
+			turmoil < 0.20
+		}
+		any_interest_group = {
+			is_insurrectionary = no
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_sovereignty_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+	
+	fail = {
+		OR = {
+			is_subject = yes
+			is_subject_type = subject_type_customs_union
+			civil_war_progress_gain > 0.9
+		}
+	}
+
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+			custom_tooltip = {
+				text = akkovin_fail_tt
+				has_variable = akkovin_fail
+			}
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# These reforms can be completed even after the main JE completes
+# The Matter of Kurdish Autonomy
+je_akkovin_reform_kurdish = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		NOT = { 
+			any_scope_state = {
+				has_modifier = kurdish_autonomy
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { country_has_primary_culture = cu:kurdish }
+				cu:kurdish = {
+					culture_secession_progress = {
+						target = ROOT
+						value < 0.5
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = c:KUR
+				}
+				c:KUR = { is_subject_of = ROOT }
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_kurdish_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+	
+	fail = {
+		cu:kurdish = {
+			culture_secession_progress = {
+				target = ROOT
+				value > 0.9
+			}
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Rein in Arabia
+je_akkovin_reform_arabia = {
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		c:SYR = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+		}
+		c:HDJ = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+		}
+		c:NEJ = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+		}
+		c:JAB = {
+			is_subject_of = ROOT
+			is_subject_type = subject_type_dependency
+			has_attitude = {
+				who = ROOT
+				attitude = loyal
+			}
+		}
+		cu:iraqi = {
+			culture_secession_progress = {
+				target = ROOT
+				value < 0.5
+			}
+		}
+		cu:levantine = {
+			culture_secession_progress = {
+				target = ROOT
+				value < 0.5
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_global_variable = arab_rev
+			}
+			custom_tooltip = {
+				text = no_arab_wars_tt
+				NOT = { has_global_variable = arab_rev }
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_arabia_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+	
+	fail = {
+		OR = {
+			NOT = { c:SYR = { is_subject_of = ROOT } }
+			NOT = { c:JAB = { is_subject_of = ROOT } }
+			NOT = { c:NEJ = { is_subject_of = ROOT } }
+			NOT = { c:HDJ = { is_subject_of = ROOT } }
+			cu:iraqi = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:levantine = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Christian Minorities
+je_akkovin_reform_minorities = {
+	icon = "gfx/interface/icons/event_icons/event_religion.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	complete = {
+		OR = {
+			AND = {
+				cu:armenian = {
+					culture_secession_progress = {
+						target = ROOT
+						value < 0.5
+					}
+				}
+				cu:assyrian = {
+					culture_secession_progress = {
+						target = ROOT
+						value < 0.5
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = c:ARM
+				}
+				c:ARM = { is_subject_of = ROOT }
+			}
+			has_law = law_type:law_shared_roots
+			has_law = law_type:law_total_separation
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_minorities_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+		remove_modifier = cizye_tax
+	}
+
+	on_monthly_pulse = {
+	}
+	
+	fail = {
+		cu:armenian = {
+			culture_secession_progress = {
+				target = ROOT
+				value > 0.9
+			}
+		}
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Promote National Identity
+je_akkovin_reform_nationalism = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	is_shown_when_inactive = {
+		country_has_primary_culture = cu:akturk
+		NOT = {
+			has_variable = akc_reforms_complete
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_issued_tt
+			has_variable = erzurum_edict
+		}
+	}
+	
+	immediate = {
+		every_scope_state = {
+			limit = { 
+				owner = ROOT
+			}
+			save_scope_as = akn_states
+		}
+		every_scope_culture = {
+			limit = { 
+				NOT = { is_primary_culture_of = ROOT }
+			}
+			save_scope_as = non_akturk_culture
+		}
+	}
+	
+	complete = {
+		has_technology_researched = nationalism
+		OR = {
+			AND = {
+				#has_variable = akturkification_begins
+				scope:akn_states = {
+					state_region = { 
+						NOT = { is_homeland = scope:non_akturk_culture } 
+					}
+				}
+			}
+			AND = {
+				has_technology_researched = pan-nationalism
+				OR = {
+					has_law = law_type:law_cultural_exclusion_me
+					has_law = law_type:law_multicultural
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = completed_akkovin_reform_nationalism_je
+		custom_tooltip = je_akkovin_reform_advance
+		change_variable = {
+			name = akc_reform_var
+			add = 1
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+
+	invalid = {
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
+		}
+	}
+
+	inheritable = no
+
+	weight = 5000
 }

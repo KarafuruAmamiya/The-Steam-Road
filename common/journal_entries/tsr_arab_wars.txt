@@ -111,7 +111,10 @@ je_arab_nationalism_overlord = {
 					is_homeland = cu:bedouin 
 				}
 			}
-			state_is_in_middle_east = yes
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
 		}
 		NOT = {
 			any_primary_culture = {
@@ -121,7 +124,10 @@ je_arab_nationalism_overlord = {
 	}
 	
 	possible = {
-		has_global_variable = arab_rev
+		custom_tooltip = {
+			text = arab_rev_start_tt
+			has_global_variable = arab_rev
+		}
 	}
 	
 	immediate = {
@@ -129,13 +135,71 @@ je_arab_nationalism_overlord = {
 	}
 	
 	fail = {
-		custom_tooltip = {
-			text = arab_rev_fail_tt
-			NOT = {
-				any_subject_or_below = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
+		OR = {
+			cu:levantine = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:mashriqi = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:iraqi = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:misri = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:maghrebi = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:berber = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:khaleeji = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:omani = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:yemenite = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:hadramhi = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:bedouin = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
 				}
 			}
 		}

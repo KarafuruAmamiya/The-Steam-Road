@@ -823,13 +823,33 @@
         weight = {
             base = 0
             modifier = {
-                add = 100
+                add = 150
                 AND = {
                     OR = {
                         OR = {
 							european_clothes_trigger = yes
 							tsr_persia_leader_trigger = yes
 							tsr_ottoman_leader_trigger = yes
+						}
+						AND = {
+							arabic_clothes_trigger = yes
+							has_variable = adopt_western_uniforms
+						}
+						AND = {
+							exists = scope:character
+							scope:character = {
+								owner = {
+									any_primary_culture = {
+										OR = {
+											has_discrimination_trait = east_asian_heritage
+											has_discrimination_trait = south_asian_heritage
+											has_discrimination_trait = southeast_asian_heritage
+											has_discrimination_trait = north_asian_heritage
+										}
+									}
+									has_variable = adopt_western_uniforms
+								}
+							}
 						}
                         AND = {
                             exists = scope:character
@@ -850,7 +870,11 @@
            modifier = { #If we want rulers to dress like politicians later.
                add = 100
                AND = {
-                   european_clothes_trigger = yes
+                   OR = {
+						european_clothes_trigger = yes
+						tsr_persia_leader_trigger = yes
+						tsr_ottoman_leader_trigger = yes
+					}
                    ruler_clothes_trigger = yes
                    monarchy_clothes_trigger = no
                }
@@ -952,6 +976,10 @@
 							AND = {
 								exists = c:SAX
 								c:SAX = this
+							}
+							AND = {
+								exists = c:PLT
+								c:PLT = this
 							}
 							AND = {
 								exists = c:GER

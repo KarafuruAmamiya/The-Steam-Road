@@ -3,16 +3,12 @@
 	scope:character = {
 		owner = {
 			OR = {
-				OR = {
-					country_has_primary_culture = cu:persian
-					country_has_primary_culture = cu:jonubi
-				}
+				country_has_primary_culture = cu:persian
+				country_has_primary_culture = cu:jonubi
 				AND = {
+					exists = c:PER
 					is_subject_of = c:PER
-					OR = {
-						owner = { exists = c:SRV c:SRV = this }
-						owner = { exists = c:ARD c:ARD = this }
-					}
+					has_variable = adopt_western_uniforms
 				}
 			}
 		}
@@ -24,18 +20,12 @@ tsr_persia_pop_trigger = {
 	scope:pop = {
 		owner = {
 			OR = {
-				OR = {
-					country_has_primary_culture = cu:persian
-					country_has_primary_culture = cu:jonubi
-				}
+				country_has_primary_culture = cu:persian
+				country_has_primary_culture = cu:jonubi
 				AND = {
+					exists = c:PER
 					is_subject_of = c:PER
-					OR = {
-						owner = { exists = c:SRV c:SRV = this }
-						owner = { exists = c:TSN c:TSN = this }
-						owner = { exists = c:SIN c:SIN = this }
-						owner = { exists = c:ARD c:ARD = this }
-					}
+					has_variable = adopt_western_uniforms
 				}
 			}
 		}
@@ -47,6 +37,25 @@ tsr_ottoman_leader_trigger = {
 	scope:character = {
 		owner = {
 			country_has_primary_culture = cu:turkish
+			AND = {
+				exists = c:TUR
+				is_subject_of = c:TUR
+				has_variable = adopt_western_uniforms
+			}
+		}
+	}
+}
+
+tsr_ottoman_pop_trigger = {
+	exists = scope:character
+	scope:pop = {
+		owner = {
+			country_has_primary_culture = cu:turkish
+			AND = {
+				exists = c:TUR
+				is_subject_of = c:TUR
+				has_variable = adopt_western_uniforms
+			}
 		}
 	}
 }

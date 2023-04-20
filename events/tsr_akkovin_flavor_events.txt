@@ -1,0 +1,493 @@
+﻿namespace = akkovin_flavor
+namespace = apda_events #the Akkovin Public Debt Administration
+#namespace = treaty_of_baglar_events
+
+# APDA Events
+
+apda_events.1 = {
+	type = country_event
+	title = apda_events.1.t
+	desc = apda_events.1.d
+	flavor =  apda_events.1.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	trigger = {
+		#triggered by defaulting during Tanzimat
+	}
+	option = { #
+		name = apda_events.1.a
+		default_option = yes
+		add_modifier = {
+			name = opda_payments
+			months = long_modifier_time
+		}
+	}
+}
+
+# Akkovin Flavor Events
+
+akkovin_flavor.1 = { # Sending students to foreign countries
+	type = country_event
+	title = akkovin_flavor.1.t
+	desc = akkovin_flavor.1.d
+	flavor =  akkovin_flavor.1.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/middleeast_engineer_blueprint.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/engineer_blueprint"
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	trigger = {
+		NOT = {	has_modifier = foreign_studies }
+		any_scope_building = {
+			is_building_type = building_university
+			occupancy > 0.9
+			level >= 3
+		}
+		institution_investment_level = {
+            institution = institution_schools
+            value >= 3
+        }
+		any_country = {
+			country_is_in_new_word = no
+			country_rank >= rank_value:major_power
+			relations:root >= relations_threshold:neutral
+			relations:root >= 0
+			NOT = { has_war_with = ROOT }
+			institution_investment_level = {
+				institution = institution_schools
+				value >= 3
+			}
+			any_scope_building = {
+				is_building_type = building_university
+				occupancy > 0.9
+				level >= 5
+			}
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				country_is_in_new_word = no
+				country_rank >= rank_value:major_power
+				relations:root >= relations_threshold:neutral
+				relations:root >= 0
+				NOT = { has_war_with = ROOT }
+				institution_investment_level = {
+					institution = institution_schools
+					value > 2
+				}
+				any_scope_building = {
+					is_building_type = building_university
+					occupancy > 0.9
+					level >= 5
+				}
+			}
+			save_scope_as = foreign_student_country
+		}
+	}
+
+	option = {
+		name = akkovin_flavor.1.a
+		default_option = yes
+		add_modifier = {
+			name = foreign_studies
+			months = -1
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = foreign_students
+				months = -1
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = foreign_students
+				months = -1
+			}
+		}
+		ig:ig_industrialists = {
+			add_modifier = {
+				name = foreign_students
+				months = -1
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_law = law_type:law_religious_schools
+					has_law = law_type:law_state_religion
+				}
+				scope:foreign_student_country = { 
+					OR = {
+						NOT = { religion = rel:sunni }
+						NOT = {	has_law = law_type:law_state_religion }
+					}
+				}
+			}
+			ig:ig_devout = {
+				add_modifier = {
+					name = sent_foreign_students
+					months = normal_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_autocracy
+					has_law = law_type:law_oligarchy
+					has_law = law_type:law_censorship
+				}
+				scope:foreign_student_country = {  
+					OR = {
+						NOT = { has_law = law_type:law_autocracy }
+						NOT = { has_law = law_type:law_oligarchy }
+						NOT = { has_law = law_type:law_censorship }
+					}
+				}
+			}
+			ig:ig_landowners = {
+				add_modifier = {
+					name = sent_foreign_students
+					months = normal_modifier_time
+				}
+			}
+		}
+		scope:foreign_student_country = { 
+			trigger_event = { id = akkovin_flavor.2 days = 1 }
+		}
+	}
+	option = {
+		name = akkovin_flavor.1.b
+		if = {
+			limit = {
+				AND = {
+					has_law = law_type:law_religious_schools
+					has_law = law_type:law_state_religion
+				}
+				scope:foreign_student_country = { 
+					OR = {
+						NOT = { religion = rel:sunni }
+						NOT = {	has_law = law_type:law_state_religion }
+					}
+				}
+			}
+			ig:ig_devout = {
+				add_modifier = {
+					name = did_not_sent_foreign_students
+					months = normal_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_autocracy
+					has_law = law_type:law_oligarchy
+					has_law = law_type:law_censorship
+				}
+				scope:foreign_student_country = {  
+					OR = {
+						NOT = { has_law = law_type:law_autocracy }
+						NOT = { has_law = law_type:law_oligarchy }
+						NOT = { has_law = law_type:law_censorship }
+					}
+				}
+			}
+			ig:ig_landowners = {
+				add_modifier = {
+					name = did_not_sent_foreign_students
+					months = normal_modifier_time
+				}
+			}
+		}
+	}
+}
+
+akkovin_flavor.2 = { # Foreign country receive Akkovin students
+	type = country_event
+	placement = scope:university_state
+	title = akkovin_flavor.2.t
+	desc = akkovin_flavor.2.d
+	flavor =  akkovin_flavor.2.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					is_building_type = building_university
+					occupancy > 0.9
+					level >= 5
+				}
+			}
+			save_scope_as = university_state
+		}
+	}
+	
+	option = {
+		name = akkovin_flavor.2.a
+		change_relations = {
+			country = c:AKN
+			value = 20
+		}
+	}
+}
+
+akkovin_flavor.3 = { #Centralising the Kurdish Territories
+	type = country_event
+	placement = ROOT
+	title = akkovin_flavor.3.t
+	desc = akkovin_flavor.3.d
+	flavor = akkovin_flavor.3.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	minor_left_icon = c:AKN
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_modifier = kurdish_autonomy
+			}
+			save_scope_as = kurdish_state_1
+		}
+		random_state = {
+			limit = {
+				has_modifier = kurdish_autonomy
+				NOT = { this = scope:kurdish_state_1 }
+			}
+			save_scope_as = kurdish_state_2
+		}
+		random_state = {
+			limit = {
+				has_modifier = kurdish_autonomy
+				NOT = { this = scope:kurdish_state_1 }
+				NOT = { this = scope:kurdish_state_2 }
+			}
+			save_scope_as = kurdish_state_3
+		}
+	}
+
+	option = {
+		name = akkovin_flavor.3.a
+		default_option = yes
+		scope:kurdish_state_1 = {
+			remove_modifier = kurdish_autonomy
+			add_radicals = {
+				culture = cu:kurdish
+				value = very_large_radicals
+			}
+		}
+	}
+
+	option = {
+		name = akkovin_flavor.3.b
+		trigger = {
+			exists = scope:kurdish_state_2
+		}
+		scope:kurdish_state_2 = {
+			remove_modifier = kurdish_autonomy
+			add_radicals = {
+				culture = cu:kurdish
+				value = very_large_radicals
+			}
+		}
+	}
+	
+	option = {
+		name = akkovin_flavor.3.c
+		trigger = {
+			exists = scope:kurdish_state_3
+		}
+		scope:kurdish_state_3 = {
+			remove_modifier = kurdish_autonomy
+			add_radicals = {
+				culture = cu:kurdish
+				value = very_large_radicals
+			}
+		}
+	}
+}
+
+akkovin_flavor.4 = { #Creation of the Kurdish Autonomy
+	type = country_event
+	placement = ROOT
+	title = akkovin_flavor.4.t
+	desc = akkovin_flavor.4.d
+	flavor = akkovin_flavor.4.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	minor_left_icon = c:KUR
+	
+	immediate = {
+		every_scope_state = {
+			limit = {
+				has_modifier = kurdish_autonomy
+			}
+			remove_modifier = kurdish_autonomy
+		}
+		create_country = {
+			tag = KUR
+			origin = THIS
+			state = s:STATE_MOSUL.region_state:AKN
+			state = s:STATE_SHAHRIZOR.region_state:AKN
+			state = s:STATE_ANBAR.region_state:AKN
+			
+			on_created = {
+				add_primary_culture = cu:akturk
+			}
+		}
+	}
+	option = { 
+		name = akkovin_flavor.4.a
+		default_option = yes
+		c:AKN = {
+			create_diplomatic_pact = {
+				country = c:KUR
+				type = puppet
+			}
+		}
+		add_loyalists = {
+			culture = cu:kurdish
+			value = 0.5
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { 
+		name = akkovin_flavor.5.b
+		default_option = yes
+		c:AKN = {
+			create_diplomatic_pact = {
+				country = c:KUR
+				type = puppet
+			}
+		}
+		play_as = c:KUR
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+akkovin_flavor.5 = { #Creation of the Armenian Autonomy
+	type = country_event
+	placement = ROOT
+	title = akkovin_flavor.5.t
+	desc = akkovin_flavor.5.d
+	flavor = akkovin_flavor.5.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	minor_left_icon = c:KUR
+	
+	immediate = {
+		create_country = {
+			tag = ARM
+			origin = THIS
+			state = s:STATE_VAN.region_state:AKN
+			state = s:STATE_GREATER_CAUCASUS.region_state:AKN
+			state = s:STATE_KARS.region_state:AKN
+			
+			on_created = {
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_shared_roots
+						}
+					}
+					activate_law = law_type:law_shared_roots
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_racial_segregation
+						}
+					}
+					activate_law = law_type:law_racial_segregation
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_slavery_banned
+						}
+					}
+					activate_law = law_type:law_slavery_banned
+				}
+				add_primary_culture = cu:akturk
+				add_primary_culture = cu:kurdish
+				set_capital = STATE_VAN
+			}
+		}
+	}
+	option = { 
+		name = akkovin_flavor.5.a
+		default_option = yes
+		c:AKN = {
+			create_diplomatic_pact = {
+				country = c:ARM
+				type = puppet
+			}
+		}
+		add_loyalists = {
+			culture = cu:armenian
+			value = 0.5
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { 
+		name = akkovin_flavor.5.b
+		default_option = yes
+		c:AKN = {
+			create_diplomatic_pact = {
+				country = c:ARM
+				type = puppet
+			}
+		}
+		play_as = c:ARM
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}

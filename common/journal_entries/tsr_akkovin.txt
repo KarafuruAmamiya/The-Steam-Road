@@ -478,6 +478,7 @@ je_akkovin_reform_sovereignty = {
 	complete = {
 		custom_tooltip = {
 			text = no_baglar_treaty_tt
+			has_variable = baglar_treaty_signed
 			OR = {
 				NOT = { has_modifier = treaty_of_baglar }
 				NOT = { has_modifier = treaty_of_baglar_2 }
@@ -501,7 +502,8 @@ je_akkovin_reform_sovereignty = {
 			institution = institution_police
 			value >= 2
 		}
-		every_scope_state = {	
+		any_scope_state = {	
+			count = all
 			turmoil < 0.20
 		}
 		any_interest_group = {
@@ -525,7 +527,9 @@ je_akkovin_reform_sovereignty = {
 		OR = {
 			is_subject = yes
 			is_subject_type = subject_type_customs_union
-			civil_war_progress_gain > 0.9
+			any_civil_war = {
+				civil_war_progress_gain > 0.9
+			}
 		}
 	}
 
@@ -584,7 +588,7 @@ je_akkovin_reform_kurdish = {
 					}
 				}
 			}
-			if = {
+			trigger_if = {
 				limit = {
 					exists = c:KUR
 				}
@@ -742,26 +746,28 @@ je_akkovin_reform_arabia = {
 	}
 
 	on_monthly_pulse = {
-		if = {
-			limit = {
-				AND = {
-					cu:iraqi = {
-						culture_secession_progress = {
-							target = ROOT
-							value < 0.5
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						cu:iraqi = {
+							culture_secession_progress = {
+								target = ROOT
+								value < 0.5
+							}
 						}
-					}
-					cu:levantine = {
-						culture_secession_progress = {
-							target = ROOT
-							value < 0.5
+						cu:levantine = {
+							culture_secession_progress = {
+								target = ROOT
+								value < 0.5
+							}
 						}
 					}
 				}
-			}
-			change_variable = {
-				name = akkovin_arab_separatist_var
-				add = 1
+				change_variable = {
+					name = akkovin_arab_separatist_var
+					add = 1
+				}
 			}
 		}
 	}
@@ -846,7 +852,7 @@ je_akkovin_reform_minorities = {
 					}
 				}
 			}
-			if = {
+			trigger_if = {
 				limit = {
 					exists = c:ARM
 				}
@@ -996,6 +1002,123 @@ je_akkovin_reform_nationalism = { #WIP
 			text = akkovin_fail_tt
 			has_variable = akkovin_fail
 		}
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Partition of the Akkovin Sultanate (Ottomans)
+je_akkovin_partition_tur = { #WIP
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		if = {
+			limit = {
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			trigger_event = { id = akkovin_crisis.12 days = 0 }
+		}
+		else = {
+			trigger_event = { id = akkovin_crisis.11 days = 0 }
+		}
+	}
+	
+	complete = {
+		owns_entire_state_region = STATE_HARPUT
+		owns_entire_state_region = STATE_DIYARBAKIR
+		owns_entire_state_region = STATE_TRABZON
+		owns_entire_state_region = STATE_ERZURUM
+		owns_entire_state_region = STATE_VAN
+		owns_entire_state_region = STATE_BITLIS
+		owns_entire_state_region = STATE_KUBAN
+	}
+	
+	fail = {
+		has_diplomatic_pact = {
+			who = c:AKN
+			type = war_reparations
+			is_initiator = no
+		}
+	}
+	
+	on_fail = {
+		if = {
+			limit = {
+				exists = c:AKN
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = {
+				exists = c:AKN
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+
+	invalid = {
+		NOT = { exists = c:AKN }
+	}
+
+	inheritable = no
+
+	weight = 5000
+}
+
+# Partition of the Akkovin Sultanate (Safavids)
+je_akkovin_partition_per = { #WIP
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	complete = {
+		owns_entire_state_region = STATE_KARS
+		owns_entire_state_region = STATE_MOSUL
+		owns_entire_state_region = STATE_SHAHRIZOR
+		owns_entire_state_region = STATE_ANBAR
+		owns_entire_state_region = STATE_GREATER_CAUCASUS
+	}
+
+	on_complete = {
+		
+	}
+	
+	fail = {
+		has_diplomatic_pact = {
+			who = c:AKN
+			type = war_reparations
+			is_initiator = no
+		}
+	}
+
+	on_monthly_pulse = {
+	}
+
+	invalid = {
+		NOT = { exists = c:AKN }
 	}
 
 	inheritable = no

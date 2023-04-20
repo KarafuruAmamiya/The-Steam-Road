@@ -131,6 +131,7 @@ establish_kurdish_state = { #Establish a Kurdish vassal state
 		any_scope_state = {
 			has_modifier = kurdish_autonomy
 		}
+		has_technology_researched = nationalism
 	}
 
 	when_taken = {
@@ -151,6 +152,7 @@ establish_armenian_state = { #Establish an Armenian vassal state
 
 	possible = {
 		is_at_war = no
+		has_technology_researched = nationalism
 	}
 
 	when_taken = {
@@ -158,7 +160,7 @@ establish_armenian_state = { #Establish an Armenian vassal state
 	}
 
 	ai_chance = {
-		base = 0
+		base = 10
 	}
 }
 

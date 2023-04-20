@@ -830,26 +830,7 @@
 							european_clothes_trigger = yes
 							tsr_persia_leader_trigger = yes
 							tsr_ottoman_leader_trigger = yes
-						}
-						AND = {
-							arabic_clothes_trigger = yes
-							has_variable = adopt_western_uniforms
-						}
-						AND = {
-							exists = scope:character
-							scope:character = {
-								owner = {
-									any_primary_culture = {
-										OR = {
-											has_discrimination_trait = east_asian_heritage
-											has_discrimination_trait = south_asian_heritage
-											has_discrimination_trait = southeast_asian_heritage
-											has_discrimination_trait = north_asian_heritage
-										}
-									}
-									has_variable = adopt_western_uniforms
-								}
-							}
+							tsr_western_uniform_trigger = yes
 						}
                         AND = {
                             exists = scope:character

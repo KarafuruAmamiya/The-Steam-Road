@@ -11,10 +11,9 @@
 	
 	fail = {
 		OR = {
+			is_subject = yes
 			any_scope_state = {
-				limit = {
-					is_incorporated = yes
-				}
+				is_incorporated = yes
 				count < 9
 			}
 			NOT = {
@@ -53,6 +52,27 @@
 				}
 			}
 			exists = c:ARA
+		}
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					year > 1838
+					exists = c:PER
+					c:PER = {
+						is_owed_obligation_by = ROOT
+						NOT = { has_variable = pre_treaty }
+					}
+				}
+				random_list = {
+					9 = { }
+					1 = {
+						c:PER = { trigger_event = akkovin_crisis.4 }
+					}
+				}
+			}
 		}
 	}
 	
@@ -134,7 +154,7 @@ je_akkovin_reform_economy = {
 	}
 	
 	on_fail = {
-		#trigger_event = { id = opda_events.1 }
+		trigger_event = { id = apda_events.1 }
 	}
 
 	invalid = {
@@ -177,8 +197,12 @@ je_akkovin_reform_education = {
 		any_scope_building = {
 			is_building_type = building_university
 			occupancy > 0.9
-			level >= 6
+			level >= 5
 		}
+		institution_investment_level = {
+            institution = institution_schools
+            value >= 3
+        }
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
@@ -215,7 +239,11 @@ je_akkovin_reform_education = {
 		}
 	}
 	
-	#Add events to send foreign students to Europe
+	on_monthly_pulse = {
+		events = {
+			akkovin_flavor.1 # Send students to foreign countries
+		}
+	}
 
 	inheritable = no
 
@@ -275,9 +303,9 @@ je_akkovin_reform_army = {
 	}
 
 	on_monthly_pulse = {
-		#events = {
-		#	tanzimat_events.10 # Tanzimat Draft Question
-		#}
+		events = {
+			tanzimat_events.10 # Tanzimat Draft Question
+		}
 	}
 
 	invalid = {
@@ -344,9 +372,9 @@ je_akkovin_reform_navy = {
 	}
 
 	on_monthly_pulse = {
-		#events = {
-		#	tanzimat_events.10 # Tanzimat Draft Question
-		#}
+		events = {
+			tanzimat_events.10 # Tanzimat Draft Question
+		}
 	}
 
 	invalid = {
@@ -406,10 +434,10 @@ je_akkovin_reform_bureaucracy = {
 	}
 
 	on_monthly_pulse = {
-		#random_events = {
-		#	100 = 0
-		#	10 = tanzimat_events.9 # Land registration resisted
-		#}
+		random_events = {
+			100 = 0
+			10 = tanzimat_events.9 # Land registration resisted
+		}
 	}
 
 	invalid = {
@@ -449,8 +477,11 @@ je_akkovin_reform_sovereignty = {
 	
 	complete = {
 		custom_tooltip = {
-			text = erzurum_edict_issued_tt
-			NOT = { has_modifier = treaty_of_baglar }
+			text = no_baglar_treaty_tt
+			OR = {
+				NOT = { has_modifier = treaty_of_baglar }
+				NOT = { has_modifier = treaty_of_baglar_2 }
+			}
 		}
 		custom_tooltip = {
 			text = ottoman_vilayet_organisation_tt
@@ -535,6 +566,9 @@ je_akkovin_reform_kurdish = {
 	}
 	
 	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
 		NOT = { 
 			any_scope_state = {
 				has_modifier = kurdish_autonomy
@@ -567,9 +601,6 @@ je_akkovin_reform_kurdish = {
 			add = 1
 		}
 	}
-
-	on_monthly_pulse = {
-	}
 	
 	fail = {
 		cu:kurdish = {
@@ -578,6 +609,37 @@ je_akkovin_reform_kurdish = {
 				value > 0.9
 			}
 		}
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { country_has_primary_culture = cu:kurdish }
+					cu:kurdish = {
+						culture_secession_progress = {
+							target = ROOT
+							value < 0.5
+						}
+					}
+				}
+				change_variable = {
+					name = akkovin_kurdish_separatist_var
+					add = 1
+				}
+			}
+		}
+		events = {
+			akkovin_crisis.8 # Kurdish revolts
+		}
+	}
+
+	current_value = {
+		value = var:akc_kurdish_separatist_var
+	}
+
+	goal_add_value = {
+		add = 180
 	}
 
 	invalid = {
@@ -590,6 +652,8 @@ je_akkovin_reform_kurdish = {
 	inheritable = no
 
 	weight = 5000
+	
+	progressbar = yes
 }
 
 # Rein in Arabia
@@ -610,6 +674,9 @@ je_akkovin_reform_arabia = {
 	}
 	
 	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
 		c:SYR = {
 			is_subject_of = ROOT
 			is_subject_type = subject_type_dependency
@@ -675,6 +742,28 @@ je_akkovin_reform_arabia = {
 	}
 
 	on_monthly_pulse = {
+		if = {
+			limit = {
+				AND = {
+					cu:iraqi = {
+						culture_secession_progress = {
+							target = ROOT
+							value < 0.5
+						}
+					}
+					cu:levantine = {
+						culture_secession_progress = {
+							target = ROOT
+							value < 0.5
+						}
+					}
+				}
+			}
+			change_variable = {
+				name = akkovin_arab_separatist_var
+				add = 1
+			}
+		}
 	}
 	
 	fail = {
@@ -698,6 +787,14 @@ je_akkovin_reform_arabia = {
 		}
 	}
 
+	current_value = {
+		value = var:akc_arab_separatist_var
+	}
+
+	goal_add_value = {
+		add = 180
+	}
+
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
@@ -708,6 +805,8 @@ je_akkovin_reform_arabia = {
 	inheritable = no
 
 	weight = 5000
+	
+	progressbar = yes
 }
 
 # Christian Minorities
@@ -728,8 +827,12 @@ je_akkovin_reform_minorities = {
 	}
 	
 	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
 		OR = {
 			AND = {
+				#has_variable = dhimmi_autonomy_revoked
 				cu:armenian = {
 					culture_secession_progress = {
 						target = ROOT
@@ -761,19 +864,63 @@ je_akkovin_reform_minorities = {
 			name = akc_reform_var
 			add = 1
 		}
-		remove_modifier = cizye_tax
 	}
 
 	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						#has_variable = dhimmi_autonomy_revoked
+						cu:armenian = {
+							culture_secession_progress = {
+								target = ROOT
+								value < 0.5
+							}
+						}
+						cu:assyrian = {
+							culture_secession_progress = {
+								target = ROOT
+								value < 0.5
+							}
+						}
+					}
+				}
+				change_variable = {
+					name = akkovin_dhimmi_separatist_var
+					add = 1
+				}
+			}
+		}
+		random_events = {
+			100 = 0
+			10 = tanzimat_events.5 # Paranoia Event
+		}
 	}
 	
 	fail = {
-		cu:armenian = {
-			culture_secession_progress = {
-				target = ROOT
-				value > 0.9
+		OR = {
+			cu:armenian = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
+			}
+			cu:assyrian = {
+				culture_secession_progress = {
+					target = ROOT
+					value > 0.9
+				}
 			}
 		}
+	}
+	
+	current_value = {
+		value = var:akc_dhimmi_separatist_var
+	}
+
+	goal_add_value = {
+		add = 180
 	}
 
 	invalid = {
@@ -786,10 +933,12 @@ je_akkovin_reform_minorities = {
 	inheritable = no
 
 	weight = 5000
+	
+	progressbar = yes
 }
 
 # Promote National Identity
-je_akkovin_reform_nationalism = {
+je_akkovin_reform_nationalism = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
 	is_shown_when_inactive = {
@@ -798,6 +947,7 @@ je_akkovin_reform_nationalism = {
 			has_variable = akc_reforms_complete
 		}
 	}
+	
 	possible = {
 		custom_tooltip = {
 			text = erzurum_edict_issued_tt
@@ -805,29 +955,16 @@ je_akkovin_reform_nationalism = {
 		}
 	}
 	
-	immediate = {
-		every_scope_state = {
-			limit = { 
-				owner = ROOT
-			}
-			save_scope_as = akn_states
-		}
-		every_scope_culture = {
-			limit = { 
-				NOT = { is_primary_culture_of = ROOT }
-			}
-			save_scope_as = non_akturk_culture
-		}
-	}
-	
 	complete = {
 		has_technology_researched = nationalism
 		OR = {
 			AND = {
-				#has_variable = akturkification_begins
-				scope:akn_states = {
-					state_region = { 
-						NOT = { is_homeland = scope:non_akturk_culture } 
+				has_global_variable = akturkification_start
+				any_scope_state = {
+					count >= 12
+					any_scope_pop = {
+						has_pop_culture = akturk
+						percent > 0.75
 					}
 				}
 			}
@@ -848,6 +985,7 @@ je_akkovin_reform_nationalism = {
 			name = akc_reform_var
 			add = 1
 		}
+		remove_modifier = russification_modifier
 	}
 
 	on_monthly_pulse = {

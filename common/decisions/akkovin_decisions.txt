@@ -87,3 +87,102 @@
 		base = 10
 	}
 }
+
+centralise_kurdish_territories = {
+	is_shown = {
+		exists = c:AKN
+		root = c:AKN
+		has_journal_entry = je_akkovin_reform_kurdish
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = centralise_kurdish_territories_tt
+			NOT = { has_variable = centralise_kurdish_vilayets_cooldown }
+		}
+		any_scope_state = {
+			has_modifier = kurdish_autonomy
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = akkovin_flavor.3 days = 0 popup = yes }
+		set_variable = {
+			name = centralise_kurdish_vilayets_cooldown
+			years = 2
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}
+
+establish_kurdish_state = { #Establish a Kurdish vassal state
+	is_shown = {
+		exists = c:AKN
+		root = c:AKN
+		has_journal_entry = je_akkovin_reform_kurdish
+	}
+
+	possible = {
+		is_at_war = no
+		any_scope_state = {
+			has_modifier = kurdish_autonomy
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = akkovin_flavor.4 days = 0 popup = yes }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+establish_armenian_state = { #Establish an Armenian vassal state
+	is_shown = {
+		exists = c:AKN
+		root = c:AKN
+		has_journal_entry = je_akkovin_reform_minorities
+	}
+
+	possible = {
+		is_at_war = no
+	}
+
+	when_taken = {
+		trigger_event = { id = akkovin_flavor.5 days = 0 popup = yes }
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}
+
+promote_akturk_identity = { #WIP
+	is_shown = {
+		exists = c:AKN
+		root = c:AKN
+		has_journal_entry = je_akkovin_reform_nationalism
+	}
+
+	possible = {
+		is_at_war = no
+		has_technology_researched = nationalism
+	}
+
+	when_taken = {
+		set_global_variable = akturkification_start
+		add_modifier = {
+			name = russification_modifier
+			months = -1
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

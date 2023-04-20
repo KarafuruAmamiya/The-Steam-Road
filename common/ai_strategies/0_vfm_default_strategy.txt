@@ -1651,6 +1651,21 @@ ai_strategy_default = {
 				subtract = 100
 			}
 			
+			# Ottomans should never reconcile with Akkovins
+			if = {
+				limit = {
+					exists = c:TUR 
+					c:TUR = this
+					exists = c:AKN
+					scope:target_country = { 
+						any_scope_state = {
+							owner = c:AKN
+						}	
+					}
+				}
+				subtract = 1000
+			}
+			
 			if = {
 				limit = {
 					OR = {
@@ -1738,6 +1753,21 @@ ai_strategy_default = {
 					}
 				}
 				subtract = 100
+			}
+			
+			# Persia will never abandon Akkovins as long as they have the treaty
+			if = {
+				limit = { 
+					exists = c:PER
+					this = c:PER
+					scope:target_country = {
+						OR = {
+							has_modifier = treaty_of_baglar
+							has_modifier = treaty_of_baglar_2
+						}
+					}
+				}
+				add = 1000
 			}
 			
 			if = {
@@ -2061,6 +2091,26 @@ ai_strategy_default = {
 					limit = { has_technology_researched = civilizing_mission }
 					add = 50
 				}					
+			}
+			
+			# If Akkovins abandon the treaty, Persia will turn hostile
+			if = {
+				limit = { 
+					exists = c:PER
+					this = c:PER
+					scope:target_country = {
+						AND = {
+							exists = c:AKN
+							this = c:AKN
+							has_variable = baglar_treaty_signed
+						}
+						NOT = {
+							has_modifier = treaty_of_baglar
+							has_modifier = treaty_of_baglar_2
+						}
+					}
+				}
+				add = 1000
 			}
 			
 			if = { # Unifying China

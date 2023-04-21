@@ -13,13 +13,7 @@
 			level = 3
 			direction = import
 			target = c:SAX.market
-		}
-		create_trade_route = {
-			goods = wood
-			level = 6
-			direction = export
-			target = c:PER.market
-		}			
+		}		
 		create_trade_route = {
 			goods = sugar
 			level = 6
@@ -140,7 +134,7 @@
 		}
 		create_trade_route = {
 			goods = clothes
-			level = 10
+			level = 4
 			direction = import
 			target = c:PER.market
 		}
@@ -187,12 +181,6 @@
 			level = 18
 			direction = import
 			target = c:ENG.market
-		}
-		create_trade_route = {
-			goods = clothes
-			level = 12
-			direction = import
-			target = c:PER.market
 		}
 		create_trade_route = {
 			goods = clothes
@@ -1011,12 +999,6 @@
 			target = c:AKN.market
 		}
 		create_trade_route = {
-			goods = dye
-			level = 4
-			direction = export
-			target = c:SCA.market
-		}
-		create_trade_route = {
 			goods = opium
 			level = 5
 			direction = export
@@ -1060,7 +1042,7 @@
 		}
 		create_trade_route = {
 			goods = liquor
-			level = 10
+			level = 6
 			direction = export
 			target = c:ENG.market
 		}
@@ -1142,7 +1124,7 @@
 		}
 	}
 	
-	# Ak Koyunlu
+	# Akkovin
 	c:AKN = {
 		create_trade_route = {
 			goods = artillery
@@ -1158,6 +1140,12 @@
 		}
 		create_trade_route = {
 			goods = small_arms
+			level = 3
+			direction = import
+			target = c:PER.market
+		}
+		create_trade_route = {
+			goods = clothes
 			level = 3
 			direction = import
 			target = c:PER.market
@@ -1280,16 +1268,6 @@
 			direction = import
 			target = c:PER.market
 		}
-	}
-	
-	# China
-	c:CHI = {
-		create_trade_route = {
-			goods = opium
-			level = 6
-			direction = import
-			target = c:PER.market
-		}				
 	}
 	
 	# Tunis

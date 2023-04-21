@@ -750,20 +750,6 @@ akkovin_crisis.9 = {
 		}
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_VAN }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_VAN
-						has_claim = s:STATE_VAN
-					}
-				}
-			}
-			s:STATE_VAN = {
-				add_claim = c:TUR
-			}
-		}
-		if = {
-			limit = {
 				c:AKN = { has_state_in_state_region = STATE_BITLIS }
 				c:TUR = {
 					NOR = { 
@@ -816,6 +802,20 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_DEIR_EZ_ZOR = {
 				add_claim = c:TUR
+			}
+		}
+		if = {
+			limit = {
+				c:AKN = { has_state_in_state_region = STATE_VAN }
+				c:PER = {
+					NOR = { 
+						owns_entire_state_region = STATE_VAN
+						has_claim = s:STATE_VAN
+					}
+				}
+			}
+			s:STATE_VAN = {
+				add_claim = c:PER
 			}
 		}
 		if = {
@@ -1024,20 +1024,6 @@ akkovin_crisis.10 = {
 		}
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_VAN }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_VAN
-						has_claim = s:STATE_VAN
-					}
-				}
-			}
-			s:STATE_VAN = {
-				add_claim = c:TUR
-			}
-		}
-		if = {
-			limit = {
 				c:AKN = { has_state_in_state_region = STATE_BITLIS }
 				c:TUR = {
 					NOR = { 
@@ -1184,13 +1170,6 @@ akkovin_crisis.11 = {
 			add_war_goal = {
 				holder = c:TUR
 				type = return_state
-				target_state = s:STATE_VAN.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
 				target_state = s:STATE_BITLIS.region_state:AKN
 				primary_demand = yes
 			}
@@ -1213,6 +1192,13 @@ akkovin_crisis.11 = {
 				holder = c:TUR
 				type = return_state
 				target_state = s:STATE_DEIR_EZ_ZOR.region_state:AKN
+				primary_demand = yes
+			}
+			
+			add_war_goal = {
+				holder = c:PER
+				type = return_state
+				target_state = s:STATE_VAN.region_state:AKN
 				primary_demand = yes
 			}
 			
@@ -1318,13 +1304,6 @@ akkovin_crisis.12 = {
 				holder = c:TUR
 				type = return_state
 				target_state = s:STATE_ERZURUM.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_VAN.region_state:AKN
 				primary_demand = yes
 			}
 			

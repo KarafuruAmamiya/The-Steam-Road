@@ -29,26 +29,22 @@
 						exists = c:NEJ
 					}
 					c:NEJ = {
-						is_subject_of = c:AKN
+						is_subject_of = ROOT
 					}
 				}
 				trigger_else = {
-					c:AKN = {
-						has_state_in_state_region = STATE_NEJD
-					}
+					has_state_in_state_region = STATE_NEJD
 				}
 				trigger_if = {
 					limit = {
 						exists = c:JAB
 					}
 					c:JAB = {
-						is_subject_of = c:AKN
+						is_subject_of = ROOT
 					}
 				}
 				trigger_else = {
-					c:AKN = {
-						has_state_in_state_region = STATE_HAIL
-					}
+					has_state_in_state_region = STATE_HAIL
 				}
 			}
 			exists = c:ARA
@@ -62,7 +58,6 @@
 					year > 1838
 					exists = c:PER
 					c:PER = {
-						is_owed_obligation_by = ROOT
 						NOT = { has_variable = pre_treaty }
 					}
 				}
@@ -681,36 +676,51 @@ je_akkovin_reform_arabia = {
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
-		c:SYR = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
+		OR = {
+			AND = {
+				c:SYR = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_dependency
+					has_attitude = {
+						who = ROOT
+						attitude = loyal
+					}
+				}
+				c:HDJ = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_dependency
+					has_attitude = {
+						who = ROOT
+						attitude = loyal
+					}
+				}
+				c:NEJ = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_dependency
+					has_attitude = {
+						who = ROOT
+						attitude = loyal
+					}
+				}
+				c:JAB = {
+					is_subject_of = ROOT
+					is_subject_type = subject_type_dependency
+					has_attitude = {
+						who = ROOT
+						attitude = loyal
+					}
+				}
 			}
-		}
-		c:HDJ = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-		}
-		c:NEJ = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
-			}
-		}
-		c:JAB = {
-			is_subject_of = ROOT
-			is_subject_type = subject_type_dependency
-			has_attitude = {
-				who = ROOT
-				attitude = loyal
+			AND = {
+				owns_entire_state_region = STATE_SYRIA
+				owns_entire_state_region = STATE_TRANSJORDAN
+				owns_entire_state_region = STATE_PALESTINE
+				owns_entire_state_region = STATE_LEBANON
+				owns_entire_state_region = STATE_HAMA
+				owns_entire_state_region = STATE_HEDJAZ
+				owns_entire_state_region = STATE_MEDINA
+				has_state_in_state_region = STATE_NEJD
+				has_state_in_state_region = STATE_HAIL
 			}
 		}
 		cu:iraqi = {
@@ -774,10 +784,6 @@ je_akkovin_reform_arabia = {
 	
 	fail = {
 		OR = {
-			NOT = { c:SYR = { is_subject_of = ROOT } }
-			NOT = { c:JAB = { is_subject_of = ROOT } }
-			NOT = { c:NEJ = { is_subject_of = ROOT } }
-			NOT = { c:HDJ = { is_subject_of = ROOT } }
 			cu:iraqi = {
 				culture_secession_progress = {
 					target = ROOT
@@ -1011,7 +1017,7 @@ je_akkovin_reform_nationalism = { #WIP
 
 # Partition of the Akkovin Sultanate (Ottomans)
 je_akkovin_partition_tur = { #WIP
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
 	immediate = {
 		if = {
@@ -1076,13 +1082,19 @@ je_akkovin_partition_tur = { #WIP
 			}
 			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
 		}
+		else_if = {
+			limit = {
+				NOT = { exists = c:AKN }
+			}
+			trigger_event = { id = akkovin_crisis.16 days = 0 }
+		}
 	}
 
 	on_monthly_pulse = {
 	}
 
 	invalid = {
-		NOT = { exists = c:AKN }
+		NOT = { exists = c:TUR }
 	}
 
 	inheritable = no
@@ -1092,7 +1104,7 @@ je_akkovin_partition_tur = { #WIP
 
 # Partition of the Akkovin Sultanate (Safavids)
 je_akkovin_partition_per = { #WIP
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
 	complete = {
 		owns_entire_state_region = STATE_KARS
@@ -1103,7 +1115,12 @@ je_akkovin_partition_per = { #WIP
 	}
 
 	on_complete = {
-		
+		if = {
+			limit = {
+				NOT = { exists = c:AKN }
+			}
+			trigger_event = { id = akkovin_crisis.16 days = 0 }
+		}
 	}
 	
 	fail = {
@@ -1118,7 +1135,7 @@ je_akkovin_partition_per = { #WIP
 	}
 
 	invalid = {
-		NOT = { exists = c:AKN }
+		NOT = { exists = c:PER }
 	}
 
 	inheritable = no

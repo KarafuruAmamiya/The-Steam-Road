@@ -1,6 +1,6 @@
 ﻿namespace = akkovin_flavor
 namespace = apda_events #the Akkovin Public Debt Administration
-#namespace = treaty_of_baglar_events
+namespace = treaty_of_baglar_events
 
 # APDA Events
 
@@ -491,3 +491,63 @@ akkovin_flavor.5 = { #Creation of the Armenian Autonomy
 		}
 	}
 }
+
+# Treaty of Baglar Events
+
+treaty_of_baglar_events.1 = { # The Akkovins renewed the Treaty of Baglar
+	type = country_event
+	title = treaty_of_baglar_events.1.t
+	desc = treaty_of_baglar_events.1.d
+	flavor =  treaty_of_baglar_events.1.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	option = { #
+		name = treaty_of_baglar_events.1.a
+
+	}
+}
+
+treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
+	type = country_event
+	title = treaty_of_baglar_events.2.t
+	desc = treaty_of_baglar_events.2.d
+	flavor =  treaty_of_baglar_events.2.f
+	duration = 3
+	event_image = {
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	option = { #
+		name = treaty_of_baglar_events.2.a
+		s:STATE_MOSUL = {
+			add_claim = ROOT
+		}
+		s:STATE_ANBAR = {
+			add_claim = ROOT
+		}
+		s:STATE_SHAHRIZOR = {
+			add_claim = ROOT
+		}
+		hidden_effect = {
+			c:PER = {
+				set_secret_goal = {
+					country = c:AKN
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+}
+
+#Add more Baglar-treaty events here (basically Persia screwing Akkovins over really)

@@ -120,7 +120,10 @@ arab_wars.2 = {
 				state_region = { 
 					is_homeland = scope:arab_culture
 				}
-				state_is_in_middle_east = yes
+				OR = {
+					state_is_in_middle_east = yes
+					state_is_in_north_africa = yes
+				}
             }
 			save_scope_as = arab_state
 		}

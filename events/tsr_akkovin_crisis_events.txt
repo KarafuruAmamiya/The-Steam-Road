@@ -112,6 +112,9 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		ig:ig_industrialists = {
 			remove_modifier = foreign_students
 		}
+		ruler = {
+			save_scope_as = akkovin_sultan
+		}
 	}
 	
 	option = {
@@ -144,7 +147,9 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 			}
 		}
 		set_country_type = unrecognized
-		#Beginning of Akkovin partition for their neighbors
+		ruler = {
+			kill_character = yes
+		}
 	}
 
 #MOVE THIS ALL TO ARAB REVOLUTION JE
@@ -261,72 +266,6 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 #		}
 #	}
 
-#MOVE THIS TO AKKOVIN PARTITION
-#		if = {
-#			limit = {
-#				has_state_in_state_region = STATE_ALEPPO
-#			}
-#			s:STATE_ALEPPO.region_state:AKN = {
-#				if = {
-#					limit = {
-#						exists = c:SYR
-#					}
-#					set_state_owner = c:SYR
-#				}
-#				else = {
-#					set_state_owner = c:TUR
-#				}
-#			}
-#		}
-#		if = {
-#			limit = {
-#				has_state_in_state_region = STATE_DEIR_EZ_ZOR
-#			}
-#			s:STATE_DEIR_EZ_ZOR.region_state:AKN = {
-#				if = {
-#					limit = {
-#						exists = c:SYR
-#					}
-#					set_state_owner = c:SYR
-#				}
-#				else = {
-#					set_state_owner = c:TUR
-#				}
-#			}
-#		}
-#		if = {
-#			limit = {
-#				has_state_in_state_region = STATE_GREATER_CAUCASUS
-#			}
-#			s:STATE_GREATER_CAUCASUS.region_state:AKN = {
-#				if = {
-#					limit = {
-#						exists = c:SRV
-#					}
-#					set_state_owner = c:SRV
-#				}
-#				else = {
-#					set_state_owner = c:PER
-#				}
-#			}
-#		}
-#		if = {
-#			limit = {
-#				has_state_in_state_region = STATE_KUBAN
-#			}
-#			s:STATE_KUBAN.region_state:AKN = {
-#				if = {
-#					limit = {
-#						exists = c:TTR
-#					}
-#					set_state_owner = c:TTR
-#				}
-#				else = {
-#					set_state_owner = c:TUR
-#				}
-#			}
-#		}
-
 }
 
 # Crisis averted
@@ -340,13 +279,13 @@ akkovin_crisis.3 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	trigger = {
 	}
@@ -475,16 +414,17 @@ akkovin_crisis.4 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/battlefield_trenches"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	immediate = {
 		set_variable = pre_treaty
+		c:AKN = { save_scope_as = akn_scope }
 	}
 
 	option = {
@@ -506,13 +446,13 @@ akkovin_crisis.5 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/southamerica_aristocrats.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/southamerica/aristocrats"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
 
 	trigger = {
 	}
@@ -522,7 +462,8 @@ akkovin_crisis.5 = {
 
 	option = {
 		name = akkovin_crisis.5.a
-		trigger_event = { id = akkovin_crisis.6 days = 3 }
+		trigger_event = { id = akkovin_crisis.6 days = 7 }
+		c:PER = { trigger_event = { id = akkovin_crisis.6 days = 7 } }
 		add_modifier = {
 			name = prestige_loss
 			months = normal_modifier_time
@@ -541,28 +482,27 @@ akkovin_crisis.6 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
 
-	trigger = {
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
 	}
 
 	option = {
 		name = akkovin_crisis.6.a
+		trigger = {
+			c:AKN = ROOT
+		}
 		add_modifier = {
 			name = treaty_of_baglar
 			months = 120
-		}
-		c:PER = {
-			create_diplomatic_pact = {
-				country = c:AKN
-				type = defensive_pact
-			} 
 		}
 		custom_tooltip = treaty_of_baglar_tt
 		set_variable = baglar_treaty_signed
@@ -570,6 +510,19 @@ akkovin_crisis.6 = {
 		hidden_effect = {
 			trigger_event = { id = akkovin_crisis.7 months = 120 }
 		}
+	}
+	
+	option = {
+		name = akkovin_crisis.6.b
+		trigger = {
+			c:PER = ROOT
+		}
+		create_diplomatic_pact = {
+			country = c:AKN
+			type = defensive_pact
+		}
+		custom_tooltip = treaty_of_baglar_tt
+		set_variable = baglar_treaty_signed
 	}
 }
 
@@ -584,15 +537,17 @@ akkovin_crisis.7 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
 
-	trigger = {
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
 	}
 
 	option = {
@@ -604,9 +559,16 @@ akkovin_crisis.7 = {
 		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_legacy_slavery
 		
+		every_subject_or_below = {
+			activate_law = law_type:law_free_trade
+			activate_law = law_type:law_legacy_slavery
+		}
+		
 		ai_chance = {
 			base = 50
 		}
+		
+		c:PER = { trigger_event = { id = treaty_of_baglar_events.1 days = 1 } }
 	}
 	
 	option = {
@@ -615,23 +577,6 @@ akkovin_crisis.7 = {
 		change_relations = {
 			country = c:PER
 			value = -100
-		}
-		s:STATE_MOSUL = {
-			add_claim = c:PER
-		}
-		s:STATE_ANBAR = {
-			add_claim = c:PER
-		}
-		s:STATE_SHAHRIZOR = {
-			add_claim = c:PER
-		}
-		hidden_effect = {
-			c:PER = {
-				set_secret_goal = {
-					country = c:AKN
-					secret_goal = conquer
-				}
-			}
 		}
 		remove_diplomatic_pact = {
 			country = c:PER
@@ -645,6 +590,9 @@ akkovin_crisis.7 = {
 		ai_chance = {
 			base = 50
 		}
+		custom_tooltip = no_renewing_baglar_tt
+		
+		c:PER = { trigger_event = { id = treaty_of_baglar_events.2 days = 1 } }
 	}
 }
 
@@ -659,13 +607,13 @@ akkovin_crisis.8 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
 
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
 	trigger = {
 		NOT = {
@@ -742,6 +690,7 @@ akkovin_crisis.9 = {
 	}
 
 	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
 		set_global_variable = akkovin_partition_start
 		if = {
 			limit = {
@@ -955,7 +904,7 @@ akkovin_crisis.9 = {
 	}
 	
 	option = {
-		name = akkovin_crisis.9.a
+		name = akkovin_crisis.9.b
 		default_option = yes
 		trigger = { c:PER = ROOT }
 		add_journal_entry = {
@@ -968,7 +917,7 @@ akkovin_crisis.9 = {
 	}
 	
 	option = {
-		name = akkovin_crisis.9.b
+		name = akkovin_crisis.9.c
 		set_global_variable = akkovin_partition_start
 		
 		ai_chance = {
@@ -1157,7 +1106,6 @@ akkovin_crisis.10 = {
 		}
 		
 		c:PER = { trigger_event = { id = akkovin_crisis.13 days = 0 } }
-		c:AKN = { trigger_event = { id = akkovin_crisis.13 days = 0 } }
 		
 		ai_chance = {
 			base = 100
@@ -1517,5 +1465,50 @@ akkovin_crisis.15 = {
 		}
 		set_owes_obligation_to = { country = c:PER setting = no }
 		remove_variable = baglar_treaty_signed
+	}
+}
+
+# End of the Akkovin Sultanate
+akkovin_crisis.16 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.16.t
+	desc = akkovin_crisis.16.d
+	flavor = akkovin_crisis.16.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_factory_closed.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/factory_closed"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		#Triggered by Partition JE
+	}
+	
+	immediate = {
+		every_scope_state = {
+			limit = {
+				state_region = { 
+					is_homeland = cu:akturk
+				}
+            }
+			save_scope_as = akturk_state
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.16.a
+		scope:akturk_state = {
+			add_radicals = {
+                value = very_large_radicals
+                culture = cu:akturk
+            }
+		}
 	}
 }

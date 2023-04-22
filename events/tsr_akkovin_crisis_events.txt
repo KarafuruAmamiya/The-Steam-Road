@@ -668,11 +668,17 @@ akkovin_crisis.9 = {
 
 	trigger = {
 		NOT = { has_global_variable = akkovin_partition_start }
-		exists = c:TUR
-		exists = c:PER
 		OR = {
-			c:TUR = ROOT
-			c:PER = ROOT
+			AND = {
+				exists = c:TUR
+				c:TUR = ROOT
+				is_at_war = no
+			}
+			AND = {
+				exists = c:PER
+				c:PER = ROOT
+				is_at_war = no
+			}
 		}
 		exists = c:AKN
 		c:AKN = { 
@@ -704,6 +710,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_HARPUT = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -718,6 +727,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_DIYARBAKIR = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -732,6 +744,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_TRABZON = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -746,6 +761,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_ERZURUM = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -760,6 +778,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_BITLIS = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -774,6 +795,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_KUBAN = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -788,6 +812,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_ALEPPO = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -802,6 +829,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_DEIR_EZ_ZOR = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -816,6 +846,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_VAN = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -830,6 +863,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_KARS = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -844,6 +880,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_MOSUL = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -858,6 +897,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_SHAHRIZOR = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -872,6 +914,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_ANBAR = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -886,6 +931,9 @@ akkovin_crisis.9 = {
 			}
 			s:STATE_GREATER_CAUCASUS = {
 				add_claim = c:PER
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 	}
@@ -947,11 +995,11 @@ akkovin_crisis.10 = {
 
 	trigger = {
 		NOT = { has_global_variable = akkovin_partition_start }
-		exists = c:TUR
 		exists = c:PER
-		OR = {
+		AND = {
+			exists = c:TUR
 			c:TUR = ROOT
-			c:PER = ROOT
+			is_at_war = no
 		}
 		exists = c:AKN
 		c:AKN = { 
@@ -978,6 +1026,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_HARPUT = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -992,6 +1043,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_DIYARBAKIR = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1006,6 +1060,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_TRABZON = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1020,6 +1077,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_ERZURUM = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1034,6 +1094,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_BITLIS = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1048,6 +1111,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_KUBAN = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1062,6 +1128,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_ALEPPO = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 		if = {
@@ -1076,6 +1145,9 @@ akkovin_crisis.10 = {
 			}
 			s:STATE_DEIR_EZ_ZOR = {
 				add_claim = c:TUR
+				set_variable = {
+					name = akkovin_partition_state
+				}
 			}
 		}
 	}
@@ -1083,9 +1155,6 @@ akkovin_crisis.10 = {
 	option = {
 		name = akkovin_crisis.10.a
 		default_option = yes
-		trigger = {
-			c:TUR = ROOT
-		}
 		
 		add_journal_entry = {
 			type = je_akkovin_partition_tur

@@ -1037,19 +1037,80 @@ je_akkovin_partition_tur = { #WIP
 	}
 	
 	complete = {
-		owns_entire_state_region = STATE_HARPUT
-		owns_entire_state_region = STATE_DIYARBAKIR
-		owns_entire_state_region = STATE_TRABZON
-		owns_entire_state_region = STATE_ERZURUM
-		owns_entire_state_region = STATE_BITLIS
-		owns_entire_state_region = STATE_KUBAN
+		trigger_if = {
+			limit = {
+				s:STATE_HARPUT = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_HARPUT
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_DIYARBAKIR = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_DIYARBAKIR
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_TRABZON = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_TRABZON
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_ERZURUM = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_ERZURUM
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_BITLIS = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_BITLIS
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_KUBAN = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_KUBAN
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_ALEPPO = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_ALEPPO
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_DEIR_EZ_ZOR = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_DEIR_EZ_ZOR
+		}
 	}
 	
 	fail = {
-		has_diplomatic_pact = {
-			who = c:AKN
-			type = war_reparations
-			is_initiator = no
+		custom_tooltip = {
+			text = akkovin_partition_fail_tt
+			has_diplomatic_pact = {
+				who = c:AKN
+				type = war_reparations
+				is_initiator = no
+			}
 		}
 	}
 	
@@ -1106,12 +1167,54 @@ je_akkovin_partition_per = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
 	complete = {
-		owns_entire_state_region = STATE_KARS
-		owns_entire_state_region = STATE_MOSUL
-		owns_entire_state_region = STATE_SHAHRIZOR
-		owns_entire_state_region = STATE_ANBAR
-		owns_entire_state_region = STATE_VAN
-		owns_entire_state_region = STATE_GREATER_CAUCASUS
+		trigger_if = {
+			limit = {
+				s:STATE_KARS = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_KARS
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_MOSUL = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_MOSUL
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_SHAHRIZOR = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_SHAHRIZOR
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_ANBAR = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_ANBAR
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_VAN = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_VAN
+		}
+		trigger_if = {
+			limit = {
+				s:STATE_GREATER_CAUCASUS = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			owns_entire_state_region = STATE_GREATER_CAUCASUS
+		}
 	}
 
 	on_complete = {
@@ -1124,10 +1227,13 @@ je_akkovin_partition_per = { #WIP
 	}
 	
 	fail = {
-		has_diplomatic_pact = {
-			who = c:AKN
-			type = war_reparations
-			is_initiator = no
+		custom_tooltip = {
+			text = akkovin_partition_fail_tt
+			has_diplomatic_pact = {
+				who = c:AKN
+				type = war_reparations
+				is_initiator = no
+			}
 		}
 	}
 

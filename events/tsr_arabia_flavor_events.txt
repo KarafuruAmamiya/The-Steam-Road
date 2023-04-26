@@ -156,3 +156,76 @@ arabia_flavor.1 = {
 		}
 	}
 }
+
+# Butrus Al-Bustani
+arabia_flavor.2 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.2.t
+	desc = arabia_flavor.2.d
+	flavor = arabia_flavor.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_engineer_blueprint.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/engineer_blueprint"
+	
+	minor_left_icon = scope:al_bustani_scope
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	trigger = {
+		has_global_variable = nahda_start
+		game_date >= 1850.1.1
+		NOT = { game_date > 1880.1.1 }
+		owns_entire_state_region = STATE_LEBANON
+		NOT = { has_global_variable = al_bustani_var }
+	}
+
+	immediate = {
+		set_global_variable = al_bustani_var
+		create_character = {
+			template = syr_bustani_character_template
+			on_created = {
+				set_variable = al_bustani
+				place_character_in_void = 6
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_variable = al_bustani
+			}
+			save_scope_as = al_bustani_scope
+		}
+		random_country = {
+			limit = {
+				any_scope_state = {
+					OR = {
+						has_modifier = nahda_center
+						has_modifier = nahda_stronghold
+					}
+				}
+			}
+			save_scope_as = nahda_country
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_LEBANON
+			}
+			save_scope_as = lebanon_scope
+		}
+	}
+
+	option = {
+		name = arabia_flavor.2.a
+		default_option = yes
+	}
+	
+	option = {
+		name = arabia_flavor.2.b
+	}
+}

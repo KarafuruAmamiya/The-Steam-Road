@@ -19,14 +19,19 @@
                 add = 5000
                 exists = scope:character
                 scope:character = {
-						owner = {
-							OR = {
-								AND = { exists = c:PER c:PER = this }
-								AND = { exists = c:JNB c:JNB = this }
-								AND = { exists = c:SRV c:SRV = this }
+					OR = {
+						has_variable = al_bustani
+						AND = {
+							owner = {
+								OR = {
+									AND = { exists = c:PER c:PER = this }
+									AND = { exists = c:JNB c:JNB = this }
+									AND = { exists = c:SRV c:SRV = this }
+								}
 							}
+							is_ruler = yes
 						}
-						is_ruler = yes
+					}
 				}
             }
          }

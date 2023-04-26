@@ -547,6 +547,12 @@
 				tsr_persia_leader_trigger = no
 				tsr_ottoman_leader_trigger = no
 				tsr_western_uniform_trigger = no
+				AND = {
+					exists = scope:character
+					scope:character = {
+						NOT = { has_variable = al_bustani }
+					}
+				}
             }
         }
     }

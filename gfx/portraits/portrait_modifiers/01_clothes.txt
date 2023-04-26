@@ -826,12 +826,10 @@
                 add = 150
                 AND = {
                     OR = {
-                        OR = {
-							european_clothes_trigger = yes
-							tsr_persia_leader_trigger = yes
-							tsr_ottoman_leader_trigger = yes
-							tsr_western_uniform_trigger = yes
-						}
+                        european_clothes_trigger = yes
+						tsr_persia_leader_trigger = yes
+						tsr_ottoman_leader_trigger = yes
+						tsr_western_uniform_trigger = yes
                         AND = {
                             exists = scope:character
                             scope:character = {
@@ -860,8 +858,15 @@
                    monarchy_clothes_trigger = no
                }
            }
-
-
+			modifier = {
+				add = 1000
+				AND = {
+					exists = scope:character
+					scope:character = {
+						has_variable = al_bustani
+					}
+				}
+			}
         }
     }
     

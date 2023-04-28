@@ -174,6 +174,10 @@ promote_akturk_identity = { #WIP
 	possible = {
 		is_at_war = no
 		has_technology_researched = nationalism
+		NOT = {
+			has_law = law_type:law_cultural_exclusion_me
+			has_law = law_type:law_multicultural
+		}
 	}
 
 	when_taken = {

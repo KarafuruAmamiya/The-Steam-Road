@@ -141,9 +141,38 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		if = {
 			limit = {
 				has_state_in_state_region = STATE_ERITREA
+				exists = c:MED
+			}
+			s:STATE_ERITREA.region_state:AKN = {
+				set_state_owner = c:MED
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_in_state_region = STATE_ERITREA
+				exists = c:ETH
+				c:ETH = { has_state_in_state_region = STATE_ERITREA }
 			}
 			s:STATE_ERITREA.region_state:AKN = {
 				set_state_owner = c:ETH
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_in_state_region = STATE_ERITREA
+				exists = c:EGY
+			}
+			s:STATE_ERITREA.region_state:AKN = {
+				set_state_owner = c:EGY
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_in_state_region = STATE_ERITREA
+				exists = c:FRA
+			}
+			s:STATE_ERITREA.region_state:AKN = {
+				set_state_owner = c:FRA
 			}
 		}
 		set_country_type = unrecognized
@@ -151,120 +180,6 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 			kill_character = yes
 		}
 	}
-
-#MOVE THIS ALL TO ARAB REVOLUTION JE
-#	option = {
-#		name = akkovin_crisis.2.a # Reconquer our subjects
-#		default_option = yes
-#		ai_value = 100
-#		hidden_effect = {
-#			c:SYR = {
-#				create_diplomatic_pact = {
-#					country = c:JAB
-#					type = defensive_pact
-#				}
-#				create_diplomatic_pact = {
-#					country = c:NEJ
-#					type = defensive_pact
-#				}
-#				create_diplomatic_pact = {
-#					country = c:HDJ
-#					type = defensive_pact
-#				}
-#				change_relations = {
-#					country = c:JAB
-#					value = 100
-#				}
-#				change_relations = {
-#					country = c:NEJ
-#					value = 100
-#				}
-#				change_relations = {
-#					country = c:HDJ
-#					value = 100
-#				}
-#				set_tariffs_import_priority = g:small_arms
-#				set_tariffs_import_priority = g:artillery
-#			}
-#			c:JAB = {
-#				create_diplomatic_pact = {
-#					country = c:NEJ
-#					type = defensive_pact
-#				}
-#				create_diplomatic_pact = {
-#					country = c:HDJ
-#					type = defensive_pact
-#				}
-#				change_relations = {
-#					country = c:NEJ
-#					value = 100
-#				}
-#				change_relations = {
-#					country = c:HDJ
-#					value = 100
-#				}
-#			}
-#			c:NEJ = {
-#				create_diplomatic_pact = {
-#					country = c:HDJ
-#					type = defensive_pact
-#				}
-#				change_relations = {
-#					country = c:HDJ
-#					value = 100
-#				}
-#			}
-#			c:HDJ = {
-#				set_tariffs_import_priority = g:small_arms
-#				set_tariffs_import_priority = g:artillery
-#			}
-#		}
-#		create_diplomatic_play = {
-#			name = arab_independence_war
-#			target_country = c:SYR
-#			war = yes
-#			type = dp_make_puppet
-#			
-#			add_initiator_backers = {
-#				c:PER #In the future only if they choose to support you in the Arab Wars JE
-#				#c:SCA (wait until the Arab Wars JE)
-#			}
-#			
-#			add_target_backers = {
-#				c:TUR  #In the future only if they choose to support you in the Arab Wars JE
-#				#c:FRA (wait until the Arab Wars JE)
-#			}
-#			
-#			add_war_goal = {
-#				holder = c:AKN
-#				type = make_puppet
-#				target_country = c:HDJ
-#			}
-#			add_war_goal = {
-#				holder = c:AKN
-#				type = make_puppet
-#				target_country = c:NEJ
-#			}
-#			add_war_goal = {
-#				holder = c:AKN
-#				type = make_puppet
-#				target_country = c:JAB
-#			}
-#			add_war_goal = {
-#				holder = c:SYR
-#				type = return_state
-#				target_state = s:STATE_ALEPPO.region_state:AKN
-#			}
-#		}
-#	}
-#	option = {
-#		name = akkovin_crisis.2.b # Back down
-#		ai_value = 0
-#		add_modifier = {
-#			name = akn_back_down_arab_wars
-#			months = normal_modifier_time
-#		}
-#	}
 
 }
 

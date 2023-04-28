@@ -168,8 +168,7 @@
 	}
 	c:BYE = { # Belarus / Polack
 		effect_starting_technology_tier_3_tech = yes
-		
-		effect_starting_politics_reactionary = yes
+		effect_starting_politics_traditional = yes
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
@@ -203,8 +202,7 @@
 	}
 	c:CHR = { # Chernigov
 		effect_starting_technology_tier_3_tech = yes
-		
-		effect_starting_politics_reactionary = yes
+		effect_starting_politics_traditional = yes
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
@@ -1419,6 +1417,7 @@
 	}
 	c:RYA = { # Ryazan
 		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
@@ -1640,8 +1639,7 @@
 	}
 	c:SMO = { # Smolensk
 		effect_starting_technology_tier_3_tech = yes
-		
-		effect_starting_politics_reactionary = yes
+		effect_starting_politics_traditional = yes
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
@@ -1746,6 +1744,7 @@
 	}
 	c:TTR = { # Tatarstan
 		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
@@ -1773,6 +1772,11 @@
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_sunni_madrasahs
+		}
+		
+		add_modifier = {
+			name = cizye_tax
+			months = -1
 		}
 	}
 	c:TYR = { # Tyrol

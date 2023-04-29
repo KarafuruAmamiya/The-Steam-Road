@@ -16,3 +16,23 @@ on_monthly_pulse_country = {
 		akkovin_crisis.10
 	}
 }
+
+on_diplomatic_play_started = {
+	effect = {
+		if = {
+			limit = { 
+				#has_journal_entry = je_arab_nationalism_subject
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				any_diplomatic_play = {
+					initiator_is = ROOT
+					has_play_goal = independence
+				}
+				has_variable = independence_plot_leader
+				is_subject_of = c:AKN
+			}
+			trigger_event = { id = arab_wars.8 days = 0 }
+		}
+	}
+}

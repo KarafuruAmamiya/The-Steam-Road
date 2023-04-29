@@ -3562,6 +3562,25 @@ ai_strategy_default = {
 
 		independence = {
 			value = 100
+			if = { #Prevent Akkovin subjects from suiciding ahead of time
+				limit = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+					is_subject_of = c:AKN
+					NOT = { has_variable = independence_plot_leader }
+				}
+				add = -100
+			}
+			if = {
+				limit = {
+					has_variable = independence_plot_leader
+					any_country = {
+						has_variable = independence_plot
+					}
+				}
+				add = 100
+			}
 		}	
 
 		secession = {

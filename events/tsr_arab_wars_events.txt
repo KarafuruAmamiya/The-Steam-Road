@@ -67,7 +67,7 @@ arab_wars.1 = {
 		name = arab_wars.1.a
 		change_relations = {
 			country = scope:non_arab_overlord
-			value = -1000
+			value = -100
 		}
 		hidden_effect = {
 			set_secret_goal = {
@@ -140,6 +140,592 @@ arab_wars.2 = {
 				name = arab_revolt
 				years = 10
 			}
+		}
+	}
+}
+
+# Akkovin stance on Arabia
+arab_wars.3 = {
+	type = country_event
+	placement = root
+	title = arab_wars.3.t
+	desc = arab_wars.3.d
+	flavor = arab_wars.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+		#Triggered by Akkovin JE
+	}
+
+	immediate = {
+		every_subject_or_below = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+			}
+			save_scope_as = arab_subject
+		}
+	}
+
+	option = {
+		name = arab_wars.3.a
+		default_option = yes
+		change_relations = {
+			country = scope:arab_subject
+			value = -100 
+		}
+		scope:arab_subject = {
+			change_subject_type = subject_type_dependency
+		}
+		set_variable = centralization_stance
+		
+		ai_chance = {
+			base = 75
+		}
+	}
+	
+	option = {
+		name = arab_wars.3.b
+		change_relations = {
+			country = scope:arab_subject
+			value = 50
+		}
+		scope:arab_subject = {
+			change_subject_type = subject_type_dominion
+		}
+		set_variable = autonomous_stance
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+# Ask support from Great Power with interest in Arabia
+arab_wars.4 = {
+	type = country_event
+	placement = root
+	title = arab_wars.4.t
+	desc = arab_wars.4.d
+	flavor = arab_wars.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		ROOT = { save_scope_as = arab_country }
+		every_overlord_or_above = {
+			save_scope_as = overlord_scope
+		}
+		random_country = {
+			limit = {
+				country_rank = rank_value:great_power
+				relations:root >= relations_threshold:neutral
+				relations:root >= 0
+				OR = {
+					AND = {
+						is_player = yes
+						NOT = { ROOT = this }
+					}
+					has_attitude = {
+						who = root.top_overlord
+						attitude = domineering
+					}
+					has_attitude = {
+						who = root.top_overlord
+						attitude = belligerent
+					}
+					has_attitude = {
+						who = root.top_overlord
+						attitude = antagonistic
+					}
+				}
+				NOT = { has_war_with = ROOT }
+				OR = {
+					has_interest_marker_in_region = region_arabic
+					has_interest_marker_in_region = region_nile_basin
+					has_interest_marker_in_region = region_north_africa
+				}
+				NOT = {
+					has_journal_entry = je_arab_nationalism_overlord
+				}
+			}
+			save_scope_as = supporter_country
+		}
+	}
+
+	option = { #Get support from random country in exchange for obligation
+		name = arab_wars.4.a
+		default_option = yes
+		
+		set_variable = supporter_event_done
+		
+		scope:supporter_country = {
+			trigger_event = { id = arab_wars.5 days = 1 }
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { #Don't get help
+		name = arab_wars.4.b
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Great Power receives request to help
+arab_wars.5 = {
+	type = country_event
+	placement = root
+	title = arab_wars.5.t
+	desc = arab_wars.5.d
+	flavor = arab_wars.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = supporter_event_done
+			}
+			save_scope_as = arab_country
+			overlord = {
+				save_scope_as = arab_overlord
+			}
+		}
+	}
+
+	option = { #Get support from random country in exchange for obligation
+		name = arab_wars.5.a
+		default_option = yes
+		
+		custom_tooltip = {
+			text = support_arab_wars_tt
+			set_variable = support_arab_wars
+		}
+		change_relations = {
+			country = scope:arab_country
+			value = 50
+		}
+		
+		scope:arab_country = {
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+		
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = scope:arab_country
+				target_is = scope:arab_overlord
+			}
+			add_initiator_backers = {
+				ROOT
+			}
+		}
+		
+		hidden_effect = {
+			scope:arab_overlord = {
+				trigger_event = { id = arab_wars.6 days = 1 }
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { #Don't help
+		name = arab_wars.5.b
+		change_relations = {
+			country = scope:arab_country
+			value = -50
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Overlord gets notified their puppet gets independence supported
+arab_wars.6 = {
+	type = country_event
+	placement = root
+	title = arab_wars.6.t
+	desc = arab_wars.6.d
+	flavor = arab_wars.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = { has_variable = support_arab_wars }
+			save_scope_as = supporter_country
+		}
+	}
+
+	option = {
+		name = arab_wars.6.a
+		
+		change_relations = {
+			country = scope:supporter_country
+			value = -50
+		}
+	}
+}
+
+# Scripted Arab Independence Wars
+arab_wars.8 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = ROOT
+				target_is = c:AKN
+			}
+			add_war_goal = {
+				holder = c:AKN
+				type = annex_country
+				target_country = ROOT
+				primary_demand = yes
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SYR 
+				c:SYR = ROOT
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:SYR
+					type = return_state
+					target_state = s:STATE_ALEPPO.region_state:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:SYR
+					type = return_state
+					target_state = s:STATE_DEIR_EZ_ZOR.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SYR 
+				NOT = { c:SYR = ROOT }
+				c:SYR = { has_variable = independence_plot }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:SYR
+				}
+				add_war_goal = {
+					holder = c:SYR
+					type = independence
+					target_country = c:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:SYR
+					type = return_state
+					target_state = s:STATE_ALEPPO.region_state:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:SYR
+					type = return_state
+					target_state = s:STATE_DEIR_EZ_ZOR.region_state:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:AKN
+					type = annex_country
+					target_country = c:SYR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:HDJ 
+				NOT = { c:HDJ = ROOT }
+				c:HDJ = { has_variable = independence_plot }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:HDJ
+				}
+				add_war_goal = {
+					holder = c:HDJ
+					type = independence
+					target_country = c:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:AKN
+					type = annex_country
+					target_country = c:HDJ
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:NEJ 
+				NOT = { c:NEJ = ROOT }
+				c:NEJ = { has_variable = independence_plot }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:NEJ
+				}
+				add_war_goal = {
+					holder = c:NEJ
+					type = independence
+					target_country = c:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:AKN
+					type = annex_country
+					target_country = c:NEJ
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:JAB 
+				NOT = { c:JAB = ROOT }
+				c:JAB = { has_variable = independence_plot }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:JAB
+				}
+				add_war_goal = {
+					holder = c:JAB
+					type = independence
+					target_country = c:AKN
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:AKN
+					type = annex_country
+					target_country = c:JAB
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = ROOT
+					target_is = c:AKN
+				}
+				add_target_backers = {
+					c:PER
+				}
+			}
+		}
+		
+		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:artillery
+	}
+}
+
+# Akkovin Arab subjects plot for independence
+arab_wars.9 = {
+	type = country_event
+	placement = root
+	title = arab_wars.9.t
+	desc = arab_wars.9.d
+	flavor = arab_wars.9.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		country_rank >= rank_value:minor_power
+		any_primary_culture = {
+			has_discrimination_trait = arabic_heritage
+		}
+		is_subject_of = c:AKN
+		exists = c:AKN
+		c:AKN = { has_variable = centralization_stance }
+		NOT = { has_variable = independence_plot_leader }
+		NOT = {
+			any_country = {
+				has_variable = independence_plot
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = independence_plot_leader
+		ROOT = { save_scope_as = independence_leader }
+	}
+	option = {
+		name = arab_wars.9.a
+		every_country = {
+			limit = {
+				NOT = { ROOT = this }
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				is_subject_of = c:AKN
+			}
+			trigger_event = { id = arab_wars.10 days = 0 }
+		}
+	}
+}
+
+# Join the independence plot?
+arab_wars.10 = {
+	type = country_event
+	placement = root
+	title = arab_wars.10.t
+	desc = arab_wars.10.d
+	flavor = arab_wars.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = independence_plot_leader
+			}
+			save_scope_as = independence_leader
+		}
+		ROOT = { save_scope_as = independence_plot_member }
+	}
+	
+	option = {
+		name = arab_wars.10.a
+		default_option = yes
+		
+		set_variable = independence_plot
+		
+		scope:independence_leader = {
+			post_notification = country_joins_independence_plot
+		}
+		
+		ai_chance = {
+			base = 75
+		}
+	}
+	option = {
+		name = arab_wars.10.b
+		
+		ai_chance = {
+			base = 25
 		}
 	}
 }

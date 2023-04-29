@@ -15,7 +15,6 @@
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 			is_subject_type = subject_type_vassal
-			is_subject_type = subject_type_dominion
 		}
 		any_overlord_or_above = {
 			NOT = {
@@ -28,7 +27,20 @@
 	
 	possible = {
 		has_technology_researched = nationalism
-		has_global_variable = nahda_start
+		custom_tooltip = {
+			text = nahda_start_tt
+			has_global_variable = nahda_start
+		}
+		any_overlord_or_above = {
+			OR = {
+				has_journal_entry = je_springtime_of_the_peoples
+				any_neighbouring_state = {
+					owner = {
+						has_journal_entry = je_springtime_of_the_peoples
+					}
+				}
+			}
+		}
 		#will add more criterias soon
 	}
 	
@@ -51,7 +63,58 @@
 	}
 
 	on_monthly_pulse = {
-		
+		effects = {
+			if = {
+				limit = {
+					any_overlord_or_above = {
+						any_subject_or_below = {
+							NOT = { has_variable = supporter_event_done }
+						}
+					}
+					any_country = {
+						country_rank = rank_value:great_power
+						relations:root >= relations_threshold:neutral
+						relations:root >= 0
+						NOT = { has_war_with = ROOT }
+						OR = {
+							has_interest_marker_in_region = region_arabic
+							has_interest_marker_in_region = region_nile_basin
+							has_interest_marker_in_region = region_north_africa
+						}
+						OR = {
+							AND = {
+								is_player = yes
+								NOT = { ROOT = this }
+							}
+							has_attitude = {
+								who = root.top_overlord
+								attitude = domineering
+							}
+							has_attitude = {
+								who = root.top_overlord
+								attitude = belligerent
+							}
+							has_attitude = {
+								who = root.top_overlord
+								attitude = antagonistic
+							}
+						}
+						NOT = {
+							has_journal_entry = je_arab_nationalism_overlord
+						}
+					}
+					any_diplomatic_play = {
+						initiator_is = ROOT
+						has_play_goal = independence
+						is_war = no
+					}
+				}
+				trigger_event = { id = arab_wars.4 }
+			}
+		}
+		events = {
+			arab_wars.9 #Independence plot
+		}
 	}
 
 	invalid = {
@@ -127,6 +190,56 @@ je_arab_nationalism_overlord = {
 		custom_tooltip = {
 			text = arab_rev_start_tt
 			has_global_variable = arab_rev
+		}
+		custom_tooltip = {
+			text = nahda_start_tt
+			has_global_variable = nahda_start
+		}
+		OR = { #The versions for Persia, Ottomans, and Iberia will be added in the future
+			trigger_if = {
+				limit = {
+					c:AKN = ROOT
+				}
+				custom_tooltip = {
+					text = akturkification_start_tt
+					has_global_variable = akturkification_start
+				}
+			}
+#			trigger_if = {
+#				limit = {
+#					c:TUR = ROOT
+#				}
+#				custom_tooltip = {
+#					text = turkification_start_tt
+#					has_global_variable = turkification_start
+#				}
+#			}
+#			trigger_if = {
+#				limit = {
+#					c:PER = ROOT
+#				}
+#				custom_tooltip = {
+#					text = persianization_start_tt
+#					has_global_variable = persianization_start
+#				}
+#			}
+#			trigger_if = {
+#				limit = {
+#					c:IBE = ROOT
+#				}
+#				custom_tooltip = {
+#					text = castilianization_start_tt
+#					has_global_variable = castilianization_start
+#				}
+#			}
+			OR = {
+				has_journal_entry = je_springtime_of_the_peoples
+				any_neighbouring_state = {
+					owner = {
+						has_journal_entry = je_springtime_of_the_peoples
+					}
+				}
+			}
 		}
 	}
 	
@@ -206,7 +319,10 @@ je_arab_nationalism_overlord = {
 	}
 
 	on_fail = {
-		
+		if = {
+			limit = { exists = c:AKN c:AKN = this }
+			trigger_event = { id =  days =  }
+		}
 	}
 
 	on_monthly_pulse = {

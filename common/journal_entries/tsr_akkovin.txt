@@ -17,6 +17,7 @@
 				count < 9
 			}
 			NOT = {
+				is_at_war = no
 				country_or_subject_owns_entire_state_region = STATE_SYRIA
 				country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
 				country_or_subject_owns_entire_state_region = STATE_PALESTINE
@@ -67,6 +68,14 @@
 						c:PER = { trigger_event = akkovin_crisis.4 }
 					}
 				}
+			}
+			if = {
+				limit = {
+					has_variable = completed_akkovin_reform_economy_je
+					has_variable = completed_akkovin_reform_education_je
+					NOT = { has_variable = ideology_change }
+				}
+				trigger_event = { id = akkovin_crisis.2 }
 			}
 		}
 	}
@@ -680,7 +689,10 @@ je_akkovin_reform_arabia = {
 			AND = {
 				c:SYR = {
 					is_subject_of = ROOT
-					is_subject_type = subject_type_dependency
+					OR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_dominion
+					}
 					has_attitude = {
 						who = ROOT
 						attitude = loyal
@@ -688,7 +700,10 @@ je_akkovin_reform_arabia = {
 				}
 				c:HDJ = {
 					is_subject_of = ROOT
-					is_subject_type = subject_type_dependency
+					OR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_dominion
+					}
 					has_attitude = {
 						who = ROOT
 						attitude = loyal
@@ -696,7 +711,10 @@ je_akkovin_reform_arabia = {
 				}
 				c:NEJ = {
 					is_subject_of = ROOT
-					is_subject_type = subject_type_dependency
+					OR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_dominion
+					}
 					has_attitude = {
 						who = ROOT
 						attitude = loyal
@@ -704,7 +722,10 @@ je_akkovin_reform_arabia = {
 				}
 				c:JAB = {
 					is_subject_of = ROOT
-					is_subject_type = subject_type_dependency
+					OR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_dominion
+					}
 					has_attitude = {
 						who = ROOT
 						attitude = loyal
@@ -779,24 +800,27 @@ je_akkovin_reform_arabia = {
 					add = 1
 				}
 			}
+			if = {
+				limit = {
+					custom_tooltip = {
+						text = nahda_start_tt
+						has_global_variable = nahda_start
+					}
+					any_subject_or_below = {
+						has_journal_entry = je_arab_nationalism_subject
+					}
+					NOT = {
+						OR = { has_variable = centralization_stance }
+						OR = { has_variable = autonomous_stance }
+					}
+				}
+				trigger_event = { id = arab_wars.3 }
+			}
 		}
 	}
 	
 	fail = {
-		OR = {
-			cu:iraqi = {
-				culture_secession_progress = {
-					target = ROOT
-					value > 0.9
-				}
-			}
-			cu:levantine = {
-				culture_secession_progress = {
-					target = ROOT
-					value > 0.9
-				}
-			}
-		}
+		has_variable = arab_wars
 	}
 
 	current_value = {

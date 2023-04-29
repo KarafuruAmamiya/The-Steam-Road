@@ -1475,3 +1475,53 @@ akkovin_crisis.16 = {
 		}
 	}
 }
+
+# Akkovin leaders embrace reform
+akkovin_crisis.17 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.17.t
+	desc = akkovin_crisis.17.d
+	flavor = akkovin_crisis.17.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/asia_politician_parliament_motion.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	immediate = {
+		set_variable = ideology_change
+	}
+
+	option = {
+		name = akkovin_crisis.17.a
+		if = {
+			limit = {
+				any_scope_character = {
+					has_variable = is_ali_iv
+				}
+			}
+			random_scope_character = {
+				limit = { has_variable = is_ali_iv }
+				set_ideology = ideology_moderate_reformer
+			}
+		}
+		if = {
+			limit = {
+				any_scope_character = {
+					has_variable = is_halil
+				}
+			}
+			random_scope_character = {
+				limit = { has_variable = is_halil }
+				set_ideology = ideology_reformer
+			}
+		}
+	}
+}

@@ -12,8 +12,8 @@
 	
 	lawgroup_childrens_rights = {
 		law_child_labor_allowed = disapprove
-		law_restricted_child_labor = neutral
-		law_compulsory_primary_school = approve
+		law_restricted_child_labor = approve
+		law_compulsory_primary_school = neutral
 	}
 	
 	lawgroup_labor_rights = {		
@@ -24,7 +24,7 @@
 	}
 	
 	lawgroup_slavery = {
-		law_slavery_banned = neutral
+		law_slavery_banned = disapprove
 		law_legacy_slavery = neutral
 		law_debt_slavery = disapprove
 		law_slave_trade = disapprove
@@ -33,6 +33,7 @@
 	
 	possible = {
 		owner = {
+			NOT = { has_law = law_type:law_slavery_banned }
 			NOT = { has_technology_researched = human_rights }
 			NOT = { has_technology_researched = egalitarianism } #Switch to reformer instead
 		}

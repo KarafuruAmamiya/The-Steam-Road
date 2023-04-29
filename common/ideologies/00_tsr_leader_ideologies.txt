@@ -16,6 +16,13 @@
 		law_serfdom = disapprove
 	}
 	
+	lawgroup_slavery = {
+		law_slavery_banned = neutral
+		law_legacy_slavery = neutral
+		law_debt_slavery = disapprove
+		law_slave_trade = disapprove
+	}
+	
 	
 	possible = {
 		owner = {
@@ -42,6 +49,8 @@
 				owner = {
 					NOR = {
 						has_law = law_type:law_serfdom
+						has_law = law_type:law_debt_slavery
+						has_law = law_type:law_slave_trade
 						has_law = law_type:law_child_labor_allowed
 					}
 				}
@@ -70,6 +79,8 @@
 				owner = {
 					OR = {
 						has_law = law_type:law_serfdom
+						has_law = law_type:law_debt_slavery
+						has_law = law_type:law_slave_trade
 						has_law = law_type:law_child_labor_allowed
 					}
 				}

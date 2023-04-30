@@ -1,0 +1,169 @@
+﻿namespace = arab_unification
+
+# Unified Arabia
+arab_unification.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = arab_unification.1.t
+	desc = arab_unification.1.d
+	flavor = arab_unification.1.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+		ruler.interest_group = {
+			save_scope_as = ruler_ig_scope
+		}
+	}
+
+	option = {
+		name = arab_unification.1.a
+		default_option = yes
+		give_claims_on_arabia = yes
+		# prestige
+		add_modifier = {
+			name = arab_unifier_prestige
+			months = long_modifier_time
+		}
+	}
+	option = {
+		name = german_unification.1.b
+		give_claims_on_arabia = yes
+		# ruler IG attraction
+		scope:ruler_ig_scope = {
+			add_modifier = {
+				name = arab_unifier_ig
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Annex an Arab country
+arab_unification.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = arab_unification.2.t
+	desc = arab_unification.2.d
+	flavor = arab_unification.2.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_signed_contract.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 1
+
+	trigger = {
+		any_neighbouring_state = {
+			owner = {
+				OR = {
+					country_has_primary_culture = cu:levantine
+					country_has_primary_culture = cu:mashriqi
+					country_has_primary_culture = cu:iraqi
+					country_has_primary_culture = cu:misri
+					country_has_primary_culture = cu:khaleeji
+					country_has_primary_culture = cu:omani
+					country_has_primary_culture = cu:yemenite
+					country_has_primary_culture = cu:hadramhi
+					country_has_primary_culture = cu:bedouin
+				}
+				OR = {
+					is_subject = no
+					is_subject_of = ROOT
+				}
+				has_diplomatic_pact = {
+					who = ROOT
+					type = customs_union
+				}
+				country_rank <= rank_value:unrecognized_regional_power
+				relations:root >= relations_threshold:amicable
+				is_player = no
+				NOT = { has_variable = arab_minor_dont_annex }
+			}
+		}
+		is_unification_candidate = ARA	
+	}
+
+	immediate = {
+		random_neighbouring_state = {
+			limit = {
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:levantine
+						country_has_primary_culture = cu:mashriqi
+						country_has_primary_culture = cu:iraqi
+						country_has_primary_culture = cu:misri
+						country_has_primary_culture = cu:khaleeji
+						country_has_primary_culture = cu:omani
+						country_has_primary_culture = cu:yemenite
+						country_has_primary_culture = cu:hadramhi
+						country_has_primary_culture = cu:bedouin
+					}
+					OR = {
+						is_subject = no
+						is_subject_of = ROOT
+					}
+					has_diplomatic_pact = {
+						who = ROOT
+						type = customs_union
+					}
+					country_rank <= rank_value:unrecognized_regional_power
+					relations:root >= relations_threshold:amicable
+					is_player = no
+					NOT = { has_variable = arab_minor_dont_annex }
+				}
+			}
+			owner = {
+				save_scope_as = arab_annex_country
+			}
+		}
+	}
+
+	option = {
+		name = arab_unification.2.a
+		default_option = yes
+		create_incident = {
+			country = scope:arab_annex_country
+			value = 10
+		}
+		annex = scope:arab_annex_country
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = arab_unification.2.b
+		change_relations = {
+			country = scope:arab_annex_country
+			value = 20
+		}
+		scope:arab_annex_country = {
+			set_variable = {
+				name = arab_minor_dont_annex
+				months = normal_modifier_time
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}

@@ -412,6 +412,8 @@ akkovin_crisis.6 = {
 
 	option = {
 		name = akkovin_crisis.6.a
+		default_option = yes
+		
 		trigger = {
 			c:AKN = ROOT
 		}
@@ -480,7 +482,7 @@ akkovin_crisis.7 = {
 		}
 		
 		ai_chance = {
-			base = 50
+			base = 25
 		}
 		
 		c:PER = { trigger_event = { id = treaty_of_baglar_events.1 days = 1 } }
@@ -502,12 +504,13 @@ akkovin_crisis.7 = {
 			type = defensive_pact
 		}
 		
-		ai_chance = {
-			base = 50
-		}
 		custom_tooltip = no_renewing_baglar_tt
 		
 		c:PER = { trigger_event = { id = treaty_of_baglar_events.2 days = 1 } }
+		
+		ai_chance = {
+			base = 75
+		}
 	}
 }
 

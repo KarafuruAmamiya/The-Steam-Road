@@ -740,7 +740,13 @@ ai_strategy_default = {
 					}						
 				}
 				add = 200
-			}		
+			}
+			if = {
+				limit = {
+					has_journal_entry = je_arab_unification
+				}
+				add = 1000
+			}
 		}
 		region_north_africa = {
 			if = {
@@ -754,7 +760,13 @@ ai_strategy_default = {
 					}		
 				}
 				add = 200
-			}		
+			}
+			if = {
+				limit = {
+					has_journal_entry = je_arab_unification
+				}
+				add = 1000
+			}			
 		}
 		region_senegal = {
 			if = {
@@ -998,6 +1010,12 @@ ai_strategy_default = {
 				}
 				add = 100 #More likely to interfere during Arab Wars
 			}
+			if = {
+				limit = {
+					has_journal_entry = je_arab_unification
+				}
+				add = 1000
+			}	
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
 					country_rank <= rank_value:great_power

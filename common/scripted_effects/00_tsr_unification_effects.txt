@@ -1,0 +1,40 @@
+﻿give_claims_on_arabia = {
+	every_state = {
+		limit = {
+			NOT = { owner = ROOT has_claim_by = ROOT }
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
+					is_homeland = cu:hadramhi 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+			}
+		}
+		state_region = { add_claim = ROOT }
+	}
+}

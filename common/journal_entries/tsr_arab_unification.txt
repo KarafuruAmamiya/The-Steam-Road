@@ -1,0 +1,130 @@
+﻿je_arab_unification = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	is_shown_when_inactive = {
+		AND = {
+			OR = {
+				country_has_primary_culture = cu:levantine
+				country_has_primary_culture = cu:mashriqi
+				country_has_primary_culture = cu:iraqi
+				country_has_primary_culture = cu:misri
+				country_has_primary_culture = cu:khaleeji
+				country_has_primary_culture = cu:omani
+				country_has_primary_culture = cu:yemenite
+				country_has_primary_culture = cu:hadramhi
+				country_has_primary_culture = cu:bedouin
+			}
+			NOT = { exists = c:ARA }
+		}
+	}
+
+	possible = {
+		country_rank >= rank_value:unrecognized_regional_power
+		has_technology_researched = nationalism
+		is_subject = no
+		custom_tooltip = {
+			text = nahda_start_tt
+			has_global_variable = nahda_start
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			every_state = {
+				limit = {
+					OR = {
+						state_region = { 
+							is_homeland = cu:levantine 
+						}
+						state_region = { 
+							is_homeland = cu:mashriqi 
+						}
+						state_region = { 
+							is_homeland = cu:iraqi 
+						}
+						state_region = { 
+							is_homeland = cu:misri 
+						}
+						state_region = { 
+							is_homeland = cu:khaleeji 
+						}
+						state_region = { 
+							is_homeland = cu:omani 
+						}
+						state_region = { 
+							is_homeland = cu:yemenite 
+						}
+						state_region = { 
+							is_homeland = cu:hadramhi 
+						}
+						state_region = { 
+							is_homeland = cu:bedouin 
+						}
+					}
+				}
+				state_region = { add_claim = ROOT }
+			}
+		}
+	}
+	
+	complete = {
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}
+		calc_true_if = {
+			any_scope_state = {
+				count >= 15
+				OR = {
+					state_region = s:STATE_HEDJAZ
+					state_region = s:STATE_MEDINA
+					state_region = s:STATE_NEJD
+					state_region = s:STATE_HAIL
+					state_region = s:STATE_SYRIA
+					state_region = s:STATE_ALEPPO
+					state_region = s:STATE_HAMA
+					state_region = s:STATE_TRANSJORDAN
+					state_region = s:STATE_PALESTINE
+					state_region = s:STATE_ALEXANDRIA
+					state_region = s:STATE_LOWER_EGYPT
+					state_region = s:STATE_MIDDLE_EGYPT
+					state_region = s:STATE_UPPER_EGYPT
+					state_region = s:STATE_SINAI
+					state_region = s:STATE_HAASA
+					state_region = s:STATE_BAGHDAD
+					state_region = s:STATE_MUSCAT
+					state_region = s:STATE_NIZWA
+					state_region = s:STATE_YEMEN
+					state_region = s:STATE_ADEN
+				}
+				
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		events = {
+			arab_unification.2 # confederation
+		}
+		effect = {
+			if = { 
+				limit = { NOT = { has_variable = je_unification_progress } } 
+				set_variable = je_unification_progress
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = arab_unification.1 }
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_arab_status
+			}
+		}
+	}
+
+	weight = 100
+}

@@ -128,46 +128,6 @@ LAO = { # Laos
 	}
 }
 
-ARA = { # Arabia
-	states = {
-		STATE_YEMEN
-		STATE_ADEN
-		STATE_NIZWA
-		STATE_MUSCAT
-		STATE_DHOFAR
-		STATE_ALWUSTA
-		STATE_HADHRAMAUT
-		STATE_ABU_DHABI
-		STATE_NEJD
-		STATE_HEDJAZ
-		STATE_HAIL
-		STATE_BAGHDAD
-		STATE_TRANSJORDAN
-		STATE_PALESTINE
-		STATE_LEBANON
-		STATE_SYRIA
-		STATE_HAMA
-		STATE_ALEPPO
-		STATE_MOSUL
-		STATE_DEIR_EZ_ZOR
-		STATE_BASRA
-		STATE_HAASA
-		STATE_QATAR
-		STATE_MEDINA
-		STATE_ANBAR
-		STATE_SHAHRIZOR
-	}
-
-	required_states_fraction = 0.45	
-
-	ai_will_do = { always = yes }
-
-	possible = {
-		has_technology_researched = pan-nationalism
-		is_subject = no
-	}
-}
-
 KUR = { # Kurdistan
 	use_culture_states = yes
 	
@@ -430,6 +390,77 @@ TRH = { # Turkestan
 				country_has_primary_culture = cu:kirgiz
 			}			
 			has_technology_researched = pan-nationalism
+		}
+	}
+}
+
+ARA = { # Arabia
+	is_major_formation = yes
+	
+	unification_play = dp_unify_arabia
+	leadership_play = dp_leadership_arabia
+
+	states = {
+		STATE_HEDJAZ
+        STATE_MEDINA
+		STATE_NEJD
+		STATE_HAIL
+        STATE_SYRIA
+        STATE_ALEPPO
+        STATE_PALESTINE
+        STATE_HAMA
+        STATE_TRANSJORDAN
+        STATE_ALEXANDRIA
+        STATE_LOWER_EGYPT
+        STATE_MIDDLE_EGYPT
+        STATE_BENI_SUEF
+        STATE_SINAI
+        STATE_HAASA
+        STATE_BAGHDAD
+        STATE_MUSCAT
+        STATE_NIZWA
+        STATE_YEMEN
+        STATE_ADEN
+	}
+	
+	required_states_fraction = 0.75
+
+	ai_will_do = { has_technology_researched = nationalism }
+
+	possible = {
+		is_subject = no
+		OR = {
+			country_has_primary_culture = cu:levantine
+			country_has_primary_culture = cu:mashriqi
+			country_has_primary_culture = cu:iraqi
+			country_has_primary_culture = cu:misri
+			country_has_primary_culture = cu:khaleeji
+			country_has_primary_culture = cu:omani
+			country_has_primary_culture = cu:yemenite
+			country_has_primary_culture = cu:hadramhi
+			country_has_primary_culture = cu:bedouin
+		}
+		any_country = {
+			AND = {
+				OR = {
+					country_has_primary_culture = cu:levantine
+					country_has_primary_culture = cu:mashriqi
+					country_has_primary_culture = cu:iraqi
+					country_has_primary_culture = cu:misri
+					country_has_primary_culture = cu:khaleeji
+					country_has_primary_culture = cu:omani
+					country_has_primary_culture = cu:yemenite
+					country_has_primary_culture = cu:hadramhi
+					country_has_primary_culture = cu:bedouin
+				}
+				OR = {
+					custom_tooltip = {
+						text = arab_wars_happened_tt
+						has_global_variable = arab_wars_happened
+					}
+					has_technology_researched = nationalism
+				}
+			}
 		}
 	}
 }

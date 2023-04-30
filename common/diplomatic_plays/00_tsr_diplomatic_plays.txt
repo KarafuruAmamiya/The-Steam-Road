@@ -99,33 +99,7 @@ dp_unify_turkestan = {
 	  
 	possible = {
 		NOT = { is_country_type = decentralized }
-
-   
-			OR = {
-                custom_tooltip = {
-				text = turkestan_unification_criteria
-					OR = {
-						NOT = { exists = c:BUK }
-						NOT = {
-							AND = {
-								exists = c:BUK
-								c:BUK = {
-									any_scope_state = {
-										state_region = {
-											state_is_in_central_asia = yes
-										}
-									}
-								}
-							}
-						}
-					}
-           			
-					   
-                }
-		}
-
-        
-       
+		NOT = { exists = c:BUK }  
 		has_technology_researched = pan-nationalism
 		is_subject = no
 		can_form_nation = TRH
@@ -157,6 +131,7 @@ dp_leadership_turkestan= {
 	
 	possible = {
 		NOT = { is_country_type = decentralized }
+		NOT = { exists = c:BUK }
 		has_technology_researched = pan-nationalism
 		is_subject = no
 		can_form_nation = TRH
@@ -165,6 +140,70 @@ dp_leadership_turkestan= {
 			aggressive_diplomatic_plays_permitted = yes
 			can_form_nation = TRH
 		}
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_unify_arabia = {
+	war_goal = annex_country
+	
+	texture = "gfx/interface/icons/war_goals/unification.dds"
+	
+	selectable_in_lens = {
+		can_form_nation = ARA
+	}
+	
+	possible = {
+		NOT = { exists = c:ARA }
+		NOT = { is_country_type = decentralized }
+		has_technology_researched = pan-nationalism
+		is_subject = no
+		can_form_nation = ARA
+
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			aggressive_diplomatic_plays_permitted = yes
+			custom_tooltip = {
+				text = ARA_tt
+				can_form_nation = ARA
+			}
+		}
+	}
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}
+
+dp_leadership_arabia = {
+	war_goal = unification_leadership
+	
+	requires_interest_marker = no
+	mirror_war_goal = yes
+	
+	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+	
+	selectable_in_lens = {
+		always = no
+	}	
+	
+	possible = {
+		NOT = { is_country_type = decentralized }
+		has_technology_researched = pan-nationalism
+		is_subject = no
+		can_form_nation = ARA
+		scope:target = {
+			NOT = { is_country_type = decentralized }
+			aggressive_diplomatic_plays_permitted = yes
+			can_form_nation = ARA
+		}			
 	}
 	
 	on_weekly_pulse = {}

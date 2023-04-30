@@ -263,11 +263,6 @@ arab_wars.4 = {
 					}
 				}
 				NOT = { has_war_with = ROOT }
-				OR = {
-					has_interest_marker_in_region = region_arabic
-					has_interest_marker_in_region = region_nile_basin
-					has_interest_marker_in_region = region_north_africa
-				}
 				NOT = {
 					has_journal_entry = je_arab_nationalism_overlord
 				}
@@ -282,8 +277,16 @@ arab_wars.4 = {
 		
 		set_variable = supporter_event_done
 		
-		scope:supporter_country = {
-			trigger_event = { id = arab_wars.5 days = 1 }
+		if = {
+			limit = { c:EGY = ROOT exists = c:EGY }
+			scope:supporter_country = {
+				trigger_event = { id = arab_wars.18 days = 1 }
+			}
+		}
+		else = {
+			scope:supporter_country = {
+				trigger_event = { id = arab_wars.5 days = 1 }
+			}
 		}
 		
 		ai_chance = {
@@ -411,9 +414,43 @@ arab_wars.6 = {
 	}
 
 	immediate = {
-		random_country = {
-			limit = { has_variable = support_arab_wars }
-			save_scope_as = supporter_country
+		if = {
+			limit = {
+				exists = c:PER
+				c:PER = ROOT
+				c:PER = {
+					has_journal_entry = je_arab_wars_per
+				}
+			}
+			random_country = {
+				limit = { 
+					has_variable = support_arab_wars_per 
+				}
+				save_scope_as = supporter_country
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:TUR
+				c:TUR = ROOT
+				c:TUR = {
+					has_journal_entry = je_arab_wars_tur
+				}
+			}
+			random_country = {
+				limit = { 
+					has_variable = support_arab_wars_egy
+				}
+				save_scope_as = supporter_country
+			}
+		}
+		else = {
+			random_country = {
+				limit = { 
+					has_variable = support_arab_wars
+				}
+				save_scope_as = supporter_country
+			}
 		}
 	}
 
@@ -427,6 +464,67 @@ arab_wars.6 = {
 	}
 }
 
+# Arab Wars - Akkovin Confederation
+arab_wars.7 = {
+	type = country_event
+	placement = root
+	title = arab_wars.7.t
+	desc = arab_wars.7.d
+	flavor = arab_wars.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = arab_wars.7.a
+		
+		s:STATE_SYRIA = {
+			add_claim = c:AKN
+		}
+		s:STATE_TRANSJORDAN = {
+			add_claim = c:AKN
+		}
+		s:STATE_PALESTINE = {
+			add_claim = c:AKN
+		}
+		s:STATE_LEBANON = {
+			add_claim = c:AKN
+		}
+		s:STATE_HAMA = {
+			add_claim = c:AKN
+		}
+		s:STATE_HEDJAZ = {
+			add_claim = c:AKN
+		}
+		s:STATE_MEDINA = {
+			add_claim = c:AKN
+		}
+		s:STATE_NEJD = {
+			add_claim = c:AKN
+		}
+		s:STATE_HALIL = {
+			add_claim = c:AKN
+		}
+		
+		add_journal_entry = {
+			type = je_arab_wars_akn
+		}
+	}
+}
 # Scripted Arab Independence Wars
 arab_wars.8 = {
 	type = country_event
@@ -436,6 +534,9 @@ arab_wars.8 = {
 	}
 
 	immediate = {
+		c:AKN = {
+			trigger_event = { id = arab_wars.7 }
+		}
 		random_diplomatic_play = {
 			limit = {
 				initiator_is = ROOT
@@ -726,6 +827,891 @@ arab_wars.10 = {
 		
 		ai_chance = {
 			base = 25
+		}
+	}
+}
+
+#Rise of the Iraqi Republic (Hidden)
+arab_wars.11 = {
+	type = country_event
+	hidden = yes
+	duration = 0
+
+	trigger = {
+		exists = c:PER
+		this = c:PER
+		NOT = { exists = c:IRQ }
+		has_state_in_state_region = STATE_BAGHDAD
+		has_state_in_state_region = STATE_BASRA
+		has_state_in_state_region = STATE_NASIRIYA
+		any_scope_state = { 
+			AND = {	
+	    		state_region = { 
+					is_homeland = cu:iraqi
+				}
+				OR = {
+					turmoil >= 0.15
+					radical_fraction = {
+						value >= 0.25
+					}
+				}
+			}
+		}
+		has_journal_entry = je_arab_nationalism_overlord
+		NOT = { has_global_variable = iraq_created }
+	}
+
+	immediate = {
+		set_global_variable = iraq_created
+		create_country = { #Republic of Iraq
+			tag = IRQ
+			origin = this
+			state = s:STATE_BAGHDAD.region_state:PER
+			state = s:STATE_BASRA.region_state:PER
+			state = s:STATE_NASIRIYA.region_state:PER
+			on_created = {
+				if = {
+					limit = {
+						NOT = { has_technology_researched = democracy }
+					}
+					add_technology_researched = democracy
+				}
+				activate_law = law_type:law_presidential_republic
+				activate_law = law_type:law_wealth_voting
+				activate_law = law_type:law_freedom_of_conscience
+				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_appointed_bureaucrats
+				activate_law = law_type:law_mercantilism
+				activate_law = law_type:law_interventionism
+				activate_law = law_type:law_slavery_banned
+				call_election = {
+					months = 48
+				}
+				ig:ig_intelligentsia = {
+					add_ruling_interest_group = yes
+					add_modifier = {
+						name = iraq_ig_str
+						months = long_modifier_time
+					}
+				}
+				ig:ig_industrialists = {
+					add_ruling_interest_group = yes
+					add_modifier = {
+						name = iraq_ig_str
+						months = long_modifier_time
+					}
+				}
+				ig:ig_petty_bourgeoisie = {
+					add_ruling_interest_group = yes
+					add_modifier = {
+						name = iraq_ig_str
+						months = long_modifier_time
+					}
+				}
+				set_variable = {
+					name = iraq_var
+					value = yes
+				}
+				set_variable = {
+					name = adopt_western_uniforms
+					value = yes
+				}
+			}		
+		}
+		trigger_event = {
+			id = arab_wars.12
+			days = 1
+			popup = yes
+		}
+	}
+}
+
+
+#Arab Wars - Rise of Iraqi Republic
+arab_wars.12 = {
+	type = country_event
+	placement = scope:baghdad_scope
+
+	title = arab_wars.12.t
+	desc = arab_wars.12.d
+	flavor = arab_wars.12.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	duration = 1
+
+	trigger = {
+		c:IRQ = {
+			has_variable = iraq_var
+		}
+	}
+
+	immediate = {
+		c:IRQ = {
+			save_scope_as = iraq_scope
+			remove_variable = iraq_var
+		}
+		s:STATE_BAGHDAD = {
+			random_scope_state = {
+				save_scope_as = baghdad_scope
+			}
+		}
+	}
+
+	option = {
+		name = arab_wars.12.a
+		default_option = yes
+
+		change_relations = {
+			country = c:IRQ
+			value = -100
+	    }
+		trigger_event = {
+			id = arab_wars.14
+		}
+
+	    ai_chance = {
+			base = 95	
+		}
+    }
+
+	option = {
+		name = arab_wars.12.b
+
+     	play_as = c:IRQ
+		change_relations = {
+			country = c:IRQ
+			value = -100
+	    }
+		trigger_event = {
+			id = arab_wars.14
+		}
+
+	    ai_chance = {
+			base = 0	
+		}
+    }
+}
+
+#Aftermath of The Arab Uprisings
+arab_wars.13 = {
+	type = country_event
+	placement = root
+
+	title = arab_wars.13.t
+	desc = arab_wars.13.d
+	flavor = arab_wars.13.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	duration = 1
+
+	immediate = {
+	}
+
+	option = {
+		name = arab_wars.13.a
+		default_option = yes
+
+		add_modifier = {
+			name = je_arab_uprisings_fail
+			months = long_modifier_time
+		}
+		add_radicals = {
+			strata = poor
+			value = 0.1
+		}
+		add_radicals = {
+			strata = middle
+			value = 0.1
+		}
+		if = {
+			limit = {
+				any_state = {
+					OR = {
+						state_is_in_middle_east = yes
+						state_is_in_north_africa = yes
+					}
+					has_claim_by = ROOT
+				}
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state_is_in_middle_east = yes
+						state_is_in_north_africa = yes
+						has_claim_by = ROOT
+					}
+				}
+				state_region = {
+					remove_claim = ROOT
+				}
+			}
+		}
+
+	    ai_chance = {
+			base = 1	
+		}
+    }
+}
+
+#Arab Wars - The Sheikhs of Haasa joins the revolt!
+arab_wars.14 = {
+	type = country_event
+	placement = scope:haasa_scope
+
+	title = arab_wars.14.t
+	desc = arab_wars.14.d
+	flavor = arab_wars.14.f
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	duration = 1
+
+	immediate = {
+		if = {
+			limit = {
+				any_country = {
+					country_rank = rank_value:great_power
+					OR = {
+						AND = {
+							is_player = yes
+							NOT = { ROOT = this }
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = domineering
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = antagonistic
+						}
+					}
+					NOT = {
+						has_journal_entry = je_arab_nationalism_overlord
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					country_rank = rank_value:great_power
+					OR = {
+						AND = {
+							is_player = yes
+							NOT = { ROOT = this }
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = domineering
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = antagonistic
+						}
+					}
+					NOT = {
+						has_journal_entry = je_arab_nationalism_overlord
+					}
+				}
+				save_scope_as = supporter_country
+			}
+		}
+		s:STATE_HAASA = {
+			random_scope_state = {
+				save_scope_as = haasa_scope
+			}
+		}
+		create_country = { #United Emirates of Haasa
+			tag = HAA
+			origin = this
+			state = s:STATE_HAASA.region_state:PER
+			state = s:STATE_QATAR.region_state:PER
+			state = s:STATE_ABU_DHABI.region_state:PER
+			on_created = {
+				activate_law = law_type:law_monarchy
+				activate_law = law_type:law_wealth_voting
+				activate_law = law_type:law_freedom_of_conscience
+				activate_law = law_type:law_racial_segregation
+				activate_law = law_type:law_appointed_bureaucrats
+				activate_law = law_type:law_mercantilism
+				activate_law = law_type:law_interventionism
+				activate_law = law_type:law_legacy_slavery
+				set_variable = {
+					name = haasa_var
+					value = yes
+				}
+				set_variable = {
+					name = adopt_western_uniforms
+					value = yes
+				}
+			}		
+		}
+	}
+
+	option = {
+		name = arab_wars.14.a
+		default_option = yes
+
+		custom_tooltip = arab_wars.14.tt
+		
+		c:PER = {
+			add_journal_entry = {
+				type = je_arab_wars_per
+			}
+		}
+		
+		s:STATE_BAGHDAD = {
+			add_claim = c:PER
+		}
+		s:STATE_BASRA = {
+			add_claim = c:PER
+		}
+		s:STATE_NASIRIYA = {
+			add_claim = c:PER
+		}
+		s:STATE_HAASA = {
+			add_claim = c:PER
+		}
+		s:STATE_ABU_DHABI = {
+			add_claim = c:PER
+		}
+		s:STATE_QATAR = {
+			add_claim = c:PER
+		}
+		
+	   	create_diplomatic_play = {
+			target_country = c:IRQ
+			type = dp_annex_war
+			
+			add_target_backers = {
+				c:HAA
+			}
+
+			add_war_goal = {
+				holder = c:PER
+				type = annex_country
+				target_country = c:HAA
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:IRQ
+				type = humiliation
+                target_country = c:PER
+			}
+			add_war_goal = {
+				holder = c:HAA
+				type = humiliation
+                target_country = c:PER
+			}
+	    }
+
+		change_relations = {
+			country = c:HAA
+			value = -100
+	    }
+		
+		if = {
+			limit = {
+				any_country = {
+					country_rank = rank_value:great_power
+					OR = {
+						AND = {
+							is_player = yes
+							NOT = { ROOT = this }
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = domineering
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = antagonistic
+						}
+					}
+					NOT = {
+						has_journal_entry = je_arab_nationalism_overlord
+					}
+				}
+			}
+			hidden_effect = {
+				c:IRQ = {
+					change_relations = {
+						country = scope:supporter_country
+						value = 100
+					}
+				}
+				c:HAA = {
+					change_relations = {
+						country = scope:supporter_country
+						value = 100
+					}
+				}
+			}
+			
+			scope:supporter_country = {
+				trigger_event = {
+					id = arab_wars.15
+				}
+			}
+		}
+
+	    ai_chance = {
+			base = 95
+		}
+    }
+
+	option = {
+		name = arab_wars.14.b
+
+		trigger_event = {
+			id = arab_wars.13
+    	}
+		
+    	hidden_effect = {
+			create_truce = {
+				country = c:HAA
+				months = 60
+			}
+			create_truce = {
+				country = c:IRQ
+				months = 60
+			}
+		}
+
+	    ai_chance = {
+			base = 5
+		}
+	}
+	option = {
+		name = arab_wars.14.c
+
+		play_as = c:HAA
+		
+		c:PER = {
+			add_journal_entry = {
+				type = je_arab_wars_per
+			}
+		}
+		
+		s:STATE_BAGHDAD = {
+			add_claim = c:PER
+		}
+		s:STATE_BASRA = {
+			add_claim = c:PER
+		}
+		s:STATE_NASIRIYA = {
+			add_claim = c:PER
+		}
+		s:STATE_HAASA = {
+			add_claim = c:PER
+		}
+		s:STATE_ABU_DHABI = {
+			add_claim = c:PER
+		}
+		s:STATE_QATAR = {
+			add_claim = c:PER
+		}
+		
+	   	create_diplomatic_play = {
+			target_country = c:IRQ
+			type = dp_annex_war
+
+			add_war_goal = {
+				holder = c:PER
+				type = annex_country
+				target_country = c:HAA
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:IRQ
+				type = humiliation
+                target_country = c:PER
+			}
+			add_war_goal = {
+				holder = c:HAA
+				type = humiliation
+                target_country = c:PER
+			}
+	    }
+		
+		if = {
+			limit = {
+				any_country = {
+					country_rank = rank_value:great_power
+					OR = {
+						AND = {
+							is_player = yes
+							NOT = { ROOT = this }
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = domineering
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = belligerent
+						}
+						has_attitude = {
+							who = ROOT
+							attitude = antagonistic
+						}
+					}
+					NOT = {
+						has_journal_entry = je_arab_nationalism_overlord
+					}
+				}
+			}
+			hidden_effect = {
+				c:IRQ = {
+					change_relations = {
+						country = scope:supporter_country
+						value = 100
+					}
+				}
+				c:HAA = {
+					change_relations = {
+						country = scope:supporter_country
+						value = 100
+					}
+				}
+			}
+			
+			scope:supporter_country = {
+				trigger_event = {
+					id = arab_wars.15
+				}
+			}
+		}
+
+	    ai_chance = {
+			base = 0
+		}
+	}
+}
+
+#Iraq and Haasa ask for support
+arab_wars.15 = {
+	type = country_event
+	placement = root
+	title = arab_wars.15.t
+	desc = arab_wars.15.d
+	flavor = arab_wars.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		c:IRQ = {
+			save_scope_as = iraq_scope
+		}
+		c:HAA = {
+			save_scope_as = haasa_scope
+		}
+		c:PER = {
+			save_scope_as = persia_scope
+		}
+	}
+
+	option = { #Help them
+		name = arab_wars.15.a
+		default_option = yes
+		
+		custom_tooltip = {
+			text = support_arab_wars_tt
+			set_variable = support_arab_wars_per
+		}
+		change_relations = {
+			country = c:IRQ
+			value = 50
+		}
+		change_relations = {
+			country = c:HAA
+			value = 50
+		}
+		
+		c:IRQ = {
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+		c:HAA = {
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+		
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:PER
+				target_is = c:IRQ
+			}
+			add_target_backers = {
+				ROOT
+			}
+		}
+		
+		hidden_effect = {
+			c:PER = {
+				trigger_event = { id = arab_wars.6 days = 1 }
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { #Don't help
+		name = arab_wars.15.b
+		change_relations = {
+			country = c:IRQ
+			value = -50
+		}
+		change_relations = {
+			country = c:HAA
+			value = -50
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Arab Wars - Ottoman and Egypt
+arab_wars.16 = {
+	type = country_event
+	placement = root
+	title = arab_wars.16.t
+	desc = arab_wars.16.d
+	flavor = arab_wars.16.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = arab_wars.16.a
+		
+		s:STATE_LOWER_EGYPT = {
+			add_claim = c:TUR
+		}
+		s:STATE_ALEXANDRIA = {
+			add_claim = c:TUR
+		}
+		s:STATE_UPPER_EGYPT = {
+			add_claim = c:TUR
+		}
+		s:STATE_LUXOR = {
+			add_claim = c:TUR
+		}
+		s:STATE_MIDDLE_EGYPT = {
+			add_claim = c:TUR
+		}
+		s:STATE_BENI_SUEF = {
+			add_claim = c:TUR
+		}
+		s:STATE_EGYPTIAN_DESERT = {
+			add_claim = c:TUR
+		}
+		s:STATE_ASWAN = {
+			add_claim = c:TUR
+		}
+		s:STATE_MATRUH = {
+			add_claim = c:TUR
+		}
+		s:STATE_SINAI = {
+			add_claim = c:TUR
+		}
+		
+		add_journal_entry = {
+			type = je_arab_wars_tur
+		}
+	}
+}
+
+# Scripted Egyptian Independence Wars
+arab_wars.17 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		c:TUR = {
+			trigger_event = { id = arab_wars.16 }
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = ROOT
+				target_is = c:TUR
+			}
+			add_war_goal = {
+				holder = ROOT
+				type = return_state
+				target_state = s:STATE_SINAI.region_state:TUR
+				primary_demand = yes
+			}
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = ROOT
+				target_is = c:TUR
+			}
+			add_war_goal = {
+				holder = c:TUR
+				type = annex_country
+				target_country = ROOT
+				primary_demand = yes
+			}
+		}
+		
+		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:artillery
+	}
+}
+
+#Egypt asks for support
+arab_wars.18 = {
+	type = country_event
+	placement = root
+	title = arab_wars.18.t
+	desc = arab_wars.18.d
+	flavor = arab_wars.18.f
+
+	duration = 3
+
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		c:EGY = {
+			save_scope_as = egypt_scope
+		}
+		c:TUR = {
+			save_scope_as = ottoman_scope
+		}
+	}
+
+	option = { #Help them
+		name = arab_wars.18.a
+		default_option = yes
+		
+		custom_tooltip = {
+			text = support_arab_wars_tt
+			set_variable = support_arab_wars_egy
+		}
+		change_relations = {
+			country = c:EGY
+			value = 50
+		}
+		
+		c:EGY = {
+			set_owes_obligation_to = {
+				country = ROOT
+				setting = yes
+			}
+		}
+		
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:EGY
+				target_is = c:TUR
+			}
+			add_initiator_backers = {
+				ROOT
+			}
+		}
+		
+		hidden_effect = {
+			c:TUR = {
+				trigger_event = { id = arab_wars.6 days = 1 }
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { #Don't help
+		name = arab_wars.18.b
+		change_relations = {
+			country = c:EGY
+			value = -50
+		}
+		
+		ai_chance = {
+			base = 0
 		}
 	}
 }

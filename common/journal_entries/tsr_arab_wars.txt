@@ -77,11 +77,6 @@
 						relations:root >= 0
 						NOT = { has_war_with = ROOT }
 						OR = {
-							has_interest_marker_in_region = region_arabic
-							has_interest_marker_in_region = region_nile_basin
-							has_interest_marker_in_region = region_north_africa
-						}
-						OR = {
 							AND = {
 								is_player = yes
 								NOT = { ROOT = this }
@@ -195,49 +190,11 @@ je_arab_nationalism_overlord = {
 			text = nahda_start_tt
 			has_global_variable = nahda_start
 		}
-		OR = { #The versions for Persia, Ottomans, and Iberia will be added in the future
-			trigger_if = {
-				limit = {
-					c:AKN = ROOT
-				}
-				custom_tooltip = {
-					text = akturkification_start_tt
-					has_global_variable = akturkification_start
-				}
-			}
-#			trigger_if = {
-#				limit = {
-#					c:TUR = ROOT
-#				}
-#				custom_tooltip = {
-#					text = turkification_start_tt
-#					has_global_variable = turkification_start
-#				}
-#			}
-#			trigger_if = {
-#				limit = {
-#					c:PER = ROOT
-#				}
-#				custom_tooltip = {
-#					text = persianization_start_tt
-#					has_global_variable = persianization_start
-#				}
-#			}
-#			trigger_if = {
-#				limit = {
-#					c:IBE = ROOT
-#				}
-#				custom_tooltip = {
-#					text = castilianization_start_tt
-#					has_global_variable = castilianization_start
-#				}
-#			}
-			OR = {
-				has_journal_entry = je_springtime_of_the_peoples
-				any_neighbouring_state = {
-					owner = {
-						has_journal_entry = je_springtime_of_the_peoples
-					}
+		OR = {
+			has_journal_entry = je_springtime_of_the_peoples
+			any_neighbouring_state = { #So countries like Italy won't be immune
+				owner = {
+					has_journal_entry = je_springtime_of_the_peoples
 				}
 			}
 		}
@@ -319,14 +276,15 @@ je_arab_nationalism_overlord = {
 	}
 
 	on_fail = {
-		if = {
-			limit = { exists = c:AKN c:AKN = this }
-			trigger_event = { id =  days =  }
-		}
 	}
 
 	on_monthly_pulse = {
-		
+	}
+
+	on_monthly_pulse = {
+		events = {
+			arab_wars.11 #Eastern Arabia uprisings
+		}
 	}
 
 	invalid = {
@@ -338,4 +296,233 @@ je_arab_nationalism_overlord = {
 	inheritable = yes
 
 	timeout = 3650
+}
+
+je_arab_wars_akn = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		is_at_war = no
+		country_or_subject_owns_entire_state_region = STATE_SYRIA
+		country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+		country_or_subject_owns_entire_state_region = STATE_PALESTINE
+		country_or_subject_owns_entire_state_region = STATE_LEBANON
+		country_or_subject_owns_entire_state_region = STATE_HAMA
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+		country_or_subject_owns_entire_state_region = STATE_MEDINA
+		OR = {
+			AND = {
+				has_state_in_state_region = STATE_NEJD
+				has_state_in_state_region = STATE_HALIL
+			}
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_NEJD
+				has_state_in_state_region = STATE_HALIL
+			}
+		}
+    }
+
+    fail = {
+    	custom_tooltip = {
+    		text = arab_uprisings_fail
+    		c:AKN = {
+    			is_at_war = no
+    		}
+    		c:SYR = {
+	    		owns_entire_state_region = STATE_SYRIA
+	    		owns_entire_state_region = STATE_TRANSJORDAN
+	    		owns_entire_state_region = STATE_PALESTINE
+	    		owns_entire_state_region = STATE_LEBANON
+	    		owns_entire_state_region = STATE_HAMA
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+			c:HDJ = {
+	    		has_state_in_state_region = STATE_HEDJAZ
+	    		has_state_in_state_region = STATE_MEDINA
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+			c:NEJ = {
+	    		has_state_in_state_region = STATE_NEJD
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+			c:JAB = {
+	    		has_state_in_state_region = STATE_HALIL
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+    	}
+    }
+
+    on_fail = {
+    	c:AKN = {
+			trigger_event = {
+				id = arab_wars.13
+	    	}
+    	}
+    }
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = arab_wars_goal
+			}
+		}
+	}
+	
+	timeout = 1826
+
+	weight = 200
+
+	should_be_pinned_by_default = yes
+}
+
+je_arab_wars_per = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_BAGHDAD
+		country_or_subject_owns_entire_state_region = STATE_NASIRIYA
+		country_or_subject_owns_entire_state_region = STATE_BASRA
+		OR = {
+			AND = {
+				has_state_in_state_region = STATE_HAASA
+				has_state_in_state_region = STATE_QATAR
+				has_state_in_state_region = STATE_ABU_DHABI
+			}
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_HAASA
+				has_state_in_state_region = STATE_QATAR
+				has_state_in_state_region = STATE_ABU_DHABI
+			}
+		}
+		is_at_war = no
+    }
+
+    fail = {
+    	custom_tooltip = {
+    		text = arab_uprisings_fail
+    		c:PER = {
+    			is_at_war = no
+    		}
+    		c:IRQ = {
+	    		owns_entire_state_region = STATE_BAGHDAD
+	    		owns_entire_state_region = STATE_NASIRIYA
+	    		owns_entire_state_region = STATE_BASRA
+	    		is_at_war = no
+	    		NOT = { is_subject_of = ROOT }
+    		}
+			c:HAA = {
+	    		has_state_in_state_region = STATE_HAASA
+	    		has_state_in_state_region = STATE_QATAR
+	    		has_state_in_state_region = STATE_ABU_DHABI
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+    	}
+    }
+
+    on_fail = {
+    	c:PER = {
+			trigger_event = {
+				id = arab_wars.13
+	    	}
+    	}
+    	c:IRQ = {
+    		remove_variable = iraq_var
+    	}
+    }
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = arab_wars_goal
+			}
+		}
+	}
+	
+	timeout = 1826
+
+	weight = 200
+
+	should_be_pinned_by_default = yes
+}
+
+je_arab_wars_tur = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		is_at_war = no
+		country_or_subject_owns_entire_state_region = STATE_LOWER_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_ALEXANDRIA
+		country_or_subject_owns_entire_state_region = STATE_UPPER_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_LUXOR
+		country_or_subject_owns_entire_state_region = STATE_MIDDLE_EGYPT
+		country_or_subject_owns_entire_state_region = STATE_BENI_SUEF
+		country_or_subject_owns_entire_state_region = STATE_ASWAN
+		country_or_subject_owns_entire_state_region = STATE_SINAI
+		OR = {
+			AND = {
+				has_state_in_state_region = STATE_EGYPTIAN_DESERT
+				has_state_in_state_region = STATE_MATRUH
+				has_state_in_state_region = STATE_DERNA
+				has_state_in_state_region = STATE_LIBYA
+			}
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_EGYPTIAN_DESERT
+				has_state_in_state_region = STATE_MATRUH
+				has_state_in_state_region = STATE_DERNA
+				has_state_in_state_region = STATE_LIBYA
+			}
+		}
+    }
+
+    fail = {
+    	custom_tooltip = {
+    		text = arab_uprisings_fail
+    		c:TUR = {
+    			is_at_war = no
+    		}
+    		c:EGY = {
+	    		owns_entire_state_region = STATE_LOWER_EGYPT
+	    		owns_entire_state_region = STATE_ALEXANDRIA
+	    		owns_entire_state_region = STATE_UPPER_EGYPT
+	    		owns_entire_state_region = STATE_LUXOR
+	    		owns_entire_state_region = STATE_MIDDLE_EGYPT
+	    		owns_entire_state_region = STATE_BENI_SUEF
+	    		owns_entire_state_region = STATE_ASWAN
+	    		owns_entire_state_region = STATE_SINAI
+				has_state_in_state_region = STATE_EGYPTIAN_DESERT
+				has_state_in_state_region = STATE_MATRUH
+				has_state_in_state_region = STATE_DERNA
+				has_state_in_state_region = STATE_LIBYA
+	    		is_at_war = no
+				NOT = { is_subject_of = ROOT }
+    		}
+    	}
+    }
+
+    on_fail = {
+    	c:TUR = {
+			trigger_event = {
+				id = arab_wars.13
+	    	}
+    	}
+    }
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = arab_wars_goal
+			}
+		}
+	}
+	
+	timeout = 1826
+
+	weight = 200
+
+	should_be_pinned_by_default = yes
 }

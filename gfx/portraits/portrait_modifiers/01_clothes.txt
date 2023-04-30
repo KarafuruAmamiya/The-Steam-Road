@@ -839,6 +839,14 @@
                                 }
                             }
                         }
+						AND = {
+                            exists = scope:character
+                            scope:character = {
+                                owner = {
+									has_variable = adopt_western_uniforms
+								}
+                            }
+                        }
                         african_diaspora_clothes_trigger = yes
                     }
                     politician_clothes_trigger = yes
@@ -849,10 +857,19 @@
            modifier = { #If we want rulers to dress like politicians later.
                add = 100
                AND = {
+                   european_clothes_trigger = yes
                    OR = {
 						european_clothes_trigger = yes
 						tsr_persia_leader_trigger = yes
 						tsr_ottoman_leader_trigger = yes
+						AND = {
+                            exists = scope:character
+                            scope:character = {
+                                owner = {
+									has_variable = adopt_western_uniforms
+								}
+                            }
+                        }
 					}
                    ruler_clothes_trigger = yes
                    monarchy_clothes_trigger = no

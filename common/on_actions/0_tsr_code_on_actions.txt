@@ -34,5 +34,18 @@ on_diplomatic_play_started = {
 			}
 			trigger_event = { id = arab_wars.8 days = 0 }
 		}
+		if = {
+			limit = { 
+				#has_journal_entry = je_arab_nationalism_subject
+				exists = c:EGY
+				c:EGY = ROOT
+				any_diplomatic_play = {
+					initiator_is = ROOT
+					has_play_goal = independence
+				}
+				is_subject_of = c:TUR
+			}
+			trigger_event = { id = arab_wars.17 days = 0 }
+		}
 	}
 }

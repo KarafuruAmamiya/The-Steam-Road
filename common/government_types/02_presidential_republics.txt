@@ -126,6 +126,7 @@ gov_colonial_administration = {
 				AND = { exists = c:NET is_subject_of = c:NET }
 				OR = {
 					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial
@@ -143,6 +144,7 @@ gov_colonial_administration = {
 				AND = { exists = c:MYP is_subject_of = c:MYP }
 				OR = {
 					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial
@@ -159,6 +161,7 @@ gov_colonial_administration = {
 				AND = { exists = c:FRA is_subject_of = c:FRA }
 				OR = {
 					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial
@@ -176,6 +179,7 @@ gov_colonial_administration = {
 				AND = { exists = c:PER is_subject_of = c:PER }
 				OR = {
 					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial
@@ -229,7 +233,7 @@ gov_crown_colony = {
 				}
 			}
 		}
-		is_subject_type = subject_type_puppet
+		is_subject_type = subject_type_dependency
 		is_country_type = colonial
 		top_overlord = { NOT = { is_country_type = colonial } }
 		any_primary_culture = {

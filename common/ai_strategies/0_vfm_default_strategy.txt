@@ -70,8 +70,30 @@ ai_strategy_default = {
 				country_rank >= rank_value:great_power
 				NOT = { has_technology_researched = multilateral_alliances }
 			}
-			add = 200
+			add = 20
 		}
+				
+		#if = {
+		#	limit = {
+		#		has_diplomatic_pact = {
+		#			who = scope:target_country.top_overlord
+		#			type = rivalry
+		#		}							
+		#	}
+		#	subtract = 100
+		#}
+		#
+		#if = {
+		#	limit = {
+		#		scope:target_country = {
+		#			has_attitude = {
+		#				who = scope:target_country.top_overlord
+		#				attitude = rebellious
+		#			}
+		#		}						
+		#	}
+		#	subtract = 20
+		#}
 	}
 	
 	# Added to base boldness in diplomatic plays	
@@ -143,7 +165,24 @@ ai_strategy_default = {
 		}		
 		institution_home_affairs = {	
 			value = 10		
-		}				
+		}			
+		institution_centralization = {	
+			value = 10	
+			
+			if = {
+				limit = {
+					any_subject_or_below = {
+						OR = {
+							is_subject_type = subject_type_dependency
+							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_vassal
+						}
+						is_adjacent = root
+					}
+				}
+				add = 125
+			}
+		}			
 	}	
 	
 	# How much value does the AI place on an obligation from another country?
@@ -375,6 +414,71 @@ ai_strategy_default = {
 				}
 			}
 			add = 5
+		}
+		
+		#Aggression against unrecognized countries once colonization has begun and already owns state in region
+		if = {
+			limit = {
+				can_reach_target_country = yes
+				has_technology_researched = civilizing_mission
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				scope:target_country = {
+					is_country_type = unrecognized
+					country_is_in_africa = no
+				}
+				has_interest_marker_in_region = scope:target_country.capital.region
+				scope:target_country.capital.region = {
+					any_scope_state = {
+						owner = root
+					}
+				}
+			}
+			add = 10
+		}
+		
+		if = {
+			limit = {
+				can_reach_target_country = yes
+				has_technology_researched = civilizing_mission
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				scope:target_country = {
+					is_country_type = unrecognized
+					country_is_in_africa = yes
+				}
+				has_interest_marker_in_region = scope:target_country.capital.region
+				scope:target_country.capital.region = {
+					any_scope_state = {
+						owner = root
+					}
+				}
+			}
+			add = 15
+		}
+		
+		#Aggression against unrecognized countries if has claim in region
+		if = {
+			limit = {
+				can_reach_target_country = yes
+				has_technology_researched = civilizing_mission
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				scope:target_country = {
+					is_country_type = unrecognized
+				}
+				has_interest_marker_in_region = scope:target_country.capital.region
+				scope:target_country.capital.region = {
+					has_claim_by = root
+				}
+			}
+			add = 10
 		}
 		
 		if = { # French companies should never go against its suzerain, as doing so is suicide
@@ -736,7 +840,8 @@ ai_strategy_default = {
 					country_is_in_new_word = yes
 				}
 				add = -1000
-			}			
+			}
+						
 		}
 		region_south_germany = {
 			if = {
@@ -752,6 +857,24 @@ ai_strategy_default = {
 					country_is_in_new_word = yes
 				}
 				add = -1000
+			}
+		}
+		region_north_italy = {
+			if = {
+				limit = {
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+				}
+				add = 100
+			}
+		}	
+		region_south_italy = {
+			if = {
+				limit = {
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+				}
+				add = 100
 			}
 		}	
 		region_anatolia = {
@@ -2075,12 +2198,45 @@ ai_strategy_default = {
 					NOT = { is_country_type = unrecognized }
 					scope:target_country = { is_country_type = unrecognized }
 				}
-				add = 50
+				add = 60
 				
 				if = {
 					limit = { has_technology_researched = civilizing_mission }
-					add = 50
+					add = 60
 				}					
+			}			
+			
+			if = { 
+				limit = {
+					can_reach_target_country = yes
+					is_country_type = unrecognized
+					scope:target_country = { is_country_type = unrecognized }						
+				}
+				add = 25
+			}
+			
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					scope:target_country = { 
+						any_scope_state = {
+							root = { has_claim = prev }
+						}	
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					has_journal_entry = je_greek_nationalism
+					scope:target_country = {
+						any_scope_state = {
+							state_region = { is_homeland = cu:greek }
+						}
+					}
+				}
+				add = 200
 			}
 			
 			if = { # Unifying China
@@ -2322,11 +2478,11 @@ ai_strategy_default = {
 					scope:target_country = { is_country_type = unrecognized }
 					scope:target_country = { NOT = { is_subject_of = root }	}
 				}
-				add = 25
+				add = 30
 				
 				if = {
 					limit = { has_technology_researched = civilizing_mission }
-					add = 25
+					add = 30
 				}					
 			}			
 			
@@ -2741,6 +2897,40 @@ ai_strategy_default = {
 				}
 				multiply = 0.0
 			}
+			if = {
+				limit = {
+					is_adjacent = scope:target_country
+					has_technology_researched = civilizing_mission
+					#replace with colonial law \/
+					has_colonial_growth = yes
+					OR = {
+						is_country_type = recognized
+						is_country_type = colonial
+					}
+					scope:target_country = {
+						is_country_type = unrecognized
+						country_is_in_africa = no
+					}
+				}
+				add = 5
+			}
+			
+			if = {
+				limit = {
+					is_adjacent = scope:target_country
+					has_technology_researched = civilizing_mission
+					has_colonial_growth = yes
+					OR = {
+						is_country_type = recognized
+						is_country_type = colonial
+					}
+					scope:target_country = {
+						is_country_type = unrecognized
+						country_is_in_africa = yes
+					}
+				}
+				add = 5
+			}
 			
 			min = 0
 			max = 100			
@@ -2780,8 +2970,7 @@ ai_strategy_default = {
 					}
 					add = 30
 				}
-					}
-
+			}
 			if = {
 				limit = { 
 					NOT = { has_strategic_land_adjacency = scope:target_state } 
@@ -2950,8 +3139,16 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_treaty_port_in_country = scope:target_country
+					scope:target_country = { country_rank < unrecognized_regional_power }
 				}
 				multiply = 0
+			}
+
+			if = {
+				limit = {
+					scope:target_country = { NOT = { is_country_type = unrecognized } }
+				}
+				multiply = 0.1
 			}
 			
 			if = {
@@ -3052,6 +3249,74 @@ ai_strategy_default = {
 						}
 					}
 					
+				}
+				add = 50
+			}
+			
+			#if = {
+			#	limit = {
+			#		can_reach_target_country = yes
+			#		has_technology_researched = colonization
+			#		OR = {
+			#			is_country_type = recognized
+			#			is_country_type = colonial
+			#		}
+			#		scope:target_country = {
+			#			is_country_type = unrecognized
+			#			country_is_in_africa = no
+			#		}
+			#	}
+			#	add = 15
+			#}
+			#
+			#if = {
+			#	limit = {
+			#		can_reach_target_country = yes
+			#		has_technology_researched = colonization
+			#		OR = {
+			#			is_country_type = recognized
+			#			is_country_type = colonial
+			#		}
+			#		scope:target_country = {
+			#			is_country_type = unrecognized
+			#			country_is_in_africa = yes
+			#		}
+			#	}
+			#	add = 15
+			#}
+			
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_technology_researched = civilizing_mission
+					has_colonial_growth = yes
+					OR = {
+						is_country_type = recognized
+						is_country_type = colonial
+					}
+					scope:target_country = {
+						is_country_type = unrecognized
+						country_is_in_north_america = no
+						country_is_in_central_america = no
+						country_is_in_south_america = no
+					}
+				}
+				add = 50
+			}
+			
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_technology_researched = civilizing_mission
+					has_colonial_growth = yes
+					OR = {
+						is_country_type = recognized
+						is_country_type = colonial
+					}
+					scope:target_country = {
+						is_country_type = unrecognized
+						country_is_in_africa = yes
+					}
 				}
 				add = 50
 			}
@@ -3268,6 +3533,9 @@ ai_strategy_default = {
 				}
 				add = 50
 			}
+
+			min = 0
+			max = 200	
 		}	
 
 		ban_slavery = {
@@ -3377,6 +3645,17 @@ ai_strategy_default = {
 				}
 				multiply = 0.0
 			}
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_technology_researched = civilizing_mission
+					scope:target_country = {
+						country_is_in_africa = yes
+						is_country_type = unrecognized
+					}
+				}
+				add = 75
+			}
 			}
 
 			min = 0
@@ -3412,7 +3691,27 @@ ai_strategy_default = {
 
 			min = 0
 			max = 200				
-		}			
+		}
+
+		#unification_leadership = {
+		#	value = 100
+		#
+		#	#add = {
+		#	#	value = scope:target_country.gdp
+		#	#	divide = 100000
+		#	#	max = 100				
+		#	#}
+		#
+		#	if = {
+		#		limit = {
+		#			has_strategic_adjacency = scope:target_country
+		#		}
+		#		multiply = 1.25
+		#	}
+		#
+		#	min = 0
+		#	max = 200				
+		#}	
 
 		liberate_subject = {
 			value = 0	
@@ -3431,6 +3730,18 @@ ai_strategy_default = {
 						}							
 					}
 					add = 25
+				}
+				
+				if = {
+					limit = {
+						scope:target_country = {
+							has_attitude = {
+								who = scope:target_country.top_overlord
+								attitude = rebellious
+							}
+						}						
+					}
+					add = 35
 				}
 
 				if = {

@@ -135,6 +135,10 @@ napoleonic_warfare = {
 	
 	ai_weight = {
 		value = 1.5 # Important tech in general
+		if = {
+			limit = { has_journal_entry = je_akkovin_reform_army }
+			add = 5
+		}
 	}
 }
 

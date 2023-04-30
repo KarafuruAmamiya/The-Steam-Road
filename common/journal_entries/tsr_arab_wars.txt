@@ -63,7 +63,7 @@
 	}
 
 	on_monthly_pulse = {
-		effects = {
+		effect = {
 			if = {
 				limit = {
 					any_overlord_or_above = {
@@ -313,11 +313,11 @@ je_arab_wars_akn = {
 		OR = {
 			AND = {
 				has_state_in_state_region = STATE_NEJD
-				has_state_in_state_region = STATE_HALIL
+				has_state_in_state_region = STATE_HAIL
 			}
 			any_subject_or_below = {
 				has_state_in_state_region = STATE_NEJD
-				has_state_in_state_region = STATE_HALIL
+				has_state_in_state_region = STATE_HAIL
 			}
 		}
     }
@@ -349,7 +349,7 @@ je_arab_wars_akn = {
 				NOT = { is_subject_of = ROOT }
     		}
 			c:JAB = {
-	    		has_state_in_state_region = STATE_HALIL
+	    		has_state_in_state_region = STATE_HAIL
 	    		is_at_war = no
 				NOT = { is_subject_of = ROOT }
     		}

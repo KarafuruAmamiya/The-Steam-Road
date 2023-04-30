@@ -487,7 +487,15 @@ ai_strategy_unify_germany = {
 				}
 				add = 100
 			}
-		}		
+		}
+		unification_leadership = {
+			if = {
+				limit = {
+					has_journal_entry = je_german_unification
+				}
+				add = 100
+			}	
+		}	
 	}
 	
 	secret_goal_scores = {
@@ -567,6 +575,7 @@ ai_strategy_unify_germany = {
 	wargoal_weights = {
 		conquer_state = 2.0
 		return_state = 2.0
+		unification_leadership = 3.0
 	}	
 		
 	possible = {

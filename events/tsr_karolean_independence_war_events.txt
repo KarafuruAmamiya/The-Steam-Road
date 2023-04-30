@@ -103,13 +103,17 @@ krl_independence.2 = {
 				months = normal_modifier_time
 			}
 		}
-		ai_chance = 25
+		ai_chance = {
+			base = 25
+		}
 	}
 
 	option = { # The people has spoken
 		name = krl_independence.2.b
 		default_option = yes
-		ai_chance = 75
+		ai_chance = {
+			base = 75
+		}
 		hidden_effect = {
 			random_diplomatic_play = {
 				limit = { 
@@ -249,6 +253,10 @@ krl_independence.5 = {
 		has_variable = karolean_independence_war
 		exists = c:SCA
 		this = c:SCA
+		has_diplomatic_pact = {
+			who = c:USC
+			type = defensive_pact
+		}
 		any_diplomatic_play = {
 			initiator_is = c:SCA
 			target_is = c:KRL
@@ -342,6 +350,12 @@ krl_independence.7 = {
 	option = {
 		name = krl_independence.7.a #This is not over yet!
 		ruler = {
+			kill_character = yes
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = vice_president_trigger
+			}
 			kill_character = yes
 		}
 		create_character = {

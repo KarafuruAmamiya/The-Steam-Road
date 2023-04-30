@@ -523,6 +523,13 @@ arab_wars.7 = {
 		add_journal_entry = {
 			type = je_arab_wars_akn
 		}
+		
+		if = {
+			limit = {
+				NOT = { has_global_variable = arab_wars_happened }
+			}
+			set_global_variable = arab_wars_happened
+		}
 	}
 }
 # Scripted Arab Independence Wars
@@ -1043,7 +1050,7 @@ arab_wars.13 = {
 			limit = {
 				any_state = {
 					OR = {
-						state_is_in_middle_east = yes
+						region = sr:region_arabic
 						state_is_in_north_africa = yes
 					}
 					has_claim_by = ROOT
@@ -1052,10 +1059,10 @@ arab_wars.13 = {
 			every_state = {
 				limit = {
 					OR = {
-						state_is_in_middle_east = yes
+						region = sr:region_arabic
 						state_is_in_north_africa = yes
-						has_claim_by = ROOT
 					}
+					has_claim_by = ROOT
 				}
 				state_region = {
 					remove_claim = ROOT
@@ -1287,6 +1294,13 @@ arab_wars.14 = {
 				}
 			}
 		}
+		
+		if = {
+			limit = {
+				NOT = { has_global_variable = arab_wars_happened }
+			}
+			set_global_variable = arab_wars_happened
+		}
 
 	    ai_chance = {
 			base = 95
@@ -1414,6 +1428,13 @@ arab_wars.14 = {
 					id = arab_wars.15
 				}
 			}
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_global_variable = arab_wars_happened }
+			}
+			set_global_variable = arab_wars_happened
 		}
 
 	    ai_chance = {
@@ -1585,6 +1606,13 @@ arab_wars.16 = {
 		
 		add_journal_entry = {
 			type = je_arab_wars_tur
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_global_variable = arab_wars_happened }
+			}
+			set_global_variable = arab_wars_happened
 		}
 	}
 }

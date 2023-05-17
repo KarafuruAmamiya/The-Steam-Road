@@ -925,6 +925,14 @@ arab_wars.11 = {
 				}
 			}		
 		}
+		c:IRQ = {
+			save_scope_as = iraq_scope
+		}
+		s:STATE_BAGHDAD = {
+			random_scope_state = {
+				save_scope_as = baghdad_scope
+			}
+		}
 		trigger_event = {
 			id = arab_wars.12
 			days = 1
@@ -980,8 +988,10 @@ arab_wars.12 = {
 			country = c:IRQ
 			value = -100
 	    }
-		trigger_event = {
-			id = arab_wars.14
+		hidden_effect = {
+			trigger_event = {
+				id = arab_wars.14
+			}
 		}
 
 	    ai_chance = {
@@ -997,8 +1007,10 @@ arab_wars.12 = {
 			country = c:IRQ
 			value = -100
 	    }
-		trigger_event = {
-			id = arab_wars.14
+		hidden_effect = {
+			trigger_event = {
+				id = arab_wars.14
+			}
 		}
 
 	    ai_chance = {
@@ -1181,6 +1193,12 @@ arab_wars.14 = {
 					value = yes
 				}
 			}		
+		}
+		c:HAA = {
+			save_scope_as = haa_scope
+		}
+		c:IRQ = {
+			save_scope_as = iraq_scope
 		}
 	}
 

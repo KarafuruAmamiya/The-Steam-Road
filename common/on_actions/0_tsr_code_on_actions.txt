@@ -47,5 +47,43 @@ on_diplomatic_play_started = {
 			}
 			trigger_event = { id = arab_wars.17 days = 0 }
 		}
+		if = {
+			limit = { 
+				has_journal_entry = je_akkovin_partition_tur
+				exists = c:TUR
+				c:TUR = ROOT
+				any_diplomatic_play = {
+					initiator_is = ROOT
+					target_is = c:AKN
+					has_play_goal = return_state
+				}
+				c:AKN = {
+					OR = {
+						NOT = { has_modifier = treaty_of_baglar }
+						NOT = { has_modifier = treaty_of_baglar_2 }
+					}
+				}
+			}
+			trigger_event = { id = akkovin_crisis.18 days = 0 }
+		}
+		if = {
+			limit = { 
+				has_journal_entry = je_akkovin_partition_tur
+				exists = c:TUR
+				c:TUR = ROOT
+				any_diplomatic_play = {
+					initiator_is = ROOT
+					target_is = c:AKN
+					has_play_goal = return_state
+				}
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			trigger_event = { id = akkovin_crisis.19 days = 0 }
+		}
 	}
 }

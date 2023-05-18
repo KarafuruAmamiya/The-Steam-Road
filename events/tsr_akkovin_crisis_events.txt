@@ -1125,103 +1125,8 @@ akkovin_crisis.11 = {
 			target_state = s:STATE_DIYARBAKIR.region_state:AKN
 			type = dp_return_state
 			
-			add_initiator_backers = {
-				c:PER
-			}
-			
 			add_target_backers = {
 				#In the future Great Powers with interest in Arabia should be able to intervene
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_TRABZON.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_HARPUT.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_ERZURUM.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_BITLIS.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_KUBAN.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_ALEPPO.region_state:AKN
-				primary_demand = yes
-			}
-
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_DEIR_EZ_ZOR.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_VAN.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_KARS.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_MOSUL.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_SHAHRIZOR.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_ANBAR.region_state:AKN
-				primary_demand = yes
-			}
-
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_GREATER_CAUCASUS.region_state:AKN
-				primary_demand = yes
 			}
 			
 			add_war_goal = {
@@ -1270,56 +1175,6 @@ akkovin_crisis.12 = {
 			
 			add_target_backers = {
 				c:PER
-				#In the future Great Powers with interest in Arabia should be able to intervene
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_TRABZON.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_HARPUT.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_ERZURUM.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_BITLIS.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_KUBAN.region_state:AKN
-				primary_demand = yes
-			}
-			
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_ALEPPO.region_state:AKN
-				primary_demand = yes
-			}
-
-			add_war_goal = {
-				holder = c:TUR
-				type = return_state
-				target_state = s:STATE_DEIR_EZ_ZOR.region_state:AKN
-				primary_demand = yes
 			}
 			
 			add_war_goal = {
@@ -1526,5 +1381,411 @@ akkovin_crisis.17 = {
 				set_ideology = ideology_reformer
 			}
 		}
+	}
+}
+
+# Scripted Akkovin Partition War (with Persia)
+akkovin_crisis.18 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		if = {
+			limit = { 
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:PER
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_TRABZON = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_TRABZON.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_HARPUT = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_HARPUT.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ERZURUM = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_ERZURUM.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_BITLIS = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_BITLIS.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_KUBAN = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_KUBAN.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ALEPPO = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_ALEPPO.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_VAN = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_VAN.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_KARS = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_KARS.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_MOSUL = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_MOSUL.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_SHAHRIZOR = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_SHAHRIZOR.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ANBAR = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_ANBAR.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_GREATER_CAUCASUS = {
+					has_variable = akkovin_partition_state
+				}
+				c:PER = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = return_state
+					target_state = s:STATE_GREATER_CAUCASUS.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		
+		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:artillery
+	}
+}
+
+# Scripted Akkovin Partition War (without Persia)
+akkovin_crisis.19 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		if = {
+			limit = { 
+				s:STATE_TRABZON = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_TRABZON.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_HARPUT = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_HARPUT.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ERZURUM = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_ERZURUM.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_BITLIS = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_BITLIS.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_KUBAN = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_KUBAN.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				s:STATE_ALEPPO = {
+					has_variable = akkovin_partition_state
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:TUR
+					target_is = c:AKN
+				}
+				add_war_goal = {
+					holder = c:TUR
+					type = return_state
+					target_state = s:STATE_ALEPPO.region_state:AKN
+					primary_demand = yes
+				}
+			}
+		}
+		
+		set_tariffs_import_priority = g:small_arms
+		set_tariffs_import_priority = g:artillery
 	}
 }

@@ -19,7 +19,8 @@
                 add = 5000
                 exists = scope:character
                 scope:character = {
-						owner = {
+                		exists = home_country
+						home_country = {
 							OR = {
 								AND = { exists = c:PER c:PER = this }
 								AND = { exists = c:JNB c:JNB = this }
@@ -133,6 +134,7 @@
                             interest_group = { 
                                 is_interest_group_type = ig_devout 
                             }
+							is_interest_group_type = ig_devout 
                         }
                     }
                     AND = {

@@ -45,7 +45,7 @@
 			triggered_desc = {
 				desc = expedition_medium_peril_loc
 				trigger = {
-					var:expedition_peril <= 4
+					var:expedition_peril <= 5
 				}
 			}
 			triggered_desc = {
@@ -105,7 +105,7 @@
 		remove_variable = central_africa_expedition_var
 		remove_modifier = modifier_large_expedition_cost
 		remove_modifier = expedition_extra_expenses_modifier
-		set_variable = central_africa_expedition_succes_var #grand exhibition check
+		set_variable = central_africa_expedition_success_var #grand exhibition check
 		random_scope_character = {
 			limit = {
 				has_variable = expedition_leader_var
@@ -125,6 +125,6 @@
 	progressbar = yes
 	
     weight = 200
-    inheritable = no
+    transferable = no
     should_be_pinned_by_default = yes
 }

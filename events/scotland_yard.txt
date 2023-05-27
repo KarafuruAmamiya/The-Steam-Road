@@ -11,8 +11,10 @@ scotland_yard.1 = {
 			triggered_desc = {
 				desc = scotland_yard.1.d
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						AND = { exists = c:ENG THIS = c:ENG }
+						AND = { exists = c:GBR THIS = c:GBR }
+					}
 					owns_entire_state_region = STATE_HOME_COUNTIES
 				}
 			}
@@ -27,11 +29,10 @@ scotland_yard.1 = {
 	flavor = scotland_yard.1.f
 	
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_london_center.bk2"
+		video = "europenorthamerica_london_center"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/london_center"
 
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 	
@@ -54,7 +55,7 @@ scotland_yard.1 = {
 		name = scotland_yard.1.a
 		default_option = yes
 		capital = {
-			add_loyalists = {
+			add_loyalists_in_state = {
 				pop_type = soldiers
 				value = 0.33
 			}

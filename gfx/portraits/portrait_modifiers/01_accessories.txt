@@ -64,11 +64,13 @@
     			european_clothes_trigger = yes
     			scope:character = {
                     monarchy_clothes_trigger = yes
+                    age > 12
     				OR = {
     					NOT = { exists = c:PAP }
     					AND = {
     						exists = c:PAP
-    						NOT = { owner = c:PAP }
+							exists = home_country
+    						NOT = { home_country = c:PAP }
     					}
     				}
     			}
@@ -102,7 +104,8 @@
                 add = 10000
 				exists = scope:character
                 scope:character = {
-					owner = {
+					exists = home_country
+					home_country = {
 						OR = {
 							AND = {
 								OR = {
@@ -120,6 +123,9 @@
 						military_clothes_trigger = yes
 						monarchy_clothes_trigger = yes
 					}
+					scope:character ?= {
+                        age > 10
+                    }
 				}
 			}
         }
@@ -145,7 +151,7 @@
 				add = 1500
 				exists = scope:pop
 				scope:pop = {
-                    owner = {
+                    home_country = {
 						OR = {
 							AND = {
 								OR = {
@@ -182,7 +188,7 @@
 				add = 1500
 				exists = scope:pop
 				scope:pop = {
-                    owner = {
+                    home_country = {
 						OR = {
 							AND = {
 								OR = {
@@ -237,13 +243,15 @@
             base = 0
             modifier = {
                add = 10000
-                AND = {
-                    german_clothes_trigger = yes
-                    OR = {
-                        military_clothes_trigger = yes
-                        monarchy_clothes_trigger = yes
-                    }   
-                }  
+                agitator_character_trigger = no
+                german_clothes_trigger = yes
+                scope:character ?= {
+                    age > 12
+                }
+                OR = {
+                    military_clothes_trigger = yes
+                    monarchy_clothes_trigger = yes
+                }   
             }
         }
     }
@@ -278,14 +286,16 @@
         weight = {
             base = 0
             modifier = {
-               add = 10000
-                AND = {
-                    american_clothes_trigger = yes
-                    OR = {
-                        military_clothes_trigger = yes
-                        monarchy_clothes_trigger = yes
-                    }   
-                }  
+                add = 10000
+                agitator_character_trigger = no
+                american_clothes_trigger = yes
+                OR = {
+                    military_clothes_trigger = yes
+                    monarchy_clothes_trigger = yes
+                }
+                scope:character ?= {
+                    age > 12
+                }
             }
         }
     }
@@ -327,8 +337,12 @@
             base = 0
             modifier = {
                 add = 1000
+                agitator_character_trigger = no
                 european_clothes_trigger = yes
                 republic_clothes_trigger = no
+                scope:character = {
+                    age > 12
+                }
                 OR = {
                     military_clothes_trigger = yes
                     officers_clothes_pop_trigger = yes
@@ -338,7 +352,8 @@
                         NOT = {
                             scope:character = {
     							exists = c:PAP
-                                owner = c:PAP
+								exists = home_country
+                                home_country = c:PAP
                             }
                         }
                     }
@@ -400,7 +415,8 @@
                add = 10001
                 exists = scope:character
                 scope:character = {
-                    owner = {
+					exists = home_country
+                    home_country = {
 						OR = {
 							AND = {
 								exists = c:TUR
@@ -416,6 +432,9 @@
                         military_clothes_trigger = yes
                         monarchy_clothes_trigger = yes
 						officers_clothes_pop_trigger = yes
+                    }
+					scope:character ?= {
+                        age > 10
                     }
                 }
             }
@@ -442,7 +461,7 @@
 				add = 1500
 				exists = scope:pop
 				scope:pop = {
-                    owner = {
+                    home_country = {
 						OR = {
 							AND = {
 								exists = c:TUR
@@ -477,7 +496,7 @@
 				add = 1500
 				exists = scope:pop
 				scope:pop = {
-                    owner = {
+                    home_country = {
 						OR = {
 							AND = {
 								exists = c:TUR

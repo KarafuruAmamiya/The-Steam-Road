@@ -113,20 +113,28 @@ ai_strategy_default = {
 			}
 			
 			add = -0.1
+		}
+		# French Natural Borders
+		if = {
+			limit = {
+				has_journal_entry = je_french_natural_borders
+				scope:enemy_country = {
+					any_scope_state = {
+						OR = {
+							state_region = {
+								is_homeland = cu:french
+							}
+							state_region = s:STATE_WALLONIA
+							state_region = s:STATE_FLANDERS
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_NORTH_RHINE
+						}
+					}
+				}
+			}
+			add = 0.15
 		}	
 	}
-	
-	# How many barracks relative to incorporated population should the AI have
-	# Using a different value in a strategy will override this value
-	wanted_army_ratio = {
-		value = 200000 # 1 barrack per 200k incorporated population
-	}
-	
-	# How many naval bases relative to incorporated coastal population should the AI have
-	# Using a different value in a strategy will override this value
-	wanted_navy_ratio = {
-		value = 400000 # 1 naval base per 400k coastal incorporated population
-	}	
 	
 	# Chance each update that the AI is willing to start changing a law (1 = 1%)
 	# Using this value in other strategies will function additively
@@ -347,6 +355,27 @@ ai_strategy_default = {
 			add = 1
 		}
 		
+		# French Natural Borders
+		if = {
+			limit = {
+				has_journal_entry = je_french_natural_borders
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = {
+								is_homeland = cu:french
+							}
+							state_region = s:STATE_WALLONIA
+							state_region = s:STATE_FLANDERS
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_NORTH_RHINE
+						}
+					}
+				}
+			}
+			add = 0.5
+		}	
+		
 	}
 	
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
@@ -497,6 +526,27 @@ ai_strategy_default = {
 			}
 			multiply = 0.0
 		}
+		
+		# French Natural Borders
+		if = {
+			limit = {
+				has_journal_entry = je_french_natural_borders
+				scope:target_country = {
+					any_scope_state = {
+						OR = {
+							state_region = {
+								is_homeland = cu:french
+							}
+							state_region = s:STATE_WALLONIA
+							state_region = s:STATE_FLANDERS
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_NORTH_RHINE
+						}
+					}
+				}
+			}
+			add = 25
+		}
 	}
 	
 	# How many levels of construction sector should the AI aim to have
@@ -552,6 +602,164 @@ ai_strategy_default = {
 		min = 1
 		max = 100
 	}
+	
+	# How many levels of barracks should the AI have
+	# Using this value in other strategies will function additively
+	wanted_army_size = {
+		value = 0
+		
+		# To increase base army size for small countries, capped at 1 million population
+		add = {
+			value = cached_ai_incorporated_population
+			divide = 100000 # 1 level of barracks per 100k incorporated population	
+			
+			max = 10
+		}			
+	
+		add = {
+			value = cached_ai_incorporated_population
+			divide = 250000 # 1 level of barracks per 250k incorporated population	
+		}		
+		
+		add = {
+			value = cached_ai_unincorporated_population
+			divide = 1000000 # 1 level of barracks per 1 million unincorporated population	
+		}
+		
+		max = 250 # No more than 250 from population
+
+		add = {
+			value = gdp
+			divide = 500000 # 1 level of barracks per 500k gdp
+		}				
+		
+		# More advanced standing armies are expensive and should be smaller relative to population
+		if = {
+			limit = { has_technology_researched = line_infantry }
+			multiply = 0.9
+		}
+
+		if = {
+			limit = { has_technology_researched = general_staff }
+			multiply = 0.9
+		}
+
+		if = {
+			limit = { has_technology_researched = trench_works }
+			multiply = 0.9
+		}
+
+		if = {
+			limit = { has_technology_researched = nco_training }
+			multiply = 0.9
+		}
+		
+		if = {
+			limit = { has_technology_researched = mobile_armor }
+			multiply = 0.9
+		}	
+
+		# Factor in strategies
+		if = {
+			limit = { 
+				OR = {
+					has_strategy = ai_strategy_territorial_expansion 
+					has_strategy = ai_strategy_unify_germany
+					has_strategy = ai_strategy_unify_arabia
+					has_strategy = ai_strategy_unify_india
+					#has_strategy = ai_strategy_unify_turkestan
+				}
+			}
+			multiply = 1.25
+		}		
+
+		max = 500
+		min = 1
+	}
+	
+	# How many levels of naval base should the AI have
+	# Using this value in other strategies will function additively
+	wanted_navy_size = {
+		value = 0
+	
+		# 1 level of naval base per 350k coastal incorporated population							
+		add = {
+			value = cached_ai_incorporated_coastal_population
+			divide = 350000 
+		}
+
+		# 1 level of naval base per 1 million coastal unincorporated population					
+		add = {
+			value = cached_ai_unincorporated_coastal_population
+			divide = 1000000 
+		}
+
+		# 1 level of naval base per 1 million population in direct overseas subjects	
+		add = {
+			value = cached_ai_overseas_subject_population
+			divide = 1000000 
+		}	
+
+		max = 250 # No more than 250 from population		
+
+		# 1 level of naval base per 1 million gdp, multiplied by relative incorporated coastal population to total incorporated population
+		add = {
+			value = gdp
+			divide = cached_ai_incorporated_population
+			multiply = cached_ai_incorporated_coastal_population
+			divide = 1000000 
+		}			
+		
+		# More advanced navies are expensive and should be smaller relative to population
+		if = {
+			limit = { has_technology_researched = ironclad_tech }
+			multiply = 0.8
+		}
+
+		if = {
+			limit = { has_technology_researched = dreadnought }
+			multiply = 0.8
+		}
+
+		if = {
+			limit = { has_technology_researched = battleship_tech }
+			multiply = 0.8
+		}
+
+		# Factor in strategies
+		if = {
+			limit = { 
+				OR = {
+					has_strategy = ai_strategy_colonial_expansion 
+					has_strategy = ai_strategy_economic_imperialism
+				}
+			}
+			multiply = 1.25
+		}
+
+		if = {
+			limit = { has_strategy = ai_strategy_armed_isolationism }
+			multiply = 0.75
+		}
+		
+		if = {
+			limit = { country_rank < rank_value:major_power }
+			multiply = 0.75
+		}						
+		
+		if = {
+			limit = { is_country_type = unrecognized }
+			multiply = 0.5
+		}	
+		
+		if = {
+			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
+			multiply = 0.25
+		}		
+
+		max = 500
+		min = 0		
+	}		
 	
 	# Add a multiplier to the score AI assigns to particular building groups (default 1)
 	# Using this value in other strategies will result in several multiplications
@@ -1830,7 +2038,17 @@ ai_strategy_default = {
 					
 				}
 				multiply = 0.10
-			}		
+			}
+
+			if = {
+				limit = {
+					scope:target_country = {
+						is_revolutionary = yes
+						scope:target_country.civil_war_origin_country = root
+					}
+				}
+				multiply = 0.10
+			}
 			
 			if = {
 				limit = {
@@ -2044,7 +2262,17 @@ ai_strategy_default = {
 				add = 1
 				min = 0.25
 				max = 2.0
-			}							
+			}
+
+			if = {
+				limit = {
+					scope:target_country = {
+						is_revolutionary = yes
+						scope:target_country.civil_war_origin_country = root
+					}
+				}
+				add = 500
+			}
 			
 			if = {
 				limit = {
@@ -3025,27 +3253,50 @@ ai_strategy_default = {
 			value = 0
 			
 			if = {
-				limit = {
-					scope:target_country = {
-						has_diplomatic_pact = {
-							who = root
-							type = embargo
-						}	
+				limit = {	
+					scope:target_state = { 
+						is_treaty_port = yes 
+						region = { 
+							any_scope_state = { 
+								OR = {
+									owner = { is_subject_of = ROOT }
+									owner = ROOT
+								}
+							}
+						}
 					}
 				}
-				add = 25
+				add = 40
 			}
 
 			if = {
 				limit = {
-					"num_mutual_trade_route_levels_with_country(root)" >= 10
 					OR = {
-						has_strategy = ai_strategy_economic_imperialism
+						scope:target_country = {
+							has_diplomatic_pact = {
+								who = root
+								type = embargo
+							}
+						}	
 						AND = {
-							NOT = { is_country_type = unrecognized }
-							scope:target_country = { is_country_type = unrecognized }
+							has_strategy = ai_strategy_economic_imperialism
+							"num_mutual_trade_route_levels_with_country(root)" >= 10
+							OR = {
+								has_attitude = {
+									who = scope:target_country
+									attitude = belligerent
+								}
+								has_attitude = {
+									who = scope:target_country
+									attitude = domineering
+								}	
+								has_attitude = {
+									who = scope:target_country
+									attitude = antagonistic
+								}								
+							}							
 						}
-					}
+					}				
 				}
 
 				add = {
@@ -3054,14 +3305,14 @@ ai_strategy_default = {
 					add = {
 						value = scope:target_state.state_population
 						divide = 200000
-						max = 10						
+						max = 10
 					}
 					
 					add = {
 						value = scope:target_state.gdp
 						divide = 200000
-						max = 10						
-					}				
+						max = 10
+					}
 				
 					if = {
 						limit = {
@@ -3070,8 +3321,17 @@ ai_strategy_default = {
 								level > 0
 							}						
 						}
-						
 						add = 5
+					}
+					
+					if = {
+						limit = {
+							OR = {
+								is_country_type = unrecognized
+								scope:target_country = { NOT = { is_country_type = unrecognized } }
+							}						
+						}
+						multiply = 0.5
 					}
 						
 					if = {
@@ -3139,7 +3399,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_treaty_port_in_country = scope:target_country
-					scope:target_country = { country_rank < unrecognized_regional_power }
+					scope:target_country = { country_rank < rank_value:unrecognized_regional_power }
 				}
 				multiply = 0
 			}
@@ -3170,6 +3430,43 @@ ai_strategy_default = {
 				multiply = 0
 			}			
 
+			min = 0
+			max = 100			
+		}
+		
+		transfer_subject = {
+			if = {
+				limit = {
+					OR = {
+						has_secret_goal = {
+							who = scope:target_country
+							secret_goal = protect
+						}
+						has_secret_goal = {
+							who = scope:target_country
+							secret_goal = dominate
+						}						
+					}
+				}
+			
+				add = {
+					value = 50
+				
+					add = {
+						value = scope:target_country.gdp
+						divide = 200000
+						max = 50						
+					}
+
+					if = {
+						limit = {
+							has_strategic_adjacency = scope:target_country
+						}
+						multiply = 1.25
+					}						
+				}			
+			}							
+			
 			min = 0
 			max = 100			
 		}
@@ -3843,6 +4140,29 @@ ai_strategy_default = {
 
 		independence = {
 			value = 100
+			if = {
+				limit = { # French colonial subjects should never seek independence
+					exists = c:FEI
+					this = c:FEI
+				}
+				multiply = 0.0
+			}
+			
+			if = {
+				limit = { # French colonial subjects should never seek independence
+					exists = c:FEA
+					this = c:FEA
+				}
+				multiply = 0.0
+			}
+
+			if = {
+				limit = { # Likewise for the Iberian East Indies.
+					exists = c:CEI
+					this = c:CEI
+				}
+				multiply = 0.0
+			}
 		}	
 
 		secession = {

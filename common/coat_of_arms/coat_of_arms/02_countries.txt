@@ -17688,6 +17688,17 @@ QUE_subject_FRA = {
 	}
 }
 
+RHE = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "red"
+	}
+}
+
 RIO = {
 	pattern = "pattern_solid.tga"
 	color1 = "black"
@@ -22523,16 +22534,93 @@ KLM = { # Kalmykia
 		texture = "ce_border_checkered.dds"
 		color1 = "red"
 		color2 = "red"			
-	}	
+	}
 }
-LBG = {
-	
+
+AIT = { # Ait Abbas
 	pattern = "pattern_solid.tga"
-	color1 = "yellow"
+	color1 = "green"
 
 	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
+		texture = "ce_solid.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { scale = { 1.0 0.25 } position = { 0.5 0.125 } }	
+		instance = { scale = { 1.0 0.25 } position = { 0.5 0.875 } }			
+	}
+}
+
+CON = { # Constantine
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+		
+	colored_emblem = {
+		texture = "ce_zulfikar.dds"
 		color1 = "white"
+		color2 = "white"
+		instance = { scale = { -0.75 0.75 } position = { 0.5 0.45 } }
+	}
+}
+
+TUG = { # Touggourt
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {
+		texture = "ce_bicolor_left_third_indented.dds"
+		color1 = "white"
+		color2 = "white"	
+		instance = { scale = { 1.0 1.0 } position = { 0.30 0.5 } }				
+	}
+	colored_emblem = {
+		texture = "ce_bicolor_left_third_indented.dds"
+		color1 = "green"
+		color2 = "green"	
+		instance = { scale = { 1.0 1.0 } position = { 0.25 0.5 } }				
+	}
+	colored_emblem = {
+		texture = "ce_bicolor_left_third_indented.dds"
+		color1 = "white"
+		color2 = "white"	
+		instance = { scale = { 1.0 1.0 } position = { 0.20 0.5 } }				
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
 		color2 = "green"
-	}	
+		instance = { scale = { 1.0 1.0 } position = { 0.9 0.5 } }	
+		instance = { scale = { 1.0 1.0 } position = { 0.9 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_shahada.dds"
+		color1 = "white"
+		color2 = "white"	
+		instance = { scale = { 0.60 0.60 } position = { 0.43 0.5 } }				
+	}
+	colored_emblem = {
+		texture = "ce_crescent_star_turkey.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { scale = { 0.31 0.31 } position = { 0.83 0.50 } }			
+	}
+}
+
+# Savoy
+SAV = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_cross_england.dds"
+		color1 = color2
+		color2 = color2
+	}
+}
+
+# Paris Commune
+PRC = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "red"
 }

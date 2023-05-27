@@ -351,14 +351,8 @@ widget = {
 
 									invalid_save_icon = {
 										size = { 30 30 }
-										visible = "[Not( SaveGameItem.CanLoad )]"
+										visible = "[Not( StringIsEmpty( SaveGameItem.CanLoadDesc ) )]"
 										tooltip = "[SaveGameItem.CanLoadDesc]"
-									}
-									icon = {
-										visible = "[And( SaveGameItem.IsDifferentVersion, SaveGameItem.CanLoad )]"
-										tooltip = "LOAD_GAME_DIFFERENT_VERSION_TT"
-										size = { 30 30 }
-										texture = "gfx/interface/icons/generic_icons/warning.dds"
 									}
 
 									# because of game rules
@@ -676,7 +670,13 @@ widget = {
 	text_single = {
 		parentanchor = bottom|right
 		position = { -15 -8 }
-		text = "TSR_VERSION"
+		text = "VFM_VERSION"
+	}
+
+	widget = {
+		parentanchor = bottom|left
+		size = { 800 100 }
+		dlc_collection = {}
 	}
 }
 

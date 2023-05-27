@@ -1,7 +1,9 @@
 ﻿tsr_persia_leader_trigger = {
 	exists = scope:character
 	scope:character = {
-		owner = {
+		exists = c:PER
+		exists = home_country
+		home_country = {
 			OR = {
 				OR = {
 					country_has_primary_culture = cu:persian
@@ -10,8 +12,8 @@
 				AND = {
 					is_subject_of = c:PER
 					OR = {
-						owner = { exists = c:SRV c:SRV = this }
-						owner = { exists = c:ARD c:ARD = this }
+						exists = c:SRV c:SRV = this
+						exists = c:ARD c:ARD = this
 					}
 				}
 			}
@@ -22,7 +24,8 @@
 tsr_persia_pop_trigger = {
 	exists = scope:character
 	scope:pop = {
-		owner = {
+		exists = c:PER
+		home_country = {
 			OR = {
 				OR = {
 					country_has_primary_culture = cu:persian
@@ -31,10 +34,10 @@ tsr_persia_pop_trigger = {
 				AND = {
 					is_subject_of = c:PER
 					OR = {
-						owner = { exists = c:SRV c:SRV = this }
-						owner = { exists = c:TSN c:TSN = this }
-						owner = { exists = c:SIN c:SIN = this }
-						owner = { exists = c:ARD c:ARD = this }
+						AND = { exists = c:SRV c:SRV = this }
+						AND = { exists = c:TSN c:TSN = this }
+						AND = { exists = c:SIN c:SIN = this }
+						AND = { exists = c:ARD c:ARD = this }
 					}
 				}
 			}
@@ -45,7 +48,9 @@ tsr_persia_pop_trigger = {
 tsr_ottoman_leader_trigger = {
 	exists = scope:character
 	scope:character = {
-		owner = {
+		exists = home_country
+		exists = c:TUR
+		home_country = {
 			country_has_primary_culture = cu:turkish
 		}
 	}
@@ -57,7 +62,8 @@ british_empire_clothes_trigger = {
 		OR = {
 			AND = {
 				exists = c:GBR
-				owner = {
+				exists = home_country
+				home_country = {
 					OR = {
 						AND = {
 							c:GBR = this
@@ -69,7 +75,8 @@ british_empire_clothes_trigger = {
 			}
 			AND = {
 				exists = c:ENG
-				owner = {
+				exists = home_country
+				home_country = {
 					OR = {
 						AND = {
 							c:ENG = this
@@ -86,12 +93,10 @@ british_empire_clothes_trigger = {
 british_empire_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:GBR
-		owner = {
-			OR = {
+		OR = {
 			AND = {
 				exists = c:GBR
-				owner = {
+				home_country = {
 					OR = {
 						AND = {
 							c:GBR = this
@@ -103,7 +108,7 @@ british_empire_clothes_pop_trigger = {
 			}
 			AND = {
 				exists = c:ENG
-				owner = {
+				home_country = {
 					OR = {
 						AND = {
 							c:ENG = this
@@ -114,41 +119,37 @@ british_empire_clothes_pop_trigger = {
 				}
 			}
 		}		
-		}
 	}
 }
 
 british_empire_clothes_p_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		exists = c:GBR
-		owner = {
-			OR = {
-				AND = {
-					exists = c:GBR
-					owner = {
-						OR = {
-							AND = {
-								c:GBR = this
-								is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
-							}
-							is_subject_of = c:GBR
-						}		
-					}
+		OR = {
+			AND = {
+				exists = c:GBR
+				home_country = {
+					OR = {
+						AND = {
+							c:GBR = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:GBR
+					}		
 				}
-				AND = {
-					exists = c:ENG
-					owner = {
-						OR = {
-							AND = {
-								c:ENG = this
-								is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
-							}
-							is_subject_of = c:ENG
-						}		
-					}
+			}
+			AND = {
+				exists = c:ENG
+				home_country = {
+					OR = {
+						AND = {
+							c:ENG = this
+							is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+						}
+						is_subject_of = c:ENG
+					}		
 				}
-			}		
-		}
+			}
+		}		
 	}
 }

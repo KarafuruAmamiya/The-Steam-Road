@@ -15,6 +15,12 @@
 			target = c:SAX.market
 		}
 		create_trade_route = {
+			goods = small_arms
+			level = 2
+			direction = import
+			target = c:ITA.market
+		}
+		create_trade_route = {
 			goods = wood
 			level = 6
 			direction = export
@@ -365,12 +371,6 @@
 			target = c:ITA.market
 		}
 		create_trade_route = {
-			goods = small_arms
-			level = 3
-			direction = import
-			target = c:ITA.market
-		}
-		create_trade_route = {
 			goods = hardwood
 			level = 4
 			direction = import
@@ -437,7 +437,7 @@
 	}
 	
 	# Rhineland
-	c:RHI = {
+	c:RHE = {
 		create_trade_route = {
 			goods = sugar
 			level = 6
@@ -1161,6 +1161,12 @@
 			level = 3
 			direction = import
 			target = c:PER.market
+		}
+		create_trade_route = {
+			goods = small_arms
+			level = 2
+			direction = import
+			target = c:ITA.market
 		}
 		create_trade_route = {
 			goods = tea

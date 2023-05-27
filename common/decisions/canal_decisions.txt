@@ -36,7 +36,6 @@
 		}
 		add_modifier = {
 			name = modifier_surveying_panama
-			days = 365
 		}
 		add_journal_entry = {
 			type = je_panama_survey
@@ -67,7 +66,7 @@
 
 stop_panama_survey_decision = {
 	is_shown = {
-		has_variable = survey_panama_taken
+		has_modifier = modifier_surveying_panama
 	}
 	possible = {
 		has_modifier = modifier_surveying_panama
@@ -108,13 +107,10 @@ panama_canal_purchase = {
 
 	possible = {
 		gdp > 50000000
-		any_state = {
-			owner = {
-				owns_treaty_port_in = STATE_BATAVIA
-				relations:root >= relations_threshold:cordial
-				NOT = { has_war_with = ROOT }
-			}
-		}
+		p:xD0EF40.state.owner = {
+			relations:root >= relations_threshold:cordial
+		} 
+		NOT = { has_war_with = ROOT }
 	}
 
 	when_taken = {

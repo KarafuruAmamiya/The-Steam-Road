@@ -1,0 +1,207 @@
+﻿je_trans_siberian_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_global_variable = trans_siberian_done }
+		owns_entire_state_region = STATE_UZBEKIA
+		any_state = {
+			filter = {
+				OR = {
+					region = sr:region_east_siberia
+					region = sr:region_west_siberia
+				}
+			}
+			percent > 0.8
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_UZBEKIA
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_SYRDARYA
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_AKMOLINSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_OMSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_NOVOSIBIRSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_TOMSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_KRASNOYARSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_IRKUTSK
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_CHITA
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_AMUR
+			has_building = building_railway
+		}
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_OKHOTSK
+				has_building = building_railway
+			}
+			any_scope_state = {
+				state_region = s:STATE_OUTER_MANCHURIA
+				has_building = building_railway
+			}
+		}
+	}
+
+	on_complete = {
+		set_global_variable = trans_siberian_done
+		trigger_event = { id = major_railways.1 }
+	}
+
+	weight = 50
+}
+
+je_trans_iranian_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_global_variable = trans_iranian_done }
+		owns_entire_state_region = STATE_ISFAHAN
+		any_scope_state = {
+			state_region = s:STATE_TABRIZ
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		owns_entire_state_region = STATE_TABRIZ
+		owns_entire_state_region = STATE_KHUZESTAN
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_TABRIZ
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_GILAN
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_IRAKAJEMI
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_ISFAHAN
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_KHUZESTAN
+			has_building = building_railway
+		}
+	}
+
+	on_complete = {
+		set_global_variable = trans_iranian_done
+		trigger_event = { id = major_railways.2 }
+	}
+
+	weight = 50
+}
+
+je_vinland_kanada_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_global_variable = vinland_kanada_done }
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_KANADALAND
+			}
+			any_scope_state = {
+				state_region = s:STATE_VILHELMANIA
+			}
+			any_scope_state = {
+				state_region = s:STATE_OVRELAND
+			}
+			any_scope_state = {
+				state_region = s:STATE_KEJSKATJEWAN
+			}
+			any_scope_state = {
+				state_region = s:STATE_MANITOSUND
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_KANADALAND
+		}
+		any_scope_state = {
+			state_region = s:STATE_OVRELAND
+		}
+		any_scope_state = {
+			state_region = s:STATE_VILHELMANIA
+		}
+		any_scope_state = {
+			state_region = s:STATE_KEJSKATJEWAN
+		}
+		any_scope_state = {
+			state_region = s:STATE_MANITOSUND
+		}
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_KANADALAND
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_OVRELAND
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_VILHELMANIA
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_KEJSKATJEWAN
+			has_building = building_railway
+		}
+		any_scope_state = {
+			state_region = s:STATE_MANITOSUND
+			has_building = building_railway
+		}
+	}
+	
+	on_complete = {
+		set_global_variable = vinland_kanada_done
+		trigger_event = { id = major_railways.3 }
+	}
+	
+	weight = 50
+}

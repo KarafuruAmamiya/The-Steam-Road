@@ -550,7 +550,9 @@ AKN = { # Akturkistan
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			NOT = { is_subject = yes }
+			scope:actor = {
+				NOT = { is_subject = yes }
+			}
 		}
 	}
 }

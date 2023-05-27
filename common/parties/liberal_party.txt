@@ -229,13 +229,23 @@ liberal_party = {
 				is_marginal = no
 			}
 		}
+		OR = {
+	     	NOT = {
+	         	owner = {
+	         		has_variable = only_valid_party
+	         	}
+	        }
+	        owner.var:only_valid_party = {
+	        	is_party_type = liberal_party
+	        }
+	    }
 		leader = { # far right and far left won't join liberal parties
 			NOR = {
-				has_ideology = ideology_fascist
-				has_ideology = ideology_ethno_nationalist
-				has_ideology = ideology_communist
-				has_ideology = ideology_vanguardist
-				has_ideology = ideology_anarchist
+				has_ideology = ideology:ideology_fascist
+				has_ideology = ideology:ideology_ethno_nationalist
+				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_vanguardist
+				has_ideology = ideology:ideology_anarchist
 			}
 		}
 	}
@@ -251,10 +261,10 @@ liberal_party = {
 			limit = {
 				leader = {
 					OR = {
-						has_ideology = ideology_republican_leader
-						has_ideology = ideology_radical
-						has_ideology = ideology_reformer
-						has_ideology = ideology_market_liberal
+						has_ideology = ideology:ideology_republican_leader
+						has_ideology = ideology:ideology_radical
+						has_ideology = ideology:ideology_reformer
+						has_ideology = ideology:ideology_market_liberal
 					}
 				}
 			}
@@ -266,8 +276,8 @@ liberal_party = {
 		if = { # liberals love liberalism
 			limit = {
 				OR = {
-					has_ideology = ideology_liberal
-					has_ideology = ideology_laissez_faire
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_laissez_faire
 				}
 			}
 			add = {
@@ -279,11 +289,12 @@ liberal_party = {
 			limit = {
 				leader = {
 					OR = {
-						has_ideology = ideology_feminist
-						has_ideology = ideology_abolitionist
-						has_ideology = ideology_pacifist
-						has_ideology = ideology_social_democrat
-						has_ideology = ideology_atheist
+						has_ideology = ideology:ideology_feminist
+						has_ideology = ideology:ideology_abolitionist
+						has_ideology = ideology:ideology_pacifist
+						has_ideology = ideology:ideology_social_democrat
+						has_ideology = ideology:ideology_atheist
+						has_ideology = ideology:ideology_humanitarian
 					}
 				}
 			}
@@ -296,10 +307,11 @@ liberal_party = {
 			limit = {
 				leader = {
 					OR = {
-						has_ideology = ideology_traditionalist
-						has_ideology = ideology_royalist
-						has_ideology = ideology_theocrat
-						has_ideology = ideology_slaver
+						has_ideology = ideology:ideology_traditionalist
+						has_ideology = ideology:ideology_royalist
+						has_ideology = ideology:ideology_theocrat
+						has_ideology = ideology:ideology_slaver
+						has_ideology = ideology:ideology_authoritarian
 					}
 				}
 			}
@@ -311,8 +323,8 @@ liberal_party = {
 		if = { # against hereditary bureacrats
 			limit = {
 				OR = {
-					has_ideology = ideology_meritocratic
-					has_ideology = ideology_anti_clerical
+					has_ideology = ideology:ideology_meritocratic
+					has_ideology = ideology:ideology_anti_clerical
 				}
 				owner = {
 					has_law = law_type:law_hereditary_bureaucrats
@@ -332,7 +344,7 @@ liberal_party = {
 						is_member_of_party = owner.py:liberal_party
 						is_powerful = yes
 						leader = {
-							has_ideology = ideology_jingoist_leader
+							has_ideology = ideology:ideology_jingoist_leader
 						}
 					}
 				}
@@ -345,8 +357,8 @@ liberal_party = {
 		if = { # against illiteracy and religious education
 			limit = {
 				OR = {
-					has_ideology = ideology_individualist
-					has_ideology = ideology_proletarian
+					has_ideology = ideology:ideology_individualist
+					has_ideology = ideology:ideology_proletarian
 				}
 				owner = {
 					OR = {
@@ -364,10 +376,10 @@ liberal_party = {
 			limit = {
 				OR = {
 					leader = {
-						has_ideology = ideology_feminist
+						has_ideology = ideology:ideology_feminist
 					}
-					has_ideology = ideology_liberal
-					has_ideology = ideology_egalitarian
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_egalitarian
 				}
 				owner = {
 					has_law = law_type:law_no_womens_rights
@@ -382,9 +394,12 @@ liberal_party = {
 			limit = {
 				OR = {
 					leader = {
-						has_ideology = ideology_reformer
+						OR = {
+							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_humanitarian
+						}
 					}
-					has_ideology = ideology_liberal
+					has_ideology = ideology:ideology_liberal
 				}
 				owner = {
 					OR = {
@@ -402,8 +417,11 @@ liberal_party = {
 		if = { # anti-censorship
 			limit = {
 				OR = {
-					has_ideology = ideology_liberal
-					has_ideology = ideology_egalitarian
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_egalitarian
+					leader = {
+						has_ideology = ideology:ideology_humanitarian
+					}
 				}
 				owner = {
 					has_law = law_type:law_outlawed_dissent
@@ -417,8 +435,8 @@ liberal_party = {
 		if = { # against arbitrary or militarized policing
 			limit = {
 				OR = {
-					has_ideology = ideology_liberal
-					has_ideology = ideology_particularist
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_particularist
 				}
 				owner = {
 					OR = {	
@@ -435,9 +453,9 @@ liberal_party = {
 		if = { # anticlerical
 			limit = {
 				OR = {
-					has_ideology = ideology_anti_clerical
+					has_ideology = ideology:ideology_anti_clerical
 					leader = {
-						has_ideology = ideology_atheist
+						has_ideology = ideology:ideology_atheist
 					}
 				}
 				owner = {
@@ -452,13 +470,13 @@ liberal_party = {
 		if = { # republican
 			limit = {
 				OR = {
-					has_ideology = ideology_republican
-					has_ideology = ideology_populist
+					has_ideology = ideology:ideology_republican
+					has_ideology = ideology:ideology_populist
 					leader = {
 						OR = {
-							has_ideology = ideology_atheist
-							has_ideology = ideology_republican_leader
-							has_ideology = ideology_radical
+							has_ideology = ideology:ideology_atheist
+							has_ideology = ideology:ideology_republican_leader
+							has_ideology = ideology:ideology_radical
 						}
 					}
 				}
@@ -480,9 +498,9 @@ liberal_party = {
 					has_law = law_type:law_debt_slavery
 				}
 				OR = {
-					has_ideology = ideology_particularist
+					has_ideology = ideology:ideology_particularist
 					leader = {
-						has_ideology = ideology_abolitionist
+						has_ideology = ideology:ideology_abolitionist
 					}
 				}
 			}
@@ -500,9 +518,9 @@ liberal_party = {
 					}
 				}
 				OR = {
-					has_ideology = ideology_anti_slavery
+					has_ideology = ideology:ideology_anti_slavery
 					leader = {
-						has_ideology = ideology_abolitionist
+						has_ideology = ideology:ideology_abolitionist
 					}
 				}
 			}
@@ -517,14 +535,14 @@ liberal_party = {
 					has_law = law_type:law_serfdom
 				}
 				OR = {
-					has_ideology = ideology_egalitarian
-					has_ideology = ideology_anti_slavery
-					has_ideology = ideology_laissez_faire
-					has_ideology = ideology_particularist
+					has_ideology = ideology:ideology_egalitarian
+					has_ideology = ideology:ideology_anti_slavery
+					has_ideology = ideology:ideology_laissez_faire
+					has_ideology = ideology:ideology_particularist
 					leader = {
-						has_ideology = ideology_abolitionist
-						has_ideology = ideology_social_democrat
-						has_ideology = ideology_communist
+						has_ideology = ideology:ideology_abolitionist
+						has_ideology = ideology:ideology_social_democrat
+						has_ideology = ideology:ideology_communist
 					}
 				}
 			}
@@ -533,6 +551,38 @@ liberal_party = {
 				desc = "from_serfdom"
 			}
 		}
+		if = {
+			limit = { 
+				leader = { has_ideology = ideology:ideology_slaver } 
+			}
+			add = {
+				value = -100
+				desc = "from_slaver_leader"
+			}					
+		}	
+		else_if = {
+			limit = { 
+				leader = { has_ideology = ideology:ideology_abolitionist } 
+			}
+			add = {
+				value = 100
+				desc = "from_abolitionist_leader"
+			}									
+		}	
+		if = {
+			limit = {
+				owner = {
+	         		has_variable = only_valid_party
+	         	}
+	         	 owner.var:only_valid_party = {
+		        	is_party_type = liberal_party
+		        }
+			}
+			add = {
+				value = 3
+				desc = "from_only_legal_party"
+			}
+		}	
 		
 		if = {
 			limit = {
@@ -580,6 +630,21 @@ liberal_party = {
 			multiply = {
 				value = 0.1
 				desc = "from_more_than_three_prior_members"
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+	         		has_variable = only_valid_party
+	         	}
+	         	NOT = {
+			        owner.var:only_valid_party = {
+			        	is_party_type = liberal_party
+			        }
+			    }
+			}
+			multiply = {
+				value = 0
 			}
 		}
 	}

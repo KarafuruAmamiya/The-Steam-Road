@@ -2,7 +2,8 @@
 	exists = scope:character
 	scope:character = {
 		exists = c:FRA
-		owner = {
+		exists = home_country
+		home_country = {
 			OR = {
 				AND = {
 					c:FRA = this
@@ -18,7 +19,7 @@ french_empire_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		exists = c:FRA
-		owner = {
+		home_country = {
 			OR = {
 				AND = {
 					c:FRA = this
@@ -33,7 +34,8 @@ french_empire_clothes_pop_trigger = {
 german_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		owner = {
+		exists = home_country
+		home_country = {
 			is_subject = no
 			OR = {
 				country_has_primary_culture = cu:north_german
@@ -46,7 +48,7 @@ german_clothes_trigger = {
 german_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		owner = {
+		home_country = {
 			is_subject = no
 			OR = {
 				country_has_primary_culture = cu:north_german
@@ -130,7 +132,8 @@ japanese_imperial_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		is_ruler = yes
-     	owner = {
+		exists = home_country
+     	home_country = {
      		has_law = law_type:law_monarchy
      	}
 		OR = {
@@ -144,13 +147,13 @@ japanese_imperial_clothes_trigger = {
 					}
 					AND = {
 						exists = c:JAP
-						NOT = { owner = c:JAP }
+						NOT = { home_country = c:JAP }
 					}
 				}
 			}
 			AND = {
 				exists = c:JAP
-				OWNER = {
+				home_country = {
 					this = c:JAP
 				}
 			}
@@ -162,7 +165,8 @@ chinese_imperial_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		is_ruler = yes
-     	owner = {
+		exists = home_country
+     	home_country = {
      		has_law = law_type:law_monarchy
      	}
 		OR = {
@@ -171,7 +175,7 @@ chinese_imperial_clothes_trigger = {
 			}
 			AND = {
 				exists = c:CHI
-				OWNER = c:CHI
+				home_country = c:CHI
 			}
 		}
 	}
@@ -180,9 +184,10 @@ chinese_imperial_clothes_trigger = {
 chinese_manchu_queue_hairstyle_character_trigger = { # hairsyle for Manchu characters not living living under discriminatory Han rule, and Han characters living under discriminatory Manchu rule
 	exists = scope:character
 	scope:character = {
+		exists = home_country
 		OR = {
 			AND = {
-				owner = { 
+				home_country = { 
 					ruler = { 
 						has_culture = cu:manchu 
 					}
@@ -196,7 +201,7 @@ chinese_manchu_queue_hairstyle_character_trigger = { # hairsyle for Manchu chara
 			}
 			AND = {
 				NOT = {
-					owner = { 
+					home_country = { 
 						ruler = { 
 							culture = { 
 								has_discrimination_trait = han_chinese 
@@ -204,7 +209,7 @@ chinese_manchu_queue_hairstyle_character_trigger = { # hairsyle for Manchu chara
 						}
 						cu:manchu = {
 							NOT = { 
-								culture_is_discriminated_in = scope:character.owner 
+								culture_is_discriminated_in = scope:character.home_country 
 							}
 						}
 					}
@@ -220,7 +225,7 @@ chinese_manchu_queue_hairstyle_pops_trigger = { # hairsyle for Manchu pops not l
 	scope:pop = {
 		OR = {
 			AND = {
-				owner = { 
+				home_country = { 
 					ruler = { 
 						has_culture = cu:manchu 
 					}
@@ -234,7 +239,7 @@ chinese_manchu_queue_hairstyle_pops_trigger = { # hairsyle for Manchu pops not l
 			}
 			AND = {
 				NOT = {
-					owner = { 
+					home_country = { 
 						ruler = { 
 							culture = { 
 								has_discrimination_trait = han_chinese 
@@ -242,7 +247,7 @@ chinese_manchu_queue_hairstyle_pops_trigger = { # hairsyle for Manchu pops not l
 						}
 						cu:manchu = {
 							NOT = { 
-								culture_is_discriminated_in = scope:pop.owner 
+								culture_is_discriminated_in = scope:pop.home_country 
 							}
 						}
 					}
@@ -258,12 +263,13 @@ chinese_court_clothes_trigger = {
 	scope:character = {
 		NOT = {
 			AND = {
+				exists = home_country
 				is_ruler = yes
 				culture = {
 					has_discrimination_trait = tai
 					has_discrimination_trait = southeast_asian_heritage
 				}
-		     	owner = {
+		     	home_country = {
 		     		OR = {
 			     		has_law = law_type:law_monarchy
 			     		has_law = law_type:law_theocracy
@@ -272,6 +278,7 @@ chinese_court_clothes_trigger = {
 			}
 		}
 		culture = {
+			NOT = { this = cu:kalmyk }
 			OR = {
 				has_discrimination_trait = sinosphere
 				has_discrimination_trait = han_chinese
@@ -319,14 +326,15 @@ african_clothes_trigger = {
 arabic_fez_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = home_country
 		OR = {
-			owner = {
+			home_country = {
 				OR = {
 					is_country_type = recognized
 					is_country_type = colonial
 				}	
 			}
-			owner = {
+			home_country = {
 				top_overlord = {
 					OR = {
 						is_country_type = recognized
@@ -334,7 +342,7 @@ arabic_fez_trigger = {
 					}	
 				}
 			}
-			owner = {
+			home_country = {
 				exists = c:EGY
 				c:EGY = this
 				c:EGY = { has_law = law_type:law_monarchy }
@@ -348,22 +356,22 @@ arabic_military_fez_pop_trigger = {
 	scope:pop = {
 		AND = {
 			OR = {
-				owner = {
+				home_country = {
 					exists = c:EGY
 					c:EGY = this
 					c:EGY = { has_law = law_type:law_monarchy }
 				}
-				owner = {
+				home_country = {
 					exists = c:TUR
 					c:TUR = this
 					c:TUR = { has_law = law_type:law_monarchy }
 				}
-				owner = {
+				home_country = {
 					exists = c:TUN
 					c:TUN = this
 					c:TUN = { has_law = law_type:law_monarchy }
 				}
-				owner = {
+				home_country = {
 					exists = c:MOR
 					c:MOR = this
 					c:MOR = { has_law = law_type:law_monarchy }
@@ -381,12 +389,12 @@ arabic_military_fez_pop_trigger = {
 				AND = { # Albanian characters serving either the Ottomans or Egyptians should wear that country's clothing.
 					culture = cu:albanian
 					OR = {
-						owner = {
+						home_country = {
 							exists = c:TUR
 							c:TUR = this
 							c:TUR = { has_law = law_type:law_monarchy }
 						}
-						owner = {
+						home_country = {
 							exists = c:EGY
 							c:EGY = this
 							c:EGY = { has_law = law_type:law_monarchy }
@@ -413,13 +421,14 @@ arabic_clothes_trigger = {
 			culture = cu:circassian
 			AND = { # Albanian characters serving either the Ottomans or Egyptians should wear that country's clothing.
 				culture = cu:albanian
+				exists = home_country
 				OR = {
-					owner = {
+					home_country = {
 						exists = c:TUR
 						c:TUR = this
 						c:TUR = { has_law = law_type:law_monarchy }
 					}
-					owner = {
+					home_country = {
 						exists = c:EGY
 						c:EGY = this
 						c:EGY = { has_law = law_type:law_monarchy }
@@ -456,12 +465,13 @@ european_clothes_trigger = {
 		NOT = {
 			AND = { # Albanian characters serving either the Ottomans or Egyptians should wear that country's clothing.
 				culture = cu:albanian
+				exists = home_country
 				OR = {
-					owner = {
+					home_country = {
 						exists = c:TUR
 						c:TUR = this
 					}
-					owner = {
+					home_country = {
 						exists = c:EGY
 						c:EGY = this
 					}
@@ -495,7 +505,8 @@ siamese_clothes_trigger = { #Pretty sure this is actual burmese
 american_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		owner = {
+		exists = home_country
+		home_country = {
 			exists = c:USC
 			c:USC = this
 			is_subject = no
@@ -506,7 +517,7 @@ american_clothes_trigger = {
 american_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		owner = {
+		home_country = {
 			exists = c:USC
 			c:USC = this
 			is_subject = no
@@ -521,21 +532,21 @@ politician_clothes_trigger = {
 			has_role = politician
 			is_ruler = no
 		}
-		
 	}
 }
 
 recognized_country_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = home_country
 		OR = {
-			owner = {
+			home_country = {
 				OR = {
 					is_country_type = recognized
 					is_country_type = colonial
 				}	
 			}
-			owner = {
+			home_country = {
 				top_overlord = {
 					OR = {
 						is_country_type = recognized
@@ -551,13 +562,13 @@ recognized_country_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		OR = {
-			owner = {
+			home_country = {
 				OR = {
 					is_country_type = recognized
 					is_country_type = colonial
 				}	
 			}
-			owner = {
+			home_country = {
 				top_overlord = {
 					OR = {
 						is_country_type = recognized
@@ -581,14 +592,14 @@ christian_clothes_trigger = {
 devout_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		interest_group = { is_interest_group_type = ig_devout }
+		is_interest_group_type = ig_devout
 	}
 }
 
 armed_forces_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
-		interest_group = { is_interest_group_type = ig_armed_forces }
+		is_interest_group_type = ig_armed_forces
 	}
 }
 
@@ -612,11 +623,12 @@ military_clothes_trigger = {
 monarchy_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = home_country
 		OR = {
 	     	is_ruler = yes
 	     	is_heir = yes
 	     }
-     	owner = {
+     	home_country = {
      		has_law = law_type:law_monarchy
      	}
 	}
@@ -625,8 +637,9 @@ monarchy_clothes_trigger = {
 republic_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = home_country
 		is_ruler = yes
-		owner = {
+		home_country = {
 			NOT = { has_law = law_type:law_monarchy}
 		}
 	}
@@ -879,8 +892,7 @@ indian_clothes_pop_trigger = {
 }
 
 slavic_clothes_pop_trigger = {
-	exists = scope:pop
-	scope:pop = {
+	scope:pop ?= {
 		culture = {
 			OR = {
 				has_discrimination_trait = slavic
@@ -893,8 +905,18 @@ slavic_clothes_pop_trigger = {
 	}
 }
 
-
-
+slavic_clothes_trigger = {
+	scope:character ?= {
+		culture = {
+			OR = {
+				has_discrimination_trait = slavic
+				has_discrimination_trait = east_slavic
+				has_discrimination_trait = west_slavic
+				has_discrimination_trait = jugoslav
+			}
+		}   
+	}
+}
 
 poor_clothes_pop_trigger = {
 	exists = scope:pop
@@ -1169,6 +1191,12 @@ struggling_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		standard_of_living < 10
+	}
+}
+
+agitator_character_trigger = {
+	scope:character ?= {
+		has_role = agitator
 	}
 }
 

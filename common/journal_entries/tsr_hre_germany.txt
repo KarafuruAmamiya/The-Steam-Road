@@ -16,7 +16,7 @@ je_hre_falls_apart = {
 				is_direct_subject_of = c:SAX 
 				NOT = { is_subject_type = subject_type_hre }
 			}
-			c:RHI = { 
+			c:RHE = { 
 				is_direct_subject_of = c:SAX 
 				NOT = { is_subject_type = subject_type_hre }
 			}
@@ -112,7 +112,7 @@ je_hre_falls_apart = {
 			text = hre_fail_tt
 			c:FLA = { NOT = { is_subject_of = c:SAX } }
 			c:PLT = { NOT = { is_subject_of = c:SAX } }
-			c:RHI = { NOT = { is_subject_of = c:SAX } }
+			c:RHE = { NOT = { is_subject_of = c:SAX } }
 			c:NAS = { NOT = { is_subject_of = c:SAX } }
 			c:MUN = { NOT = { is_subject_of = c:SAX } }
 			c:HES = { NOT = { is_subject_of = c:SAX } }
@@ -174,7 +174,7 @@ je_hre_falls_apart = {
 		}
 	}
 	
-	inheritable = no
+	transferable = no
 }
 
 # Germany
@@ -204,5 +204,5 @@ je_reconquer_germany = {
 	
 	weight = 100
 	
-	inheritable = no
+	transferable = no
 }

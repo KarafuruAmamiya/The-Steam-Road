@@ -70,6 +70,9 @@ krl_independence.2 = {
 		any_diplomatic_play = {
 			initiator_is = c:SCA
 			target_is = c:KRL
+			any_scope_initiator_ally = {
+				this = c:USC
+            }
 			war = {
 				has_war_support = {
 					target = c:USC
@@ -196,11 +199,10 @@ krl_independence.4 = {
 	flavor = krl_independence.4.f
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -298,11 +300,10 @@ krl_independence.6 = {
 	flavor = krl_independence.6.f
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nations"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -329,11 +330,10 @@ krl_independence.7 = {
 	flavor = krl_independence.7.f
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_devastation.bk2"
+		video = "unspecific_devastation"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -363,11 +363,11 @@ krl_independence.7 = {
 			ruler = yes
 		}
 		every_scope_state = {
-            add_radicals = {
+            add_radicals_in_state = {
                 value = very_large_radicals
                 culture = cu:vinlandish
             }
-            add_radicals = {
+            add_radicals_in_state = {
                 value = very_large_radicals
                 culture = cu:kanadian
             }
@@ -387,11 +387,10 @@ krl_independence.8 = {
 	flavor = krl_independence.8.f
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "unspecific_military_parade"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 

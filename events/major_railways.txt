@@ -4,10 +4,9 @@
 major_railways.1 = {
 	type = country_event
 	event_image = {
-		video = "gfx/event_pictures/unspecific_trains.bk2"
+		video = "unspecific_trains"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/trains"
 
 	duration = 3
 	placement = scope:siberia_end_scope	
@@ -123,17 +122,16 @@ major_railways.1 = {
 	}
 }
 
-# Transcontinental
+# Transiranian
 major_railways.2 = {
 	type = country_event
 	event_image = {
-		video = "gfx/event_pictures/unspecific_trains.bk2"
+		video = "unspecific_trains"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/trains"
 
 	duration = 3
-	placement = scope:california_scope
+	placement = scope:arabestan_scope
 	
 	title = major_railways.2.t
 	desc = major_railways.2.d
@@ -145,35 +143,26 @@ major_railways.2 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				state_region = s:STATE_COSTA_DO_OURO
+				state_region = s:STATE_KHUZESTAN
 			}
-			save_scope_as = california_scope
+			save_scope_as = arabestan_scope
 		}
 	}
 	
-	option = { # settle the great plains
+	option = {
 		name = major_railways.2.a
 		every_scope_state = {
 			limit = {
-				region = sr:region_great_plains
-				has_building = building_railway
+				OR = {
+					state_region = s:STATE_TABRIZ
+					state_region = s:STATE_GILAN
+					state_region = s:STATE_IRAKAJEMI
+					state_region = s:STATE_ISFAHAN
+					state_region = s:STATE_KHUZESTAN
+				}
 			}
 			add_modifier = {
-				name = great_plains_settlement
-				months = normal_modifier_time
-			}
-		}
-	}
-	option = { # settle california
-		name = major_railways.2.b
-		default_option = yes
-		every_scope_state = {
-			limit = {
-				region = sr:region_pacific_coast
-				has_building = building_railway
-			}
-			add_modifier = {
-				name = great_plains_settlement
+				name = siberia_infrastructure
 				months = normal_modifier_time
 			}
 		}
@@ -184,13 +173,12 @@ major_railways.2 = {
 major_railways.3 = {
 	type = country_event
 	event_image = {
-		video = "gfx/event_pictures/unspecific_trains.bk2"
+		video = "unspecific_trains"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/trains"
 
 	duration = 3
-	placement = scope:pacific_railroad_end
+	placement = scope:vilhelmania_scope
 	title = major_railways.3.t
 	desc = major_railways.3.d
 	flavor = major_railways.3.f
@@ -203,23 +191,12 @@ major_railways.3 = {
 			limit = {
 				state_region = s:STATE_VILHELMANIA
 			}
-			save_scope_as = pacific_railroad_end
+			save_scope_as = vilhelmania_scope
 		}
 	}
 	
-	option = { # settle the west coast
-		name = major_railways.3.a
-		default_option = yes
-		scope:pacific_railroad_end = {
-			add_modifier = {
-				name = canada_settlement_mod
-				months = normal_modifier_time
-				multiplier = 2
-			}
-		}
-	}
 	option = { # settle the praries
-		name = major_railways.3.b
+		name = major_railways.3.a
 		every_scope_state = {
 			limit = {
 				OR = {

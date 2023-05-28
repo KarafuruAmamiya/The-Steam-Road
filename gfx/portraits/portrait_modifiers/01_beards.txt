@@ -20,16 +20,17 @@
                 exists = scope:character
                 scope:character = {
 					OR = {
-						has_variable = al_bustani
-						AND = {
-							owner = {
-								OR = {
-									AND = { exists = c:PER c:PER = this }
-									AND = { exists = c:JNB c:JNB = this }
-									AND = { exists = c:SRV c:SRV = this }
-								}
-							}
-							is_ruler = yes
+						has_template = syr_bustani_character_template
+                        AND = {
+                            exists = home_country
+                            home_country = {
+                                OR = {
+                                    AND = { exists = c:PER c:PER = this }
+                                    AND = { exists = c:JNB c:JNB = this }
+                                    AND = { exists = c:SRV c:SRV = this }
+                                }
+                            }
+                            is_ruler = yes
 						}
 					}
 				}
@@ -138,6 +139,7 @@
                             interest_group = { 
                                 is_interest_group_type = ig_devout 
                             }
+							is_interest_group_type = ig_devout 
                         }
                     }
                     AND = {

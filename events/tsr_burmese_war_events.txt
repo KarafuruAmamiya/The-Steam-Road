@@ -5,13 +5,12 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_devastation.bk2"
+		video = "unspecific_devastation"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -59,6 +58,9 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 				age = 47
 			}
 		}
+		hidden_effect = {
+			c:PER = { trigger_event = burmese_war.2 }
+		}
 	}
 }
 
@@ -67,13 +69,12 @@ burmese_war.2 = { # End of the Taungoo Empire (for Persia)
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_military_parade.bk2"
+		video = "unspecific_military_parade"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/military_parade"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -132,6 +133,7 @@ burmese_war.2 = { # End of the Taungoo Empire (for Persia)
 					value = -50
 				}
 			}
+			c:LXA = { trigger_event = burmese_war.3 }
 		}
 	}
 }
@@ -141,13 +143,12 @@ burmese_war.3 = { # End the war on Lan Xang's side
 	placement = ROOT
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+		video = "europenorthamerica_before_the_battle"
 	}
 
 	duration = 3
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 

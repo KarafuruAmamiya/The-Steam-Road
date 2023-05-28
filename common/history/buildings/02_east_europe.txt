@@ -2092,6 +2092,22 @@
 			}
 		}
 	}
+	s:STATE_CARPATHIAN_RUTHENIA={
+		region_state:HUN={
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+			}
+			create_building={
+				building="building_barracks"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_line_infantry" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+		}
+	}
 	s:STATE_SOUTHERN_TRANSYLVANIA={
 		region_state:TRS={
 			create_building={
@@ -2193,6 +2209,28 @@
 					activate_production_methods={ "pm_wound_dressing" "pm_cannon_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_line_infantry" }
 				}
 			}
+	}
+	s:STATE_BUKOVINA={
+		region_state:MOL={
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_vineyards" "pm_tools_disabled" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_logging_camp"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
+			}
+		}
 	}
 	s:STATE_WALLACHIA={
 		region_state:WAL={

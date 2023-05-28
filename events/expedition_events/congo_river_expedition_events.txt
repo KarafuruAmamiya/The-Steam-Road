@@ -13,11 +13,10 @@ expedition_events.601 = { #Start event
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+		video = "unspecific_politicians_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
@@ -41,11 +40,10 @@ expedition_events.602 = { #Choose commander
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
@@ -56,6 +54,7 @@ expedition_events.602 = { #Choose commander
 				has_role = admiral
 			}
 			is_ruler = no
+			is_busy = no
 		}
 	}
 
@@ -63,6 +62,7 @@ expedition_events.602 = { #Choose commander
 		if = {
 			limit = {
 				any_scope_character = {
+					is_busy = no
 					is_ruler = no
 					OR = {
 						has_role = general
@@ -74,6 +74,7 @@ expedition_events.602 = { #Choose commander
 			}
 			random_scope_character = {
 				limit = {
+					is_busy = no
 					is_ruler = no
 					OR = {
 						has_role = general
@@ -86,6 +87,7 @@ expedition_events.602 = { #Choose commander
 		}
 		random_scope_character = {
 			limit = {
+				is_busy = no
 				is_ruler = no
 				OR = {
 					has_role = general
@@ -102,6 +104,7 @@ expedition_events.602 = { #Choose commander
 		}
 		random_scope_character = {
 			limit = {
+				is_busy = no
 				is_ruler = no
 				OR = {
 					has_role = general
@@ -194,11 +197,10 @@ expedition_events.604 = { #Expedition Arrives
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
@@ -230,11 +232,10 @@ expedition_events.611 = { #Successful expedition
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_steam_ship.bk2"
+		video = "unspecific_steam_ship"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/steam_ship"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -298,11 +299,10 @@ expedition_events.612 = { #Failed expedition
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -365,11 +365,10 @@ expedition_events.620 = { #Boat Repair
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -426,11 +425,10 @@ expedition_events.630 = { #White Fog
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -468,11 +466,10 @@ expedition_events.640 = { #Crocodile Attack
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
@@ -523,11 +520,10 @@ expedition_events.641 = { #Crocodile Defeated
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -549,11 +545,10 @@ expedition_events.642 = { #F
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
@@ -576,11 +571,10 @@ expedition_events.650 = { #Rear Column
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -641,11 +635,10 @@ expedition_events.651 = { #bad news from the rear column
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 	
@@ -678,11 +671,10 @@ expedition_events.652 = { #mutiny
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/asia_sepoy_mutiny.bk2"
+		video = "asia_sepoy_mutiny"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/sepoy_mutiny"
 
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 	
@@ -712,11 +704,10 @@ expedition_events.660 = { #trading enclave
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/africa_desert_expedition.bk2"
+		video = "africa_desert_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/africa/desert_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -754,11 +745,10 @@ expedition_events.670 = { #Lost in the Forest
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
@@ -808,11 +798,10 @@ expedition_events.680 = { #naming the falls
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/middleeast_jungle_expedition.bk2"
+		video = "middleeast_jungle_expedition"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/jungle_expedition"
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
@@ -918,11 +907,10 @@ expedition_events.695 = { #you find another country's expedition
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_sick_in_hospital.bk2"
+		video = "unspecific_sick_in_hospital"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/sick_people_in_a_field_hospital"
 
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
@@ -1060,11 +1048,10 @@ expedition_events.696 = { #follow up if you killed the other expedition and mana
     duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/unspecific_politicians_arguing.bk2"
+		video = "unspecific_politicians_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/politician_parliament_motion"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	

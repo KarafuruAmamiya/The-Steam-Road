@@ -1,10 +1,29 @@
 ﻿# This is executed last among all history
 GLOBAL = {
 	every_country = {
+		add_taxed_goods = g:services
+	}
+
+	every_country = {
 		limit = { NOT = { has_law = law_type:law_slavery_banned } }
 		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
 	}
 	
+	# Jack the ripper, prevents the event from happening every game
+
+	every_country = {
+		if = {
+			limit = {
+				is_player = yes
+			}
+		}
+		random_list = {
+			1 = { set_variable = var_jack_ripper_possible }
+			9 = {
+				#Nothing Happens
+			}
+		}
+	}
 	set_global_variable = {
 		name = number_of_mega_earthquakes
 		value = 0
@@ -138,11 +157,11 @@ GLOBAL = {
 					state_region = s:STATE_CATALONIA
                 }
             }
-            add_radicals = {
+            add_radicals_in_state = {
                 value = medium_radicals
                 culture = cu:portuguese
             }
-            add_radicals = {
+            add_radicals_in_state = {
                 value = very_large_radicals
                 culture = cu:catalan
             }
@@ -187,44 +206,40 @@ GLOBAL = {
 					pop_is_discriminated = yes
 				}
             }
-            add_radicals = {
-                value = medium_radicals
+            add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:mashriqi
             }
-			add_radicals = {
-                value = medium_radicals
-                culture = cu:maghrebi
-            }
-            add_radicals = {
-                value = medium_radicals
+            add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:levantine
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:iraqi
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:bedouin
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:yemenite
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:hadramhi
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:omani
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:khaleeji
             }
-			add_radicals = {
-                value = medium_radicals
+			add_radicals_in_state = {
+                value = very_large_radicals
                 culture = cu:misri
             }
         }

@@ -5,11 +5,10 @@ titanic.1 = { #you build the titanic
 	placement = scope:titanic_state
 	
 	event_image = {
-		video = "gfx/event_pictures/unspecific_steam_ship.bk2"
+		video = "unspecific_steam_ship"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/steam_ship"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -17,16 +16,28 @@ titanic.1 = { #you build the titanic
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					exists = c:GBR
-					c:GBR = ROOT
+					OR = {
+						AND = { exists = c:ENG THIS = c:ENG }
+						AND = { exists = c:GBR THIS = c:GBR }
+					}
 				}
 				desc = titanic.1.t
 			}
 			triggered_desc = {
 				trigger = {
 					OR = {
-						NOT = { exists = c:GBR }
-						NOT = { c:GBR = ROOT }
+						NOT = {
+							OR = {
+								AND = { exists = c:ENG THIS = c:ENG }
+								AND = { exists = c:GBR THIS = c:GBR }
+							}
+						}
+						NOT = {
+							OR = {
+								exists = c:ENG
+								exists = c:GBR
+							}
+						}
 					}
 				}
 				desc = titanic.1.t2
@@ -234,7 +245,7 @@ titanic.1 = { #you build the titanic
 			}
 		}
 		scope:titanic_state = {
-			add_radicals = {
+			add_radicals_in_state = {
 				value = small_radicals
 				pop_type = laborers #they may lose they job
 			}
@@ -270,11 +281,10 @@ titanic.2 = { #the titanic sinks
 	placement = scope:titanic_state
 	
 	event_image = {
-		video = "gfx/event_pictures/unspecific_iceberg.bk2"
+		video = "unspecific_iceberg"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/iceberg_in_the_antartica"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -283,16 +293,28 @@ titanic.2 = { #the titanic sinks
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					exists = c:GBR
-					c:GBR = ROOT
+					OR = {
+						AND = { exists = c:ENG THIS = c:ENG }
+						AND = { exists = c:GBR THIS = c:GBR }
+					}
 				}
 				desc = titanic.2.d
 			}
 			triggered_desc = {
 				trigger = {
 					OR = {
-						NOT = { exists = c:GBR }
-						NOT = { c:GBR = ROOT }
+						NOT = {
+							OR = {
+								AND = { exists = c:ENG THIS = c:ENG }
+								AND = { exists = c:GBR THIS = c:GBR }
+							}
+						}
+						NOT = {
+							OR = {
+								exists = c:ENG
+								exists = c:GBR
+							}
+						}
 					}
 				}
 				desc = titanic.2.d2
@@ -320,7 +342,7 @@ titanic.2 = { #the titanic sinks
 			months = normal_modifier_time
 		}
 		scope:titanic_state = {
-			add_radicals = { #public outrage
+			add_radicals_in_state = { #public outrage
 				value = small_radicals
 			}
 		}
@@ -332,11 +354,10 @@ titanic.3 = { #it doesnt sink!
 	placement = scope:titanic_state
 	
 	event_image = {
-		video = "gfx/event_pictures/unspecific_steam_ship.bk2"
+		video = "unspecific_steam_ship"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/steam_ship"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
@@ -345,16 +366,28 @@ titanic.3 = { #it doesnt sink!
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					exists = c:GBR
-					c:GBR = ROOT
+					OR = {
+						AND = { exists = c:ENG THIS = c:ENG }
+						AND = { exists = c:GBR THIS = c:GBR }
+					}
 				}
 				desc = titanic.3.d
 			}
 			triggered_desc = {
 				trigger = {
 					OR = {
-						NOT = { exists = c:GBR }
-						NOT = { c:GBR = ROOT }
+						NOT = {
+							OR = {
+								AND = { exists = c:ENG THIS = c:ENG }
+								AND = { exists = c:GBR THIS = c:GBR }
+							}
+						}
+						NOT = {
+							OR = {
+								exists = c:ENG
+								exists = c:GBR
+							}
+						}
 					}
 				}
 				desc = titanic.3.d2
@@ -382,7 +415,7 @@ titanic.3 = { #it doesnt sink!
 			months = normal_modifier_time
 		}
 		scope:titanic_state = {
-			add_loyalists = { #people are proud of their creation
+			add_loyalists_in_state = { #people are proud of their creation
 				value = 0.3
 				pop_type = laborers
 			}

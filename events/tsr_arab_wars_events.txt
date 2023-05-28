@@ -11,11 +11,10 @@ arab_wars.1 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -90,11 +89,10 @@ arab_wars.2 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -132,7 +130,7 @@ arab_wars.2 = {
 	option = {
 		name = arab_wars.2.a
 		scope:arab_state = {
-			add_radicals = {
+			add_radicals_in_state = {
                 value = very_large_radicals
                 culture = scope:arab_culture
             }
@@ -155,11 +153,10 @@ arab_wars.3 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "africa_leader_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -191,7 +188,31 @@ arab_wars.3 = {
 		set_variable = centralization_stance
 		
 		ai_chance = {
-			base = 75
+			base = 25
+			if = {
+				limit = {
+					any_country = {
+						has_variable = al_bustani_nationalism
+					}
+				}
+				add = 25
+			}
+			if = {
+				limit = {
+					any_country = {
+						has_variable = al_shidyaq_nationalism
+					}
+				}
+				add = 25
+			}
+			if = {
+				limit = {
+					any_country = {
+						has_variable = muhammad_abduh_nationalism
+					}
+				}
+				add = 25
+			}
 		}
 	}
 	
@@ -223,11 +244,10 @@ arab_wars.4 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_conspiring"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -314,11 +334,10 @@ arab_wars.5 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+		video = "votp_conspiring"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -402,11 +421,10 @@ arab_wars.6 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -414,22 +432,23 @@ arab_wars.6 = {
 	}
 
 	immediate = {
+		#if = {
+		#	limit = {
+		#		exists = c:PER
+		#		c:PER = ROOT
+		#		c:PER = {
+		#			has_journal_entry = je_arab_wars_per
+		#		}
+		#	}
+		#	random_country = {
+		#		limit = { 
+		#			has_variable = support_arab_wars_per 
+		#		}
+		#		save_scope_as = supporter_country
+		#	}
+		#}
+		
 		if = {
-			limit = {
-				exists = c:PER
-				c:PER = ROOT
-				c:PER = {
-					has_journal_entry = je_arab_wars_per
-				}
-			}
-			random_country = {
-				limit = { 
-					has_variable = support_arab_wars_per 
-				}
-				save_scope_as = supporter_country
-			}
-		}
-		else_if = {
 			limit = {
 				exists = c:TUR
 				c:TUR = ROOT
@@ -475,11 +494,10 @@ arab_wars.7 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -740,11 +758,10 @@ arab_wars.9 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+		video = "votp_conspiring"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -794,11 +811,10 @@ arab_wars.10 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_conspiring"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
@@ -952,11 +968,10 @@ arab_wars.12 = {
 	flavor = arab_wars.12.f
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -1029,11 +1044,10 @@ arab_wars.13 = {
 	flavor = arab_wars.13.f
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "middleeast_battlefield_trenches"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
@@ -1098,72 +1112,71 @@ arab_wars.14 = {
 	flavor = arab_wars.14.f
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
 	duration = 1
 
 	immediate = {
-		if = {
-			limit = {
-				any_country = {
-					country_rank = rank_value:great_power
-					OR = {
-						AND = {
-							is_player = yes
-							NOT = { ROOT = this }
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = domineering
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = belligerent
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = antagonistic
-						}
-					}
-					NOT = {
-						has_journal_entry = je_arab_nationalism_overlord
-					}
-				}
-			}
-			random_country = {
-				limit = {
-					country_rank = rank_value:great_power
-					OR = {
-						AND = {
-							is_player = yes
-							NOT = { ROOT = this }
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = domineering
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = belligerent
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = antagonistic
-						}
-					}
-					NOT = {
-						has_journal_entry = je_arab_nationalism_overlord
-					}
-				}
-				save_scope_as = supporter_country
-			}
-		}
+		#if = {
+		#	limit = {
+		#		any_country = {
+		#			country_rank = rank_value:great_power
+		#			OR = {
+		#				AND = {
+		#					is_player = yes
+		#					NOT = { ROOT = this }
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = domineering
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = belligerent
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = antagonistic
+		#				}
+		#			}
+		#			NOT = {
+		#				has_journal_entry = je_arab_nationalism_overlord
+		#			}
+		#		}
+		#	}
+		#	random_country = {
+		#		limit = {
+		#			country_rank = rank_value:great_power
+		#			OR = {
+		#				AND = {
+		#					is_player = yes
+		#					NOT = { ROOT = this }
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = domineering
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = belligerent
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = antagonistic
+		#				}
+		#			}
+		#			NOT = {
+		#				has_journal_entry = je_arab_nationalism_overlord
+		#			}
+		#		}
+		#		save_scope_as = supporter_country
+		#	}
+		#}
 		s:STATE_HAASA = {
 			random_scope_state = {
 				save_scope_as = haasa_scope
@@ -1206,7 +1219,7 @@ arab_wars.14 = {
 		name = arab_wars.14.a
 		default_option = yes
 
-		custom_tooltip = arab_wars.14.tt
+		#custom_tooltip = arab_wars.14.tt
 		
 		c:PER = {
 			add_journal_entry = {
@@ -1264,54 +1277,54 @@ arab_wars.14 = {
 			value = -100
 	    }
 		
-		if = {
-			limit = {
-				any_country = {
-					country_rank = rank_value:great_power
-					OR = {
-						AND = {
-							is_player = yes
-							NOT = { ROOT = this }
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = domineering
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = belligerent
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = antagonistic
-						}
-					}
-					NOT = {
-						has_journal_entry = je_arab_nationalism_overlord
-					}
-				}
-			}
-			hidden_effect = {
-				c:IRQ = {
-					change_relations = {
-						country = scope:supporter_country
-						value = 100
-					}
-				}
-				c:HAA = {
-					change_relations = {
-						country = scope:supporter_country
-						value = 100
-					}
-				}
-			}
-			
-			scope:supporter_country = {
-				trigger_event = {
-					id = arab_wars.15
-				}
-			}
-		}
+		#if = {
+		#	limit = {
+		#		any_country = {
+		#			country_rank = rank_value:great_power
+		#			OR = {
+		#				AND = {
+		#					is_player = yes
+		#					NOT = { ROOT = this }
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = domineering
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = belligerent
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = antagonistic
+		#				}
+		#			}
+		#			NOT = {
+		#				has_journal_entry = je_arab_nationalism_overlord
+		#			}
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		c:IRQ = {
+		#			change_relations = {
+		#				country = scope:supporter_country
+		#				value = 100
+		#			}
+		#		}
+		#		c:HAA = {
+		#			change_relations = {
+		#				country = scope:supporter_country
+		#				value = 100
+		#			}
+		#		}
+		#	}
+		#	
+		#	scope:supporter_country = {
+		#		trigger_event = {
+		#			id = arab_wars.15
+		#		}
+		#	}
+		#}
 		
 		if = {
 			limit = {
@@ -1399,54 +1412,54 @@ arab_wars.14 = {
 			}
 	    }
 		
-		if = {
-			limit = {
-				any_country = {
-					country_rank = rank_value:great_power
-					OR = {
-						AND = {
-							is_player = yes
-							NOT = { ROOT = this }
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = domineering
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = belligerent
-						}
-						has_attitude = {
-							who = ROOT
-							attitude = antagonistic
-						}
-					}
-					NOT = {
-						has_journal_entry = je_arab_nationalism_overlord
-					}
-				}
-			}
-			hidden_effect = {
-				c:IRQ = {
-					change_relations = {
-						country = scope:supporter_country
-						value = 100
-					}
-				}
-				c:HAA = {
-					change_relations = {
-						country = scope:supporter_country
-						value = 100
-					}
-				}
-			}
-			
-			scope:supporter_country = {
-				trigger_event = {
-					id = arab_wars.15
-				}
-			}
-		}
+		#if = {
+		#	limit = {
+		#		any_country = {
+		#			country_rank = rank_value:great_power
+		#			OR = {
+		#				AND = {
+		#					is_player = yes
+		#					NOT = { ROOT = this }
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = domineering
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = belligerent
+		#				}
+		#				has_attitude = {
+		#					who = ROOT
+		#					attitude = antagonistic
+		#				}
+		#			}
+		#			NOT = {
+		#				has_journal_entry = je_arab_nationalism_overlord
+		#			}
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		c:IRQ = {
+		#			change_relations = {
+		#				country = scope:supporter_country
+		#				value = 100
+		#			}
+		#		}
+		#		c:HAA = {
+		#			change_relations = {
+		#				country = scope:supporter_country
+		#				value = 100
+		#			}
+		#		}
+		#	}
+		#	
+		#	scope:supporter_country = {
+		#		trigger_event = {
+		#			id = arab_wars.15
+		#		}
+		#	}
+		#}
 		
 		if = {
 			limit = {
@@ -1462,106 +1475,106 @@ arab_wars.14 = {
 }
 
 #Iraq and Haasa ask for support
-arab_wars.15 = {
-	type = country_event
-	placement = root
-	title = arab_wars.15.t
-	desc = arab_wars.15.d
-	flavor = arab_wars.15.f
-
-	duration = 3
-
-	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
-
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	trigger = {
-	}
-
-	immediate = {
-		c:IRQ = {
-			save_scope_as = iraq_scope
-		}
-		c:HAA = {
-			save_scope_as = haasa_scope
-		}
-		c:PER = {
-			save_scope_as = persia_scope
-		}
-	}
-
-	option = { #Help them
-		name = arab_wars.15.a
-		default_option = yes
-		
-		custom_tooltip = {
-			text = support_arab_wars_tt
-			set_variable = support_arab_wars_per
-		}
-		change_relations = {
-			country = c:IRQ
-			value = 50
-		}
-		change_relations = {
-			country = c:HAA
-			value = 50
-		}
-		
-		c:IRQ = {
-			set_owes_obligation_to = {
-				country = ROOT
-				setting = yes
-			}
-		}
-		c:HAA = {
-			set_owes_obligation_to = {
-				country = ROOT
-				setting = yes
-			}
-		}
-		
-		random_diplomatic_play = {
-			limit = {
-				initiator_is = c:PER
-				target_is = c:IRQ
-			}
-			add_target_backers = {
-				ROOT
-			}
-		}
-		
-		hidden_effect = {
-			c:PER = {
-				trigger_event = { id = arab_wars.6 days = 1 }
-			}
-		}
-		
-		ai_chance = {
-			base = 100
-		}
-	}
-	
-	option = { #Don't help
-		name = arab_wars.15.b
-		change_relations = {
-			country = c:IRQ
-			value = -50
-		}
-		change_relations = {
-			country = c:HAA
-			value = -50
-		}
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-}
+#arab_wars.15 = {
+#	type = country_event
+#	placement = root
+#	title = arab_wars.15.t
+#	desc = arab_wars.15.d
+#	flavor = arab_wars.15.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "europenorthamerica_before_the_battle"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
+#
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#
+#	trigger = {
+#	}
+#
+#	immediate = {
+#		c:IRQ = {
+#			save_scope_as = iraq_scope
+#		}
+#		c:HAA = {
+#			save_scope_as = haasa_scope
+#		}
+#		c:PER = {
+#			save_scope_as = persia_scope
+#		}
+#	}
+#
+#	option = { #Help them
+#		name = arab_wars.15.a
+#		default_option = yes
+#		
+#		custom_tooltip = {
+#			text = support_arab_wars_tt
+#			set_variable = support_arab_wars_per
+#		}
+#		change_relations = {
+#			country = c:IRQ
+#			value = 50
+#		}
+#		change_relations = {
+#			country = c:HAA
+#			value = 50
+#		}
+#		
+#		c:IRQ = {
+#			set_owes_obligation_to = {
+#				country = ROOT
+#				setting = yes
+#			}
+#		}
+#		c:HAA = {
+#			set_owes_obligation_to = {
+#				country = ROOT
+#				setting = yes
+#			}
+#		}
+#		
+#		random_diplomatic_play = {
+#			limit = {
+#				initiator_is = c:PER
+#				target_is = c:IRQ
+#			}
+#			add_target_backers = {
+#				ROOT
+#			}
+#		}
+#		
+#		hidden_effect = {
+#			c:PER = {
+#				trigger_event = { id = arab_wars.6 days = 1 }
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 100
+#		}
+#	}
+#	
+#	option = { #Don't help
+#		name = arab_wars.15.b
+#		change_relations = {
+#			country = c:IRQ
+#			value = -50
+#		}
+#		change_relations = {
+#			country = c:HAA
+#			value = -50
+#		}
+#		
+#		ai_chance = {
+#			base = 0
+#		}
+#	}
+#}
 
 # Arab Wars - Ottoman and Egypt
 arab_wars.16 = {
@@ -1574,11 +1587,10 @@ arab_wars.16 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
@@ -1688,11 +1700,10 @@ arab_wars.18 = {
 	duration = 3
 
 	event_image = {
-		video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2"
+		video = "votp_conspiring"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/before_the_battle"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 

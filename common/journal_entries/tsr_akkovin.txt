@@ -100,7 +100,7 @@
 	
 	weight = 10000
 	
-	inheritable = no
+	transferable = no
 
 	invalid = {
 		NOT = { exists = c:AKN }
@@ -174,7 +174,7 @@ je_akkovin_reform_economy = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 	progressbar = yes
@@ -249,7 +249,7 @@ je_akkovin_reform_education = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 
@@ -325,7 +325,7 @@ je_akkovin_reform_army = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -394,7 +394,7 @@ je_akkovin_reform_navy = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -457,7 +457,7 @@ je_akkovin_reform_bureaucracy = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -550,7 +550,7 @@ je_akkovin_reform_sovereignty = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -657,7 +657,7 @@ je_akkovin_reform_kurdish = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 	
@@ -805,6 +805,14 @@ je_akkovin_reform_arabia = {
 					custom_tooltip = {
 						text = nahda_start_tt
 						has_global_variable = nahda_start
+						OR = {
+							AND = {
+								has_global_variable = al_bustani_var
+								has_global_variable = al_shidyaq_var
+								has_global_variable = muhammad_abduh_var
+							}
+							has_global_variable = arab_wars
+						}
 					}
 					any_subject_or_below = {
 						has_journal_entry = je_arab_nationalism_subject
@@ -838,7 +846,7 @@ je_akkovin_reform_arabia = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 	
@@ -966,7 +974,7 @@ je_akkovin_reform_minorities = {
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 	
@@ -1034,7 +1042,7 @@ je_akkovin_reform_nationalism = { #WIP
 		}
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -1185,7 +1193,7 @@ je_akkovin_partition_tur = { #WIP
 		NOT = { exists = c:TUR }
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }
@@ -1272,7 +1280,7 @@ je_akkovin_partition_per = { #WIP
 		NOT = { exists = c:PER }
 	}
 
-	inheritable = no
+	transferable = no
 
 	weight = 5000
 }

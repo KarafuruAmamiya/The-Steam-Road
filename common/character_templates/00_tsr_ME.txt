@@ -1,8 +1,12 @@
-﻿#Butrus Al-Bustani
+﻿#NOTE: ALL OF THEM ARE NOT MEANT TO BE THE EXACT SAME AS THEIR REAL LIFE COUNTERPARTS
+
+#Butrus Al-Bustani
 syr_bustani_character_template = {
     first_name = Butrus
     last_name = al_Bustani
     culture = cu:levantine
+	historical = yes
+	is_agitator = yes
     female = no
     religion = rel:protestant
     ideology = ideology_reformer
@@ -10,7 +14,55 @@ syr_bustani_character_template = {
     birth_date = 1819.11.1
     dna = dna_al_bustani
     traits = {
-        innovative
-		inspirational_orator
-    } 
+        literary
+		persistent
+		erudite
+    }
+}
+
+#Ahmad Faris al-Shidyaq
+egy_shidyaq_character_template = {
+    first_name = Ahmad_Faris #Technically he only adopted the name "Ahmad" after converting, but no way to change names sadly
+    last_name = al_Shidyaq
+    culture = cu:levantine
+	historical = yes
+	is_agitator = yes
+    female = no
+    religion = rel:reformed
+    ideology = ideology_reformer
+    interest_group = ig_intelligentsia
+    birth_date = 1805.1.1
+    dna = dna_al_shidyaq
+    traits = {
+        direct
+		literary
+		persistent
+    }
+	
+	on_created = {
+		if = {
+			limit = { year >= 1860 }
+			change_character_religion = rel:sunni
+		}
+	}
+}
+
+#Muhammad Abduh
+egy_abduh_character_template = { #Only loosely based on the real one
+    first_name = Muhammad
+    last_name = Abduh
+    culture = cu:misri
+	historical = yes
+	is_agitator = yes
+    female = no
+    religion = rel:sunni
+    ideology = ideology_radical
+    interest_group = ig_intelligentsia
+    birth_date = 1819.1.1
+    dna = dna_muhammad_abduh
+    traits = {
+        direct
+		literary
+		charismatic
+    }
 }

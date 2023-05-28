@@ -144,17 +144,20 @@
 							}
 						}
 					}
-                    scope:character ?= {
-                        has_template = syr_bustani_character_template
-                        NOR = {
-                            has_role = general
-                            has_role = admiral
-                        }
-                    }
 				}
                 south_american_clothes_character_trigger = no
                 slavic_clothes_trigger = no
                 agitator_character_trigger = yes
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = syr_bustani_character_template
+                    NOR = {
+                        has_role = general
+                        has_role = admiral
+                    }
+                }
             }
         }
     }
@@ -524,6 +527,16 @@
                 south_american_clothes_character_trigger = no
                 slavic_clothes_trigger = no
                 agitator_character_trigger = yes
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = egy_shidyaq_character_template
+                    NOR = {
+                        has_role = general
+                        has_role = admiral
+                    }
+                }
             }
         }
     }
@@ -2643,7 +2656,7 @@
 						AND = {
                             exists = scope:character
                             scope:character = {
-                                owner = {
+                                home_country = {
 									has_variable = adopt_western_uniforms
 								}
                             }
@@ -2658,7 +2671,6 @@
            modifier = { #If we want rulers to dress like politicians later.
                add = 100
                AND = {
-                   european_clothes_trigger = yes
                    OR = {
 						european_clothes_trigger = yes
 						tsr_persia_leader_trigger = yes
@@ -2666,7 +2678,7 @@
 						AND = {
                             exists = scope:character
                             scope:character = {
-                                owner = {
+                                home_country = {
 									has_variable = adopt_western_uniforms
 								}
                             }
@@ -4420,6 +4432,12 @@ chinese_upper_clothes = {
                     }
                 }
             }
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_template = egy_abduh_character_template
+				}
+			}
         }
     }
     slavic_middle_clothes = {

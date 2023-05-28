@@ -821,6 +821,12 @@
                     agitator_character_trigger = no
 				}
             }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = egy_abduh_character_template
+                }
+            }
         }
     }
     arabic_middle_tier = {
@@ -900,6 +906,7 @@
                     }
                     OR = {
                         military_clothes_trigger = yes
+                        politician_clothes_trigger = yes
                         monarchy_clothes_trigger = yes
                     }
                 }
@@ -953,6 +960,18 @@
 						soldier_clothes_pop_trigger = yes
                         officers_clothes_pop_trigger = yes
                     }
+                }
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = syr_bustani_character_template
+                }
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = egy_shidyaq_character_template
                 }
             }
         }

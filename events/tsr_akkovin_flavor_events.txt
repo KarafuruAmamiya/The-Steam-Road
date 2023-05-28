@@ -11,12 +11,12 @@ apda_events.1 = {
 	flavor =  apda_events.1.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+		video = "middleeast_courtroom_upheaval"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	
 	trigger = {
 		#triggered by defaulting during Tanzimat
 	}
@@ -39,11 +39,10 @@ akkovin_flavor.1 = { # Sending students to foreign countries
 	flavor =  akkovin_flavor.1.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/middleeast_engineer_blueprint.bk2"
+		video = "middleeast_engineer_blueprint"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/engineer_blueprint"
 	icon = "gfx/interface/icons/event_icons/event_academia.dds"
 
 	trigger = {
@@ -223,11 +222,10 @@ akkovin_flavor.2 = { # Foreign country receive Akkovin students
 	flavor =  akkovin_flavor.2.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2"
+		video = "middleeast_middleclass_cafe"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
 	icon = "gfx/interface/icons/event_icons/event_academia.dds"
 
 	immediate = {
@@ -261,12 +259,12 @@ akkovin_flavor.3 = { #Centralising the Kurdish Territories
 	flavor = akkovin_flavor.3.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+		video = "asia_hinduism_sikhism"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 	minor_left_icon = c:AKN
+	
 	immediate = {
 		random_scope_state = {
 			limit = {
@@ -340,10 +338,9 @@ akkovin_flavor.4 = { #Creation of the Kurdish Autonomy
 	flavor = akkovin_flavor.4.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+		video = "asia_hinduism_sikhism"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	minor_left_icon = c:KUR
 	
@@ -410,10 +407,9 @@ akkovin_flavor.5 = { #Creation of the Armenian Autonomy
 	flavor = akkovin_flavor.5.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/asia_hinduism_sikhism.bk2"
+		video = "asia_hinduism_sikhism"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/asia/hinduism_sikhism"
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	minor_left_icon = c:KUR
 	
@@ -501,11 +497,10 @@ treaty_of_baglar_events.1 = { # The Akkovins renewed the Treaty of Baglar
 	flavor =  treaty_of_baglar_events.1.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+		video = "unspecific_signed_contract"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	option = { #
@@ -521,11 +516,10 @@ treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
 	flavor =  treaty_of_baglar_events.2.f
 	duration = 3
 	event_image = {
-		video = "gfx/event_pictures/middleeast_courtroom_upheaval.bk2"
+		video = "middleeast_courtroom_upheaval"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	option = { #
@@ -550,4 +544,4 @@ treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
 	}
 }
 
-#Add more Baglar-treaty events here (basically Persia screwing Akkovins over really)
+#Add more Baglar-treaty events here (basically Persia screwing Akkovins over)

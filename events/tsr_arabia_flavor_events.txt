@@ -702,3 +702,174 @@ arabia_flavor.4 = {
 		}
 	}
 }
+
+# Arabian Desert JE Completion
+arabia_flavor.5 = {
+	type = country_event
+	placement = ROOT
+
+	title = arabia_flavor.5.t
+	desc = arabia_flavor.5.d
+	flavor = arabia_flavor.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "africa_desert_expedition"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		every_primary_culture = {
+			save_scope_as = primary_culture_scope
+		}
+		if = {
+			limit = {
+				owns_entire_state_region = STATE_HALIL
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_HALIL
+				}
+				save_scope_as = desert_state
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_NEJD
+				}
+				save_scope_as = desert_state
+			}
+		}
+	}
+
+	option = {
+		name = arabia_flavor.5.a
+		default_option = yes
+		if = {
+			limit = {
+				scope:desert_state = {
+					state_region = {
+						NOT = { is_homeland = scope:primary_culture_scope }
+					}
+				}
+			}
+			scope:desert_state = {
+				state_region = {
+					add_homeland = scope:primary_culture_scope
+				}
+			}
+		}
+		scope:desert_state = {
+			add_modifier = {
+				name = tribes_cooperation
+				months = long_modifier_time
+			}
+		}
+	}
+}
+
+# Bedouin Raids
+arabia_flavor.6 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.6.t
+	desc = arabia_flavor.6.d
+	flavor = arabia_flavor.6.f
+
+	duration = 3
+
+	cooldown = { months = long_modifier_time }
+
+	event_image = {
+		video = "unspecific_vandalized_storefront"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		OR = {
+			AND = { 
+				exists = c:RAK 
+				c:RAK = { tension:root >= 25 }
+			}
+			AND = { 
+				exists = c:ANZ 
+				c:ANZ = { tension:root >= 25 }
+			}
+		}
+		any_scope_state = {
+			is_incorporated = no
+			any_neighbouring_state = {
+				owner = {
+					is_country_type = decentralized
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				any_neighbouring_state = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+			}
+			save_scope_as = desert_state
+			random_neighbouring_state = {
+				limit = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				owner = {
+					save_scope_as = desert_country
+				}
+			}
+		}
+	}
+
+	option = {
+		name = arabia_flavor.6.a
+		default_option = yes
+		scope:desert_state = {
+			add_modifier = {
+				name = bedouin_raid
+				months = short_modifier_time
+			}
+		}
+		change_tension = {
+			country = scope:desert_country
+			value = -25
+		}
+	}
+
+	option = {
+		name = arabia_flavor.6.b
+		scope:desert_state = {
+			add_modifier = {
+				name = bedouin_raid
+				months = short_modifier_time
+			}
+			add_modifier = {
+				name = harsh_treatment
+				months = short_modifier_time
+			}
+		}
+		change_tension = {
+			country = scope:desert_country
+			value = 25
+		}
+	}
+}

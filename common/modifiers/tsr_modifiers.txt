@@ -240,3 +240,22 @@ modifier_abduh_popularity = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
 	character_popularity_add = 25
 }
+
+tribes_cooperation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_construction_mult = 0.10
+	state_infrastructure_add = 15
+}
+
+bedouin_raid = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	building_livestock_ranch_throughput_mult = -0.1
+	building_wheat_farm_throughput_mult = -0.1
+	state_mortality_mult = 0.1
+	state_migration_pull_mult = -0.1
+}
+
+harsh_treatment = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_colony_growth_speed_mult = 0.25
+}

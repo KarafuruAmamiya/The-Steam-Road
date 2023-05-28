@@ -172,20 +172,87 @@ promote_akturk_identity = { #WIP
 	}
 
 	possible = {
-		is_at_war = no
 		has_technology_researched = nationalism
-		NOT = {
-			has_law = law_type:law_cultural_exclusion
-			has_law = law_type:law_multicultural
+		OR = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+		}
+		custom_tooltip = {
+			text = christians_reined_in_tt
+			AND = {
+				has_variable = completed_akkovin_reform_minorities_je
+				NOT = { exists = c:ARM }
+			}
+		}
+		custom_tooltip = {
+			text = arabs_reined_in_tt
+			AND = {
+				has_variable = completed_akkovin_reform_arabia_je
+				OR = {
+					AND = {
+						c:SYR = {
+							is_subject_of = ROOT
+							is_subject_type = subject_type_dependency
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:HDJ = {
+							is_subject_of = ROOT
+							is_subject_type = subject_type_dependency
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:NEJ = {
+							is_subject_of = ROOT
+							is_subject_type = subject_type_dependency
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:JAB = {
+							is_subject_of = ROOT
+							is_subject_type = subject_type_dependency
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+					}
+					AND = {
+						owns_entire_state_region = STATE_SYRIA
+						owns_entire_state_region = STATE_TRANSJORDAN
+						owns_entire_state_region = STATE_PALESTINE
+						owns_entire_state_region = STATE_LEBANON
+						owns_entire_state_region = STATE_HAMA
+						owns_entire_state_region = STATE_HEDJAZ
+						owns_entire_state_region = STATE_MEDINA
+						has_state_in_state_region = STATE_NEJD
+						has_state_in_state_region = STATE_HAIL
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = kurds_reined_in_tt
+			AND = {
+				has_variable = completed_akkovin_reform_kurdish_je
+				NOT = { exists = c:KUR }
+			}
 		}
 	}
 
 	when_taken = {
-		set_global_variable = akturkification_start
+		set_variable = akturkification_start
 		add_modifier = {
 			name = russification_modifier
 			months = -1
 		}
+		trigger_event = { id = akkovin_flavor.6 }
 	}
 
 	ai_chance = {

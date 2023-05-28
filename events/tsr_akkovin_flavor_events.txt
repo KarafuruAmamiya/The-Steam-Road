@@ -488,6 +488,51 @@ akkovin_flavor.5 = { #Creation of the Armenian Autonomy
 	}
 }
 
+akkovin_flavor.6 = { #Akturkification Start
+	type = country_event
+	placement = ROOT
+	title = akkovin_flavor.6.t
+	desc = akkovin_flavor.6.d
+	flavor = akkovin_flavor.6.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	immediate = {
+		every_scope_culture = {
+			limit = {
+				NOT = { is_primary_culture_of = root }
+			}
+			save_scope_as = non_akturk_culture
+		}
+	}
+	option = { 
+		name = akkovin_flavor.6.a
+		every_scope_state = {
+			limit = {
+                any_scope_pop = {
+					pop_has_primary_culture = no
+				}
+            }
+			add_radicals_in_state = {
+                value = very_large_radicals
+                culture = scope:non_akturk_culture
+            }
+		}
+		every_scope_state = {
+			limit = {
+                state_region = { 
+					is_homeland = scope:non_akturk_culture
+				}
+            }
+			remove_homeland = scope:non_akturk_culture
+		}
+	}
+}
+
 # Treaty of Baglar Events
 
 treaty_of_baglar_events.1 = { # The Akkovins renewed the Treaty of Baglar

@@ -162,15 +162,9 @@ je_akkovin_reform_economy = {
 	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 
@@ -231,15 +225,9 @@ je_akkovin_reform_education = {
 	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 	
@@ -306,22 +294,22 @@ je_akkovin_reform_army = {
 		remove_modifier = tribal_structures
 	}
 
-	on_monthly_pulse = {
-		events = {
-			tanzimat_events.10 # Tanzimat Draft Question
-		}
-	}
+#	on_monthly_pulse = {
+#		effect = {
+#			if = {
+#				limit = {
+#					has_modifier = cizye_tax
+#					NOT = { has_law = law_type:law_peasant_levies }
+#				}
+#				trigger_event = { id = tanzimat_events.10 # Tanzimat Draft Question }
+#			}
+#		}
+#	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 
@@ -382,15 +370,9 @@ je_akkovin_reform_navy = {
 	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 
@@ -445,15 +427,9 @@ je_akkovin_reform_bureaucracy = {
 	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 
@@ -538,15 +514,9 @@ je_akkovin_reform_sovereignty = {
 	}
 
 	invalid = {
-		OR = {
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-			custom_tooltip = {
-				text = akkovin_fail_tt
-				has_variable = akkovin_fail
-			}
+		custom_tooltip = {
+			text = akkovin_fail_tt
+			has_variable = akkovin_fail
 		}
 	}
 
@@ -874,9 +844,9 @@ je_akkovin_reform_minorities = {
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
+		NOT = { has_modifier = cizye_tax }
 		OR = {
 			AND = {
-				#has_variable = dhimmi_autonomy_revoked
 				cu:armenian = {
 					culture_secession_progress = {
 						target = ROOT
@@ -898,6 +868,7 @@ je_akkovin_reform_minorities = {
 			}
 			has_law = law_type:law_shared_roots
 			has_law = law_type:law_total_separation
+			has_law = law_type:law_state_atheism
 		}
 	}
 
@@ -1003,7 +974,10 @@ je_akkovin_reform_nationalism = { #WIP
 		has_technology_researched = nationalism
 		OR = {
 			AND = {
-				has_global_variable = akturkification_start
+				custom_tooltip = {
+					text = akturkification_start_tt
+					has_variable = akturkification_start
+				}
 				any_scope_state = {
 					count >= 12
 					any_scope_pop = {
@@ -1017,6 +991,11 @@ je_akkovin_reform_nationalism = { #WIP
 				OR = {
 					has_law = law_type:law_cultural_exclusion
 					has_law = law_type:law_multicultural
+				}
+				OR = {
+					has_law = law_type:law_shared_roots
+					has_law = law_type:law_total_separation
+					has_law = law_type:law_state_atheism
 				}
 			}
 		}

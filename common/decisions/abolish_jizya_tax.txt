@@ -1,0 +1,54 @@
+﻿abolish_jizya_tax = {
+	is_shown = {
+		has_modifier = cizye_tax
+	}
+
+	possible = {
+		NOT = { ig:devout = { is_powerful = yes } }
+		OR = {
+			has_law = law_type:law_shared_roots
+			has_law = law_type:law_total_separation
+			has_law = law_type:law_state_atheism
+			AND = {
+				has_technology_researched = mandatory_service
+				NOT = {
+					has_law = law_type:law_peasant_levies
+					any_scope_building = {
+						is_building_type = building_barracks
+						has_active_production_method = pm_irregular_infantry
+						has_active_production_method = pm_no_artillery
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		remove_modifier = cizye_tax
+		if = {
+			limit = {
+				NOR = {
+					has_law = law_type:law_shared_roots
+					has_law = law_type:law_total_separation
+					has_law = law_type:law_state_atheism
+				}
+				AND = {
+					has_technology_researched = mandatory_service
+					NOT = {
+						has_law = law_type:law_peasant_levies
+						any_scope_building = {
+							is_building_type = building_barracks
+							has_active_production_method = pm_irregular_infantry
+							has_active_production_method = pm_no_artillery
+						}
+					}
+				}
+			}
+			trigger_event = { id = tanzimat_events.10 }
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

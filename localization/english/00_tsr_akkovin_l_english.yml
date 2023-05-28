@@ -2,7 +2,7 @@
  # Crisis of the Akkovin Confederation JE
  je_akkovin_crisis: "Crisis of the Akkovin Confederation"
  je_akkovin_crisis_reason: "Since the beginning of the 19th century, the Akkovin Confederation, the dominant political entity in Arabia, has been in an unprecedented decline. Lack of further modernization efforts, political instability, and increasing polarization has stunted our growth. Meanwhile, our Arabian subjects are undoubtedly biding their time to break free from our weakening hold. No matter what happens, we must avert the Confederation's demise."
- je_akkovin_crisis_goal: "Complete at least 8 of the 1 'Tanzimat' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
+ je_akkovin_crisis_goal: "Complete at least 8 of the 10 'Tanzimat' [Concept('concept_journal_entry', '$concept_journal_entries$')]"
  finished_reforms_tt: "Has completed the Crisis of the Akkovin Confederation [concept_journal_entry]"
  akkovin_fail_tt: "The Confederation no longer exists"
  western_clothes_tt: "We have adopted Western uniforms"
@@ -11,6 +11,7 @@
  no_baglar_treaty_tt: "We did not renew the Treaty of Baglar"
  no_renewing_baglar_tt: "We may face backlash from the [SCOPE.sCountry('per_scope').GetName]!"
  je_akkovin_reform_advance: "Advances the Journal Entry 'Crisis of the Akkovin Confederation'"
+ akturkification_start_tt: "We have take the "Promote Akturk Identity" [concept_decision]"
  
  je_akkovin_reform_economy: "Tanzimat: Economic Growth"
  je_akkovin_reform_economy_reason: "Our economy is largely agrarian and deeply rural. This suits the purposes of our conservative local Beys and Sanjaks as well as the clergy of the various milleti, who largely subsist on rents and fees extracted from peasants, it does not provide a suitable foundation for a modern power. We should expand manufacturing and our urban centres."
@@ -45,7 +46,7 @@
 je_akkovin_reform_minorities_goal: "The following must be true for 15 total years:"
 
 je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
- je_akkovin_reform_nationalism_reason: "One of the reasons for our decline is the lack of national cohesion within our diverse territories. In order to truly reform into a modern state, we must create and promote a unified identity for our people."
+ je_akkovin_reform_nationalism_reason: "One of the reasons for our decline is the lack of national cohesion within our diverse territories. In order to truly reform into a modern state we must create and promote a unified identity for our people, whether forcing our identity on them or promoting a shared, diverse, and secular identity."
  
  je_akkovin_partition_tur: "Partition of the Akkovin Sultanate"
  je_akkovin_partition_tur_reason: "The Akkovin Sultanate has decayed beyond saving and is ripe for taking. We must restore order to the Akkovin anarchy and create a new balance of power."
@@ -184,12 +185,12 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  peasant_unrest: "Peasants Resist Registration"
  expanding_holdings: "Expanding Holdings"
 
- tanzimat_events.10.t: "Drafting Dhimmis"
+ tanzimat_events.10.t: "Abolition of Jizya Tax
  tanzimat_events.10.d: "With the establishment of a military draft, the state must now decide the role, if any, of non-Muslims in our army."
- tanzimat_events.10.f: "The Empire's non-Muslim subjects have traditionally been exempt from military service, substituting their blood with a special 'cizye' tax paid to the High Porte. Proponents of army modernization have now suggested the extension of the draft to all Akkovin subjects, however, this would rob the imperial coffers of an important source of income."
+ tanzimat_events.10.f: "Our non-Muslim subjects have traditionally been exempt from military service, substituting their blood with a special 'jizya' tax paid to the state. Proponents of army modernization have now suggested the extension of the draft to all subjects, however, this would rob our coffers of an important source of income."
  tanzimat_events.10.a: "Those who can afford it may pay a draft exemption tax."
  tanzimat_events.10.b: "The draft applies to all subjects, regardless of creed."
- draft_exemption_tax: "Bedel-i Askeri"
+ draft_exemption_tax: "Draft Exemption Tax"
  
  # Miscellanous events
  
@@ -247,3 +248,9 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  
  promote_akturk_identity: "Promote Akturk Identity"
  promote_akturk_identity_desc: "In order to increase the cohesion of our country, we must promote a shared culture and a national identity for our people."
+ christians_reined_in_tt: "We have completed the "Tanzimat: Deal with the Dhimmi" [concept_journal_entry] and Kurdistan does not exist"
+ kurds_reined_in_tt: "We have completed the "Tanzimat: Centralize Kurdish Lands" [concept_journal_entry] and Armenia does not exist"
+ arabs_reined_in_tt: "We have completed the "Tanzimat: Rein in Arabia" [concept_journal_entry] and has taken a centralization stance"
+ 
+ abolish_jizya_tax: "Abolish Jizya Tax"
+ abolish_jizya_tax_desc: "With the modernization of our country, governance-wise or military-wise, there is no longer room for any forced payments upon our non-Muslim subjects."

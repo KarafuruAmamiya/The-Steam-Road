@@ -401,6 +401,66 @@ akkovin_crisis.6 = {
 	immediate = {
 		c:AKN = { save_scope_as = akn_scope }
 		c:PER = { save_scope_as = per_scope }
+		if = {
+			limit = {
+				any_market = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+			}
+			random_market = {
+				limit = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+				every_trade_route = {
+					limit = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+					save_scope_as = clothes_route
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_market = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+			}
+			random_market = {
+				limit = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+				every_trade_route = {
+					limit = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+					save_scope_as = furniture_route
+				}
+			}
+		}
 	}
 
 	option = {
@@ -409,6 +469,26 @@ akkovin_crisis.6 = {
 		
 		trigger = {
 			c:AKN = ROOT
+		}
+		if = {
+			limit = {
+				exists = scope:clothes_route
+			}
+			scope:clothes_route = {
+				lock_trade_route = {
+					months = 120
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:furniture_route
+			}
+			scope:furniture_route = {
+				lock_trade_route = {
+					months = 120
+				}
+			}
 		}
 		add_modifier = {
 			name = treaty_of_baglar
@@ -457,10 +537,90 @@ akkovin_crisis.7 = {
 	immediate = {
 		c:AKN = { save_scope_as = akn_scope }
 		c:PER = { save_scope_as = per_scope }
+		if = {
+			limit = {
+				any_market = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+			}
+			random_market = {
+				limit = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+				every_trade_route = {
+					limit = {
+						goods = g:clothes
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+					save_scope_as = clothes_route
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_market = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+			}
+			random_market = {
+				limit = {
+					owner = ROOT
+					any_trade_route = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+				}
+				every_trade_route = {
+					limit = {
+						goods = g:furniture
+						importer.owner = ROOT
+						exporter.owner = c:PER
+					}
+					save_scope_as = furniture_route
+				}
+			}
+		}
 	}
 
 	option = {
 		name = akkovin_crisis.7.a
+		if = {
+			limit = {
+				exists = scope:clothes_route
+			}
+			scope:clothes_route = {
+				lock_trade_route = {
+					months = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:furniture_route
+			}
+			scope:furniture_route = {
+				lock_trade_route = {
+					months = -1
+				}
+			}
+		}
 		add_modifier = {
 			name = treaty_of_baglar_2
 			months = -1
@@ -494,6 +654,30 @@ akkovin_crisis.7 = {
 		remove_diplomatic_pact = {
 			country = c:PER
 			type = defensive_pact
+		}
+		if = {
+			limit = {
+				any_country = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = root
+							type = tob_embargo
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = root
+							type = tob_embargo
+						}
+					}
+					remove_diplomatic_pact = {
+						country = root
+						type = tob_embargo
+					}
+				}
+			}
 		}
 		
 		custom_tooltip = no_renewing_baglar_tt

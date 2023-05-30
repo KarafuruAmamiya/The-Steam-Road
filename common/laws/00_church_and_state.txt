@@ -56,6 +56,19 @@ law_state_religion = {
 			has_ideology = ideology:ideology_theocrat
 		}
 	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
+		}
+	}
 }
 
 
@@ -129,6 +142,19 @@ law_denominational_exclusion = {
 					add = 0.5
 				}
 			}			
+		}
+	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
 		}
 	}
 }
@@ -214,6 +240,19 @@ law_freedom_of_conscience = {
 					add = 0.5
 				}
 			}			
+		}
+	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
 		}
 	}
 }
@@ -328,6 +367,19 @@ law_shared_roots = {
 			}			
 		}
 	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
+		}
+	}
 }
 
 law_total_separation = {
@@ -411,6 +463,19 @@ law_total_separation = {
 			}			
 		}
 	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
+		}
+	}
 }
 
 law_state_atheism = {
@@ -490,6 +555,19 @@ law_state_atheism = {
 				}
 				value = 0.5
 			}
+		}
+	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
 		}
 	}
 }

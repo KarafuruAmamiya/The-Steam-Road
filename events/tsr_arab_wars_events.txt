@@ -142,7 +142,7 @@ arab_wars.2 = {
 	}
 }
 
-# Akkovin stance on Arabia
+# First Arab Congress
 arab_wars.3 = {
 	type = country_event
 	placement = root
@@ -228,7 +228,7 @@ arab_wars.3 = {
 		set_variable = autonomous_stance
 		
 		ai_chance = {
-			base = 50
+			base = 25
 		}
 	}
 }
@@ -747,7 +747,7 @@ arab_wars.8 = {
 	}
 }
 
-# Akkovin Arab subjects plot for independence
+# Arab Revolt (leader)
 arab_wars.9 = {
 	type = country_event
 	placement = root
@@ -758,7 +758,7 @@ arab_wars.9 = {
 	duration = 3
 
 	event_image = {
-		video = "votp_conspiring"
+		video = "africa_leader_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -772,7 +772,18 @@ arab_wars.9 = {
 		}
 		is_subject_of = c:AKN
 		exists = c:AKN
-		c:AKN = { has_variable = centralization_stance }
+		custom_tooltip = {
+			text = centralization_tt
+			c:AKN = { has_variable = centralization_stance }
+		}
+		custom_tooltip = {
+			text = akturkification_tt
+			c:AKN = { has_variable = akturkification_start }
+		}
+		has_attitude = {
+			who = c:AKN
+			attitude = rebellious
+		}
 		NOT = { has_variable = independence_plot_leader }
 		NOT = {
 			any_country = {
@@ -800,7 +811,7 @@ arab_wars.9 = {
 	}
 }
 
-# Join the independence plot?
+# Arab Revolt (participants)
 arab_wars.10 = {
 	type = country_event
 	placement = root
@@ -811,7 +822,7 @@ arab_wars.10 = {
 	duration = 3
 
 	event_image = {
-		video = "votp_conspiring"
+		video = "africa_leader_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"

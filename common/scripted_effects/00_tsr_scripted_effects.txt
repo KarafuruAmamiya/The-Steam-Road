@@ -1,0 +1,676 @@
+﻿give_claims_on_arabia = {
+	every_state = {
+		limit = {
+			NOT = { owner = ROOT has_claim_by = ROOT }
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
+					is_homeland = cu:hadramhi 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+			}
+		}
+		state_region = { add_claim = ROOT }
+	}
+}
+
+restore_akkovin_homelands = {
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_ALEPPO
+				state_region = {
+					NOT = { is_homeland = cu:levantine }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_ALEPPO
+			}
+			state_region = {
+				add_homeland = levantine
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+				state_region = {
+					NOT = { is_homeland = cu:levantine }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+			}
+			state_region = {
+				add_homeland = levantine
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+				state_region = {
+					NOT = { is_homeland = cu:iraqi }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+			}
+			state_region = {
+				add_homeland = iraqi
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DIYARBAKIR
+				state_region = {
+					NOT = { is_homeland = cu:iraqi }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			state_region = {
+				add_homeland = iraqi
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_ANBAR
+				state_region = {
+					NOT = { is_homeland = cu:iraqi }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_ANBAR
+			}
+			state_region = {
+				add_homeland = iraqi
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_MOSUL
+				state_region = {
+					NOT = { is_homeland = cu:iraqi }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_MOSUL
+			}
+			state_region = {
+				add_homeland = iraqi
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_TRABZON
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_TRABZON
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_ERZURUM
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_ERZURUM
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_VAN
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_VAN
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_BITLIS
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_BITLIS
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KARS
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KARS
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DIYARBAKIR
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_HARPUT
+				state_region = {
+					NOT = { is_homeland = cu:armenian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_HARPUT
+			}
+			state_region = {
+				add_homeland = armenian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_TRABZON
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_TRABZON
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_ERZURUM
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_ERZURUM
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_VAN
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_VAN
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_BITLIS
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_BITLIS
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KARS
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KARS
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DIYARBAKIR
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_HARPUT
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_HARPUT
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_MOSUL
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_MOSUL
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_SHAHRIZOR
+				state_region = {
+					NOT = { is_homeland = cu:kurdish }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_SHAHRIZOR
+			}
+			state_region = {
+				add_homeland = kurdish
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KUBAN
+				state_region = {
+					NOT = { is_homeland = cu:north_caucasian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KUBAN
+			}
+			state_region = {
+				add_homeland = north_caucasian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_ANBAR
+				state_region = {
+					NOT = { is_homeland = cu:bedouin }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_ANBAR
+			}
+			state_region = {
+				add_homeland = bedouin
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DIYARBAKIR
+				state_region = {
+					NOT = { is_homeland = cu:assyrian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			state_region = {
+				add_homeland = assyrian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_HARPUT
+				state_region = {
+					NOT = { is_homeland = cu:assyrian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_HARPUT
+			}
+			state_region = {
+				add_homeland = assyrian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_MOSUL
+				state_region = {
+					NOT = { is_homeland = cu:assyrian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_MOSUL
+			}
+			state_region = {
+				add_homeland = assyrian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+				state_region = {
+					NOT = { is_homeland = cu:assyrian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DEIR_EZ_ZOR
+			}
+			state_region = {
+				add_homeland = assyrian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_TRABZON
+				state_region = {
+					NOT = { is_homeland = cu:greek }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_TRABZON
+			}
+			state_region = {
+				add_homeland = greek
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KARS
+				state_region = {
+					NOT = { is_homeland = cu:georgian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KARS
+			}
+			state_region = {
+				add_homeland = georgian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_GREATER_CAUCASUS
+				state_region = {
+					NOT = { is_homeland = cu:georgian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_GREATER_CAUCASUS
+			}
+			state_region = {
+				add_homeland = georgian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KUBAN
+				state_region = {
+					NOT = { is_homeland = cu:russian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KUBAN
+			}
+			state_region = {
+				add_homeland = russian
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_state = {
+				state_region = s:STATE_KUBAN
+				state_region = {
+					NOT = { is_homeland = cu:ukrainian }
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_KUBAN
+			}
+			state_region = {
+				add_homeland = ukrainian
+			}
+		}
+	}
+	every_scope_state = {
+		limit = {
+			NOT = {
+				state_region = s:STATE_DIYARBAKIR
+				state_region = s:STATE_ERZURUM
+				state_region = s:STATE_TRABZON
+				state_region = s:STATE_SIVAS
+				state_region = s:STATE_VAN
+				state_region = s:STATE_BITLIS
+				state_region = s:STATE_KARS
+				state_region = s:STATE_HARPUT
+				state_region = s:STATE_MOSUL
+			}
+			state_region = {
+				is_homeland = cu:akturk
+			}
+		}
+		state_region = {
+			remove_homeland = akturk
+		}
+	}
+}

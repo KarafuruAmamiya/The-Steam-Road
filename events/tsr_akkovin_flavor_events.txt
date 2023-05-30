@@ -742,27 +742,6 @@ akkovin_flavor.6 = { #Akturkification Start
 					}
 				}
 			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:mashriqi
-					}
-				}
-				add_radicals = {
-					culture = cu:mashriqi
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:mashriqi
-						}
-					}
-					state_region = {
-						remove_homeland = mashriqi
-					}
-				}
-			}
 			every_scope_state = {
 				limit = {
 					OR = {

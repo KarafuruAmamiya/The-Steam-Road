@@ -100,15 +100,39 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 
 	immediate = {
 		set_variable = akkovin_fail
-		remove_modifier = foreign_studies
-		ig:ig_intelligentsia = {
-			remove_modifier = foreign_students
+		if = {
+			limit = { has_modifier = foreign_studies }
+			remove_modifier = foreign_studies
 		}
-		ig:ig_petty_bourgeoisie = {
-			remove_modifier = foreign_students
+		if = {
+			limit = {
+				ig:ig_intelligentsia = {
+					has_modifier = foreign_students
+				}
+			}
+			ig:ig_intelligentsia = {
+				remove_modifier = foreign_students
+			}
 		}
-		ig:ig_industrialists = {
-			remove_modifier = foreign_students
+		if = {
+			limit = {
+				ig:ig_petty_bourgeoisie = {
+					has_modifier = foreign_students
+				}
+			}
+			ig:ig_petty_bourgeoisie = {
+				remove_modifier = foreign_students
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_industrialists = {
+					has_modifier = foreign_students
+				}
+			}
+			ig:ig_industrialists = {
+				remove_modifier = foreign_students
+			}
 		}
 		ruler = {
 			save_scope_as = akkovin_sultan
@@ -176,6 +200,16 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		set_country_type = unrecognized
 		ruler = {
 			kill_character = yes
+		}
+		if = {
+			limit = {
+				has_variable = akturkification_start
+			}
+			custom_tooltip = {
+				text = akturkification_over_tt
+				restore_akkovin_homelands = yes
+				remove_modifier = russification_modifier
+			}
 		}
 	}
 

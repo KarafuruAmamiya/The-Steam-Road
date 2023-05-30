@@ -75,7 +75,8 @@ arabia_flavor.1 = {
 						is_homeland = cu:maghrebi 
 					}
 				}
-				state_population >= 300000 
+				state_population >= 500000 
+				total_urbanization >= 1
 			}
 			save_scope_as = nahda_state
 		}
@@ -90,9 +91,9 @@ arabia_flavor.1 = {
 					AND = { exists = c:MOR c:MOR = this }
 					AND = { exists = c:EGY c:EGY = this }
 				}
-				NOT = { has_technology_researched = nationalism }
+				NOT = { has_technology_researched = mass_communication }
 			}
-			add_technology_progress = { progress = 2500 technology = nationalism }
+			add_technology_progress = { progress = 2500 technology = mass_communication }
 		}
 		every_scope_culture = {
 			limit = {
@@ -184,15 +185,18 @@ arabia_flavor.2 = {
 			is_marginal = no
 			ig_approval <= 0	
 		}
-		game_date >= 1850.1.1
+		game_date >= 1855.1.1
 		game_date < 1880.1.1
 		owns_entire_state_region = STATE_LEBANON
 		NOT = { has_global_variable = al_bustani_var }
 	}
 
 	immediate = {
-		every_overlord_or_above = {
-			save_scope_as = overlord_scope
+		if = {
+			limit = { is_subject = yes }
+			every_overlord_or_above = {
+				save_scope_as = overlord_scope
+			}
 		}
 		set_global_variable = al_bustani_var
 		create_character = {
@@ -269,10 +273,42 @@ arabia_flavor.2 = {
 				culture = cu:levantine
 			}
 		}
-		add_technology_progress = { progress = 2500 technology = nationalism }
-		change_relations = {
-			country = scope:overlord_scope
-			value = -20
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = political_agitation }
+			}
+			add_technology_progress = { progress = 1000 technology = political_agitation }
+		}
+		if = {
+			limit = { is_subject = yes }
+			change_relations = {
+				country = scope:overlord_scope
+				value = -20
+			}
 		}
 		set_variable = al_bustani_nationalism
 		
@@ -357,7 +393,7 @@ arabia_flavor.3 = {
 			is_marginal = no
 			ig_approval <= 0	
 		}
-		game_date >= 1845.1.1
+		game_date >= 1850.1.1
 		game_date < 1880.1.1
 		owns_entire_state_region = STATE_LOWER_EGYPT
 		NOT = { has_global_variable = al_shidyaq_var }
@@ -371,8 +407,11 @@ arabia_flavor.3 = {
 			}
 			save_scope_as = arab_culture
 		}
-		every_overlord_or_above = {
-			save_scope_as = overlord_scope
+		if = {
+			limit = { is_subject = yes }
+			every_overlord_or_above = {
+				save_scope_as = overlord_scope
+			}
 		}
 		set_global_variable = al_shidyaq_var
 		create_character = {
@@ -453,10 +492,42 @@ arabia_flavor.3 = {
 				culture = scope:arab_culture
 			}
 		}
-		add_technology_progress = { progress = 2500 technology = nationalism }
-		change_relations = {
-			country = scope:overlord_scope
-			value = -20
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = political_agitation }
+			}
+			add_technology_progress = { progress = 1000 technology = political_agitation }
+		}
+		if = {
+			limit = { is_subject = yes }
+			change_relations = {
+				country = scope:overlord_scope
+				value = -20
+			}
 		}
 		set_variable = al_shidyaq_nationalism
 		
@@ -545,8 +616,8 @@ arabia_flavor.4 = {
 			is_marginal = no
 			ig_approval <= 0	
 		}
-		game_date >= 1850.1.1
-		game_date < 1880.1.1
+		game_date >= 1856.1.1
+		game_date < 1890.1.1
 		country_has_primary_culture = scope:arab_culture
 		any_scope_state = {
 			total_urbanization >= 1
@@ -562,8 +633,11 @@ arabia_flavor.4 = {
 			}
 			save_scope_as = arab_culture
 		}
-		every_overlord_or_above = {
-			save_scope_as = overlord_scope
+		if = {
+			limit = { is_subject = yes }
+			every_overlord_or_above = {
+				save_scope_as = overlord_scope
+			}
 		}
 		set_global_variable = muhammad_abduh_var
 		create_character = {
@@ -638,10 +712,42 @@ arabia_flavor.4 = {
 				culture = scope:arab_culture
 			}
 		}
-		add_technology_progress = { progress = 2500 technology = nationalism }
-		change_relations = {
-			country = scope:overlord_scope
-			value = -20
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = political_agitation }
+			}
+			add_technology_progress = { progress = 1000 technology = political_agitation }
+		}
+		if = {
+			limit = { is_subject = yes }
+			change_relations = {
+				country = scope:overlord_scope
+				value = -20
+			}
 		}
 		set_variable = muhammad_abduh_nationalism
 		
@@ -871,5 +977,384 @@ arabia_flavor.6 = {
 			country = scope:desert_country
 			value = 25
 		}
+	}
+}
+
+# Rise of the Arabic Publishing Industry
+arabia_flavor.7 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.7.t
+	desc = arabia_flavor.7.d
+	flavor = arabia_flavor.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	trigger = {
+		has_global_variable = nahda_start
+		NOT = { has_global_variable = arabic_newspaper }
+		has_technology_researched = mass_communication
+		any_scope_state = {
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+			state_population >= 300000
+			total_urbanization >= 1
+		}
+	}
+
+	immediate = {
+		set_global_variable = arabic_newspaper
+	}
+
+	option = {
+		name = arabia_flavor.7.a
+		default_option = yes
+		
+	}
+}
+
+# Rise of the Arabic Publishing Industry
+arabia_flavor.7 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.7.t
+	desc = arabia_flavor.7.d
+	flavor = arabia_flavor.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		has_global_variable = nahda_start
+		NOT = { has_global_variable = arabic_newspaper }
+		has_technology_researched = mass_communication
+		any_scope_state = {
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+			state_population >= 300000
+			total_urbanization >= 1
+		}
+	}
+
+	immediate = {
+		set_global_variable = arabic_newspaper
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_is_in_middle_east = yes
+					state_is_in_north_africa = yes
+				}
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+				}
+				state_population >= 500000 
+				total_urbanization >= 1
+			}
+			save_scope_as = newspaper_state
+		}
+	}
+
+	option = {
+		name = arabia_flavor.7.a
+		default_option = yes
+		scope:newspaper_state = {
+			owner = {
+				add_modifier = {
+					name = explosion_of_arab_publishing
+					months = normal_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 1000 technology = nationalism }
+		}
+	}
+}
+
+# Al-Urwah al-Wuthqa
+arabia_flavor.8 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.8.t
+	desc = arabia_flavor.8.d
+	flavor = arabia_flavor.8.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		has_global_variable = arabic_newspaper
+		NOT = { has_global_variable = nationalist_newspaper }
+		has_technology_researched = mass_communication
+		any_scope_state = {
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+			state_population >= 500000
+			total_urbanization >= 1
+		}
+		any_character = {
+			has_variable = muhammad_abduh
+		}
+	}
+
+	immediate = {
+		set_global_variable = nationalist_newspaper
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_is_in_middle_east = yes
+					state_is_in_north_africa = yes
+				}
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+				}
+				state_population >= 500000 
+				total_urbanization >= 1
+			}
+			save_scope_as = newspaper_state
+		}
+		every_overlord_or_above = {
+			limit = {
+				NOT = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+			}
+			save_scope_as = overlord_scope
+		}
+	}
+
+	option = {
+		name = arabia_flavor.8.a #Let him spread the revolutionary words
+		default_option = yes
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = political_agitation }
+			}
+			add_technology_progress = { progress = 2500 technology = political_agitation }
+		}
+	}
+	
+	option = {
+		name = arabia_flavor.8.b #Suppress the newspaper
+		
+		
+	}
+}
+
+# Matn al-Lugha (First Modern Monolingual Arabic Dictionary)
+arabia_flavor.9 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.9.t
+	desc = arabia_flavor.9.d
+	flavor = arabia_flavor.9.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		has_global_variable = nahda_start
+		NOT = { has_global_variable = modern_arabic_dict }
+		has_technology_researched = dialectics
+		any_scope_state = {
+			OR = {
+				state_is_in_middle_east = yes
+				state_is_in_north_africa = yes
+			}
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+			state_population >= 500000
+			total_urbanization >= 1
+		}
+	}
+
+	immediate = {
+		set_global_variable = modern_arabic_dict
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_is_in_middle_east = yes
+					state_is_in_north_africa = yes
+				}
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+				}
+				state_population >= 500000 
+				total_urbanization >= 1
+			}
+			save_scope_as = dictionary_state
+		}
+	}
+
+	option = {
+		name = arabia_flavor.9.a
+		default_option = yes
+		
 	}
 }

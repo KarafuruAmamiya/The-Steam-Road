@@ -143,7 +143,9 @@ PLT = { # The Palatinate
     } 	
 }
 
-AKN = { # Ak Koyunlu
+#Akkovin Sultanate/Akturkistan
+
+AKN = { 
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
 	color2 = "white"
@@ -152,6 +154,130 @@ AKN = { # Ak Koyunlu
 		texture = "ce_aq_qoyunlu.dds"
 		color1 = color2
 		instance = { scale = { 0.6 0.6 } position = { 0.5 0.5 } }
+	}
+}
+
+AKN_monarchy = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_aq_qoyunlu.dds"
+		color1 = color2
+		instance = { scale = { 0.45 0.45 } position = { 0.47 0.43 } }
+	}
+	colored_emblem = {
+		texture = "ce_scimitar.dds"
+		color1 = color2
+		instance = { scale = { 0.85 0.6 } position = { 0.5 0.73 } }
+	}
+	colored_emblem = {
+		texture = "ce_tamgha.dds"
+		color1 = color2
+		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
+	}
+}
+
+AKN_republic = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_aq_qoyunlu.dds"
+		color1 = color1
+		instance = { scale = { 0.3 0.3 } position = { 0.5 0.5 } }
+	}
+}
+
+AKN_dictatorship = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_sunburst.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { position = { 0.5 0.5 } scale = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "blue"
+		color2 = "blue"
+		instance = { position = { 0.5 0.5 } scale = { 0.31 0.31 } }
+	}
+	colored_emblem = {
+		texture = "ce_aq_qoyunlu.dds"
+		color1 = color2
+		instance = { scale = { 0.1 0.1 } position = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_tamgha_rotated.dds"
+		color1 = color2
+		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
+	}
+}
+
+AKN_theocracy = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_crescent_star_05_pale.dds"
+		color1 = color2
+		instance = { scale = { 0.35 0.35 } position = { 0.5 0.75 } }
+	}
+	colored_emblem = {
+		texture = "ce_shahada.dds"
+		color1 = "white"
+		color2 = "white"		
+		instance = { scale = { 0.75 0.75 } position = { 0.5 0.35 } }		
+	}
+}
+
+AKN_communist = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "yellow"
+	
+	colored_emblem = {
+		texture = "ce_crescent_sabre.dds"
+		color1 = "yellow"
+        instance = { position = { 0.5 0.52 } scale = { 0.5 0.5 } } 
+	}
+	colored_emblem = {
+		texture = "ce_star_05_hollow.dds"
+		color1 = color2
+		color2 = color1
+		instance = { position = { 0.5 0.22 } scale = { 0.25 0.25 } } 
+	}
+	colored_emblem = {
+		texture = "ce_tamgha.dds"
+		color1 = color2
+		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
+	}
+}
+
+AKN_subject = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	textured_emblem = {
+		texture = "te_coa_akkovin.dds"
+		instance = { scale = { 0.65 0.65 } position = { 0.75 0.55 } }
 	}
 }
 

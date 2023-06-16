@@ -15,12 +15,56 @@
 	}
 }
 
-AKN = { # Ak Koyunlu
+AKN = { # Akkovin/Akturkistan
 	flag_definition = {
 		coa = AKN
 		subject_canton = AKN
 		priority = 1
 	}
+	flag_definition = {
+		coa = AKN_monarchy
+		subject_canton = AKN_monarchy
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = AKN_subject			
+		priority = 5
+		trigger = { 
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AKN_republic
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = AKN_subject			
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AKN_dictatorship
+		subject_canton = AKN_dictatorship
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = AKN_subject			
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AKN_theocracy
+		subject_canton = AKN_theocracy
+		priority = 20
+		trigger = { 
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AKN_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}	
 }
 
 ARN = { # Aragon

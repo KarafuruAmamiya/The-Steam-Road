@@ -748,6 +748,11 @@ akkovin_crisis.8 = {
 				has_modifier = kurdish_autonomy
 			}
 		}
+		OR = {
+			has_law = law_type:law_racial_segregation
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_ethnostate
+		}
 	}
 
 	option = {
@@ -1449,7 +1454,7 @@ akkovin_crisis.14 = {
 		name = akkovin_crisis.14.a
 		create_diplomatic_pact = {
 			country = c:AKN
-			type = protectorate
+			type = puppet
 		} 
 		c:AKN = { trigger_event = { id = akkovin_crisis.15 days = 0 } }
 	}

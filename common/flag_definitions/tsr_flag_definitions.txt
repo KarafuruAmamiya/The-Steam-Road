@@ -22,13 +22,13 @@ AKN = { # Akkovin/Akturkistan
 		priority = 1
 	}
 	flag_definition = {
-		coa = AKN_monarchy
-		subject_canton = AKN_monarchy
+		coa = AKN_absolute_monarchy
+		subject_canton = AKN
 		allow_overlord_canton = yes		
 		coa_with_overlord_canton = AKN_subject			
 		priority = 5
 		trigger = { 
-			coa_def_monarchy_flag_trigger = yes
+			coa_def_absolute_monarchy_flag_trigger = yes
 		}
 	}
 	flag_definition = {
@@ -65,6 +65,72 @@ AKN = { # Akkovin/Akturkistan
 			coa_def_communist_flag_trigger = yes
 		}
 	}	
+}
+
+SYR = { # Syria
+	flag_definition = {
+		coa = SYR
+		subject_canton = SYR
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = SYR_subject		
+		priority = 1
+	}
+	flag_definition = {
+		coa = SYR_absolute_monarchy
+		subject_canton = SYR_absolute_monarchy
+		allow_overlord_canton = yes	
+		coa_with_overlord_canton = SYR_subject			
+		priority = 20
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = SYR_republic
+		subject_canton = SYR_republic
+		allow_overlord_canton = yes			
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = SYR_dictatorship
+		subject_canton = SYR_dictatorship
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+}
+
+HAA = { # Al-Bahrain
+	flag_definition = {
+		coa = HAA
+		subject_canton = HAA
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = HAA_subject		
+		priority = 1
+	}
+	flag_definition = {
+		coa = HAA_absolute_monarchy
+		subject_canton = HAA_absolute_monarchy
+		allow_overlord_canton = yes	
+		coa_with_overlord_canton = HAA_subject			
+		priority = 20
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = HAA_republic
+		subject_canton = HAA_republic
+		allow_overlord_canton = yes			
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
 }
 
 ARN = { # Aragon

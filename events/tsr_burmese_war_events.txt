@@ -32,34 +32,18 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	
 	option = { # A dark day for the Burmese
 		name = burmese_war.1.a
-		hidden_effect = {
-			s:STATE_PEGU.region_state:PER = {
-				set_state_owner = c:TAU
-			}
-			s:STATE_BURMA.region_state:PER = {
-				set_state_owner = c:TAU
-			}
-			s:STATE_SAGAING.region_state:PER = {
-				set_state_owner = c:TAU
-			}
-			c:TAU = {
-				set_capital = STATE_PEGU
-			}
+		annex = c:CMI
+		change_tag = BUR 
+		ruler = {
+			kill_character = yes
 		}
-		c:TAU = {
-			annex = c:CMI
-			change_tag = BUR 
-			ruler = {
-				kill_character = yes
-			}
-			heir = {
-				kill_character = yes
-			}
-			create_character = {
-				culture = cu:burmese
-				ruler = yes
-				age = 47
-			}
+		heir = {
+			kill_character = yes
+		}
+		create_character = {
+			culture = cu:burmese
+			ruler = yes
+			age = 47
 		}
 		hidden_effect = {
 			c:PER = { trigger_event = burmese_war.2 }

@@ -314,8 +314,8 @@ arabia_flavor.2 = {
 		
 		ai_chance = {
 			base = 0
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					country_has_primary_culture = cu:levantine
 				}
 				add = 100
@@ -354,8 +354,8 @@ arabia_flavor.2 = {
 		
 		ai_chance = {
 			base = 25
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					cu:levantine = {
 						culture_is_discriminated_in = root
 					}
@@ -533,8 +533,8 @@ arabia_flavor.3 = {
 		
 		ai_chance = {
 			base = 0
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					country_has_primary_culture = scope:arab_culture
 				}
 				add = 100
@@ -577,8 +577,8 @@ arabia_flavor.3 = {
 		
 		ai_chance = {
 			base = 25
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					scope:arab_culture = {
 						culture_is_discriminated_in = root
 					}
@@ -753,8 +753,8 @@ arabia_flavor.4 = {
 		
 		ai_chance = {
 			base = 0
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					country_has_primary_culture = scope:arab_culture
 				}
 				add = 100
@@ -797,8 +797,8 @@ arabia_flavor.4 = {
 		
 		ai_chance = {
 			base = 25
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					scope:arab_culture = {
 						culture_is_discriminated_in = root
 					}

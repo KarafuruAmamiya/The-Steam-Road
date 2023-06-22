@@ -3,6 +3,7 @@
 	
 	requires_interest_marker = no
 	blocked_by_diplomatic_status = no
+	add_infamy_for_starting_initiator_wargoals = no
 	
 	texture = "gfx/interface/icons/war_goals/unification.dds"
 	
@@ -90,6 +91,7 @@ dp_unify_turkestan = {
 	
 	requires_interest_marker = no
 	blocked_by_diplomatic_status = no
+	add_infamy_for_starting_initiator_wargoals = no
 	
 	texture = "gfx/interface/icons/war_goals/unification.dds"
 	
@@ -150,7 +152,11 @@ dp_leadership_turkestan= {
 }
 
 dp_unify_arabia = {
-	war_goal = annex_country
+	war_goal = unification
+	
+	requires_interest_marker = no
+	blocked_by_diplomatic_status = no
+	add_infamy_for_starting_initiator_wargoals = no
 	
 	texture = "gfx/interface/icons/war_goals/unification.dds"
 	

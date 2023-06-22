@@ -23,9 +23,14 @@
 	unification_play = dp_unify_germany
 	leadership_play = dp_leadership_germany
 	
-	ai_will_do = { always = yes }
+	ai_will_do = { has_technology_researched = pan_nationalism }
 
 	possible = {
+		has_technology_researched = pan-nationalism
+		custom_tooltip = {
+			text = je_german_unification_idea_trigger_desc
+			has_variable = je_german_unification_idea
+		}
 		custom_tooltip = {
 			text = hre_doesnt_exist
 			NOT = {
@@ -38,43 +43,6 @@
 				}
 			}
 		}
-		OR = {
-			AND = {
-				country_has_primary_culture = cu:north_german
-				any_country = {
-					country_has_primary_culture = cu:north_german		
-					has_technology_researched = nationalism
-				}
-			}
-			AND = {
-				country_has_primary_culture = cu:baltic_german
-				any_country = {
-					country_has_primary_culture = cu:baltic_german	
-					has_technology_researched = nationalism
-				}
-			}
-			AND = {
-				country_has_primary_culture = cu:south_german
-				any_country = {
-					country_has_primary_culture = cu:south_german		
-					has_technology_researched = nationalism
-				}
-			}
-			AND = {
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:baltic_german	
-					country_has_primary_culture = cu:south_german
-				}	
-				any_country = {
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:baltic_german	
-						country_has_primary_culture = cu:south_german
-					}			
-					has_technology_researched = pan-nationalism
-				}
-			}
-		}
+
 	}
 }

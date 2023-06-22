@@ -85,48 +85,28 @@ types panel_military {
 				}
 
 				### Activate Conscripts
-				hbox = {
-					button = {
-						enabled = "[IsValid( Country.ActivateConscriptionCenters )]"
-						using = default_button_action
-						size = { 200 50 }
-						using = fontsize_large
-						onclick = "[GetLensToolbar.ActivateOption('activate_conscription_centers_lens_option')]"
-						tooltip = "[GetDesc( Country.ActivateConscriptionCenters )]"
-	
-						textbox = {
-							text = "MILITARY_PANEL_ACTIVATE_CONSCRIPTS"
-							align = center|nobaseline
-							parentanchor = center
-							margin_left = 55
-							size = { 220 30 }
-							fontsize_min = 12
-							elide = right
-						}
-	
-						conscription_icon_big = {
-							parentanchor = left|vcenter
-							position = { 4 0 }
-						}
+				button = {
+					enabled = "[IsValid( Country.ActivateConscriptionCenters )]"
+					using = default_button_action
+					size = { 240 50 }
+					using = fontsize_large
+					onclick = "[GetLensToolbar.ActivateOption('activate_conscription_centers_lens_option')]"
+					tooltip = "[GetDesc( Country.ActivateConscriptionCenters )]"
+
+					textbox = {
+						text = "MILITARY_PANEL_ACTIVATE_CONSCRIPTS"
+						align = center|nobaseline
+						parentanchor = center
+						margin_left = 55
+						size = { 220 30 }
+						fontsize_min = 12
+						elide = right
 					}
-					#ALL CONSCRIPTS
-					#button = {
-					#	enabled = "[IsValid( Country.ActivateConscriptionCenters )]"
-					#	using = default_button_action
-					#	size = { 60 50 }
-					#	using = fontsize_large
-					#	onclick = "[GetLensToolbar.ActivateOption('activate_conscription_centers_lens_option')]"
-					#	tooltip = "[GetDesc( Country.ActivateConscriptionCenters )]"
-					#
-					#	textbox = {
-					#		text = "All"
-					#		align = center|nobaseline
-					#		parentanchor = center
-					#		size = { 220 30 }
-					#		fontsize_min = 12
-					#		elide = right
-					#	}
-					#}
+
+					conscription_icon_big = {
+						parentanchor = left|vcenter
+						position = { 4 0 }
+					}
 				}
 			}
 		}

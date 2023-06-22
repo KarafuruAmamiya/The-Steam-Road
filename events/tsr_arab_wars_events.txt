@@ -189,24 +189,24 @@ arab_wars.3 = {
 		
 		ai_chance = {
 			base = 25
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					any_country = {
 						has_variable = al_bustani_nationalism
 					}
 				}
 				add = 25
 			}
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					any_country = {
 						has_variable = al_shidyaq_nationalism
 					}
 				}
 				add = 25
 			}
-			if = {
-				limit = {
+			modifier = {
+				trigger = {
 					any_country = {
 						has_variable = muhammad_abduh_nationalism
 					}

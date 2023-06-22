@@ -281,6 +281,19 @@ law_elder_council = {
 	pop_support = {
 		value = 0
 	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
+		}
+	}
 }
 
 law_landed_voting = {
@@ -732,10 +745,19 @@ law_single_party_state = {
 	}
 
 	on_activate = {
-		ROOT = {
-			set_variable = { name = only_valid_party value = ruler.interest_group.party }
-		}
 		if = {
+			limit = {
+				ROOT = {
+					ruler.interest_group = {
+						has_party = yes
+					}
+				}
+			}
+			ROOT = {
+				set_variable = { name = only_valid_party value = ruler.interest_group.party }
+			}
+		}
+		else_if = {
 			limit = {
 				NOT = {
 					any_active_party = {
@@ -749,6 +771,7 @@ law_single_party_state = {
 			deactivate_parties = yes
 		}
 		update_party_support = yes #Reactivates precisely one legal party
+		
 		custom_tooltip = {
 			text = sps_government_reshuffle_tt
 			every_interest_group = {

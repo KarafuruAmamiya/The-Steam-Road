@@ -692,24 +692,22 @@ akkovin_crisis.7 = {
 		if = {
 			limit = {
 				any_country = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = root
-							type = tob_embargo
-						}
-					}
-				}
-				every_country = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = root
-							type = tob_embargo
-						}
-					}
-					remove_diplomatic_pact = {
-						country = root
+					has_diplomatic_pact = { 
+						who = root
 						type = tob_embargo
 					}
+				}
+			}
+			every_country = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = root
+						type = tob_embargo
+					}
+				}
+				remove_diplomatic_pact = {
+					country = root
+					type = tob_embargo
 				}
 			}
 		}

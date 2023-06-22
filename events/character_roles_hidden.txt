@@ -47,17 +47,15 @@ character_roles_hidden.2 = {
 		if = {
 			limit = {
 				any_scope_character = {
-					limit = {
-						NOT = {
-							is_ruler = yes
-							is_heir = yes
-							has_role = general
-							has_role = admiral
-							has_role = agitator
-						}
-						interest_group = {
-							is_in_government = yes
-						}
+					NOT = {
+						is_ruler = yes
+						is_heir = yes
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+					}
+					interest_group = {
+						is_in_government = yes
 					}
 				}
 			}

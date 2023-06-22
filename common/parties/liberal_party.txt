@@ -551,24 +551,8 @@ liberal_party = {
 				desc = "from_serfdom"
 			}
 		}
-		if = {
-			limit = { 
-				leader = { has_ideology = ideology:ideology_slaver } 
-			}
-			add = {
-				value = -100
-				desc = "from_slaver_leader"
-			}					
-		}	
-		else_if = {
-			limit = { 
-				leader = { has_ideology = ideology:ideology_abolitionist } 
-			}
-			add = {
-				value = 100
-				desc = "from_abolitionist_leader"
-			}									
-		}	
+		
+		# Special weights for ACW
 		if = {
 			limit = {
 				owner = {
@@ -582,6 +566,20 @@ liberal_party = {
 				value = 3
 				desc = "from_only_legal_party"
 			}
+			if = {
+				limit = { leader = { has_ideology = ideology:ideology_slaver } }
+				add = {
+					value = -100
+					desc = "from_slaver_leader"
+				}					
+			}	
+			else_if = {
+				limit = { leader = { has_ideology = ideology:ideology_abolitionist } }
+				add = {
+					value = 100
+					desc = "from_abolitionist_leader"
+				}					
+			}				
 		}	
 		
 		if = {
@@ -647,5 +645,36 @@ liberal_party = {
 				value = 0
 			}
 		}
+		if = {
+			limit = {
+				owner = {
+	         		has_variable = only_valid_party
+	         	}
+				owner.var:only_valid_party = {
+		        	is_party_type = liberal_party
+		        }
+	         	owner.ruler = {
+					this.interest_group = prev
+				}
+			}
+			add = {
+				value = 1000
+				desc = "from_only_legal_party"
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+	         		has_variable = only_valid_party
+	         	}
+	         	 owner.var:only_valid_party = {
+		        	is_party_type = liberal_party
+		        }
+			}
+			add = {
+				value = 3
+				desc = "from_only_legal_party"
+			}
+		}	
 	}
 }

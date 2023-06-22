@@ -46,7 +46,12 @@ law_state_religion = {
 		# Clergy like theocracy
 		add = {
 			desc = "POP_CLERGYMEN"
-			value = 0.5
+			if = {
+				limit = {
+					is_pop_type = clergymen
+				}
+			}
+			value = 0.25
 		}
 	}
 	

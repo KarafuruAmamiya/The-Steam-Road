@@ -33,6 +33,7 @@ AKN = { # Akkovin/Akturkistan
 	}
 	flag_definition = {
 		coa = AKN_republic
+		subject_canton = AKN_republic
 		allow_overlord_canton = yes		
 		coa_with_overlord_canton = AKN_subject			
 		priority = 10
@@ -60,11 +61,98 @@ AKN = { # Akkovin/Akturkistan
 	}
 	flag_definition = {
 		coa = AKN_communist
+		subject_canton = AKN_communist
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
 		}
 	}	
+}
+
+ARA = { # Arabia
+	flag_definition = {
+		coa = ARA
+		subject_canton = ARA
+		priority = 1
+	}
+	flag_definition = {
+		coa = ARA_absolute_monarchy
+		subject_canton = ARA_absolute_monarchy
+		allow_overlord_canton = yes					
+		priority = 5
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_republic
+		subject_canton = ARA_republic
+		allow_overlord_canton = yes		
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_dictatorship
+		subject_canton = ARA_dictatorship
+		allow_overlord_canton = yes		
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_theocracy
+		subject_canton = ARA_theocracy
+		priority = 20
+		trigger = { 
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_communist
+		subject_canton = ARA_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_EGY
+		subject_canton = ARA_EGY
+		priority = 2
+		trigger = { 
+			scope:actor = { was_formed_from = EGY }
+		}
+	}
+	flag_definition = {
+		coa = ARA_EGY_absolute_monarchy
+		subject_canton = ARA_EGY_absolute_monarchy
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = EGY }
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_EGY_republic
+		subject_canton = ARA_EGY_republic
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = EGY }
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_EGY_dictatorship
+		subject_canton = ARA_EGY_dictatorship
+		priority = 150
+		trigger = { 
+			scope:actor = { was_formed_from = EGY }
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
 }
 
 SYR = { # Syria

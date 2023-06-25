@@ -611,7 +611,51 @@ AOT = {
 	}
 }
 
+# Arabia (General)
+
 ARA = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	color2 = "white"
+	color3 = "red"
+	
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "white"
+	}
+	colored_emblem = {
+		texture = "ce_crescent_circle.dds"
+		color1 = "red"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_shadada_round.dds"
+		color1 = "black"
+		instance = { scale = { 0.55 0.55 } position = { 0.55 0.5 } }
+	}
+}
+ARA_absolute_monarchy = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	color2 = "white"
+	
+	colored_emblem = {
+		texture = "ce_wreath_arab.dds"
+		color1 = "white"
+		instance = { scale = { 0.9 0.9 } position = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_crescent_circle_rotated.dds"
+		color1 = "white"
+		instance = { scale = { 0.6 0.6 } position = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_shadada_round.dds"
+		color1 = "white"
+		instance = { scale = { 0.48 0.48 } position = { 0.5 0.43 } }
+	}
+}
+ARA_republic = {
 	pattern = "pattern_solid.tga"
 	color1 = "black"
 	color2 = "white"
@@ -629,7 +673,269 @@ ARA = {
 		instance = { position = { 0 0.5 } }
 	}
 }
-ARA_republic = {
+ARA_dictatorship = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	color2 = "white"
+	
+	colored_emblem = {
+		texture = "ce_crescent_pale.dds"
+		color1 = "white"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.35 } }	
+	}
+ 	colored_emblem = {
+		texture = "ce_crossed_scimitars_long.dds"
+		color1 = "white"
+		instance = { scale = { 0.55 0.55 } position = { 0.5 0.75 } }				
+	}
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "white"
+		instance = { scale = { 0.25 0.25 } position = { 0.5 0.3 } }				
+	}	
+}
+ARA_theocracy = {
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	color2 = "white"
+	
+ 	colored_emblem = {
+		texture = "ce_shahada.dds"
+		color1 = "white"
+		color2 = "white"		
+		instance = { scale = { 0.9 1.1 } position = { 0.5 0.5 } }		
+	}	
+}
+ARA_communist = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "ce_arab_communism.dds"
+		color1 = "yellow"
+		instance = { scale = { 1 1 } position = { 0.5 0.45 } }		
+	}	
+}
+
+# Arabia (Egypt)
+
+ARA_EGY = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	color2 = "white"
+	
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "red"
+	}
+	colored_emblem = {
+		texture = "ce_crescent_circle.dds"
+		color1 = "white"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }		
+	}	
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { scale = { 0.14 0.14 } position = { 0.55 0.38 } }		
+		instance = { scale = { 0.14 0.14 } position = { 0.49 0.47 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.61 0.47 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.505 0.59 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.595 0.59 } }	
+	}
+}
+ARA_EGY_absolute_monarchy = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	color2 = "yellow"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "yellow"
+		color2 = "green"
+		instance = { scale = { 2 2 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "green"
+	}
+	colored_emblem = {
+		texture = "ce_crescent.dds"
+		color1 = "white"
+		instance = { scale = { 0.6 0.6 } rotation = -180 position = { 0.53 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { scale = { 0.14 0.14 } position = { 0.45 0.38 } }		
+		instance = { scale = { 0.14 0.14 } position = { 0.39 0.47 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.51 0.47 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.405 0.59 } }	
+		instance = { scale = { 0.14 0.14 } position = { 0.495 0.59 } }	
+	}
+	colored_emblem = {
+		texture = "ce_shahada_02.dds"
+		color1 = "white"
+		instance = { scale = { 0.55 0.55 } position = { 0.5 0.08 } }
+	}
+}
+ARA_EGY_republic = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_eagle_egypt.dds"
+		color1 = "yellow_dark"
+		color2 = "white"		
+		instance = { scale = { 0.4 0.4 } position = { 0.5 0.5 } }
+	}
+}
+ARA_EGY_dictatorship = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
+}
+
+# Arabia (Levantine)
+
+ARA_SYR = {
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	color2 = "white"
+	color3 = "green"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "green"
+	}
+	colored_emblem = {
+		texture = "ce_rhombus.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { position = { 0 0.5 } }
+	}
+}
+ARA_SYR_absolute_monarchy = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
+}
+ARA_SYR_republic = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
+}
+ARA_SYR_dictatorship = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
+}
+
+# Arabia (Hedjazi/Bedouin)
+
+ARA_HDJ = {
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	color2 = "white"
+	color3 = "green"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "green"
+	}
+	colored_emblem = {
+		texture = "ce_rhombus.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { position = { 0 0.5 } }
+	}
+}
+ARA_HDJ_absolute_monarchy = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "white"
+	color3 = "black"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
+}
+ARA_HDJ_republic = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "white"
@@ -19828,17 +20134,20 @@ SYR_dictatorship = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "white"
+	color3 = "black"
 	
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
 		color1 = "white"
 		color2 = "black"
-		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
 	}
-	textured_emblem = {
-		texture = "te_coa_syria.dds"
-		instance = { scale = { 0.35 0.35 } position = { 0.5 0.5 } }
-	}
+ 	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
+		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
+	}	
 }
 
 TAS = { 

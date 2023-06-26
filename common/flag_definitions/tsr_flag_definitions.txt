@@ -153,6 +153,41 @@ ARA = { # Arabia
 			coa_def_dictatorship_flag_trigger = yes
 		}
 	}
+	flag_definition = {
+		coa = ARA_SYR
+		subject_canton = ARA_SYR
+		priority = 2
+		trigger = { 
+			scope:actor = { was_formed_from = SYR }
+		}
+	}
+	flag_definition = {
+		coa = ARA_SYR_absolute_monarchy
+		subject_canton = ARA_SYR_absolute_monarchy
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = SYR }
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_SYR_republic
+		subject_canton = ARA_SYR_republic
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = SYR }
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_SYR_dictatorship
+		subject_canton = ARA_SYR_dictatorship
+		priority = 150
+		trigger = { 
+			scope:actor = { was_formed_from = SYR }
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
 }
 
 SYR = { # Syria
@@ -164,6 +199,20 @@ SYR = { # Syria
 		priority = 1
 	}
 	flag_definition = {
+		coa = SYR_absolute_monarchy_turkic
+		subject_canton = SYR_absolute_monarchy_turkic
+		allow_overlord_canton = yes	
+		coa_with_overlord_canton = SYR_subject			
+		priority = 50
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+			exists = scope:actor
+			scope:actor = {
+				ruler = { has_culture = cu:akturk }
+			}
+		}
+	}
+	flag_definition = {
 		coa = SYR_absolute_monarchy
 		subject_canton = SYR_absolute_monarchy
 		allow_overlord_canton = yes	
@@ -172,7 +221,7 @@ SYR = { # Syria
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
 		}
-	}	
+	}
 	flag_definition = {
 		coa = SYR_republic
 		subject_canton = SYR_republic

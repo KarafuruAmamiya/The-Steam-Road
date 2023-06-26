@@ -882,7 +882,6 @@ ARA_SYR_republic = {
  	colored_emblem = {
 		texture = "ce_star_05.dds"
 		color1 = "green"
-		color2 = "green"
 		instance = { scale = { 0.5 0.5 } position = { 0.5 0.5 } }
 	}	
 }
@@ -906,18 +905,17 @@ ARA_SYR_dictatorship = { #Same as Egypt for now
 	}	
 }
 
-# Arabia (Hedjazi/Bedouin)
+# Arabia (Hedjazi)
 
 ARA_HDJ = {
 	pattern = "pattern_solid.tga"
 	color1 = "black"
-	color2 = "white"
-	color3 = "green"
+	color2 = "green"
 	
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
-		color1 = "white"
-		color2 = "green"
+		color1 = "green"
+		color2 = "white"
 	}
 	colored_emblem = {
 		texture = "ce_rhombus.dds"
@@ -925,27 +923,52 @@ ARA_HDJ = {
 		color2 = "red"
 		instance = { position = { 0 0.5 } }
 	}
+	colored_emblem = {
+		texture = "ce_crescent_circle_rotated.dds"
+		color1 = "white"
+		instance = { scale = { 0.45 0.45 } position = { 0.17 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_07.dds"
+		color1 = "white"
+		instance = { scale = { 0.2 0.2 } position = { 0.17 0.45 } }
+	}
+	colored_emblem = {
+		texture = "ce_crown_simple.dds"
+		color1 = "yellow"
+		color2 = "azure"
+		color3 = "white"
+		instance = { scale = { 0.3 0.3 } position = { 0.17 0.29 } }			
+	}
 }
 ARA_HDJ_absolute_monarchy = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
-	color2 = "white"
-	color3 = "black"
+
+	colored_emblem = {
+		texture = "ce_border_orle.dds"
+		color1 = "white"
+		color2 = "red"
+		instance = { scale = { 1.03 1.03 } }			
+	}	
+	colored_emblem = {
+		texture = "ce_shadada_round.dds"
+		color1 = "white"
+		instance = { scale = { 1 1 } position = { 0.5 0.5 } }				
+	}
+}
+ARA_HDJ_republic = {
+	pattern = "pattern_solid.tga"
+	color1 = "black"
+	color2 = "green"
 	
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
-		color1 = "white"
-		color2 = "black"
-	}
- 	colored_emblem = {
-		texture = "ce_star_05.dds"
 		color1 = "green"
-		color2 = "green"
-		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
-		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
-	}	
+		color2 = "white"
+	}
 }
-ARA_HDJ_republic = {
+ARA_HDJ_dictatorship = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "white"
@@ -957,13 +980,22 @@ ARA_HDJ_republic = {
 		color2 = "black"
 	}
  	colored_emblem = {
-		texture = "ce_star_05.dds"
-		color1 = "green"
-		color2 = "green"
-		instance = { scale = { 0.25 0.25 } position = { 0.33 0.5 } }
-		instance = { scale = { 0.25 0.25 } position = { 0.66 0.5 } }					
-	}	
+		texture = "ce_crescent.dds"
+		color1 = "yellow"
+		instance = { scale = { 0.28 0.28 } position = { 0.14 0.17 } }					
+	}		
 }
+ARA_NEJ = { # Saudi Arabia
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	
+ 	colored_emblem = {
+		texture = "ce_shahada_and_sword.dds"
+		color1 = "white"
+		instance = { scale = { 1 1 } position = { 0.5 0.5 } }					
+	}		
+}
+
 
 ARG = { # Argentina
 	# Monarchy default flag
@@ -9223,17 +9255,39 @@ HBC_communist = {
 }
 
 HDJ = { # Hedjaz
-	
 	pattern = "pattern_solid.tga"
-	color1 = "green"
+	color1 = "red"
 
 	colored_emblem = {
-		texture = "ce_crescent.dds"
+		texture = "ce_shahada.dds"
 		color1 = "white"
-		color2 = "white"
-		instance = { scale = { 0.45 0.45 } position = { 0.2 0.28 } }		
-		instance = { scale = { 0.45 0.45 } position = { 0.2 0.72 } }		
-		instance = { scale = { 0.45 0.45 } rotation = 180 position = { 0.5 0.5 } }				
+		color2 = "white"		
+		instance = { scale = { 0.6 0.5 } position = { 0.5 0.5 } }		
+	}
+	colored_emblem = {
+		texture = "ce_frame_circle_outline.dds"
+		color1 = "white"
+		instance = { scale = { 0.25 0.25 } position = { 0.14 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_shadada_round.dds"
+		color1 = "white"
+		instance = { scale = { 0.3 0.3 } position = { 0.14 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_07.dds"
+		color1 = "white"
+		instance = { scale = { 0.35 0.35 } position = { 0.86 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_frame_circle.dds"
+		color1 = "red"
+		instance = { scale = { 0.12 0.12 } position = { 0.86 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_shadada_round.dds"
+		color1 = "white"
+		instance = { scale = { 0.15 0.15 } position = { 0.86 0.5 } }
 	}
 }
 HDJ_republic = {
@@ -9245,7 +9299,7 @@ HDJ_republic = {
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
 		color1 = "green"
-		color2 = "white"
+		color2 = "yellow"
 	}
 	colored_emblem = {
 		texture = "ce_rhombus.dds"
@@ -20088,8 +20142,8 @@ SYR = { # Syria
 	
 	colored_emblem = {
 		texture = "ce_tricolor_horizontal.dds"
-		color1 = "green_light"
-		color2 = "white"
+		color1 = "white"
+		color2 = "green_light"
 		instance = { scale = { 1.0 1.0 } position = { 0.5 0.5 } }
 	}
 	

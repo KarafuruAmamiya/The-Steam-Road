@@ -188,6 +188,49 @@ ARA = { # Arabia
 			coa_def_dictatorship_flag_trigger = yes
 		}
 	}
+	flag_definition = {
+		coa = ARA_HDJ
+		subject_canton = ARA_HDJ
+		priority = 2
+		trigger = { 
+			scope:actor = { was_formed_from = HDJ }
+		}
+	}
+	flag_definition = {
+		coa = ARA_HDJ_absolute_monarchy
+		subject_canton = ARA_HDJ_absolute_monarchy
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = HDJ }
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_HDJ_republic
+		subject_canton = ARA_HDJ_republic
+		priority = 100
+		trigger = { 
+			scope:actor = { was_formed_from = HDJ }
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_HDJ_dictatorship
+		subject_canton = ARA_HDJ_dictatorship
+		priority = 150
+		trigger = { 
+			scope:actor = { was_formed_from = HDJ }
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = ARA_NEJ
+		subject_canton = ARA_NEJ
+		priority = 1000
+		trigger = { 
+			scope:actor = { was_formed_from = NEJ }
+		}
+	}
 }
 
 SYR = { # Syria

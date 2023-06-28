@@ -35,9 +35,11 @@
 	pop_potential = {
 		OR = {
 			pop_has_primary_culture = yes
-			culture = {
-				shares_heritage_trait_with_any_primary_culture = root
-				shares_non_heritage_trait_with_any_primary_culture = root
+			AND = {
+				culture = {
+					shares_heritage_trait_with_any_primary_culture = root
+					shares_non_heritage_trait_with_any_primary_culture = root
+				}
 				owner = { 
 					NOT = { has_law = law_type:law_ethnostate } 
 				}

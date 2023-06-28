@@ -218,35 +218,16 @@
 	s:STATE_TRIPOLI = {
 		create_state = {
 			country = c:ITA
-			owned_provinces = { "x43C678" "x84D04D" "xC050A0" }
+			owned_provinces = { "x43C678" "x84D04D" "xC050A0" "x188727" "x1E8A25" "x40CFA0" "x4C7050"  "x505BF8"  "x77D1BA" "x8E70B1"   "x96B6AF" "xC0D0A0" "xE0D870" "xFAB002" }
 			state_type = unincorporated
 		}
 		create_state = {
 			country = c:TUN
-			owned_provinces = { x8EDC4D xA3B5DA x909C77 xFF8008 x67758E x976D70 x00AA38 xB55E99 "x06135E" "x163759" "x68DB95" "x6951D5" "x83708C" "xE9B457" "x7EE2C1" "xF42EA1" "xFD5B11" "x41960C" "x4D4A58" "x6316C9" "xD7CBD9" }
+			owned_provinces = { x8EDC4D xA3B5DA x909C77 xFF8008 x67758E x976D70 x00AA38 xB55E99 }
 		}
 		create_state = {
 			country = c:WRF
-			owned_provinces = { xC49FA7 x85204C xC6722B xACF78C x0C98CD x321C7F x3293BF xB01814 "x1845BE" "xA14DC8" "xD9A89D" "x725A37" "x5183F2" }
-		}
-		
-		add_homeland = maghrebi
-		add_homeland = bedouin
-		add_homeland = berber
-	}
-	s:STATE_MISRATA = {
-		create_state = {
-			country = c:ITA
-			owned_provinces = { "x188727" "x1E8A25" "x40CFA0" "x4C7050"  "x505BF8"  "x77D1BA" "x8E70B1"   "x96B6AF" "xC0D0A0"   "xE0D870" "xFAB002" }
-			state_type = unincorporated
-		}
-		create_state = {
-			country = c:WRF
-			owned_provinces = { xBD52A2 x37034A x4E480E x02CCF5 xADD677 "xC3C4EC" }
-		}
-		create_state = {
-			country = c:QDF
-			owned_provinces = { x87E9E0 "x26FEF6" "x281051" "x522D29" "xCD6775" "xD3A4B1" "xD61033" "x8010E0" "xF8A389" "x7F2FCD" "xAAA267" "x8967B5" "x8A160E" "x671156" }
+			owned_provinces = { xBD52A2 x37034A x4E480E x02CCF5 xADD677 xC49FA7 x85204C xC6722B xACF78C x0C98CD x321C7F x3293BF xB01814 }
 		}
 		
 		add_homeland = maghrebi
@@ -254,6 +235,10 @@
 		add_homeland = berber
 	}
 	s:STATE_FEZZAN = {
+		create_state = {
+			country = c:TUN
+			owned_provinces = { "x06135E" "x163759" "x68DB95" "x6951D5" "x83708C" "xE9B457" "x7EE2C1" "xF42EA1" "xFD5B11" "x41960C" "x4D4A58" "x6316C9" "xD7CBD9" }
+		}
 		create_state = {
 			country = c:AWL
 			owned_provinces = { "x009F47" "x0A5735" "x0F6CA8" "x1F3EAA" "x1F8886" "x2B86F4" "x2BBB9C" "x3A9EC5" "x4B9EB1" "x5272B1" "x5816E1" "x5B44AB" "x60D659" "x617DC1" "x65294E" "x6EA444" "x7CED48" "x801060" "x8207BC" "x8D5F6C" "x9A4E88" "xA3E261" "xA95E42" "xB11A98" "xBFA1D6" "xC724C8" "xCA4E6B" "xD8876F" "xE6917C" "xEE1748" "xF3329A" "xF8B255" "xFCE120" }
@@ -268,11 +253,11 @@
 		}
 		create_state = {
 			country = c:WRF
-			owned_provinces = { "x1C2606" "x7C0DA3" "x7CFB8C" }
+			owned_provinces = { "x1C2606" "x7C0DA3" "x7CFB8C" "xC3C4EC" "x1845BE" "xA14DC8" "xD9A89D" "x725A37" "x5183F2" }
 		}
 		create_state = {
 			country = c:QDF
-			owned_provinces = { "x23AE97" "x3B68A8" "xCB3322" "xFFED82" "x77A44D" "x92D93F" "xE5E228" "x731E96" "x81C7D9" "xA06BA4" "x7DEA64" "xB89482" }
+			owned_provinces = { "x23AE97" "x3B68A8" "xCB3322" "xFFED82" "x77A44D" "x92D93F" "xE5E228" "x731E96" "x81C7D9" "xA06BA4" "x7DEA64" "xB89482" x87E9E0 "x26FEF6" "x281051" "x522D29" "xCD6775" "xD3A4B1" "xD61033" "x8010E0" "xF8A389" "x7F2FCD" "xAAA267" "x8967B5" "x8A160E" "x671156" }
 		}
 		
 		add_homeland = maghrebi
@@ -293,7 +278,7 @@
 		}
 		create_state = {
 			country = c:AWL
-			owned_provinces = { "x155988" "xCFEDA1" "x6B945A" "xE6E84C"  "xE7AF8B" "xC63569" "x24837D" "x477A67" "x2EB0FE" "x34CD9D" }
+			owned_provinces = { "x155988" "xCFEDA1" "x6B945A" "xE6E84C"  "xE7AF8B" "xC63569" "x24837D" "x477A67" "x2EB0FE" "x34CD9D" "x4F29FF" "x827E73" }
 		}
 		create_state = {
 			country = c:MUT
@@ -301,18 +286,21 @@
 		}
 		create_state = {
 			country = c:ZUW
-			owned_provinces = { x47B6FA xCA9364 xFA182C x683423 xDAC20A xC5B660 x60A81D x524EEC xBFB9A9 x5B3233
+			owned_provinces = { x47B6FA xCA9364 xFA182C x683423 xDAC20A xC5B660 x60A81D x524EEC xBFB9A9 x5B3233 xD5C61D xFA3335 xECDEFD xDC498E x0CA694 x14A3E1 xDEFE00 xE32053 x76EA2F xF1DFCE x738052 x1425EF x0ECBC0 x5B2B26 x592D88
+								x9D205C x87B84F x3066D1 x4BC650 x33B3DE xAFD438
+								x229F5B xACA5B1
 			}
 		}
 		create_state = {
 			country = c:MJB
-			owned_provinces = { x827DC0 x0A58C9 x29E30B x144435 x0198EA x3BF817
+			owned_provinces = { x827DC0 x0A58C9 x29E30B x144435 x0198EA x3BF817 x1EDF65 xB24990 xAD3D64 x735D47 xF2B6E0 x485A40 x057978 xE19FB8 xCC14A4 xA17BD6 xAF2968 x83E15C x6A6A85 x14F1BF x5E16B6 x3D9D25 xF46E3D x0BD882 xC1CA86 x11A0DD x91EB7D
+								x194AE7 xAA6BA0 xD3CCA8 xF9D0BC x81B59F xA247FB x874CD9 x51AB2C x31EA8A x1189D2 xEEE9E6 xFA4247
 			}
 		}
 		create_state = {
 			country = c:ALJ
 			owned_provinces = { x950042 x650312 x165542 xAB9F90 x662644 x4588F1 x27737E xE6081F x4E6542 x61A415 x2A53E1 xB46A16 x152867
-								x0F16C7 x95E863 xC6DA6A x9F22F2 x2B96BF x48316F x475810
+								x0F16C7 x95E863 xC6DA6A x9F22F2 x2B96BF x48316F x475810 x6C635A xA09020
 			}
 		}
 		
@@ -321,46 +309,10 @@
 		add_homeland = bedouin
 		add_homeland = berber
 	}
-	s:STATE_DERNA = {
-		create_state = {
-			country = c:EGY
-			owned_provinces = { "x13063D" "x2B40DE" x8D408F xDF191B x4FB39B x04DAA1 xA01020 "x99D6C9" "xAD6337" "xB0EEAE" "xBCB1A5" "xD7040F" xFA4247 x209020 x025170 x800FBB x55361C }
-		}
-		create_state = {
-			country = c:MJB
-			owned_provinces = { x83E15C x6A6A85 x14F1BF x5E16B6 x3D9D25 xF46E3D x0BD882 xC1CA86 x11A0DD x91EB7D
-								x194AE7 xAA6BA0 xD3CCA8 xF9D0BC x81B59F xA247FB x874CD9 x51AB2C x31EA8A
-			}
-		}
-		create_state = {
-			country = c:ALJ
-			owned_provinces = { x6C635A xA09020
-			}
-		}
-
-		add_homeland = maghrebi
-		add_homeland = bedouin	
-	}
 	s:STATE_LIBYA = {
 		create_state = {
 			country = c:EGY
-			owned_provinces = { "x34A20C" "x40D0E0" "xA645B8" "xBDFE7F" "xE123F5" "xE2D391" x1189D2 xEEE9E6 x97E206 x1898D8 xC74D58 x574B81 }
-		}
-		create_state = {
-			country = c:ZUW
-			owned_provinces = { xD5C61D xFA3335 xECDEFD xDC498E x0CA694 x14A3E1 xDEFE00 xE32053 x76EA2F xF1DFCE x738052 x1425EF x0ECBC0 x5B2B26 x592D88
-								x9D205C x87B84F x3066D1 x4BC650 x33B3DE xAFD438
-								x229F5B xACA5B1
-			}
-		}
-		create_state = {
-			country = c:MJB
-			owned_provinces = { x1EDF65 xB24990 xAD3D64 x735D47 xF2B6E0 x485A40 x057978 xE19FB8 xCC14A4 xA17BD6 xAF2968
-			}
-		}
-		create_state = {
-			country = c:AWL
-			owned_provinces = { "x4F29FF" "x827E73" }
+			owned_provinces = { "x34A20C" "x40D0E0" "xA645B8" "xBDFE7F" "xE123F5" "xE2D391" x97E206 x1898D8 xC74D58 x574B81 "x13063D" "x2B40DE" x8D408F xDF191B x4FB39B x04DAA1 xA01020 "x99D6C9" "xAD6337" "xB0EEAE" "xBCB1A5" "xD7040F" x209020 x025170 x800FBB x55361C }
 		}
 
 		add_homeland = maghrebi

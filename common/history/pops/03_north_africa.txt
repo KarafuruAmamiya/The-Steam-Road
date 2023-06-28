@@ -949,11 +949,11 @@
 		region_state:ITA = {
 			create_pop = {
 				culture = maghrebi
-				size = 39628
+				size = 139628
 			}
 			create_pop = {
 				culture = bedouin
-				size = 33796
+				size = 133796
 			}
 			create_pop = {
 				culture = sephardic
@@ -961,7 +961,7 @@
 			}
 			create_pop = {
 				culture = berber
-				size = 16000
+				size = 46000
 			}
 		}
 		region_state:WRF = {
@@ -973,11 +973,11 @@
 		region_state:TUN = {
 			create_pop = {
 				culture = maghrebi
-				size = 60000
+				size = 50000
 			}
 			create_pop = {
 				culture = bedouin
-				size = 52130
+				size = 42130
 			}
 			create_pop = {
 				culture = sephardic
@@ -993,20 +993,26 @@
 				size = 16800
 			}
 		}
+		region_state:WRF = {
+			create_pop = {
+				culture = bedouin
+				size = 13004
+			}
+		}
 	}
-	s:STATE_MISRATA = {
-		region_state:ITA = {
+	s:STATE_FEZZAN = {
+		region_state:TUN = {
 			create_pop = {
 				culture = maghrebi
-				size = 100628
+				size = 10628
 			}
 			create_pop = {
 				culture = bedouin
-				size = 100796
+				size = 10796
 			}
 			create_pop = {
 				culture = berber
-				size = 33000
+				size = 23000
 			}
 			create_pop = {
 				pop_type = slaves
@@ -1014,20 +1020,6 @@
 				size = 7000
 			}
 		}
-		region_state:WRF = {
-			create_pop = {
-				culture = bedouin
-				size = 6034
-			}
-		}
-		region_state:QDF = {
-			create_pop = {
-				culture = bedouin
-				size = 20012
-			}
-		}
-	}
-	s:STATE_FEZZAN = {
 		region_state:AWL = {
 			create_pop = {
 				culture = bedouin
@@ -1050,42 +1042,13 @@
 		region_state:WRF = {
 			create_pop = {
 				culture = bedouin
-				size = 15004
+				size = 8004
 			}
 		}
 		region_state:QDF = {
 			create_pop = {
 				culture = bedouin
-				size = 30012
-			}
-		}
-	}
-	s:STATE_LIBYA = {
-		region_state:EGY = {
-			create_pop = {
-				culture = maghrebi
-				size = 41604
-			}
-			create_pop = {
-				culture = misri
-				size = 31200
-			}
-			create_pop = {
-				culture = berber
-				size = 60000
-			}
-			create_pop = {
-				culture = bedouin
-				size = 73132
-			}
-			create_pop = {
-				culture = sephardic
-				size = 2996
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = equatorial_bantu
-				size = 20000
+				size = 50012
 			}
 		}
 	}
@@ -1121,22 +1084,22 @@
 		region_state:ZUW = {
 			create_pop = {
 				culture = bedouin
-				size = 7500
+				size = 15000
 			}
 		}
 		region_state:MJB = {
 			create_pop = {
 				culture = tuareg
-				size = 1000
+				size = 3000
 			}
 			create_pop = {
 				culture = bedouin
-				size = 5000
+				size = 15000
 			}
 			create_pop = {
 				pop_type = slaves
 				culture = equatorial_bantu
-				size = 1000
+				size = 4000
 			}
 		}
 		region_state:ALJ = {
@@ -1149,16 +1112,22 @@
 	s:STATE_LIBYA = {
 		region_state:EGY = {
 			create_pop = {
-				culture = bedouin
-				size = 81604
+				culture = berber
+				religion = ibadi
+				size = 20000
 			}
 			create_pop = {
 				culture = berber
-				size = 30000
+				religion = sunni
+				size = 40000
+			}
+			create_pop = {
+				culture = bedouin
+				size = 111604
 			}
 			create_pop = {
 				culture = maghrebi
-				size = 100132
+				size = 173132
 			}
 			create_pop = {
 				culture = sephardic
@@ -1167,80 +1136,7 @@
 			create_pop = {
 				pop_type = slaves
 				culture = equatorial_bantu
-				size = 10000
-			}
-		}
-		region_state:ZUW = {
-			create_pop = {
-				culture = bedouin
-				size = 7500
-			}
-		}
-		region_state:MJB = {
-			create_pop = {
-				culture = tuareg
-				size = 1000
-			}
-			create_pop = {
-				culture = bedouin
-				size = 5000
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = equatorial_bantu
-				size = 1000
-			}
-		}
-		region_state:AWL = {
-			create_pop = {
-				culture = tuareg
-				size = 1000
-			}
-			create_pop = {
-				culture = bedouin
-				size = 30000
-			}
-		}
-	}
-	s:STATE_DERNA = {
-		region_state:EGY = {
-			create_pop = {
-				culture = bedouin
-				size = 91604
-			}
-			create_pop = {
-				culture = berber
-				size = 10000
-			}
-			create_pop = {
-				culture = maghrebi
-				size = 43132
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = equatorial_bantu
-				size = 8000
-			}
-		}
-		region_state:MJB = {
-			create_pop = {
-				culture = tuareg
-				size = 1000
-			}
-			create_pop = {
-				culture = bedouin
-				size = 10000
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = equatorial_bantu
-				size = 2000
-			}
-		}
-		region_state:ALJ = {
-			create_pop = {
-				culture = bedouin
-				size = 30000
+				size = 20000
 			}
 		}
 	}

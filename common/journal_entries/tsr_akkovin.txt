@@ -213,6 +213,7 @@ je_akkovin_reform_education = {
 			name = akc_reform_var
 			add = 1
 		}
+		trigger_event = { id = akkovin_crisis.17 }
 	}
 
 	current_value = {
@@ -508,7 +509,7 @@ je_akkovin_reform_sovereignty = {
 			is_subject = yes
 			is_subject_type = subject_type_customs_union
 			any_civil_war = {
-				civil_war_progress_gain > 0.9
+				civil_war_progress > 0.9
 			}
 		}
 	}

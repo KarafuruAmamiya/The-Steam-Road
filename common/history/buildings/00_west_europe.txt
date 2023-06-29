@@ -1900,10 +1900,10 @@
 				activate_production_methods={ "pm_percussion_caps" "pm_privately_owned_industry" }
 			}
 			create_building={
-				building="building_wheat_farm"
+				building="building_rye_farm"
 				level=8
 				reserves=1
-				activate_production_methods={ "pm_privately_owned" "pm_vineyards" "pm_tools_disabled" "pm_simple_farming" }
+				activate_production_methods={ "pm_privately_owned" "pm_potatoes" "pm_tools_disabled" "pm_simple_farming" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -4482,12 +4482,6 @@
 				activate_production_methods={ "pm_dye_workshops" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
 			}
 			create_building={
-				building="building_coal_mine"
-				level=3
-				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_coal_mine" }
-			}
-			create_building={
 				building="building_sulfur_mine"
 				level=3
 				reserves=1
@@ -4535,7 +4529,7 @@
 			}
 			create_building={
 				building="building_coal_mine"
-				level=1
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_coal_mine" }
 			}			
@@ -4718,10 +4712,10 @@
 		}
 		region_state:DOR = {
 			create_building={
-				building="building_rye_farm"
+				building="building_wheat_farm"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_potatoes" }
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_vineyards" }
 			}
 			create_building={
 				building="building_livestock_ranch"

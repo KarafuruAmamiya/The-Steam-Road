@@ -643,7 +643,82 @@ on_diplomatic_play_started = {
 				
 				scope:initiator = { annex = prev }
 			}
-		}				
+		}
+		
+		if = {
+			limit = { 
+				any_country = {
+					has_journal_entry = je_arab_nationalism_subject
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+					any_diplomatic_play = {
+						initiator_is = ROOT
+						has_play_goal = independence
+					}
+					has_variable = independence_plot_leader
+					is_subject_of = c:AKN
+				}
+			}
+			trigger_event = { id = arab_wars.8 days = 0 }
+		}
+		if = {
+			limit = { 
+				any_country = {
+					has_journal_entry = je_arab_nationalism_subject
+					exists = c:EGY
+					c:EGY = ROOT
+					any_diplomatic_play = {
+						initiator_is = ROOT
+						has_play_goal = independence
+					}
+					is_subject_of = c:TUR
+				}
+			}
+			trigger_event = { id = arab_wars.17 days = 0 }
+		}
+		if = {
+			limit = { 
+				any_country = {
+					has_journal_entry = je_akkovin_partition_tur
+					exists = c:TUR
+					c:TUR = ROOT
+					any_diplomatic_play = {
+						initiator_is = ROOT
+						target_is = c:AKN
+						has_play_goal = return_state
+					}
+					c:AKN = {
+						OR = {
+							NOT = { has_modifier = treaty_of_baglar }
+							NOT = { has_modifier = treaty_of_baglar_2 }
+						}
+					}
+				}
+			}
+			trigger_event = { id = akkovin_crisis.18 days = 0 }
+		}
+		if = {
+			limit = { 
+				any_country = {
+					has_journal_entry = je_akkovin_partition_tur
+					exists = c:TUR
+					c:TUR = ROOT
+					any_diplomatic_play = {
+						initiator_is = ROOT
+						target_is = c:AKN
+						has_play_goal = return_state
+					}
+					c:AKN = {
+						OR = {
+							has_modifier = treaty_of_baglar
+							has_modifier = treaty_of_baglar_2
+						}
+					}
+				}
+			}
+			trigger_event = { id = akkovin_crisis.19 days = 0 }
+		}
 	}
 }
 
@@ -832,18 +907,6 @@ on_country_released_as_independent = {
 	effect = {
 		if = {
 			limit = {
-				c:NEN ?= scope:target
-			}
-			scope:target = {
-				create_character = {
-					ig_leader = yes
-					interest_group = ig_rural_folk
-					ideology = ideology_luddite
-				}
-			}
-		}
-		if = {
-			limit = {
 				scope:target = {
 					country_has_primary_culture = cu:ashkenazi
 				}
@@ -972,18 +1035,6 @@ on_country_released_as_independent = {
 # scope:target = Released Country
 on_country_released_as_own_subject = {
 	effect = {
-		if = {
-			limit = {
-				c:NEN ?= scope:target
-			}
-			scope:target = {
-				create_character = {
-					ig_leader = yes
-					interest_group = ig_rural_folk
-					ideology = ideology_luddite
-				}
-			}
-		}
 		if = {
 			limit = {
 				scope:target = {

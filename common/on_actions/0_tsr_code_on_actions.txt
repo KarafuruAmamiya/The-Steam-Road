@@ -1,6 +1,9 @@
 ﻿on_yearly_pulse_country = {
 	events = {
 		arabia_flavor.1
+		arabia_flavor.2
+		arabia_flavor.3
+		arabia_flavor.4
 	}
 }
 
@@ -15,76 +18,8 @@ on_monthly_pulse_country = {
 		akkovin_crisis.9
 		akkovin_crisis.10
 		treaty_of_baglar_events.3
-	}
-}
-
-on_diplomatic_play_started = {
-	effect = {
-		if = {
-			limit = { 
-				#has_journal_entry = je_arab_nationalism_subject
-				any_primary_culture = {
-					has_discrimination_trait = arabic_heritage
-				}
-				any_diplomatic_play = {
-					initiator_is = ROOT
-					has_play_goal = independence
-				}
-				has_variable = independence_plot_leader
-				is_subject_of = c:AKN
-			}
-			trigger_event = { id = arab_wars.8 days = 0 }
-		}
-		if = {
-			limit = { 
-				#has_journal_entry = je_arab_nationalism_subject
-				exists = c:EGY
-				c:EGY = ROOT
-				any_diplomatic_play = {
-					initiator_is = ROOT
-					has_play_goal = independence
-				}
-				is_subject_of = c:TUR
-			}
-			trigger_event = { id = arab_wars.17 days = 0 }
-		}
-		if = {
-			limit = { 
-				has_journal_entry = je_akkovin_partition_tur
-				exists = c:TUR
-				c:TUR = ROOT
-				any_diplomatic_play = {
-					initiator_is = ROOT
-					target_is = c:AKN
-					has_play_goal = return_state
-				}
-				c:AKN = {
-					OR = {
-						NOT = { has_modifier = treaty_of_baglar }
-						NOT = { has_modifier = treaty_of_baglar_2 }
-					}
-				}
-			}
-			trigger_event = { id = akkovin_crisis.18 days = 0 }
-		}
-		if = {
-			limit = { 
-				has_journal_entry = je_akkovin_partition_tur
-				exists = c:TUR
-				c:TUR = ROOT
-				any_diplomatic_play = {
-					initiator_is = ROOT
-					target_is = c:AKN
-					has_play_goal = return_state
-				}
-				c:AKN = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-				}
-			}
-			trigger_event = { id = akkovin_crisis.19 days = 0 }
-		}
+		arabia_flavor.7
+		arabia_flavor.8
+		arabia_flavor.9
 	}
 }

@@ -832,9 +832,6 @@ arabia_flavor.5 = {
 	}
 
 	immediate = {
-		every_primary_culture = {
-			save_scope_as = primary_culture_scope
-		}
 		if = {
 			limit = {
 				owns_entire_state_region = STATE_HAIL
@@ -859,24 +856,10 @@ arabia_flavor.5 = {
 	option = {
 		name = arabia_flavor.5.a
 		default_option = yes
-		if = {
-			limit = {
-				scope:desert_state = {
-					state_region = {
-						NOT = { is_homeland = scope:primary_culture_scope }
-					}
-				}
-			}
-			scope:desert_state = {
-				state_region = {
-					add_homeland = scope:primary_culture_scope
-				}
-			}
-		}
 		scope:desert_state = {
 			add_modifier = {
 				name = tribes_cooperation
-				months = long_modifier_time
+				months = -1
 			}
 		}
 	}
@@ -977,66 +960,6 @@ arabia_flavor.6 = {
 			country = scope:desert_country
 			value = 25
 		}
-	}
-}
-
-# Rise of the Arabic Publishing Industry
-arabia_flavor.7 = {
-	type = country_event
-	placement = root
-	title = arabia_flavor.7.t
-	desc = arabia_flavor.7.d
-	flavor = arabia_flavor.7.f
-
-	duration = 3
-
-	event_image = {
-		video = "middleeast_engineer_blueprint"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_academia.dds"
-
-	trigger = {
-		has_global_variable = nahda_start
-		NOT = { has_global_variable = arabic_newspaper }
-		has_technology_researched = mass_communication
-		any_scope_state = {
-			OR = {
-				state_is_in_middle_east = yes
-				state_is_in_north_africa = yes
-			}
-			OR = {
-				state_region = { 
-					is_homeland = cu:levantine 
-				}
-				state_region = { 
-					is_homeland = cu:mashriqi 
-				}
-				state_region = { 
-					is_homeland = cu:iraqi 
-				}
-				state_region = { 
-					is_homeland = cu:misri 
-				}
-				state_region = { 
-					is_homeland = cu:maghrebi 
-				}
-			}
-			state_population >= 300000
-			total_urbanization >= 1
-		}
-	}
-
-	immediate = {
-		set_global_variable = arabic_newspaper
-	}
-
-	option = {
-		name = arabia_flavor.7.a
-		default_option = yes
-		
 	}
 }
 
@@ -1245,7 +1168,7 @@ arabia_flavor.8 = {
 	}
 
 	option = {
-		name = arabia_flavor.8.a #Let him spread the revolutionary words
+		name = arabia_flavor.8.a #Let him be
 		default_option = yes
 		if = {
 			limit = {

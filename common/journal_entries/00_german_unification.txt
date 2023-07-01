@@ -1,143 +1,4 @@
-﻿je_north_german_unification = {
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-	
-	complete = {
-		hidden_trigger = {
-			has_variable = je_unification_progress
-		}	
-		has_technology_researched = nationalism
-		is_unification_candidate = GER
-		custom_tooltip = {
-			text = je_german_unification_sole_candidate_trigger_desc
-			NOT = {
-				any_country = {
-					NOT = { this = root }				
-					is_unification_candidate = GER
-				}
-			}	
-		}				
-	}
-
-	on_monthly_pulse = {
-		events = {
-			german_unification.3 # Bismarck
-		}
-	
-		effect = {
-			if = { 
-				limit = { NOT = { has_variable = je_unification_progress } } 
-				set_variable = je_unification_progress
-			}
-		}	
-	}
-
-	on_complete = {
-		trigger_event = { id = german_unification.1 } # North German Confederation
-		remove_variable = je_unification_progress
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = { 
-				desc = je_north_german_status
-			}
-		}
-	}
-
-	weight = 1000
-	should_be_pinned_by_default = yes
-}
-
-je_german_unification = {
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-
-	is_shown_when_inactive = {
-		has_variable = je_german_confederate_unifier
-	}
-
-	possible = {
-		hidden_trigger = { has_variable = je_german_confederate_unifier }
-		country_rank >= rank_value:major_power
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		has_global_variable = hre_end
-	}
-
-	complete = {
-		custom_tooltip = {
-			exists = c:GER
-			this = c:GER
-			text = je_german_unification_complete_trigger_desc
-		}	
-	}
-
-	on_complete = {
-		trigger_event = { id = german_unification.4 } # German Unification
-		remove_variable = je_unification_progress
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_german_status
-			}
-		}
-	}
-
-	weight = 1000
-	should_be_pinned_by_default = yes
-}
-
-je_south_german_unification = {
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	complete = {	
-		hidden_trigger = {
-			has_variable = je_unification_progress
-		}	
-		has_technology_researched = nationalism
-		is_unification_candidate = GER
-		custom_tooltip = {
-			text = je_german_unification_sole_candidate_trigger_desc
-			NOT = {
-				any_country = {
-					NOT = { this = root }				
-					is_unification_candidate = GER
-				}
-			}	
-		}	
-	}
-
-	on_monthly_pulse = {
-		effect = {
-			if = { 
-				limit = { NOT = { has_variable = je_unification_progress } } 
-				set_variable = je_unification_progress
-			}
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = german_unification.1 } # South German Confederation
-		remove_variable = je_unification_progress
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_south_german_status
-				trigger = {
-					always = yes
-				}
-			}
-		}
-	}
-
-	weight = 1000
-	should_be_pinned_by_default = yes
-}
-
-je_german_unification_idea = {
+﻿je_german_unification_idea = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	is_shown_when_inactive = {
@@ -321,3 +182,143 @@ je_german_unification_idea = {
 	weight = 1000
 	should_be_pinned_by_default = yes
 }
+
+je_north_german_unification = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	complete = {
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}	
+		has_technology_researched = nationalism
+		is_unification_candidate = GER
+		custom_tooltip = {
+			text = je_german_unification_sole_candidate_trigger_desc
+			NOT = {
+				any_country = {
+					NOT = { this = root }				
+					is_unification_candidate = GER
+				}
+			}	
+		}				
+	}
+
+	on_monthly_pulse = {
+		events = {
+			german_unification.3 # Bismarck
+		}
+	
+		effect = {
+			if = { 
+				limit = { NOT = { has_variable = je_unification_progress } } 
+				set_variable = je_unification_progress
+			}
+		}	
+	}
+
+	on_complete = {
+		trigger_event = { id = german_unification.1 } # North German Confederation
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_north_german_status
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+
+je_german_unification = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	is_shown_when_inactive = {
+		has_variable = je_german_confederate_unifier
+	}
+
+	possible = {
+		hidden_trigger = { has_variable = je_german_confederate_unifier }
+		country_rank >= rank_value:major_power
+		has_technology_researched = pan-nationalism
+		is_subject = no
+		has_global_variable = hre_end
+	}
+
+	complete = {
+		custom_tooltip = {
+			exists = c:GER
+			this = c:GER
+			text = je_german_unification_complete_trigger_desc
+		}	
+	}
+
+	on_complete = {
+		trigger_event = { id = german_unification.4 } # German Unification
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_german_status
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+
+je_south_german_unification = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	complete = {	
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}	
+		has_technology_researched = nationalism
+		is_unification_candidate = GER
+		custom_tooltip = {
+			text = je_german_unification_sole_candidate_trigger_desc
+			NOT = {
+				any_country = {
+					NOT = { this = root }				
+					is_unification_candidate = GER
+				}
+			}	
+		}	
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = { 
+				limit = { NOT = { has_variable = je_unification_progress } } 
+				set_variable = je_unification_progress
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = german_unification.1 } # South German Confederation
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_south_german_status
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+

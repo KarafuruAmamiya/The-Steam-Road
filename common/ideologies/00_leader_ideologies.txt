@@ -424,11 +424,11 @@ ideology_radical = {
 						}
 						any_scope_state = {
 							is_incorporated = yes
-							turmoil >= 0.25
+							turmoil >= 0.10
 						}
 					}
 				}
-				add = 100
+				add = 200
 			}
 			if = {
 				limit = {
@@ -439,11 +439,11 @@ ideology_radical = {
 						}
 						any_scope_state = {
 							is_incorporated = yes
-							turmoil >= 0.5
+							turmoil >= 0.15
 						}
 					}
 				}
-				add = 50
+				add = 150
 			}
 			# less likely if issues are not relevant
 			if = {
@@ -470,7 +470,7 @@ ideology_radical = {
 						has_technology_researched = socialism
 					}
 				}
-				add = -200
+				add = -300
 			}
 			if = {
 				limit = {
@@ -555,8 +555,8 @@ ideology_reformer = {
 		law_state_religion = strongly_disapprove
 		law_denominational_exclusion = disapprove
 		law_freedom_of_conscience = approve
-		law_shared_roots = approve
-		law_total_separation = strongly_approve
+		law_shared_roots = neutral
+		law_total_separation = disapprove
 		law_state_atheism = strongly_disapprove
 	}
 	
@@ -3018,9 +3018,6 @@ ideology_jacksonian_democrat = {
 					civil_war_origin_country = c:USC
 				}
 			}
-			any_scope_character = {
-				has_variable = is_andrew_jackson
-			}
 		}
 		scope:interest_group = {
 			NOR = {
@@ -3034,7 +3031,7 @@ ideology_jacksonian_democrat = {
 	}
 
 	leader_weight = {
-		value = 300
+		value = 100
 	}
 }
 

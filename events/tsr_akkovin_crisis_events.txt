@@ -811,15 +811,14 @@ akkovin_crisis.9 = {
 		}
 		exists = c:AKN
 		c:AKN = { 
-			has_variable = akkovin_fail 
 			is_country_type = unrecognized
 			any_scope_state = {
 				is_incorporated = yes
 				count < 9
 			}
-			OR = {
-				NOT = { has_modifier = treaty_of_baglar }
-				NOT = { has_modifier = treaty_of_baglar_2 }
+			NOR = {
+				has_modifier = treaty_of_baglar
+				has_modifier = treaty_of_baglar_2
 			}
 		}
 	}

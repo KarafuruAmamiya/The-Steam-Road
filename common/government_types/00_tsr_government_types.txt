@@ -246,10 +246,10 @@ gov_satrapies = {
 	possible = {
 		has_law = law_type:law_monarchy
 		AND = { exists = c:PER is_subject_of = c:PER }
-		NOT = { c:MRT = ROOT }
-		NOT = { c:SRV = ROOT }
-		NOT = { c:MUG = ROOT }
-		NOT = { c:DEC = ROOT }
+		NOT = { exists = c:MRT c:MRT = ROOT }
+		NOT = { exists = c:SRV c:SRV = ROOT }
+		NOT = { exists = c:MUG c:MUG = ROOT }
+		NOT = { exists = c:DEC c:DEC = ROOT }
 		OR = {
 			is_subject_type = subject_type_dominion
 			is_subject_type = subject_type_puppet

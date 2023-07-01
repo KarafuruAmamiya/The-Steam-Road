@@ -4,20 +4,33 @@
 	}
 
 	possible = {
+		NOT = { has_variable = abolish_jizya_tax }
 		NOT = { ig:ig_devout = { is_powerful = yes } }
 		OR = {
 			has_law = law_type:law_shared_roots
 			has_law = law_type:law_total_separation
 			has_law = law_type:law_state_atheism
 			AND = {
+				any_scope_character = {
+					AND = {
+						OR = {
+							has_ideology = ideology:ideology_moderate_reformer
+							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_radical
+							has_ideology = ideology:ideology_humanitarian
+						}
+						OR = {
+							is_ruler = yes
+							interest_group = {
+								is_in_government = yes
+							}
+						}
+					}
+				}
 				has_technology_researched = mandatory_service
+				has_technology_researched = line_infantry
 				NOT = {
 					has_law = law_type:law_peasant_levies
-					any_scope_building = {
-						is_building_type = building_barracks
-						has_active_production_method = pm_irregular_infantry
-						has_active_production_method = pm_no_artillery
-					}
 				}
 			}
 		}
@@ -25,6 +38,7 @@
 
 	when_taken = {
 		remove_modifier = cizye_tax
+		set_variable = abolish_jizya_tax
 		if = {
 			limit = {
 				NOR = {
@@ -33,14 +47,26 @@
 					has_law = law_type:law_state_atheism
 				}
 				AND = {
+					any_scope_character = {
+						AND = {
+							OR = {
+								has_ideology = ideology:ideology_moderate_reformer
+								has_ideology = ideology:ideology_reformer
+								has_ideology = ideology:ideology_radical
+								has_ideology = ideology:ideology_humanitarian
+							}
+							OR = {
+								is_ruler = yes
+								interest_group = {
+									is_in_government = yes
+								}
+							}
+						}
+					}
 					has_technology_researched = mandatory_service
+					has_technology_researched = line_infantry
 					NOT = {
 						has_law = law_type:law_peasant_levies
-						any_scope_building = {
-							is_building_type = building_barracks
-							has_active_production_method = pm_irregular_infantry
-							has_active_production_method = pm_no_artillery
-						}
 					}
 				}
 			}

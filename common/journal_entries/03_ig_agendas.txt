@@ -180,12 +180,8 @@ je_government_petition = {
                         name = modifier_failed_to_meet_petition
                         months = long_modifier_time
                         is_decaying = yes
-                        multiplier = {
-							add = 1
-							divide = {
-								add = 1
-								add = ROOT.enactment_phase
-							}
+						multiplier = {
+							add = 2
 						}
                     }
                 }
@@ -206,12 +202,8 @@ je_government_petition = {
                         name = modifier_failed_to_meet_petition
                         months = long_modifier_time
                         is_decaying = yes
-                        multiplier = {
-							add = 2
-							divide = {
-								add = 1
-								add = ROOT.enactment_phase
-							}
+						multiplier = {
+							add = 1.5
 						}
                     }
                 }
@@ -232,11 +224,7 @@ je_government_petition = {
                         months = long_modifier_time
                         is_decaying = yes
 						multiplier = {
-							add = 1.5
-							divide = {
-								add = 1
-								add = ROOT.enactment_phase
-							}
+							add = 1
 						}
                     }
                 }

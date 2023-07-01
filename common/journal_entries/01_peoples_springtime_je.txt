@@ -2,8 +2,8 @@
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	is_shown_when_inactive = {
-		has_global_variable = peoples_springtime_happening
 		has_technology_researched = egalitarianism
+		year <= 1875
 		capital = {
 			OR = {
 				region = sr:region_england
@@ -26,24 +26,31 @@
 				region = sr:region_ruthenia
 				region = sr:region_dnieper
 				region = sr:region_central_russia
+				region = sr:region_anatolia
+				region = sr:region_persia
 			}
 		}
 	}
 
 	possible = {
-		any_interest_group = {
-			OR = {
-				is_powerful = yes
-				is_insurrectionary = yes
+		OR = {
+			any_interest_group = {
+				OR = {
+					is_powerful = yes
+					is_insurrectionary = yes
+				}
+				leader = { has_ideology = ideology:ideology_radical }
 			}
-			leader = { has_ideology = ideology:ideology_radical }
+			any_interest_group = {
+				is_marginal = no
+				ig_approval <= -5
+				leader = { has_ideology = ideology:ideology_radical }
+			}
 		}
+		is_revolutionary = no
 	}
 
 	immediate = {
-		set_global_variable = {
-			name = completed_1848_buildup
-		}
 		trigger_event = { id = 1848.4 }
 	}
 

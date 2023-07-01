@@ -21,6 +21,21 @@
 		has_technology_researched = line_infantry
 		NOT = { has_law = law_type:law_isolationism }
 		NOT = { has_law = law_type:law_peasant_levies }
+		any_scope_character = {
+			AND = {
+				OR = {
+					has_ideology = ideology:ideology_moderate_reformer
+					has_ideology = ideology:ideology_reformer
+					has_ideology = ideology:ideology_radical
+				}
+				OR = {
+					is_ruler = yes
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+			}
+		}
 	}
 
 	when_taken = {

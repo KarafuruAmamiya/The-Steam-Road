@@ -294,7 +294,7 @@ akkovin_flavor.3 = { #Centralising the Kurdish Territories
 		default_option = yes
 		scope:kurdish_state_1 = {
 			remove_modifier = kurdish_autonomy
-			add_radicals = {
+			add_radicals_in_state = {
 				culture = cu:kurdish
 				value = very_large_radicals
 			}
@@ -308,7 +308,7 @@ akkovin_flavor.3 = { #Centralising the Kurdish Territories
 		}
 		scope:kurdish_state_2 = {
 			remove_modifier = kurdish_autonomy
-			add_radicals = {
+			add_radicals_in_state = {
 				culture = cu:kurdish
 				value = very_large_radicals
 			}
@@ -322,7 +322,7 @@ akkovin_flavor.3 = { #Centralising the Kurdish Territories
 		}
 		scope:kurdish_state_3 = {
 			remove_modifier = kurdish_autonomy
-			add_radicals = {
+			add_radicals_in_state = {
 				culture = cu:kurdish
 				value = very_large_radicals
 			}
@@ -849,8 +849,13 @@ treaty_of_baglar_events.3 = { # Persia demands you to embargo their rivals
 			has_modifier = treaty_of_baglar
 			has_modifier = treaty_of_baglar_2
 		}
-		c:PER = {
-			has_war_with = scope:rival_scope
+		trigger_if = {
+			limit = {
+				exists = scope:rival_scope
+			}
+			c:PER = {
+				has_war_with = scope:rival_scope
+			}
 		}
 	}
 

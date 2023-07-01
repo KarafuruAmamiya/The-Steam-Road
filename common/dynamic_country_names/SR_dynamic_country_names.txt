@@ -551,12 +551,12 @@ AKN = { # Akturkistan
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
 			OR = {
-				c:SYR = { is_subject_of = c:AKN }
-				c:NEJ = { is_subject_of = c:AKN }
-				c:JAB = { is_subject_of = c:AKN }
-				c:HDJ = { is_subject_of = c:AKN }
-				c:TTR = { is_subject_of = c:AKN }
-				c:RYA = { is_subject_of = c:AKN }
+				AND = { exists = c:SYR c:SYR = { is_subject_of = c:AKN } }
+				AND = { exists = c:JAB c:JAB = { is_subject_of = c:AKN } }
+				AND = { exists = c:NEJ c:NEJ = { is_subject_of = c:AKN } }
+				AND = { exists = c:HDJ c:HDJ = { is_subject_of = c:AKN } }
+				AND = { exists = c:TTR c:TTR = { is_subject_of = c:AKN } }
+				AND = { exists = c:RYA c:RYA = { is_subject_of = c:AKN } }
 			}
 		}
 	}

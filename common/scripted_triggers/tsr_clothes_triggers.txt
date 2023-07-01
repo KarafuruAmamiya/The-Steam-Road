@@ -1,7 +1,6 @@
 ﻿tsr_persia_leader_trigger = {
 	exists = scope:character
 	scope:character = {
-		exists = c:PER
 		exists = home_country
 		home_country = {
 			OR = {
@@ -20,7 +19,8 @@
 tsr_western_uniform_trigger = {
 	exists = scope:character
 	scope:character = {
-		owner = {
+		exists = home_country
+		home_country = {
 			has_variable = adopt_western_uniforms
 		}
 	}
@@ -29,7 +29,6 @@ tsr_western_uniform_trigger = {
 tsr_persia_pop_trigger = {
 	exists = scope:character
 	scope:pop = {
-		exists = c:PER
 		home_country = {
 			OR = {
 				country_has_primary_culture = cu:persian
@@ -48,7 +47,6 @@ tsr_ottoman_leader_trigger = {
 	exists = scope:character
 	scope:character = {
 		exists = home_country
-		exists = c:TUR
 		home_country = {
 			country_has_primary_culture = cu:turkish
 			AND = {

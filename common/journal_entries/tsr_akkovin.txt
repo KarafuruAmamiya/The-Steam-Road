@@ -10,6 +10,7 @@
 	}
 	
 	fail = {
+		is_at_war = no
 		OR = {
 			is_subject = yes
 			any_scope_state = {
@@ -17,35 +18,36 @@
 				count < 9
 			}
 			NOT = {
-				is_at_war = no
-				country_or_subject_owns_entire_state_region = STATE_SYRIA
-				country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
-				country_or_subject_owns_entire_state_region = STATE_PALESTINE
-				country_or_subject_owns_entire_state_region = STATE_LEBANON
-				country_or_subject_owns_entire_state_region = STATE_HAMA
-				country_or_subject_owns_entire_state_region = STATE_HEDJAZ
-				country_or_subject_owns_entire_state_region = STATE_MEDINA
-				trigger_if = {
-					limit = {
-						exists = c:NEJ
+				AND = {
+					country_or_subject_owns_entire_state_region = STATE_SYRIA
+					country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+					country_or_subject_owns_entire_state_region = STATE_PALESTINE
+					country_or_subject_owns_entire_state_region = STATE_LEBANON
+					country_or_subject_owns_entire_state_region = STATE_HAMA
+					country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+					country_or_subject_owns_entire_state_region = STATE_MEDINA
+					trigger_if = {
+						limit = {
+							exists = c:NEJ
+						}
+						c:NEJ = {
+							is_subject_of = ROOT
+						}
 					}
-					c:NEJ = {
-						is_subject_of = ROOT
+					trigger_else = {
+						has_state_in_state_region = STATE_NEJD
 					}
-				}
-				trigger_else = {
-					has_state_in_state_region = STATE_NEJD
-				}
-				trigger_if = {
-					limit = {
-						exists = c:JAB
+					trigger_if = {
+						limit = {
+							exists = c:JAB
+						}
+						c:JAB = {
+							is_subject_of = ROOT
+						}
 					}
-					c:JAB = {
-						is_subject_of = ROOT
+					trigger_else = {
+						has_state_in_state_region = STATE_HAIL
 					}
-				}
-				trigger_else = {
-					has_state_in_state_region = STATE_HAIL
 				}
 			}
 			exists = c:ARA
@@ -56,10 +58,13 @@
 		effect = {
 			if = {
 				limit = {
-					year > 1838
 					exists = c:PER
 					c:PER = {
 						NOT = { has_variable = pre_treaty }
+						has_attitude = {
+							who = c:AKN
+							attitude = protective
+						}
 					}
 				}
 				random_list = {
@@ -111,7 +116,8 @@ je_akkovin_reform_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -179,7 +185,8 @@ je_akkovin_reform_education = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -250,7 +257,8 @@ je_akkovin_reform_army = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -324,7 +332,8 @@ je_akkovin_reform_navy = {
 	icon = "gfx/interface/icons/event_icons/event_naval.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -364,12 +373,6 @@ je_akkovin_reform_navy = {
 		}
 	}
 
-	on_monthly_pulse = {
-		events = {
-			tanzimat_events.10 # Tanzimat Draft Question
-		}
-	}
-
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
@@ -388,7 +391,8 @@ je_akkovin_reform_bureaucracy = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -444,7 +448,8 @@ je_akkovin_reform_sovereignty = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -460,7 +465,7 @@ je_akkovin_reform_sovereignty = {
 		custom_tooltip = {
 			text = no_baglar_treaty_tt
 			has_variable = baglar_treaty_signed
-			OR = {
+			AND = {
 				NOT = { has_modifier = treaty_of_baglar }
 				NOT = { has_modifier = treaty_of_baglar_2 }
 			}
@@ -532,7 +537,8 @@ je_akkovin_reform_kurdish = {
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -603,7 +609,7 @@ je_akkovin_reform_kurdish = {
 					}
 				}
 				change_variable = {
-					name = akkovin_kurdish_separatist_var
+					name = akc_kurdish_separatist_var
 					add = 1
 				}
 			}
@@ -640,7 +646,8 @@ je_akkovin_reform_arabia = {
 	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -767,7 +774,7 @@ je_akkovin_reform_arabia = {
 					}
 				}
 				change_variable = {
-					name = akkovin_arab_separatist_var
+					name = akc_arab_separatist_var
 					add = 1
 				}
 			}
@@ -829,7 +836,8 @@ je_akkovin_reform_minorities = {
 	icon = "gfx/interface/icons/event_icons/event_religion.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}
@@ -903,7 +911,7 @@ je_akkovin_reform_minorities = {
 					}
 				}
 				change_variable = {
-					name = akkovin_dhimmi_separatist_var
+					name = akc_dhimmi_separatist_var
 					add = 1
 				}
 			}
@@ -958,7 +966,8 @@ je_akkovin_reform_nationalism = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
 	is_shown_when_inactive = {
-		country_has_primary_culture = cu:akturk
+		exists = c:AKN
+		c:AKN = root
 		NOT = {
 			has_variable = akc_reforms_complete
 		}

@@ -4163,8 +4163,8 @@ agitators_election_events.33 = {
 		random_interest_group = {
 			limit = {
 				has_party = yes
-				NOT = {
-					is_member_of_party = liberal_party
+				party = {
+					is_party_type = liberal_party
 				}
 				leader = {
 					OR = {
@@ -6204,8 +6204,8 @@ agitators_election_events.48 = {
 		ig:ig_armed_forces = {
 			is_marginal = no
 			has_party = yes
-			NOT = {
-				is_member_of_party = free_trade_party
+			party = {
+				NOT = { is_party_type = free_trade_party }
 			}
 		}
 		NOT = {

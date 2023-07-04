@@ -252,6 +252,45 @@ arab_wars.4 = {
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
 	trigger = {
+		has_technology_researched = nationalism
+		any_country = {
+			country_rank = rank_value:great_power
+			relations:root >= relations_threshold:neutral
+			relations:root >= 0
+			NOT = { has_war_with = ROOT }
+			OR = {
+				AND = {
+					is_player = yes
+					NOT = { ROOT = this }
+					has_interest_marker_in_region = region_arabic
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = domineering
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = belligerent
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = antagonistic
+				}
+			}
+			NOT = { has_journal_entry = je_arab_nationalism_overlord }
+		}
+		OR = {
+			any_diplomatic_play = {
+				initiator_is = ROOT
+				has_play_goal = independence
+				is_war = no
+			}
+			any_diplomatic_play = {
+				target_is = ROOT
+				has_play_goal = annex_country
+				is_war = no
+			}
+		}
 	}
 
 	immediate = {
@@ -268,6 +307,7 @@ arab_wars.4 = {
 					AND = {
 						is_player = yes
 						NOT = { ROOT = this }
+						has_interest_marker_in_region = region_arabic
 					}
 					has_attitude = {
 						who = root.top_overlord

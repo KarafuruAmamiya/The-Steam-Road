@@ -37,9 +37,6 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 		ruler = {
 			kill_character = yes
 		}
-		heir = {
-			kill_character = yes
-		}
 		create_character = {
 			culture = cu:burmese
 			ruler = yes
@@ -154,6 +151,9 @@ burmese_war.3 = { # End the war on Lan Xang's side
 			limit = {
 				c:LXA = {
 					NOT = { owns_entire_state_region = STATE_LUANG_PRABANG }
+				}
+				c:BUR = {
+					has_state_in_state_region = STATE_LUANG_PRABANG
 				}
 			}
 			s:STATE_LUANG_PRABANG.region_state:BUR = {

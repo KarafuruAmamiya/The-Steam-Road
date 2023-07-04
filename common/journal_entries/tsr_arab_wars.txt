@@ -31,16 +31,6 @@
 			text = nahda_start_tt
 			has_global_variable = nahda_start
 		}
-		any_overlord_or_above = {
-			OR = {
-				has_journal_entry = je_springtime_of_the_peoples
-				any_neighbouring_state = {
-					owner = {
-						has_journal_entry = je_springtime_of_the_peoples
-					}
-				}
-			}
-		}
 		#will add more criterias soon
 	}
 	
@@ -63,50 +53,6 @@
 	}
 
 	on_monthly_pulse = {
-		effect = {
-			if = {
-				limit = {
-					any_overlord_or_above = {
-						any_subject_or_below = {
-							NOT = { has_variable = supporter_event_done }
-						}
-					}
-					any_country = {
-						country_rank = rank_value:great_power
-						relations:root >= relations_threshold:neutral
-						relations:root >= 0
-						NOT = { has_war_with = ROOT }
-						OR = {
-							AND = {
-								is_player = yes
-								NOT = { ROOT = this }
-							}
-							has_attitude = {
-								who = root.top_overlord
-								attitude = domineering
-							}
-							has_attitude = {
-								who = root.top_overlord
-								attitude = belligerent
-							}
-							has_attitude = {
-								who = root.top_overlord
-								attitude = antagonistic
-							}
-						}
-						NOT = {
-							has_journal_entry = je_arab_nationalism_overlord
-						}
-					}
-					any_diplomatic_play = {
-						initiator_is = ROOT
-						has_play_goal = independence
-						is_war = no
-					}
-				}
-				trigger_event = { id = arab_wars.4 }
-			}
-		}
 		events = {
 			arab_wars.9 #Independence plot
 		}
@@ -183,18 +129,16 @@ je_arab_nationalism_overlord = {
 	
 	possible = {
 		custom_tooltip = {
-			text = arab_rev_start_tt
-			has_global_variable = arab_rev
-		}
-		custom_tooltip = {
 			text = nahda_start_tt
 			has_global_variable = nahda_start
 		}
-		OR = {
-			has_journal_entry = je_springtime_of_the_peoples
-			any_neighbouring_state = { #So countries like Italy won't be immune
-				owner = {
-					has_journal_entry = je_springtime_of_the_peoples
+		any_neighbouring_state = {
+			owner = {
+				OR = {
+					has_journal_entry = je_arab_nationalism_subject
+					any_subject_or_below = {
+						has_journal_entry = je_arab_nationalism_subject
+					}
 				}
 			}
 		}

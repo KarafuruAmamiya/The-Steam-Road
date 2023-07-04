@@ -20,6 +20,7 @@
 
 	possible = {
 		country_rank <= rank_value:unrecognized_regional_power
+		NOT = { country_has_primary_culture = cu:akturk }
 		has_technology_researched = nationalism
 		is_subject = no
 		custom_tooltip = {
@@ -73,26 +74,28 @@
 		}
 		calc_true_if = {
 			any_scope_state = {
-				count >= 15
+				count >= 12
 				OR = {
 					state_region = s:STATE_HEDJAZ
 					state_region = s:STATE_MEDINA
-					state_region = s:STATE_NEJD
-					state_region = s:STATE_HAIL
 					state_region = s:STATE_SYRIA
 					state_region = s:STATE_ALEPPO
 					state_region = s:STATE_HAMA
 					state_region = s:STATE_TRANSJORDAN
 					state_region = s:STATE_PALESTINE
+					state_region = s:STATE_DEIR_EZ_ZOR
 					state_region = s:STATE_ALEXANDRIA
 					state_region = s:STATE_LOWER_EGYPT
-					state_region = s:STATE_MIDDLE_EGYPT
 					state_region = s:STATE_BENI_SUEF
 					state_region = s:STATE_SINAI
-					state_region = s:STATE_HAASA
+					state_region = s:STATE_NEJD
+					state_region = s:STATE_HAIL
+					state_region = s:STATE_SINAI
 					state_region = s:STATE_BAGHDAD
+					state_region = s:STATE_BASRA
 					state_region = s:STATE_MUSCAT
 					state_region = s:STATE_NIZWA
+					state_region = s:STATE_HADHRAMAUT
 					state_region = s:STATE_YEMEN
 					state_region = s:STATE_ADEN
 				}

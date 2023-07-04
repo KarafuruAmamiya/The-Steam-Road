@@ -30,6 +30,7 @@ aragon_sicily.1 = { # The loss of Catalonia
 		}
 		is_at_war = no
 		NOT = { exists = c:SIC }
+		NOT = { has_variable = iberian_war_aftermath }
 	}
 	
 	option = { # Aragon will rise again!
@@ -45,6 +46,7 @@ aragon_sicily.1 = { # The loss of Catalonia
 					culture = cu:south_italian
 				}
 			}
+			set_variable = iberian_war_aftermath
 		}
 	}
 	option = { # We must look to the future
@@ -76,6 +78,7 @@ aragon_sicily.1 = { # The loss of Catalonia
 					culture = cu:south_italian
 				}
 			}
+			set_variable = iberian_war_aftermath
 		}
 	}
 }

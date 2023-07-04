@@ -30,7 +30,10 @@
                                     AND = { exists = c:SRV c:SRV = this }
                                 }
                             }
-                            is_ruler = yes
+							OR = {
+								is_ruler = yes
+								is_heir = yes
+							}
 						}
 					}
 				}

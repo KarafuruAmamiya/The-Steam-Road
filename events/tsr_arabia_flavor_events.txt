@@ -45,8 +45,8 @@ arabia_flavor.1 = {
 					is_homeland = cu:maghrebi 
 				}
 			}
-			state_population >= 300000
-			total_urbanization >= 1
+			state_population >= 500000
+			total_urbanization >= 100
 		}
 	}
 
@@ -76,7 +76,7 @@ arabia_flavor.1 = {
 					}
 				}
 				state_population >= 500000 
-				total_urbanization >= 1
+				total_urbanization >= 100
 			}
 			save_scope_as = nahda_state
 		}
@@ -616,11 +616,25 @@ arabia_flavor.4 = {
 			is_marginal = no
 			ig_approval <= 0	
 		}
-		game_date >= 1856.1.1
+		game_date >= 1853.1.1
 		game_date < 1890.1.1
-		country_has_primary_culture = scope:arab_culture
 		any_scope_state = {
-			total_urbanization >= 1
+			total_urbanization >= 100
+			state_population >= 500000
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+			}
 		}
 		NOT = { has_global_variable = muhammad_abduh_var }
 	}
@@ -1007,8 +1021,8 @@ arabia_flavor.7 = {
 					is_homeland = cu:maghrebi 
 				}
 			}
-			state_population >= 300000
-			total_urbanization >= 1
+			state_population >= 500000
+			total_urbanization >= 100
 		}
 	}
 
@@ -1038,7 +1052,7 @@ arabia_flavor.7 = {
 					}
 				}
 				state_population >= 500000 
-				total_urbanization >= 1
+				total_urbanization >= 100
 			}
 			save_scope_as = newspaper_state
 		}
@@ -1097,10 +1111,6 @@ arabia_flavor.8 = {
 		has_technology_researched = mass_communication
 		any_scope_state = {
 			OR = {
-				state_is_in_middle_east = yes
-				state_is_in_north_africa = yes
-			}
-			OR = {
 				state_region = { 
 					is_homeland = cu:levantine 
 				}
@@ -1118,9 +1128,9 @@ arabia_flavor.8 = {
 				}
 			}
 			state_population >= 500000
-			total_urbanization >= 1
+			total_urbanization >= 100
 		}
-		any_character = {
+		any_scope_character = {
 			has_variable = muhammad_abduh
 		}
 	}
@@ -1151,9 +1161,16 @@ arabia_flavor.8 = {
 					}
 				}
 				state_population >= 500000 
-				total_urbanization >= 1
+				total_urbanization >= 100
 			}
 			save_scope_as = newspaper_state
+		}
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait = arabic_heritage
+				NOT = { has_discrimination_trait = jewish_group }
+			}
+			save_scope_as = arab_culture
 		}
 		every_overlord_or_above = {
 			limit = {
@@ -1177,20 +1194,60 @@ arabia_flavor.8 = {
 				}
 				OR = {
 					country_is_in_middle_east = yes
-					AND = { exists = c:TUN c:TUN = this }
-					AND = { exists = c:MOR c:MOR = this }
 					AND = { exists = c:EGY c:EGY = this }
 				}
 				NOT = { has_technology_researched = political_agitation }
 			}
 			add_technology_progress = { progress = 2500 technology = political_agitation }
 		}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					scope:arab_culture = {
+						culture_is_discriminated_in = root
+					}
+				}
+				add = -100
+			}
+		}
 	}
 	
 	option = {
 		name = arabia_flavor.8.b #Suppress the newspaper
+		if = {
+			limit = {
+				NOT = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_region = { 
+						is_homeland = scope:arab_culture
+					}
+				}
+				add_radicals_in_state = {
+					value = medium_radicals
+					culture = scope:arab_culture
+				}
+			}
+		}
 		
-		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					scope:arab_culture = {
+						culture_is_discriminated_in = root
+					}
+				}
+				add = 100
+			}
+		}
 	}
 }
 
@@ -1205,7 +1262,7 @@ arabia_flavor.9 = {
 	duration = 3
 
 	event_image = {
-		video = "middleeast_middleclass_cafe"
+		video = "middleeast_engineer_blueprint"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1239,7 +1296,7 @@ arabia_flavor.9 = {
 				}
 			}
 			state_population >= 500000
-			total_urbanization >= 1
+			total_urbanization >= 100
 		}
 	}
 
@@ -1247,10 +1304,6 @@ arabia_flavor.9 = {
 		set_global_variable = modern_arabic_dict
 		random_scope_state = {
 			limit = {
-				OR = {
-					state_is_in_middle_east = yes
-					state_is_in_north_africa = yes
-				}
 				OR = {
 					state_region = { 
 						is_homeland = cu:levantine 
@@ -1264,12 +1317,9 @@ arabia_flavor.9 = {
 					state_region = { 
 						is_homeland = cu:misri 
 					}
-					state_region = { 
-						is_homeland = cu:maghrebi 
-					}
 				}
 				state_population >= 500000 
-				total_urbanization >= 1
+				total_urbanization >= 100
 			}
 			save_scope_as = dictionary_state
 		}
@@ -1278,6 +1328,123 @@ arabia_flavor.9 = {
 	option = {
 		name = arabia_flavor.9.a
 		default_option = yes
+		scope:newspaper_state = {
+			owner = {
+				add_modifier = {
+					name = arabic_dictionary
+					months = normal_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = arabic_heritage
+				}
+				OR = {
+					country_is_in_middle_east = yes
+					AND = { exists = c:TUN c:TUN = this }
+					AND = { exists = c:MOR c:MOR = this }
+					AND = { exists = c:EGY c:EGY = this }
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 1000 technology = nationalism }
+		}
+	}
+}
+
+# Akturks in Independent Syria
+arabia_flavor.10 = {
+	type = country_event
+	placement = root
+	title = arabia_flavor.10.t
+	desc = arabia_flavor.10.d
+	flavor = arabia_flavor.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		exists = c:SYR
+		c:SYR = root
+		NOT = { is_subject_of = c:AKN }
+		NOT = { has_variable = fate_of_akturks }
+		country_has_primary_culture = cu:akturk
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				is_heir = yes
+			}
+			save_scope_as = heir_scope
+		}
+	}
+
+	option = {
+		name = arabia_flavor.10.a
+		default_option = yes
 		
+		set_variable = fate_of_akturks
+		remove_primary_culture = cu:akturk
+		add_radicals = {
+			value = large_radicals
+			culture = cu:akturk
+		}
+		
+		if = {
+			limit = {
+				ruler = {
+					culture = cu:akturk
+				}
+			}
+			ruler = {
+				kill_character = yes
+			}
+			create_character = {
+				culture = cu:levantine
+				ruler = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				exists = scope:heir_scope
+				scope:heir_scope = {
+					culture = cu:akturk
+				}
+			}
+			heir = {
+				kill_character = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = {
+		name = arabia_flavor.10.b
+		
+		set_variable = fate_of_akturks
+		add_loyalists = {
+			value = large_radicals
+			culture = cu:akturk
+		}
+		
+		custom_tooltip = no_arabia.tt
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 }

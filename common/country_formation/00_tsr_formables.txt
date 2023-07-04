@@ -62,12 +62,14 @@ HRE = { # Holy Roman Empire
 	ai_will_do = { always = yes }
 
 	possible = {
-		AND = {
-			exists = c:SAX
-			c:SAX = ROOT
+		trigger_if = {
+			limit = {
+				exists = c:SAX
+				c:SAX = ROOT
+			}
 			c:SAX = { has_modifier = hre_emperor }
+			is_subject = no
 		}
-		is_subject = no
 	}
 }
 
@@ -403,32 +405,34 @@ ARA = { # Arabia
 	states = {
 		STATE_HEDJAZ
         STATE_MEDINA
-		STATE_NEJD
-		STATE_HAIL
         STATE_SYRIA
         STATE_ALEPPO
         STATE_PALESTINE
         STATE_HAMA
         STATE_TRANSJORDAN
+        STATE_DEIR_EZ_ZOR
         STATE_ALEXANDRIA
         STATE_LOWER_EGYPT
-        STATE_MIDDLE_EGYPT
         STATE_BENI_SUEF
         STATE_SINAI
-        STATE_HAASA
+        STATE_NEJD
+        STATE_HAIL
         STATE_BAGHDAD
+        STATE_BASRA
         STATE_MUSCAT
         STATE_NIZWA
+        STATE_HADHRAMAUT
         STATE_YEMEN
         STATE_ADEN
 	}
 	
-	required_states_fraction = 0.75
+	required_states_fraction = 0.57
 
 	ai_will_do = { has_technology_researched = nationalism }
 
 	possible = {
 		is_subject = no
+		NOT = { country_has_primary_culture = cu:akturk }
 		OR = {
 			country_has_primary_culture = cu:levantine
 			country_has_primary_culture = cu:mashriqi

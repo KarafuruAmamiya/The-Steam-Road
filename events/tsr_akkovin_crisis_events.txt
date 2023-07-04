@@ -801,11 +801,13 @@ akkovin_crisis.9 = {
 			AND = {
 				exists = c:TUR
 				c:TUR = ROOT
+				is_ai = no
 				is_at_war = no
 			}
 			AND = {
 				exists = c:PER
 				c:PER = ROOT
+				is_ai = no
 				is_at_war = no
 			}
 		}
@@ -1287,8 +1289,6 @@ akkovin_crisis.10 = {
 			type = je_akkovin_partition_tur
 		}
 		
-		c:PER = { trigger_event = { id = akkovin_crisis.13 days = 0 } }
-		
 		ai_chance = {
 			base = 100
 		}
@@ -1304,126 +1304,88 @@ akkovin_crisis.10 = {
 	}
 }
 
-# Akkovin Partition War (No Treaty of Baglar)
-akkovin_crisis.11 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.11.t
-	desc = akkovin_crisis.11.d
-	flavor = akkovin_crisis.11.f
+# Akkovin Partition War (No Treaty of Baglar) MOVED TO SCRIPTED BUTTONS
+#akkovin_crisis.11 = {
+#	type = country_event
+#	placement = root
+#	title = akkovin_crisis.11.t
+#	desc = akkovin_crisis.11.d
+#	flavor = akkovin_crisis.11.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "europenorthamerica_before_the_battle"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+#
+#	trigger = {
+#		#Triggered by Akkovin Partition (Ottoman) JE
+#	}
+#
+#	option = {
+#		name = akkovin_crisis.11.a
+#		
+#	}
+#}
 
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	trigger = {
-		#Triggered by Akkovin Partition (Ottoman) JE
-	}
-
-	option = {
-		name = akkovin_crisis.11.a
-		create_diplomatic_play = {
-			name = akkovin_partition_war
-			target_state = s:STATE_DIYARBAKIR.region_state:AKN
-			type = dp_return_state
-			
-			add_target_backers = {
-				#In the future Great Powers with interest in Arabia should be able to intervene
-			}
-			
-			add_war_goal = {
-				holder = c:AKN
-				type = war_reparations
-				target_country = c:TUR
-			}
-			add_war_goal = {
-				holder = c:AKN
-				type = war_reparations
-				target_country = c:PER
-			}
-		}
-	}
-}
-
-# Ottoman-Akkovin War (Treaty of Baglar)
-akkovin_crisis.12 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.12.t
-	desc = akkovin_crisis.12.d
-	flavor = akkovin_crisis.12.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	trigger = {
-		#Triggered by Akkovin Partition (Ottoman) JE
-	}
-
-	option = {
-		name = akkovin_crisis.12.a
-		create_diplomatic_play = {
-			name = akkovin_partition_war
-			target_state = s:STATE_DIYARBAKIR.region_state:AKN
-			type = dp_return_state
-			
-			add_target_backers = {
-				c:PER
-			}
-			
-			add_war_goal = {
-				holder = c:AKN
-				type = war_reparations
-				target_country = c:TUR
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = war_reparations
-				target_country = c:TUR
-			}
-		}
-	}
-}
+# Ottoman-Akkovin War (Treaty of Baglar) MOVED TO SCRIPTED BUTTONS
+#akkovin_crisis.12 = {
+#	type = country_event
+#	placement = root
+#	title = akkovin_crisis.12.t
+#	desc = akkovin_crisis.12.d
+#	flavor = akkovin_crisis.12.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "europenorthamerica_before_the_battle"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+#
+#	trigger = {
+#		#Triggered by Akkovin Partition (Ottoman) JE
+#	}
+#
+#	option = {
+#		name = akkovin_crisis.12.a
+#		
+#	}
+#}
 
 # Prepare for War with the Ottomans
-akkovin_crisis.13 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.13.t
-	desc = akkovin_crisis.13.d
-	flavor = akkovin_crisis.13.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	trigger = {
-		#Triggered by Ottoman event
-	}
-
-	option = {
-		name = akkovin_crisis.13.a
-	}
-}
+#akkovin_crisis.13 = {
+#	type = country_event
+#	placement = root
+#	title = akkovin_crisis.13.t
+#	desc = akkovin_crisis.13.d
+#	flavor = akkovin_crisis.13.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "europenorthamerica_before_the_battle"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+#
+#	trigger = {
+#		#Triggered by Ottoman event
+#	}
+#
+#	option = {
+#		name = akkovin_crisis.13.a
+#	}
+#}
 
 # Akkovin becomes a Persian protectorate
 akkovin_crisis.14 = {
@@ -1597,8 +1559,8 @@ akkovin_crisis.18 = {
 	immediate = {
 		if = {
 			limit = { 
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
+				ROOT = {
+					has_journal_entry = je_akkovin_partition_tur
 				}
 			}
 			random_diplomatic_play = {
@@ -1611,6 +1573,22 @@ akkovin_crisis.18 = {
 				}
 			}
 		}
+		else_if = {
+			limit = { 
+				ROOT = {
+					has_journal_entry = je_akkovin_partition_per
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:AKN
+				}
+				add_initiator_backers = {
+					c:TUR
+				}
+			}
+		}
 		if = {
 			limit = { 
 				s:STATE_TRABZON = {
@@ -1619,7 +1597,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1638,7 +1616,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1657,7 +1635,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1676,7 +1654,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1695,7 +1673,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1714,7 +1692,7 @@ akkovin_crisis.18 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1730,13 +1708,10 @@ akkovin_crisis.18 = {
 				s:STATE_VAN = {
 					has_variable = akkovin_partition_state
 				}
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1752,13 +1727,10 @@ akkovin_crisis.18 = {
 				s:STATE_KARS = {
 					has_variable = akkovin_partition_state
 				}
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1774,13 +1746,10 @@ akkovin_crisis.18 = {
 				s:STATE_MOSUL = {
 					has_variable = akkovin_partition_state
 				}
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1796,13 +1765,10 @@ akkovin_crisis.18 = {
 				s:STATE_SHAHRIZOR = {
 					has_variable = akkovin_partition_state
 				}
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1815,16 +1781,13 @@ akkovin_crisis.18 = {
 		}
 		if = {
 			limit = { 
-				s:STATE_ANBAR = {
-					has_variable = akkovin_partition_state
-				}
 				c:PER = {
 					has_journal_entry = je_akkovin_partition_per
 				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1840,13 +1803,10 @@ akkovin_crisis.18 = {
 				s:STATE_GREATER_CAUCASUS = {
 					has_variable = akkovin_partition_state
 				}
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1880,7 +1840,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1899,7 +1859,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1918,7 +1878,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1937,7 +1897,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1956,7 +1916,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {
@@ -1975,7 +1935,7 @@ akkovin_crisis.19 = {
 			}
 			random_diplomatic_play = {
 				limit = {
-					initiator_is = c:TUR
+					initiator_is = ROOT
 					target_is = c:AKN
 				}
 				add_war_goal = {

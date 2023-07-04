@@ -1040,26 +1040,7 @@ je_akkovin_reform_nationalism = { #WIP
 je_akkovin_partition_tur = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
-	immediate = {
-		if = {
-			limit = {
-				c:AKN = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-				}
-				is_at_war = no
-			}
-			trigger_event = { id = akkovin_crisis.12 days = 7 }
-		}
-		else_if = {
-			limit = {
-				is_at_war = no
-			}
-			trigger_event = { id = akkovin_crisis.11 days = 7 }
-		}
-	}
+	scripted_button = je_akkovin_partition_tur_button
 	
 	complete = {
 		trigger_if = {
@@ -1190,6 +1171,8 @@ je_akkovin_partition_tur = { #WIP
 # Partition of the Akkovin Sultanate (Safavids)
 je_akkovin_partition_per = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	scripted_button = je_akkovin_partition_per_button
 	
 	complete = {
 		trigger_if = {

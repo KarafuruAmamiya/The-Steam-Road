@@ -110,6 +110,107 @@
 			}
 		}
 	}
+	c:EGY = {
+		create_character = {
+			first_name = "Sulayman_Pasha"
+			last_name = "al-Mansuri"
+			historical = yes
+			ruler = yes
+			female = no
+			age = 48
+    		culture = cu:misri
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				ambitious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Ibrahim"
+			last_name = "al-Mansuri"
+			historical = yes
+			heir = yes
+			female = no
+			age = 25
+    		culture = cu:misri
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				imperious demagogue
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+	c:HDJ = {
+		create_character = {
+			first_name = "Jafar_bin_Muhammed"
+			last_name = "al_Hasani"
+			historical = yes
+			ruler = yes
+			female = no
+			birth_date = 1778.5.12
+    		culture = cu:mashriqi
+			interest_group = ig_devout
+			ideology = ideology_moderate
+			traits = {
+				tactful pious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Abdullah_bin_Jafar"
+			last_name = "al_Hasani"
+			historical = yes
+			heir = yes
+			female = no
+			birth_date = 1805.11.6
+    		culture = cu:mashriqi
+			interest_group = ig_devout
+			ideology = ideology_moderate_reformer
+			traits = {
+				pious inspirational_orator
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
+	c:JAB = {
+		create_character = {
+			# Abdullah bin Ali Al Rashid
+			first_name = "Abdullah"
+			last_name = "al_Rashid"
+			historical = yes
+			ruler = yes
+			birth_date = 1788.1.25 # Only year known
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			traits = {
+				ambitious
+			}
+		}	
+
+		create_character = {
+			# Talal bin Abdullah Al Rashid
+			first_name = "Talal"
+			last_name = "al_Rashid"
+			historical = yes
+			heir = yes
+			birth_date = 1823.6.14 # Only year known
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+			traits = {
+				trait_child
+			}
+		}
+	}
 	c:MUG = {
 		create_character = {
 			first_name = "Babur_III"
@@ -126,6 +227,35 @@
 			}
 			on_created = {
 				set_variable = is_married
+			}
+		}
+	}
+	c:NEJ = {
+		create_character = {
+			# Faisal bin Turki bin Abdullah Al Saud
+			first_name = "Faisal"
+			last_name = "al_Saud"
+			historical = yes
+			ruler = yes
+			age = 51
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			traits = {
+				ambitious
+			}
+		}	
+
+		create_character = {
+			# Saud bin Faisal bin Turki
+			first_name = "Saud"
+			last_name = "al_Saud"
+			historical = yes
+			heir = yes
+			age = 5 # I acutally don't know when he was born, but he died in 1875 and he was older than a brother who was born in 1845.
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+			traits = {
+				trait_child
 			}
 		}
 	}
@@ -407,6 +537,42 @@
 				expert_artillery_commander
 				mountain_commander
 				innovative
+			}
+		}
+	}
+	c:SYR = {
+		create_character = {
+			first_name = "Ahmed_Bey"
+			last_name = "Tuzcuoglu"
+			historical = yes
+			ruler = yes
+			female = no
+			age = 60
+    		culture = cu:akturk
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				cautious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Huseyin"
+			last_name = "Tuzcuoglu"
+			historical = yes
+			heir = yes
+			female = no
+			age = 32
+    		culture = cu:akturk
+			interest_group = ig_landowners
+			ideology = ideology_jingoist_leader
+			traits = {
+				ambitious
+			}
+			on_created = {
+				set_variable = is_married
 			}
 		}
 	}

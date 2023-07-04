@@ -1,0 +1,126 @@
+﻿je_akkovin_partition_tur_button = {
+	name = "je_akkovin_partition_tur_button"
+	desc = "je_akkovin_partition_tur_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		exists = c:PER
+		exists = c:AKN
+		OR = {
+			AND = {
+				is_player = yes
+				c:PER = { 
+					is_at_war = no 
+				}
+			}
+			AND = {
+				is_player = no 
+				c:PER = { 
+					is_player = no 
+					is_at_war = no 
+				}
+			}
+		}
+		is_at_war = no
+	}
+
+	effect = {
+		if = {
+			limit = {
+				c:AKN = {
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			create_diplomatic_play = {
+				name = akkovin_partition_war
+				target_state = s:STATE_DIYARBAKIR.region_state:AKN
+				type = dp_return_state
+				
+				add_target_backers = {
+					c:PER
+				}
+				
+				add_war_goal = {
+					holder = c:AKN
+					type = war_reparations
+					target_country = c:TUR
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = war_reparations
+					target_country = c:TUR
+				}
+			}
+			trigger_event = { id = akkovin_crisis.19 days = 0 }
+		}
+		else = {
+			create_diplomatic_play = {
+				name = akkovin_partition_war
+				target_state = s:STATE_DIYARBAKIR.region_state:AKN
+				type = dp_return_state
+				
+				add_target_backers = {
+					#In the future Great Powers with interest in Arabia should be able to intervene
+				}
+				
+				add_war_goal = {
+					holder = c:AKN
+					type = war_reparations
+					target_country = c:TUR
+				}
+				add_war_goal = {
+					holder = c:AKN
+					type = war_reparations
+					target_country = c:PER
+				}
+			}
+			trigger_event = { id = akkovin_crisis.18 days = 0 }
+		}
+	}
+}
+
+je_akkovin_partition_per_button = {
+	name = "je_akkovin_partition_per_button"
+	desc = "je_akkovin_partition_per_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		exists = c:TUR
+		exists = c:AKN
+		c:TUR = { 
+			is_player = no 
+			is_at_war = no 
+		}
+		is_player = yes
+		is_at_war = no
+	}
+
+	effect = {
+		create_diplomatic_play = {
+			name = akkovin_partition_war
+			target_state = s:STATE_DIYARBAKIR.region_state:AKN
+			type = dp_return_state
+				
+			add_target_backers = {
+				#In the future Great Powers with interest in Arabia should be able to intervene
+			}
+				
+			add_war_goal = {
+				holder = c:AKN
+				type = war_reparations
+				target_country = c:TUR
+			}
+			add_war_goal = {
+				holder = c:AKN
+				type = war_reparations
+				target_country = c:PER
+			}
+		}
+		trigger_event = { id = akkovin_crisis.18 days = 0 }
+	}
+}

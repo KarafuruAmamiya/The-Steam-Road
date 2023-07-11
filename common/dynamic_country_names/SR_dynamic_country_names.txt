@@ -357,23 +357,6 @@ HON = { # Honduras
 	}
 }
 
-NSB = { # Sibirstan
-	dynamic_country_name = { # New Sibir
-		name = dyn_c_sibcolonial
-		adjective = dyn_c_sibcolonial_adj
-		
-		is_main_tag_only = yes
-		priority = 5
-		
-		trigger = {
-			exists = scope:actor
-			scope:actor = {
-				is_subject_of = c:BUK
-			}
-		}
-	}
-}
-
 DAI = { # Dai Viet
 	dynamic_country_name = {
 		name = dyn_c_yuenan
@@ -414,6 +397,21 @@ PER = {
 			scope:actor = {
 				has_law = law_type:law_monarchy
 				country_tier = empire
+			}
+		}
+	}
+}
+
+HAA = { 
+	dynamic_country_name = {
+		name = dyn_c_haa # United Emirates
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				country_has_voting_franchise = yes
 			}
 		}
 	}

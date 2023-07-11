@@ -45,6 +45,15 @@ arabia_flavor.1 = {
 					is_homeland = cu:maghrebi 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 			}
@@ -75,10 +84,19 @@ arabia_flavor.1 = {
 						is_homeland = cu:misri 
 					}
 					state_region = { 
-						is_homeland = cu:bedouin 
+						is_homeland = cu:maghrebi 
 					}
 					state_region = { 
-						is_homeland = cu:maghrebi 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
 					}
 				}
 				state_population >= 500000 
@@ -100,13 +118,6 @@ arabia_flavor.1 = {
 				NOT = { has_technology_researched = mass_communication }
 			}
 			add_technology_progress = { progress = 2500 technology = mass_communication }
-		}
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait = arabic_heritage
-				NOT = { has_discrimination_trait = jewish_group }
-			}
-			save_scope_as = arab_culture
 		}
 	}
 
@@ -146,10 +157,114 @@ arabia_flavor.1 = {
 				months = -1
 			}
 		}
-		add_radicals = {
-			value = large_radicals
-			culture = scope:arab_culture
-        }
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:levantine
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:levantine
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:misri
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:misri
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:mashriqi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:mashriqi
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:bedouin
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:bedouin
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:iraqi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:iraqi
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:khaleeji
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:khaleeji
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:omani
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:omani
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:yemenite
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:yemenite
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:maghrebi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:maghrebi
+				value = medium_radicals
+			}
+		}
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -418,6 +533,15 @@ arabia_flavor.3 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 				state_region = { 
@@ -429,13 +553,6 @@ arabia_flavor.3 = {
 	}
 
 	immediate = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait = arabic_heritage
-				NOT = { has_discrimination_trait = jewish_group }
-			}
-			save_scope_as = arab_culture
-		}
 		if = {
 			limit = { is_subject = yes }
 			every_overlord_or_above = {
@@ -484,6 +601,15 @@ arabia_flavor.3 = {
 						is_homeland = cu:misri 
 					}
 					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
+					}
+					state_region = { 
 						is_homeland = cu:bedouin 
 					}
 					state_region = { 
@@ -517,29 +643,13 @@ arabia_flavor.3 = {
 	option = {
 		name = arabia_flavor.3.b #Support his independence rhetorics
 		trigger = {
-			country_has_primary_culture = scope:arab_culture
+			any_primary_culture = {
+				has_discrimination_trait = arabic_heritage
+			}
 		}
 		show_as_tooltip = {
 			create_character = {
 				template = egy_shidyaq_character_template
-			}
-		}
-		every_state = {
-			limit = {
-				NOT = {
-					owner = {
-						any_primary_culture = {
-							has_discrimination_trait = arabic_heritage
-						}
-					}
-				}
-				state_region = { 
-					is_homeland = scope:arab_culture
-				}
-			}
-			add_radicals_in_state = {
-				value = medium_radicals
-				culture = scope:arab_culture
 			}
 		}
 		if = {
@@ -585,7 +695,9 @@ arabia_flavor.3 = {
 			base = 0
 			modifier = {
 				trigger = {
-					country_has_primary_culture = scope:arab_culture
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
 				}
 				add = 100
 			}
@@ -604,33 +716,15 @@ arabia_flavor.3 = {
 				months = normal_modifier_time
 			}
 		}
-		if = {
-			limit = {
-				NOT = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-				}
-			}
-			every_scope_state = {
-				limit = {
-					state_region = { 
-						is_homeland = scope:arab_culture
-					}
-				}
-				add_radicals_in_state = {
-					value = medium_radicals
-					culture = scope:arab_culture
-				}
-			}
-		}
 		
 		ai_chance = {
 			base = 25
 			modifier = {
 				trigger = {
-					scope:arab_culture = {
-						culture_is_discriminated_in = root
+					NOT = {
+						any_primary_culture = {
+							has_discrimination_trait = arabic_heritage
+						}
 					}
 				}
 				add = -100
@@ -685,6 +779,15 @@ arabia_flavor.4 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 				state_region = { 
@@ -696,13 +799,6 @@ arabia_flavor.4 = {
 	}
 
 	immediate = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait = arabic_heritage
-				NOT = { has_discrimination_trait = jewish_group }
-			}
-			save_scope_as = arab_culture
-		}
 		if = {
 			limit = { is_subject = yes }
 			every_overlord_or_above = {
@@ -751,6 +847,15 @@ arabia_flavor.4 = {
 						is_homeland = cu:misri 
 					}
 					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
+					}
+					state_region = { 
 						is_homeland = cu:maghrebi 
 					}
 					state_region = { 
@@ -784,29 +889,13 @@ arabia_flavor.4 = {
 	option = {
 		name = arabia_flavor.4.b #Support his independence rhetorics
 		trigger = {
-			country_has_primary_culture = scope:arab_culture
+			any_primary_culture = {
+				has_discrimination_trait = arabic_heritage
+			}
 		}
 		show_as_tooltip = {
 			create_character = {
 				template = egy_abduh_character_template
-			}
-		}
-		every_state = {
-			limit = {
-				NOT = {
-					owner = {
-						any_primary_culture = {
-							has_discrimination_trait = arabic_heritage
-						}
-					}
-				}
-				state_region = { 
-					is_homeland = scope:arab_culture
-				}
-			}
-			add_radicals_in_state = {
-				value = medium_radicals
-				culture = scope:arab_culture
 			}
 		}
 		if = {
@@ -852,7 +941,9 @@ arabia_flavor.4 = {
 			base = 0
 			modifier = {
 				trigger = {
-					country_has_primary_culture = scope:arab_culture
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
 				}
 				add = 100
 			}
@@ -871,33 +962,15 @@ arabia_flavor.4 = {
 				months = normal_modifier_time
 			}
 		}
-		if = {
-			limit = {
-				NOT = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-				}
-			}
-			every_scope_state = {
-				limit = {
-					state_region = { 
-						is_homeland = scope:arab_culture
-					}
-				}
-				add_radicals_in_state = {
-					value = medium_radicals
-					culture = scope:arab_culture
-				}
-			}
-		}
 		
 		ai_chance = {
 			base = 25
 			modifier = {
 				trigger = {
-					scope:arab_culture = {
-						culture_is_discriminated_in = root
+					NOT = {
+						any_primary_culture = {
+							has_discrimination_trait = arabic_heritage
+						}
 					}
 				}
 				add = -100
@@ -1101,6 +1174,15 @@ arabia_flavor.7 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 				state_region = { 
@@ -1132,6 +1214,15 @@ arabia_flavor.7 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
+					}
+					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
 					}
 					state_region = { 
 						is_homeland = cu:bedouin 
@@ -1213,6 +1304,15 @@ arabia_flavor.8 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 				state_region = { 
@@ -1247,6 +1347,15 @@ arabia_flavor.8 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
 					}
 					state_region = { 
 						is_homeland = cu:bedouin 
@@ -1289,11 +1398,11 @@ arabia_flavor.8 = {
 			base = 25
 			modifier = {
 				trigger = {
-					scope:arab_culture = {
-						culture_is_discriminated_in = root
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
 					}
 				}
-				add = -100
+				add = 100
 			}
 		}
 	}
@@ -1311,8 +1420,10 @@ arabia_flavor.8 = {
 			base = 0
 			modifier = {
 				trigger = {
-					scope:arab_culture = {
-						culture_is_discriminated_in = root
+					NOT = {
+						any_primary_culture = {
+							has_discrimination_trait = arabic_heritage
+						}
 					}
 				}
 				add = 100
@@ -1362,6 +1473,15 @@ arabia_flavor.9 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:khaleeji 
+				}
+				state_region = { 
+					is_homeland = cu:omani 
+				}
+				state_region = { 
+					is_homeland = cu:yemenite 
+				}
+				state_region = { 
 					is_homeland = cu:bedouin 
 				}
 				state_region = { 
@@ -1389,6 +1509,15 @@ arabia_flavor.9 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
 					}
 					state_region = { 
 						is_homeland = cu:bedouin 

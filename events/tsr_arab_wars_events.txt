@@ -100,14 +100,7 @@ arab_wars.2 = {
 	}
 
 	immediate = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait = arabic_heritage
-				NOT = { has_discrimination_trait = jewish_group }
-			}
-			save_scope_as = arab_culture
-		}
-		every_scope_state = {
+		random_scope_state = {
 			limit = {
                 any_scope_pop = {
 					culture = {
@@ -115,8 +108,34 @@ arab_wars.2 = {
 					}
 					pop_is_discriminated = yes
 				}
-				state_region = { 
-					is_homeland = scope:arab_culture
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+					state_region = { 
+						is_homeland = cu:khaleeji 
+					}
+					state_region = { 
+						is_homeland = cu:omani 
+					}
+					state_region = { 
+						is_homeland = cu:yemenite 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
+					}
 				}
 				OR = {
 					state_is_in_middle_east = yes
@@ -129,11 +148,115 @@ arab_wars.2 = {
 
 	option = {
 		name = arab_wars.2.a
-		scope:arab_state = {
-			add_radicals_in_state = {
-                value = very_large_radicals
-                culture = scope:arab_culture
-            }
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:levantine
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:levantine
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:misri
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:misri
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:mashriqi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:mashriqi
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:bedouin
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:bedouin
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:iraqi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:iraqi
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:khaleeji
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:khaleeji
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:omani
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:omani
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:yemenite
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:yemenite
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					culture = cu:maghrebi
+					pop_is_discriminated = yes
+				}
+			}
+			add_radicals = {
+				culture = cu:maghrebi
+				value = medium_radicals
+			}
+		}
+		scope:arab_state ?= {
 			add_modifier = {
 				name = arab_revolt
 				years = 10
@@ -165,25 +288,58 @@ arab_wars.3 = {
 	}
 
 	immediate = {
-		every_subject_or_below = {
-			limit = {
-				any_primary_culture = {
-					has_discrimination_trait = arabic_heritage
-				}
-			}
-			save_scope_as = arab_subject
-		}
 	}
 
 	option = {
 		name = arab_wars.3.a
 		default_option = yes
-		change_relations = {
-			country = scope:arab_subject
-			value = -100 
+		if = {
+			limit = {
+				c:SYR ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:SYR
+				value = -100 
+			}
+			c:SYR = {
+				change_subject_type = subject_type_dependency
+			}
 		}
-		scope:arab_subject = {
-			change_subject_type = subject_type_dependency
+		if = {
+			limit = {
+				c:HDJ ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:HDJ
+				value = -100 
+			}
+			c:HDJ = {
+				change_subject_type = subject_type_dependency
+			}
+		}
+		if = {
+			limit = {
+				c:NEJ ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:NEJ
+				value = -100 
+			}
+			c:NEJ = {
+				change_subject_type = subject_type_dependency
+			}
+		}
+		if = {
+			limit = {
+				c:JAB ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:JAB
+				value = -100 
+			}
+			c:JAB = {
+				change_subject_type = subject_type_dependency
+			}
 		}
 		set_variable = centralization_stance
 		
@@ -220,12 +376,53 @@ arab_wars.3 = {
 	
 	option = {
 		name = arab_wars.3.b
-		change_relations = {
-			country = scope:arab_subject
-			value = 50
+		if = {
+			limit = {
+				c:SYR ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:SYR
+				value = 50 
+			}
+			c:SYR = {
+				change_subject_type = subject_type_dominion
+			}
 		}
-		scope:arab_subject = {
-			change_subject_type = subject_type_dominion
+		if = {
+			limit = {
+				c:HDJ ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:HDJ
+				value = 50 
+			}
+			c:HDJ = {
+				change_subject_type = subject_type_dominion
+			}
+		}
+		if = {
+			limit = {
+				c:NEJ ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:NEJ
+				value = 50 
+			}
+			c:NEJ = {
+				change_subject_type = subject_type_dominion
+			}
+		}
+		if = {
+			limit = {
+				c:JAB ?= { is_subject_of = ROOT }
+			}
+			change_relations = {
+				country = c:JAB
+				value = 50 
+			}
+			c:JAB = {
+				change_subject_type = subject_type_dominion
+			}
 		}
 		set_variable = autonomous_stance
 		

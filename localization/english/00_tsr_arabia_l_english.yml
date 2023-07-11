@@ -13,25 +13,57 @@
  support_arab_wars_tt: "We will support the Arab War of Independence."
  arab_uprisings_fail: "We no longer control our Arab subjects"
  arab_wars_goal: "Put down the Arab uprisings."
+ no_arabia.tt: "We will not be able to form Arabia."
+ centralization_tt: "The Akkovins has chosen a centralization policy."
+ 
+ # Arab Wars JEs
+ je_arab_wars_akn: "Arab Revolt"
+ je_arab_wars_akn_reason: "Tension between us and our Arab subjects has erupted to a full-blown revolt. We must put them down or face the fall of the Confederation!"
+ je_arab_wars_tur: "Arab Revolt"
+ je_arab_wars_tur_reason: "Tension between us and Egypt has erupted to a full-blown war. With our strategic assets such as the Suez Canal in risk, we must regain control of Egypt no matter what!"
+ je_arab_wars_per: "Arab Revolt"
+ je_arab_wars_per_reason: "Tension between us and our Arab subjects has erupted to a full-blown revolt. We must regain control of Iraq and Bahrain or face the loss of prestige on top of major industrial centers and assets in Mesopotamia and Arabia!"
  
  # Arab Wars Events:
- arab_wars.1.t: "Rise of Independent Movements in [GetPlayer.GetName]"
+ arab_wars.1.t: "Rise of Independent Movements in [ROOT.GetCountry.GetName]"
  arab_wars.1.d: "In [ROOT.GetCountry.GetCapital.GetCityHubName], riots have broken out demanding complete independence from the [SCOPE.sCountry('non_arab_overlord').GetName]."
  arab_wars.1.f: "The recent rise of Arab nationalism has taken an unprecedented effect in our people. Anti-[SCOPE.sCountry('non_arab_overlord').GetName] sentiments have risen, demanding an independent state free of Turkish, Persian, and Western influences. Although their bid independence might benefit us, our relationship with our overlord has deteriorated significantly, and a conflict seems inevitable." 
  arab_wars.1.a: "A storm is coming."
  
  arab_wars.2.t: "Rise of Separatism in Arab Provinces"
- arab_wars.2.d: "In [SCOPE.sState('arab_state').GetCityHubName], revolts has broken out demanding independence from the [GetPlayer.GetName]. Now known as the [SCOPE.sState('arab_state').GetCityHubName] Uprising, the incident is just one example of the turmoil brewing in Arabia."
+ arab_wars.2.d: "In [SCOPE.sState('arab_state').GetCityHubName], revolts has broken out demanding independence from the [ROOT.GetCountry.GetName]. Now known as the [SCOPE.sState('arab_state').GetCityHubName] Uprising, the incident is just one example of the turmoil brewing in Arabia."
  arab_wars.2.f: "With the growing dissent in our Arab-majority provinces, it is clear that actions must be taken. However, we must face the risk of further revolts or outright secessions, and there is no doubt that our rivals might take advantage of this situation to weaken us."
  arab_wars.2.a: "A storm is coming."
  arab_rev_start_tt: "The Arab Revolts have started"
+ 
+ arab_wars.3.t: "First Arab Congress"
+ arab_wars.3.d: "The Arab National Congress, established by 25 official Arab Nationalists delegates, has met in Lucca, Italy to discuss more autonomy for the Arab people living under the Akkovin Confederation. The Arabs were agitating for more rights under the fading empire and early glimmers of Arab nationalism were emerging."
+ arab_wars.3.f: "It goes without saying that the gathering, convened by prominent Arab intellectuals and nationalist leaders, poses a significant threat to the stability and unity of the Confederation. We must take immediate action to address the growing nationalist ideas among Arab communities."
+ arab_wars.3.a: "These dissents happened because we gave them too much freedom!"
+ arab_wars.3.b: "We must consider their demands."
+ arab_rebels.tt: "Our Arab subjects may rebel!"
+ 
+ arab_wars.4.t: "Ask for Support from [SCOPE.sCountry('supporter_country').GetName]"
+ arab_wars.4.d: "Tension between us and our overlord in [SCOPE.sCountry('overlord_scope').GetName] has erupted! Gaining support from a power against our overlord may be what we need to turn the tide of our struggle. However, there is no guarantee that [SCOPE.sCountry('overlord_scope').GetName] will not use our debt to them against us later."
+ arab_wars.4.f: ""Your Excellency, our great and ancient land of [ROOT.GetCountry.GetName] finds itself in a momentous struggle for independence against the oppressive yoke of the [SCOPE.sCountry('supporter_country').GetName]. It is with great reverence and admiration for [SCOPE.sCountry('supporter_country').GetName] that we humbly seek your esteemed nation's support in our noble cause.""
+ arab_wars.4.a: "Let us send this message to [SCOPE.sCountry('supporter_country').GetName]."
+ arab_wars.4.b: "We cannot take the risk."
 
- arab_wars.5.t: "[SCOPE.sCountry('arab_country').GetName] requests our support"
- arab_wars.5.d: "With the escalating conflict between [SCOPE.sCountry('arab_country').GetName] and [SCOPE.sCountry('arab_overlord').GetName], [SCOPE.sCountry('arab_country').GetName] requests our aid in the seemingly inevitable war."
- arab_wars.5.f: "The tension between [SCOPE.sCountry('arab_country').GetName] and [SCOPE.sCountry('arab_overlord').GetName] is just one of the recent conflicts boiling over Arabia. If we decide to participate, it could be our chance to weaken our rivals in the [SCOPE.sCountry('arab_overlord').GetName] and project our power in the Middle East."
+ arab_wars.5.t: "[SCOPE.sCountry('arab_country').GetName] Requests Our Support"
+ arab_wars.5.d: "With the escalating conflict between [SCOPE.sCountry('arab_country').GetName] and [SCOPE.sCountry('arab_overlord').GetName], [SCOPE.sCountry('arab_country').GetName] requests our aid in their independence revolt."
+ arab_wars.5.f: "The tension between [SCOPE.sCountry('arab_country').GetName] and [SCOPE.sCountry('arab_overlord').GetName] is just one of the recent conflicts boiling over Arabia. If we decide to participate, it could be our chance to weaken our rivals in the [SCOPE.sCountry('arab_overlord').GetName] and further our interests in the Middle East."
  arab_wars.5.a: "We will lend them our support."
  arab_wars.5.b: "This is a waste of time and resources."
 
+ arab_wars.6.t: "[SCOPE.sCountry('supporter_country').GetName] Supported the Arab Revolts!"
+ arab_wars.6.d: "In an unexpected turn of event, [SCOPE.sCountry('supporter_country').GetName] has pledged its support to the Arab subjects of [SCOPE.sCountry('supporter_country').GetName] in their bid for independence."
+ arab_wars.6.f: ""With their support, the Arabs stands a real chance of achieving independence, which could potentially encourage other territories within the [ROOT.GetCountry.GetName] to follow suit. The stakes are high, and the future of our great empire hangs in the balance. We must take a swift action against this breach of our sovereignity and integrity!""
+ arab_wars.6.a: "How dare they!"
+ 
+ arab_wars.7.t: "Arab Revolt!"
+ arab_wars.7.d: "The Arab movements in the [ROOT.GetCountry.GetName] has taken a radical turn. Previously taking a moderate stance limited to reforms and autonomy, the rise of nationalism, centralization, and accusations of rescinded autonomy and suppression within [ROOT.GetCountry.GetName] has prompted the Arabs to rise in open revolt."
+ arab_wars.7.f: ""My [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]! Those treacherous bastards in [SCOPE.sCountry('rebel_subject').GetName] has risen up against us in an open rebellion! The integrity of our empire now hangs in balance!""
+ arab_wars.7.a: "They will regret this!"
  
  arab_wars.9.t: "A Plot for Independence?"
  arab_wars.9.d: "With the backlash against the recent policies of the Confederation, Arab politicians and public figures across the peninsula have risen to demand full independence."
@@ -39,6 +71,10 @@
  arab_wars.9.a: "We need to discuss this with the other leaders first."
  
  arab_wars.10.t: "[SCOPE.sCountry('independence_leader').GetName]'s plot for independence"
+ arab_wars.10.d: "With the backlash against the recent policies of the Confederation, our people has been bidding for a full-blown revolt. Now, our chance has come as [SCOPE.sCountry('independence_leader').GetName] requests our support to gain our independence against the Akkovins."
+ arab_wars.10.f: ""For centuries, our lands have been subjected to foreign rule, our culture and traditions stifled, and our voices silenced. The time has come for us to break free from these chains and forge our own destiny. We must no longer tolerate the heavy hand of the Akturk heathens, even if by blood!""
+ arab_wars.10.a: "United we stand!"
+ arab_wars.10.a: "This is too risky."
  
  arab_wars.12.t: "Iraqi Uprising"
  arab_wars.12.d: "The Republic of [SCOPE.sCountry('iraq_scope').GetName] has been proclaimed in [SCOPE.sState('baghdad_scope').GetName] by the Arab insurrectionists."
@@ -48,7 +84,7 @@
 
  arab_wars.13.t: "Aftermath of the Arab Uprisings"
  arab_wars.13.d: "Our country has not been able to put down the insurrections in Arabia."
- arab_wars.13.f: "Now that we have lost control over our Arab territories there is the risk that a unitary Arab state will be created. If this were to happen, the Arabs could also reclaim the "irredeemed lands".\n\nFurthermore, the Arabs' actions have filled the hearts of our people with nationalist sentiments."
+ arab_wars.13.f: "Now that we have lost control over our Arab territories, there is the risk that a unitary Arab state will be created. If this were to happen, the Arabs could also reclaim the "irredeemed lands".\n\nFurthermore, the Arabs' actions have filled the hearts of our people with nationalist sentiments."
  arab_wars.13.a: "Damn Arabs!"
 
  arab_wars.14.t: "The Sheikhs of Al-Bahrain joins the revolt!"
@@ -57,13 +93,18 @@
  arab_wars.14.a: "Crush the Arab insurrections!"
  arab_wars.14.b: "We don't have the resources to fight them."
  arab_wars.14.c: ""ʿĪšī bilādī ʿāš ittiḥādu ʾimārātinā!""
- arab_wars.14.tt: "Our major rivals might intervene in the rebels' side!"
+ #arab_wars.14.tt: "Our major rivals might intervene in the rebels' side!"
 
  arab_wars.15.t: "[SCOPE.sCountry('iraq_scope').GetName] and [SCOPE.sCountry('haa_scope').GetName] request our support"
  arab_wars.15.d: "With the escalating conflict between [SCOPE.sCountry('iraq_scope').GetName], [SCOPE.sCountry('haa_scope').GetName] and [SCOPE.sCountry('persia_scope').GetName], the two Arab states requests our aid in the seemingly inevitable war."
  arab_wars.15.f: "The tension between the two states and their overlord, [SCOPE.sCountry('persia_scope').GetName] is just one of the recent conflicts boiling over Arabia. If we decide to participate, it could be our chance to weaken our rivals in the [SCOPE.sCountry('persia_scope').GetName] and project our power in the Middle East."
  arab_wars.15.a: "We will lend them our support."
  arab_wars.15.b: "This is a waste of time and resources."
+ 
+ arab_wars.16.t: "Egypt Declared Independence!"
+ arab_wars.16.d: "The Arab Revolt in Egypt has escalated far beyond what we had anticipated. [SCOPE.sCharacter('egypt_ruler').GetFullName], the governor of Egypt, has even openly supported them and defied us! We must muster our forces and prepare for war!"
+ arab_wars.16.f: ""...We find ourselves living under the shadow of the Ottoman Empire, who has since dominated our land since a century ago. But I ask you, my fellow Egyptians, how long shall we endure this subjugation? How long shall we bow down to the whims of distant rulers who care not for our aspirations, our traditions, or our dreams? The time for complacency is over; the time for action is upon us!""
+ arab_wars.16.a: "They will regret this!"
 
  # Arab Flavors
  arabia_flavor.1.t: "Spread of Nahḍa movement"
@@ -75,16 +116,79 @@
  arabia_flavor.2.t: "[SCOPE.sCharacter('al_bustani_scope').GetFullName]"
  arabia_flavor.2.d: "[SCOPE.sCharacter('al_bustani_scope').GetFullName] was a writer and scholar from present day Lebanon. He was a major figure in the Nahḍa, which began in [SCOPE.sCountry('nahda_country').GetName] in the 19th century and spread to the Middle East." 
  arabia_flavor.2.f: "[SCOPE.sCharacter('al_bustani_scope').GetLastName] was born to a Lebanese Maronite Christian family in the village of Dibbiye in the Chouf region. He worked closely with Protestant missionaries in their attempt of proselytizing and educating Arab Christians in the Levant. However, [SCOPE.sCharacter('al_bustani_scope').GetLastName] began to diverge from the missionaries method of education and began to express publicly the need for an Arabic identity that would be reflected in all spheres of society.\n\nIn a lecture, "on the literature of the Arabs", given in [SCOPE.sState('lebanon_scope').GetCityHubName], [SCOPE.sCharacter('al_bustani_scope').GetLastName] publicly called for a revival of literature and scholarly works in the Arabic language. It was [SCOPE.sCharacter('al_bustani_scope').GetLastName]'s exodus from religious education and move towards secular, national education at this time that revolutionized Arab culture and set the stage for the Nahḍa."
- arabia_flavor.2.a: "[SCOPE.sCharacter('al_bustani_scope').GetLastName]'s ideas will benefit us."
- arabia_flavor.2.b: "We can't have dangerous agitators like him in our country!"
- modifier_bustani_in_exile: "Al-Bustani in Exile"
+ arabia_flavor.2.c: "[SCOPE.sCharacter('al_bustani_scope').GetLastName]'s ideas will benefit us."
+ arabia_flavor.2.b: "[SCOPE.sCharacter('al_bustani_scope').GetLastName] will lead the path to our freedom!"
+ arabia_flavor.2.a: "We can't have dangerous ideas like these in our country!"
+ 
+ arabia_flavor.3.t: "[SCOPE.sCharacter('al_shidyaq_scope').GetFullName]"
+ arabia_flavor.3.d: "[SCOPE.sCharacter('al_shidyaq_scope').GetFullName] was a scholar, writer and journalist who grew up in what is now present-day Lebanon. He was a major figure in the Nahḍa, which began in [SCOPE.sCountry('nahda_country').GetName] in the 19th century and spread to the Middle East." 
+ arabia_flavor.3.f: "Maronite Christian by birth, [SCOPE.sCharacter('al_shidyaq_scope').GetFullName] later lived in major cities of the Arab world, where he had his career. He converted to Protestantism during the nearly two decades that he lived and worked in Cairo, present-day Egypt, before converting to Islam after moving to Tunisia. [SCOPE.sCharacter('al_shidyaq_scope').GetFullName]'s major works were dedicated to the modernization of the Arabic language, the promotion of the Arab culture in opposition to the Turkization movement of the Ottomans and Akkovins, and aims to modernize the Arab societies. He expressed his progressive ideas through his writings, using satire and wit to criticize the social and religious conventions of his era. His works often challenged the orthodoxies of his time, earning him both admirers and critics."
+ arabia_flavor.3.c: "[SCOPE.sCharacter('al_shidyaq_scope').GetLastName]'s ideas will benefit us."
+ arabia_flavor.3.b: "[SCOPE.sCharacter('al_shidyaq_scope').GetLastName] will lead the path to our freedom!"
+ arabia_flavor.3.a: "We can't have dangerous ideas like these in our country!"
+ 
+ arabia_flavor.4.t: "[SCOPE.sCharacter('muhammad_abduh_scope').GetFullName]"
+ arabia_flavor.4.d: "[SCOPE.sCharacter('muhammad_abduh_scope').GetFullName] was an Egyptian Islamic scholar, journalist, teacher, author, editor, judge, and Grand Mufti of Egypt. He was a central figure of the Nahḍa, which began in [SCOPE.sCountry('nahda_country').GetName], and Islamic Modernism in the late 19th century."
+ arabia_flavor.4.f: "[SCOPE.sCharacter('muhammad_abduh_scope').GetFullName] was born to a father with Turkish ancestry and an Egyptian mother in the Nile Delta. He enrolled at al-Azhar University in Cairo, one of the oldest and most prestigious Islamic institutions in the world. He was influenced by the ideas of European Enlightenment and sought to reconcile Islamic principles with the modern world. [SCOPE.sCharacter('muhammad_abduh_scope').GetFullName] believed that Islamic societies had stagnated and needed reform to regain their former glory. A crucial aspect of [SCOPE.sCharacter('muhammad_abduh_scope').GetFullName]'s work was his commitment to social justice and equality. He believed in the importance of a just society based on Islamic principles. [SCOPE.sCharacter('muhammad_abduh_scope').GetFullName] was critical of the rigid social hierarchies and oppressive practices that had become entrenched in Muslim societies. He advocated for women's rights, education for all, and the elimination of social inequalities."
+ arabia_flavor.4.c: "[SCOPE.sCharacter('muhammad_abduh_scope').GetLastName]'s ideas will benefit us."
+ arabia_flavor.4.b: "[SCOPE.sCharacter('muhammad_abduh_scope').GetLastName] will lead the path to our freedom!"
+ arabia_flavor.4.a: "We can't have dangerous ideas like these in our country!"
+ 
+ arabia_flavor.5.t: "Reining the Deserts"
+ arabia_flavor.5.d: "Through a combination of diplomacy, force, and emphasis on religious legitimacy, the nomadic tribes gradually acknowledged the rule of [ROOT.GetCountry.GetName]."
+ arabia_flavor.5.f: "The incorporation and acceptance of the tribes is a momentous achievement that signifies a step towards the establishment of a unified and prosperous Arabia. Their acceptance of our rule will undoubtedly inspire other tribes to follow suit and contribute to the stability and glory of our nation."
+ arabia_flavor.5.a: "Excellent!"
+ 
+ arabia_flavor.6.t: "Bedouin Raid"
+ arabia_flavor.6.d: "Tribes hailing from the region of [SCOPE.sCountry('desert_country').GetName] have raided our territories, slaughtering and plundering caravans and settlements. Their motives seems to be economic hardship, drought, and recent tension with [ROOT.GetCountry.GetName]. Many of our people were either killed or died of hunger or thirst as a result of the raid."
+ arabia_flavor.6.f: ""My [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle], those audacious tribesmen has taken us, the garrison guards, and the local population off-guard! We must not let this aggression stand!""
+ arabia_flavor.6.a: "We need to rethink our policies."
+ arabia_flavor.6.b: "Punish them all!"
+ 
+ arabia_flavor.7.t: "Rise of the Arabic Printing Industry"
+ arabia_flavor.7.d: "The Nahda was an important period for the development of newspaper publishing in the Middle East. During this period, a shift from government and missionary publishing to private publishing occurred. Especially in Egypt, Syria, and eventually Iraq, newspapers became intertwined with daily life. Consequently, the rise of newspaper publishing impacted nationalism in Arab countries."
+ arabia_flavor.7.f: "The increase in publications challenged journalist to adapt the Arabic language to a broader audience. To propagate nationalism and ideas, a negotiation over language standardization was necessary to reach all. It had a big effect on the transmission of ideas and knowledge as the public level of literacy rose and had the desire to consume news. For the public, the language standardization created a sense of belonging to the nation. They could express their identity in the social, cultural and political aspects of the press."
+ arabia_flavor.7.a: "Good news, everyone!"
+ 
+ arabia_flavor.8.t: "Al-Urwah al-Wuthqa"
+ arabia_flavor.8.d: "Founded by Muhammad Abduh and Jamāl al-Dīn al-Afghānī, the journal targeted people across the Islamic ummah, calling upon them to unite. The journal features a firm stance against colonialism and assimilation policies within [ROOT.GetCountry.GetName]. Its goal is clear: protecting the independence of Arab peoples and to pressure the [ROOT.GetCountry.GetAdjectiveNoFormatting] government into stopping its policies that harm Arabs. Also among the goals of the magazine are: a call for Arabs to unite and stand in solidarity, to embrace the Nahda, and to liberate Arabia from foreign powers."
+ arabia_flavor.8.f: ""I went to the West and saw Islam, but no Muslims; I got back to the East and saw Muslims, but not Islam."\n\n-Muhammad Abduh"
+ arabia_flavor.8.a: "Let it spread."
+ arabia_flavor.8.b: "Ban the publications!"
+ #Add Jamāl al-Dīn al-Afghānī agitator later
+ 
+ arabia_flavor.9.t: "Matn al-Lugha"
+ arabia_flavor.9.d: "Matn al-Lugha was one of earliest modern monolingual dictionaries of the Arabic language, written by Lebanese linguist Sheikh Ahmed Rida, an important figure of the Nahda. The five-volume dictionary is considered as one of the most influential resources in the history of the Arabic language lexicography."
+ arabia_flavor.9.f: "Sheikh Ahmad Rida was one of the prominent figures of Nahda. He argued for pan-Arab unity, and was among the first scholars in Jabal Amel in Southern Lebanon to seek to integrate his Shi'ite co-religionists into the greater Arab and Muslim nations while retaining their identity as a religious community. He is one of the first Shi'i intellectuals to speak of an Arab nation and of an Arab state, and to formulate the arguments of the "Arabism" of the Shi'is, along with being a staunch opponent of Turkic rule."
+ arabia_flavor.9.a: "Interesting."
+ #Add Ahmed Rida agitator later
+ 
+ arabia_flavor.10.t: "The Fate of Akturks in [ROOT.GetCountry.GetName]"
+ arabia_flavor.10.d: "Following our independence from the Confederation, we must decide what to do with the Akturk people who has settled within our territories, and whether to recognize them or not."
+ arabia_flavor.10.f: "Akturks within the Levant mainly settled around Aleppo and Deir-ez-Zor regions, with notable minorities in Damascus, Hama, Lebanon, and Palestine. On top of that, the rulers of Syria has been traditionally chosen from an Akturk noble families and many notable politicians within our kingdom are Akturks. Completely removing the Akturks will raise tensions and require a full-on rearrangement of our government, but it will legitimize our claims to Arabia."
+ arabia_flavor.10.a: "There are no place for Akturks in [ROOT.GetCountry.GetName]."
+ arabia_flavor.10.b: "They still play a role within our country."
  
  # Arabian Desert JE
  je_arabian_desert: "Rein in the Deserts"
- je_arabian_desert_reason: "For many centuries, the nomadic tribes that roams the nearby deserts have enjoyed relative autonomy from settled states. Perhaps it is time that we properly integrate them into our country."
+ je_arabian_desert_reason: "For many centuries, the nomadic tribes that roams the nearby deserts have enjoyed relative autonomy. Perhaps it is time that we properly integrate them into our country."
  tribes_cooperation: "Cooperation with Local Tribes"
  bedouin_raid: "Bedouin Raid"
  harsh_treatment: "Harsh Treatment Toward Tribes"
  
  #Arab Unification
+ je_arab_unification: "Arab Unification"
+ je_arab_unification_reason: "For hundreds of years the Arabs have been divided, but we remember when the Prophet Muhammad, peace be upon him, organized all of us into one ummah, a community of the faithful that transcended tribal affiliation. Let us lead the charge to regain that glory in the day of the Prophet."
+ je_arab_status: "Unify Arabia"
  arab_wars_happened_tt: "The Arab Revolts has begun"
+ 
+ arab_unification.1.t: "Arab Unification"
+ arab_unification.1.d: "Under the leadership of [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] [ROOT.GetCountry.GetRuler.GetFullName], the Arab nations has unified into one, signaling the beginning of a new era in the Middle East."
+ arab_unification.1.f: ""Awaken and arise, O Arabs!\nFor the crisis has overflown to knee height\nWhy the excuse-making with hopes that deceive you\nWhile you are in the grip of decline, dispossessed?"\n\n-Ibrahim al-Yaziji"
+ arab_unification.1.a: "Allah is Great!"
+ arab_unification.1.b: "This will not be possible without the [SCOPE.gsInterestGroup('ruler_ig_scope').GetName]."
+ arab_unification.2.t: "Unification with [SCOPE.sCountry('arab_annex_country').GetName]"
+ arab_unification.2.d: "The Arab state of [SCOPE.sCountry('arab_annex_country').GetName] has wisely decided to join our efforts to unify the Arab people."
+ arab_unification.2.f: ""The strength of the Arab world lies in its unity, as it did in the days of our great ancestors. Let us reclaim that strength.""
+ arab_unification.2.a: "By God, O our people, embark upon your affair."
+ arab_unification.2.b: "It is not the right time."

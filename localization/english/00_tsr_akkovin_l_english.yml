@@ -9,9 +9,10 @@
  no_arab_wars_tt: "We have finished the Rise of Arab Nationalism [concept_journal_entry]"
  treaty_of_baglar_tt: "This treaty marks the beginning of Persian enroachment into Akkovin internal affairs"
  no_baglar_treaty_tt: "We did not renew the Treaty of Baglar"
- no_renewing_baglar_tt: "We may face backlash from the [SCOPE.sCountry('per_scope').GetName]!"
+ no_renewing_baglar_tt: "#bold We may face backlash from the Persians! #!"
  je_akkovin_reform_advance: "Advances the Journal Entry 'Crisis of the Akkovin Confederation'"
  akturkification_start_tt: "We have take the "Promote Akturk Identity" decision"
+ akturkification_over_tt: "The Akturkification Campaigns will end."
  
  je_akkovin_reform_economy: "Tanzimat: Economic Growth"
  je_akkovin_reform_economy_reason: "Our economy is largely agrarian and deeply rural. This suits the purposes of our conservative local Beys and Sanjaks as well as the clergy of the various milleti, who largely subsist on rents and fees extracted from peasants, it does not provide a suitable foundation for a modern power. We should expand manufacturing and our urban centres."
@@ -49,9 +50,9 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  je_akkovin_reform_nationalism_reason: "One of the reasons for our decline is the lack of national cohesion within our diverse territories. In order to truly reform into a modern state we must create and promote a unified identity for our people, whether forcing our identity on them or promoting a shared, diverse, and secular identity."
  
  je_akkovin_partition_tur: "Partition of the Akkovin Sultanate"
- je_akkovin_partition_tur_reason: "The Akkovin Sultanate has decayed beyond saving and is ripe for taking. We must restore order to the Akkovin anarchy and create a new balance of power."
+ je_akkovin_partition_tur_reason: "The Akkovin Sultanate has decayed beyond saving. Let us restore order to the Akkovin anarchy!"
  je_akkovin_partition_per: "Partition of the Akkovin Sultanate"
- je_akkovin_partition_per_reason: "The Akkovin Sultanate has decayed beyond saving and is ripe for taking. We must restore order to the Akkovin anarchy and create a new balance of power."
+ je_akkovin_partition_per_reason: "The Akkovin Sultanate has decayed beyond saving. Let us restore order to the Akkovin anarchy!"
  akkovin_partition_fail_tt: "We lost the Akkovin Partition War"
  
  # Akkovin Crisis Events
@@ -76,23 +77,23 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  
  akkovin_crisis.4.t: "Aftermath of the Gunpowder Alliance"
  akkovin_crisis.4.d: "The Gunpowder Alliance — or so the Westerners called, was an alliance bloc initiated by the Akkovin Sultanate and joined by us and the Ottoman Empire during the 18th century, initially formed for defensive purposes against the Mamluk Sultanate and the Russian Empire."
- akkovin_crisis.4.f: "Although both our main enemies no longer exists, our goal of maintaining power balance in the Middle East hasn't changed. However, the recent surge in nationalistic revolts by the Arabs along with our decaying neighbor, the [SCOPE.sCountry('akn_scope').GetName], has threatened an upheaval right on our borders, something the Ottomans, or worse, the Westerners will certainly take advantage of. And thus, the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] has declared that restoring order to the Middle East and preventing the Akkovins' demise shall be our new focus."
- akkovin_crisis.4.a: "Let us propose a deal with the [SCOPE.sCountry('akn_scope').GetName] — or what is left of them."
+ akkovin_crisis.4.f: "Although our main enemies has fallen, our goal of maintaining power balance in the Middle East hasn't changed. However, the recent surge in nationalistic revolts by the Arabs along with our decaying neighbor, the [SCOPE.sCountry('akn_scope').GetName], has threatened an upheaval right on our borders. If we let it be, the Ottomans, or worse, our Western rivals will certainly take advantage of the situation. Restoring order and maintaining the balance of power in the Middle East shall be the focus of our foreign policies."
+ akkovin_crisis.4.a: "Let us propose a deal with the [SCOPE.sCountry('akn_scope').GetName]."
  
  akkovin_crisis.5.t: "A Deal with the Safavids?"
  akkovin_crisis.5.d: "The Safavid Empire has proposed a deal to help with the unrest in the Confederation, in exchange for complete access to the Akkovin market."
  akkovin_crisis.5.f: "With the increasing tensions between us, the Ottomans, our Arab subjects, along with fears of Western intervention, the Safavids has taken an incentive to re-negotiate the terms of our trade agreement. However, it seemed quite obvious to us that they only want to take advantage of the unrest within the Confederation. Still, with a new alliance with the Safavids, fostered through the treaty's economic policy, we should receive help in curbing the rebels in Arabia before the Confederation collapses."
  akkovin_crisis.5.a: "Give us a week to think this through."
  
- akkovin_crisis.6.t: "The Treaty of Bağlar"
- akkovin_crisis.6.d: "Signed in the district of Bağlar in Diyarbakir, the Treaty of Baglar is a formal trade agreement signed between the [SCOPE.sCountry('akn_scope').GetName] and the [SCOPE.sCountry('per_scope').GetName], which stated that the [SCOPE.sCountry('akn_scope').GetName] will abolish all monopolies, allow Persian merchants and their collaborators to have full access to all Akkovin markets and will be taxed equally to local merchants."
- akkovin_crisis.6.f: "Politically, the Treaty of Bağlar is a statement that the [SCOPE.sCountry('per_scope').GetName] was heavily invested the future of the [SCOPE.sCountry('akn_scope').GetName]. However, these agreements did not constitute an equal free trade arrangement, as the Safavids still employed protectionist policies on their agricultural markets, and the rapid influx of cheap Persian textiles and no protectionist policies would make industrializing a near impossible task for the [SCOPE.sCountry('akn_scope').GetName]."
+ akkovin_crisis.6.t: "The Treaty of Baglar"
+ akkovin_crisis.6.d: "Signed in the district of Bağlar in Diyarbakir, the Treaty of Baglar is a formal trade agreement signed between the [SCOPE.sCountry('akn_scope').GetName] and the [SCOPE.sCountry('per_scope').GetName], which stated that the [SCOPE.sCountry('akn_scope').GetName] will abolish all monopolies, allow Persian merchants and their collaborators to establish private businesses with equal taxes to local merchants."
+ akkovin_crisis.6.f: "Politically, the Treaty of Baglar is a statement that the [SCOPE.sCountry('per_scope').GetName] was heavily invested the future of the [SCOPE.sCountry('akn_scope').GetName]. However, these agreements did not constitute an equal free trade arrangement, as the Safavids still employed protectionist policies on their agricultural markets, and the rapid influx of cheap Persian textiles and no protectionist policies would make industrializing a near impossible task for the [SCOPE.sCountry('akn_scope').GetName]."
  akkovin_crisis.6.a: "What could possibly go wrong?"
  akkovin_crisis.6.b: "This shall serve our interests well."
  
  akkovin_crisis.7.t: "Renewing The Treaty of Bağlar"
  akkovin_crisis.7.d: "After the original terms of the treaty have expired, the [SCOPE.sCountry('per_scope').GetName] now wishes for us to sign a rectified version of the previous treaty."
- akkovin_crisis.7.f: "In the renewed terms, the treaty demands that the [SCOPE.sCountry('akn_scope').GetName] abolish all kinds of tariffs in their markets and grant the [SCOPE.sCountry('per_scope').GetName] a favored status within the Akkovin market. In addition, the treaty demands the abolishment of the slave trade in the [SCOPE.sCountry('akn_scope').GetName], possibly to drive rising prices and more demand for Persian goods. To further help their efforts, Persian journalists published articles in Diyarbakir's newspapers, listing the benefits of free trade markets and spread the propaganda through the capital."
+ akkovin_crisis.7.f: "In the renewed terms, the treaty demands that the [SCOPE.sCountry('akn_scope').GetName] abolish all kinds of tariffs in their markets and grant the [SCOPE.sCountry('per_scope').GetName] a favored status within the Akkovin market. In addition, the treaty demands the abolishment of the slave trade in the [SCOPE.sCountry('akn_scope').GetName], possibly to drive rising prices and more demand for Persian goods. To further their efforts, Persian propagandists has published and spread articles listing the benefits of free trade."
  akkovin_crisis.7.a: "We still need their protection."
  akkovin_crisis.7.b: "The Persians has gone too far!"
  
@@ -104,10 +105,32 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  
  akkovin_crisis.9.t: "Collapse of the Akkovin Confederation"
  akkovin_crisis.9.d: "Once one of the dominant political entities in Arabia, the Akkovin Confederation is no more."
- akkovin_crisis.9.f: "As Eastern Anatolia descends to anarchy, it is clear that something needs to be done. Rather than risking the Westerners carving themselves a spot right on our borders, we should divide what remains of the Sultanate between ourselves and other Middle Eastern powers. This is also our chance to annex our claimed territories from the decaying [SCOPE.sCountry('akn_scope').GetName]."
+ akkovin_crisis.9.f: "As Eastern Anatolia descends to anarchy, it is clear that something needs to be done. Let us divide what remains of the Sultanate between ourselves and other Middle Eastern powers. This is also our chance to annex our claimed territories from the decaying [SCOPE.sCountry('akn_scope').GetName]."
  akkovin_crisis.9.a: "We will draw the borders at Eastern Anatolia and Kuban."
  akkovin_crisis.9.b: "We will draw the borders at Kurdistan and the Caucasus."
  akkovin_crisis.9.c: "This is morally repugnant!"
+ 
+ akkovin_crisis.10.t: "Collapse of the Akkovin Confederation"
+ akkovin_crisis.10.d: "Once one of the dominant political entities in Arabia, the Akkovin Confederation is no more."
+ akkovin_crisis.10.f: "As Eastern Anatolia descends to anarchy, it is clear that something needs to be done. Let us claim what remains of the Sultanate and regain our rightful territories!"
+ akkovin_crisis.10.a: "We will draw the borders at Eastern Anatolia and Kuban."
+ akkovin_crisis.10.b: "This is morally repugnant!"
+ war_persia.tt: "This may lead to a war with [SCOPE.sCountry('per_scope').GetName]"
+ 
+ akkovin_crisis.14.t: "The Fate of Kurdistan"
+ akkovin_crisis.14.d: "The Akkovin Sultanate is no more. It is up to us to not only restore order to the territories but ensure our interests in the region remain safe."
+ akkovin_crisis.14.f: "With the annexation of Akturkistan by the [SCOPE.sCountry('tur_scope').GetName] and the absence of local government in the former Akkovin territories, Iranian businesses operating under the Treaty of Baglar are requesting that we incorporate their remaining territories before others take advantage of the situation."
+ akkovin_crisis.14.a: "This is for their own good."
+ 
+ akkovin_crisis.16.t: "End of the Akkovin Sultanate"
+ akkovin_crisis.16.d: "Founded by Uzun Hasan in 1378, the Ak Koyunlu dynasty has met their end."
+ akkovin_crisis.16.f: "A combination of unrest, foreign intervention, and inability to reform has led to the collapse of the Sultanate. What will be the future of Arabia?"
+ akkovin_crisis.16.a: "No empire lasts forever."
+ 
+ akkovin_crisis.17.t: "The Akkoyunlu Dynasty Embrace Reforms"
+ akkovin_crisis.17.d: "The increase of education in our country has led to increased support for reforms in the [ROOT.GetCountry.GetName]. [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] [ROOT.GetCountry.GetRuler.GetName] has realized this and now announces that enacting the Tanzimat reforms will be the main priority in the Akkovin agenda."
+ akkovin_crisis.17.f: ""Education then, beyond all other devices of human origin, is the great equalizer of the conditions of men, the balance-wheel of the social machinery.""
+ akkovin_crisis.17.a: "Bit by bit, we walk to the future."
  
  # Tanzimat Events
  tanzimat_events.1.t: "The Iltizām System"
@@ -192,12 +215,27 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  tanzimat_events.10.b: "The draft applies to all subjects, regardless of creed."
  draft_exemption_tax: "Draft Exemption Tax"
  
- # Miscellanous events
+ # Flavor events
  
  apda_events.1.t: "The Akkovin Public Debt Administration"
  apda_events.1.d: "Formed by our creditors as a means to ensure that we pay back our loans, the APDA is a body with sweeping powers to collect taxes and remit payment back to investors who fear for the stability of Akkovin government bonds."
  apda_events.1.f: "Add more to this at some point"
  apda_events.1.a: "Give me a break."
+ 
+ treaty_of_baglar_events.1.t: "The Akkovins Withdraw from the Treaty of Baglar"
+ treaty_of_baglar_events.1.d: "With the Sultanate's disagreements with the treaty, Iranian business owners and merchants has filed a protest to the Akkovin government. However, the Akkovins refused to change their stances and in fact doubled down by seizing their properties."
+ treaty_of_baglar_events.1.f: "Despite our goodwill and aid to the Sultanate, those treacherous Akturks has humiliated and challenged us! We must not tolerate this insult towards the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] and Iran!"
+ treaty_of_baglar_events.1.a: "Unacceptable!"
+ 
+ treaty_of_baglar_events.2.t: "Embargoes Against [SCOPE.sCountry('rival_scope').GetName]"
+ treaty_of_baglar_events.2.d: "With the recent conflicts between [SCOPE.sCountry('rival_scope').GetName] and [SCOPE.sCountry('per_scope').GetName], the [SCOPE.sCountry('per_scope').GetName] demands that we terminate all kinds of trade with [SCOPE.sCountry('rival_scope').GetName], citing that under the Treaty of Baglar, we are obliged to denounce those who threatens our markets."
+ treaty_of_baglar_events.2.f: "Under the Treaty of Baglar, we have no choice but to participate in the embargo against [SCOPE.sCountry('rival_scope').GetName]. However, our merchants will face trade restrictions in their market and our relationship with deteriorate."
+ treaty_of_baglar_events.2.a: "Concerning."
+ 
+ treaty_of_baglar_events.3.t: "The Persian-Akkovin Economic Union"
+ treaty_of_baglar_events.3.d: "Our country has greatly declined and lost prestige among the world powers. This not only disrupt our standing but also our economy. However, [SCOPE.sCountry('per_scope').GetName] has offered to alleviate our struggles by proposing an economic union with them. As the renewed Treaty of Baglar has entangled us under Persian influence, we have no real way to resist."
+ treaty_of_baglar_events.3.f: "Concerns has arisen among our people regarding the union. While being under a larger market such as Persia's may alleviate some economic concerns, the political and diplomatic repercussions will be vast."
+ treaty_of_baglar_events.3.a: "Let us hope it ends well."
  
  akkovin_flavor.1.t: "Overseas Study Programs for Our Students?"
  akkovin_flavor.1.d: "With the recent openings of new universities and the increasing attention paid to education in our country, some of them propose to open exchange programs to foreign countries in order to provide talents to our country."
@@ -230,12 +268,6 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  akkovin_flavor.5.b: "Glory to Armenia!"
  
  # Decisions
- proclaim_erzurum_irade: "Issue the Erzurum Hatt-i Serif"
- proclaim_erzurum_irade_desc: "We must begin an ambitious project of change and reform in the Empire, aimed at ending the differences in status between the Turks, Arabs, Kurds, and the Dhimmi"
- erzurum_edict: "Erzurum Edict"
- erzurum_edict_tt: "We have signed the Treaty of Baglar"
- erzurum_edict_issued_tt: "The Erzurum Hatt-i Serif has been issued"
- 
  centralise_kurdish_territories: "Revoke Kurdish Autonomy"
  centralise_kurdish_territories_desc: "In order to bring about the proper organisation of the provinces, it is necessary that we reduce the autonomy of the Kurdish lands. However, we must take the potential backlash into account given that this autonomy has been granted ever since the Sultanate's establishment."
  centralise_kurdish_territories_tt: "Has not reduced the territory of the autonomous Kurds for 2 years"
@@ -246,12 +278,25 @@ je_akkovin_reform_nationalism: "Tanzimat: Promote National Identity"
  establish_armenian_state: "Establish an Armenian State"
  establish_armenian_state_desc: "To minimize unrest within our Dhimmi population, we should grant them an elevated status within the Confederation."
  
- promote_akturk_identity: "Promote Akturk Identity"
- promote_akturk_identity_desc: "In order to increase the cohesion of our country, we must promote a shared culture and a national identity for our people."
+ cancel_treaty_of_baglar: "Cancel the Treaty of Baglar"
+ cancel_treaty_of_baglar_desc: "The Treaty of Baglar has led to widespread Persian enroachment to our politics and economy. We must regain control of our country at all cost!"
+ 
+ abolish_jizya_tax: "Abolish Jizya Tax"
+ abolish_jizya_tax_desc: "With the modernization of our country, governance-wise or military-wise, there is no longer room for any forced payments upon our non-Muslim subjects."
+ 
+ #Buttons
+ je_akkovin_partition_tur_button: "Begin the Partition"
+ je_akkovin_partition_tur_button_desc: "We will begin a [concept_diplomatic_play] against the Akkovin Sultanate."
+ je_akkovin_partition_per_button: "Begin the Partition"
+ je_akkovin_partition_per_button_desc: "We will begin a [concept_diplomatic_play] against the Akkovin Sultanate."
+ je_akkovin_reform_nationalism_akturkification_button: "Promote Akturk Identity"
+ je_akkovin_reform_nationalism_akturkification_button_desc: "In order to increase the cohesion of our country, we must promote a shared culture and a national identity for our people."
  christians_reined_in_tt: "We have completed the "Tanzimat: Deal with the Dhimmi" [concept_journal_entry] and Kurdistan does not exist"
  kurds_reined_in_tt: "We have completed the "Tanzimat: Centralize Kurdish Lands" [concept_journal_entry] and Armenia does not exist"
  arabs_reined_in_tt: "We have completed the "Tanzimat: Rein in Arabia" [concept_journal_entry] and has taken a centralization stance"
  akturkification_tt: "The Akturkification campaign will begin. Every [concept_homeland] not of our primary cultures will be removed, while their states will become our [concept_homeland]."
- 
- abolish_jizya_tax: "Abolish Jizya Tax"
- abolish_jizya_tax_desc: "With the modernization of our country, governance-wise or military-wise, there is no longer room for any forced payments upon our non-Muslim subjects."
+ je_akkovin_crisis_button: "Issue the Erzurum Hatt-i Serif"
+ je_akkovin_crisis_button_desc: "We must begin an ambitious project of change and reform in the Empire, aimed at ending the differences in status between the Turks, Arabs, Kurds, and the Dhimmi"
+ erzurum_edict: "Erzurum Edict"
+ erzurum_edict_tt: "We have signed the Treaty of Baglar"
+ erzurum_edict_issued_tt: "The Erzurum Hatt-i Serif has been issued"

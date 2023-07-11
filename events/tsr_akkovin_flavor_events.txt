@@ -262,7 +262,7 @@ akkovin_flavor.3 = { #Centralising the Kurdish Territories
 		video = "asia_hinduism_sikhism"
 	}
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_centralization.dds"
 	minor_left_icon = c:AKN
 	
 	immediate = {
@@ -620,7 +620,7 @@ treaty_of_baglar_events.3 = { # Persia demands you to enter their market
 		c:AKN = root
 		OR = {
 			country_rank < rank_value:major_power
-			is_unrecognized = yes
+			is_country_type = unrecognized
 		}
 		exists = c:PER
 		has_modifier = treaty_of_baglar_2

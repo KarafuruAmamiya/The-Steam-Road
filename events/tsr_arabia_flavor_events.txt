@@ -1192,7 +1192,7 @@ arabia_flavor.8 = {
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
 
 	trigger = {
 		has_global_variable = arabic_newspaper
@@ -1337,7 +1337,7 @@ arabia_flavor.9 = {
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
 
 	trigger = {
 		has_global_variable = nahda_start
@@ -1514,8 +1514,12 @@ arabia_flavor.10 = {
 				}
 			}
 			every_interest_group = {
+				limit = {
+					leader = {
+						culture = cu:akturk
+					}
+				}
 				leader = {
-					limit = { culture = cu:akturk }
 					kill_character = yes
 				}
 			}

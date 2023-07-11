@@ -789,7 +789,7 @@ je_akkovin_reform_arabia = {
 							has_global_variable = al_bustani_var
 							has_global_variable = al_shidyaq_var
 							has_global_variable = muhammad_abduh_var
-							has_global_variable = arab_wars
+							has_global_variable = arab_wars_happened
 						}
 					}
 					any_subject_or_below = {
@@ -806,7 +806,10 @@ je_akkovin_reform_arabia = {
 	}
 	
 	fail = {
-		has_variable = arab_wars
+		custom_tooltip = {
+			text = arab_wars_happened_tt
+			has_variable = akn_arab_wars
+		}
 	}
 
 	current_value = {

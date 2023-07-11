@@ -44,6 +44,9 @@ arabia_flavor.1 = {
 				state_region = { 
 					is_homeland = cu:maghrebi 
 				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
 			}
 			state_population >= 500000
 			total_urbanization >= 100
@@ -70,6 +73,9 @@ arabia_flavor.1 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
 					}
 					state_region = { 
 						is_homeland = cu:maghrebi 
@@ -369,7 +375,7 @@ arabia_flavor.2 = {
 # Ahmad Faris al-Shidyaq
 arabia_flavor.3 = {
 	type = country_event
-	placement = scope:cairo_scope
+	placement = scope:faris_state
 	title = arabia_flavor.3.t
 	desc = arabia_flavor.3.d
 	flavor = arabia_flavor.3.f
@@ -395,7 +401,30 @@ arabia_flavor.3 = {
 		}
 		game_date >= 1850.1.1
 		game_date < 1880.1.1
-		owns_entire_state_region = STATE_LOWER_EGYPT
+		any_scope_state = {
+			total_urbanization >= 100
+			state_population >= 500000
+			OR = {
+				state_region = { 
+					is_homeland = cu:levantine 
+				}
+				state_region = { 
+					is_homeland = cu:mashriqi 
+				}
+				state_region = { 
+					is_homeland = cu:iraqi 
+				}
+				state_region = { 
+					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
+				}
+			}
+		}
 		NOT = { has_global_variable = al_shidyaq_var }
 	}
 
@@ -439,9 +468,30 @@ arabia_flavor.3 = {
 		}
 		random_scope_state = {
 			limit = {
-				state_region = s:STATE_LOWER_EGYPT
+				total_urbanization >= 100
+				state_population >= 500000
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+				}
 			}
-			save_scope_as = cairo_scope
+			save_scope_as = faris_state
 		}
 	}
 
@@ -592,7 +642,7 @@ arabia_flavor.3 = {
 # Muhammad Abduh
 arabia_flavor.4 = {
 	type = country_event
-	placement = root
+	placement = scope:abduh_state
 	title = arabia_flavor.4.t
 	desc = arabia_flavor.4.d
 	flavor = arabia_flavor.4.f
@@ -633,6 +683,12 @@ arabia_flavor.4 = {
 				}
 				state_region = { 
 					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+				state_region = { 
+					is_homeland = cu:maghrebi 
 				}
 			}
 		}
@@ -676,6 +732,33 @@ arabia_flavor.4 = {
 				}
 			}
 			save_scope_as = nahda_country
+		}
+		random_scope_state = {
+			limit = {
+				total_urbanization >= 100
+				state_population >= 500000
+				OR = {
+					state_region = { 
+						is_homeland = cu:levantine 
+					}
+					state_region = { 
+						is_homeland = cu:mashriqi 
+					}
+					state_region = { 
+						is_homeland = cu:iraqi 
+					}
+					state_region = { 
+						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
+					}
+				}
+			}
+			save_scope_as = abduh_state
 		}
 	}
 
@@ -826,7 +909,7 @@ arabia_flavor.4 = {
 # Arabian Desert JE Completion
 arabia_flavor.5 = {
 	type = country_event
-	placement = ROOT
+	placement = scope:desert_state
 
 	title = arabia_flavor.5.t
 	desc = arabia_flavor.5.d
@@ -882,7 +965,7 @@ arabia_flavor.5 = {
 # Bedouin Raids
 arabia_flavor.6 = {
 	type = country_event
-	placement = root
+	placement = scope:desert_state
 	title = arabia_flavor.6.t
 	desc = arabia_flavor.6.d
 	flavor = arabia_flavor.6.f
@@ -980,7 +1063,7 @@ arabia_flavor.6 = {
 # Rise of the Arabic Publishing Industry
 arabia_flavor.7 = {
 	type = country_event
-	placement = root
+	placement = scope:newspaper_state
 	title = arabia_flavor.7.t
 	desc = arabia_flavor.7.d
 	flavor = arabia_flavor.7.f
@@ -1018,6 +1101,9 @@ arabia_flavor.7 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+				state_region = { 
 					is_homeland = cu:maghrebi 
 				}
 			}
@@ -1046,6 +1132,9 @@ arabia_flavor.7 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
 					}
 					state_region = { 
 						is_homeland = cu:maghrebi 
@@ -1090,7 +1179,7 @@ arabia_flavor.7 = {
 # Al-Urwah al-Wuthqa
 arabia_flavor.8 = {
 	type = country_event
-	placement = root
+	placement = scope:newspaper_state
 	title = arabia_flavor.8.t
 	desc = arabia_flavor.8.d
 	flavor = arabia_flavor.8.f
@@ -1122,6 +1211,9 @@ arabia_flavor.8 = {
 				}
 				state_region = { 
 					is_homeland = cu:misri 
+				}
+				state_region = { 
+					is_homeland = cu:bedouin 
 				}
 				state_region = { 
 					is_homeland = cu:maghrebi 
@@ -1157,6 +1249,9 @@ arabia_flavor.8 = {
 						is_homeland = cu:misri 
 					}
 					state_region = { 
+						is_homeland = cu:bedouin 
+					}
+					state_region = { 
 						is_homeland = cu:maghrebi 
 					}
 				}
@@ -1165,22 +1260,11 @@ arabia_flavor.8 = {
 			}
 			save_scope_as = newspaper_state
 		}
-		every_scope_culture = {
+		random_scope_character = {
 			limit = {
-				has_discrimination_trait = arabic_heritage
-				NOT = { has_discrimination_trait = jewish_group }
+				has_variable = muhammad_abduh
 			}
-			save_scope_as = arab_culture
-		}
-		every_overlord_or_above = {
-			limit = {
-				NOT = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-				}
-			}
-			save_scope_as = overlord_scope
+			save_scope_as = muhammad_abduh_scope
 		}
 	}
 
@@ -1216,24 +1300,10 @@ arabia_flavor.8 = {
 	
 	option = {
 		name = arabia_flavor.8.b #Suppress the newspaper
-		if = {
-			limit = {
-				NOT = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-				}
-			}
-			every_scope_state = {
-				limit = {
-					state_region = { 
-						is_homeland = scope:arab_culture
-					}
-				}
-				add_radicals_in_state = {
-					value = medium_radicals
-					culture = scope:arab_culture
-				}
+		scope:muhammad_abduh_scope = {
+			add_modifier = {
+				name = modifier_abduh_negative_popularity
+				months = normal_modifier_time
 			}
 		}
 		
@@ -1292,6 +1362,9 @@ arabia_flavor.9 = {
 					is_homeland = cu:misri 
 				}
 				state_region = { 
+					is_homeland = cu:bedouin 
+				}
+				state_region = { 
 					is_homeland = cu:maghrebi 
 				}
 			}
@@ -1316,6 +1389,12 @@ arabia_flavor.9 = {
 					}
 					state_region = { 
 						is_homeland = cu:misri 
+					}
+					state_region = { 
+						is_homeland = cu:bedouin 
+					}
+					state_region = { 
+						is_homeland = cu:maghrebi 
 					}
 				}
 				state_population >= 500000 
@@ -1424,6 +1503,21 @@ arabia_flavor.10 = {
 			}
 			heir = {
 				kill_character = yes
+			}
+		}
+		if = {
+			limit = {
+				any_interest_group = {
+					leader = {
+						culture = cu:akturk
+					}
+				}
+			}
+			every_interest_group = {
+				leader = {
+					limit = { culture = cu:akturk }
+					kill_character = yes
+				}
 			}
 		}
 		

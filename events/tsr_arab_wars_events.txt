@@ -214,6 +214,8 @@ arab_wars.3 = {
 				add = 25
 			}
 		}
+		
+		custom_tooltip = arab_rebels.tt
 	}
 	
 	option = {
@@ -287,6 +289,7 @@ arab_wars.4 = {
 			}
 			any_diplomatic_play = {
 				target_is = ROOT
+				initiator_is = scope:overlord_scope
 				has_play_goal = annex_country
 				is_war = no
 			}
@@ -337,16 +340,8 @@ arab_wars.4 = {
 		
 		set_variable = supporter_event_done
 		
-		if = {
-			limit = { c:EGY = ROOT exists = c:EGY }
-			scope:supporter_country = {
-				trigger_event = { id = arab_wars.18 days = 1 }
-			}
-		}
-		else = {
-			scope:supporter_country = {
-				trigger_event = { id = arab_wars.5 days = 1 }
-			}
+		scope:supporter_country = {
+			trigger_event = { id = arab_wars.5 days = 1 }
 		}
 		
 		ai_chance = {
@@ -488,28 +483,11 @@ arab_wars.6 = {
 		#	}
 		#}
 		
-		if = {
-			limit = {
-				exists = c:TUR
-				c:TUR = ROOT
-				c:TUR = {
-					has_journal_entry = je_arab_wars_tur
-				}
+		random_country = {
+			limit = { 
+				has_variable = support_arab_wars
 			}
-			random_country = {
-				limit = { 
-					has_variable = support_arab_wars_egy
-				}
-				save_scope_as = supporter_country
-			}
-		}
-		else = {
-			random_country = {
-				limit = { 
-					has_variable = support_arab_wars
-				}
-				save_scope_as = supporter_country
-			}
+			save_scope_as = supporter_country
 		}
 	}
 
@@ -545,6 +523,12 @@ arab_wars.7 = {
 	}
 
 	immediate = {
+		random_subject_or_below = {
+			limit = {
+				is_diplomatic_play_enemy_of = ROOT
+			}
+		}
+		save_scope_as = rebel_subject
 	}
 
 	option = {
@@ -931,7 +915,10 @@ arab_wars.11 = {
 				}
 			}
 		}
-		has_journal_entry = je_arab_nationalism_overlord
+		OR = {
+			has_journal_entry = je_arab_nationalism_overlord
+			has_journal_entry = je_springtime_of_the_peoples
+		}
 		NOT = { has_global_variable = iraq_created }
 	}
 
@@ -1143,6 +1130,16 @@ arab_wars.13 = {
 				}
 				state_region = {
 					remove_claim = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = supporter_event_done
+				}
+				every_subject_or_below = {
+					remove_variable = supporter_event_done
 				}
 			}
 		}
@@ -1649,6 +1646,11 @@ arab_wars.16 = {
 	}
 
 	immediate = {
+		c:EGY ?= {
+			ruler = {
+				save_scope_as = egypt_ruler
+			}
+		}
 	}
 
 	option = {
@@ -1741,85 +1743,85 @@ arab_wars.17 = {
 }
 
 #Egypt asks for support
-arab_wars.18 = {
-	type = country_event
-	placement = root
-	title = arab_wars.18.t
-	desc = arab_wars.18.d
-	flavor = arab_wars.18.f
-
-	duration = 3
-
-	event_image = {
-		video = "votp_conspiring"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	trigger = {
-	}
-
-	immediate = {
-		c:EGY = {
-			save_scope_as = egypt_scope
-		}
-		c:TUR = {
-			save_scope_as = ottoman_scope
-		}
-	}
-
-	option = { #Help them
-		name = arab_wars.18.a
-		default_option = yes
-		
-		custom_tooltip = {
-			text = support_arab_wars_tt
-			set_variable = support_arab_wars_egy
-		}
-		change_relations = {
-			country = c:EGY
-			value = 50
-		}
-		
-		c:EGY = {
-			set_owes_obligation_to = {
-				country = ROOT
-				setting = yes
-			}
-		}
-		
-		random_diplomatic_play = {
-			limit = {
-				initiator_is = c:EGY
-				target_is = c:TUR
-			}
-			add_initiator_backers = {
-				ROOT
-			}
-		}
-		
-		hidden_effect = {
-			c:TUR = {
-				trigger_event = { id = arab_wars.6 days = 1 }
-			}
-		}
-		
-		ai_chance = {
-			base = 100
-		}
-	}
-	
-	option = { #Don't help
-		name = arab_wars.18.b
-		change_relations = {
-			country = c:EGY
-			value = -50
-		}
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-}
+#arab_wars.18 = {
+#	type = country_event
+#	placement = root
+#	title = arab_wars.18.t
+#	desc = arab_wars.18.d
+#	flavor = arab_wars.18.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "votp_conspiring"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#
+#	trigger = {
+#	}
+#
+#	immediate = {
+#		c:EGY = {
+#			save_scope_as = egypt_scope
+#		}
+#		c:TUR = {
+#			save_scope_as = ottoman_scope
+#		}
+#	}
+#
+#	option = { #Help them
+#		name = arab_wars.18.a
+#		default_option = yes
+#		
+#		custom_tooltip = {
+#			text = support_arab_wars_tt
+#			set_variable = support_arab_wars_egy
+#		}
+#		change_relations = {
+#			country = c:EGY
+#			value = 50
+#		}
+#		
+#		c:EGY = {
+#			set_owes_obligation_to = {
+#				country = ROOT
+#				setting = yes
+#			}
+#		}
+#		
+#		random_diplomatic_play = {
+#			limit = {
+#				initiator_is = c:EGY
+#				target_is = c:TUR
+#			}
+#			add_initiator_backers = {
+#				ROOT
+#			}
+#		}
+#		
+#		hidden_effect = {
+#			c:TUR = {
+#				trigger_event = { id = arab_wars.6 days = 1 }
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 100
+#		}
+#	}
+#	
+#	option = { #Don't help
+#		name = arab_wars.18.b
+#		change_relations = {
+#			country = c:EGY
+#			value = -50
+#		}
+#		
+#		ai_chance = {
+#			base = 0
+#		}
+#	}
+#}

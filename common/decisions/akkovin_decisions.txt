@@ -1,94 +1,4 @@
-﻿proclaim_erzurum_irade = {
-
-	is_shown = {
-		exists = c:AKN
-		root = c:AKN
-		NOT = { has_variable = erzurum_edict }
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = erzurum_edict_tt
-			has_modifier = treaty_of_baglar
-		}
-	}
-
-	when_taken = {
-		set_variable = erzurum_edict
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:sunni 
-				}
-			}
-			add_radicals = {
-				religion = rel:sunni
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:orthodox 
-				}
-			}
-			add_radicals = {
-				religion = rel:orthodox
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:oriental_orthodox 
-				}
-			}
-			add_radicals = {
-				religion = rel:oriental_orthodox
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:catholic 
-				}
-			}
-			add_radicals = {
-				religion = rel:catholic
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:protestant 
-				}
-			}
-			add_radicals = {
-				religion = rel:protestant
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:jewish 
-				}
-			}
-			add_radicals = {
-				religion = rel:jewish
-				value = medium_radicals
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 10
-	}
-}
-
-centralise_kurdish_territories = {
+﻿centralise_kurdish_territories = {
 	is_shown = {
 		exists = c:AKN
 		root = c:AKN
@@ -115,7 +25,7 @@ centralise_kurdish_territories = {
 	}
 
 	ai_chance = {
-		base = 10
+		base = 100
 	}
 }
 
@@ -164,46 +74,100 @@ establish_armenian_state = { #Establish an Armenian vassal state
 	}
 }
 
-promote_akturk_identity = { #WIP
+cancel_treaty_of_baglar = {
 	is_shown = {
 		exists = c:AKN
 		root = c:AKN
-		has_journal_entry = je_akkovin_reform_nationalism
+		OR = {
+			has_modifier = treaty_of_baglar
+			has_modifier = treaty_of_baglar_2
+		}
 	}
 
 	possible = {
-		has_technology_researched = nationalism
 		OR = {
-			has_law = law_type:law_national_supremacy
-			has_law = law_type:law_racial_segregation
-			has_law = law_type:law_ethnostate
-		}
-		custom_tooltip = {
-			text = christians_reined_in_tt
-			AND = {
-				has_variable = completed_akkovin_reform_minorities_je
-				NOT = { exists = c:ARM }
-			}
-		}
-		custom_tooltip = {
-			text = kurds_reined_in_tt
-			AND = {
-				has_variable = completed_akkovin_reform_kurdish_je
-				NOT = { exists = c:KUR }
-			}
+			has_modifier = treaty_of_baglar
+			has_modifier = treaty_of_baglar_2
 		}
 	}
 
 	when_taken = {
-		set_variable = akturkification_start
-		add_modifier = {
-			name = russification_modifier
-			months = long_modifier_time
+		if = {
+			limit = { has_modifier = treaty_of_baglar }
+			remove_modifier = treaty_of_baglar
 		}
-		trigger_event = { id = akkovin_flavor.6 }
+		if = {
+			limit = { has_modifier = treaty_of_baglar_2 }
+			remove_modifier = treaty_of_baglar_2
+		}
+		change_relations = {
+			country = c:PER
+			value = -100
+		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = trade_agreement
+		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = defensive_pact
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_diplomatic_pact = { 
+						who = root
+						type = tob_embargo
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = root
+						type = tob_embargo
+					}
+				}
+				remove_diplomatic_pact = {
+					country = root
+					type = tob_embargo
+				}
+			}
+		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = customs_union
+					}
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:PER
+				type = customs_union
+			}
+		}
+		
+		custom_tooltip = no_renewing_baglar_tt
+		
+		c:PER = { trigger_event = { id = treaty_of_baglar_events.1 days = 1 } }
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_interest_marker_in_region = region_arabic
+						has_interest_marker_in_region = region_anatolia
+						has_interest_marker_in_region = region_persia
+					}
+				}
+				post_notification = akkovin_dont_renew_treaty
+			}
+		}
 	}
 
 	ai_chance = {
-		base = 10
+		base = 0
 	}
 }

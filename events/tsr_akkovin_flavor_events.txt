@@ -488,304 +488,32 @@ akkovin_flavor.5 = { #Creation of the Armenian Autonomy
 	}
 }
 
-akkovin_flavor.6 = { #Akturkification Start
-	type = country_event
-	placement = ROOT
-	title = akkovin_flavor.6.t
-	desc = akkovin_flavor.6.d
-	flavor = akkovin_flavor.6.f
-	duration = 3
-	event_image = {
-		video = "asia_hinduism_sikhism"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-	
-	option = { 
-		name = akkovin_flavor.6.a
-		custom_tooltip = {
-			text = akturkification_tt
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:levantine
-					}
-				}
-				add_radicals = {
-					culture = cu:levantine
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:levantine
-						}
-					}
-					state_region = {
-						remove_homeland = levantine
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:iraqi
-					}
-				}
-				add_radicals = {
-					culture = cu:iraqi
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:iraqi
-						}
-					}
-					state_region = {
-						remove_homeland = iraqi
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:armenian
-					}
-					cu:armenian = {
-						NOT = { is_primary_culture_of = root }
-					}
-				}
-				add_radicals = {
-					culture = cu:armenian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:armenian
-						}
-					}
-					state_region = {
-						remove_homeland = armenian
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:kurdish
-					}
-					cu:kurdish = {
-						NOT = { is_primary_culture_of = root }
-					}
-				}
-				add_radicals = {
-					culture = cu:kurdish
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:kurdish
-						}
-					}
-					state_region = {
-						remove_homeland = kurdish
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:north_caucasian
-					}
-				}
-				add_radicals = {
-					culture = cu:north_caucasian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:north_caucasian
-						}
-					}
-					state_region = {
-						remove_homeland = north_caucasian
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:bedouin
-					}
-				}
-				add_radicals = {
-					culture = cu:bedouin
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:bedouin
-						}
-					}
-					state_region = {
-						remove_homeland = bedouin
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:assyrian
-					}
-				}
-				add_radicals = {
-					culture = cu:assyrian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:assyrian
-						}
-					}
-					state_region = {
-						remove_homeland = assyrian
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:greek
-					}
-				}
-				add_radicals = {
-					culture = cu:greek
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:greek
-						}
-					}
-					state_region = {
-						remove_homeland = greek
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:georgian
-					}
-				}
-				add_radicals = {
-					culture = cu:georgian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:georgian
-						}
-					}
-					state_region = {
-						remove_homeland = georgian
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:russian
-					}
-				}
-				add_radicals = {
-					culture = cu:russian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:russian
-						}
-					}
-					state_region = {
-						remove_homeland = russian
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_scope_pop = { 
-						culture = cu:ukrainian
-					}
-				}
-				add_radicals = {
-					culture = cu:ukrainian
-					value = very_large_radicals
-				}
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:ukrainian
-						}
-					}
-					state_region = {
-						remove_homeland = ukrainian
-					}
-				}
-			}
-			every_scope_state = {
-				limit = {
-					OR = {
-						state_is_in_europe = yes
-						state_is_in_middle_east = yes
-					}
-					state_region = {
-						NOT = { is_homeland = cu:akturk }
-					}
-				}
-				state_region = {
-					add_homeland = akturk
-				}
-			}
-		}
-	}
-}
+#akkovin_flavor.6 = { #Akturkification Start
+#	type = country_event
+#	placement = ROOT
+#	title = akkovin_flavor.6.t
+#	desc = akkovin_flavor.6.d
+#	flavor = akkovin_flavor.6.f
+#	duration = 3
+#	event_image = {
+#		video = "asia_hinduism_sikhism"
+#	}
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+#	
+#	option = { 
+#		name = akkovin_flavor.6.a
+#		
+#		}
+#	}
 
 # Treaty of Baglar Events
 
-treaty_of_baglar_events.1 = { # The Akkovins renewed the Treaty of Baglar
+treaty_of_baglar_events.1 = { # The Akkovins did not renew the Treaty of Baglar
 	type = country_event
 	title = treaty_of_baglar_events.1.t
 	desc = treaty_of_baglar_events.1.d
 	flavor =  treaty_of_baglar_events.1.f
-	duration = 3
-	event_image = {
-		video = "unspecific_signed_contract"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
-
-	option = { #
-		name = treaty_of_baglar_events.1.a
-
-	}
-}
-
-treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
-	type = country_event
-	title = treaty_of_baglar_events.2.t
-	desc = treaty_of_baglar_events.2.d
-	flavor =  treaty_of_baglar_events.2.f
 	duration = 3
 	event_image = {
 		video = "middleeast_courtroom_upheaval"
@@ -795,7 +523,7 @@ treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
 	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
 
 	option = { #
-		name = treaty_of_baglar_events.2.a
+		name = treaty_of_baglar_events.1.a
 		s:STATE_MOSUL = {
 			add_claim = ROOT
 		}
@@ -816,11 +544,11 @@ treaty_of_baglar_events.2 = { # The Akkovins did not renew the Treaty of Baglar
 	}
 }
 
-treaty_of_baglar_events.3 = { # Persia demands you to embargo their rivals
+treaty_of_baglar_events.2 = { # Persia demands you to embargo their rivals
 	type = country_event
-	title = treaty_of_baglar_events.3.t
-	desc = treaty_of_baglar_events.3.d
-	flavor =  treaty_of_baglar_events.3.f
+	title = treaty_of_baglar_events.2.t
+	desc = treaty_of_baglar_events.2.d
+	flavor =  treaty_of_baglar_events.2.f
 	duration = 3
 	event_image = {
 		video = "africa_leader_arguing"
@@ -839,31 +567,72 @@ treaty_of_baglar_events.3 = { # Persia demands you to embargo their rivals
 			}
 			save_scope_as = rival_scope
 		}
+		c:PER = { save_scope_as = per_scope }
 	}
 	
 	trigger = {
 		exists = c:AKN
-		exists = c:PER
 		c:AKN = this
+		exists = c:PER
+		AND = {
+			exists = scope:rival_scope
+			c:PER = {
+				has_diplomatic_pact = { 
+					who = scope:rival_scope
+					type = embargo
+				}
+			}
+		}
 		OR = {
 			has_modifier = treaty_of_baglar
 			has_modifier = treaty_of_baglar_2
 		}
-		trigger_if = {
-			limit = {
-				exists = scope:rival_scope
-			}
-			c:PER = {
-				has_war_with = scope:rival_scope
-			}
+	}
+
+	option = { #
+		name = treaty_of_baglar_events.2.a
+		create_diplomatic_pact = {
+			country = scope:rival_scope
+			type = tob_embargo
 		}
+	}
+}
+
+treaty_of_baglar_events.3 = { # Persia demands you to enter their market
+	type = country_event
+	title = treaty_of_baglar_events.3.t
+	desc = treaty_of_baglar_events.3.d
+	flavor =  treaty_of_baglar_events.3.f
+	duration = 3
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	immediate = {
+		c:PER = { save_scope_as = per_scope }
+	}
+	
+	trigger = {
+		exists = c:AKN
+		c:AKN = root
+		OR = {
+			country_rank < rank_value:major_power
+			is_unrecognized = yes
+		}
+		exists = c:PER
+		has_modifier = treaty_of_baglar_2
 	}
 
 	option = { #
 		name = treaty_of_baglar_events.3.a
-		create_diplomatic_pact = {
-			country = scope:rival_scope
-			type = tob_embargo
+		c:PER = {
+			create_diplomatic_pact = {
+				country = c:AKN
+				type = customs_union
+			}
 		}
 	}
 }

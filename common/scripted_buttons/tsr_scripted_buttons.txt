@@ -7,6 +7,7 @@
 	possible = {
 		exists = c:PER
 		exists = c:AKN
+		NOT = { has_truce_with = c:AKN }
 		OR = {
 			AND = {
 				is_player = yes
@@ -92,6 +93,7 @@ je_akkovin_partition_per_button = {
 	possible = {
 		exists = c:TUR
 		exists = c:AKN
+		NOT = { has_truce_with = c:AKN }
 		c:TUR = { 
 			is_player = no 
 			is_at_war = no 
@@ -122,5 +124,342 @@ je_akkovin_partition_per_button = {
 			}
 		}
 		trigger_event = { id = akkovin_crisis.18 days = 0 }
+	}
+}
+
+je_akkovin_crisis_button = {
+	name = "je_akkovin_crisis_button"
+	desc = "je_akkovin_crisis_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		custom_tooltip = {
+			text = erzurum_edict_tt
+			has_modifier = treaty_of_baglar
+		}
+		NOT = { has_variable = erzurum_edict }
+	}
+
+	effect = {
+		set_variable = erzurum_edict
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:sunni 
+				}
+			}
+			add_radicals = {
+				religion = rel:sunni
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:orthodox 
+				}
+			}
+			add_radicals = {
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:oriental_orthodox 
+				}
+			}
+			add_radicals = {
+				religion = rel:oriental_orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:catholic 
+				}
+			}
+			add_radicals = {
+				religion = rel:catholic
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:protestant 
+				}
+			}
+			add_radicals = {
+				religion = rel:protestant
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				any_scope_pop = { 
+					religion = rel:jewish 
+				}
+			}
+			add_radicals = {
+				religion = rel:jewish
+				value = medium_radicals
+			}
+		}
+	}
+}
+
+je_akkovin_reform_nationalism_akturkification_button = {
+	name = "je_akkovin_reform_nationalism_akturkification_button"
+	desc = "je_akkovin_reform_nationalism_akturkification_button_desc"
+
+	visible = { always = yes }
+	
+	possible = {
+		NOT = { has_variable = akturkification_start }
+		has_technology_researched = nationalism
+		OR = {
+			has_law = law_type:law_national_supremacy
+			has_law = law_type:law_racial_segregation
+			has_law = law_type:law_ethnostate
+		}
+		custom_tooltip = {
+			text = christians_reined_in_tt
+			AND = {
+				has_variable = completed_akkovin_reform_minorities_je
+				NOT = { exists = c:ARM }
+			}
+		}
+		custom_tooltip = {
+			text = kurds_reined_in_tt
+			AND = {
+				has_variable = completed_akkovin_reform_kurdish_je
+				NOT = { exists = c:KUR }
+			}
+		}
+	}
+	
+	effect = {
+		set_variable = akturkification_start
+		add_modifier = {
+			name = russification_modifier
+			months = long_modifier_time
+		}
+		
+		custom_tooltip = {
+			text = akturkification_tt
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:levantine
+					}
+				}
+				add_radicals = {
+					culture = cu:levantine
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:levantine
+						}
+					}
+					state_region = {
+						remove_homeland = levantine
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:iraqi
+					}
+				}
+				add_radicals = {
+					culture = cu:iraqi
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:iraqi
+						}
+					}
+					state_region = {
+						remove_homeland = iraqi
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:armenian
+					}
+					cu:armenian = {
+						NOT = { is_primary_culture_of = root }
+					}
+				}
+				add_radicals = {
+					culture = cu:armenian
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:armenian
+						}
+					}
+					state_region = {
+						remove_homeland = armenian
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:kurdish
+					}
+					cu:kurdish = {
+						NOT = { is_primary_culture_of = root }
+					}
+				}
+				add_radicals = {
+					culture = cu:kurdish
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:kurdish
+						}
+					}
+					state_region = {
+						remove_homeland = kurdish
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:north_caucasian
+					}
+				}
+				add_radicals = {
+					culture = cu:north_caucasian
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:north_caucasian
+						}
+					}
+					state_region = {
+						remove_homeland = north_caucasian
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:bedouin
+					}
+				}
+				add_radicals = {
+					culture = cu:bedouin
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:bedouin
+						}
+					}
+					state_region = {
+						remove_homeland = bedouin
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:assyrian
+					}
+				}
+				add_radicals = {
+					culture = cu:assyrian
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:assyrian
+						}
+					}
+					state_region = {
+						remove_homeland = assyrian
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:greek
+					}
+				}
+				add_radicals = {
+					culture = cu:greek
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:greek
+						}
+					}
+					state_region = {
+						remove_homeland = greek
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = { 
+						culture = cu:georgian
+					}
+				}
+				add_radicals = {
+					culture = cu:georgian
+					value = large_radicals
+				}
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:georgian
+						}
+					}
+					state_region = {
+						remove_homeland = georgian
+					}
+				}
+			}
+			every_scope_state = {
+				limit = {
+					OR = {
+						state_is_in_europe = yes
+						state_is_in_middle_east = yes
+					}
+					state_region = {
+						NOT = { is_homeland = cu:akturk }
+					}
+				}
+				state_region = {
+					add_homeland = akturk
+				}
+			}
+		}
 	}
 }

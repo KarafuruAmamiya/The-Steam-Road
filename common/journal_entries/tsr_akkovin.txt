@@ -2,6 +2,8 @@
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 	
 	should_be_pinned_by_default = yes
+	
+	scripted_button = je_akkovin_crisis_button
 
 	complete = {
 		scope:journal_entry = {
@@ -784,11 +786,9 @@ je_akkovin_reform_arabia = {
 						text = nahda_start_tt
 						has_global_variable = nahda_start
 						OR = {
-							AND = {
-								has_global_variable = al_bustani_var
-								has_global_variable = al_shidyaq_var
-								has_global_variable = muhammad_abduh_var
-							}
+							has_global_variable = al_bustani_var
+							has_global_variable = al_shidyaq_var
+							has_global_variable = muhammad_abduh_var
 							has_global_variable = arab_wars
 						}
 					}
@@ -965,6 +965,8 @@ je_akkovin_reform_minorities = {
 je_akkovin_reform_nationalism = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
+	scripted_button = je_akkovin_reform_nationalism_akturkification_button
+	
 	is_shown_when_inactive = {
 		exists = c:AKN
 		c:AKN = root
@@ -1018,7 +1020,10 @@ je_akkovin_reform_nationalism = { #WIP
 			name = akc_reform_var
 			add = 1
 		}
-		remove_modifier = russification_modifier
+		if = {
+			limit = { has_modifier = russification_modifier }
+			remove_modifier = russification_modifier
+		}
 	}
 
 	on_monthly_pulse = {
@@ -1085,14 +1090,6 @@ je_akkovin_partition_tur = { #WIP
 		}
 		trigger_if = {
 			limit = {
-				s:STATE_KUBAN = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_KUBAN
-		}
-		trigger_if = {
-			limit = {
 				s:STATE_ALEPPO = {
 					has_variable = akkovin_partition_state
 				}
@@ -1112,6 +1109,7 @@ je_akkovin_partition_tur = { #WIP
 	fail = {
 		custom_tooltip = {
 			text = akkovin_partition_fail_tt
+			exists = c:AKN
 			has_diplomatic_pact = {
 				who = c:AKN
 				type = war_reparations
@@ -1121,18 +1119,6 @@ je_akkovin_partition_tur = { #WIP
 	}
 	
 	on_fail = {
-		if = {
-			limit = {
-				exists = c:AKN
-				c:AKN = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-				}
-			}
-			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
-		}
 	}
 
 	on_complete = {
@@ -1147,12 +1133,6 @@ je_akkovin_partition_tur = { #WIP
 				}
 			}
 			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
-		}
-		else_if = {
-			limit = {
-				NOT = { exists = c:AKN }
-			}
-			trigger_event = { id = akkovin_crisis.16 days = 0 }
 		}
 	}
 
@@ -1226,17 +1206,12 @@ je_akkovin_partition_per = { #WIP
 	}
 
 	on_complete = {
-		if = {
-			limit = {
-				NOT = { exists = c:AKN }
-			}
-			trigger_event = { id = akkovin_crisis.16 days = 0 }
-		}
 	}
 	
 	fail = {
 		custom_tooltip = {
 			text = akkovin_partition_fail_tt
+			exists = c:AKN
 			has_diplomatic_pact = {
 				who = c:AKN
 				type = war_reparations

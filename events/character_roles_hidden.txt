@@ -44,15 +44,25 @@ character_roles_hidden.2 = {
 		}
 	}
 	immediate = {
+	    if = {
+			limit = {
+				ruler = {
+				    has_variable = vice_president_trigger
+			    }
+			}
+			ruler = { remove_variable = vice_president_trigger }
+		}
 		if = {
 			limit = {
 				any_scope_character = {
+					is_ruler = no
+					is_heir = no
 					NOT = {
-						is_ruler = yes
-						is_heir = yes
-						has_role = general
-						has_role = admiral
-						has_role = agitator
+					    OR = {
+							has_role = general
+							has_role = admiral
+							has_role = agitator
+						}
 					}
 					interest_group = {
 						is_in_government = yes
@@ -61,19 +71,21 @@ character_roles_hidden.2 = {
 			}
 			random_scope_character = {
 				limit = {
+					is_ruler = no
+					is_heir = no
 					NOT = {
-						is_ruler = yes
-						is_heir = yes
-						has_role = general
-						has_role = admiral
-						has_role = agitator
+					    OR = {
+							has_role = general
+							has_role = admiral
+							has_role = agitator
+						}
 					}
 					interest_group = {
 						is_in_government = yes
 					}
 				}
 				set_variable = vice_president_trigger
-				set_variable = new_vice_president
+				save_scope_as = new_vice_president
 				owner = {
 					set_variable = {
 						name = vice_president
@@ -86,7 +98,7 @@ character_roles_hidden.2 = {
 			create_character = {
 				on_created = {
 					set_variable = vice_president_trigger
-					set_variable = new_vice_president
+					save_scope_as = new_vice_president
 					owner = {
 						set_variable = {
 							name = vice_president
@@ -94,21 +106,6 @@ character_roles_hidden.2 = {
 						}
 					}
 				}		
-			}
-		}
-		if = {
-			limit = {
-				any_scope_character = {
-					has_variable = vice_president_trigger
-					NOT = { has_variable = new_vice_president }
-				}
-			}
-			random_scope_character = {
-				limit = {
-					has_variable = vice_president_trigger
-					NOT = { has_variable = new_vice_president }
-				}
-				remove_variable = vice_president_trigger
 			}
 		}
 	}
@@ -153,12 +150,14 @@ character_roles_hidden.4 = {
 	immediate = {
 		random_scope_character = {
 			limit = {
+				is_ruler = no
+				is_heir = no
 				NOT = {
-					is_ruler = yes
-					is_heir = yes
-					has_role = general
-					has_role = admiral
-					has_role = agitator
+				    OR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+					}
 				}
 				interest_group = {
 					is_in_government = yes
@@ -202,12 +201,14 @@ character_roles_hidden.5 = {
 	immediate = {
 		random_scope_character = {
 			limit = {
+				is_ruler = no
+				is_heir = no
 				NOT = {
-					is_ruler = yes
-					is_heir = yes
-					has_role = general
-					has_role = admiral
-					has_role = agitator
+				    OR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+					}
 				}
 				interest_group = {
 					is_in_government = yes

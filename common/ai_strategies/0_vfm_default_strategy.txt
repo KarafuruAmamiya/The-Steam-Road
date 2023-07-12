@@ -561,13 +561,18 @@ ai_strategy_default = {
 		
 		add = {
 			value = gdp
-			divide = 2000000 # 1 construction sector per 2 million gdp								
+			divide = 3000000 # 1 construction sector per 2 million gdp								
 		}	
 
 		add = {
 			value = total_population
-			divide = 2000000 # 1 construction sector per 2 million pop					
-		}	
+			divide = 4000000 # 1 construction sector per 2 million pop					
+		}
+		
+		add = {
+			value = investment_pool
+			divide = 1000000 # 1 construction sector per 1 million investment pool			
+		}
 		
 		if = {
 			limit = { has_law = law_type:law_traditionalism }
@@ -591,17 +596,36 @@ ai_strategy_default = {
 					has_strategy = ai_strategy_industrial_expansion				
 				}
 			}
-			multiply = 1.5		
-		}		
+			multiply = 1.3		
+		}
+
+        if = {
+			limit = { 
+			    game_date > 1860.1.1
+				OR = {
+					has_law = law_type:law_per_capita_based_taxation  #better tax laws = more construction
+					has_law = law_type:law_proportional_taxation
+					has_law = law_type:law_graduated_taxation
+				}
+			}
+			multiply = 1.15
+		}
+
+		if = {
+			limit = { 
+				has_law = law_type:law_laissez_faire
+			}
+			multiply = 1.2		
+		}
 
 		if = {
 			limit = { has_strategy = ai_strategy_placate_population }
-			multiply = 0.5		
+			multiply = 0.7		
 		}
 		
 		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
-			multiply = 0.1		
+			multiply = 0.3		
 		}		
 
 		min = 1
@@ -2578,6 +2602,44 @@ ai_strategy_default = {
 						add = 1000
 			}
 			
+			if = {
+				limit = {
+				    country_rank >= rank_value:major_power
+					game_date > 1839.6.1
+					scope:target_country = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_TAHITI
+							}
+						}
+					}
+					OR = { 
+					    has_interest_marker_in_region = scope:target_country.capital.region
+						c:FRA = this
+					}
+				}
+				add = 500
+			}
+			# Overlords of CEI are not done in Philipines yet
+			if = {
+				limit = {
+					exists = c:CEI
+					this = c:CEI.top_overlord
+					scope:target_country = {
+					    NOT = { is_subject_of = this }
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_MINDANAO
+								state_region = s:STATE_LUZON
+								state_region = s:STATE_PALAWAN
+								state_region = s:STATE_SULU
+							}
+						}
+					}
+				}
+				add = 500
+			}
+			
 			if = { 
 				limit = {
 					can_reach_target_country = yes
@@ -3252,6 +3314,31 @@ ai_strategy_default = {
 					add = 30
 				}
 			}
+			# Iberia is not done in Philipines yet
+			if = {
+				limit = {
+					exists = c:IBE
+					OR = {
+						c:IBE = this
+						AND = {
+							c:CEI = this
+							is_subject_of = c:IBE
+						}
+					}
+					scope:target_country = {
+					    NOT = { is_subject_of = c:IBE }
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_MINDANAO
+								state_region = s:STATE_LUZON
+								state_region = s:STATE_PALAWAN
+								state_region = s:STATE_SULU
+							}
+						}
+					}
+				}
+				add = 200
+			}
 			if = {
 				limit = { 
 					NOT = { has_strategic_land_adjacency = scope:target_state } 
@@ -3338,6 +3425,10 @@ ai_strategy_default = {
 								has_attitude = {
 									who = scope:target_country
 									attitude = belligerent
+								}
+								has_attitude = {
+									who = scope:target_country
+									attitude = domineering
 								}	
 								has_attitude = {
 									who = scope:target_country
@@ -3390,69 +3481,26 @@ ai_strategy_default = {
 						multiply = 1.25
 					}					
 				}										
-			}		
-
-			if = { #Carving up China
-				limit = {
-					country_rank >= rank_value:great_power
-					exists = c:CHI
-					any_country = {
-						NOT = { THIS = ROOT }
-						country_is_in_europe = yes
-						any_scope_state = {
-							OR = {
-								region = sr:region_north_china
-								region = sr:region_south_china
-								region = sr:region_manchuria
-							}
-							is_treaty_port = yes
-						}
-					}
-					scope:target_state = {
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-						}
-					}
-				}
-				add = 25
-			}
-			else_if = {
-				limit = {
-					country_rank >= rank_value:great_power
-					exists = c:CHI
-					any_country = {
-						NOT = { THIS = ROOT }
-						country_rank >= rank_value:great_power
-						any_scope_state = {
-							OR = {
-								region = sr:region_north_china
-								region = sr:region_south_china
-								region = sr:region_manchuria
-							}
-							is_treaty_port = yes
-						}
-					}
-					scope:target_state = {
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-						}
-					}
-				}
-				add = 75
 			}
 
+			# Don't want treaty ports in weak unrecognized powers, would rather conquer or subjugate
 			if = {
 				limit = {
 					has_treaty_port_in_country = scope:target_country
 					scope:target_country = { country_rank < rank_value:unrecognized_regional_power }
 				}
 				multiply = 0
-			}
+			}			
+			
+			# Don't want treaty ports on countries in our market
+			if = {
+				limit = {
+					market_capital.market = scope:target_country.market_capital.market
+				}
+				multiply = 0
+			}	
 
+			# Greatly reduced wanting treaty ports from other recognized countries
 			if = {
 				limit = {
 					scope:target_country = { NOT = { is_country_type = unrecognized } }
@@ -3514,7 +3562,26 @@ ai_strategy_default = {
 						multiply = 1.25
 					}						
 				}			
-			}							
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							is_adjacent = scope:target_country
+							scope:target_country = {
+								any_scope_state = {
+									is_coastal = yes
+								}
+							}
+						}	
+					}
+				}
+			
+				multiply = {
+					value = 0.25
+				}			
+			}
 			
 			min = 0
 			max = 100			

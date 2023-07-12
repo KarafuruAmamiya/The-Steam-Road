@@ -11202,7 +11202,10 @@ tarascan={
 quechua={
 	color= hsv{ 0.10 0.22 0.69 }
 	religion = camaquen
-	traits = { indigenous_american_heritage south_american_group }
+	traits = { indigenous_american_heritage indigenous_andean quechua_speaking }
+	obsessions = {
+		tobacco
+	}
 	male_common_first_names={
 		Agustin
 		Alejandro
@@ -11390,8 +11393,11 @@ guarani={
 
 aimara={
 	color= hsv{ 0.02 0.57 0.74 }
-	religion = catholic
-	traits = { indigenous_american_heritage south_american_group }
+	religion = camaquen
+	traits = { indigenous_american_heritage indigenous_andean }
+	obsessions = {
+		tobacco
+	}
 	male_common_first_names={
 		Agustin
 		Alejandro
@@ -13496,6 +13502,7 @@ mexican={
 	}
 	ethnicities = {
 		1 = south_american
+		10 = caucasian
 	}
 	graphics = generic
 }
@@ -13503,7 +13510,7 @@ mexican={
 south_andean={
 	color= hsv{ 0.45 0.15 0.61 }
 	religion = catholic
-	traits = { hispanophone south_european_heritage   }
+	traits = { hispanophone south_european_heritage }
 	male_common_first_names={
 		Adolfo
 		Agustin
@@ -13635,6 +13642,7 @@ south_andean={
 	}
 	ethnicities = {
 		1 = south_american
+		10 = caucasian
 	}
 	graphics = generic
 }

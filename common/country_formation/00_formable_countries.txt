@@ -337,3 +337,24 @@ KAZ = {
 		has_technology_researched = nationalism
 	}
 }
+
+PNS = {
+	use_culture_states = yes
+	required_states_fraction = 0.5 # Basically as long as you've colonized
+
+	possible = {
+		has_technology_researched = pan-nationalism
+	}
+}
+
+ALD = {
+	states = {
+		STATE_ALGIERS
+		STATE_TLEMCEN
+		STATE_CONSTANTINE
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}

@@ -1,6 +1,217 @@
-﻿french_empire_clothes_trigger = {
+﻿western_uniforms_trigger = {
+	OR = {
+		AND = {
+			exists = scope:character
+			scope:character = {
+				exists = home_country
+				home_country = {
+					has_variable = adopt_western_uniforms	
+				}
+			}
+		}
+		AND = {
+			exists = scope:pop
+			scope:pop = {
+				exists = home_country
+				home_country = {
+					has_variable = adopt_western_uniforms	
+				}
+			}
+		}
+	}
+}
+
+soalleiran_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:SLR = this
+					is_subject = no # preventing uniform conflicts if SLR becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:SLR
+			}		
+		}
+	}
+}
+
+soalleiran_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:SLR = this
+					is_subject = no # preventing uniform conflicts if SLR becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:SLR
+			}		
+		}
+	}
+}
+
+soalleiran_clothes_p_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:SLR
+		home_country = {
+			OR = {
+				AND = {
+					c:SLR = this
+					is_subject = yes # preventing uniform conflicts if SLR becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:SLR
+			}		
+		}
+	}
+}
+
+mexican_monarch_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			is_ruler = yes
+			exists = home_country
+			home_country = {
+			exists = c:MEX
+			c:MEX = this
+			is_subject = no
+		}
+     			exists = home_country
+				home_country = {
+     			has_law = law_type:law_monarchy
+			
+			}
+		}
+	}
+}
+
+hispanic_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			coa_def_luso_american_trigger = yes
+		}
+	}
+}
+
+hispanic_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			coa_def_luso_american_trigger = yes		
+		}
+	}
+}
+
+south_american_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			exists = home_country
+			home_country = {
+			coa_def_luso_american_trigger = yes
+			}				
+		}
+	}
+}
+
+south_american_dictator_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			is_ruler = yes
+			OR = {
+			exists = home_country
+			home_country = {
+			has_law = law_type:law_autocracy
+			}
+			has_role = general
+			}			
+			exists = home_country
+			home_country = {
+			coa_def_luso_american_trigger = yes
+			NOT = {c:SLR = this}
+			OR = {
+				has_law = law_type:law_presidential_republic
+				has_law = law_type:law_parliamentary_republic
+				has_law = law_type:law_council_republic
+				}
+			}
+		}
+	}
+}
+
+south_american_admiral_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			has_role = admiral
+			exists = home_country
+			home_country = {
+			coa_def_luso_american_trigger = yes
+			NOT = {c:SLR = this}
+			}
+		}
+	}
+}
+
+south_american_admiral_headgear_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			has_role = admiral
+			exists = home_country
+			home_country = {
+			coa_def_luso_american_trigger = yes
+			NOT = {c:SLR = this}
+			}			
+		}
+	}
+}
+
+gaucho_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:AUR
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:AUR = this
+					is_subject = no # preventing uniform conflicts if AUR becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:AUR
+			}		
+		}
+	}
+}
+
+gaucho_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:AUR
+		home_country = {
+			OR = {
+				AND = {
+					c:AUR = this
+					is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:AUR
+			}		
+		}
+	}
+}
+
+french_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:FRA
 		exists = home_country
 		home_country = {
 			OR = {
@@ -17,6 +228,7 @@
 french_empire_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
+		exists = c:FRA
 		home_country = {
 			OR = {
 				AND = {

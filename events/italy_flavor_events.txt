@@ -40,25 +40,21 @@ italy_flavor.1 = {
 				save_scope_as = sicily_scope
 			}
 		}
-		set_global_variable = sicilian_rev_possible_var
 	}
 
 	option = {
 		name = italy_flavor.1.a
 		default_option = yes
 
-		s:STATE_SICILY = {
-			random_scope_state = {
-				add_modifier = {
-					name = sicily_cholera_1
-					months = short_modifier_time
-				}
-				add_radicals_in_state = {
-					value = 0.1
-				}
+		scope:sicily_scope = {
+			add_modifier = {
+				name = sicily_cholera_1
+				months = short_modifier_time
+			}
+			add_radicals_in_state = {
+				value = 0.1
 			}
 		}
-
 		add_modifier = {
 			name = sicily_cholera_cost
 			multiplier = money_amount_multiplier_medium
@@ -81,15 +77,13 @@ italy_flavor.1 = {
 	option = {
 		name = italy_flavor.1.b
 
-		s:STATE_SICILY = {
-			random_scope_state = {
-				add_modifier = {
-					name = sicily_cholera_2
-					months = short_modifier_time
-				}
-				add_radicals_in_state = {
-					value = 0.2
-				}
+		scope:sicily_scope = {
+			add_modifier = {
+				name = sicily_cholera_2
+				months = short_modifier_time
+			}
+			add_radicals_in_state = {
+				value = 0.2
 			}
 		}
 

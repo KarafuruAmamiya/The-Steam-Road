@@ -48,3 +48,21 @@ SWN = {
 		}
 	}
 }
+
+SWI = {
+	states = {
+		STATE_WEST_SWITZERLAND
+		STATE_EAST_SWITZERLAND
+	}
+
+	required_states_fraction = 1.0
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:alemannic
+			country_has_primary_culture = cu:francoprovencal
+		}
+	}
+}

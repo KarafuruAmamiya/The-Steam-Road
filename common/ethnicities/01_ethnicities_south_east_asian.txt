@@ -903,7 +903,7 @@
     }
 
 	hairstyles = {
-		10 = { name = european_hairstyles 		range = { 0.0 1.0 } }
+		10 = { name = east_asian_hairstyles 		range = { 0.0 1.0 } }
 	}
 
 	beards = {
@@ -978,13 +978,7 @@
 		}
 		
 		gene_eye_corner_depth_min = {
-			40 = { name = eye_corner_depth_min    range = { @neg3_min @neg3_max }    }
-			15 = { name = eye_corner_depth_min    range = { @neg2_min @neg2_max }    }
-			5 = { name = eye_corner_depth_min    range = { @neg1_min @neg1_max }    }
-			0 = { name = eye_corner_depth_min    range = { @pos1_min @pos1_max }    }
-			0 = { name = eye_corner_depth_min    range = { @pos2_min @pos2_max }    }
-			0 = { name = eye_corner_depth_min   range = { @pos3_min @pos3_max }    }
-			40 = { name = eye_corner_depth_min   range = { 0.6 0.6 }      }
+			64 = { name = eye_corner_depth_min   range = { 0.6 0.6 }      }
 		}
 		
 		gene_eye_corner_def = {
@@ -993,5 +987,28 @@
 		
 		gene_eye_shut = {
 			84 = { name = eye_shut   range = { 0.5 0.7 }      }
+		}
+		
+		gene_eye_angle = {
+			84 = { name = eye_angle   range = { 0.5 0.5 }      }
+		}
+		
+		gene_eye_depth = {
+			64 = { name = eye_depth   range = { 0.5 0.5 }      }
+		}
+		
+		mustaches = {
+			90 = { name = asian_mustaches 		range = { 0.0 1.0 } }
+			10 = { name = no_mustache		range = { 0.0 1.0 } }
+		}
+		
+		gene_eye_upper_lid_size = {
+			20 = { name = eye_upper_lid_size   range = { 0.1 0.1 }      }
+			80 = { name = eye_upper_lid_size   range = { 0.5 0.5 }      }
+		}
+		
+		gene_eye_fold_shape = {
+			40 = { name = eye_fold_shape    range = { 0.1 0.1 }    }
+			60 = { name = eye_fold_shape    range = { 0.5 0.5 }    }
 		}
 	}

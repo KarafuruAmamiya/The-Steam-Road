@@ -32,28 +32,6 @@ greece.1 = {
 		default_option = yes
 		if = {
 			limit = {
-				NOR = {
-					has_claim = s:STATE_MACEDONIA
-					owns_entire_state_region = STATE_MACEDONIA 
-				}
-			}
-			s:STATE_MACEDONIA = {
-				add_claim = ROOT
-			}
-		}
-		if = {
-			limit = {
-				NOR = { 
-					owns_entire_state_region = STATE_WESTERN_THRACE
-					has_claim = s:STATE_WESTERN_THRACE
-				}
-			}
-			s:STATE_WESTERN_THRACE = {
-				add_claim = ROOT
-			}
-		}
-		if = {
-			limit = {
 				NOR = { 
 					owns_entire_state_region = STATE_EAST_AEGEAN_ISLANDS
 					has_claim = s:STATE_EAST_AEGEAN_ISLANDS
@@ -81,8 +59,6 @@ greece.1 = {
 			exists = c:TUR
 			c:TUR = {
 				OR = {
-					owns_entire_state_region = STATE_MACEDONIA
-					owns_entire_state_region = STATE_WESTERN_THRACE
 					owns_entire_state_region = STATE_EAST_AEGEAN_ISLANDS
 					owns_entire_state_region = STATE_CRETE
 				}
@@ -149,6 +125,11 @@ greece.2 = {
 				save_scope_as = aydin_scope
 			}
 		}
+		s:STATE_KARASI = {
+			random_scope_state = {
+				save_scope_as = karasi_scope
+			}
+		}
 	}
 
 	option = {
@@ -157,14 +138,7 @@ greece.2 = {
 			OR = {
 				NOT = { owns_entire_state_region = STATE_EASTERN_THRACE }
 				NOT = { owns_entire_state_region = STATE_AYDIN }
-			}
-		}
-		if = {
-			limit = {
-				NOT = { owns_entire_state_region = STATE_EASTERN_THRACE }
-			}
-			s:STATE_EASTERN_THRACE = {
-				add_claim = ROOT
+				NOT = { owns_entire_state_region = STATE_KARASI }
 			}
 		}
 		if = {
@@ -172,6 +146,14 @@ greece.2 = {
 				NOT = { owns_entire_state_region = STATE_AYDIN }
 			}
 			s:STATE_AYDIN = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_KARASI }
+			}
+			s:STATE_KARASI = {
 				add_claim = ROOT
 			}
 		}
@@ -199,6 +181,7 @@ greece.2 = {
 			OR = {
 				NOT = { owns_entire_state_region = STATE_AYDIN }
 				NOT = { owns_entire_state_region = STATE_EASTERN_THRACE }
+				NOT = { owns_entire_state_region = STATE_KARASI }
 				NOT = { owns_entire_state_region = STATE_HUDAVENDIGAR }
 				NOT = { owns_entire_state_region = STATE_TRABZON }
 			}
@@ -227,6 +210,25 @@ greece.2 = {
 				NOT = { owns_entire_state_region = STATE_EASTERN_THRACE }
 			}
 			s:STATE_EASTERN_THRACE = {
+				remove_homeland = greek
+				custom_tooltip = {
+					text = move_greeks_tt
+					every_scope_state = {
+						every_scope_pop = {
+							limit = {
+								culture = cu:greek
+							}
+							move_pop = root.capital
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_KARASI }
+			}
+			s:STATE_KARASI = {
 				remove_homeland = greek
 				custom_tooltip = {
 					text = move_greeks_tt
@@ -265,6 +267,7 @@ greece.2 = {
 				NOT = { owns_entire_state_region = STATE_TRABZON }
 			}
 			s:STATE_TRABZON = {
+				set_variable = no_greek_homeland
 				remove_homeland = greek
 				custom_tooltip = {
 					text = move_greeks_tt

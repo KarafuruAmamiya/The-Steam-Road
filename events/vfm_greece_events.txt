@@ -162,118 +162,118 @@ vfm_greece.3 = {
 }
 
 # royal phalanx
-vfm_greece.5 = {
-	type = country_event
-
-	title = vfm_greece.5.t
-	desc = vfm_greece.5.d
-	flavor = vfm_greece.5.f
-
-	placement = scope:greek_state
-
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
-
-	duration = 3
-
-	trigger = {
-	}
-
-	immediate = {
-		random_scope_state = {
-			limit = {
-				OR = {
-					state_region = s:STATE_ATTICA
-					state_region = s:STATE_PELOPONNESE
-				}
-			}
-			save_scope_as = greek_state
-		}
-	}
-
-	option = {
-		name = vfm_greece.5.a
-		default_option = yes
-        scope:greek_state = {
-		    add_radicals_in_state = {
-				pop_type = soldiers
-				value = small_radicals
-			}
-		}
-	}
-
-    option = {
-		name = vfm_greece.5.b
-		scope:greek_state = {
-			add_radicals_in_state = {
-				pop_type = officers
-				value = large_radicals
-			}
-		}
-	}
-}
+#vfm_greece.5 = {
+#	type = country_event
+#
+#	title = vfm_greece.5.t
+#	desc = vfm_greece.5.d
+#	flavor = vfm_greece.5.f
+#
+#	placement = scope:greek_state
+#
+#	event_image = {
+#		video = "unspecific_military_parade"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+#
+#	duration = 3
+#
+#	trigger = {
+#	}
+#
+#	immediate = {
+#		random_scope_state = {
+#			limit = {
+#				OR = {
+#					state_region = s:STATE_ATTICA
+#					state_region = s:STATE_PELOPONNESE
+#				}
+#			}
+#			save_scope_as = greek_state
+#		}
+#	}
+#
+#	option = {
+#		name = vfm_greece.5.a
+#		default_option = yes
+#        scope:greek_state = {
+#		    add_radicals_in_state = {
+#				pop_type = soldiers
+#				value = small_radicals
+#			}
+#		}
+#	}
+#
+#    option = {
+#		name = vfm_greece.5.b
+#		scope:greek_state = {
+#			add_radicals_in_state = {
+#				pop_type = officers
+#				value = large_radicals
+#			}
+#		}
+#	}
+#}
 
 # after the revolt against the ottomans we have revived the nation but our situation is fragile,
 # the ottomans will surely try to put us down if given the chance!
 #vfm_greece.4 = {
 
 # military is pleased
-vfm_greece.6 = {
-	type = country_event
-
-	title = vfm_greece.6.t
-	desc = vfm_greece.6.d
-	flavor = vfm_greece.6.f
-
-	#placement = scope:ionian_overlord_capital
-
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
-
-	duration = 3
-
-	trigger = {
-	}
-
-	immediate = {
-		random_primary_culture = {
-			save_scope_as = greek_culture_scope
-		}
-	}
-
-	option = {
-		name = vfm_greece.6.a
-		default_option = yes
-		add_loyalists = {
-		    pop_type = officers
-			value = 0.25
-		}
-		add_loyalists = {
-		    pop_type = soldiers
-			value = 0.1
-		}
-	}
-
-    option = {
-		name = vfm_greece.6.b
-		add_loyalists = {
-		    pop_type = officers
-			value = 0.15
-		}
-		add_loyalists = {
-		    pop_type = soldiers
-			value = 0.15
-		}
-	}
-}
+#vfm_greece.6 = {
+#	type = country_event
+#
+#	title = vfm_greece.6.t
+#	desc = vfm_greece.6.d
+#	flavor = vfm_greece.6.f
+#
+#	#placement = scope:ionian_overlord_capital
+#
+#	event_image = {
+#		video = "unspecific_military_parade"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	on_opened_soundeffect = "event:/SFX/Events/unspecific/signed_contract"
+#
+#	duration = 3
+#
+#	trigger = {
+#	}
+#
+#	immediate = {
+#		random_primary_culture = {
+#			save_scope_as = greek_culture_scope
+#		}
+#	}
+#
+#	option = {
+#		name = vfm_greece.6.a
+#		default_option = yes
+#		add_loyalists = {
+#		    pop_type = officers
+#			value = 0.25
+#		}
+#		add_loyalists = {
+#		    pop_type = soldiers
+#			value = 0.1
+#		}
+#	}
+#
+#    option = {
+#		name = vfm_greece.6.b
+#		add_loyalists = {
+#		    pop_type = officers
+#			value = 0.15
+#		}
+#		add_loyalists = {
+#		    pop_type = soldiers
+#			value = 0.15
+#		}
+#	}
+#}
 
 
 # revolters in ottoman occupied lands request support

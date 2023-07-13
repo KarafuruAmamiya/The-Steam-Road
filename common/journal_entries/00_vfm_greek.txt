@@ -49,28 +49,28 @@
 }
 
 
-je_greek_royal_phalanx = {
-	icon = "gfx/interface/icons/pops_icons/officers.dds"
-
-	is_shown_when_inactive = {
-		country_has_primary_culture = cu:greek
-	}
-
-	possible = {
-		is_subject = no
-	}
-
-	immediate = {
-		trigger_event = { id = vfm_greece.5 }
-	}
-
-	complete = {
-		army_size >= 15
-	}
-
-	on_complete = {
-		trigger_event = { id = vfm_greece.6 }
-	}
-
-	weight = 20
-}
+#je_greek_royal_phalanx = {
+#	icon = "gfx/interface/icons/pops_icons/officers.dds"
+#
+#	is_shown_when_inactive = {
+#		country_has_primary_culture = cu:greek
+#	}
+#
+#	possible = {
+#		is_subject = no
+#	}
+#
+#	immediate = {
+#		trigger_event = { id = vfm_greece.5 }
+#	}
+#
+#	complete = {
+#		army_size >= 15
+#	}
+#
+#	on_complete = {
+#		trigger_event = { id = vfm_greece.6 }
+#	}
+#
+#	weight = 20
+#}

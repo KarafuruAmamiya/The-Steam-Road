@@ -2663,36 +2663,8 @@
 			}
 		}
 	}
-	s:STATE_SKOPIA={
-		region_state:TUR={
-			create_building={
-				building="building_iron_mine"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
-			}
-			create_building={
-				building="building_tobacco_plantation"
-				level=4
-				reserves=1
-				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
-			}
-			create_building={
-				building="building_wheat_farm"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
-			}
-			create_building={
-				building="building_barracks"
-				level=10
-				reserves=1
-				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
-			}
-		}
-	}
 	s:STATE_MACEDONIA={
-		region_state:TUR={
+		region_state:GRE={
 			create_building={
 				building="building_food_industry"
 				level=1
@@ -2719,7 +2691,35 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=5
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
+			}
+		}
+	}
+	s:STATE_SKOPIA={
+		region_state:TUR={
+			create_building={
+				building="building_iron_mine"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				level=4
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_wheat_farm"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
+			}
+			create_building={
+				building="building_barracks"
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_line_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}

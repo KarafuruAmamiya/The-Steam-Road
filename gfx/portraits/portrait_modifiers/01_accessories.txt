@@ -394,10 +394,11 @@
                 }
                 exists = scope:character
                 scope:character = {
-                   exists = c:PEU
-                   home_country = {
-                   		c:PEU = this
-                   }
+                    exists = home_country
+                    home_country = {
+                        exists = c:PEU
+                        c:PEU = this
+                    }
                 }
                 OR = {
                     AND = {

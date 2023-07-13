@@ -9,6 +9,7 @@
 		OR = {
 			has_state_in_state_region = STATE_HARAR
 			has_state_in_state_region = STATE_AWDAL
+			has_state_in_state_region = STATE_SOMALILAND
 		}
 		s:STATE_HARAR = {
 			NOT = {
@@ -20,6 +21,15 @@
 			}
 		}
 		s:STATE_AWDAL = {
+			NOT = {
+				any_scope_state = {
+					owner = {
+						country_rank = 0
+					}
+				}
+			}
+		}
+		s:STATE_SOMALILAND = {
 			NOT = {
 				any_scope_state = {
 					owner = {

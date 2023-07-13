@@ -97,8 +97,9 @@ appoint_prime_minister = {
 
 	potential = {
 		owner = scope:actor
-		any_interest_group = {
-			leader = this
+		ig_leader = yes
+		interest_group = {
+			is_in_government = yes
 		}
 		is_ruler = no
 		is_heir = no

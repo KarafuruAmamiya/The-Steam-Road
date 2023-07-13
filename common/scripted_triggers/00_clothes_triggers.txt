@@ -707,7 +707,10 @@ siamese_clothes_trigger = { #Pretty sure this is actual burmese
 	exists = scope:character
 	scope:character = {
 		culture = {
-			has_discrimination_trait = southeast_asian_heritage
+			OR = {
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
+			}
 		}
 	}
 }
@@ -996,7 +999,10 @@ south_east_asia_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		culture = {
-			has_discrimination_trait = southeast_asian_heritage
+			OR = {
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
+			}
 		}   
 	}
 }

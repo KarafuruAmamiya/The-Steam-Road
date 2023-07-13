@@ -764,7 +764,7 @@
 		}
 	}
 	s:STATE_WEST_SUMATRA={
-		region_state:CEI={
+		region_state:PGR={
 			create_building={
 				building="building_tobacco_plantation"
 				level=2
@@ -782,6 +782,12 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "default_building_dye_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_barracks"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
 			create_building={
 				building="building_port"

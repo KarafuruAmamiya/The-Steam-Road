@@ -644,6 +644,12 @@
 	s:STATE_VLADIMIR={
 		region_state:MSC={
 			create_building={
+				building="building_government_administration"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
 				building="building_rye_farm"
 				level=6
 				reserves=1
@@ -1094,6 +1100,12 @@
 	s:STATE_NIZHNY={
 		region_state:MSC={
 			create_building={
+				building="building_government_administration"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
 				building="building_rye_farm"
 				level=6
 				reserves=1
@@ -1153,6 +1165,12 @@
 	}
 	s:STATE_VOLOGDA={
 		region_state:MSC={
+			create_building={
+				building="building_government_administration"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
 			create_building={
 				building="building_rye_farm"
 				level=2
@@ -1742,12 +1760,6 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_soil_enriching_farming" "pm_potatoes" "pm_tools_disabled" "pm_privately_owned" }
-			}
-			create_building={
-					building="building_livestock_ranch"
-					level=4
-					reserves=1
-					activate_production_methods={ "pm_intensive_grazing_ranch" "pm_slaughterhouses" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_barracks"

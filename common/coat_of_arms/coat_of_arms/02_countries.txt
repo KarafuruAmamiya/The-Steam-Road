@@ -14488,6 +14488,18 @@ NEP_subject = {
 
 NET = {
 	pattern = "pattern_solid.tga"
+	color1 = "orange"
+	color2 = "white"
+	color3 = "blue"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = color2
+		color2 = color3
+	}
+}
+NET_absolute_monarchy = {
+	pattern = "pattern_solid.tga"
 	color1 = "red"
 	color2 = "yellow"
 	color3 = "blue"
@@ -14498,18 +14510,6 @@ NET = {
 		color2 = "azure"
 		color3 = "white"
 		instance = { position = { 0.5 0.5 }scale = { 0.9 0.9 } } 		
-	}
-}
-NET_princes_flag = {
-	pattern = "pattern_solid.tga"
-	color1 = "orange"
-	color2 = "white"
-	color3 = "blue"
-
-	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
-		color1 = color2
-		color2 = color3
 	}
 }
 NET_republic = {

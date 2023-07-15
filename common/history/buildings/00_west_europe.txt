@@ -154,6 +154,12 @@
 	s:STATE_SCANIA={
 		region_state:SCA={
 			create_building={
+				building="building_government_administration"
+				level=6
+				reserves=1
+				activate_production_methods={ "pm_vertical_filing_cabinets" }
+			}	
+			create_building={
 				building="building_shipyards"
 				level=5
 				reserves=1
@@ -261,6 +267,12 @@
 	}
 	s:STATE_JUTLAND={
 		region_state:SCA={
+			create_building={
+				building="building_government_administration"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_vertical_filing_cabinets" }
+			}	
 			create_building={
 				building="building_rye_farm"
 				level=8
@@ -1180,13 +1192,7 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_leaded_glass" "pm_ceramics" "pm_manual_glassblowing" "pm_privately_owned_building_glassworks" }
-			}
-			create_building={
-				building="building_iron_mine"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_privately_owned_building_iron_mine" }
-			}			
+			}		
 			create_building={
 				building="building_shipyards"
 				level=1
@@ -1595,7 +1601,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=15
+				level=20
 				reserves=1
 				activate_production_methods={ "pm_mobile_artillery" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_skirmish_infantry" }
 			}
@@ -1657,7 +1663,7 @@
 		region_state:FRA={
 			create_building={
 				building="building_government_administration"
-				level=6
+				level=15
 				reserves=1
 				activate_production_methods={ "pm_vertical_filing_cabinets" }
 			}		
@@ -1693,7 +1699,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=15
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -1725,6 +1731,12 @@
 	}
 	s:STATE_LANGUEDOC={
 		region_state:FRA={
+			create_building={
+				building="building_government_administration"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_vertical_filing_cabinets" }
+			}
 			create_building={
 				building="building_university"
 				level=2
@@ -1785,7 +1797,7 @@
 			}
 			create_building={
 				building="building_paper_mills"
-				level=6
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_sulfite_pulping" "pm_automation_disabled" "pm_privately_owned_building_paper_mills" }
 			}
@@ -1821,7 +1833,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=20
+				level=15
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -1867,7 +1879,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=25
+				level=20
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -1919,7 +1931,7 @@
 			}
 			create_building={
 				building="building_naval_base"
-				level=25
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_power_of_the_purse" }
 			}
@@ -1971,7 +1983,7 @@
 			}
 			create_building={
 				building="building_naval_base"
-				level=25
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_man_o_wars" "pm_frigates" "pm_commerce_raider" "pm_power_of_the_purse" }
 			}
@@ -2017,7 +2029,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=20
+				level=15
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -2105,7 +2117,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=20
+				level=15
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -2139,7 +2151,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=30
+				level=15
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -2363,7 +2375,7 @@
 			}
 			create_building={
 				building="building_barracks"
-				level=20
+				level=10
 				reserves=1
 				activate_production_methods={ "pm_skirmish_infantry" "pm_mobile_artillery" "pm_cavalry_scouts" "pm_no_specialists" "pm_wound_dressing" }
 			}
@@ -2757,7 +2769,7 @@
 		region_state:FLA={
 			create_building={
 				building="building_government_administration"
-				level=3
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_vertical_filing_cabinets" }
 			}

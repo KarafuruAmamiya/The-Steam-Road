@@ -5,7 +5,7 @@
 #				has_variable = integrated_india
 #			}
 #		}#		custom_tooltip = {#			text = persia_abolished_monarchy_tt
-#			has_variable = persia_eclipse_abolished_monarchy#		}#	}##	on_complete = {#		trigger_event = { id =  }#	}##	current_value = {#		value = var:persia_eclipse#	}##	goal_add_value = {#		add = 6#	}#	#	progressbar = yes##	on_weekly_pulse = {#		effect = {#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_subject }#					is_subject = yes#				}#				post_notification = persia_eclipse_subject_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_subject#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_loans }#					taking_loans = yes#				}#				post_notification = persia_eclipse_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_loans#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_opium_war }#					has_variable = lost_opium_war#				}#				set_variable = persia_eclipse_opium_war#				post_notification = persia_eclipse_point_add
+#			has_variable = persia_eclipse_abolished_monarchy#		}#	}##	on_complete = {#		trigger_event = { id =  }#	}##	current_value = {#		value = var:persia_eclipse#	}##	goal_add_value = {#		add = 5#	}#	#	progressbar = yes##	on_weekly_pulse = {#		effect = {#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_subject }#					is_subject = yes#				}#				post_notification = persia_eclipse_subject_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_subject#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_loans }#					taking_loans = yes#				}#				post_notification = persia_eclipse_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_loans#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_opium_war }#					has_variable = lost_opium_war#				}#				set_variable = persia_eclipse_opium_war#				post_notification = persia_eclipse_point_add
 #				change_variable = {
 #					name = persia_eclipse
 #					add = 1
@@ -124,21 +124,6 @@
 #				change_variable = {
 #					name = persia_eclipse
 #					subtract = 1
-#				}
-#			}
-#			if = {
-#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_civil_war
-#					}
-#					exists = c:ISR
-#					has_war_with = c:ISR
-#				}
-#				set_variable = persia_eclipse_civil_war
-#				post_notification = persia_eclipse_point_add
-#				change_variable = {
-#					name = persia_eclipse
-#					add = 1
 #				}
 #			}#		}#	}##	weight = 10000#	should_be_pinned_by_default = yes#}
 

@@ -734,6 +734,7 @@
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_colonial_exploitation
 		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_migration_controls
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -834,6 +835,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_migration_controls
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -843,6 +845,10 @@
 		set_institution_investment_level = {
 			institution = institution_police
 			level = 1
+		}
+		
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
 		}
 		
 		ig:ig_rural_folk = {

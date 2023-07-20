@@ -2,7 +2,6 @@
 	building_group = bg_monuments
 	texture = "gfx/interface/icons/building_icons/argebam.dds"
 	expandable = no
-	buildable = no
 	downsizeable = no
 	unique = yes
 	locator = "argebam_locator"
@@ -25,6 +24,208 @@
 			severity = invalid
 			this = {
 				state_region = s:STATE_KERMAN
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_persepolis = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/persepolis.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_persepolis
+	}
+	
+	possible = {
+		owner = { has_variable = persepolis_excavation }
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_FARS
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_susa = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/susa.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_susa
+	}
+	
+	possible = {
+		owner = { has_variable = susa_excavation }
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_KHUZESTAN
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_gonbad_e_qabus = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/gonbad_e_qabus.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_gonbad_e_qabus
+	}
+	
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_MAZANDARAN
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_yazd_atash_beram = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/yazd_atesh_beram.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_yazd_atash_beram
+	}
+	
+	possible = {
+		owner = { has_variable = granted_zoroastrian_rights }
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_YAZD
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_ctesiphon = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/ctesiphon.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_ctesiphon
+	}
+	
+	possible = {
+		owner = { has_variable = ctesiphon_excavation }
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_BAGHDAD
+			}
+		}
+	}
+	
+	required_construction = construction_cost_monument
+}
+
+building_soltaniyeh = {
+	building_group = bg_monuments
+	texture = "gfx/interface/icons/building_icons/soltaniyeh.dds"
+	expandable = no
+	downsizeable = no
+	unique = yes
+	locator = "argebam_locator"
+	
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { "wonder_argebam_01_entity"}
+	
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 8
+	}
+	
+	production_method_groups = {
+		pmg_base_building_soltaniyeh
+	}
+	
+	possible = {
+		error_check = {
+			severity = invalid
+			this = {
+				state_region = s:STATE_GILAN
 			}
 		}
 	}

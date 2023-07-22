@@ -99,6 +99,10 @@
 			institution = institution_schools
 			level = 1
 		}
+		
+		ig:ig_landowners = { 
+			add_ideology = ideology:ideology_pious
+		}
 
 		ig:ig_devout = { 
 			set_interest_group_name = ig_sunni_madrasahs 
@@ -169,6 +173,8 @@
 		}
 		ig:ig_devout = {
 			set_interest_group_name = ig_shia_madrasahs
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_shiite_moralist
 		}
 	}
 	c:NEJ = { # Najd
@@ -200,6 +206,8 @@
 
 		ig:ig_devout = {
 			set_interest_group_name = ig_shia_madrasahs
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_shiite_moralist
 		}
 	}
 	c:PER = { # Persia
@@ -207,7 +215,6 @@
 	
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
-		add_technology_researched = central_archives
 		add_technology_researched = empiricism
 		add_technology_researched = banking
 		add_technology_researched = stock_exchange
@@ -258,6 +265,8 @@
 		}
 		ig:ig_devout = {
 			set_interest_group_name = ig_shia_madrasahs
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_shiite_moralist
 			add_ruling_interest_group = yes
 		}
 		
@@ -267,17 +276,32 @@
 			is_decaying = yes
 		}
 		
-		add_journal_entry = { type = je_burmese_war }
+		set_variable = {
+			name = india_revolt_var
+			value = 0
+		}
+		
+		set_variable = {
+			name = persian_renaissance_var
+			value = 0
+		}
+		
+		set_variable = {
+			name = zandism_trigger_var
+			value = 0
+		}
+		
+		add_journal_entry = {
+			type = je_consolidate_colonial_rule
+		}
+		
+		add_journal_entry = {
+			type = je_persian_renaissance
+		}
+		
 		set_variable = adopt_western_uniforms
 	}
 	c:SRV = { # Shirvan
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_shia_madrasahs
-		}
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = empiricism
@@ -304,6 +328,17 @@
 		}
 		
 		set_variable = adopt_western_uniforms
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+		
+		ig:ig_devout = {
+			set_interest_group_name = ig_shia_madrasahs
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_shiite_moralist
+			add_ruling_interest_group = yes
+		}
 
 		set_tax_level = medium
 	}
@@ -341,6 +376,7 @@
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = empiricism
 		add_technology_researched = mass_communication
+		add_technology_researched = stock_exchange
 		add_technology_researched = banking
 		
 		set_tax_level = medium

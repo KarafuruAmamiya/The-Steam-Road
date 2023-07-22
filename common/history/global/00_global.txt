@@ -144,6 +144,18 @@ GLOBAL = {
         }
     }
 	
+	c:PER = {
+		every_scope_state = {
+            limit = {
+				is_incorporated = yes
+                any_scope_pop = {
+					has_pop_religion = zoroastrian
+				}
+            }
+            add_modifier = zoroastrian_persecution
+        }
+	}
+	
 	c:IBE = {
 		every_scope_state = {
             limit = {
@@ -179,18 +191,6 @@ GLOBAL = {
             }
             add_modifier = {
 				name = kurdish_autonomy
-				months = -1
-			}
-        }
-	}
-	
-	c:PER = {
-		random_scope_state = {
-            limit = {
-				state_region = s:STATE_YAZD
-            }
-            add_modifier = {
-				name = council_of_zoroastrians
 				months = -1
 			}
         }

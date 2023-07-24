@@ -6,7 +6,13 @@
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
-			}		
+			}
+			create_building={
+				building="building_coffee_plantation"
+				level=2
+				reserves=1
+				activate_production_methods={ "default_building_coffee_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
 			create_building={
 				building="building_fishing_wharf"
 				level=1
@@ -21,7 +27,7 @@
 			}
 			create_building={
 				building="building_cotton_plantation"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
@@ -72,8 +78,14 @@
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
 			create_building={
+				building="building_coffee_plantation"
+				level=2
+				reserves=1
+				activate_production_methods={ "default_building_coffee_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
 				building="building_cotton_plantation"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
@@ -861,12 +873,12 @@
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
-			}		
+			}
 			create_building={
-				building="building_textile_mills"
-				level=1
+				building="building_coffee_plantation"
+				level=3
 				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+				activate_production_methods={ "default_building_coffee_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -876,7 +888,7 @@
 			}
 			create_building={
 				building="building_cotton_plantation"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
@@ -953,7 +965,13 @@
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_organization" }
-			}			
+			}
+			create_building={
+				building="building_cotton_plantation"
+				level=2
+				reserves=1
+				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
 			create_building={
 				building="building_dye_plantation"
 				level=2

@@ -257,5 +257,24 @@ GLOBAL = {
             }
         }
     }
+	
+	random_market = {
+		limit = {
+			owner = c:PER
+			any_trade_route = {
+				goods = g:opium
+				exporter.owner = c:PER
+			}
+		}
+		every_trade_route = {
+			limit = {
+				goods = g:opium
+				exporter.owner = c:PER
+			}
+			lock_trade_route = {
+				years = 10
+			}
+		}
+	}
 }
 

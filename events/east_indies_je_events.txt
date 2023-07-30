@@ -1,0 +1,52 @@
+﻿namespace = east_indies
+
+# Consolidation of [countryadjective] rule
+east_indies.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = east_indies.1.t
+	desc = east_indies.1.d # probably want a triggered desc here
+	flavor = east_indies.1.f
+
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = east_indies.1.a
+		default_option = yes
+		every_subject_or_below = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = south_asian_heritage
+				}
+			}
+			change_relations = {
+				country = ROOT
+				value = 30
+			}
+		}
+	}
+	option = {
+		name = east_indies.1.b
+		ig:ig_industrialists = {
+			add_modifier = {
+				name = east_india_company_men
+				months = long_modifier_time
+			}
+		}
+	}
+}

@@ -2369,16 +2369,20 @@
                     AND = {
                         scope:character ?= {
                             is_in_exile_pool = yes
-                            NOR = { 
-                                culture = cu:yakut 
+                            NOT = { 
                                 culture = cu:siberian
                             }
-                            culture = {
-                                OR = {
-                                    has_discrimination_trait = east_asian_heritage
-                                    has_discrimination_trait = north_asian_heritage
-                                }
-                            }   
+							OR = {
+								culture = cu:tuvan
+								culture = cu:altai
+								culture = {
+									OR = {
+										has_discrimination_trait = east_asian_heritage
+										has_discrimination_trait = north_asian_heritage
+										has_discrimination_trait = mongol_heritage
+									}
+								}
+							}
                         }
                     }
                 }
@@ -4051,6 +4055,7 @@ indian_royal_clothes = {
 						culture = cu:kamchatkan
 						culture = cu:yupik
 						culture = cu:aleut
+						culture = cu:nivkh
                     }
                 }
             }
@@ -5669,6 +5674,7 @@ home_country = {
 										has_discrimination_trait = southeast_asian_heritage
 										has_discrimination_trait = malay_heritage
 										has_discrimination_trait = north_asian_heritage
+										has_discrimination_trait = mongol_heritage
 										has_discrimination_trait = arabic_heritage
 										has_discrimination_trait = iranian_heritage
 										has_discrimination_trait = turkic_heritage
@@ -5691,6 +5697,7 @@ home_country = {
 										has_discrimination_trait = southeast_asian_heritage
 										has_discrimination_trait = malay_heritage
 										has_discrimination_trait = north_asian_heritage
+										has_discrimination_trait = mongol_heritage
 										has_discrimination_trait = arabic_heritage
 										has_discrimination_trait = iranian_heritage
 										has_discrimination_trait = turkic_heritage

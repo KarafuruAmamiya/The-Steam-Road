@@ -180,6 +180,14 @@ law_shared_heritage = {
 				has_discrimination_trait = lusophone
 				has_discrimination_trait = scandinavian_culture_group
 				has_discrimination_trait = beneluxian_culture_group
+				has_discrimination_trait = turkic_heritage
+				has_discrimination_trait = iranian_heritage
+				has_discrimination_trait = arabic_heritage
+				has_discrimination_trait = east_asian_heritage
+				has_discrimination_trait = north_asian_heritage
+				has_discrimination_trait = mongol_heritage
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
 			}
 		}
 	}
@@ -196,6 +204,14 @@ law_shared_heritage = {
 				has_discrimination_trait = lusophone
 				has_discrimination_trait = scandinavian_culture_group
 				has_discrimination_trait = beneluxian_culture_group
+				has_discrimination_trait = turkic_heritage
+				has_discrimination_trait = iranian_heritage
+				has_discrimination_trait = arabic_heritage
+				has_discrimination_trait = east_asian_heritage
+				has_discrimination_trait = north_asian_heritage
+				has_discrimination_trait = mongol_heritage
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
 			}
 		}
 	}
@@ -207,10 +223,81 @@ law_shared_heritage = {
 	cultural_acceptance_rule = {
 		custom_tooltip = {
 			text = shared_heritage_tt
-			OR = {
-				has_discrimination_trait = eastern_european_heritage
-				has_discrimination_trait = western_european_heritage
-				has_discrimination_trait = south_european_heritage
+			trigger_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = eastern_european_heritage
+								has_discrimination_trait = western_european_heritage
+								has_discrimination_trait = south_european_heritage
+								has_discrimination_trait = anglophone
+								has_discrimination_trait = francophone
+								has_discrimination_trait = hispanophone
+								has_discrimination_trait = lusophone
+								has_discrimination_trait = scandinavian_culture_group
+								has_discrimination_trait = beneluxian_culture_group
+							}
+						}
+					}
+				}
+				OR = {
+					has_discrimination_trait = eastern_european_heritage
+					has_discrimination_trait = western_european_heritage
+					has_discrimination_trait = south_european_heritage
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = turkic_heritage
+								has_discrimination_trait = iranian_heritage
+								has_discrimination_trait = arabic_heritage
+							}
+						}
+					}
+				}
+				OR = {
+					has_discrimination_trait = iranian_heritage
+					has_discrimination_trait = turkic_heritage
+					has_discrimination_trait = arabic_heritage
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = east_asian_heritage
+								has_discrimination_trait = north_asian_heritage
+								has_discrimination_trait = mongol_heritage
+							}
+						}
+					}
+				}
+				OR = {
+					has_discrimination_trait = east_asian_heritage
+					has_discrimination_trait = north_asian_heritage
+					has_discrimination_trait = mongol_heritage
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = southeast_asian_heritage
+								has_discrimination_trait = malay_heritage
+							}
+						}
+					}
+				}
+				OR = {
+					has_discrimination_trait = southeast_asian_heritage
+					has_discrimination_trait = malay_heritage
+				}
 			}
 		}
 	}
@@ -331,6 +418,42 @@ law_cultural_exclusion = {
 					has_discrimination_trait = iranian_heritage
 					has_discrimination_trait = turkic_heritage
 					has_discrimination_trait = arabic_heritage
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = east_asian_heritage
+								has_discrimination_trait = north_asian_heritage
+								has_discrimination_trait = mongol_heritage
+							}
+						}
+					}
+				}
+				OR = {
+					shares_trait_with_any_primary_culture = scope:country
+					has_discrimination_trait = east_asian_heritage
+					has_discrimination_trait = north_asian_heritage
+					has_discrimination_trait = mongol_heritage
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					scope:country = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait = southeast_asian_heritage
+								has_discrimination_trait = malay_heritage
+							}
+						}
+					}
+				}
+				OR = {
+					shares_trait_with_any_primary_culture = scope:country
+					has_discrimination_trait = southeast_asian_heritage
+					has_discrimination_trait = malay_heritage
 				}
 			}
 			trigger_else = {

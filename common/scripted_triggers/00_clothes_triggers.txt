@@ -488,7 +488,6 @@ chinese_court_clothes_trigger = {
 			}
 		}
 		culture = {
-			NOT = { this = cu:kalmyk }
 			OR = {
 				has_discrimination_trait = sinosphere
 				has_discrimination_trait = han_chinese
@@ -620,12 +619,17 @@ arabic_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
 		OR = {
-			culture = {
-				OR = {
-					has_discrimination_trait = arabic_heritage
-					has_discrimination_trait = iranian_heritage
-					has_discrimination_trait = turkic_heritage
-					has_discrimination_trait = aramaic_heritage
+			AND = {
+				culture = {
+					OR = {
+						has_discrimination_trait = arabic_heritage
+						has_discrimination_trait = iranian_heritage
+						has_discrimination_trait = turkic_heritage
+						has_discrimination_trait = aramaic_heritage
+					}
+				}
+				religion = {
+					has_discrimination_trait = muslim
 				}
 			}
 			culture = cu:circassian
@@ -870,14 +874,18 @@ overweight_trigger = {
 east_asian_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
-		NOR = { 
-			culture = cu:yakut 
+		NOT = { 
 			culture = cu:siberian
 		}
-		culture = {
-			OR = {
-				has_discrimination_trait = east_asian_heritage
-				has_discrimination_trait = north_asian_heritage
+		OR = {
+			culture = cu:tuvan
+			culture = cu:altai
+			culture = {
+				OR = {
+					has_discrimination_trait = east_asian_heritage
+					has_discrimination_trait = north_asian_heritage
+					has_discrimination_trait = mongol_heritage
+				}
 			}
 		}   
 	}
@@ -953,10 +961,14 @@ indigenous_oceanic_clothes_trigger = {
 circumpolar_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
+		NOT = { culture = cu:tuvan }
 		OR = {
 			culture = cu:inuit
 			culture = {
-				has_discrimination_trait = siberian_culture_group
+				OR = {
+					has_discrimination_trait = siberian_culture_group
+					has_discrimination_trait = paleosiberian_heritage
+				}
 			}
 		}
 		NOT = { is_pop_type = slaves }

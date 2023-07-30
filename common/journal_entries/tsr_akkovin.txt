@@ -12,7 +12,10 @@
 	}
 	
 	fail = {
-		is_at_war = no
+		OR = {
+			is_at_war = no
+			is_diplomatic_play_committed_participant = no
+		}
 		OR = {
 			is_subject = yes
 			any_scope_state = {
@@ -82,7 +85,7 @@
 					has_variable = completed_akkovin_reform_education_je
 					NOT = { has_variable = ideology_change }
 				}
-				trigger_event = { id = akkovin_crisis.2 }
+				trigger_event = { id = akkovin_crisis.17 }
 			}
 		}
 	}
@@ -1112,11 +1115,13 @@ je_akkovin_partition_tur = { #WIP
 	fail = {
 		custom_tooltip = {
 			text = akkovin_partition_fail_tt
-			exists = c:AKN
-			has_diplomatic_pact = {
-				who = c:AKN
-				type = war_reparations
-				is_initiator = no
+			AND = {
+				exists = c:AKN
+				has_diplomatic_pact = {
+					who = c:AKN
+					type = war_reparations
+					is_initiator = no
+				}
 			}
 		}
 	}
@@ -1214,11 +1219,13 @@ je_akkovin_partition_per = { #WIP
 	fail = {
 		custom_tooltip = {
 			text = akkovin_partition_fail_tt
-			exists = c:AKN
-			has_diplomatic_pact = {
-				who = c:AKN
-				type = war_reparations
-				is_initiator = no
+			AND = {
+				exists = c:AKN
+				has_diplomatic_pact = {
+					who = c:AKN
+					type = war_reparations
+					is_initiator = no
+				}
 			}
 		}
 	}

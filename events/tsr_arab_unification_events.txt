@@ -1,4 +1,5 @@
 ﻿namespace = arab_unification
+namespace = al_afghani_events
 
 # Unified Arabia
 arab_unification.1 = {
@@ -163,5 +164,425 @@ arab_unification.2 = {
 		ai_chance = {
 			base = 0
 		}
+	}
+}
+
+# Jamaluddin al-Afghani
+al_afghani_events.1 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = al_afghani_events.1.t
+	desc = al_afghani_events.1.d
+	flavor = al_afghani_events.1.f
+
+	cooldown = { months = short_modifier_time }
+
+	duration = 3
+
+	trigger = {
+		has_global_variable = nahda_start
+		game_date < 1877.1.1
+		NOT = {
+			has_variable = rejected_al_afghani
+		}
+		NOT = {
+			any_scope_character = {
+				has_variable = al_afghani_var
+			}
+		}
+		OR = { # Either al-Afghani is "dead" or he is an exile
+			NOT = {
+				any_character_in_exile_pool = {
+					has_variable = al_afghani_var
+				}
+				any_character = {
+					has_variable = al_afghani_var
+				}
+			}
+			any_character_in_exile_pool = {
+				has_variable = al_afghani_var
+			}
+		}
+		any_scope_state = {
+			OR = {
+				state_is_in_subsaharan_africa = no
+				state_is_in_americas = no
+				state_is_in_oceania = no
+				state_is_in_east_asia = no
+			}
+			any_scope_pop = {
+				OR = {
+					has_pop_religon = rel:sunni
+					has_pop_religon = rel:shiite
+					has_pop_religon = rel:ibadi
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					any_character_in_exile_pool = {
+						has_variable = al_afghani_var
+					}
+					any_character = {
+						has_variable = al_afghani_var
+					}
+				}
+			}
+			create_character = {
+				template = al_afghani_character_template
+				on_created = {
+					set_variable = al_afghani_var
+					set_variable = {
+						name = al_afghani_cooldown_var
+						months = short_modifier_time
+					}
+				}
+				save_scope_as = al_afghani_scope
+			}
+		}
+		else_if = {
+			random_character_in_exile_pool = {
+				limit = {
+					has_variable = al_afghani_var
+				}
+				transfer_character = root
+				save_scope_as = al_afghani_scope
+				set_variable = {
+					name = al_afghani_cooldown_var
+					months = short_modifier_time
+				}
+			}
+		}
+		save_scope_as = al_afghani_visiting_country
+	}
+
+	option = {
+		name = al_afghani_events.1.a #Suppress him
+		default_option = yes
+		show_as_tooltip = {
+			create_character = {
+				template = al_afghani_character_template
+			}
+		}
+		scope:al_afghani_scope = {
+			add_modifier = {
+				name = modifier_al_afghani_negative_popularity
+				months = short_modifier_time
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = al_afghani_events.1.b #Support his independence rhetorics
+		trigger = {
+			OR = {
+				country_has_state_religion = rel:sunni 
+				country_has_state_religion = rel:shiite
+				country_has_state_religion = rel:ibadi
+			}
+			is_subject = yes
+			any_overlord_or_above = {
+				NOR = {
+					country_has_state_religion = rel:sunni 
+					country_has_state_religion = rel:shiite
+					country_has_state_religion = rel:ibadi
+				}
+			}
+		}
+		show_as_tooltip = {
+			create_character = {
+				template = al_afghani_character_template
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:sunni 
+					country_has_state_religion = rel:shiite
+					country_has_state_religion = rel:ibadi
+				}
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:sunni 
+					country_has_state_religion = rel:shiite
+					country_has_state_religion = rel:ibadi
+				}
+				NOT = { has_technology_researched = political_agitation }
+			}
+			add_technology_progress = { progress = 1000 technology = political_agitation }
+		}
+		if = {
+			limit = { is_subject = yes }
+			change_relations = {
+				country = scope:overlord_scope
+				value = -20
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						country_has_state_religion = rel:sunni 
+						country_has_state_religion = rel:shiite
+						country_has_state_religion = rel:ibadi
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	option = {
+		name = al_afghani_events.1.c #A welcome addition to our country
+		show_as_tooltip = {
+			create_character = {
+				template = al_afghani_character_template
+			}
+		}
+		scope:al_afghani_scope = {
+			add_modifier = {
+				name = modifier_al_afghani_popularity
+				months = short_modifier_time
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					NOR = {
+						country_has_state_religion = rel:sunni 
+						country_has_state_religion = rel:shiite
+						country_has_state_religion = rel:ibadi
+					}
+				}
+				add = -100
+			}
+		}
+	}
+}
+
+# Al-Afghani Fucks Off
+al_afghani_events.2 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	title = al_afghani_events.2.t
+	desc = al_afghani_events.2.d
+	flavor = al_afghani_events.2.f
+
+	cooldown = { months = short_modifier_time }
+
+	duration = 3
+
+	trigger = {
+		any_scope_character = {
+			has_variable = al_afghani_var
+		}
+		AND = {
+			NOT = {
+				c:ARA ?= this
+			}
+			any_scope_character = {
+				has_variable = al_afghani_var
+				NOT = {
+					has_variable = al_afghani_cooldown_var
+				}
+			}
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			exists = scope:al_afghani_scope
+		}
+		scope:al_afghani_scope = {
+			is_character_alive = no
+		}
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = al_afghani_var
+			}
+			save_scope_as = al_afghani_scope
+		}
+		save_scope_as = al_afghani_old_visit
+	}
+
+	option = {
+		name = al_afghani_events.2.a
+		default_option = yes
+		scope:al_afghani_scope = {
+			exile_character = yes
+			clean_up_exile_character_roles = yes
+			if = {
+				limit = {
+					has_modifier = modifier_al_afghani_negative_popularity
+				}
+				remove_modifier = modifier_al_afghani_negative_popularity
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_al_afghani_popularity
+				}
+				remove_modifier = modifier_al_afghani_popularity
+			}
+		}
+	}
+}
+
+# Al-Afghani Riles Up Muslims
+al_afghani_events.3 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = al_afghani_events.3.t
+	desc = al_afghani_events.3.d
+	flavor = al_afghani_events.3.f
+
+	cooldown = { months = normal_modifier_time }
+
+	duration = 3
+
+	trigger = {
+		any_primary_culture = {
+			OR = {
+				has_discrimination_trait = western_european_heritage
+				has_discrimination_trait = eastern_european_heritage
+				has_discrimination_trait = south_european_heritage
+			}
+		}
+		NOR = {
+			country_has_state_religion = rel:sunni 
+			country_has_state_religion = rel:shiite
+			country_has_state_religion = rel:ibadi
+		}
+		any_scope_character = {
+			has_variable = al_afghani_var
+		}
+		any_scope_state = {
+			OR = {
+				state_is_in_subsaharan_africa = no
+				state_is_in_americas = no
+				state_is_in_oceania = no
+				state_is_in_east_asia = no
+			}
+			any_scope_pop = {
+				OR = {
+					has_pop_religon = rel:sunni
+					has_pop_religon = rel:shiite
+					has_pop_religon = rel:ibadi
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = al_afghani_var
+			}
+			save_scope_as = al_afghani_scope
+		}
+		random_scope_state = {
+			limit = {
+				any_scope_pop = {
+					OR = {
+						has_pop_religon = rel:sunni
+						has_pop_religon = rel:shiite
+						has_pop_religon = rel:ibadi
+					}
+				}
+			}
+			add_radicals_in_state = {
+				religion = rel:sunni
+				value = small_radicals
+			}
+			add_radicals_in_state = {
+				religion = rel:shiite
+				value = small_radicals
+			}
+			add_radicals_in_state = {
+				religion = rel:ibadi
+				value = small_radicals
+			}
+			save_scope_as = al_afghani_state_scope
+		}
+	}
+
+	option = {
+		name = al_afghani_events.3.a
+		default_option = yes
+		add_radicals = {
+			religion = rel:sunni
+			value = small_radicals
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = small_radicals
+		}
+		add_radicals = {
+			religion = rel:ibadi
+			value = small_radicals
+		}
+	}
+
+	option = {
+		name = al_afghani_events.3.b
+		highlighted_option = yes
+		scope:al_afghani_scope = {
+			exile_character = yes
+			clean_up_exile_character_roles = yes
+			if = {
+				limit = {
+					has_modifier = modifier_al_afghani_negative_popularity
+				}
+				remove_modifier = modifier_al_afghani_negative_popularity
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_al_afghani_popularity
+				}
+				remove_modifier = modifier_al_afghani_popularity
+			}
+		}
+		set_variable = rejected_al_afghani
 	}
 }

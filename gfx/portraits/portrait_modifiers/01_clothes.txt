@@ -4056,6 +4056,8 @@ indian_royal_clothes = {
 						culture = cu:yupik
 						culture = cu:aleut
 						culture = cu:nivkh
+						culture = cu:samoyedic
+						culture = cu:obugric
                     }
                 }
             }
@@ -4204,43 +4206,10 @@ indigenous_oceanic_high_clothes_recognized = {
                 scope:character ?= {
                     is_in_exile_pool = yes
                 }
-                AND = {
-                    scope:character ?= {
-                        home_country ?= {
-                            exists = c:HAW
-                            c:HAW = this
-                        }
-                    }
-                    OR = {
-                        ruler_clothes_trigger = yes
-                        politician_clothes_trigger = yes
-                    }                
-                }
             }
             OR = {
                 recognized_country_trigger = yes
                 recognized_country_pop_trigger = yes
-                OR = { # Hawaii does not need to be recognized in order for characters and pops to wear these clothes
-                    AND = {
-                        exists = scope:pop
-                        scope:pop = {
-                            home_country = {
-                                exists = c:HAW
-                                c:HAW = this
-                            }                        
-                        }
-                    }
-                    AND = {
-                        exists = scope:character
-                        scope:character = {
-							exists = home_country
-                            home_country = {
-                                exists = c:HAW
-                                c:HAW = this
-                            }                        
-                        }
-                    }
-                }
             }
         }
     }

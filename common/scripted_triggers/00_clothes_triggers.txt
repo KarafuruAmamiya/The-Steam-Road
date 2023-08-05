@@ -673,8 +673,10 @@ european_clothes_trigger = {
 				has_discrimination_trait = uralic_heritage
 			}
 		}
-		NOT = {
+		NOR = {
 			culture = cu:circassian
+			culture = cu:samoyedic
+			culture = cu:obugric
 		}
 		NOT = {
 			AND = { # Albanian characters serving either the Ottomans or Egyptians should wear that country's clothing.
@@ -914,8 +916,10 @@ european_clothes_pop_trigger = {
 				has_discrimination_trait = uralic_heritage
 			}
 		}
-		NOT = {
+		NOR = {
 			culture = cu:circassian
+			culture = cu:samoyedic
+			culture = cu:obugric
 		}
 	}
 }
@@ -964,6 +968,8 @@ circumpolar_clothes_pop_trigger = {
 		NOT = { culture = cu:tuvan }
 		OR = {
 			culture = cu:inuit
+			culture = cu:samoyedic
+			culture = cu:obugric
 			culture = {
 				OR = {
 					has_discrimination_trait = siberian_culture_group

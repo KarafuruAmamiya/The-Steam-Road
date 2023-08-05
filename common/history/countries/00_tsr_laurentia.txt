@@ -479,16 +479,23 @@
 			institution = institution_schools
 			level = 1
 		}
+		
+		ig:ig_intelligentsia = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
 
 		ig:ig_devout = {
+			set_ig_suppression = yes
 			set_interest_group_name = ig_catholic_church
-			add_ruling_interest_group = yes
 		}
 		
 		ig:ig_rural_folk = {
 			remove_ideology = ideology_isolationist
 			add_ideology = ideology_isolationist_expansionism
-			add_ruling_interest_group = yes
 		}
 	}
 	c:SML = { # Seminole

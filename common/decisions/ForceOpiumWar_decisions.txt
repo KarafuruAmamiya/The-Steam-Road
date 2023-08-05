@@ -1,0 +1,42 @@
+﻿FOW_start_opium_war_play_dec = {
+    is_shown = {
+        has_journal_entry = je_opium_wars
+        exists = c:PER
+        is_ai  = yes # AI only; player doesn't need help starting the Opium War lol just start the damn diplo play
+    }
+    
+    possible = {
+        is_at_war = no
+        is_diplomatic_play_committed_participant = no
+        c:PER ?= {
+            NOT = {
+                has_truce_with = root
+            }
+        }
+    }
+    
+    when_taken = {
+        set_variable = {
+            name  = FOW_decision_taken
+            value = yes
+        }
+        
+        create_diplomatic_play = {
+			target_country = c:PER
+			type = dp_opium_wars
+        }
+		
+		trigger_event = { id = opium_wars.9 }
+    }
+    
+    ai_chance = {
+        base     = 5 # Small random chance for it to happen early
+        modifier = {
+            add     = 1000000 # Large modifier in order to meet...
+            trigger = {
+                # ...the historical start date of the war Sept 4, 1849
+                game_date >= 1849.05.25 # Roughly 100 days before the date so war starts on or close to it
+            }
+        }
+    }
+}

@@ -218,3 +218,34 @@ dp_leadership_arabia = {
 
 	on_war_end = {}
 }
+
+dp_opium_wars = {
+	requires_interest_marker = yes
+	enable_switch_sides = no
+	allow_negotiated_peace = yes
+	initiator_can_add_war_goals = no
+	target_can_add_war_goals = no
+
+	war_goal = war_reparations
+	
+	texture = "gfx/interface/icons/war_goals/humiliation.dds"
+	
+	possible = {	
+		is_subject = no
+
+		scope:target_country = {
+			aggressive_diplomatic_plays_permitted = yes
+			has_variable = opium_wars_exporter
+		}
+	}
+	
+	selectable_in_lens = {
+		has_journal_entry = je_opium_wars
+	}	
+	
+	on_weekly_pulse = {}
+	
+	on_war_begins = {}
+
+	on_war_end = {}
+}

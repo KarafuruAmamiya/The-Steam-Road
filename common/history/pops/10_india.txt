@@ -287,7 +287,7 @@
 		}
 	}
 	s:STATE_AWADH = {
-		region_state:HNS = {
+		region_state:DLH = {
 			create_pop = {
 				culture = avadhi
 				size = 3004000
@@ -316,7 +316,7 @@
 		}
 	}
 	s:STATE_DOAB = {
-		region_state:HNS = {
+		region_state:DLH = {
 			create_pop = {
 				culture = kanauji
 				size = 1814800
@@ -367,7 +367,7 @@
 		}
 	}
 	s:STATE_PURVANCHAL = {
-		region_state:HNS = {
+		region_state:DLH = {
 			create_pop = {
 				culture = bihari
 				size = 1803400
@@ -430,7 +430,7 @@
 		}
 	}
 	s:STATE_BUNDELKHAND = {
-		region_state:HNS = {
+		region_state:DLH = {
 			create_pop = {
 				culture = bundeli
 				size = 723400
@@ -509,40 +509,115 @@
 				size = 3000 
 			}
 		}
+		region_state:GWA = {
+			create_pop = {
+				culture = bundeli
+				size = 960992
+			}
+			create_pop = {
+				culture = bundeli
+				religion = sunni
+				size = 140550
+			}
+			create_pop = {
+				culture = bundeli
+				religion = jainist
+				size = 20000
+			}
+			create_pop = {
+				culture = malvi
+				size = 45660
+			}
+			create_pop = {
+				culture = marathi
+				size = 50660
+			}
+			create_pop = {
+				culture = avadhi
+				size = 55002
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = bundeli
+				size = 63000 
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = bundeli
+				size = 5002
+			}
+		}
 	}
 	s:STATE_GUJARAT = {
 		region_state:PER = {
 			create_pop = {
 				culture = gujarati
-				size = 6634412
+				size = 4566003
 			}
 			create_pop = {
-				culture = persian
+				culture = perso_indian
 				religion = zoroastrian # Parsi
-				size = 120000
+				size = 100000
 			}
 			create_pop = {
 				culture = gujarati
 				religion = jainist
-				size = 81200
+				size = 50000
 			}
 			create_pop = {
 				culture = persian
-				size = 310000
+				size = 100000
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = gujarati
+				size = 49000
+			}
+			create_pop = {
+				culture = perso_indian
+				size = 15000
+			}
+			create_pop = {
+				pop_type = slaves
+				culture = gujarati
+				religion = jainist
+				size = 5000
+			}
+		}
+	}
+	s:STATE_SAURASHTRA = {
+		region_state:PER = {
+			create_pop = {
+				culture = gujarati
+				size = 2177000
+			}
+			create_pop = {
+				culture = perso_indian
+				religion = zoroastrian # Parsi
+				size = 20000
+			}
+			create_pop = {
+				culture = gujarati
+				religion = jainist
+				size = 36000
 			}
 			create_pop = {
 				culture = persian
-				pop_type = officers
-				size = 500
+				size = 210000
 			}
 			create_pop = {
 				culture = sindi
 				size = 318300
 			}
 			create_pop = {
+				culture = persian
+				pop_type = officers
+				size = 1000
+			}
+			create_pop = {
 				pop_type = slaves
 				culture = gujarati
-				size = 110000
+				size = 52000
 			}
 			create_pop = {
 				culture = perso_indian
@@ -608,46 +683,6 @@
 			}
 		}
 	}
-	s:STATE_GWALIOR = {
-		region_state:GWA = {
-			create_pop = {
-				culture = bundeli
-				size = 860992
-			}
-			create_pop = {
-				culture = bundeli
-				religion = sunni
-				size = 140550
-			}
-			create_pop = {
-				culture = bundeli
-				religion = jainist
-				size = 20000
-			}
-			create_pop = {
-				culture = malvi
-				size = 45660
-			}
-			create_pop = {
-				culture = marathi
-				size = 150660
-			}
-			create_pop = {
-				culture = avadhi
-				size = 55002
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = bundeli
-				size = 63000 
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = bundeli
-				size = 5002
-			}
-		}
-	}
 	s:STATE_GONDWANA = {
 		region_state:NAG = {
 			create_pop = {
@@ -665,7 +700,7 @@
 			}
 			create_pop = {
 				culture = malvi
-				size = 78000
+				size = 178000
 			}
 			create_pop = {
 				culture = marathi
@@ -1198,7 +1233,7 @@
 				size = 1644600
 			}
 			create_pop = {
-				culture = sindi
+				culture = perso_indian
 				religion = zoroastrian
 				size = 5000
 			}
@@ -2092,7 +2127,7 @@
 				size = 11000
 			}
 			create_pop = {
-				culture = persian
+				culture = perso_indian
 				religion = zoroastrian
 				size = 20000
 			}

@@ -280,7 +280,7 @@
 		}
 	}
 	s:STATE_AWADH={
-		region_state:HNS={
+		region_state:DLH={
 			create_building={
 				building="building_government_administration"
 				level=10
@@ -314,7 +314,7 @@
 		}
 	}
 	s:STATE_DOAB={
-		region_state:HNS={
+		region_state:DLH={
 			create_building={
 				building="building_furniture_manufacturies"
 				level=3
@@ -336,7 +336,7 @@
 		}
 	}
 	s:STATE_PURVANCHAL={
-		region_state:HNS={
+		region_state:DLH={
 			create_building={
 				building="building_rice_farm"
 				level=6
@@ -380,7 +380,7 @@
 		}
 	}
 	s:STATE_BUNDELKHAND={
-		region_state:HNS={
+		region_state:DLH={
 			create_building={
 				building="building_rice_farm"
 				level=6
@@ -420,6 +420,26 @@
 				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}
 		}
+		region_state:GWA={
+			create_building={
+				building="building_cotton_plantation"
+				level=1
+				reserves=1
+				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_opium_plantation"
+				level=3
+				reserves=1
+				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_barracks"
+				level=10
+				reserves=1
+				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
+			}
+		}
 	}
 	s:STATE_GUJARAT={
 		region_state:PER={
@@ -431,27 +451,15 @@
 			}
 			create_building={
 				building="building_furniture_manufacturies"
-				level=10
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_lathe" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
 			create_building={
-				building="building_tooling_workshops"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_automation_disabled" "pm_pig_iron" "pm_privately_owned_building_tooling_workshops" }
-			}
-			create_building={
 				building="building_textile_mills"
-				level=5
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
-			}
-			create_building={
-				building="building_fishing_wharf"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
 			create_building={
 				building="building_sugar_plantation"
@@ -464,6 +472,34 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_port"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		}
+	}
+	s:STATE_SAURASHTRA={
+		region_state:PER={
+			create_building={
+				building="building_tooling_workshops"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_automation_disabled" "pm_pig_iron" "pm_privately_owned_building_tooling_workshops" }
+			}
+			create_building={
+				building="building_textile_mills"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_dye_workshops" "pm_craftsman_sewing" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_fishing_trawlers" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
 			create_building={
 				building="building_barracks"
@@ -479,7 +515,7 @@
 			}
 			create_building={
 				building="building_port"
-				level=3
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
@@ -528,28 +564,6 @@
 			create_building={
 				building="building_barracks"
 				level=15
-				reserves=1
-				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
-			}
-		}
-	}
-	s:STATE_GWALIOR={
-		region_state:GWA={
-			create_building={
-				building="building_cotton_plantation"
-				level=1
-				reserves=1
-				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
-			}
-			create_building={
-				building="building_opium_plantation"
-				level=3
-				reserves=1
-				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
-			}
-			create_building={
-				building="building_barracks"
-				level=10
 				reserves=1
 				activate_production_methods={ "pm_irregular_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
 			}

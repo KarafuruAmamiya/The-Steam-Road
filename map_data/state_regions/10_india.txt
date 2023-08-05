@@ -142,13 +142,13 @@ STATE_AWADH = {
 STATE_BUNDELKHAND = {
     id = 627
     subsistence_building = "building_subsistence_rice_paddies"
-    provinces = { xDC471F x048AD9 x52F672 x6738CF x277419 x6170A0 x5272B3 xE81D4F xEB50A4 x907021 x5FEE46 x68D277 xEB362A xDB0DEC x0D7633 x58E042 x9E6DB9 x63AA19 }
-    traits = { "state_trait_ganges_river" }
+    provinces = { xDC471F x048AD9 x52F672 x6738CF x277419 x6170A0 x5272B3 xE81D4F xEB50A4 x907021 x5FEE46 x68D277 xEB362A xDB0DEC x0D7633 x58E042 x9E6DB9 x63AA19 x6A8538 xCD2556 xDCAFE4 xFBDCC9 x87DE7B x897F27 xE3AF55 xAA246A x0A05FF xC4F4E4 }
+    traits = { "state_trait_ganges_river" "state_trait_good_soils" }
     city = ""
     farm = ""
     mine = ""
     wood = ""
-    arable_land = 200
+    arable_land = 250
     arable_resources = { "bg_rice_farms" "bg_livestock_ranches" "bg_coffee_plantations" "bg_cotton_plantations" "bg_dye_plantations" "bg_opium_plantations" "bg_tea_plantations" "bg_tobacco_plantations" }
     capped_resources = {
         bg_logging = 17
@@ -174,19 +174,19 @@ STATE_PURVANCHAL = {
 STATE_GUJARAT = {
     id = 461
     subsistence_building = "building_subsistence_rice_paddies"
-    provinces = { "x03C674" "x075A8E" "x0A4C7A" "x0C6CB1" "x128888" "x164DBB" "x30D060" "x30E365" "x3151E0" "x31D0E0" "x3FFA53" "x4133D4" "x49DDB8" "x4EB354" "x697511" "x73656F" "x7E0401" "x8F568D" "x90052D" "x90B589" "x9C8D06" "xADD2A3" "xB05060" "xB0D060" "xB11F7B" "xB3D1CD" "xB89EF0" "xB9D851" "xBBB2BD" "xC0310F" "xC7C3FD" "xCC1D23" "xD31590" "xD77765" "xD8CEF7" "xEB1229" "xEB6009" "xECB4F5" "xF01160" "xF64FA2" "xF87E91" "xFC0FC1" }
-    prime_land = { "x31D0E0" "xB0D060" "x9C8D06" "xADD2A3" "xCC1D23" "xF87E91" "xC7C3FD" "x3151E0" "x128888" "xD31590" "x3FFA53" }
+    provinces = { "x03C674" "x128888" "x3151E0" "x31D0E0" "x3FFA53" "x4133D4" "x4EB354" "x73656F" "x7E0401" "x90052D" "x90B589" "x9C8D06" "xADD2A3" "xC7C3FD" "xCC1D23" "xD31590" "xD8CEF7" "xEB1229"  "xECB4F5" "xF01160" "xF87E91" }
+    prime_land = { "x31D0E0" "x9C8D06" "xADD2A3" "xCC1D23" "xF87E91" "xC7C3FD" "x3151E0" "x128888" "xD31590" "x3FFA53" }
     traits = { "state_trait_natural_harbors" "state_trait_narmada_river" }
     city = "x3151E0"
-    port = "xB3D1CD"
+    port = ""
     farm = "x31D0E0"
-    mine = "x164DBB"
-    wood = "xB05060"
-    arable_land = 185
+    mine = ""
+    wood = ""
+    arable_land = 155
     arable_resources = { "bg_rice_farms" "bg_livestock_ranches" "bg_coffee_plantations" "bg_cotton_plantations" "bg_dye_plantations" "bg_opium_plantations" "bg_tea_plantations" "bg_tobacco_plantations" "bg_sugar_plantations" "bg_banana_plantations" }
     capped_resources = {
         bg_logging = 8
-        bg_fishing = 16
+        bg_fishing = 10
     }
     resource = {
         type = "bg_oil_extraction"
@@ -212,20 +212,23 @@ STATE_GONDWANA = {
     }
 }
 
-STATE_GWALIOR = {
+STATE_SAURASHTRA = {
     id = 635
     subsistence_building = "building_subsistence_rice_paddies"
-    provinces = { x6A8538 xCD2556 xDCAFE4 xFBDCC9 x87DE7B x897F27 xE3AF55 xAA246A x0A05FF xC4F4E4 }
+    provinces = { xC0310F x8F568D xEB6009 xB05060 xF64FA2 xB89EF0 x0A4C7A x49DDB8 xB0D060 x697511 x0C6CB1 x30D060 xB3D1CD x30E365 x075A8E xFC0FC1 xD77765 xB9D851 xBBB2BD xB11F7B x164DBB }
     traits = { "state_trait_good_soils" }
     city = ""
     farm = ""
     mine = ""
     wood = ""
-    arable_land = 50
-    arable_resources = { "bg_rice_farms" "bg_livestock_ranches" "bg_coffee_plantations" "bg_cotton_plantations" "bg_dye_plantations" "bg_opium_plantations" "bg_tea_plantations" "bg_banana_plantations" }
+    port = ""
+    arable_land = 30
+    arable_resources = { "bg_rice_farms" "bg_livestock_ranches" "bg_coffee_plantations" "bg_cotton_plantations" "bg_dye_plantations" "bg_opium_plantations" "bg_tea_plantations" "bg_tobacco_plantations" "bg_sugar_plantations" "bg_banana_plantations" }
     capped_resources = {
-        bg_logging = 6
+        bg_logging = 5
+        bg_fishing = 6
     }
+    naval_exit_id = 3048
 }
 
 STATE_MALWA = {

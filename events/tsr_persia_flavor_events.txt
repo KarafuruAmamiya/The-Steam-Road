@@ -1,0 +1,396 @@
+﻿namespace = persian_flavor
+namespace = persian_renaissance
+namespace = karakum_frontier
+
+#Persian Flavor
+persian_flavor.1 = { #The Rights of Zoroastrians
+	type = country_event
+	title = persian_flavor.1.t
+	desc = persian_flavor.1.d
+	flavor =  persian_flavor.1.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_religion.dds"
+	
+	trigger = {
+		#triggered by decision
+	}
+	option = { #Give them only the slightest basic rights
+		name = persian_flavor.1.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				has_modifier = zoroastrian_persecution
+			}
+			remove_modifier = zoroastrian_persecution
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = { #Religious minorities deserve equal status to other citizens of the Empire
+		name = persian_flavor.1.b
+		every_scope_state = {
+			limit = {
+				has_modifier = zoroastrian_persecution
+			}
+			remove_modifier = zoroastrian_persecution
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_state_atheism }
+			}
+			every_scope_state = {
+				limit = {
+					is_incorporated = yes
+					any_scope_pop = {
+						has_pop_religion = zoroastrian
+					}
+				}
+				add_modifier = {
+					name = council_of_zoroastrians
+					months = -1
+				}
+			}
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = medium_radicals
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = tolerated_heathens
+				months = long_modifier_time
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				name = zandism_var
+				add = 1
+			}
+		}
+		
+		ai_chance = {
+			base = 75
+		}
+	}
+}
+
+persian_flavor.2 = { #Fire Temple vandalized!
+	type = country_event
+	placement = scope:yazd_scope
+	title = persian_flavor.2.t
+	desc = persian_flavor.2.d
+	flavor =  persian_flavor.2.f
+	duration = 3
+	event_image = {
+		video = "unspecific_vandalized_storefront"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	
+	trigger = {
+	}
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_YAZD
+			}
+			save_scope_as = yazd_scope
+		}
+	}
+	
+	option = { #Tolerate the violence
+		name = persian_flavor.2.a
+		default_option = yes
+		scope:yazd_scope = {
+			add_radicals_in_state = {
+				value = large_radicals
+				religion = rel:zoroastrian
+			}
+			add_modifier = {
+				name = anti_zoroastrian_tolerated
+				months = long_modifier_time
+			}
+		}
+	}
+	option = { #Punish the perpetrators
+		name = persian_flavor.2.b
+		scope:yazd_scope = {
+			add_radicals_in_state = {
+				value = large_radicals
+				religion = rel:shiite
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				name = zandism_var
+				add = 1
+			}
+		}
+	}
+}
+
+# Mohammad Hussain Zand
+persian_flavor.3 = {
+	type = country_event
+	placement = scope:arabestan_state
+	title = persian_flavor.3.t
+	desc = persian_flavor.3.d
+	flavor = persian_flavor.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:mohammad_zand_scope
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	trigger = {
+		ig:ig_devout = {
+			is_marginal = no
+			ig_approval <= 0	
+		}
+		game_date >= 1865.1.1
+		game_date < 1900.1.1
+		NOT = { has_global_variable = mohammad_zand_var }
+		any_scope_state = {
+			state_region = s:STATE_KHUZESTAN
+		}
+	}
+
+	immediate = {
+		set_global_variable = mohammad_zand_var
+		create_character = {
+			template = per_mohammad_zand_character_template
+			on_created = {
+				set_variable = mohammad_zand
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = mohammad_zand
+			}
+			save_scope_as = mohammad_zand_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KHUZESTAN
+			}
+			save_scope_as = arabestan_state
+		}
+	}
+
+	option = {
+		name = persian_flavor.3.a #Suppress him
+		default_option = yes
+		show_as_tooltip = {
+			create_character = {
+				template = per_mohammad_zand_character_template
+			}
+		}
+		scope:arabestan_state = {
+			add_radicals_in_state = {
+				religion = rel:shiite
+				value = small_radicals
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = persian_flavor.3.b #Support his rhetorics
+		show_as_tooltip = {
+			create_character = {
+				template = per_mohammad_zand_character_template
+			}
+		}
+		scope:mohammad_zand_scope = {
+			set_as_interest_group_leader = yes
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+#Persian Renaissance
+persian_renaissance.1 = { #Founding of the Academy of Iran
+	type = country_event
+	title = persian_renaissance.1.t
+	desc = persian_renaissance.1.d
+	flavor =  persian_renaissance.1.f
+	duration = 3
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	option = { #
+		name = persian_renaissance.1.a
+		default_option = yes
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = academy_of_iran_modifier
+				months = long_modifier_time
+			}
+		}
+	}
+}
+
+persian_renaissance.2 = { #National Museum of Iran
+	type = country_event
+	title = persian_renaissance.2.t
+	desc = persian_renaissance.2.d
+	flavor =  persian_renaissance.2.f
+	duration = 3
+	event_image = {
+		texture = "gfx/event_pictures/iran_museum.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	option = { #
+		name = persian_renaissance.2.a
+		default_option = yes
+		add_modifier = {
+			name = national_museum_modifier
+			months = long_modifier_time
+		}
+	}
+}
+
+persian_renaissance.3 = { #Ctesiphon
+	type = country_event
+	title = persian_renaissance.3.t
+	desc = persian_renaissance.3.d
+	flavor =  persian_renaissance.3.f
+	duration = 3
+	event_image = {
+		texture = "gfx/event_pictures/ctesiphon.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	
+	immediate = {
+		set_global_variable = ctesiphon_finished
+	}
+	
+	option = {
+		name = persian_renaissance.3.a
+		default_option = yes
+	}
+}
+
+persian_renaissance.4 = { #Susa
+	type = country_event
+	title = persian_renaissance.4.t
+	desc = persian_renaissance.4.d
+	flavor =  persian_renaissance.4.f
+	duration = 3
+	event_image = {
+		texture = "gfx/event_pictures/susa.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	
+	immediate = {
+		set_global_variable = susa_finished
+	}
+	
+	option = {
+		name = persian_renaissance.4.a
+		default_option = yes
+	}
+}
+
+persian_renaissance.5 = { #Persepolis
+	type = country_event
+	title = persian_renaissance.5.t
+	desc = persian_renaissance.5.d
+	flavor =  persian_renaissance.5.f
+	duration = 3
+	event_image = {
+		texture = "gfx/event_pictures/persepolis.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	
+	immediate = {
+		set_global_variable = persepolis_finished
+	}
+	
+	option = {
+		name = persian_renaissance.5.a
+		default_option = yes
+	}
+}
+
+persian_renaissance.6 = { #Fire Temple of Yazd
+	type = country_event
+	title = persian_renaissance.6.t
+	desc = persian_renaissance.6.d
+	flavor =  persian_renaissance.6.f
+	duration = 3
+	event_image = {
+		texture = "gfx/event_pictures/atesh_beram.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	
+	immediate = {
+		set_global_variable = fire_temple_finished
+	}
+	
+	option = {
+		name = persian_renaissance.6.a
+		default_option = yes
+	}
+}
+
+#Karakum Frontier events
+#The ancient city of Merv, previously fading into obscurity ever since its sacking by the Mongols, has experienced some revitalization as a developing #industrial center in [ROOT.GetCountry.GetName]. However, it is lacking in manpower if we wish to turn it into an industrial city, and local governors #suggest incorporating the Turkmen nomads into farms and factories.

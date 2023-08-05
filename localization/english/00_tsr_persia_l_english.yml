@@ -2,13 +2,104 @@
 
  #Eclipse of Persia
  je_eclipse_of_persia: "Eclipse of Persia"
- je_eclipse_of_persia_reason: "The Persian Empire under the Safavid dynasty has been the dominant power in the Iranian Plateau and one of Asia's major powers for centuries. However, slight hints of decline has begun, and it remains to be seen whether the empire can make it through the turn of century."
+ je_eclipse_of_persia_reason: "The Persian Empire under the Safavid dynasty has been the dominant power in the Iranian Plateau and one of Asia's major powers for centuries. However, hints of decline has surfaced, and it remains to be seen whether the empire can make it through the turn of the century."
+ je_eclipse_of_persia_goal: "A number of factors risk accelerating the decline of [SCOPE.GetRootScope.GetCountry.GetName]"
+ persia_eclipse_criteria: "Each of the following will contribute #red 20%#! to the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Losing control over #BOLD India#!\n- Losing control over #BOLD Arabia#!\n- Failing to stop the #BOLD Zandi Rebellion#!\n- Failing to stop #BOLD European#! enroachment into the Iranian homelands\n- Failing the #BOLD Iranian Renaissance [concept_journal_entry]#!\n- Going into debt and taking any [concept_loans]\n- Having a [concept_civil_war]\n- Becoming a [concept_subject] under another country\n- Abolishing the [SCOPE.sLaw('monarchy_scope').GetName]\n\nEach of the following will detract #green -20%#! from the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Winning the #BOLD Opium Wars#!\n- Successfully concluded the #BOLD Constitutional Revolution#!\n- Finishing the #BOLD Stamp Out Monarchism#! [concept_journal_entry]\n- No #BOLD European#! country borders the Iranian homelands"
+ persia_eclipse_point_add_name: "Eclipse Accelerated"
+ persia_eclipse_point_add_desc: "The decline of [SCOPE.GetRootScope.GetCountry.GetName] has progressed further."
+ persia_eclipse_point_add_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
+ persia_eclipse_point_remove_name: "Eclipse Halted"
+ persia_eclipse_point_remove_desc: "The decline of [SCOPE.GetRootScope.GetCountry.GetName] has been temporarily halted."
+ persia_eclipse_point_remove_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
+ persia_abolished_monarchy_tt: "Successfully concluded the #BOLD Stamp Out Monarchism#! Journal Entry"
+ 
+ je_rise_of_zandism: "Rise of Zandism"
+ je_rise_of_zandism_reason: "Dangerous radical Islamists are inspiring dissent across the nation. They pose an extreme threat; if they can rally enough people to their beliefs, they will attempt to overthrow our rightful government. These madmen must be stopped at all costs."
+ rejected_zand_tt: "Mohammad Hussain Zand has appeared and we have rejected him."
+ 
+ #Persian Renaissance
+ je_persian_renaissance: "Iranian Renaissance"
+ je_persian_renaissance_reason: "Beginning in the 19th century, the westernization of Iran has brought with them new ideas and knowledge, and with it a new renaissance for culture and enlightenment. By embracing it, we shall increase the glory of our nation and exude our national pride to the world."
+ je_persian_renaissance_goal: "We have facilitated all 6 aspects of the Iranian Renaissance."
+ 
+ persian_renaissance_science_philosophy_button: "Science, Philosophy, and Intellectualism"
+ persian_renaissance_science_philosophy_button_desc: "Long before the European Renaissance generated the radical ideas that eventually reshaped the West, Iranian statesmen, artists, and intellectuals had formulated ideas that strikingly anticipate those of modernity. However, these intellectual reforms encountered a widespread opposition from the court and the Ulemma. Now that our empire has embraced the possibility of another reform, let us encourage the new generation of intellectuals."
+ persian_renaissance_historical_sites_button: "Our Ancient Past"
+ persian_renaissance_historical_sites_button_desc: "The ancient history of Iran has an impressively rich and varied cultural legacy that has influenced not only our civilization but also those of the West and East until today. By restoring the ruins of the past, we may continue to inspire the future."
+ persian_renaissance_literature_button: "Promote Literary Works"
+ persian_renaissance_literature_button_desc: "The rise of popular literature reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics. By facilitating them, we can increase the support of reforms in our country."
+ persian_renaissance_architecture_button: "Commission Architectural Works"
+ persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West has led to a new architectural movement that combines neoclassical-style buildings prevalent in Europe with traditional Iranian architecture. Let us adopt this new architectural style to signify our move toward modernization."
+ persian_renaissance_art_and_music_button: "Encourage Artists and Musicians"
+ persian_renaissance_art_and_music_button_desc: "Ever since the 1780 Revolution, young artists musicians sought new forms of art and music to synchronize with the tide of social changes. The relative laxing of religious laws has also allowed more freedom for artisians to express themselves in various new ways. Let us sponsor these new artistic movements within our country."
+ persian_renaissance_romantic_nationalism_button: "The Iranian Identity"
+ persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, through the rise of nationalism we shall be more united than ever before."
+ 
+ persian_renaissance.1.t: "The Academy of Iran"
+ persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [GetPlayer.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
+ persian_renaissance.1.f: "The academy was a key institution in the struggle to build Iran as a nation-state. The academy led massive campaigns to replace the many Arabic, French, and Greek loanwords whose immense use in Persian during the previous centuries had created a literary language considerably different from the spoken Persian of the time."
+ persian_renaissance.1.a: "Excellent!"
+ 
+ persian_renaissance.2.t: "National Museum of Iran"
+ persian_renaissance.2.d: "With various excavation projects and revitalization of relics from bygone eras, the people have realized the importance of cultural heritage. By the order of [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] [GetPlayer.GetRuler.GetFullName], the National Museum of Iran was constructed, built in collaboration with foreign architects and was opened to public."
+ persian_renaissance.2.f: "At the beginning, the first floor of the museum was dedicated to the pre-Islamic era, and the second floor of the museum was dedicated to the post-Islamic era. However, the works of the Islamic era were officially separated from the museum and moved to the adjacent building, which was built a few decades later. This separated the museum into the Museum of Ancient Iran and the Museum of Islamic Archaeology and Art of Iran.\nThe Museum of Ancient Iran consists of two floors. Its halls contain artifacts and fossils from the Lower, Middle, and Upper Paleolithic, as well as the Neolithic, Chalcolithic, early and late Bronze Age, and Iron Ages I-III, through the Median, Achaemenid, Seleucid, Parthian, and Sassanian eras.\nMeanwhile, the Museum of the Islamic era contains Islamic artifacts, with the second floor containing the early Islamic, Seljuq, and Ilkhanid periods while the first floor houses the holy Qurān hall, and artifacts of the Timurid, Zahedi, and Safavid periods."
+ persian_renaissance.2.a: "Wonderful."
+ 
+ persian_renaissance.3.t: "The Excavation of Ctesiphon"
+ persian_renaissance.3.d: "Located on the eastern bank of the Tigris southeast of present-day Baghdad, Ctesiphon served as a royal capital of the empires in the Parthian and Sasanian eras for over eight hundred years until the Muslim conquest of Persia. Ctesiphon developed into a rich commercial metropolis, merging with the surrounding cities along both shores of the river. The city went into a rapid decline after the founding of the Abbasid capital at Baghdad in the 760s, and soon became a ghost town."
+ persian_renaissance.3.f: ""
+ persian_renaissance.3.a: "Wonderful."
+ 
+ persian_renaissance.4.t: "The Excavation of Susa"
+ persian_renaissance.4.d: "One of the most important cities of the Ancient Near East, Susa served as the capital of Elam and the Achaemenid Empire, and remained a strategic centre during the Parthian and Sasanian periods. After being captured by the Muslims, Susa recovered and remained a regional center of more than 400 hectares in size. In 1218, the city was razed by invading Mongols and was never able to regain its previous importance. The city further degraded in the 15th century when the majority of its population moved to Dezful."
+ persian_renaissance.4.f: ""
+ persian_renaissance.4.a: "Wonderful."
+ 
+ persian_renaissance.5.t: "The Excavation of Persepolis"
+ persian_renaissance.5.d: "Persepolis was the ceremonial capital of the Achaemenid Empire. It was constructed by Darius I and appears to have been a grand ceremonial complex that was only occupied seasonally, while the country's true capital remained in Susa. The city was destroyed by Alexander the Great and gradually declined in the course of time. The hometown of the Sasanian Dynasty, Estakhr, was found five kilometers north of Persepolis. In the 10th century, Estakhr dwindled to insignificance, eclipsed by the new metropolis of Shiraz, and gradually declined, until it ceased to exist as a city."
+ persian_renaissance.5.f: ""
+ persian_renaissance.5.a: "Wonderful."
+ 
+ persian_renaissance.6.t: "The Fire Temple of Yazd"
+ persian_renaissance.6.d: "The Atash Beram of Yazd has been burning since about 470 AD, originally started by a Sassanian Shah. From there it was transferred to Aqda where it was kept for 700 years. The fire was then moved in 1173 to Nahid-e Pars temple in Ardakan, where it remained for 300 years until it was moved again to the house of a high priest in Yazd. With the construction of the new temple finished, the fire is now finally consecrated in its new home."
+ persian_renaissance.6.f: ""
+ persian_renaissance.6.a: "Wonderful."
+ 
+ #Persian flavor events
+ persian_flavor.1.t: "The Rights of Zoroastrians"
+ persian_flavor.1.d: "The growing movements for Zoroastrian rights has grown too big for us to ignore. Many argue that Zoroastrians are just as much as a citizen to [ROOT.GetCountry.GetName] and deserve equal rights. However, there are as much oppositions from traditionalist and fundamentalist groups, and we may alienate the traditional supporter base of our country."
+ persian_flavor.1.f: "In the previous centuries, Safavid Shahs sought to compel Zoroastrians to accept Shia Islam or face persecution, imprisonment, exile, or be killed. Zoroastrians were also branded as impure, in addition to being infidels, and many public places refused to serve them. They were threatened with forced conversions, beaten up, and their religious sanctuaries were regularly desecrated. Their pitiful situation were as such that many of foreign and even Iranian secular activists has fought for their rights."
+ persian_flavor.1.a: "Grant them fundamental rights, but keep them lower than Muslims."
+ persian_flavor.1.b: "The Zoroastrians and other religious minorities deserve full equality!"
+ 
+ persian_flavor.2.t: "Fire Temple Vandalized!"
+ persian_flavor.2.d: "In [SCOPE.sState('yazd_scope').GetCityHubName], protests against the building of [GetBuildingType('building_yazd_atash_beram').GetName] has escalated into full-blown vandalization and violence against the local Zoroastrian communities."
+ persian_flavor.2.f: ""My [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle], we write this earnest plea to seek your benevolent support and assistance. The protesters view the construction of the fire temple as a challenge, which we assure Your Majesty, is far from our intention. We, therefore, beseech Your Majesty's benevolence and wisdom to intervene in this matter. May Ahura Mazda's divine light guide you in all your endeavors.""
+ persian_flavor.2.a: "Bah! They can handle a little obstruction."
+ persian_flavor.2.b: "Find and punish the perpetrators!"
+ anti_zoroastrian_tolerated: "Anti-Zoroastrian Violence Tolerated"
+ 
+ persian_flavor.3.t: "[SCOPE.sCharacter('mohammad_zand_scope').GetFullName]"
+ persian_flavor.3.d: "Sheikh [SCOPE.sCharacter('mohammad_zand_scope').GetFullName], a prominent cleric from [SCOPE.sState('arabestan_state').GetCityHubName], has recently gained significant traction around the city. In his preachings, he sought to reform what he perceived as deviations from the original teachings of Islam and the Twelve Imams, and to purify the faith from what he saw as un-Islamic practices. A Persian nationalist at heart, he wishes to "mend the hearts of the Persian people, divided from that of their ruler"."
+ persian_flavor.3.f: ""My countrymen, a great many of the so-called 'reforms' carried out in the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s name are conducted solely for the convenience and safety of the elite, ignoring the needs of the citizens they are meant to serve. These so-called servants of the state only use it for their own selfish gain, while deviating from the sacred teachings of the Qu'ran!""
+ persian_flavor.3.a: "We cannot let his provocatory words continue!"
+ persian_flavor.3.b: "He might have a point."
+ 
+ #Decisions
+ excavation_of_persepolis: "Excavation of Persepolis"
+ excavation_of_persepolis_desc: "The ruins of Persepolis, once the capital of the Old Persian Empire, has left people in awe for centuries. In the 19th century, the rising interest has led to a variety of amateur digging occurred at the site, in some cases on a large scale. Let us begin an official excavation and restoration of the site."
+ can_build_persepolis_tt: "We will be able to build the [GetBuildingType('building_persepolis').GetName] [concept_monument]."
+ excavation_of_susa: "Excavation of Susa"
+ excavation_of_susa_desc: "The ancient ruins near the town of Shush in Arabestan has been identified as Susa, the capitals of the oldest Persian empires. Let us begin an excavation and restoration of the site."
+ can_build_susa_tt: "We will be able to build the [GetBuildingType('building_susa').GetName] [concept_monument]."
+ excavation_of_ctesiphon: "Excavation of Ctesiphon"
+ excavation_of_ctesiphon_desc: "Ctesiphon served as a royal capital of the empires in the Parthian and Sasanian eras for over eight hundred years, but the Muslim conquests and founding of the nearby Baghdad has caused it to decline into a ghost town. Let us begin an official excavation and restoration of the site."
+ can_build_ctesiphon_tt: "We will be able to build the [GetBuildingType('building_ctesiphon').GetName] [concept_monument]."
+ grant_zoroastrian_rights: "Grant Zoroastrian Rights"
+ grant_zoroastrian_rights_desc: "For long, the Zoroastrians in our country has been persecuted, killed, or forced to convert into Shia Islam. However, the adoption of nationalism has recognized them too as people of the Iranian Empire, and many are advocating to give them and other religious minorities fundamental rights."
+ can_build_fire_temple_tt: "We will be able to build the [GetBuildingType('building_yazd_atash_beram').GetName] [concept_monument]."
 
  # Burmese War
- je_burmese_war: "Burmese War"
- je_burmese_war_reason: "Ever since our campaigns in East India began, the Taungoo Empire has been a thorn in our side for far too long. Now that they have been weakened, let us end the Taungoos for once and all."
- je_burmese_war_status: "Subjugate Taungoo"
- 
  burmese_war.1.t: "End of the Taungoo Empire"
  burmese_war.1.d: "With the fall of their last stronghold in Mandalay, the Taungoo Empire has finally fallen."
  burmese_war.1.f: "Despite our valiant efforts, even after losing our capital of Pegu, the wicked Persians has finally catched up to us. Refusing to submit to them, King [GetPlayer.GetRuler.GetFullName] still attempted to lead the resistance efforts. However, even he was captured and executed, while the rest of the Taungoos were exiled. We no longer have any choice but to submit to a puppet satrap of the Safavids. Will there be a day where we regain our freedom?"
@@ -16,7 +107,7 @@
  
  burmese_war.2.t: "End of the Taungoo Empire"
  burmese_war.2.d: "With the fall of their last stronghold in Mandalay, the Taungoo Empire has finally fallen."
- burmese_war.2.f: "News of victory reached Esfahan as Burma finally fell into our grasps. The Taungoo Empire, who kept opposing us and spread dissents in our East Indian territories, is finally no more. Some of our subjects might still criticize the Shahanshah for his outwards focus, but pay them no attention. Let us continue spreading our civilization to the world!"
+ burmese_war.2.f: "News of victory reached Isfahan as Burma finally fell into our grasps. The Taungoo Empire, who kept opposing us and spread dissents in our East Indian territories, is finally no more. Our expeditions in the East Indies shall continue!"
  burmese_war.2.a: "Another glorious victory for the Safavid Empire!"
  burmese_satrapy.tt: "Burma shall ruled as a satrapy of the empire."
  
@@ -25,6 +116,23 @@
  burmese_war.3.f: "As the Taungoo Empire fell, our soldiers marched and reclaimed Luang Prabang. Although our country rejoices with the fall of our sworn rival and the return of Lan Xang's lost territories, another threat has risen right on our borders. There is no doubt that the Safavids see us as one of their next targets, and we must be prepared for what might happen."
  burmese_war.3.a: "A blessing and a curse."
  
- #Miscellanous
+ # New Opium Events
+ 
+ opium_wars.10.t: "Popular Support for the Opium War"
+ opium_wars.10.d: "Blaming the increasing issue of addictions, drug trafficking, and rising turmoil in [ROOT.GetCountry.GetName] on the Persian opium smuggling, [ROOT.GetCountry.GetAdjectiveNoFormatting] citizens rose in support over the so-called 'Opium Crusade'."
+ opium_wars.10.f: ""Today, I stand before you to shed a light on a threat that concerns not only our great [ROOT.GetCountry.GetName] but the entire civilized world. The wicked Persians has ruthlessly inundated us with their treacherous poison, bringing devastation and ruin upon our people. This menace, bought from the distant shores, has ensnared the innocent, corrupted the pure, and shattered families with its nefarious grip. Thus, we, with God's blessing, embark on this mission not only to save our people, but to guide the [SCOPE.sCountry('opium_wars_target_country').GetAdjective] back to the path of virtue and progress within our benevolent light.""
+ opium_wars.10.a: "May our actions bring light to [SCOPE.sCountry('opium_wars_target_country').GetAdjective]."
+ 
+ # Miscellanous
  je_trans_iranian_railway: "The Trans-Iranian Railway"
  je_trans_iranian_railway_reason: "The railway shall connect us all, from the sea to the shining sea!"
+ 
+ # Modifiers
+ academy_of_iran_modifier: "Academy of Iran"
+ zoroastrian_persecution: "Persecution of Zoroastrians"
+ tolerated_heathens: "Heathens Tolerated"
+ national_museum_modifier: "National Museum of Iran"
+ curbed_opium_trade: "Curbed Opium Trade"
+ bowed_down_to_foreigners: "Bowed Down to Foreigners"
+ curbed_opium_trade_max: "Curbed Opium Trade"
+ opium_wars_modifier: "Opium Wars Fervor"

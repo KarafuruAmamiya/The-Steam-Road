@@ -671,6 +671,15 @@ on_diplomatic_play_started = {
 				trigger_event = { id = arab_wars.17 days = 0 } 
 			}
 		}
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_opium_wars
+			}
+			root = {
+				limit = { NOT = { has_variable = FOW_decision_taken } }
+				trigger_event = { id = opium_wars.9 days = 0 }
+			}
+		}
 	}
 }
 

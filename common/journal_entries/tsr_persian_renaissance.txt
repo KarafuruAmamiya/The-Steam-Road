@@ -1,0 +1,111 @@
+﻿je_persian_renaissance = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+	
+	scripted_button = persian_renaissance_science_philosophy
+	scripted_button = persian_renaissance_historical_sites
+	scripted_button = persian_renaissance_literature
+	scripted_button = persian_renaissance_architecture
+	scripted_button = persian_renaissance_art_and_music
+	scripted_button = persian_renaissance_romantic_nationalism
+
+	on_complete = {
+		
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_variable = fire_temple_vandalized }
+					any_scope_building = {
+						is_building_type = building_yazd_atash_beram
+						is_under_construction = yes
+					}
+				}
+				random_list = {
+					9 = { }
+					1 = {
+						set_variable = fire_temple_vandalized
+						trigger_event = { id = persian_flavor.2 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_variable = ctesiphon_finished }
+					any_scope_building = {
+						is_building_type = building_yazd_atash_beram
+						is_under_construction = yes
+					}
+				}
+				trigger_event = { id = persian_flavor.2 }
+			}
+		}
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_global_variable = ctesiphon_finished }
+					any_scope_building = {
+						is_building_type = building_ctesiphon
+						level >= 1
+					}
+				}
+				trigger_event = { id = persian_renaissance.3 }
+			}
+			if = {
+				limit = {
+					NOT = { has_global_variable = susa_finished }
+					any_scope_building = {
+						is_building_type = building_susa
+						level >= 1
+					}
+				}
+				trigger_event = { id = persian_renaissance.4 }
+			}
+			if = {
+				limit = {
+					NOT = { has_global_variable = persepolis_finished }
+					any_scope_building = {
+						is_building_type = building_persepolis
+						level >= 1
+					}
+				}
+				trigger_event = { id = persian_renaissance.5 }
+			}
+			if = {
+				limit = {
+					NOT = { has_global_variable = fire_temple_finished }
+					any_scope_building = {
+						is_building_type = building_yazd_atash_beram
+						level >= 1
+					}
+				}
+				trigger_event = { id = persian_renaissance.6 }
+			}
+		}
+	}
+
+	current_value = {
+		value = var:persian_renaissance_var
+	}
+
+	goal_add_value = {
+		add = 6
+	}
+
+	progressbar = yes
+
+	timeout = 14600
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}

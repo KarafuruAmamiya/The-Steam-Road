@@ -642,27 +642,22 @@ on_law_enactment_pass = {
 	effect = {
 		if = {
 			limit = {
-				is_player = yes
-				NOT = { has_variable = achievement_vox_populi_var }
-				any_political_movement = {
-					desired_law = ROOT.currently_enacting_law.type
+				c:PER ?= this
+				OR = {
+					has_law = law_type:law_state_religion
+					has_law = law_type:law_denominational_exclusion
 				}
-				any_supporting_character = {
-					has_role = agitator
+				OR = {
+					is_enacting_law = law_type:law_freedom_of_conscience
+					is_enacting_law = law_type:law_shared_roots
+					is_enacting_law = law_type:law_total_separation
+					is_enacting_law = law_type:law_state_atheism
 				}
 			}
-			set_variable = achievement_vox_populi_var
-		}
-		if = {
-			limit = {
-				is_player = yes
-				NOT = {
-					has_variable = achievement_amish_paradise_var
-				}
-				is_enacting_law = law_type:law_industry_banned
-				year < 1846
+			change_variable = {
+				name = zandism_var
+				add = 1
 			}
-			set_variable = achievement_amish_paradise_var
 		}
 	}
 }

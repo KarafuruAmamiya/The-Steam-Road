@@ -24,6 +24,19 @@ law_state_religion = {
 			}
 			remove_modifier = antireligious_policies
 		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = council_of_zoroastrians
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = council_of_zoroastrians
+				}
+				remove_modifier = council_of_zoroastrians
+			}
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -94,6 +107,19 @@ law_denominational_exclusion = {
 	
 	on_enact = {
 		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = council_of_zoroastrians
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = council_of_zoroastrians
+				}
+				remove_modifier = council_of_zoroastrians
+			}
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -527,6 +553,19 @@ law_state_atheism = {
 					target = rel:atheist
 					value = 0.15
 				}
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = council_of_zoroastrians
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = council_of_zoroastrians
+				}
+				remove_modifier = council_of_zoroastrians
 			}
 		}
 	}

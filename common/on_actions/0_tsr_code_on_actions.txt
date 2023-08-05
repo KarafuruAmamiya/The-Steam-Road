@@ -28,3 +28,17 @@ on_monthly_pulse_country = {
 		arab_wars.4
 	}
 }
+
+on_capitulation = {
+	effect = {
+		if = {
+			limit = {
+				exists = c:TAU
+				exists = c:PER
+				this = c:TAU
+				is_subject_of = c:PER
+			}
+			trigger_event = { id = burmese_war.1 }
+		}
+	}
+}

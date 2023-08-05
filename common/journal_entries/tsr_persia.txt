@@ -1,161 +1,0 @@
-﻿#je_eclipse_of_persia = {#	icon = "gfx/interface/icons/event_icons/event_fire.dds"##	immediate = {#		random_law = {#			limit = { type = law_type:law_monarchy }#			save_scope_as = monarchy_scope#		}#	}##	complete = {#		scope:journal_entry = {#			is_goal_complete = yes#		}#		custom_tooltip = {#			text = persia_eclipse_criteria#		}#	}##	fail = {
-#		AND = {#			custom_tooltip = {#				text = no_zandi_tt#				has_variable = no_zandi_rebellion#			}#			custom_tooltip = {#				text = won_opium_war_tt#				has_variable = won_opium_war#			}
-#			custom_tooltip = {
-#				text = integrated_india_tt
-#				has_variable = integrated_india
-#			}
-#		}#		custom_tooltip = {#			text = persia_abolished_monarchy_tt
-#			has_variable = persia_eclipse_abolished_monarchy#		}#	}##	on_complete = {#		trigger_event = { id =  }#	}##	current_value = {#		value = var:persia_eclipse#	}##	goal_add_value = {#		add = 5#	}#	#	progressbar = yes##	on_weekly_pulse = {#		effect = {#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_subject }#					is_subject = yes#				}#				post_notification = persia_eclipse_subject_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_subject#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_loans }#					taking_loans = yes#				}#				post_notification = persia_eclipse_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#				set_variable = persia_eclipse_loans#			}#			if = {#				limit = {#					NOT = { has_variable = persia_eclipse_opium_war }#					has_variable = lost_opium_war#				}#				set_variable = persia_eclipse_opium_war#				post_notification = persia_eclipse_point_add
-#				change_variable = {
-#					name = persia_eclipse
-#					add = 1
-#				}#			}#			if = {#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_zandi_rebellion
-#					}
-#					exists = c:ZND
-#					has_war_with = c:ZND
-#				}#				set_variable = persia_eclipse_zandi_rebellion#				post_notification = persia_eclipse_point_add#				change_variable = {#					name = persia_eclipse#					add = 1#				}#			}
-#			if = {
-#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_lost_india 
-#						OR = {
-#							any_scope_state = {
-#								state_region = {
-#									state_is_in_india = yes
-#								}
-#							}
-#							any_subject_or_below = {
-#								any_scope_state = {
-#									state_region = {
-#										state_is_in_india = yes
-#									}
-#								}
-#							}
-#						}
-#					}
-#				}
-#				set_variable = persia_eclipse_lost_india
-#				post_notification = persia_eclipse_point_add
-#				change_variable = {
-#					name = persia_eclipse
-#					add = 1
-#				}
-#			}
-#			if = {
-#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_lost_arabia
-#						OR = {
-#							any_scope_state = {
-#								count > 4
-#								state_region = s:STATE_BAGHDAD
-#								state_region = s:STATE_BASRA
-#								state_region = s:STATE_NASIRIYA
-#								state_region = s:STATE_HAASA
-#								state_region = s:STATE_ABU_DHABI
-#								state_region = s:STATE_QATAR
-#								state_region = s:STATE_MUSCAT
-#								state_region = s:STATE_NIZWA
-#								state_region = s:STATE_DHOFAR
-#								state_region = s:STATE_ALWUSTA
-#								state_region = s:STATE_HADHRAMAUT
-#								state_region = s:STATE_YEMEN
-#								state_region = s:STATE_ADEN
-#							}
-#							c:OMA ?= { is_subject_of = ROOT }
-#							c:KAT ?= { is_subject_of = ROOT }
-#						}
-#					}
-#				}
-#				set_variable = persia_eclipse_lost_arabia
-#				post_notification = persia_eclipse_point_add
-#				change_variable = {
-#					name = persia_eclipse
-#					add = 1
-#				}
-#			}
-#			if = {
-#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_european_enroachment
-#					}
-#					any_neighbouring_state = {
-#						owner = {
-#							any_primary_culture = {
-#								OR = {
-#									has_discrimination_trait = south_european_heritage
-#									has_discrimination_trait = western_european_heritage
-#								}
-#							}
-#						}
-#					}
-#				}
-#				set_variable = persia_eclipse_european_enroachment
-#				post_notification = persia_eclipse_point_add
-#				change_variable = {
-#					name = persia_eclipse
-#					add = 1
-#				}
-#			}
-#			if = {
-#				limit = {
-#					NOT = { 
-#						has_variable = persia_eclipse_no_europeans
-#					}
-#					has_variable = persia_eclipse_european_enroachment
-#					NOT = {
-#						any_neighbouring_state = {
-#							owner = {
-#								any_primary_culture = {
-#									OR = {
-#										has_discrimination_trait = south_european_heritage
-#										has_discrimination_trait = western_european_heritage
-#									}
-#								}
-#							}
-#						}
-#					}
-#				}
-#				set_variable = persia_eclipse_no_europeans
-#				remove_variable = persia_eclipse_european_enroachment
-#				post_notification = persia_eclipse_point_remove
-#				change_variable = {
-#					name = persia_eclipse
-#					subtract = 1
-#				}
-#			}#		}#	}##	weight = 10000#	should_be_pinned_by_default = yes#}
-
-
-je_burmese_war = {
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	complete = {
-		c:TAU = {
-			is_subject_of = ROOT 
-		}
-	}
-
-	fail = {
-		NOT = {
-			owns_entire_state_region = STATE_RAKHINE
-			has_war_with = c:TAU
-		}
-	}
-
-	on_complete = {
-		c:TAU = {
-			trigger_event = { id = burmese_war.1 }
-		}
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_burmese_war_status
-			}
-		}
-	}
-	weight = 100
-}

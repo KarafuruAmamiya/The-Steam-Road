@@ -356,6 +356,27 @@ ai_strategy_default = {
 			add = 1
 		}
 		
+		# Opium wars participants should both be confident
+		if = {
+			limit = {
+				has_journal_entry = je_opium_wars
+				scope:target_country = {
+					has_variable = opium_wars_exporter
+				}
+			}
+			add = 1
+		}
+		
+		if = {
+			limit = {
+				has_variable = opium_wars_exporter
+				scope:target_country = {
+					has_journal_entry = je_opium_wars
+				}
+			}
+			add = 1
+		}	
+		
 		# French Natural Borders
 		if = {
 			limit = {
@@ -415,7 +436,7 @@ ai_strategy_default = {
 				}
 			}
 			add = 25
-		}		
+		}
 
 		if = { #Persia vs India
 			limit = {
@@ -1262,7 +1283,7 @@ ai_strategy_default = {
 					country_is_in_europe = yes
 					country_rank >= rank_value:great_power
 				}
-				add = 50
+				add = 100
 			}
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
@@ -1275,10 +1296,16 @@ ai_strategy_default = {
 		region_persia = {
 			if = {
 				limit = {
+					has_journal_entry = je_opium_wars	
+				}
+				add = 1000
+			}
+			if = {
+				limit = {
 					country_is_in_europe = yes
 					country_rank >= rank_value:great_power
 				}
-				add = 50
+				add = 100
 			}
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
@@ -2543,14 +2570,6 @@ ai_strategy_default = {
 				add = 500
 			}
 			
-			multiply = {
-				value = "ai_ideological_opinion(scope:target_country)"
-				multiply = -0.05
-				add = 1
-				min = 0.25
-				max = 2.0
-			}							
-			
 			if = {
 				limit = {
 					lenient_ai_behavior_trigger = yes
@@ -2633,8 +2652,8 @@ ai_strategy_default = {
 					}
 					
 				}
-				multiply = 1.5
-			}		
+				multiply = 3
+			}	
 
 			# Shouldn't usually upset diplomatic pacts unless they're bankrupt or infamous
 			if = {
@@ -2746,6 +2765,70 @@ ai_strategy_default = {
 						any_scope_state = {
 							root = { has_claim = prev }
 						}	
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					exists = c:IBE
+					exists = c:CEI
+					OR = {
+						c:IBE = this
+						AND = {
+							c:CEI = this
+							is_subject_of = c:IBE
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:IBE }
+						any_scope_state = {
+							has_claim_by = c:CEI
+						}
+					}
+				}
+				add = 200
+			}
+			if = {
+				limit = {
+					exists = c:FRA
+					exists = c:FEI
+					OR = {
+						c:FRA = this
+						AND = {
+							c:FEI = this
+							is_subject_of = c:FRA
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:FRA }
+						any_scope_state = {
+							has_claim_by = c:FEI
+						}
+					}
+				}
+				add = 200
+			}
+			if = {
+				limit = {
+					exists = c:FRA
+					exists = c:FEA
+					OR = {
+						c:FRA = this
+						AND = {
+							c:FEA = this
+							is_subject_of = c:FRA
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:FRA }
+						any_scope_state = {
+							has_claim_by = c:FEA
+						}
 					}
 				}
 				add = 200
@@ -2880,6 +2963,24 @@ ai_strategy_default = {
 					}
 				}
 				add = 1000
+			}
+			if = {
+				limit = {
+				    country_rank >= rank_value:major_power
+					game_date > 1839.6.1
+					scope:target_country = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_TAHITI
+							}
+						}
+					}
+					OR = { 
+					    has_interest_marker_in_region = scope:target_country.capital.region
+						c:FRA = this
+					}
+				}
+				add = 500
 			}
 			
 			if = { 
@@ -3186,7 +3287,7 @@ ai_strategy_default = {
 					}
 					
 				}
-				multiply = 1.5
+				multiply = 3
 			}	
 			
 			if = {
@@ -3641,7 +3742,69 @@ ai_strategy_default = {
 				}
 				add = 200
 			}
-
+			if = {
+				limit = {
+					exists = c:IBE
+					exists = c:CEI
+					OR = {
+						c:IBE = this
+						AND = {
+							c:CEI = this
+							is_subject_of = c:IBE
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:IBE }
+						any_scope_state = {
+							has_claim_by = c:CEI
+						}
+					}
+				}
+				add = 200
+			}
+			if = {
+				limit = {
+					exists = c:FRA
+					exists = c:FEI
+					OR = {
+						c:FRA = this
+						AND = {
+							c:FEI = this
+							is_subject_of = c:FRA
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:FRA }
+						any_scope_state = {
+							has_claim_by = c:FEI
+						}
+					}
+				}
+				add = 200
+			}
+			if = {
+				limit = {
+					exists = c:FRA
+					exists = c:FEA
+					OR = {
+						c:FRA = this
+						AND = {
+							c:FEA = this
+							is_subject_of = c:FRA
+						}
+					}
+					scope:target_country = {
+						country_rank < rank_value:major_power # so they don't start world wars
+					    NOT = { is_subject_of = c:FRA }
+						any_scope_state = {
+							has_claim_by = c:FEA
+						}
+					}
+				}
+				add = 200
+			}
 			if = {
 				limit = { 
 					NOT = { has_strategic_land_adjacency = scope:target_state } 
@@ -3796,61 +3959,9 @@ ai_strategy_default = {
 						multiply = 1.25
 					}					
 				}										
-			}		
-
-			if = { #Carving up China
-				limit = {
-					country_rank >= rank_value:great_power
-					exists = c:CHI
-					any_country = {
-						NOT = { THIS = ROOT }
-						country_is_in_europe = yes
-						any_scope_state = {
-							OR = {
-								region = sr:region_north_china
-								region = sr:region_south_china
-								region = sr:region_manchuria
-							}
-							is_treaty_port = yes
-						}
-					}
-					scope:target_state = {
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-						}
-					}
-				}
-				add = 25
-			}
-			else_if = {
-				limit = {
-					country_rank >= rank_value:great_power
-					exists = c:CHI
-					any_country = {
-						NOT = { THIS = ROOT }
-						country_rank >= rank_value:great_power
-						any_scope_state = {
-							OR = {
-								region = sr:region_north_china
-								region = sr:region_south_china
-								region = sr:region_manchuria
-							}
-							is_treaty_port = yes
-						}
-					}
-					scope:target_state = {
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-						}
-					}
-				}
-				add = 75
 			}
 
+			# Don't want treaty ports in weak unrecognized powers, would rather conquer or subjugate
 			if = {
 				limit = {
 					has_treaty_port_in_country = scope:target_country
@@ -3865,7 +3976,9 @@ ai_strategy_default = {
 					market_capital.market = scope:target_country.market_capital.market
 				}
 				multiply = 0
-			}
+			}	
+
+			# Greatly reduced wanting treaty ports from other recognized countries
 			if = {
 				limit = {
 					scope:target_country = { NOT = { is_country_type = unrecognized } }
@@ -3927,7 +4040,26 @@ ai_strategy_default = {
 						multiply = 1.25
 					}						
 				}			
-			}							
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							is_adjacent = scope:target_country
+							scope:target_country = {
+								any_scope_state = {
+									is_coastal = yes
+								}
+							}
+						}	
+					}
+				}
+			
+				multiply = {
+					value = 0.25
+				}			
+			}
 			
 			min = 0
 			max = 100			

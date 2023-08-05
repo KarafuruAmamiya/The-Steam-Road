@@ -1,0 +1,266 @@
+﻿je_eclipse_of_persia = {
+	icon = "gfx/interface/icons/event_icons/event_eclipse.dds"
+	is_shown_when_inactive = {		c:PER ?= this		has_law = law_type:law_monarchy
+		any_state = {
+			state_region = { is_homeland = cu:persian }
+			NOT = { owner = ROOT }
+		}	}	possible = {		c:PER ?= this
+		any_scope_state = {
+			is_incorporated = yes
+			state_region = { is_homeland = cu:persian }
+			turmoil >= 0.2
+		}	}
+
+	immediate = {
+		random_law = {
+			limit = { type = law_type:law_monarchy }
+			save_scope_as = monarchy_scope
+		}
+		set_variable = {
+			name = persia_eclipse
+			value = 0
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		custom_tooltip = {
+			text = persia_eclipse_criteria
+		}
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = persia_abolished_monarchy_tt
+			#has_variable = persia_eclipse_abolished_monarchy
+		}
+		any_scope_state = {
+			count = all
+			turmoil < 0.1
+		}
+	}
+
+	on_complete = {
+		#trigger_event = { id =  } Dead Man of Asia
+	}
+
+	current_value = {
+		value = var:persia_eclipse
+	}
+
+	goal_add_value = {
+		add = 5
+	}
+	
+	progressbar = yes
+
+#	on_weekly_pulse = {
+#		effect = {
+#			if = {
+#				limit = {
+#					NOT = { has_variable = persia_eclipse_subject }
+#					is_subject = yes
+#				}
+#				post_notification = persia_eclipse_subject_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#				set_variable = persia_eclipse_subject
+#			}
+#			if = {
+#				limit = {
+#					NOT = { has_variable = persia_eclipse_loans }
+#					taking_loans = yes
+#				}
+#				post_notification = persia_eclipse_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#				set_variable = persia_eclipse_loans
+#			}
+#			if = {
+#				limit = {
+#					NOT = { 
+#						has_variable = persia_eclipse_zandi_rebellion
+#					}
+#					exists = c:ZND
+#					has_war_with = c:ZND
+#				}
+#				set_variable = persia_eclipse_zandi_rebellion
+#				post_notification = persia_eclipse_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#			}
+#			if = {
+#				limit = {
+#					NOT = { 
+#						has_variable = persia_eclipse_lost_india 
+#						OR = {
+#							any_scope_state = {
+#								state_region = {
+#									state_is_in_india = yes
+#								}
+#							}
+#							any_subject_or_below = {
+#								any_scope_state = {
+#									state_region = {
+#										state_is_in_india = yes
+#									}
+#								}
+#							}
+#						}
+#					}
+#				}
+#				set_variable = persia_eclipse_lost_india
+#				post_notification = persia_eclipse_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#			}
+#			if = {
+#				limit = {
+#					NOT = { 
+#						has_variable = persia_eclipse_lost_arabia
+#						OR = {
+#							any_scope_state = {
+#								count > 4
+#								state_region = s:STATE_BAGHDAD
+#								state_region = s:STATE_BASRA
+#								state_region = s:STATE_NASIRIYA
+#								state_region = s:STATE_HAASA
+#								state_region = s:STATE_ABU_DHABI
+#								state_region = s:STATE_QATAR
+#								state_region = s:STATE_MUSCAT
+#								state_region = s:STATE_NIZWA
+#								state_region = s:STATE_DHOFAR
+#								state_region = s:STATE_ALWUSTA
+#								state_region = s:STATE_HADHRAMAUT
+#								state_region = s:STATE_YEMEN
+#								state_region = s:STATE_ADEN
+#							}
+#							c:OMA ?= { is_subject_of = ROOT }
+#							c:KAT ?= { is_subject_of = ROOT }
+#						}
+#					}
+#				}
+#				set_variable = persia_eclipse_lost_arabia
+#				post_notification = persia_eclipse_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#			}
+#			if = {
+#				limit = {
+#					NOT = { 
+#						has_variable = persia_eclipse_european_enroachment
+#					}
+#					any_scope_state = {
+#						is_incorporated = yes
+#						OR = {
+#							state_region = { is_homeland = cu:persian }
+#							state_region = { is_homeland = cu:kurdish }
+#							state_region = { is_homeland = cu:azerbaijani }
+#							state_region = { is_homeland = cu:pashtun }
+#							state_region = { is_homeland = cu:tajik }
+#							state_region = { is_homeland = cu:hazara }
+#							state_region = { is_homeland = cu:baluchi }
+#						}
+#						any_neighbouring_state = {
+#							owner = {
+#								any_primary_culture = {
+#									OR = {
+#										has_discrimination_trait = south_european_heritage
+#										has_discrimination_trait = western_european_heritage
+#									}
+#								}
+#							}
+#						}
+#					}
+#				}
+#				set_variable = persia_eclipse_european_enroachment
+#				post_notification = persia_eclipse_point_add
+#				change_variable = {
+#					name = persia_eclipse
+#					add = 1
+#				}
+#			}
+#			if = {
+#				limit = {
+#					NOT = { 
+#						has_variable = persia_eclipse_no_europeans
+#					}
+#					has_variable = persia_eclipse_european_enroachment
+#					NOT = {
+#						any_state = {
+#							is_incorporated = yes
+#							OR = {
+#								state_region = { is_homeland = cu:persian }
+#								state_region = { is_homeland = cu:kurdish }
+#								state_region = { is_homeland = cu:azerbaijani }
+#								state_region = { is_homeland = cu:pashtun }
+#								state_region = { is_homeland = cu:hazara }
+#							}
+#							any_neighbouring_state = {
+#								owner = {
+#									any_primary_culture = {
+#										OR = {
+#											has_discrimination_trait = south_european_heritage
+#											has_discrimination_trait = western_european_heritage
+#										}
+#									}
+#								}
+#							}
+#						}
+#					}
+#				}
+#				set_variable = persia_eclipse_no_europeans
+#				remove_variable = persia_eclipse_european_enroachment
+#				post_notification = persia_eclipse_point_remove
+#				change_variable = {
+#					name = persia_eclipse
+#					subtract = 1
+#				}
+#			}
+#		}
+#	}
+
+	transferable = no
+	weight = 10000
+	should_be_pinned_by_default = yes
+}
+
+je_rise_of_zandism = {	icon = "gfx/interface/icons/event_icons/event_revolt.dds"	is_shown_when_inactive = {		c:PER ?= this
+		NOT = { has_law = law_type:law_state_religion }	}	possible = {
+		custom_tooltip = {
+			text = zand_appears_tt
+			has_global_variable = mohammad_zand_var
+		}		var:zandism_trigger_var >= 15
+		is_subject = no
+		has_technology_researched = nationalism
+		any_scope_state = {
+			is_incorporated = yes
+			state_region = { 
+				is_homeland = cu:persian
+			}
+			turmoil > 0.15
+		}	}	immediate = {		random_scope_state = {			limit = {				is_incorporated = yes				state_region = { 					is_homeland = cu:persian 				}
+				turmoil > 0.15			}			add_modifier = {				name = zandism_spreading				months = short_modifier_time			}		}	}	complete = {		NOT = {
+			any_scope_state = {
+				has_modifier = zandism_spreading
+			}
+		}	}	fail = {		any_scope_state = {
+			has_modifier = zandism_spreading
+			count >= 4
+			turmoil >= 0.15
+		}
+		NOT = { 
+			has_law = law_type:law_state_atheism
+		}	}	transferable = no	weight = 10000	should_be_pinned_by_default = yes}

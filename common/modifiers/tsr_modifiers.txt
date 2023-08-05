@@ -280,3 +280,86 @@ council_of_zoroastrians = {
 	icon = gfx/interface/icons/timed_modifier_icons/council_of_zoroastrians.dds
 	state_conversion_mult = -0.9
 }
+
+academy_of_iran_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_pol_str_mult = 0.15
+	interest_group_pop_attraction_mult = 0.10
+}
+
+zoroastrian_persecution = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	state_zoroastrian_standard_of_living_add = -2
+}
+
+tolerated_heathens = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -10
+}
+
+anti_zoroastrian_tolerated = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	state_zoroastrian_standard_of_living_add = -2
+	state_construction_mult = -0.25
+}
+
+modifier_al_afghani_negative_popularity = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds
+	character_popularity_add = -25
+}
+
+modifier_al_afghani_popularity = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	character_popularity_add = 25
+}
+
+zandism_spreading = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_radicals_from_sol_change_mult = 0.25
+}
+
+national_museum_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_society_tech_cost_mult = -0.05
+	country_prestige_mult = 0.01
+}
+
+curbed_opium_trade = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_opium_plantation_throughput_mult = -0.5
+	state_building_opium_plantation_max_level_add = -5
+}
+
+curbed_opium_trade_max = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_opium_plantation_throughput_mult = -0.75
+	state_building_opium_plantation_max_level_add = -10
+}
+
+bowed_down_to_foreigners = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_prestige_mult = -0.15
+}
+
+opium_wars_addiction_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds
+	state_radicals_from_sol_change_mult = 0.50
+    state_standard_of_living_add = -1
+	state_mortality_mult = 0.025
+	unit_offense_mult = -0.15
+	unit_defense_mult = -0.15
+	country_army_power_projection_mult = -0.15
+}
+
+opium_wars_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_offense_mult = 0.25
+	unit_defense_mult = 0.25
+	unit_morale_damage_mult = 0.2
+}
+
+opium_wars_navy_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_morale_damage_mult = 0.2
+	country_prestige_mult = 0.15
+}

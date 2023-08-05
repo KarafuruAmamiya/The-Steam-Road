@@ -1,0 +1,170 @@
+﻿persian_renaissance_science_philosophy = { #include secular philosophy
+	name = "persian_renaissance_science_philosophy_button"
+	desc = "persian_renaissance_science_philosophy_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_science_philosophy
+		}
+		ig:ig_intelligentsia = {
+			is_powerful = yes
+		}
+		any_scope_building = {
+			count >= 5
+			is_building_type = building_university
+			OR = {
+				has_active_production_method = pm_philosophy_department
+				has_active_production_method = pm_analytical_philosophy_department
+			}
+			occupancy >= 0.9
+			level >= 3
+		}
+	}
+
+	effect = {
+		set_variable = persian_renaissance_science_philosophy
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+		trigger_event = { id = persian_renaissance.1 }
+	}
+}
+
+persian_renaissance_historical_sites = {
+	name = "persian_renaissance_historical_sites_button"
+	desc = "persian_renaissance_historical_sites_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_historical_sites
+		}
+		any_scope_building = {
+			count >= 5
+			is_building_type = building_argebam
+			is_building_type = building_persepolis
+			is_building_type = building_susa
+			is_building_type = building_gonbad_e_qabus
+			is_building_type = building_yazd_atash_beram
+			is_building_type = building_ctesiphon
+			is_building_type = building_soltaniyeh
+		}
+	}
+
+	effect = {
+		set_variable = persian_renaissance_historical_sites
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+		trigger_event = { id = persian_renaissance.2 }
+	}
+}
+
+persian_renaissance_literature = {
+	name = "persian_renaissance_literature_button"
+	desc = "persian_renaissance_literature_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_literature
+		}
+		#has_variable = Shāhanshāhnāmeh commisioning
+		#has_variable = Mirza Aqa Khan Kermani
+		#has_variable = Dekhoda dictionary
+		has_technology_researched = dialectics
+		has_technology_researched = realism
+	}
+
+	effect = {
+		set_variable = persian_renaissance_literature
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+	}
+}
+
+persian_renaissance_architecture = {
+	name = "persian_renaissance_architecture_button"
+	desc = "persian_renaissance_architecture_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_architecture
+		}
+		#has_variable = Nasir-ol-Molk Mosque
+		#has_variable = Shazdeh Garden
+		#has_variable = Golestan Palace (renovate the citadel of Tehran)
+		#has_variable = Renovate Ali Qapu Gate
+		#has_variable = Courthouse of Isfahan
+	}
+
+	effect = {
+		set_variable = persian_renaissance_architecture
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+	}
+}
+
+persian_renaissance_art_and_music = {
+	name = "persian_renaissance_art_and_music_button"
+	desc = "persian_renaissance_art_and_music_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_art_and_music
+		}
+		any_scope_building = {
+			count >= 4
+			is_building_type = building_arts_academy
+			occupancy >= 0.9
+			level >= 3
+		}
+		#Some decisions
+	}
+
+	effect = {
+		set_variable = persian_renaissance_art_and_music
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+	}
+}
+
+persian_renaissance_romantic_nationalism = {
+	name = "persian_renaissance_romantic_nationalism_button"
+	desc = "persian_renaissance_romantic_nationalism_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		NOT = {
+			has_variable = persian_renaissance_romantic_nationalism
+		}
+		has_technology_researched = nationalism
+		#National identity of Iran
+	}
+
+	effect = {
+		set_variable = persian_renaissance_romantic_nationalism
+		change_variable = {
+			name = persian_renaissance_var
+			add = 1
+		}
+		#Event, trigger Zandism if leans secular
+	}
+}

@@ -11,15 +11,35 @@
 		OR = {
 			AND = {
 				is_player = yes
-				c:PER = { 
-					is_at_war = no 
+				trigger_if = {
+					limit = {
+						c:AKN = {
+							NOR = {
+								has_modifier = treaty_of_baglar
+								has_modifier = treaty_of_baglar_2
+							}
+						}
+					}
+					c:PER = { 
+						is_at_war = no 
+					}
 				}
 			}
 			AND = {
 				is_player = no 
 				c:PER = { 
 					is_player = no 
-					is_at_war = no 
+					trigger_if = {
+						limit = {
+							c:AKN = {
+								NOR = {
+									has_modifier = treaty_of_baglar
+									has_modifier = treaty_of_baglar_2
+								}
+							}
+						}
+						is_at_war = no
+					}
 				}
 			}
 		}

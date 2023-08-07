@@ -2,16 +2,22 @@
 	s:STATE_KASHMIR = {
 		create_state = {
 			country = c:MUG
-			owned_provinces = { "x150D2C" "x1F1AF7" "x217021" "x24EF26" "x37C3E4" "x3FDA5A" "x504561" "x5990A7" "x808216" "x874936" "x963360" "x964219" "xA875F3" "xB0FE2D" "xB4AA65" "xCCD333" "xD107A3" "xD71AAB" "xF469BC" "xF48515" "xFD692B" }
+			owned_provinces = { "x217021" "x24EF26" "x3FDA5A" "x5990A7" "x808216" "x874936" "x964219" "xA875F3" "xB0FE2D" "xCCD333" "xD107A3" "xD71AAB" "xF469BC" "xFD692B" }
 		}
 		create_state = {
 			country = c:LAD
-			owned_provinces = { "x00161D" "x07D342" "x15F552" "x18CED8" "x21F020" "x2969A3" "x2B6E7C" "x2D5D46" "x2DDFDB" "x2FF385" "xEDCC3E" "xF28F90" "x6326A6" "x6AA44A" "x72F7C2" "x5A0252" "x9666D9" "xA09736" "xAA60FC" "xB637A4" "xC49B8C" "xCDB7DB" "x43B99F" "x56684E" "xF8D822" "xD25436" }
+			owned_provinces = { "x07D342" "x15F552" "x18CED8" "x21F020" "x2B6E7C" "x2D5D46" "x2DDFDB" "xEDCC3E" "xF28F90" "x6326A6" "x6AA44A" "x72F7C2" "x9666D9" "xA09736" "xAA60FC" "xB637A4" "xC49B8C" "xCDB7DB" "x43B99F" "x56684E" "xD25436" }
+		}
+		create_state = {
+			country = c:MQP
+			owned_provinces = { x00161D x2FF385 x504561 x150D2C x5A0252 xF48515 x2969A3 x1F1AF7 x37C3E4 xF8D822 xB4AA65 x963360 }
 		}
 		
 		add_homeland = kashmiri
 		add_homeland = tibetan
 		add_claim = c:MUG
+		add_claim = c:LAD
+		add_claim = c:MQP
 		add_claim = c:PER
 	}
 	s:STATE_PUNJAB = {
@@ -33,6 +39,7 @@
 		}
 		
 		add_homeland = panjabi
+		add_homeland = kanauji
 	}
 	s:STATE_MULTAN = {
 		create_state = {
@@ -40,12 +47,8 @@
 			owned_provinces = { "x12D43A" "x16F3F6" "x67DD93" "x767A66" "x8F5440" "x918140" "x91DEAB" "x9B38C0" "xAA60D3" "xCD3942" "xCD3E9A"  "xD921CB" "xE03121" "xE2230E" }
 		}
 		create_state = {
-			country = c:SIN
-			owned_provinces = { x022D2B x30122F xD597DC x706940 x2DBD82 }
-		}
-		create_state = {
-			country = c:DLH
-			owned_provinces = { "xCF602F" "xEFC3B4" "x19E5C0" "xCA516D" }
+			country = c:BHW
+			owned_provinces = { xCA516D x19E5C0 xEFC3B4 xCF602F xD597DC x706940 x30122F x2DBD82 x022D2B }
 		}
 		
 		add_homeland = panjabi
@@ -62,7 +65,7 @@
 	s:STATE_DOAB = {
 		create_state = {
 			country = c:DLH
-			owned_provinces = { x4B6538 x8E6FE7 xFB8F08 x4E8563 xF37EE6 x99FE9A x13E50E x61F0A0 x7D8325 xB4FE19 xBF1DC0 x117021 }
+			owned_provinces = { x4B6538 x8E6FE7 xFB8F08 x4E8563 xF37EE6 x99FE9A x13E50E x61F0A0 x7D8325 xB4FE19 xBF1DC0 x117021 x53EF28 }
 		}
 		
 		add_homeland = kanauji
@@ -71,16 +74,22 @@
 	s:STATE_GARHWAL = {
 		create_state = {
 			country = c:GWL
-			owned_provinces = { x98BACD x53EF28 x51177D x49337F x584C9B xA4A19F xCF1974 x03A411 xF15B70 x037AF5 x6B646E x733AB7 xE77282 xAD283F xFBA109 xE3A5A5 }
+			owned_provinces = { x98BACD x51177D xCF1974 x03A411 xF15B70 xFBA109 xE3A5A5 xAD283F }
+		}
+		create_state = {
+			country = c:KMN
+			owned_provinces = { x6B646E x037AF5 x49337F x584C9B x733AB7 xE77282 }
 		}
 		
 		add_homeland = nepali
 		add_claim = c:PER
+		add_claim = c:GWL
+		add_claim = c:KMN
 	}
 	s:STATE_AWADH = {
 		create_state = {
 			country = c:DLH
-			owned_provinces = { xE070A0 xBBC0A2 x923D4D x0CE121 x4E84EF x7D9692 x669ECB xACD960 x43F651 x41D87C x564B78 x9EA436 xD99008 x1405D1 x337F6C x11EE65 xC26B82 xB050DF xDCAA17 x5432BC }
+			owned_provinces = { xE070A0 xBBC0A2 x923D4D x0CE121 x4E84EF x7D9692 x669ECB xACD960 x43F651 x41D87C x564B78 x9EA436 xD99008 x1405D1 x337F6C x11EE65 xC26B82 xB050DF xDCAA17 x5432BC xA4A19F }
 		}
 		
 		add_homeland = kanauji
@@ -124,7 +133,11 @@
 	s:STATE_SURGUJA = {
 		create_state = {
 			country = c:NAG
-			owned_provinces = { x52001D x66337F x5CBFF7 xD64336 x7884D6 x6B7184 x4605A8 x4A2157 x471CDC x0E41BA x78E85C xE9111A xE1911A x90F020 xBDB272 x53D2AE x9473DC }
+			owned_provinces = { x4A2157 x471CDC x0E41BA x78E85C xE9111A xE1911A x90F020 xBDB272 x53D2AE x9473DC }
+		}
+		create_state = {
+			country = c:SRG
+			owned_provinces = { x52001D x66337F x5CBFF7 xD64336 x7884D6 x6B7184 x4605A8 }
 		}
 		
 		add_homeland = chhattisgarhi
@@ -266,16 +279,13 @@
 	}
 	s:STATE_JANGLADESH = {
 		create_state = {
-			country = c:SIN
-			owned_provinces = { x9601FD xA99FB3 x53A30A x01F0E0 x3C6F90 }
-		}
-		create_state = {
-			country = c:DLH
-			owned_provinces = { xF591B3 x84F1F8 xEBA05F xF3C5EA x214E7A x6A103F xEB0422 xC40894 x5DACF4 }
+			country = c:BIK
+			owned_provinces = { xF3C5EA x9601FD x84F1F8 xA99FB3 xC40894 xF591B3 x53A30A x01F0E0 xEBA05F x214E7A x6A103F xEB0422 x5DACF4 x3C6F90 }
 		}
 		
 		add_homeland = rajput
 		add_claim = c:MEW
+		add_claim = c:SIN
 	}
 	s:STATE_DHUNDAR = {
 		create_state = {
@@ -393,7 +403,7 @@
 	s:STATE_CHOLA_NADU = {
 		create_state = {
 			country = c:MDU
-			owned_provinces = { x99B424 x10B060 xA3158E xA63901 x7CCE50 x2EAD15 x61FE06 x56456B x0E2990 x9A2EF3 xAEAE4C }
+			owned_provinces = { x99B424 x10B060 xA3158E x7CCE50 x2EAD15 x61FE06 x56456B x0E2990 x9A2EF3 xAEAE4C }
 		}
 		create_state = {
 			country = c:PER
@@ -460,11 +470,12 @@
 		
 		add_homeland = tibetan
 		add_homeland = nepali
+		add_claim = c:PER
 	}
 	s:STATE_ASSAM = {
 		create_state = {
 			country = c:ASM
-			owned_provinces = { x954C46 x12647B x17E33F x70069E x0BB5E2 x9A1864 xFB1561 x4803C7 xA458FC xCC2DA0 x9700B9 x3FD07D xF71958 x344BF5 x3D8CD6 x4CCA97 }
+			owned_provinces = { x954C46 x12647B x17E33F x70069E x0BB5E2 xFB1561 x4803C7 xA458FC xCC2DA0 x9700B9 x3FD07D xF71958 x344BF5 x3D8CD6 x4CCA97 x9A1864 }
 		}
 		create_state = {
 			country = c:JNT
@@ -475,9 +486,13 @@
 			owned_provinces = { "x1B997A" "x30B15A" "x6030DF" "x8C53B3" "x8C6C79" "x8F90F5" "xA17DC4" "xB03121" "xB238B2" "xCB0893" "xE101DA" "xF9B21B" }
 		}
 		create_state = {
-			country = c:PER
-			owned_provinces = { x9419F5 x408BEB xD9940E x5D1160 x337820 xF3B09A xC6301B }
+			country = c:TAU
+			owned_provinces = { xD9940E x5D1160 x337820 xF3B09A xC6301B }
 			state_type = unincorporated
+		}
+		create_state = {
+			country = c:TRR
+			owned_provinces = { x408BEB x9419F5 }
 		}
 		
 		add_homeland = assamese

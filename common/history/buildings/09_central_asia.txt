@@ -950,12 +950,6 @@
 	s:STATE_MERV={
 		region_state:PER={
 			create_building={
-				building="building_university"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_scholastic_education" }
-			}
-			create_building={
 				building="building_government_administration"
 				level=5
 				reserves=1
@@ -1075,13 +1069,33 @@
 		region_state:KAB={
 			create_building={
 				building="building_wheat_farm"
-				level=4
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}				
 			create_building={
 				building="building_livestock_ranch"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}			
+			create_building={
+				building="building_barracks"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_line_infantry" "pm_wound_dressing" "pm_cavalry_scouts" "pm_no_specialists" "pm_no_artillery" }
+			}
+		}
+		region_state:MUG={
+			create_building={
+				building="building_wheat_farm"
 				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
+			}				
+			create_building={
+				building="building_livestock_ranch"
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
 			}			
@@ -1109,7 +1123,7 @@
 			}
 			create_building={
 				building="building_university"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_scholastic_education" }
 			}

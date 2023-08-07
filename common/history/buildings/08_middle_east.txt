@@ -554,7 +554,7 @@
 		region_state:PER={
 			create_building={
 				building="building_university"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_scholastic_education" }
 			}
@@ -981,6 +981,18 @@
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
 			create_building={
+				building="building_arts_academy"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_traditional_art" }
+			}
+			create_building={
+				building="building_university"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_scholastic_education" }
+			}
+			create_building={
 				building="building_paper_mills"
 				level=4
 				reserves=1
@@ -1058,7 +1070,7 @@
 			}
 			create_building={
 				building="building_furniture_manufacturies"
-				level=5
+				level=6
 				reserves=1
 				activate_production_methods={ "pm_lathe" "pm_luxury_furniture" "pm_automation_disabled" "pm_privately_owned_building_furniture_manufacturies" }
 			}
@@ -1070,9 +1082,15 @@
 			}
 			create_building={
 				building="building_food_industry"
-				level=5
+				level=6
 				reserves=1
 				activate_production_methods={ "pm_privately_owned_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
+			}
+			create_building={
+				building="building_iron_mine"
+				level=4
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_iron_mine" }
 			}
 			create_building={
 				building="building_livestock_ranch"
@@ -1236,6 +1254,12 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_iron_frame_buildings" }
+			}
+			create_building={
+				building="building_university"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_scholastic_education" }
 			}
 			create_building={
 				building="building_textile_mills"

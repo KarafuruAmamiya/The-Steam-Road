@@ -1,7 +1,7 @@
 ﻿estonian={ # Includes/represents Estonian, Votic and Livonian
-	color= hsv{ 0.72 0.25 0.28 }
+	color= rgb{ 255 196 196 }
 	religion = protestant
-	traits = { finnic baltic_culture_group eastern_european_heritage }
+	traits = { finnic baltic_culture_group eastern_european_heritage uralic_heritage }
 	male_common_first_names={
 		Aabel
 		Aado
@@ -3259,9 +3259,14 @@
 }
 
 finnish={
-	color= hsv{ 0 0 0.96 }
+	color= rgb{ 220 220 220 }
 	religion = catholic
-	traits = { finnic scandinavian_culture_group western_european_heritage }
+	traits = { finnic scandinavian_culture_group western_european_heritage uralic_heritage }
+	
+	obsessions = {
+		coffee
+	}
+	
 	male_common_first_names={
 		Aapeli
 		Aarne
@@ -5013,7 +5018,7 @@ finnish={
 karelian={ # Represents/includes Karelian, Ludic and Veps
 	color= hsv{ 0 0 0.66 }
 	religion = orthodox
-	traits = { finnic eastern_european_heritage }
+	traits = { finnic eastern_european_heritage uralic_heritage }
 	male_common_first_names={
 		Abroi
 		Agafana
@@ -5662,9 +5667,9 @@ karelian={ # Represents/includes Karelian, Ludic and Veps
 }
 
 izhorian={
-	color= hsv{ 0.72 0.25 0.68 }
+	color= rgb{ 204 154 143 }
 	religion = orthodox
-	traits = { finnic eastern_european_heritage }
+	traits = { finnic eastern_european_heritage uralic_heritage }
 	male_common_first_names={
 		Aarne
 		Abram
@@ -6060,7 +6065,7 @@ izhorian={
 }
 
 sami={
-	color= hsv{ 0.40 0.36 0.70 }
+	color= rgb{ 229 213 235 }
 	religion = animist
 	traits = { finnic uralic_heritage }
 	male_common_first_names={
@@ -6720,7 +6725,7 @@ mokshan={
 }
 
 udmurt={
-	color= hsv{ 0.08 0.62 0.93 }
+	color= rgb{ 126 196 134 }
 	religion = orthodox
 	traits = { finnic uralic_culture_group uralic_heritage }
 	male_common_first_names={
@@ -6811,7 +6816,7 @@ udmurt={
 }
 
 komi={ # Komi-Zyrian and Komi-Permyak
-	color= hsv{ 0.1 0.52 0.73 }
+	color= rgb{ 122 230 134 }
 	religion = orthodox
 	traits = { finnic uralic_culture_group uralic_heritage }
 	male_common_first_names={
@@ -7071,7 +7076,7 @@ obugric={ # Represents the Khanty and Mansi peoples -- the Ob-Ugric branch of th
 }
 
 samoyedic={ # Nenets, Enets, Nganasan and Selkup
-	color= hsv{ 0.67 0 0.67 }
+	color= rgb{ 162 186 245 }
 	religion = siberian_shamanist # Could be shamanist instead?
 	traits = { uralic_culture_group uralic_heritage }
 	male_common_first_names={

@@ -21,6 +21,29 @@
 	}
 }
 
+western_clothes_trigger = {
+	OR = {
+		AND = {
+			exists = scope:character
+			scope:character = {
+				exists = home_country
+				home_country = {
+					has_variable = adopt_western_clothes	
+				}
+			}
+		}
+		AND = {
+			exists = scope:pop
+			scope:pop = {
+				exists = home_country
+				home_country = {
+					has_variable = adopt_western_clothes
+				}
+			}
+		}
+	}
+}
+
 soalleiran_clothes_trigger = {
 	exists = scope:character
 	scope:character = {

@@ -97,8 +97,7 @@
                 add = 25000
 				OR = {
 					european_clothes_trigger = yes
-					tsr_persia_leader_trigger = yes
-					tsr_ottoman_leader_trigger = yes
+					western_clothes_trigger = yes
 				}
                 scope:character ?= {
                     age <= 12
@@ -133,14 +132,13 @@
                 add = 100
                 OR = {
 					european_clothes_trigger = yes
-					tsr_persia_leader_trigger = yes
-					tsr_ottoman_leader_trigger = yes
+					western_clothes_trigger = yes
 					AND = {
 						arabic_clothes_trigger = yes
 						scope:character = {
 							exists = home_country
 							home_country = {
-								NOT = { has_variable = adopt_western_uniforms }
+								NOT = { has_variable = adopt_western_clothes }
 							}
 						}
 					}
@@ -216,7 +214,7 @@
 						scope:character = {
 							exists = home_country
 							home_country = {
-								NOT = { has_variable = adopt_western_uniforms }
+								NOT = { has_variable = adopt_western_clothes }
 							}
 						}
 					}
@@ -2586,7 +2584,7 @@
             base = 0
             modifier = {
                 add = 10000
-                tsr_ottoman_pop_trigger = yes
+                tsr_ottoman_military_trigger = yes
                 officers_clothes_pop_trigger = yes   
             }
         }
@@ -2618,7 +2616,7 @@
             base = 0
             modifier = {
                 add = 10000
-                tsr_ottoman_pop_trigger = yes
+                tsr_ottoman_military_trigger = yes
                 soldier_clothes_pop_trigger = yes
             }
         }
@@ -3375,9 +3373,7 @@
                 AND = {
                     OR = {
                         european_clothes_trigger = yes
-						tsr_persia_leader_trigger = yes
-						tsr_ottoman_leader_trigger = yes
-						western_uniforms_trigger = yes
+						western_clothes_trigger = yes
                         AND = {
                             exists = scope:character
                             scope:character = {
@@ -3392,7 +3388,7 @@
                             scope:character = {
 								exists = home_country
                                 home_country = {
-									has_variable = adopt_western_uniforms
+									has_variable = adopt_western_clothes
 								}
                             }
                         }
@@ -3534,7 +3530,7 @@
             base = 0
             modifier = {
                 add = 10000
-                tsr_persia_pop_trigger = yes
+                tsr_persia_military_trigger = yes
                 officers_clothes_pop_trigger = yes   
             }
         }
@@ -3566,7 +3562,7 @@
             base = 0
             modifier = {
                 add = 10000
-                tsr_persia_pop_trigger = yes
+                tsr_persia_military_trigger = yes
                 soldier_clothes_pop_trigger = yes
             }
         }
@@ -4838,6 +4834,42 @@ chinese_upper_clothes = {
            }
         }
     }
+	arabic_middle_clothes_westernized = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = shirt
+                template = arabic_shirt
+                range = { 0 1 } # For the randomness to work correctly
+            }
+
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+
+           #accessory = {
+           #    mode = add
+           #    gene = civilian_coats
+           #    template = european_civilian_coats
+           #    range = { 0 1 } # For the randomness to work correctly
+           #}
+        } 
+
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+                AND = {
+					western_clothes_trigger = yes
+                    arabic_clothes_pop_trigger = yes
+                    middle_clothes_pop_trigger = yes
+                }
+           }
+        }
+    }
     arabic_upper_clothes = {
         dna_modifiers = {
             accessory = {
@@ -4852,7 +4884,7 @@ chinese_upper_clothes = {
             modifier = {
                 add = 1000
                 AND = {
-					western_uniforms_trigger = no
+					western_clothes_trigger = no
                     arabic_clothes_pop_trigger = yes
                     upper_clothes_pop_trigger = yes
                 }
@@ -4880,7 +4912,7 @@ chinese_upper_clothes = {
             modifier = {
                 add = 1000
                 AND = {
-					western_uniforms_trigger = yes
+					western_clothes_trigger = yes
                     arabic_clothes_pop_trigger = yes
                     upper_clothes_pop_trigger = yes
                 }
@@ -5927,8 +5959,8 @@ buddhist_religious_clothes = {
                     }
                     AND = {
 						NOR = {
-							tsr_ottoman_pop_trigger = yes
-							tsr_persia_pop_trigger = yes
+							tsr_ottoman_military_trigger = yes
+							tsr_persia_military_trigger = yes
 						}
                         exists = scope:pop
                         scope:pop = {

@@ -78,16 +78,6 @@ tsr_fez_trigger = {
 	}
 }
 
-tsr_western_uniform_trigger = {
-	exists = scope:character
-	scope:character = {
-		exists = home_country
-		home_country = {
-			has_variable = adopt_western_uniforms
-		}
-	}
-}
-
 tsr_fez_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
@@ -147,7 +137,7 @@ tsr_fez_pop_trigger = {
 	}
 }
 
-tsr_persia_pop_trigger = {
+tsr_persia_military_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		home_country = {
@@ -181,7 +171,7 @@ tsr_ottoman_leader_trigger = {
 	}
 }
 
-tsr_ottoman_pop_trigger = {
+tsr_ottoman_military_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		owner = {

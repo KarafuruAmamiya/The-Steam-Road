@@ -751,7 +751,7 @@ brazilian_commander_monarch_headgear = {
         }
     }
 
-    austrian_military_headgear = {
+    persian_military_headgear = {
         dna_modifiers = {
             accessory = {
                 mode = add
@@ -797,7 +797,7 @@ brazilian_commander_monarch_headgear = {
         }
     }
 
-    austrian_officers_headgear = {
+    persian_officers_headgear = {
         dna_modifiers = {
             accessory = {
                 mode = add
@@ -810,25 +810,8 @@ brazilian_commander_monarch_headgear = {
             base = 0
             modifier = {
                 add = 10000
-                exists = scope:character
-                scope:character = {
-                    exists = home_country
-					home_country = {
-						OR = {
-							AND = {
-								OR = {
-									country_has_primary_culture = cu:persian
-									country_has_primary_culture = cu:jonubi
-								}
-							}
-							AND = {
-								is_subject_of = c:PER
-								has_variable = adopt_western_uniforms
-							}
-						}
-                    }
-                    officers_clothes_pop_trigger = yes
-                }
+                tsr_persia_pop_trigger = yes
+                officers_clothes_pop_trigger = yes  
             }
         }
     }
@@ -962,6 +945,58 @@ brazilian_commander_monarch_headgear = {
             }
         }
     }
+	
+	arabic_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_headgear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                scope:pop ?= {
+                    culture = {
+                        has_discrimination_trait = arabic_heritage
+                    }
+					OR = {
+                        is_pop_type = farmers
+                        is_pop_type = peasants
+                    }
+                }
+            }
+			modifier = {
+                add = 6000
+                scope:pop ?= {
+					OR = {
+						culture = cu:bedouin
+						culture = cu:mashriqi
+						culture = cu:khaleeji
+					}
+					soldier_clothes_pop_trigger = no
+					officers_clothes_pop_trigger = no
+                }
+            }
+			modifier = {
+                add = 5000
+                scope:character ?= {
+                    exists = home_country
+					home_country = {
+						OR = {
+							country_has_primary_culture = cu:bedouin
+							country_has_primary_culture = cu:mashriqi
+							country_has_primary_culture = cu:khaleeji
+						}
+					}
+                    agitator_character_trigger = no
+				}
+            }
+        }
+    }
 
     arabic_turban = {
         dna_modifiers = {
@@ -985,6 +1020,40 @@ brazilian_commander_monarch_headgear = {
 					}
                     agitator_character_trigger = no
 				}
+            }
+			modifier = {
+                add = 10000
+				devout_clothes_trigger = yes
+                exists = scope:character
+                scope:character = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+					is_ruler = no
+                }
+            }
+			modifier = {
+                add = 10000
+                exists = scope:pop
+                scope:pop = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+                    is_pop_type = clergymen
+                }
+            }
+			modifier = {
+                add = 1000
+                scope:pop ?= {
+                    culture = {
+                        has_discrimination_trait = arabic_heritage
+                    }
+					upper_clothes_pop_trigger = yes
+                }
             }
 			modifier = {
                 add = 90000
@@ -1026,106 +1095,12 @@ brazilian_commander_monarch_headgear = {
             base = 0
             modifier = {
                 add = 6000
-                exists = scope:character
-                scope:character = {
-                    exists = home_country
-					home_country = {
-						OR = {
-							AND = {
-								exists = c:TUN
-								c:TUN = this
-							}
-							AND = {
-								exists = c:MOR
-								c:MOR = this
-							}
-							AND = {
-								exists = c:TUR
-								c:TUR = this
-							}
-							AND = {
-								exists = c:AKN
-								c:AKN = this
-							}
-							AND = {
-								exists = c:TUR
-								is_subject_of = c:TUR
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:AKN
-								is_subject_of = c:AKN
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:MOR
-								is_subject_of = c:MOR
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:TUN
-								is_subject_of = c:TUN
-								arabic_clothes_trigger = yes
-							}
-						}
-                    }
+                tsr_fez_trigger = yes
                     OR = {
                         military_clothes_trigger = yes
                         politician_clothes_trigger = yes
                         monarchy_clothes_trigger = yes
                     }
-                }
-            }
-            modifier = {
-                add = 5000
-                exists = scope:character
-                scope:character = {
-                    exists = home_country
-					home_country = {
-						OR = {
-							AND = {
-								exists = c:TUN
-								c:TUN = this
-							}
-							AND = {
-								exists = c:MOR
-								c:MOR = this
-							}
-							AND = {
-								exists = c:TUR
-								c:TUR = this
-							}
-							AND = {
-								exists = c:AKN
-								c:AKN = this
-							}
-							AND = {
-								exists = c:TUR
-								is_subject_of = c:TUR
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:AKN
-								is_subject_of = c:AKN
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:MOR
-								is_subject_of = c:MOR
-								arabic_clothes_trigger = yes
-							}
-							AND = {
-								exists = c:TUN
-								is_subject_of = c:TUN
-								arabic_clothes_trigger = yes
-							}
-						}
-                    }
-                    OR = {
-						soldier_clothes_pop_trigger = yes
-                        officers_clothes_pop_trigger = yes
-                    }
-                }
             }
 			modifier = {
                 add = 90000
@@ -1140,7 +1115,33 @@ brazilian_commander_monarch_headgear = {
                 }
             }
         }
+	}
+	
+	ottoman_officers_military_fez = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_fez
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+				tsr_fez_pop_trigger = yes
+				european_clothes_pop_trigger = no
+				OR = {
+					soldier_clothes_pop_trigger = yes
+					officers_clothes_pop_trigger = yes
+					middle_clothes_pop_trigger = yes					
+					upper_clothes_pop_trigger = yes					
+				}
+            }
+        }
     }
+	
     african_headgear = {
         dna_modifiers = {
             accessory = {
@@ -1167,6 +1168,44 @@ brazilian_commander_monarch_headgear = {
                         }
                     }
                 }
+            }
+        }
+    }
+	
+	berber_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = berber_headgear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 6000
+                scope:pop ?= {
+					OR = {
+						culture = cu:berber
+						culture = cu:tuareg
+					}
+					soldier_clothes_pop_trigger = no
+					officers_clothes_pop_trigger = no
+                }
+            }
+			modifier = {
+                add = 5000
+                scope:character ?= {
+                    exists = home_country
+					home_country = {
+						OR = {
+							country_has_primary_culture = cu:berber
+							country_has_primary_culture = cu:tuareg
+						}
+					}
+                    agitator_character_trigger = no
+				}
             }
         }
     }

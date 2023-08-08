@@ -2498,7 +2498,7 @@
                 mode = add
                 gene = coats
                 template = ottoman_coats
-                range = { 0 1 } # For the randomness to work correctly
+                range = { 0.5 1 } # For the randomness to work correctly
             }
 
             accessory = {
@@ -2507,11 +2507,29 @@
                 template = ottoman_legwear
                 range = { 0 1 } # For the randomness to work correctly
             }
+			accessory = {
+                 mode = add
+                 gene = medals
+                 template = generic_medals
+                 range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = epaulettes
+                 template = all_epaulettes
+                 range = { 0.65 0.75 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.45 0.55 } # For the randomness to work correctly
+            }
         }
         weight = {
             base = 0
             modifier = {
-                add = 6000
+                add = 10000
                 exists = scope:character
                 scope:character = {
 					exists = home_country
@@ -2530,8 +2548,78 @@
                     OR = {
                         military_clothes_trigger = yes
                         monarchy_clothes_trigger = yes
+						armed_forces_clothes_trigger = yes
                     }
                 }
+            }
+        }
+    }
+	
+	ottoman_military_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = coats
+                template = ottoman_coats
+                range = { 0.5 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = ottoman_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                 mode = add
+                 gene = epaulettes
+                 template = all_epaulettes
+                 range = { 0.65 0.75 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                tsr_ottoman_pop_trigger = yes
+                officers_clothes_pop_trigger = yes   
+            }
+        }
+    }
+	
+	ottoman_military_clothes_soldier = {
+        dna_modifiers = {
+             accessory = {
+                mode = add
+                gene = coats
+                template = ottoman_coats
+                range = { 0.1 0.1 }
+            }
+            # the common soldier gets no aguillettes or epaulettes :(
+            accessory = {
+                mode = add
+                gene = legwear
+                template = ottoman_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                tsr_ottoman_pop_trigger = yes
+                soldier_clothes_pop_trigger = yes
             }
         }
     }
@@ -2790,7 +2878,6 @@
                 OR = {
                     european_clothes_trigger = yes
                     european_clothes_pop_trigger = yes
-                    western_uniforms_trigger = yes
 
                 }
                 american_clothes_trigger = no
@@ -2800,7 +2887,6 @@
                 OR = {
                     european_clothes_trigger = yes
                     european_clothes_pop_trigger = yes
-                    western_uniforms_trigger = yes
                     AND = {
                         exists = scope:character
                         scope:character = {
@@ -3314,6 +3400,7 @@
                     }
                     politician_clothes_trigger = yes
                     armed_forces_clothes_trigger = no
+					devout_clothes_trigger = no
                 }
            }
 
@@ -3341,13 +3428,13 @@
         }
     }
     
-    austrian_clothes = {
+    persian_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = coats
                 template = austrian_coats
-                range = { 0 1 } # For the randomness to work correctly
+                range = { 0.2 1 } # For the randomness to work correctly
             }
 
             # no aiguillettes because they don't work with double-breasted coats, which is all the Prussians have
@@ -3363,6 +3450,24 @@
                 gene = legwear
                 template = austrian_legwear
                 range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                 mode = add
+                 gene = medals
+                 template = generic_medals
+                 range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = epaulettes
+                 template = all_epaulettes
+                 range = { 0.65 0.75 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.45 0.55 } # For the randomness to work correctly
             }
         }
 		
@@ -3391,11 +3496,107 @@
 					OR = {
 						military_clothes_trigger = yes
 						monarchy_clothes_trigger = yes
+						armed_forces_clothes_trigger = yes
 					}
 				}
 			}
         }
 	}
+	
+	persian_military_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = coats
+                template = austrian_coats
+                range = { 0.8 0.9 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = austrian_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                 mode = add
+                 gene = epaulettes
+                 template = all_epaulettes
+                 range = { 0.65 0.75 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                tsr_persia_pop_trigger = yes
+                officers_clothes_pop_trigger = yes   
+            }
+        }
+    }
+	
+	persian_military_clothes_soldier = {
+        dna_modifiers = {
+             accessory = {
+                mode = add
+                gene = coats
+                template = austrian_coats
+                range = { 0.1 0.1 }
+            }
+            # the common soldier gets no aguillettes or epaulettes :(
+            accessory = {
+                mode = add
+                gene = legwear
+                template = austrian_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                 mode = add
+                 gene = belts
+                 template = all_belts
+                 range = { 0.2 0.3 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                tsr_persia_pop_trigger = yes
+                soldier_clothes_pop_trigger = yes
+            }
+        }
+    }
+
+    british_military_clothes_soldier = {
+        dna_modifiers = {
+             accessory = {
+                mode = add
+                gene = coats
+                template = british_coats
+                range = { 0 1 }
+            }
+            # the common soldier gets no aguillettes or epaulettes :(
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear_colors
+                range = { 0 0.1 } # there's three colors in the gene, the first of which is black
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+                british_empire_clothes_p_trigger = yes
+                soldier_clothes_pop_trigger = yes
+            }
+        }
+    }
 
     prussian_clothes = {
         dna_modifiers = {
@@ -4651,10 +4852,77 @@ chinese_upper_clothes = {
             modifier = {
                 add = 1000
                 AND = {
+					western_uniforms_trigger = no
                     arabic_clothes_pop_trigger = yes
                     upper_clothes_pop_trigger = yes
                 }
            }
+        }
+    }
+	arabic_upper_clothes_westernized = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = outfits
+                template = arabic_upper_outfits
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                mode = add
+                gene = civilian_coats
+                template = arabic_civilian_coats
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			
+        } 
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                AND = {
+					western_uniforms_trigger = yes
+                    arabic_clothes_pop_trigger = yes
+                    upper_clothes_pop_trigger = yes
+                }
+           }
+        }
+    }
+	muslim_religious_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = outfits
+                template = muslim_outfits
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        } 
+        weight = {
+            base = 0
+            modifier = {
+                add = 10000
+				devout_clothes_trigger = yes
+                exists = scope:character
+                scope:character = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+					is_ruler = no
+                }
+            }
+			modifier = {
+                add = 10000
+                exists = scope:pop
+                scope:pop = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+                    is_pop_type = clergymen
+                }
+            }
         }
     }
 #European
@@ -5631,10 +5899,14 @@ buddhist_religious_clothes = {
                 }
                 OR = {
                     AND = {
+						NOR = {
+							tsr_ottoman_leader_trigger = yes
+							tsr_persia_leader_trigger = yes
+						}
                         exists = scope:character
                         scope:character = {
                             exists = home_country
-home_country = {
+							home_country = {
                                 has_variable = adopt_western_uniforms
                                 any_primary_culture = {
                                     OR = {
@@ -5654,10 +5926,14 @@ home_country = {
                         }
                     }
                     AND = {
+						NOR = {
+							tsr_ottoman_pop_trigger = yes
+							tsr_persia_pop_trigger = yes
+						}
                         exists = scope:pop
                         scope:pop = {
                             exists = home_country
-home_country = {
+							home_country = {
                                 has_variable = adopt_western_uniforms
                                 any_primary_culture = {
                                     OR = {

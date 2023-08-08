@@ -110,6 +110,30 @@
                     arabic_clothes_pop_trigger = yes
                 }
             }
+			modifier = {
+                add = 10000
+				devout_clothes_trigger = yes
+                exists = scope:character
+                scope:character = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+                }
+            }
+			modifier = {
+                add = 10000
+                exists = scope:pop
+                scope:pop = {
+					OR = {
+						religion = rel:sunni
+						religion = rel:shiite
+						religion = rel:ibadi
+					}
+                    is_pop_type = clergymen
+                }
+            }
         }
     }    
 

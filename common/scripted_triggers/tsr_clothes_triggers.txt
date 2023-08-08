@@ -16,6 +16,68 @@
 	}
 }
 
+tsr_fez_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			culture = cu:maghrebi
+			culture = cu:akturk
+			culture = cu:turkish
+			AND = {
+				exists = home_country
+				home_country = {
+					OR = {
+						AND = {
+							exists = c:TUN
+							OR = {
+								c:TUN = this
+								AND = {
+									is_subject_of = c:TUN
+									country_is_in_middle_east = yes
+								}
+							}
+						}
+						AND = {
+							exists = c:MOR
+							OR = {
+								c:MOR = this
+								AND = {
+									is_subject_of = c:MOR
+									country_is_in_middle_east = yes
+								}
+							}
+						}
+						AND = {
+							exists = c:TUR
+							OR = {
+								c:TUR = this
+								AND = {
+									is_subject_of = c:TUR
+									country_is_in_middle_east = yes
+								}
+							}
+						}
+						AND = {
+							exists = c:AKN
+							OR = {
+								c:AKN = this
+								AND = {
+									is_subject_of = c:AKN
+									country_is_in_middle_east = yes
+								}
+							}
+						}
+						AND = {
+							exists = c:TTR
+							c:TTR = this
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 tsr_western_uniform_trigger = {
 	exists = scope:character
 	scope:character = {
@@ -26,8 +88,67 @@ tsr_western_uniform_trigger = {
 	}
 }
 
+tsr_fez_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			culture = cu:maghrebi
+			culture = cu:akturk
+			culture = cu:turkish
+			home_country = {
+				OR = {
+					AND = {
+						exists = c:TUN
+						OR = {
+							c:TUN = this
+							AND = {
+								is_subject_of = c:TUN
+								country_is_in_middle_east = yes
+							}
+						}
+					}
+					AND = {
+						exists = c:MOR
+						OR = {
+							c:MOR = this
+							AND = {
+								is_subject_of = c:MOR
+								country_is_in_middle_east = yes
+							}
+						}
+					}
+					AND = {
+						exists = c:TUR
+						OR = {
+							c:TUR = this
+							AND = {
+								is_subject_of = c:TUR
+								country_is_in_middle_east = yes
+							}
+						}
+					}
+					AND = {
+						exists = c:AKN
+						OR = {
+							c:AKN = this
+							AND = {
+								is_subject_of = c:AKN
+								country_is_in_middle_east = yes
+							}
+						}
+					}
+					AND = {
+						exists = c:TTR
+						c:TTR = this
+					}
+				}
+			}
+		}
+	}
+}
+
 tsr_persia_pop_trigger = {
-	exists = scope:character
+	exists = scope:pop
 	scope:pop = {
 		home_country = {
 			OR = {
@@ -48,25 +169,29 @@ tsr_ottoman_leader_trigger = {
 	scope:character = {
 		exists = home_country
 		home_country = {
-			country_has_primary_culture = cu:turkish
-			AND = {
-				exists = c:TUR
-				is_subject_of = c:TUR
-				has_variable = adopt_western_uniforms
+			OR = {
+				country_has_primary_culture = cu:turkish
+				AND = {
+					exists = c:TUR
+					is_subject_of = c:TUR
+					has_variable = adopt_western_uniforms
+				}
 			}
 		}
 	}
 }
 
 tsr_ottoman_pop_trigger = {
-	exists = scope:character
+	exists = scope:pop
 	scope:pop = {
 		owner = {
-			country_has_primary_culture = cu:turkish
-			AND = {
-				exists = c:TUR
-				is_subject_of = c:TUR
-				has_variable = adopt_western_uniforms
+			OR = {
+				country_has_primary_culture = cu:turkish
+				AND = {
+					exists = c:TUR
+					is_subject_of = c:TUR
+					has_variable = adopt_western_uniforms
+				}
 			}
 		}
 	}

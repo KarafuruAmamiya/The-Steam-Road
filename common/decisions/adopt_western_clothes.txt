@@ -23,7 +23,6 @@
 		has_technology_researched = line_infantry
 		NOT = { has_law = law_type:law_isolationism }
 		NOT = { has_law = law_type:law_peasant_levies }
-		NOT = { has_law = law_type:law_closed_borders }
 		any_scope_character = {
 			AND = {
 				OR = {
@@ -38,6 +37,9 @@
 					}
 				}
 			}
+		}
+		ig:ig_armed_forces = {
+			is_marginal = no
 		}
 	}
 
@@ -80,7 +82,6 @@ adopt_western_clothes = {
 		NOT = { has_law = law_type:law_peasant_levies }
 		NOT = { has_law = law_type:law_traditionalism }
 		NOT = { has_law = law_type:law_land_based_taxation }
-		NOT = { has_law = law_type:law_closed_borders }
 		any_scope_character = {
 			AND = {
 				OR = {
@@ -96,16 +97,13 @@ adopt_western_clothes = {
 				}
 			}
 		}
-		NOR = {
-			ig:ig_landowners = {
+		OR = {
+			ig:ig_intelligentsia = {
 				is_powerful = yes
-            }
-			ig:ig_devout = {
+			}
+			ig:ig_industrialists = {
 				is_powerful = yes
-            }
-			ig:ig_rural_folk = {
-				is_powerful = yes
-            }
+			}
 		}
 	}
 

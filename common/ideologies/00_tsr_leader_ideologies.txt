@@ -20,29 +20,16 @@
 		law_laissez_faire = disapprove		
 	}
 	
-	lawgroup_rights_of_women = {
-		law_womens_suffrage = disapprove
-		law_women_in_the_workplace = disapprove
-		law_women_own_property = approve
-		law_no_womens_rights = neutral
-	}
-	
-	lawgroup_childrens_rights = {
-		law_child_labor_allowed = neutral
-		law_restricted_child_labor = approve
-		law_compulsory_primary_school = neutral
-	}
-	
 	lawgroup_land_reform = {
-		law_serfdom = disapprove
-		law_tenant_farmers = neutral
+		law_serfdom = strongly_disapprove
+		law_tenant_farmers = approve
 		law_homesteading = neutral
-		law_collectivized_agriculture = disapprove
+		law_collectivized_agriculture = strongly_disapprove
 		law_commercialized_agriculture = disapprove
 	}
 	
 	lawgroup_slavery = {
-		law_slavery_banned = neutral
+		law_slavery_banned = approve
 		law_legacy_slavery = neutral
 		law_debt_slavery = disapprove
 		law_slave_trade = disapprove
@@ -51,7 +38,13 @@
 	
 	possible = {
 		owner = {
-			NOT = { has_law = law_type:law_slavery_banned }
+			NOR = { 
+				has_law = law_type:law_slavery_banned 
+				has_law = law_type:law_tenant_farmers
+				has_law = law_type:law_homesteading
+				has_law = law_type:law_collectivized_agriculture
+				has_law = law_type:law_commercialized_agriculture
+			}
 			NOT = { has_technology_researched = human_rights }
 			NOT = { has_technology_researched = egalitarianism } #Switch to reformer instead
 		}
@@ -63,6 +56,7 @@
 				has_variable = chose_fascism
 				has_variable = chose_conservatism
 				has_variable = chose_ethno_nationalism
+				has_ideology = ideology:ideology_pro_slavery
 			}
 		}
 	}
@@ -79,21 +73,6 @@
 						has_law = law_type:law_debt_slavery
 						has_law = law_type:law_traditionalism
 						has_law = law_type:law_slave_trade
-					}
-				}
-			}
-			add = -100
-		}
-		if = {
-			limit = {
-				scope:interest_group = {
-					NOR = {
-						is_interest_group_type = ig_rural_folk
-						is_interest_group_type = ig_armed_forces
-						is_interest_group_type = ig_intelligentsia
-						is_interest_group_type = ig_trade_unions
-						is_interest_group_type = ig_petty_bourgeoisie
-						is_interest_group_type = ig_industrialists
 					}
 				}
 			}

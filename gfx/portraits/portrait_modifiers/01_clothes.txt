@@ -4864,7 +4864,10 @@ chinese_upper_clothes = {
                 add = 5000
                 AND = {
 					western_clothes_trigger = yes
-                    arabic_clothes_pop_trigger = yes
+					OR = {
+						arabic_clothes_pop_trigger = yes
+						indian_clothes_pop_trigger = yes
+					}
                     middle_clothes_pop_trigger = yes
                 }
            }
@@ -4896,7 +4899,7 @@ chinese_upper_clothes = {
             accessory = {
                 mode = add
                 gene = outfits
-                template = arabic_upper_outfits
+                template = arabic_upper_outfits_westernized
                 range = { 0 1 } # For the randomness to work correctly
             }
 			accessory = {
@@ -4905,7 +4908,12 @@ chinese_upper_clothes = {
                 template = arabic_civilian_coats
                 range = { 0 1 } # For the randomness to work correctly
             }
-			
+			accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
         } 
         weight = {
             base = 0
@@ -5033,6 +5041,10 @@ chinese_upper_clothes = {
                         OR = {
                             european_clothes_pop_trigger = yes
                             african_diaspora_pop_clothes_trigger = yes
+							AND = {
+								arabic_clothes_pop_trigger = no
+								western_clothes_trigger = yes
+							}
                         }
                         middle_clothes_pop_trigger = yes
                     }
@@ -5085,6 +5097,13 @@ chinese_upper_clothes = {
                     OR = {
                         european_clothes_pop_trigger = yes
                         african_diaspora_pop_clothes_trigger = yes
+						AND = {
+							arabic_clothes_pop_trigger = no
+							western_clothes_trigger = yes
+							scope:pop ?= {
+								NOT = { is_pop_type = aristocrats }
+							}
+						}
                     }
                     upper_clothes_pop_trigger = yes
                 }

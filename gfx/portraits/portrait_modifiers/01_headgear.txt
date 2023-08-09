@@ -422,12 +422,12 @@ brazilian_commander_monarch_headgear = {
         }
     }
 
-    indian_military_headgear = {
+    indian_military_headgear_no_hijab = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = headgear
-                template = arabic_turban
+                template = arabic_turban_no_hijab
                 range = { 1 1 } # For the randomness to work correctly
             }
         }
@@ -457,12 +457,44 @@ brazilian_commander_monarch_headgear = {
                         }
                     }
                     AND = {
+						exists = scope:pop
+                        scope:pop = {
+                            NOT = { religion = { has_discrimination_trait = muslim } }
+                        }
                         indian_clothes_pop_trigger = yes
                         OR = {
                             soldier_clothes_pop_trigger = yes
                             officers_clothes_pop_trigger = yes
                         }
                     }
+                }
+            }
+        }
+    }
+	
+	indian_military_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_turban
+                range = { 1 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                AND = {
+					exists = scope:pop
+                    scope:pop = {
+						religion = { has_discrimination_trait = muslim }
+                    }
+                    indian_clothes_pop_trigger = yes
+					OR = {
+						soldier_clothes_pop_trigger = yes
+						officers_clothes_pop_trigger = yes
+					}
                 }
             }
         }
@@ -958,11 +990,14 @@ brazilian_commander_monarch_headgear = {
         weight = {
             base = 0
             modifier = {
-                add = 1000
+                add = 100
                 scope:pop ?= {
                     culture = {
                         has_discrimination_trait = arabic_heritage
                     }
+					NOT = {
+						religion = rel:jewish
+					}
 					OR = {
                         is_pop_type = farmers
                         is_pop_type = peasants
@@ -1059,25 +1094,6 @@ brazilian_commander_monarch_headgear = {
                 add = 90000
                 scope:character ?= {
                     has_template = egy_abduh_character_template
-                }
-            }
-        }
-    }
-    arabic_middle_tier = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = arabic_middle_tier
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 200
-                AND = {
-                    arabic_clothes_trigger = yes          
                 }
             }
         }
@@ -1225,8 +1241,24 @@ brazilian_commander_monarch_headgear = {
             base = 0
             modifier = {
                 add = 100
-                arabic_clothes_pop_trigger = yes
-                poor_clothes_pop_trigger = yes
+				OR = {
+					AND = {
+						arabic_clothes_pop_trigger = yes
+						scope:pop ?= {
+							religion = {
+								has_discrimination_trait = muslim
+							}
+						}
+					}
+					AND = {
+						arabic_clothes_trigger = yes
+						scope:character ?= {
+							religion = {
+								has_discrimination_trait = muslim
+							}
+						}
+					}
+				}
             }
         }
     }
@@ -1243,8 +1275,38 @@ brazilian_commander_monarch_headgear = {
         weight = {
             base = 0
             modifier = {
-                add = 100
-                arabic_clothes_pop_trigger = yes
+                add = 200
+				arabic_clothes_pop_trigger = yes
+				OR = {
+					AND = {
+						arabic_clothes_pop_trigger = yes
+						scope:pop ?= {
+							religion = {
+								has_discrimination_trait = muslim
+							}
+							OR = {
+								culture = cu:bedouin
+								culture = cu:mashriqi
+								culture = cu:yemenite
+								culture = cu:khaleeji
+							}
+						}
+					}
+					AND = {
+						arabic_clothes_trigger = yes
+						scope:character ?= {
+							religion = {
+								has_discrimination_trait = muslim
+							}
+							OR = {
+								culture = cu:bedouin
+								culture = cu:mashriqi
+								culture = cu:yemenite
+								culture = cu:khaleeji
+							}
+						}
+					}
+				}
             }
         }
     }

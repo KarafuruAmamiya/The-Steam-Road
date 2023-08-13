@@ -675,3 +675,1048 @@ restore_akkovin_homelands = {
 		}
 	}
 }
+
+break_up_raj = {
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:gujarati
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:gujarati
+				}
+			}
+			save_scope_as = gujarati_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:GUJ }
+			}
+			create_country = {
+				tag = GUJ
+				origin = root
+				state = scope:gujarati_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gujarati
+					}
+				}
+				set_state_owner = c:GUJ
+			}
+		}
+		if = {
+			limit = {
+				exists = c:GUJ
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gujarati
+					}
+				}
+				set_state_owner = c:GUJ
+			}
+			if = {
+				limit = {
+					c:GUJ = { is_subject_of = root }
+				}
+				c:GUJ = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:sindi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:sindi
+				}
+			}
+			save_scope_as = sindi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:SIN }
+			}
+			create_country = {
+				tag = SIN
+				origin = root
+				state = scope:sindi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:sindi
+					}
+				}
+				set_state_owner = c:SIN
+			}
+		}
+		if = {
+			limit = {
+				exists = c:SIN
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:sindi
+					}
+				}
+				set_state_owner = c:SIN
+			}
+			if = {
+				limit = {
+					c:SIN = { is_subject_of = root }
+				}
+				c:SIN = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:nepali
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:nepali
+				}
+			}
+			save_scope_as = nepali_state
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = c:NEP
+				}
+			}
+			create_country = {
+				tag = NEP
+				origin = root
+				state = scope:nepali_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:nepali
+					}
+				}
+				set_state_owner = c:NEP
+			}
+		}
+		if = {
+			limit = {
+				exists = c:NEP
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:nepali
+					}
+				}
+				set_state_owner = c:NEP
+			}
+			if = {
+				limit = {
+					c:NEP = { is_subject_of = root }
+				}
+				c:NEP = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:malvi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:malvi
+				}
+			}
+			save_scope_as = malvi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:MLW }
+			}
+			create_country = {
+				tag = MLW
+				origin = root
+				state = scope:malvi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:malvi
+					}
+				}
+				set_state_owner = c:MLW
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MLW
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:malvi
+					}
+				}
+				set_state_owner = c:MLW
+			}
+			if = {
+				limit = {
+					c:MLW = { is_subject_of = root }
+				}
+				c:MLW = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:marathi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:marathi
+				}
+			}
+			save_scope_as = marathi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:MRT }
+			}
+			create_country = {
+				tag = MRT
+				origin = root
+				state = scope:marathi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:marathi
+					}
+				}
+				set_state_owner = c:MRT
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MRT
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:marathi
+					}
+				}
+				set_state_owner = c:MRT
+			}
+			if = {
+				limit = {
+					c:MRT = { is_subject_of = root }
+				}
+				c:MRT = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:assamese
+						is_homeland = cu:manipuri
+						is_homeland = cu:khasi
+					}
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					OR = {
+						is_homeland = cu:assamese
+						is_homeland = cu:manipuri
+						is_homeland = cu:khasi
+					}
+				}
+			}
+			save_scope_as = assamese_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:ASM }
+			}
+			create_country = {
+				tag = ASM
+				origin = root
+				state = scope:assamese_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:assamese
+							is_homeland = cu:manipuri
+							is_homeland = cu:khasi
+						}
+					}
+				}
+				set_state_owner = c:ASM
+			}
+		}
+		if = {
+			limit = {
+				exists = c:ASM
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:assamese
+							is_homeland = cu:manipuri
+							is_homeland = cu:khasi
+						}
+					}
+				}
+				set_state_owner = c:ASM
+			}
+			if = {
+				limit = {
+					c:ASM = { is_subject_of = root }
+				}
+				c:ASM = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:bundeli
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:bundeli
+				}
+			}
+			save_scope_as = bundeli_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BUN }
+			}
+			create_country = {
+				tag = BUN
+				origin = root
+				state = scope:bundeli_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:bundeli
+					}
+				}
+				set_state_owner = c:BUN
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BUN
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:bundeli
+					}
+				}
+				set_state_owner = c:BUN
+			}
+			if = {
+				limit = {
+					c:BUN = { is_subject_of = root }
+				}
+				c:BUN = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:chhattisgarhi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:chhattisgarhi
+				}
+			}
+			save_scope_as = chhattisgarhi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:SRG }
+			}
+			create_country = {
+				tag = SRG
+				origin = root
+				state = scope:chhattisgarhi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:chhattisgarhi
+					}
+				}
+				set_state_owner = c:SRG
+			}
+		}
+		if = {
+			limit = {
+				exists = c:SRG
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:chhattisgarhi
+					}
+				}
+				set_state_owner = c:SRG
+			}
+			if = {
+				limit = {
+					c:SRG = { is_subject_of = root }
+				}
+				c:SRG = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:panjabi
+						is_homeland = cu:kashmiri
+					}
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					OR = {
+						is_homeland = cu:panjabi
+						is_homeland = cu:kashmiri
+					}
+				}
+			}
+			save_scope_as = punjab_state
+		}
+		if = {
+			limit = {
+				NOR = {
+					exists = c:PAN
+				}
+			}
+			create_country = {
+				tag = PAN
+				origin = root
+				state = scope:punjab_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:panjabi
+							is_homeland = cu:kashmiri
+						}
+					}
+				}
+				set_state_owner = c:PAN
+			}
+		}
+		if = {
+			limit = {
+				exists = c:PAN
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:panjabi
+							is_homeland = cu:kashmiri
+						}
+					}
+				}
+				set_state_owner = c:PAN
+			}
+			if = {
+				limit = {
+					c:PAN = { is_subject_of = root }
+				}
+				c:PAN = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:avadhi
+						is_homeland = cu:kanauji
+					}
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					OR = {
+						is_homeland = cu:avadhi
+						is_homeland = cu:kanauji
+					}
+				}
+			}
+			save_scope_as = hindi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:DLH }
+			}
+			create_country = {
+				tag = DLH
+				origin = root
+				state = scope:hindi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:avadhi
+							is_homeland = cu:kanauji
+						}
+					}
+				}
+				set_state_owner = c:DLH
+			}
+		}
+		if = {
+			limit = {
+				exists = c:DLH
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:avadhi
+							is_homeland = cu:kanauji
+						}
+					}
+				}
+				set_state_owner = c:DLH
+			}
+			if = {
+				limit = {
+					c:DLH = { is_subject_of = root }
+				}
+				c:DLH = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:bengali
+						is_homeland = cu:bihari
+						is_homeland = cu:west_bengali
+						is_homeland = cu:koch
+					}
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					OR = {
+						is_homeland = cu:bengali
+						is_homeland = cu:bihari
+						is_homeland = cu:west_bengali
+						is_homeland = cu:koch
+					}
+				}
+			}
+			save_scope_as = bengali_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BGL }
+			}
+			create_country = {
+				tag = BGL
+				origin = root
+				state = scope:bengali_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:bengali
+							is_homeland = cu:bihari
+							is_homeland = cu:west_bengali
+							is_homeland = cu:koch
+						}
+					}
+				}
+				set_state_owner = c:BGL
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BGL
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						OR = {
+							is_homeland = cu:bengali
+							is_homeland = cu:bihari
+							is_homeland = cu:west_bengali
+							is_homeland = cu:koch
+						}
+					}
+				}
+				set_state_owner = c:BGL
+			}
+			if = {
+				limit = {
+					c:BGL = { is_subject_of = root }
+				}
+				c:BGL = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:malayalam
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:malayalam
+				}
+			}
+			save_scope_as = malayalam_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:TRA }
+			}
+			create_country = {
+				tag = TRA
+				origin = root
+				state = scope:malayalam_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:malayalam
+					}
+				}
+				set_state_owner = c:TRA
+			}
+		}
+		if = {
+			limit = {
+				exists = c:TRA
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:malayalam
+					}
+				}
+				set_state_owner = c:TRA
+			}
+			if = {
+				limit = {
+					c:TRA = { is_subject_of = root }
+				}
+				c:TRA = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:oriya
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:oriya
+				}
+			}
+			save_scope_as = oriya_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:ORI }
+			}
+			create_country = {
+				tag = ORI
+				origin = root
+				state = scope:oriya_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:oriya
+					}
+				}
+				set_state_owner = c:ORI
+			}
+		}
+		if = {
+			limit = {
+				exists = c:ORI
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:oriya
+					}
+				}
+				set_state_owner = c:ORI
+			}
+			if = {
+				limit = {
+					c:ORI = { is_subject_of = root }
+				}
+				c:ORI = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:tamil
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:tamil
+				}
+			}
+			save_scope_as = tamil_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:MDU }
+			}
+			create_country = {
+				tag = MDU
+				origin = root
+				state = scope:tamil_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:tamil
+					}
+				}
+				set_state_owner = c:MDU
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MDU
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:tamil
+					}
+				}
+				set_state_owner = c:MDU
+			}
+			if = {
+				limit = {
+					c:MDU = { is_subject_of = root }
+				}
+				c:MDU = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:rajput
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:rajput
+				}
+			}
+			save_scope_as = rajput_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:MEW }
+			}
+			create_country = {
+				tag = MEW
+				origin = root
+				state = scope:rajput_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:rajput
+					}
+				}
+				set_state_owner = c:MEW
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MEW
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:rajput
+					}
+				}
+				set_state_owner = c:MEW
+			}
+			if = {
+				limit = {
+					c:MEW = { is_subject_of = root }
+				}
+				c:MEW = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:kannada
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:kannada
+				}
+			}
+			save_scope_as = kannada_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:MYS }
+			}
+			create_country = {
+				tag = MYS
+				origin = root
+				state = scope:kannada_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:kannada
+					}
+				}
+				set_state_owner = c:MYS
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MYS
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:kannada
+					}
+				}
+				set_state_owner = c:MYS
+			}
+			if = {
+				limit = {
+					c:MYS = { is_subject_of = root }
+				}
+				c:MYS = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:telegu
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:telegu
+				}
+			}
+			save_scope_as = telegu_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:ADH }
+			}
+			create_country = {
+				tag = ADH
+				origin = root
+				state = scope:telegu_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:telegu
+					}
+				}
+				set_state_owner = c:ADH
+			}
+		}
+		if = {
+			limit = {
+				exists = c:ADH
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:telegu
+					}
+				}
+				set_state_owner = c:ADH
+			}
+			if = {
+				limit = {
+					c:ADH = { is_subject_of = root }
+				}
+				c:ADH = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:gondi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:gondi
+				}
+			}
+			save_scope_as = gondi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BAS }
+			}
+			create_country = {
+				tag = BAS
+				origin = root
+				state = scope:gondi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gondi
+					}
+				}
+				set_state_owner = c:BAS
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BAS
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gondi
+					}
+				}
+				set_state_owner = c:BAS
+			}
+			if = {
+				limit = {
+					c:BAS = { is_subject_of = root }
+				}
+				c:BAS = { make_independent = yes }
+			}
+		}
+	}
+	every_subject_or_below = {
+		limit = {
+			country_is_in_india = yes
+		}
+		make_independent = yes
+	}
+}

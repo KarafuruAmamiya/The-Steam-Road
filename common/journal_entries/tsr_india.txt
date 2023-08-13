@@ -1,0 +1,83 @@
+﻿je_hindustani_uprising = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	is_shown_when_inactive = {
+        exists = c:PER
+        THIS = c:PER
+		any_scope_state = {
+			state_is_in_india = yes
+		}
+        any_subject_or_below = {
+			country_is_in_india = yes
+		}
+    }
+	
+    possible = {
+		AND = {
+			owns_entire_state_region = STATE_GUJARAT
+			s:STATE_GUJARAT = {
+				OR = {
+					turmoil >= 0.5
+					radical_fraction = {
+						value >= 0.25
+					}
+				}
+			}
+		}
+		AND = {
+			owns_entire_state_region = STATE_TRAVANCORE
+			s:STATE_TRAVANCORE = {
+				OR = {
+					turmoil >= 0.5
+					radical_fraction = {
+						value >= 0.25
+					}
+				}
+			}
+		}
+    }
+	
+	immediate = {
+		trigger_event = { id = raj.6 days = 0 }
+	}
+
+	complete = {
+		any_scope_state = {
+			count = all
+			state_is_in_india = yes
+			turmoil < 0.3
+		}
+		owns_entire_state_region = STATE_GUJARAT
+		owns_entire_state_region = STATE_TRAVANCORE
+		is_at_war = no
+	}
+
+	on_complete = {
+		trigger_event = { id = raj.1 days = 0 popup = yes }
+		add_modifier = {
+			name = company_crushed_mutiny
+			months = normal_modifier_time
+		}
+	}
+	
+	fail = {
+		NOR = {
+			owns_entire_state_region = STATE_GUJARAT
+			owns_entire_state_region = STATE_TRAVANCORE
+		}
+		OR = {
+			is_at_war = no
+			is_diplomatic_play_comitted_participant = no
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = raj.7 days = 0 popup = yes }
+		#set_variable = failed_hindustani_uprising
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+	
+	#trigger uprising event
+}

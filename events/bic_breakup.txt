@@ -1,0 +1,112 @@
+﻿namespace = bic_breakup
+
+# Independent Persian Raj decides how to proceed
+bic_breakup.1 = {
+	type = country_event
+	placement = root
+	
+	title = bic_breakup.1.t
+	desc = bic_breakup.1.d
+	flavor = bic_breakup.1.f
+	
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	duration = 3
+	
+	trigger = {
+		this ?= c:RAJ
+		is_subject = no
+		is_at_war = no
+		NOT = {	
+			has_variable = bic_collapse_var
+		}
+	}
+
+	immediate = {
+		cu:persian = {
+			save_scope_as = british_culture
+		}
+		cu:azerbaijani = {
+			save_scope_as = scottish_culture
+		}
+		set_variable = bic_collapse_var
+		if = {
+			limit = {
+				exists = c:PER
+				is_subject_of = c:PER
+			}
+			c:PER = {
+				set_variable = failed_hindustani_uprising
+			}
+		}
+	}
+
+	option = {
+		name = bic_breakup.1.a
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+		custom_tooltip = {
+			text = india_princes_independent_tt
+			break_up_raj = yes
+		}
+	}
+
+	option = {
+		name = bic_breakup.1.b
+		highlighted_option = yes
+		trigger = {
+			has_technology_researched = pan-nationalism
+		}
+		ai_chance = {
+			factor = 1 # this will be quite rare for the AI
+		}
+		change_tag = BHT
+		hidden_effect = {
+			remove_primary_culture = cu:persian
+			remove_primary_culture = cu:azerbaijani
+			add_primary_culture = cu:bengali
+			add_primary_culture = cu:west_bengali
+			add_primary_culture = cu:assamese
+			add_primary_culture = cu:avadhi
+			add_primary_culture = cu:bihari
+			add_primary_culture = cu:bundeli
+			add_primary_culture = cu:gujarati
+			add_primary_culture = cu:kanauji
+			add_primary_culture = cu:kannada
+			add_primary_culture = cu:malayalam
+			add_primary_culture = cu:marathi
+			add_primary_culture = cu:oriya
+			add_primary_culture = cu:panjabi
+			add_primary_culture = cu:rajput
+			add_primary_culture = cu:sindi
+			add_primary_culture = cu:tamil
+			add_primary_culture = cu:telegu
+			add_primary_culture = cu:malvi
+			add_primary_culture = cu:chhattisgarhi
+			add_primary_culture = cu:gondi
+			set_state_religion = rel:hindu
+			ig:ig_devout = { 
+				set_interest_group_name = ig_hindu_priesthood
+				remove_ideology = ideology_moralist
+				add_ideology = ideology_hindu_moralist
+			}
+		}
+	}
+	option = {
+		name = bic_breakup.1.c
+		ai_chance = {
+			base = 0 # AI will never do this
+		}
+		default_option = yes
+		add_radicals = {
+			value = very_large_radicals
+		}
+	}
+}

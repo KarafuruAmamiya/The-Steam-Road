@@ -123,8 +123,35 @@
  je_consolidate_colonial_rule_goal: "Keep Separatism below 30 for a total of 10 years"
  
  east_indies.1.t: "Consolidating Colonial Rule"
- east_indies.1.d: "A great Indian Subcontinent has been brought under [ROOT.GetCountry.GetAdjectiveNoFormatting] rule. Those foolish princes who opposed us have either bent the knee or perished."
- east_indies.1.f: ""Colonial rule is held together by the collaboration of the Empire and the Indian Princes. Over decades we have seduced the Indians with promises of wealth and prestige, of military ranks and noble titles. Their service has been rewarded, and by winning their favor the subcontinent is pacified.""
+ east_indies.1.d: "A great part of Hindustan has been brought under [ROOT.GetCountry.GetAdjectiveNoFormatting] rule. Those foolish princes who opposed us have either bent the knee or perished."
+ east_indies.1.f: ""Colonial rule is held together by the collaboration of the Empire and the Hindustani Princes. Over decades we have seduced the Indians with promises of wealth and prestige, of military ranks and noble titles. Their service has been rewarded, and by winning their favor the subcontinent is pacified.""
  east_indies.1.a: "Loyal princes will keep the peace."
  east_indies.1.b: "This will open up new economic opportunities."
- east_india_company_men: "Indian Investments"
+ east_india_company_men: "Hindustan Investments"
+ 
+ doctrine_of_lapse: "Doctrine of Lapse"
+ doctrine_of_lapse_desc: "We should use any means necessary, legal or illegal, to reduce the influence of local Indian rulers."
+ doctrine_of_lapse_cooldown_tt: "Has not invoked the Doctrine of Lapse for 2 years"
+ doctrine_of_lapse_disabled: "With the full annexation of India, the Doctrine of Lapse will abolished"
+ 
+ raj.2.t: "The Doctrine of Lapse"
+ raj.2.d: "According to the Doctrine of Lapse, the Empire has the right to seize any land belonging to a ruler who is manifestly incompetent, or has passed away without leaving a male heir. Our judgement of rulers' incompetence can come quite conveniently."
+ raj.2.f: ""In the past, the unchecked power of regional governors has caused the downfall of many of our predecessors. Therefore, we should use any means necessary, legal or illegal, to ensure the compliance of our Hindustani subjects.""
+ raj.2.a: "[SCOPE.sState('doctrine_of_lapse_target_state_1').GetName] needs a better administrator."
+ raj.2.b: "[SCOPE.sState('doctrine_of_lapse_target_state_2').GetName] looks like a good candidate."
+ raj.2.c: "[SCOPE.sState('doctrine_of_lapse_target_state_3').GetName] is ours."
+ 
+ raj.5.t: "Suspected Proselytism"
+ raj.5.d: "The presence of [SCOPE.sReligion('suspected_missionaries').GetName] $clergymen$ in [SCOPE.sState('missionaries_suspicion_state').GetName] has caused some locals to suspect that [ROOT.GetCountry.GetName] is planning to attempt converting people to Shia."
+ raj.5.f: ""That the Persians seeks to impose their own ideas on us is well known. Who is to say the next step is not mass conversions? They pretend to respect our faith to keep the peace, but have they not all along painted it as merely another heretical cultural element? Surely they are just biding their time for the eventual project of forcing us all to adopt their beliefs.""
+ raj.5.a: "It couldn't be further from the truth."
+ raj.5.b: "As descendants of the Safaviyya order, it is our duty to uphold the Shi'ism faith."
+ 
+ raj.6.t: "Hindustani Uprising"
+ raj.6.d: "After a long time of brewing opposition to Persian rule, the Hindustanis have risen up to secede from the Empire. To make matter worse, the Satrapies has secretly been plotting with them and now band together against us. No matter what, we must retake Hindustan!"
+ raj.6.f: ""As long as there remains the scent of Iman in the hearts of our Ghazis, so long shall the sword of Hindustan flash before the throne of Esfahan."" # Bahadur Shah Zafar
+ raj.6.a: "Crush them!"
+ raj.6.b: "Hindustan Zindābād!"
+ 
+ company_crushed_mutiny: "Crushed the Hindustani Uprising"
+ promised_no_missionaries: "Promised No Forced Conversions"

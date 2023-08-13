@@ -1,0 +1,1350 @@
+﻿namespace = raj
+
+# The Raj
+raj.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = raj.1.t
+	desc = raj.1.d
+	flavor = raj.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	minor_left_icon = c:PER
+	minor_right_icon = c:RAJ
+
+	trigger = {
+	}
+
+	immediate = {
+		create_country = {
+			tag = RAJ
+			origin = THIS
+			state = s:STATE_KONKAN.region_state:PER
+			
+			on_created = {
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_oligarchy
+						}
+					}
+					activate_law = law_type:law_oligarchy
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_racial_segregation
+						}
+					}
+					activate_law = law_type:law_racial_segregation
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_state_religion
+						}
+					}
+					activate_law = law_type:law_state_religion
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_appointed_bureaucrats
+						}
+					}
+					activate_law = law_type:law_appointed_bureaucrats
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_peasant_levies
+						}
+					}
+					activate_law = law_type:law_peasant_levies
+				}
+			}
+		}
+		c:PER = {
+			save_scope_as = raj_overlord_country
+		}
+		set_variable = {
+			name = persian_raj_var
+		}
+	}
+
+	option = {
+		name = raj.1.a
+		default_option = yes
+		custom_tooltip = activate_british_raj
+		create_diplomatic_pact = {
+			country = c:RAJ
+			type = dominion #We need a special country type for Raj (same ruler, join wars, can have subjects)
+		}
+		every_scope_state = {
+			limit = {
+				OR = {
+					state_is_in_india = yes
+					state_region = s:STATE_KASHMIR
+				}
+				NOR = {
+					state_region = s:STATE_GUJARAT
+					state_region = s:STATE_SAURASHTRA
+					state_region = s:STATE_SINDH
+				}
+			}
+			set_state_owner = c:RAJ
+		}
+		set_variable = doctrine_of_lapse_ended
+		custom_tooltip = doctrine_of_lapse_disabled
+		hidden_effect = {
+			every_subject_or_below = {
+				if = {
+					limit = { 
+						OR = {
+							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_dominion
+						}
+						country_is_in_india = yes
+					}
+					make_independent = yes
+					save_scope_as = new_raj_puppet
+					c:RAJ = {
+						create_diplomatic_pact = {
+							country = scope:new_raj_puppet
+							type = puppet
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = raj.1.b
+		trigger = {
+			is_player = yes
+		}
+		custom_tooltip = activate_british_raj
+		create_diplomatic_pact = {
+			country = c:RAJ
+			type = dominion
+		}
+		every_scope_state = {
+			limit = {
+				state_is_in_india = yes
+				NOR = {
+					state_region = s:STATE_GUJARAT
+					state_region = s:STATE_SINDH
+				}
+			}
+			set_state_owner = c:RAJ
+		}
+		set_variable = doctrine_of_lapse_ended
+		custom_tooltip = doctrine_of_lapse_disabled
+		hidden_effect = {
+			every_subject_or_below = {
+				if = {
+					limit = { 
+						OR = {
+							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_dominion
+						}
+						country_is_in_india = yes
+					}
+					make_independent = yes
+					save_scope_as = new_raj_puppet
+					c:RAJ = {
+						create_diplomatic_pact = {
+							country = scope:new_raj_puppet
+							type = puppet
+						}
+					}
+				}
+			}
+		}
+		
+		play_as = c:RAJ
+	}
+}
+# The Doctrine of Lapse
+raj.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = raj.2.t
+	desc = raj.2.d
+	flavor = raj.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	minor_left_icon = c:PER
+	#minor_right_icon = scope:doctrine_of_lapse_target_country
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = {
+					is_subject_of = ROOT
+					any_primary_culture = {
+						has_discrimination_trait = south_asian_heritage
+					}
+					is_player = no
+					NOR = {
+						has_government_type = gov_special_satrapies_muslim
+						has_government_type = gov_special_satrapies_hindu
+					}
+				}
+			}
+			save_scope_as = doctrine_of_lapse_target_state_1
+		}
+		random_state = {
+			limit = {
+				owner = {
+					is_subject_of = ROOT
+					any_primary_culture = {
+						has_discrimination_trait = south_asian_heritage
+					}
+					is_player = no
+					NOR = {
+						has_government_type = gov_special_satrapies_muslim
+						has_government_type = gov_special_satrapies_hindu
+					}
+				}
+				NOT = { this = scope:doctrine_of_lapse_target_state_1 }
+			}
+			save_scope_as = doctrine_of_lapse_target_state_2
+		}
+		random_state = {
+			limit = {
+				owner = {
+					is_subject_of = ROOT
+					any_primary_culture = {
+						has_discrimination_trait = south_asian_heritage
+					}
+					is_player = no
+					NOR = {
+						has_government_type = gov_special_satrapies_muslim
+						has_government_type = gov_special_satrapies_hindu
+					}
+				}
+				NOT = { this = scope:doctrine_of_lapse_target_state_1 }
+				NOT = { this = scope:doctrine_of_lapse_target_state_2 }
+			}
+			save_scope_as = doctrine_of_lapse_target_state_3
+		}
+	}
+
+	option = {
+		name = raj.2.a
+		default_option = yes
+		scope:doctrine_of_lapse_target_state_1 = {
+			set_state_owner = ROOT
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+		create_incident = {
+			country = scope:doctrine_of_lapse_target_state_1.owner
+			value = 20
+		}
+	}
+
+	option = {
+		name = raj.2.b
+		trigger = {
+			exists = scope:doctrine_of_lapse_target_state_2
+		}
+		scope:doctrine_of_lapse_target_state_2 = {
+			set_state_owner = ROOT
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+		create_incident = {
+			country = scope:doctrine_of_lapse_target_state_2.owner
+			value = 20
+		}
+	}
+	
+	option = {
+		name = raj.2.c
+		trigger = {
+			exists = scope:doctrine_of_lapse_target_state_3
+		}
+		scope:doctrine_of_lapse_target_state_3 = {
+			set_state_owner = ROOT
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+		create_incident = {
+			country = scope:doctrine_of_lapse_target_state_3.owner
+			value = 20
+		}
+	}
+}
+
+# Cartridge Grease
+#raj.3 = {
+#	type = country_event
+#	placement = ROOT
+#
+#	title = raj.3.t
+#	desc = raj.3.d
+#	flavor = raj.3.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "middleeast_battlefield_trenches"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#
+#	trigger = {
+#		NOT = { has_variable = greasy_cartridges }
+#		any_scope_pop = {
+#			is_pop_type = soldiers
+#			OR = {
+#				religion = rel:hindu
+#				religion = rel:sunni
+#				religion = rel:shiite
+#			}
+#		}
+#	}
+#
+#	immediate = {
+#		set_variable = greasy_cartridges
+#	}
+#
+#	option = {
+#		name = raj.3.a
+#		# country_military_goods_cost_mult
+#		add_modifier = {
+#			name = changed_cartridges
+#			months = normal_modifier_time
+#		}
+#
+#		ai_chance = {
+#			base = 25
+#		}
+#	}
+#
+#	option = {
+#		name = raj.3.b
+#		default_option = yes
+#		add_radicals = {
+#			pop_type = soldiers
+#			religion = rel:hindu
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			pop_type = soldiers
+#			religion = rel:sunni
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			pop_type = soldiers
+#			religion = rel:shiite
+#			value = large_radicals
+#		}
+#
+#		ai_chance = {
+#			base = 75
+#		}
+#	}
+#}
+
+# Overseas Service
+raj.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = raj.4.t
+	desc = raj.4.d
+	flavor = raj.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:PER ?= this
+		any_scope_state = {
+			state_is_in_india = yes
+		}
+		NOT = { has_variable = kala_pani_event }
+		any_scope_pop = {
+			is_pop_type = soldiers
+			religion = rel:hindu
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = kala_pani_event
+		}
+		rel:hindu = { save_scope_as = hindu_pop }
+	}
+
+	option = {
+		name = raj.4.a
+		ig:ig_armed_forces = {
+			add_modifier = {
+				name = hindu_overseas_exemption
+				months = normal_modifier_time
+			}
+		}
+
+		ai_chance = {
+			base = 25
+		}
+	}
+
+	option = {
+		name = raj.4.b
+		default_option = yes
+		add_radicals = {
+			pop_type = officers
+			religion = rel:hindu
+			value = large_radicals
+		}
+		add_radicals = {
+			pop_type = soldiers
+			religion = rel:hindu
+			value = large_radicals
+		}
+
+		ai_chance = {
+			base = 75
+		}
+	}
+}
+
+# Suspected Conversion Project
+raj.5 = {
+	type = country_event
+	placement = scope:missionaries_suspicion_state
+
+	title = raj.5.t
+	desc = raj.5.d
+	flavor = raj.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		c:PER ?= this
+		any_scope_state = {
+			state_is_in_india = yes
+		}
+		NOT = { has_variable = suspected_conversions }
+		any_scope_state = {
+			any_scope_pop = {
+				OR = {
+					religion = rel:hindu
+					religion = rel:sunni
+				}
+			}
+			any_scope_pop = {
+				is_pop_type = clergymen
+				religion = rel:shiite
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = suspected_conversions
+			years = 3
+		}
+		random_scope_state = {
+			limit = {
+				any_scope_pop = {
+					OR = {
+						religion = rel:hindu
+						religion = rel:sunni
+					}
+				}
+				any_scope_pop = {
+					is_pop_type = clergymen
+					religion = rel:shiite
+				}
+			}
+			save_scope_as = missionaries_suspicion_state
+			random_scope_pop = {
+				limit = {
+					is_pop_type = clergymen
+					religion = rel:shiite
+				}
+				religion = { save_scope_as = suspected_missionaries }
+			}
+		}
+	}
+
+	option = {
+		name = raj.5.a
+		scope:missionaries_suspicion_state = {
+			# state_conversion_mult
+			add_modifier = {
+				name = promised_no_proselytization
+				months = long_modifier_time
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = promised_no_missionaries
+				months = normal_modifier_time
+			}
+		}
+
+		ai_chance = {
+			base = 25
+		}
+	}
+
+	option = {
+		name = raj.5.b
+		default_option = yes
+		scope:missionaries_suspicion_state = {
+			add_radicals_in_state = {
+				religion = rel:hindu
+				value = large_radicals
+			}
+			add_radicals_in_state = {
+				religion = rel:sunni
+				value = large_radicals
+			}
+		}
+
+		ai_chance = {
+			base = 75
+		}
+	}
+}
+
+
+# Hindustani Uprising
+raj.6 = {
+	type = country_event
+	placement = c:GUJ.capital
+
+	title = raj.6.t
+	desc = raj.6.d
+	flavor = raj.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { exists = c:GUJ }
+				exists = s:STATE_GUJARAT.region_state:PER
+			}
+			create_country = {
+				tag = GUJ
+				origin = root
+				state = s:STATE_GUJARAT.region_state:PER
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = c:GUJ }
+			}
+			random_country = {
+				limit = {
+					is_secessionist = yes
+					any_scope_state = {
+						state_region = s:STATE_GUJARAT
+					}
+				}
+				change_tag = GUJ
+			}
+		}
+		if = {
+			limit = { exists = s:STATE_SAURASHTRA.region_state:PER }
+			s:STATE_SAURASHTRA.region_state:PER = { set_state_owner = c:GUJ }
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:TRA }
+				exists = s:STATE_TRAVANCORE.region_state:PER
+			}
+			create_country = {
+				tag = TRA
+				origin = root
+				state = s:STATE_TRAVANCORE.region_state:PER
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = c:TRA }
+			}
+			random_country = {
+				limit = {
+					is_secessionist = yes
+					any_scope_state = {
+						state_region = s:STATE_TRAVANCORE
+					}
+				}
+				change_tag = TRA
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_diplomatic_play = {
+						any_scope_play_involved = { this = c:GUJ }
+						any_scope_play_involved = { this = c:PER }
+						is_diplomatic_play_type = dp_secession
+					}
+				}
+			}
+			create_diplomatic_play = {
+				name = hindustani_uprising
+				type = dp_annex_war
+				escalation = 80
+				target_country = c:GUJ
+						
+				add_target_backers = {
+					c:TRA
+				}
+
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:TRA
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MUG 
+				c:MUG = {
+					is_subject_of = root
+				}
+				relations:root < 0
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MUG
+				}
+				add_war_goal = {
+					holder = c:MUG
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MUG
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MRT
+				c:MRT = {
+					is_subject_of = root
+				}
+				relations:root < 0
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MRT
+				}
+				add_war_goal = {
+					holder = c:MRT
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:MRT
+					type = return_state
+					target_state = s:STATE_KONKAN.region_state:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MUG
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:DEC
+				c:DEC = {
+					is_subject_of = root
+				}
+				relations:root < 0
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:DEC
+				}
+				add_war_goal = {
+					holder = c:DEC
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:DEC
+					type = return_state
+					target_state = s:STATE_CIRCARS.region_state:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:DEC
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:BGL
+				c:BGL = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:BGL
+				}
+				add_war_goal = {
+					holder = c:BGL
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:BGL
+					type = return_state
+					target_state = s:STATE_SOUTH_BENGAL.region_state:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:BGL
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MDU
+				c:MDU = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MDU
+				}
+				add_war_goal = {
+					holder = c:MDU
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:MDU
+					type = return_state
+					target_state = s:STATE_PANDYA_NADU.region_state:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:MDU
+					type = return_state
+					target_state = s:STATE_CHOLA_NADU.region_state:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MDU
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:ASM
+				c:ASM = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:ASM
+				}
+				add_war_goal = {
+					holder = c:ASM
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:ASM
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SIN
+				c:SIN = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:SIN
+				}
+				add_war_goal = {
+					holder = c:SIN
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:SIN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:DLH
+				c:DLH = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:DLH
+				}
+				add_war_goal = {
+					holder = c:SIN
+					type = independence
+					target_country = c:DLH
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:DLH
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:GWA
+				c:GWA = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:GWA
+				}
+				add_war_goal = {
+					holder = c:GWA
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:GWA
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:BUN
+				c:BUN = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:BUN
+				}
+				add_war_goal = {
+					holder = c:BUN
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:BUN
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MEW
+				c:MEW = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MEW
+				}
+				add_war_goal = {
+					holder = c:MEW
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MEW
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MLW
+				c:MLW = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MLW
+				}
+				add_war_goal = {
+					holder = c:MLW
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MLW
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:NAG
+				c:NAG = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:NAG
+				}
+				add_war_goal = {
+					holder = c:NAG
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:NAG
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:MYS
+				c:MYS = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:MYS
+				}
+				add_war_goal = {
+					holder = c:MYS
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:MYS
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:BAS
+				c:BAS = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:BAS
+				}
+				add_war_goal = {
+					holder = c:BAS
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:BAS
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:ORI
+				c:ORI = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:ORI
+				}
+				add_war_goal = {
+					holder = c:ORI
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:ORI
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SRG
+				c:SRG = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:SRG
+				}
+				add_war_goal = {
+					holder = c:SRG
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:SRG
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:BIK
+				c:BIK = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:BIK
+				}
+				add_war_goal = {
+					holder = c:BIK
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:BIK
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:BHW
+				c:BHW = {
+					is_subject_of = root
+				}
+				is_player = no
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:PER
+					target_is = c:GUJ
+				}
+				add_target_backers = {
+					c:BHW
+				}
+				add_war_goal = {
+					holder = c:BHW
+					type = independence
+					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = annex_country
+					target_country = c:BHW
+					primary_demand = yes
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				has_war_with = root
+				any_primary_culture = {
+					has_discrimination_trait = south_asian_heritage
+				}
+				any_diplomatic_play = {
+					has_war_goal = independence
+				}
+			}
+			add_modifier = {
+				name = war_for_independence
+				months = normal_modifier_time
+			}
+		}
+		
+		#Player playing an Indian minor gets to choose whether to back Persia or not
+	}
+
+	option = {
+		name = raj.6.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				state_is_in_india = yes
+			}
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+	}
+
+	option = {
+		name = raj.6.b
+		trigger = {
+			is_player = yes
+		}
+		every_scope_state = {
+			limit = {
+				state_is_in_india = yes
+			}
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+		
+		play_as = c:GUJ
+	}
+}
+
+# End of Persian Rule in India
+raj.7 = {
+	type = country_event
+	placement = ROOT
+
+	title = raj.7.t
+	desc = raj.7.d
+	flavor = raj.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:PER ?= this
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = raj.7.a
+		default_option = yes
+		custom_tooltip = {
+			text = india_princes_independent_tt
+			break_up_raj = yes
+		}
+	}
+}

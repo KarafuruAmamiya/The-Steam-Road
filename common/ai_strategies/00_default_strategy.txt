@@ -424,6 +424,25 @@ ai_strategy_default = {
 			}
 			add = 5
 		}		
+
+		if = {
+			limit = {
+				has_journal_entry = je_reconquer_germany
+				scope:target_country = {
+					OR = {
+						AND = {
+							exists = c:SCA
+							THIS = c:SCA
+						}
+						AND = {
+							exists = c:NET
+							THIS = c:NET
+						}
+					}
+				}
+			}
+			add = 10
+		}
 		
 		# Very high aggression against pariah countries by Great Powers
 		if = {
@@ -640,6 +659,8 @@ ai_strategy_default = {
 							state_region = s:STATE_FLANDERS
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_NORTH_RHINE
+							state_region = s:STATE_ELSASS
+							state_region = s:STATE_LORRAINE
 						}
 					}
 				}
@@ -2384,6 +2405,22 @@ ai_strategy_default = {
 				add = 200
 			}
 			
+			if = {
+				limit = {
+					any_primary_culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+					has_technology_researched = nationalism
+					scope:target_country = {
+						any_primary_culture = {
+							has_discrimination_trait = arabic_heritage
+						}
+						is_secessionist = yes
+					}
+				}
+				add = 1000
+			}
+			
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = 0.05
@@ -2864,6 +2901,27 @@ ai_strategy_default = {
 					scope:target_country = {
 						any_scope_state = {
 							state_region = { is_homeland = cu:greek }
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					has_journal_entry = je_consolidate_colonial_rule
+					scope:target_country = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_BURMA
+								state_region = s:STATE_RAKHINE
+								state_region = s:STATE_SAGAING
+								state_region = s:STATE_KACHIN
+								state_region = s:STATE_SHAN_STATES
+								state_region = s:STATE_PEGU
+								state_region = s:STATE_ASSAM
+								state_region = s:STATE_HIMALAYAS
+							}
 						}
 					}
 				}
@@ -3629,7 +3687,6 @@ ai_strategy_default = {
 					}
 				}
 			}				
-		
 			if = {
 				limit = {
 					lenient_ai_behavior_trigger = yes
@@ -3976,15 +4033,7 @@ ai_strategy_default = {
 					market_capital.market = scope:target_country.market_capital.market
 				}
 				multiply = 0
-			}	
-
-			# Greatly reduced wanting treaty ports from other recognized countries
-			if = {
-				limit = {
-					scope:target_country = { NOT = { is_country_type = unrecognized } }
-				}
-				multiply = 0.1
-			}
+			}			
 			
 			if = {
 				limit = {

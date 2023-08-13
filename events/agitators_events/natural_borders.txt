@@ -43,7 +43,7 @@ natural_borders.1 = {
 			}
 			leader = { save_scope_as = borders_leader }
 		}
-		s:STATE_SAVOY = {
+		s:STATE_LIGURIA = {
 			random_scope_state = {
 				save_scope_as = savoy_state
 			}
@@ -66,14 +66,6 @@ natural_borders.1 = {
 		default_option = yes
 		ai_chance = {
 			base = 1
-		}
-		if = {
-			limit = {
-				NOT = { owns_entire_state_region = STATE_WALLONIA }
-			}
-			s:STATE_WALLONIA = {
-				add_claim = ROOT
-			}
 		}
 		if = {
 			limit = {
@@ -101,9 +93,33 @@ natural_borders.1 = {
 		}
 		if = {
 			limit = {
-				NOT = { owns_entire_state_region = STATE_SAVOY }
+				NOT = { owns_entire_state_region = STATE_LORRAINE }
 			}
-			s:STATE_SAVOY = {
+			s:STATE_LORRAINE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_ELSASS }
+			}
+			s:STATE_ELSASS = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_PFALZ }
+			}
+			s:STATE_PFALZ = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LIGURIA }
+			}
+			s:STATE_LIGURIA = {
 				add_claim = ROOT
 			}
 		}
@@ -117,11 +133,13 @@ natural_borders.1 = {
 				NOT = { THIS = ROOT }
 				any_scope_state = {
 					OR = {
-						state_region = s:STATE_WALLONIA
 						state_region = s:STATE_FLANDERS
 						state_region = s:STATE_RHINELAND
 						state_region = s:STATE_NORTH_RHINE
-						state_region = s:STATE_SAVOY
+						state_region = s:STATE_LORRAINE
+						state_region = s:STATE_ELSASS
+						state_region = s:STATE_PFALZ
+						state_region = s:STATE_LIGURIA
 					}
 				}
 			}
@@ -272,6 +290,9 @@ natural_borders.4 = {
 							OR = {
 								state_region = s:STATE_RHINELAND
 								state_region = s:STATE_NORTH_RHINE
+								state_region = s:STATE_LORRAINE
+								state_region = s:STATE_ELSASS
+								state_region = s:STATE_PFALZ
 							}
 						}
 					}
@@ -284,6 +305,9 @@ natural_borders.4 = {
 						OR = {
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_NORTH_RHINE
+							state_region = s:STATE_LORRAINE
+							state_region = s:STATE_ELSASS
+							state_region = s:STATE_PFALZ
 						}
 					}
 				}
@@ -314,11 +338,13 @@ natural_borders.4 = {
 		random_scope_state = {
 			limit = {
 				OR = {
-					state_region = s:STATE_WALLONIA
 					state_region = s:STATE_FLANDERS
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
-					state_region = s:STATE_SAVOY
+					state_region = s:STATE_LORRAINE
+					state_region = s:STATE_ELSASS
+					state_region = s:STATE_PFALZ
+					state_region = s:STATE_LIGURIA
 				}
 			}
 			save_scope_as = french_claim_state
@@ -331,11 +357,13 @@ natural_borders.4 = {
 		every_scope_state = {
 			limit = {
 				OR = {
-					state_region = s:STATE_WALLONIA
 					state_region = s:STATE_FLANDERS
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
-					state_region = s:STATE_SAVOY
+					state_region = s:STATE_LORRAINE
+					state_region = s:STATE_ELSASS
+					state_region = s:STATE_PFALZ
+					state_region = s:STATE_LIGURIA
 				}
 			}
 			add_modifier = {

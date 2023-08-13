@@ -362,3 +362,23 @@
   void_of_law: "Void of Law"
   violent_confrontations: "Violent Confrontations"
   troop_loyalty_shaken: "Troop Loyalty Shaken"
+
+  notification_garibaldi_is_here_name: "[SCOPE.sCharacter('garibaldi_scope').GetFullName] has moved to [SCOPE.sCountry('garibaldi_new_home').GetName]"
+  notification_garibaldi_is_here_desc: "[SCOPE.sCharacter('garibaldi_scope').GetFullName] has arrived in [SCOPE.sCountry('garibaldi_new_home').GetName] to fight the forces of [SCOPE.sCountry('garibaldi_spawn_foe_scope').GetName]."
+  notification_garibaldi_is_here_tooltip: "#header $notification_garibaldi_is_here_name$#!\n$TOOLTIP_DELIMITER$\n$notification_garibaldi_is_here_desc$"
+
+  notification_garibaldi_skedaddles_name: "[SCOPE.sCharacter('garibaldi_scope').GetFullName] has left [SCOPE.sCountry('garibaldi_old_home').GetName]"
+  notification_garibaldi_skedaddles_desc: "[SCOPE.sCharacter('garibaldi_scope').GetFullName] has left [SCOPE.sCountry('garibaldi_old_home').GetName] to pursue the revolutionary cause elsewhere."
+  notification_garibaldi_skedaddles_tooltip: "#header $notification_garibaldi_skedaddles_name$#!\n$TOOLTIP_DELIMITER$\n$notification_garibaldi_is_here_desc$"
+
+  notification_indochina_catholic_persecutions_begins_name: "[SCOPE.sCountry('persecuting_indochinese_state').GetName] is persecuting foreign religions"
+  notification_indochina_catholic_persecutions_begins_desc: "[SCOPE.sCountry('persecuting_indochinese_state').GetName] has commenced a campaign persecuting religions of foreign nature within the country. Refugees and exiles are begging [SCOPE.sCountry('potential_imperial_power').GetName] for their protection."
+  notification_indochina_catholic_persecutions_begins_tooltip: "#header $notification_indochina_catholic_persecutions_begins_name$#!\n$TOOLTIP_DELIMITER$\n$notification_indochina_catholic_persecutions_begins_desc$"
+
+  notification_indochina_great_power_interested_name: "[SCOPE.sCountry('potential_imperialism_initiator').GetName] warns [SCOPE.sCountry('potential_imperialism_target').GetName] over the treatment of their religious brethens"
+  notification_indochina_great_power_interested_desc: "[SCOPE.sCountry('potential_imperialism_initiator').GetName] has used the harshest language against [SCOPE.sCountry('potential_imperialism_target').GetName] regarding its treatment of their religious brethens. This may be a sign of an armed intervention in Indochina in the near future."
+  notification_indochina_great_power_interested_tooltip: "#header $notification_indochina_great_power_interested_name$#!\n$TOOLTIP_DELIMITER$\n$notification_indochina_great_power_interested_desc$"
+
+  notification_indochina_great_power_interested2_name: "[SCOPE.sCountry('potential_imperialism_initiator').GetName] warns [SCOPE.sCountry('indochina_target').GetName] over the treatment of their religious brethens"
+  notification_indochina_great_power_interested2_desc: "[SCOPE.sCountry('potential_imperialism_initiator').GetName] has used the harshest language against [SCOPE.sCountry('indochina_target').GetName] regarding its treatment of their religious brethens. This may be a sign of an armed intervention in Indochina in the near future."
+  notification_indochina_great_power_interested2_tooltip: "#header $notification_indochina_great_power_interested2_name$#!\n$TOOLTIP_DELIMITER$\n$notification_indochina_great_power_interested2_desc$"

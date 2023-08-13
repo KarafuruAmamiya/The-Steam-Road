@@ -156,7 +156,13 @@ persian_renaissance_romantic_nationalism = {
 			has_variable = persian_renaissance_romantic_nationalism
 		}
 		has_technology_researched = nationalism
-		#National identity of Iran
+		ig:ig_devout = {
+			is_powerful = no
+		}
+		NOT = {
+			has_law = law_type:law_state_religion
+		}
+		has_variable = persian_renaissance_historical_sites
 	}
 
 	effect = {
@@ -165,6 +171,6 @@ persian_renaissance_romantic_nationalism = {
 			name = persian_renaissance_var
 			add = 1
 		}
-		#Event, trigger Zandism if leans secular
+		#Event, trigger Zandism if leans secular and add permanent devout opinion reducement, add pop support for non State Religion law
 	}
 }

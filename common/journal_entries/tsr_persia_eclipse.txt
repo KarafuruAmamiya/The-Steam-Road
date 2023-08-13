@@ -88,7 +88,7 @@
 #						has_variable = persia_eclipse_zandi_rebellion
 #					}
 #					exists = c:ZND
-#					has_war_with = c:ZND
+#					has_variable = zandi_rebellion_start
 #				}
 #				set_variable = persia_eclipse_zandi_rebellion
 #				post_notification = persia_eclipse_point_add
@@ -101,17 +101,18 @@
 #				limit = {
 #					NOT = { 
 #						has_variable = persia_eclipse_lost_india 
-#						OR = {
+#					}
+#					OR = {
+#						has_variable = failed_hindustani_uprising
+#						any_scope_state = {
+#							state_region = {
+#								state_is_in_india = yes
+#							}
+#						}
+#						any_subject_or_below = {
 #							any_scope_state = {
 #								state_region = {
 #									state_is_in_india = yes
-#								}
-#							}
-#							any_subject_or_below = {
-#								any_scope_state = {
-#									state_region = {
-#										state_is_in_india = yes
-#									}
 #								}
 #							}
 #						}
@@ -263,4 +264,95 @@ je_rise_of_zandism = {	icon = "gfx/interface/icons/event_icons/event_revolt.dds
 		}
 		NOT = { 
 			has_law = law_type:law_state_atheism
-		}	}	transferable = no	weight = 10000	should_be_pinned_by_default = yes}
+		}	}
+	
+	on_fail = {
+		set_variable = zandi_rebellion_start
+	}	transferable = no	weight = 10000	should_be_pinned_by_default = yes}
+
+je_constitutional_reformation = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	is_shown_when_inactive = {
+		c:PER ?= this
+		OR = {
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_landed_voting
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_denominational_exclusion
+			has_law = law_type:law_legacy_slavery
+			has_law = law_type:law_debt_slavery
+			has_law = law_type:law_slave_trade
+			has_law = law_type:law_serfdom
+			has_law = law_type:law_tenant_farmers
+		}
+	}
+
+	possible = {
+		any_scope_character = {
+			AND = {
+				has_ideology = ideology:ideology_persian_constitutionalist
+				OR = {
+					is_ruler = yes
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+			}
+		}
+	}
+
+	complete = {
+		NOR = {
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_landed_voting
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_denominational_exclusion
+			has_law = law_type:law_legacy_slavery
+			has_law = law_type:law_debt_slavery
+			has_law = law_type:law_slave_trade
+			has_law = law_type:law_serfdom
+			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_no_womens_rights
+			has_law = law_type:law_no_workers_rights
+			has_law = law_type:law_child_labor_allowed
+		}
+		AND = {
+			OR = {
+				has_law = law_type:law_right_of_assembly
+				has_law = law_type:law_protected_speech
+			}
+			has_law = law_type:law_public_schools
+		}
+		ig:ig_intelligentsia = {
+			is_powerful = yes
+		}
+		ig:ig_industrialists = {
+			is_powerful = yes
+		}
+		custom_tooltip = {
+			text = iranian_romantic_nationalism_tt
+			has_variable = persian_renaissance_romantic_nationalism
+		}
+	}
+
+	fail = {
+		OR = {
+			has_variable = zandi_rebellion_start
+			any_interest_group = {
+				is_powerful = yes
+				law_stance = {
+					law = law_type:law_council_republic
+					value > neutral
+				}
+			}
+			#Failed Iranian Renaissance
+		}
+	}
+
+	transferable = no
+	weight = 10000
+	should_be_pinned_by_default = yes
+}

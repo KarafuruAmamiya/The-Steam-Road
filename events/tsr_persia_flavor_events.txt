@@ -229,6 +229,79 @@ persian_flavor.3 = {
 	}
 }
 
+persian_flavor.4 = { #The Iranian Identity
+	type = country_event
+	title = persian_flavor.4.t
+	desc = persian_flavor.4.d
+	flavor =  persian_flavor.4.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		has_technology_researched = pan-nationalism
+		has_variable = persian_renaissance_romantic_nationalism
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = { #All Iranians are citizens of the empire
+		name = persian_flavor.4.a
+		default_option = yes
+		custom_tooltip = {
+			text = united_iran_tt
+			set_variable = united_iran
+		}
+		add_primary_culture = cu:kurdish
+		add_primary_culture = cu:caspian
+		add_primary_culture = cu:pashtun
+		add_primary_culture = cu:tajik
+		add_primary_culture = cu:baluchi
+		
+		ig:ig_landowners = {
+			add_modifier = {
+				name = rejected_iranian_identity
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = rejected_iranian_identity
+				months = normal_modifier_time
+			}
+		}
+	}
+	
+	option = { #The empire should be ruled by Persians
+		name = persian_flavor.4.b
+		remove_primary_culture = azerbaijani
+		#Add non-Persian radicals
+		ig:ig_landowners = {
+			add_modifier = {
+				name = persian_ruled_empire
+				months = normal_modifier_time
+			}
+		}
+	}
+	
+	option = { #Our country must return to the teachings of Islam
+		name = persian_flavor.4.c
+		#Negate Zandism and devout debuff from Romantic Nationalism
+		ig:ig_devout = {
+			add_modifier = {
+				name = return_to_devout
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
 #Persian Renaissance
 persian_renaissance.1 = { #Founding of the Academy of Iran
 	type = country_event

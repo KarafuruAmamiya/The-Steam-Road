@@ -400,6 +400,19 @@ PER = {
 			}
 		}
 	}
+	dynamic_country_name = {
+		name = dyn_c_iran # Iran
+		adjective = dyn_c_iran_adj
+		
+		is_main_tag_only = yes
+		priority = 100
+		
+		trigger = {
+			scope:actor = {
+				has_variable = united_iran
+			}
+		}
+	}
 }
 
 HAA = { 

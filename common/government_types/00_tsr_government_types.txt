@@ -212,16 +212,8 @@ gov_persian_empire = {
 	possible = {
 		has_law = law_type:law_monarchy
 		country_tier = empire
-		OR = {	
-			AND = {
-				exists = c:PER
-				c:PER = ROOT
-			}
-			AND = {
-				exists = c:RAJ
-				c:RAJ = ROOT
-			}
-		}
+		exists = c:PER
+		c:PER = ROOT
 	}			
 }
 

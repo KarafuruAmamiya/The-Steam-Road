@@ -1,6 +1,6 @@
 ﻿namespace = persian_flavor
 namespace = persian_renaissance
-namespace = karakum_frontier
+#namespace = karakum_frontier
 
 #Persian Flavor
 persian_flavor.1 = { #The Rights of Zoroastrians
@@ -35,6 +35,9 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 	}
 	option = { #Religious minorities deserve equal status to other citizens of the Empire
 		name = persian_flavor.1.b
+		trigger = {
+			NOT = { has_law = law_type:law_state_atheism }
+		}
 		every_scope_state = {
 			limit = {
 				has_modifier = zoroastrian_persecution
@@ -42,9 +45,6 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 			remove_modifier = zoroastrian_persecution
 		}
 		if = {
-			limit = {
-				NOT = { has_law = law_type:law_state_atheism }
-			}
 			every_scope_state = {
 				limit = {
 					is_incorporated = yes
@@ -69,14 +69,16 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 			}
 		}
 		hidden_effect = {
-			change_variable = {
-				name = zandism_var
-				add = 1
+			if = {
+				limit = {
+					NOT = { has_variable = zandism_tolerated_heathens }
+				}
+				set_variable = zandism_tolerated_heathens
 			}
 		}
 		
 		ai_chance = {
-			base = 75
+			base = 25
 		}
 	}
 }
@@ -130,9 +132,11 @@ persian_flavor.2 = { #Fire Temple vandalized!
 			}
 		}
 		hidden_effect = {
-			change_variable = {
-				name = zandism_var
-				add = 1
+			if = {
+				limit = {
+					NOT = { has_variable = zandism_religious_conflicts }
+				}
+				set_variable = zandism_religious_conflicts
 			}
 		}
 	}
@@ -245,10 +249,16 @@ persian_flavor.4 = { #The Iranian Identity
 	trigger = {
 		has_technology_researched = pan-nationalism
 		has_variable = persian_renaissance_romantic_nationalism
+		NOT = { has_variable = iranian_identity }
+		NOR = {
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_ethnostate
+			has_law = law_type:law_racial_supremacy
+		}
 	}
 	
 	immediate = {
-		
+		set_variable = iranian_identity
 	}
 	
 	option = { #All Iranians are citizens of the empire

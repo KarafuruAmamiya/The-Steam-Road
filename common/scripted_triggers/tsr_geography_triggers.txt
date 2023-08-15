@@ -109,6 +109,10 @@ state_is_in_middle_east = {
 	}
 }
 
+state_is_in_arabia = {
+	region = sr:region_arabic
+}
+
 state_is_in_central_asia = {
 	OR = {
 		region = sr:region_himalayas
@@ -236,6 +240,13 @@ country_is_in_middle_east = {
 			state_is_in_middle_east = yes
 			state_is_in_north_africa = yes
 		}
+	}
+}
+
+country_is_in_arabia = {
+	exists = capital
+	capital = {
+		state_is_in_arabia = yes
 	}
 }
 

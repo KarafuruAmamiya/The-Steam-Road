@@ -1,0 +1,210 @@
+﻿je_rise_of_zandism = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	is_shown_when_inactive = {
+		c:PER ?= this
+		NOT = { has_law = law_type:law_state_religion }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = zand_appears_tt
+			has_global_variable = mohammad_zand_var
+		}
+		calc_true_if = {
+			amount >= 5
+			custom_tooltip = {
+				text = secularization_tt
+				has_variable = zandism_secularization
+			}
+			custom_tooltip = {
+				text = tolerated_heathens_tt
+				has_variable = zandism_tolerated_heathens
+			}
+			custom_tooltip = {
+				text = religious_conflicts_tt
+				has_variable = zandism_religious_conflicts
+			}
+			ig:ig_devout = {
+				is_being_suppressed = yes
+			}
+			ig:ig_devout = {
+				ig_approval <= -10
+			}
+			standard_of_living < 10
+			any_scope_state = {
+				count >= 3
+				is_incorporated = yes
+				state_region = { 
+					is_homeland = cu:persian
+				}
+				turmoil > 0.15
+			}
+		}
+		is_subject = no
+		has_technology_researched = nationalism
+	}
+
+	immediate = {
+		trigger_event = {
+			id = zandism_events.1
+		}
+	}
+	
+	on_monthly_pulse = {
+		random_events = {
+			5 = 0
+			1 = zandism_events.2
+		}
+	}
+
+	complete = {
+		NOT = {
+			any_scope_state = {
+				has_modifier = zandism_spreading
+			}
+		}
+	}
+
+	fail = {
+		any_scope_state = {
+			has_modifier = zandism_spreading
+			count >= 4
+			turmoil >= 0.15
+		}
+		ig:ig_devout = {
+			OR = {
+				ig_approval <= -10
+				is_insurrectionary = yes
+			}
+		}
+		NOT = { 
+			has_law = law_type:law_state_atheism
+		}
+	}
+	
+	on_fail = {
+		trigger_event = {
+			id = zandism_events.3
+		}
+		set_variable = zandi_rebellion_start
+	}
+	
+	invalid = {
+		has_law = law_type:law_state_atheism
+	}
+
+	transferable = no
+	weight = 10000
+	should_be_pinned_by_default = yes
+}
+
+je_zandi_rebellion = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	complete = {
+		custom_tooltip = {
+			text = islamic_state_destroyed
+			hidden_trigger = {
+				NOT = {
+					exists = c:ZNI
+				}
+			}
+		}
+	}
+
+	immediate = {
+		c:ZNI = {
+			save_scope_as = islamic_state_scope
+		}
+	}
+	
+	on_complete = {
+		trigger_event = { id = zandism_events.4 days = 0 }
+		hidden_effect = {
+			remove_modifier = zandi_rebellion_modifier
+		}
+	}
+
+	fail = {
+		exists = c:ZNI
+		has_truce_with = c:ZNI
+	}
+
+	on_fail = {
+		if = {
+			limit = { has_journal_entry = je_eclipse_of_persia }
+			post_notification = persia_eclipse_point_add
+			change_variable = {
+				name = persia_eclipse_var
+				add = 10
+			}
+		}
+
+		hidden_effect = {
+			remove_modifier = zandi_rebellion_modifier
+			c:ZNI = {
+				remove_modifier = zandi_rebellion_modifier
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+
+	transferable = no
+}
+
+je_zandi_revolution = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = safavids_destroyed
+				hidden_trigger = {
+					NOT = {
+						exists = c:PER
+					}
+				}
+			}
+			AND = {
+				exists = c:PER
+				has_truce_with = c:PER		
+			}
+		}
+		
+	}
+
+	immediate = {
+		c:PER = {
+			save_scope_as = per_scope
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = zandism_events.5 days = 0 }
+		custom_tooltip = {
+			text = rebellion_effects_remove
+			remove_modifier = zandi_rebellion_modifier
+			every_interest_group = {
+				limit = {
+					has_modifier = zandi_revolution_modifier
+				}
+				remove_modifier = zandi_revolution_modifier
+			}
+		}
+		
+	}
+
+	fail = {
+		NOT = {
+			exists = c:ZNI
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+
+	transferable = no
+}

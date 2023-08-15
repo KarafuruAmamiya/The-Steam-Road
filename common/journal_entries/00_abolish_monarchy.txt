@@ -58,6 +58,15 @@ je_abolish_monarchy = {
 		trigger_event = {
 			id = 1848.2
 		}
+		if = {
+			limit = { has_journal_entry = je_eclipse_of_persia }
+			post_notification = persia_eclipse_point_remove
+			change_variable = {
+				name = persia_eclipse_var
+				subtract = 1
+			}
+			set_variable = persia_eclipse_abolished_monarchy
+		}
 	}
 
 	invalid = {

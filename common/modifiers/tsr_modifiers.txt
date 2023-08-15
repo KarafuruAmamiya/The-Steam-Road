@@ -6,9 +6,9 @@
 }
 
 bazsaza_aaman_modifier = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	interest_group_ig_devout_pop_attraction_mult = 0.1
-	interest_group_ig_devout_pol_str_mult = 0.25
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_pol_str_mult = 5
+	interest_group_pop_attraction_mult = 0.5
 }
 
 lusitanian_league = {
@@ -377,4 +377,65 @@ persian_ruled_empire = {
 return_to_devout = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	interest_group_approval_add = 10
+}
+
+zandi_revolution_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_approval_add = 5
+	interest_group_pop_attraction_mult = 0.25
+}
+
+zandi_rebellion_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_war_exhaustion_casualties_mult = -0.9
+	state_radicals_from_discrimination_mult = 0.15
+}
+
+zandi_theocratic_socialism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_ig_landowners_pol_str_mult = -0.50
+	country_clergymen_pol_str_mult = 0.50
+	country_peasants_pol_str_mult = 0.10
+	country_aristocrats_pol_str_mult = -0.50
+	state_aristocrats_mortality_mult = 0.50
+	political_movement_radicalism_mult = -0.75
+	state_conversion_mult = 0.25
+}
+
+zandi_army_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	state_conscription_rate_mult = 1.0
+	unit_army_defense_mult = 0.15
+}
+
+modifier_zand_popularity = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_popularity_add = 50
+}
+
+zandi_rebellion_aftermath = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_prestige_mult = -0.2
+	political_movement_radicalism_mult = 0.2
+	state_radicals_from_discrimination_mult = 0.2
+	state_radicals_from_sol_change_mult = 0.2
+}
+
+post_zandi_purge = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_pol_str_mult = -0.5
+	interest_group_pop_attraction_mult = -0.5
+}
+
+modifier_conversion_of_persia = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	state_conversion_mult = 0.25
+	state_loyalists_from_sol_change_accepted_religion_mult = 0.10
+}
+
+modifier_second_jihad = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	building_barracks_throughput_mult = 0.15
+	building_arms_industry_throughput_mult = 0.15
+	state_assimilation_mult = 0.10
 }

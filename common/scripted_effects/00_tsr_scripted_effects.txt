@@ -1720,3 +1720,206 @@ break_up_raj = {
 		make_independent = yes
 	}
 }
+
+assign_zandi_states = {
+	if = {
+		limit = {
+			any_scope_state = {
+				has_variable = zandism_center
+			}
+		}
+		every_scope_state = {
+			limit = {
+				has_variable = zandism_center
+			}
+			save_scope_as = znd_defector_state
+			custom_tooltip = {
+				text = zandi_state_defection
+				set_state_owner = c:ZNI
+				set_state_type = incorporated
+				add_religion_standard_of_living_modifier = {
+					religion = rel:sunni
+					months = long_modifier_time
+					multiplier = -5
+				}
+				add_religion_standard_of_living_modifier = {
+					religion = rel:oriental_orthodox
+					months = long_modifier_time
+					multiplier = -5
+				}
+				add_religion_standard_of_living_modifier = {
+					religion = rel:jewish
+					months = long_modifier_time
+					multiplier = -5
+				}
+				add_religion_standard_of_living_modifier = {
+					religion = rel:zoroastrian
+					months = long_modifier_time
+					multiplier = -5
+				}
+			}
+		}
+		every_scope_state = {
+			limit = {
+				is_capital = no
+				NOT = { 
+					has_variable = zandism_center 
+				}
+				any_neighbouring_state = {
+					has_variable = zandism_center
+				}
+				turmoil >= 0.1
+			}
+			if = {
+				limit = {
+					this = {
+						religion_percent_state = {
+							target = rel:shiite
+							value >= 0.7
+						}
+					}
+				}
+				save_scope_as = znd_defector_state
+				custom_tooltip = {
+					text = zandi_state_defection
+					set_state_owner = c:ZNI
+					set_state_type = incorporated
+					add_religion_standard_of_living_modifier = {
+						religion = rel:sunni
+						months = long_modifier_time
+						multiplier = -5
+					}
+					add_religion_standard_of_living_modifier = {
+						religion = rel:oriental_orthodox
+						months = long_modifier_time
+						multiplier = -5
+					}
+					add_religion_standard_of_living_modifier = {
+						religion = rel:jewish
+						months = long_modifier_time
+						multiplier = -5
+					}
+					add_religion_standard_of_living_modifier = {
+						religion = rel:zoroastrian
+						months = long_modifier_time
+						multiplier = -5
+					}
+				}
+				
+			}
+			else_if = {
+				random_list = {
+					50 = {
+						save_scope_as = znd_defector_state
+						custom_tooltip = {
+							text = zandi_state_defection
+							set_state_owner = c:ZNI
+							set_state_type = incorporated
+							add_religion_standard_of_living_modifier = {
+								religion = rel:sunni
+								months = long_modifier_time
+								multiplier = -5
+							}
+							add_religion_standard_of_living_modifier = {
+								religion = rel:oriental_orthodox
+								months = long_modifier_time
+								multiplier = -5
+							}
+							add_religion_standard_of_living_modifier = {
+								religion = rel:jewish
+								months = long_modifier_time
+								multiplier = -5
+							}
+							add_religion_standard_of_living_modifier = {
+								religion = rel:zoroastrian
+								months = long_modifier_time
+								multiplier = -5
+							}
+						}
+					}
+					50 = {
+						add_radicals_in_state = {
+							value = very_large_radicals
+							religion = rel:shiite
+						}
+						this.state_region = {
+							add_claim = c:ZNI
+						}
+					}
+				}
+			}
+		}
+	}
+	hidden_effect = {
+		every_state = {
+			limit = {
+				owner = c:ZNI
+			}
+			this.state_region = {
+				add_claim = c:PER
+			}
+		}	
+	}
+}
+
+create_zandi_characters = {
+	if = {
+		limit = {
+			game_date < 1900.1.1
+			NOT = { #If you exiled Zand and he got recruited somewhere else, he doesn't get to be here.
+				any_country = {
+					NOT = {
+						this = c:PER
+					}
+					any_scope_character = {
+						has_variable = mohammad_zand
+					}
+				}
+			}
+		}
+		create_character = {
+			first_name = Mohammad_Hussain
+			last_name = Zand
+			culture = cu:persian
+			religion = rel:shiite
+			historical = yes
+			ruler = yes
+			female = no
+			ideology = ideology_theocrat
+			interest_group = ig_devout
+			birth_date = 1833.12.24
+			#dna = dna_al_afghani
+			traits = {
+				inspirational_orator
+				demagogue
+				pious
+			}
+			on_created = {
+				set_variable = mohammad_zand
+				add_modifier = {
+					name = modifier_zand_popularity
+					months = long_modifier_time
+				}
+			}
+		}
+	}
+	else = { #Fallback chars if Zand is unavailable.
+		create_character = {
+			religion = rel:shiite
+			interest_group = ig_devout
+			ideology = ideology_theocrat
+			ruler = yes
+			traits = {
+				inspirational_orator
+				demagogue
+				pious
+			}
+			on_created = {
+				add_modifier = {
+					name = modifier_zand_popularity
+					months = long_modifier_time
+				}
+			}
+		}
+	}
+}

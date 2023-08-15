@@ -1,0 +1,750 @@
+﻿namespace = zandism_events
+
+# The Rise of Zandism
+zandism_events.1 = {
+	type = country_event
+	placement = scope:zandism_state
+
+	title = zandism_events.1.t
+	desc = zandism_events.1.d
+	flavor = zandism_events.1.f
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+	
+	cooldown = { months = very_long_modifier_time }
+
+	trigger = {
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				owns_entire_state_region = STATE_KHUZESTAN
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_KHUZESTAN
+				}
+				add_modifier = {
+					name = zandism_spreading
+					months = short_modifier_time
+				}
+				save_scope_as = zandism_state
+				set_variable = {
+					name = zandism_center
+				}
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					religion_percent_state = {
+						target = rel:shiite
+						value >= 0.7
+					}
+					total_population > 700000
+					is_capital = no
+				}
+				add_modifier = {
+					name = zandism_spreading
+					months = short_modifier_time
+				}
+				save_scope_as = zandism_state
+				set_variable = {
+					name = zandism_center
+				}
+			}
+		}
+	}
+	option = {
+		name = zandism_events.1.a
+		scope:zandism_state = {
+			# Already added when the Journal Entry activated, but we're going to remove it and add it again to make it visible to the player
+			hidden_effect = {
+				remove_modifier = zandism_spreading
+			}
+			add_modifier = {
+				name = zandism_spreading
+				months = short_modifier_time
+			}
+		}
+	}
+}
+
+# Spread of Zandism
+zandism_events.2 = {
+	type = country_event
+	placement = scope:zandism_growth_state
+
+	title = zandism_events.2.t
+	desc = zandism_events.2.d
+	flavor = zandism_events.2.f
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		any_scope_state = {
+			has_variable = zandism_center
+			any_neighbouring_state = {
+				owner = ROOT
+				NOT = {
+					has_variable = zandism_center
+				}
+				NOT = { is_capital = yes }
+				religion_percent_state = {
+					target = rel:shiite
+					value >= 0.7
+				}
+			}
+		}
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_variable = zandism_center
+				any_neighbouring_state = {
+					owner = ROOT
+					NOT = {
+						has_variable = zandism_center
+					}
+					religion_percent_state = {
+						target = rel:shiite
+						value >= 0.7
+					}
+					NOT = { is_capital = yes }
+				}
+			}
+			save_scope_as = zandism_center
+			random_neighbouring_state = {
+				limit = {
+					owner = ROOT
+					NOT = {
+						has_variable = zandism_center
+					}
+					religion_percent_state = {
+						target = rel:shiite
+						value >= 0.7
+					}
+					NOT = { is_capital = yes }
+				}
+				save_scope_as = zandism_growth_state
+				set_variable = {
+					name = zandism_center
+				}
+			}
+		}
+	}
+	option = {
+		name = zandism_events.2.a
+		scope:zandism_growth_state = {
+			add_modifier = {
+				name = zandism_spreading
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Zandi Rebellion
+zandism_events.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = zandism_events.3.t
+	desc = zandism_events.3.d
+	flavor = zandism_events.3.f
+
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+	immediate = {
+		hidden_effect = {
+			random_scope_character = {
+				limit = {
+					has_variable = mohammad_zand
+				}
+				kill_character = yes
+			}
+			random_character_in_exile_pool = {
+				limit = {
+					has_variable = mohammad_zand
+				}
+				kill_character = yes
+			}
+		}
+		every_state = {
+			limit = {
+				has_modifier = zandism_spreading
+			}
+			remove_modifier = zandism_spreading
+		}
+		c:PER = {
+			every_scope_state = {
+				limit = {
+					is_incorporated = yes
+				}
+				set_variable = saved_incorporated_state
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_KHUZESTAN
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_KHUZESTAN
+				}
+				save_scope_as = islamic_state_spawn
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					religion_percent_state = {
+						target = rel:shiite
+						value >= 0.7
+					}
+					has_variable = zandism_center
+					radical_fraction = { value >= 0.15 }
+				}
+			}
+			random_scope_state = {
+				limit = {
+					religion_percent_state = {
+						target = rel:shiite
+						value >= 0.7
+					}
+					has_variable = zandism_center
+					radical_fraction = { value >= 0.15 }
+				}
+				save_scope_as = islamic_state_spawn
+			}
+		}
+		create_country = {
+			tag = ZNI
+			origin = this
+			state = scope:islamic_state_spawn
+			on_created = {
+				ig:ig_petty_bourgeoisie = {
+					set_interest_group_name = ig_bazaari
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_shia_madrasahs
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_zandism_theocratic
+					add_modifier = {
+						name = bazsaza_aaman_modifier
+						months = very_long_modifier_time
+						is_decaying = yes
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_ruling_interest_group = ig_devout
+						}
+					}
+					ig:ig_devout = {
+						leader = {
+							set_ideology = ideology:ideology_theocrat
+						}
+						add_ruling_interest_group = yes
+					}
+				}
+				every_interest_group = {
+					limit = {
+						OR = {
+							is_interest_group_type = ig_armed_forces
+							is_interest_group_type = ig_petty_bourgeoisie
+							is_interest_group_type = ig_rural_folk
+							is_interest_group_type = ig_devout
+						}
+					}
+					add_modifier = {
+						name = zandi_revolution_modifier
+						months = long_modifier_time
+					}
+				}
+				add_modifier = {
+					name = zandi_theocratic_socialism
+					months = long_modifier_time
+					is_decaying = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_theocracy
+						}
+					}
+					activate_law = law_type:law_theocracy
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_autocracy
+						}
+					}
+					activate_law = law_type:law_autocracy
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_state_religion
+						}
+					}
+					activate_law = law_type:law_state_religion
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_national_supremacy
+						}
+					}
+					activate_law = law_type:law_national_supremacy
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_no_workers_rights
+						}
+					}
+					activate_law = law_type:law_no_workers_rights
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_no_womens_rights
+						}
+					}
+					activate_law = law_type:law_no_womens_rights
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_collectivized_agriculture
+						}
+					}
+					activate_law = law_type:law_collectivized_agriculture
+				}
+				add_modifier = {
+					name = zandi_army_modifier
+					months = normal_modifier_time
+				}
+			}
+		}
+		c:ZNI = { 
+			save_scope_as = islamic_state_scope
+			set_variable = { name = gold_transfer value = c:PER.gold_reserves } #This shouldn't be in the immediate, but it will throw a million errors if you put it somewhere else. DO NOT TOUCH.
+			change_variable = { name = gold_transfer divide = 3 }
+			set_variable = { name = gold_transfer_nil value = var:gold_transfer }
+			change_variable = { name = gold_transfer_nil divide = -1 }
+		}
+		if = {
+			limit = { has_journal_entry = je_eclipse_of_persia }
+			post_notification = persia_eclipse_point_add
+			change_variable = {
+				name = persia_eclipse_var
+				add = 1
+			}
+		}
+		add_modifier = {
+			name = zandi_rebellion_modifier
+			months = long_modifier_time
+		}
+		c:ZNI = {		
+			add_modifier = {
+				name = zandi_rebellion_modifier
+				months = long_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = zandism_events.3.a
+		default_option = yes
+		ai_chance = { base = 1 }
+		add_journal_entry = {
+			type = je_zandi_rebellion
+		}
+		c:ZNI = {
+			add_journal_entry = {
+				type = je_zandi_revolution
+			}
+		}
+		assign_zandi_states = yes
+		scope:islamic_state_scope = {		
+			create_diplomatic_play = {
+				name = zandi_rebellion
+				target_country = c:PER
+				type = dp_zandi_rebellion
+			}
+			hidden_effect = {
+				change_infamy = -150
+			}
+		}
+		hidden_effect = {
+			c:ZNI = {
+				create_zandi_characters = yes	
+				c:PER = {
+					add_treasury = prev.var:gold_transfer_nil
+				}
+				add_treasury = var:gold_transfer	
+			}
+			random_diplomatic_play = {
+				limit = {
+					c:ZNI = {
+						is_diplomatic_play_initiator = yes
+					}
+					c:PER = {
+						is_diplomatic_play_target = yes
+					}
+				}
+				add_diplomatic_play_war_support = { target = c:ZNI value = 100 }
+			}
+			every_state = {
+				limit = {
+					owner = c:PER
+					OR = {	
+						is_split_state = no
+						state_region = {
+							any_state = {
+								NOT = { owner = c:PER }
+							}
+						}
+					}
+				}
+				this.state_region = {
+					add_claim = c:ZNI
+				}
+			}
+		}	
+	}
+	option = {
+		name = zandism_events.3.b
+		ai_chance = { base = 0 }
+		add_journal_entry = {
+			type = je_zandi_rebellion
+		}
+		c:ZNI = {
+			add_journal_entry = {
+				type = je_zandi_revolution
+			}
+		}
+		assign_zandi_states = yes
+		scope:islamic_state_scope = {		
+			create_diplomatic_play = {
+				name = zandi_rebellion
+				target_country = c:PER
+				type = dp_zandi_rebellion
+			}
+			hidden_effect = {
+				change_infamy = -150
+			}
+		}
+		hidden_effect = {
+			c:ZNI = {
+				create_zandi_characters = yes	
+				c:PER = {
+					add_treasury = prev.var:gold_transfer_nil
+				}
+				add_treasury = var:gold_transfer	
+			}
+			random_diplomatic_play = {
+				limit = {
+					c:ZNI = {
+						is_diplomatic_play_initiator = yes
+					}
+					c:PER = {
+						is_diplomatic_play_target = yes
+					}
+				}
+				add_diplomatic_play_war_support = { target = c:ZNI value = 100 }
+			}
+			every_state = {
+				limit = {
+					owner = c:PER
+					OR = {	
+						is_split_state = no
+						state_region = {
+							any_state = {
+								NOT = { owner = c:PER }
+							}
+						}
+					}
+				}
+				this.state_region = {
+					add_claim = c:ZNI
+				}
+			}
+		}
+		play_as = scope:islamic_state_scope
+	}
+}
+
+# Aftermath event
+zandism_events.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = zandism_events.4.t
+	desc = zandism_events.4.d
+	flavor = zandism_events.4.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				has_variable = saved_incorporated_state
+			}
+			set_state_owner = c:PER #Just in case.
+			set_state_type = incorporated
+		}
+		root.religion = {
+			save_scope_as = state_religion_scope
+		}
+		root = {
+			save_scope_as = persia_scope
+		}
+		ig:ig_devout = {
+			save_scope_as = devout_scope
+		}
+	}
+
+	option = { # deny the war crimes
+		name = zandism_events.4.a
+		default_option = yes
+		add_radicals = {
+			value = 0.2
+			religion = rel:sunni
+		}
+		add_radicals = {
+			value = 0.2
+			religion = rel:oriental_orthodox
+		}
+		add_radicals = {
+			value = 0.2
+			religion = rel:jewish
+		}
+		add_radicals = {
+			value = 0.2
+			religion = rel:zoroastrian
+		}
+		ordered_country = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:jewish
+					country_has_state_religion = rel:sunni
+					country_has_state_religion = rel:zoroastrian
+					religion = {
+						has_discrimination_trait = christian
+					}
+				}
+			}
+			order_by = country_rank
+			save_scope_as = outraged_country
+		}
+		create_incident = {
+			country = scope:outraged_country
+			value = 25
+		}
+		every_country = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:jewish
+					country_has_state_religion = rel:sunni
+					country_has_state_religion = rel:zoroastrian
+					religion = {
+						has_discrimination_trait = christian
+					}
+				}
+			}
+			change_relations = {
+				country = root
+				value = -25
+			}
+		}
+	}
+	option = { # mercy and pardons
+		name = zandism_events.4.b
+		add_modifier = {
+			name = zandi_rebellion_aftermath
+			months = long_modifier_time
+		}
+		add_radicals = {
+			value = 0.2
+			religion = rel:shiite
+		}
+		custom_tooltip = {
+			text = mass_purge_tt
+			scope:devout_scope = {
+				add_modifier = {
+					name = post_zandi_purge
+					months = -1
+				}
+			}
+		}
+	}
+}
+
+
+# Aftermath event - ZNI
+zandism_events.5 = {
+	type = country_event
+	placement = ROOT
+
+	title = zandism_events.5.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						exists = c:PER
+						any_neighbouring_state = {
+							owner = {
+								NOT = { country_has_state_religion = rel:shiite }
+							}
+						}
+					}
+				}
+				desc = zandism_events.5.d1
+			}
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = zandism_events.5.d
+			}
+		}
+	}
+	flavor = zandism_events.5.f
+
+	event_image = {
+		video = "gfx/event_pictures/asia_politician_parliament_motion.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = c:PER
+			}
+			c:PER = {
+				save_scope_as = persia_scope
+			}
+		}
+	}
+
+	option = {
+		name = zandism_events.5.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_conversion_of_persia
+			months = long_modifier_time
+		}
+	}
+	option = {
+		name = zandism_events.5.b
+		trigger = {
+			OR = {
+				exists = c:PER
+				any_neighbouring_state = {
+					owner = {
+						NOT = { country_has_state_religion = rel:shiite }
+					}
+				}
+			}
+		}
+		ig:ig_armed_forces = {
+			leader = {
+				set_ideology = ideology:ideology_jingoist
+			}
+			add_modifier = {
+				name = hawkish_neighbor_relations
+				months = normal_modifier_time
+			}
+		}
+		every_country = {
+			limit = {
+				country_has_state_religion = rel:shiite
+			}
+			change_relations = {
+				country = c:ZNI
+				value = 25
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					country_has_state_religion = rel:jewish
+					country_has_state_religion = rel:sunni
+					country_has_state_religion = rel:zoroastrian
+					religion = {
+						has_discrimination_trait = christian
+					}
+				}
+			}
+			change_relations = {
+				country = root
+				value = -25
+			}
+		}
+		add_modifier = {
+			name = modifier_second_jihad
+			months = long_modifier_time
+		}
+	}
+}

@@ -1490,6 +1490,18 @@ on_revolution_start = {
 		}
 		if = {
 			limit = {
+				has_journal_entry = je_eclipse_of_persia
+				NOT = { has_variable = persia_eclipse_revolution }
+			}
+			post_notification = persia_eclipse_point_add
+			change_variable = {
+				name = persia_eclipse_var
+				add = 1
+			}
+			set_variable = persia_eclipse_revolution
+		}
+		if = {
+			limit = {
 				has_journal_entry = je_the_paris_commune_france
 			}
 			c:FRA = {
@@ -1527,7 +1539,18 @@ on_revolution_end = {
 # scope:target = Uprising country
 on_secession_start = {
 	effect = {
-
+		if = {
+			limit = {
+				has_journal_entry = je_eclipse_of_persia
+				NOT = { has_variable = persia_eclipse_revolution }
+			}
+			post_notification = persia_eclipse_point_add
+			change_variable = {
+				name = persia_eclipse_var
+				add = 1
+			}
+			set_variable = persia_eclipse_revolution
+		}
 	}
 }
 

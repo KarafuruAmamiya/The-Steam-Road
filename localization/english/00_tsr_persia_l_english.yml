@@ -13,8 +13,9 @@
  persia_eclipse_point_remove_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
  persia_abolished_monarchy_tt: "Successfully concluded the #BOLD Stamp Out Monarchism#! Journal Entry"
  
+ #Zandi Rebellion
  je_rise_of_zandism: "Rise of Zandism"
- je_rise_of_zandism_reason: "Dangerous radical Islamists are inspiring dissent across the nation. They pose an extreme threat; if they can rally enough people to their beliefs, they will attempt to overthrow our rightful government. These madmen must be stopped at all costs."
+ je_rise_of_zandism_reason: "Dangerous radical heretics are inspiring dissent across the nation. They pose an extreme threat; if they can rally enough people to their beliefs, they will attempt to overthrow our rightful government. These madmen must be stopped at all costs."
  rejected_zand_tt: "Mohammad Hussain Zand has appeared and we have rejected him."
  zand_appears_tt: "Mohammad Hussain Zand has appeared."
  zandism_spreading: "Spread of Zandism"
@@ -22,6 +23,63 @@
  tolerated_heathens_tt: "Increasing tolerance of #BOLD heathens and heretics#!"
  religious_conflicts_tt: "Increasing incidents of #BOLD religious conflicts#!"
  
+ zandism_events.1.t: "Rise of Zandism Movement"
+ zandism_events.1.d: "#BOLD Sheikh Mohammad Hussain Zand#!'s strange movement in [SCOPE.sState('zandism_state').GetName] has recently gained popular traction in [ROOT.GetCountry.GetName]. After declaring himself a representative of the Imam, Zand was excommunicated by the [SCOPE.gsInterestGroup('devout_scope').GetName], yet his number of followers continue to grow with each passing days."
+ zandism_events.1.f: ""O faithful brethren. Our motherland, Iran, has been tainted by the influences of the #italic kuffaar#! for far too long. They seek to weaken our spirit and faith by distorting our beliefs through the allure of heretical ideals and superstitions. Let us cast off the shackles of decadence and once again shine as a beacon of righteousness in the world!""
+ zandism_events.1.a: "Curious, and concerning."
+ 
+ zandism_events.2.t: "Spread of Zandism Movement in [SCOPE.sState('zandism_growth_state').GetName]"
+ zandism_events.2.d: "The teachings of #BOLD Sheikh Mohammad Zand#! has managed to attract a sizable following in [SCOPE.sState('zandism_growth_state').GetName], filled with people eager to return to the "true" principles of Islam as they saw it."
+ zandism_events.2.f: ""They find eager followers among the poor and downtrodden, people ignored or failed by the state.""
+ zandism_events.2.a: "This cannot be a good thing."
+ 
+ zandism_events.3.t: "Zandism Followers Declares a Jihad!"
+ zandism_events.3.d: "Zandism fanatics have risen up against us in response to our suppression policies, declaring a 'defensive jihad' authorized by their so-called Imam. They have established [SCOPE.sState('islamic_state_spawn').GetName] as their base of operations and will shortly seize other states where their followers has a presence."
+ zandism_events.3.f: ""May Allah bless our righteous cause, may He guide our steps, and may He grant us victory in our struggle. Stand with me, my brethren, as we march towards a new future for our beloved motherland, a future where our land is free from the chains of oppression!""
+ zandism_events.3.a: "We will crush them utterly!"
+ zandism_events.3.b: "Allahu Akbar!"
+ 
+ zandism_events.4.t: "Aftermath of Zandi Rebellion"
+ zandism_events.4.d: "The Islamic State and the Zandism cult has been defeated. We must decide how to handle the aftermath of the rebellion; supporters of the beliefs are still active any may still cause trouble for us in the future."
+ zandism_events.4.f: ""The fake Imam has been beheaded and burned. His ashes have been fired from a cannon. He will find no eternal rest, for he has disgraced Allah and our nation. He has been destroyed utterly, as will be the fate of all who oppose us.""
+ zandism_events.4.a: "Massacre the remaining heretics."
+ mass_reconversion_tt: "#variable Launch a purge and mass-conversions of [SCOPE.sReligion('zandism_scope').GetName] [Concept('concept_pop', '$concept_pops$')] in [SCOPE.sCountry('persia_scope').GetName]. This may inadvertedly affect non-Shiites!"
+ zandism_events.4.b: "[SCOPE.gsInterestGroup('devout_scope').GetName] must take the blame."
+ 
+ zandism_events.5.t: "Birth of a New Iran"
+ zandism_events.5.d: "The [ROOT.GetCountry.GetName] has swept aside the rule of the Safavid devils. Our state must continue to endure, and bring the words of Sheikh Mohammad Zand to the world."
+ zandism_events.5.d1: "The [ROOT.GetCountry.GetName] has secured its independence from [SCOPE.sCountry('persia_scope').GetName]. Our state must continue to endure, and be able to protect itself from [SCOPE.sCountry('persia_scope').GetAdjective] reprisals."
+ zandism_events.5.f: "When people of this land keep nothing for their private use, but give everything to Allah and contribute #italic zakat#! for all to use in common, then every place shall have equal shares, and everyone be clothed and fed."
+ zandism_events.5.a: "Prioritize spreading the words of Sheikh Mohammad Zand to the people."
+ zandism_events.5.b: "We shall prepare to wage jihads anew against all infidels."
+ 
+ je_zandi_rebellion: "Zandi Rebellion"
+ je_zandi_rebellion_status: "Defeat the rebellion of the Islamic State."
+ je_zandi_rebellion_reason: "Fanatics have risen up against our god-ordained rule! Their rebellion must be utterly crushed."
+ islamic_state_destroyed: "The [SCOPE.sCountry('taiping_scope').GetName] does not exist"
+ safavids_destroyed: "[SCOPE.sCountry('islamic_state_scope').GetName] does not exist"
+ dp_zandi_rebellion: "Zandi Rebellion"
+ dp_zandi_rebellion_tooltip: "Start a $dp_zandi_rebellion$ [concept_diplomatic_play]"
+ zandi_rebellion_modifier: "Zandi Revolution"
+ zandi_revolution_modifier: "Jihad Through Revolution"
+ zandi_theocratic_socialism: "Land Socialization"
+ zandi_army_modifier: "Jihad Conscription"
+ zandi_state_defection: "[SCOPE.sState('znd_defector_state').GetName] defects to the [SCOPE.sCountry('islamic_state_scope').GetName]"
+ zandi_rebellion_modifier: "The Zandi Rebellion"
+ modifier_zand_popularity: "Representative of the Imam"
+
+ rebellion_effects_remove: "The effects of the #bold Jihad Through Revolution#! and #bold The Zandi Rebellion#! modifiers will be removed"
+
+ je_zandi_revolution: "The Zandi Revolution"
+ je_zandi_revolution_status: "Defeat the devils of the Safavid Dynasty."
+ je_zandi_revolution_reason: "The people have risen against the devilry and corruption of [SCOPE.sCountry('persia_scope').GetName]. The [SCOPE.sCountry('persia_scope').GetAdjectiveNoFormatting]'s rule must be extinguished, and a new era of peace brought to Iran."
+
+ zandi_rebellion_aftermath: "Aftermath of Zandi Rebellion"
+ post_zandi_purge: "Purge of Zandism Among Clergymen"
+ modifier_conversion_of_persia: "The Conversion of Iran"
+ modifier_second_jihad: "Preparation for the Second Jihad"
+ 
+ #Constitutional Reformation
  je_constitutional_reformation: "Constitutional Reformation"
  je_constitutional_reformation_reason: "Inspired by the ideals of the 1780 Revolution and driven by a coalition of intellectuals, clergy, merchants, and ordinary citizens, the Constitutionalist movement has risen to demand a new constitution with a representative government and greater political freedoms."
  iranian_romantic_nationalism_tt: "We have adopted Romantic Nationalism"
@@ -44,6 +102,7 @@
  persian_renaissance_art_and_music_button_desc: "Ever since the 1780 Revolution, young artists musicians sought new forms of art and music to synchronize with the tide of social changes. The relative laxing of religious laws has also allowed more freedom for artisians to express themselves in various new ways. Let us sponsor these new artistic movements within our country."
  persian_renaissance_romantic_nationalism_button: "Romantic Nationalism"
  persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, through the rise of nationalism we shall be more united than ever before."
+ adopted_blasphemous_ideals: "Blasphemous Ideals Adopted"
  
  persian_renaissance.1.t: "The Academy of Iran"
  persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [GetPlayer.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
@@ -90,7 +149,7 @@
  anti_zoroastrian_tolerated: "Anti-Zoroastrian Violence Tolerated"
  
  persian_flavor.3.t: "[SCOPE.sCharacter('mohammad_zand_scope').GetFullName]"
- persian_flavor.3.d: "Sheikh [SCOPE.sCharacter('mohammad_zand_scope').GetFullName], a prominent cleric from [SCOPE.sState('arabestan_state').GetCityHubName], has recently gained significant traction around the city. In his preachings, he sought to reform what he perceived as deviations from the original teachings of Islam and the Twelve Imams, and to purify the faith from what he saw as un-Islamic practices. A Persian nationalist at heart, he wishes to "mend the hearts of the Persian people, divided from that of their ruler"."
+ persian_flavor.3.d: "Sheikh [SCOPE.sCharacter('mohammad_zand_scope').GetFullName], a prominent cleric from [SCOPE.sState('arabestan_state').GetCityHubName], has recently gained significant traction around the city. In his preachings, he sought to reform the original teachings of Islam and the Twelve Imams, to reject accretion of wealth in favor of shared property, and to purify the faith from what he saw as un-Islamic practices. He wishes to "mend the hearts of the Iranian people, divided from that of their ruler"."
  persian_flavor.3.f: ""My countrymen, a great many of the so-called 'reforms' carried out in the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s name are conducted solely for the convenience and safety of the elite, ignoring the needs of the citizens they are meant to serve. These so-called servants of the state only use it for their own selfish gain, while deviating from the sacred teachings of the Qu'ran!""
  persian_flavor.3.a: "We cannot let his provocatory words continue!"
  persian_flavor.3.b: "He might have a point."

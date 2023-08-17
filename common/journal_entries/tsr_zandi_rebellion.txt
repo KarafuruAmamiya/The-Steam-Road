@@ -31,6 +31,11 @@
 			ig:ig_devout = {
 				ig_approval <= -10
 			}
+			ig:ig_devout = {
+				leader = {
+					has_ideology = ideology:ideology_persian_constitutionalist
+				}
+			}
 			standard_of_living < 10
 			any_scope_state = {
 				count >= 3
@@ -76,6 +81,9 @@
 			OR = {
 				ig_approval <= -10
 				is_insurrectionary = yes
+				leader = {
+					has_ideology = ideology:ideology_persian_constitutionalist
+				}
 			}
 		}
 		NOT = { 

@@ -64,6 +64,9 @@ zandism_events.1 = {
 				}
 			}
 		}
+		ig:ig_devout = {
+			save_scope_as = devout_scope
+		}
 	}
 	option = {
 		name = zandism_events.1.a
@@ -75,6 +78,14 @@ zandism_events.1 = {
 			add_modifier = {
 				name = zandism_spreading
 				months = short_modifier_time
+			}
+			convert_population = {
+				target = rel:zandism
+				value = 0.1
+			}
+			add_radicals_in_state = {
+				religion = rel:zandism
+				value = 1
 			}
 		}
 	}
@@ -160,6 +171,14 @@ zandism_events.2 = {
 				name = zandism_spreading
 				months = normal_modifier_time
 			}
+			convert_population = {
+				target = rel:zandism
+				value = 0.1
+			}
+			add_radicals_in_state = {
+				religion = rel:zandism
+				value = 1
+			}
 		}
 	}
 }
@@ -231,9 +250,8 @@ zandism_events.3 = {
 		else_if = {
 			limit = {
 				any_scope_state = {
-					religion_percent_state = {
-						target = rel:shiite
-						value >= 0.7
+					any_scope_pop = {
+						has_pop_religion = zandism
 					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
@@ -241,9 +259,8 @@ zandism_events.3 = {
 			}
 			random_scope_state = {
 				limit = {
-					religion_percent_state = {
-						target = rel:shiite
-						value >= 0.7
+					any_scope_pop = {
+						has_pop_religion = zandism
 					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
@@ -260,7 +277,7 @@ zandism_events.3 = {
 					set_interest_group_name = ig_bazaari
 				}
 				ig:ig_devout = {
-					set_interest_group_name = ig_shia_madrasahs
+					set_interest_group_name = ig_zandism_madrasahs
 					remove_ideology = ideology_moralist
 					add_ideology = ideology_zandism_theocratic
 					add_modifier = {
@@ -544,8 +561,13 @@ zandism_events.4 = {
 			set_state_owner = c:PER #Just in case.
 			set_state_type = incorporated
 		}
-		root.religion = {
-			save_scope_as = state_religion_scope
+		random_scope_pop = {
+			limit = {
+				has_pop_religion = zandism
+			}
+			religion = {
+				save_scope_as = zandism_scope
+			}
 		}
 		root = {
 			save_scope_as = persia_scope
@@ -555,61 +577,55 @@ zandism_events.4 = {
 		}
 	}
 
-	option = { # deny the war crimes
+	option = { # Purge Zandism followers
 		name = zandism_events.4.a
 		default_option = yes
-		add_radicals = {
-			value = 0.2
-			religion = rel:sunni
+		add_modifier = {
+			name = zandi_rebellion_aftermath
+			months = long_modifier_time
 		}
-		add_radicals = {
-			value = 0.2
-			religion = rel:oriental_orthodox
-		}
-		add_radicals = {
-			value = 0.2
-			religion = rel:jewish
-		}
-		add_radicals = {
-			value = 0.2
-			religion = rel:zoroastrian
-		}
-		ordered_country = {
-			limit = {
-				OR = {
-					country_has_state_religion = rel:jewish
-					country_has_state_religion = rel:sunni
-					country_has_state_religion = rel:zoroastrian
-					religion = {
-						has_discrimination_trait = christian
+		custom_tooltip = {
+			text = mass_reconversion_tt
+			every_scope_state = {
+				limit = {
+					any_scope_pop = {
+						religion = rel:zandism
 					}
 				}
+				add_religion_standard_of_living_modifier = {
+					religion = rel:zandism
+					multiplier = -3
+				}
+				every_scope_pop = {
+					limit = {
+						has_pop_religion = zandism
+					}
+					change_pop_religion = {
+						target = rel:shiite value = 0.5
+					}
+				}
+				every_scope_pop = {
+					limit = {
+						NOR = { 
+							has_pop_religion = zandism 
+							has_pop_religion = shiite 
+						}
+					}
+					convert_population = {
+						target = rel:shiite value = 0.1
+					}
+				}
+				add_devastation = {
+					value = 0.2
+				}
 			}
-			order_by = country_rank
-			save_scope_as = outraged_country
 		}
 		create_incident = {
-			country = scope:outraged_country
-			value = 25
-		}
-		every_country = {
-			limit = {
-				OR = {
-					country_has_state_religion = rel:jewish
-					country_has_state_religion = rel:sunni
-					country_has_state_religion = rel:zoroastrian
-					religion = {
-						has_discrimination_trait = christian
-					}
-				}
-			}
-			change_relations = {
-				country = root
-				value = -25
-			}
+			country = root
+			value = 20
 		}
 	}
-	option = { # mercy and pardons
+	option = { # Limit the purge to religious institutions
 		name = zandism_events.4.b
 		add_modifier = {
 			name = zandi_rebellion_aftermath
@@ -619,13 +635,10 @@ zandism_events.4 = {
 			value = 0.2
 			religion = rel:shiite
 		}
-		custom_tooltip = {
-			text = mass_purge_tt
-			scope:devout_scope = {
-				add_modifier = {
-					name = post_zandi_purge
-					months = -1
-				}
+		scope:devout_scope = {
+			add_modifier = {
+				name = post_zandi_purge
+				months = long_modifier_time
 			}
 		}
 	}

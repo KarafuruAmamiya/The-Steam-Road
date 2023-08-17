@@ -3,6 +3,7 @@
 	scope:character = {
 		exists = home_country
 		home_country = {
+			NOT = { c:ZNI ?= this }
 			OR = {
 				country_has_primary_culture = cu:persian
 				country_has_primary_culture = cu:jonubi

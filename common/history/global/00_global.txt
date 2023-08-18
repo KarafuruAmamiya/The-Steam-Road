@@ -110,40 +110,6 @@ GLOBAL = {
         }
     }
 	
-	every_country = {
-		limit = { 
-			OR = {
-				country_is_in_new_word = yes
-				country_is_in_central_asia = yes
-			}
-			any_state = {
-				is_under_colonization = yes
-			}
-		}
-        add_modifier = rapid_colonization
-    }
-	
-	c:USC = {
-        trigger_event = {
-            id = krl_independence.1
-            days = 2
-        }
-    }
-	
-	c:KRL = {
-        trigger_event = {
-            id = krl_independence.4
-            days = 2
-        }
-    }
-	
-	c:SCA = {
-        trigger_event = {
-            id = krl_independence.6
-            days = 2
-        }
-    }
-	
 	c:PER = {
 		every_scope_state = {
             limit = {

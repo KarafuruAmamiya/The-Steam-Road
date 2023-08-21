@@ -120,20 +120,6 @@
 		}
 		add_journal_entry = { type = je_arabian_desert }
 	}
-	c:KAL = { # Kalat
-		effect_starting_technology_tier_4_tech = yes
-		
-		effect_starting_politics_traditional = yes
-		activate_law = law_type:law_debt_slavery
-		
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-	}
 	c:KAT = { # Kathiri
 		effect_starting_technology_tier_3_tech = yes
 		
@@ -260,6 +246,8 @@
 		}
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_safavid_paternalistic
 		}
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes

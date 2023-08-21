@@ -492,7 +492,7 @@
 	s:STATE_SISTAN = {
 		create_state = {
 			country = c:PER
-			owned_provinces = { x38045F x2F2582 xB10A2F x083D75 x412B8E x4D421F x5A406F x4D7261 x258E35 x1E9374 xA868B0 x3991B0 x5D9506 x8D8DC9 x60A1CC x959C8A x2EB9D4 x29CD3D x53CA4A x4DC5DC x81D144 x21F614 x3FE8A6 xD8BDAE xC0EF60 xFEEC0B }
+			owned_provinces = { x38045F x2F2582 xB10A2F x083D75 x412B8E x4D421F x5A406F x4D7261 x258E35 x1E9374 xA868B0 x3991B0 x5D9506 x8D8DC9 x60A1CC x959C8A x2EB9D4 x29CD3D x53CA4A x4DC5DC x81D144 x21F614 x3FE8A6 xD8BDAE xC0EF60 xFEEC0B x1BC1AF xE7F59C x1BF39F }
 		}
 		
 		add_homeland = persian
@@ -664,7 +664,7 @@
 	s:STATE_KANDAHAR = {
 		create_state = {
 			country = c:PER
-			owned_provinces = { x2E12A4 x621FFA xF0407A x3276E4 x1D8E81 x349C39 x43A01E xCB758F xC57D6B xDA8A5E x1BC1AF x0BD446 x52BEAF x83B3F5 x1BF39F x40F0E0 x41F4EB xECCEE2 xBBE7A9 xE7F59C xF1FBC5 xAE8F58 x64ABBA }
+			owned_provinces = { x2E12A4 x621FFA xF0407A x3276E4 x1D8E81 x349C39 x43A01E xCB758F xC57D6B xDA8A5E x0BD446 x52BEAF x83B3F5 x40F0E0 x41F4EB xECCEE2 xBBE7A9 xF1FBC5 xAE8F58 x64ABBA }
 			state_type = unincorporated
 		}
 		
@@ -724,16 +724,18 @@
 	}
 	s:STATE_KALAT = {
 		create_state = {
-			country = c:KAL
+			country = c:PER
 			owned_provinces = { x113E0B x782112 x4529BD x4B2EAD x1161D9 x2B7441 x556C63 x4F800F x0BAF8C xCD77FD x62BEAA x56CF62 x61D696 x43F4B8 xC6D9E8 xD6DD8A xBAE3D2 xD4EC50 }
+			state_type = unincorporated
 		}
 		
 		add_homeland = baluchi
 	}
 	s:STATE_LASBELA = {
 		create_state = {
-			country = c:KAL
+			country = c:PER
 			owned_provinces = { x4E09C5 x407060 x2E7961 x7D60E7 xF9577D x978421 xC070E0 xB7B2BD x1EF53E x8ED831 x7FE584 xB0F79E x45F2DD }
+			state_type = unincorporated
 		}
 		
 		add_homeland = baluchi
@@ -749,8 +751,13 @@
 	}
 	s:STATE_QUETTA = {
 		create_state = {
-			country = c:KAL
-			owned_provinces = { x1D0224 x6F000D x1910AD xDB0F57 x3C3D7F xC13040 x454FE3 xE92A58 xDF30A0 x626396 x5E7221 xB8655C xEC696F x34A39B x6EA076 x4AAAC0 x7CA0E0 xF78D0D x8BB146 xE7A309 x1DDD4D x4DC3FF x8DC922 xDEE571 }
+			country = c:KAB
+			owned_provinces = { x1D0224 xDB0F57 x3C3D7F xC13040 x454FE3 xE92A58 xDF30A0 x626396 x5E7221 xB8655C x6EA076 x4AAAC0 x7CA0E0 xF78D0D x8BB146 xE7A309 x1DDD4D xDEE571 }
+		}
+		create_state = {
+			country = c:PER
+			owned_provinces = { x8DC922 xEC696F x6F000D x1910AD x34A39B x4DC3FF }
+			state_type = unincorporated
 		}
 		
 		add_homeland = baluchi

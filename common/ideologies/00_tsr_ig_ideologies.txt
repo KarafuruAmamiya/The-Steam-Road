@@ -102,3 +102,67 @@ ideology_zandism_theocratic = {
 		law_collectivized_agriculture = approve
 	}
 }
+
+ideology_safavid_paternalistic = {
+	icon = "gfx/interface/icons/ideology_icons/junker_paternalistic.dds"
+	
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_theocracy = disapprove			
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = strongly_disapprove
+		law_council_republic = strongly_disapprove
+	}
+	
+	lawgroup_distribution_of_power = {
+		law_single_party_state = neutral
+		law_landed_voting = strongly_approve
+		law_autocracy = strongly_approve
+		law_oligarchy = approve
+		law_weighted_wealth_voting = approve
+		law_wealth_voting = neutral
+		law_census_voting = neutral
+		law_weighted_universal_suffrage = neutral
+		law_universal_suffrage = disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = disapprove
+	}
+	
+	lawgroup_bureaucracy = {
+		law_hereditary_bureaucrats = neutral
+		law_appointed_bureaucrats = strongly_approve
+		law_elected_bureaucrats = disapprove
+	}
+
+	lawgroup_policing = {
+		law_local_police = approve
+		law_dedicated_police = neutral
+		law_militarized_police = strongly_approve #Iranian Gendarmerie let's gooo
+		law_no_police = disapprove
+	}
+	
+	lawgroup_trade_policy = {		
+		law_isolationism = approve
+		law_mercantilism = approve
+		law_protectionism = neutral
+		law_free_trade = disapprove
+	}
+	
+	lawgroup_economic_system = {
+		law_traditionalism = disapprove
+		law_agrarianism = disapprove
+		law_interventionism = approve
+		law_mixed_economy = strongly_approve
+		law_laissez_faire = neutral
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+		law_industry_banned = strongly_disapprove
+	}
+	
+	lawgroup_internal_security = {
+		law_secret_police = approve
+		law_national_guard = strongly_approve
+		law_no_home_affairs = disapprove
+		law_guaranteed_liberties = strongly_disapprove
+	}
+}

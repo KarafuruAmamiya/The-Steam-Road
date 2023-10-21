@@ -337,6 +337,83 @@ in_volcanic_zone = {
 	}
 }
 
+in_more_drought_zone = {
+	OR = {
+		region = sr:region_oceania
+		region = sr:region_congo
+		region = sr:region_southern_africa
+		region = sr:region_niger
+		region = sr:region_zanj
+		region = sr:region_ethiopia
+		region = sr:region_nile_basin
+		region = sr:region_north_africa
+		region = sr:region_senegal
+		region = sr:region_anatolia
+		region = sr:region_arabic
+		region = sr:region_persia
+		region = sr:region_la_plata
+		region = sr:region_andes
+		region = sr:region_mexico
+		region = sr:region_south_italy
+		region = sr:region_pacific_coast
+		region = sr:region_occitania
+		region = sr:region_greece
+		region = sr:region_west_balkans
+		region = sr:region_iberia
+		region = sr:region_central_asia
+		region = sr:region_mongolia
+		region = sr:region_north_india
+	}
+}
+
+in_potato_blight_zone = {
+	OR = {
+		region = sr:region_gaelic
+		region = sr:region_north_germany
+		region = sr:region_low_countries
+	}
+}
+
+in_potato_blight_mild_zone = {
+	OR = {
+		region = sr:region_rhine
+		region = sr:region_france
+		region = sr:region_england
+		region = sr:region_scandinavia
+		region = sr:region_south_germany
+		region = sr:region_poland
+		region = sr:region_baltic
+		region = sr:region_ruthenia
+		region = sr:region_hungary
+	}
+}
+
+in_hurricane_zone = {
+	OR = {
+		state_region = { region = sr:region_gaelic }
+		state_region = { region = sr:region_japan }
+		state_region = { region = sr:region_barents }
+		state_region = { region = sr:region_new_england }
+		state_region = { region = sr:region_the_midwest }
+		state_region = { region = sr:region_dixie }
+		state_region = { region = sr:region_central_america }
+		state_region = { region = sr:region_caribbean }
+		state_region = { region = sr:region_mexico }
+		state_region = { region = sr:region_indochina }
+		state_region = { region = sr:region_south_china }
+		state_region = { region = sr:region_oceania }
+		state_region = s:STATE_CHOLA_NADU
+		state_region = s:STATE_PANDYA_NADU
+		state_region = s:STATE_CIRCARS
+		state_region = s:STATE_ORISSA
+		state_region = s:STATE_SOUTH_BENGAL
+		state_region = s:STATE_SOUTH_MADAGASCAR
+		state_region = s:STATE_NORTH_MADAGASCAR
+		state_region = s:STATE_CEYLON
+		state_region = s:STATE_MOCAMBIQUE
+	}
+}
+
 on_river = {
 	OR = {
 		has_state_trait = state_trait_rhine_river
@@ -372,6 +449,35 @@ on_river = {
 		has_state_trait = state_trait_parana_river
 		has_state_trait = state_trait_paraguay_river
 		has_state_trait = state_trait_amazon_river
+		#TSR
+		has_state_trait = state_trait_tiber_river
+		has_state_trait = state_trait_tagus_river
+		has_state_trait = state_trait_doura_river
+		has_state_trait = state_trait_ebro_river
+		has_state_trait = state_trait_guadalquivir_river
+		has_state_trait = state_trait_oka_river
+		has_state_trait = state_trait_kama_river
+		has_state_trait = state_trait_belaya_river
+		has_state_trait = state_trait_tobol_river
+		has_state_trait = state_trait_po_river
+		has_state_trait = state_trait_red_river
+		has_state_trait = state_trait_platte_river
+		has_state_trait = state_trait_missouri_river
+		has_state_trait = state_trait_arkansas_river
+		has_state_trait = state_trait_st_lawrence_river
+		has_state_trait = state_trait_helmand_river
+		has_state_trait = state_trait_karun_river
+		has_state_trait = state_trait_po_river
+		has_state_trait = state_trait_don_river
+		has_state_trait = state_trait_oxus_river
+		has_state_trait = state_trait_irtysh_river
+		has_state_trait = state_trait_krishna_river
+		has_state_trait = state_trait_godavari_river
+		has_state_trait = state_trait_sarawak_river
+		has_state_trait = state_trait_kapuas_river
+		has_state_trait = state_trait_yenisei_river
+		has_state_trait = state_trait_lena_river
+		has_state_trait = state_trait_amur_river
 	}
 }
 
@@ -442,6 +548,7 @@ state_in_africa = {
 		text = state_in_africa_desc
 		OR = {
 			region = sr:region_nile_basin
+			region = sr:region_ethiopia
 			region = sr:region_north_africa
 			region = sr:region_senegal
 			region = sr:region_niger
@@ -1070,6 +1177,12 @@ language_accepted = {
 			}
 		}
 		AND = {
+			culture = { has_discrimination_trait = persian_speaking }
+			owner = {
+				any_primary_culture = { has_discrimination_trait = persian_speaking }
+			}
+		}
+		AND = {
 			culture = { has_discrimination_trait = albanian_language }
 			owner = {
 				any_primary_culture = { has_discrimination_trait = albanian_language }
@@ -1123,12 +1236,19 @@ language_accepted = {
 				any_primary_culture = { has_discrimination_trait = tibetan_language }
 			}
 		}
+		AND = {
+			culture = { has_discrimination_trait = malay_culture }
+			owner = {
+				any_primary_culture = { has_discrimination_trait = malay_culture }
+			}
+		}
 	}
 }
  
 default_auto_expand_rule = { 
 	cash_reserves_ratio > 0.95
 	state.market_access >= 0.95
+	occupancy > 0.9
 }
 
 is_in_civil_war = {
@@ -1693,6 +1813,14 @@ is_major_unifier = {
 		AND = {
 			exists = c:GER # Germany
 			this = c:GER
+		}
+		AND = {
+			exists = c:TRH # Turkestan
+			this = c:TRH
+		}
+		AND = {
+			exists = c:BHT # India
+			this = c:BHT
 		}
 		AND = {
 			exists = c:ARA # Arabia

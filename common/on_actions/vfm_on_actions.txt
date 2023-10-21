@@ -9,6 +9,62 @@ vfm_events_hidden = {
 	}
 }
 
+vfm_disasters_yearly_country = {
+	random_events = {
+		3 = 0
+		1 = vfm_potato_blight.100 # potato blight of the 1840s
+	}
+}
+
+vfm_discrimination_yearly_country = {
+	random_events = {
+		26 = 0
+		1 = vfm_discrimination_events.1
+		1 = vfm_discrimination_events.2
+		1 = vfm_discrimination_events.3
+		1 = vfm_discrimination_events.4
+	}
+}
+
+vfm_events_korea = {
+	random_events = {
+		44 = 0
+		25 = silhak.2
+		25 = silhak.10
+		1 = silhak.5
+		1 = silhak.6
+		1 = silhak.7
+		1 = silhak.8
+	}
+	events = {
+		silhak.9
+		silhak.4
+		kor.7
+		kor.6
+	}
+}
+
+vfm_natural_disaster_yearly = {
+	random_events = {
+	    # TODO: make crops failure and flooding state events?
+		241 = 0
+		3 = vfm_natural_disaster_events.5 # coastal state storm
+		2 = vfm_natural_disaster_events.1 # drought in more arrid regions
+		1 = vfm_natural_disaster_events.6 # storm
+		2 = vfm_natural_disaster_events.7 # coastal state hurricane
+        1 = vfm_natural_disaster_events.2 # drought
+		2 = vfm_potato_blight.2 # generic potato blight
+		1 = vfm_natural_disaster_events.8 # generic crop failure
+	}
+}
+
+vfm_natural_disaster_decade = {
+	random_events = {
+		119 = 0
+        1 = vfm_natural_disaster_events.4 # BIG drought
+	}
+}
+
 vfm_released_independent_recognized = {
 	effect = {
 		if = {
@@ -76,23 +132,45 @@ vfm_frontier_colonialism_colony_created = {
 		}
 		if = {
 			limit = {
-				owner = { has_law = law_type:law_frontier_colonialism }
-				NOT = {
-					any_neighbouring_state = {
-						OR = {
-							is_incorporated = yes
-							any_neighbouring_state = {
+				ROOT = {
+					owner = { has_law = law_type:law_frontier_colonialism }
+					NOT = {
+						any_neighbouring_state = {
+							OR = {
 								is_incorporated = yes
-								owner = scope:colony_founder
+								any_neighbouring_state = {
+									is_incorporated = yes
+									owner = scope:colony_founder
+								}
 							}
+							owner = scope:colony_founder
 						}
-						has_claim_by = scope:colony_founder
-						owner = scope:colony_founder
+						#has_modifier = frontier_colonialism_modifier
 					}
-					#has_modifier = frontier_colonialism_modifier
 				}
 			}
 			add_modifier = frontier_colonialism_modifier
+		}
+	}
+}
+
+vfm_frontier_colonialism_clearance = {
+	effect = {
+		owner = {
+			save_scope_as = owner_scope
+		}
+		if = {
+			limit = {
+				any_neighbouring_state = {
+					has_modifier = frontier_colonialism_modifier
+				}
+			}
+			every_neighbouring_state = {
+				limit = {
+					owner = scope:owner_scope
+				}
+				remove_modifier = frontier_colonialism_modifier
+			}
 		}
 	}
 }

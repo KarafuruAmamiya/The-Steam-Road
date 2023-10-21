@@ -1,15 +1,11 @@
-﻿#########################
-###13_construction
-#########################
-
-pm_wooden_buildings = {
+﻿pm_wooden_buildings = {
 	texture = "gfx/interface/icons/production_method_icons/wooden_buildings.dds"
 	
 	is_default = yes
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 2
+			country_construction_add = 2.5
 		}
 	}
 
@@ -52,9 +48,9 @@ pm_iron_frame_buildings = {
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_wood_add = 40
-			building_input_fabric_add = 30 #20
-			building_input_iron_add = 60 #50
-			building_input_tools_add = 15 #10
+			building_input_fabric_add = 20
+			building_input_iron_add = 50
+			building_input_tools_add = 10
 		}
 
 		level_scaled = {
@@ -73,6 +69,8 @@ pm_iron_frame_buildings = {
 			state_construction_mult = 0.01
 		}	
 	}
+	
+	ai_value = 150
 }
 
 pm_steel_frame_buildings = {
@@ -84,15 +82,15 @@ pm_steel_frame_buildings = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 8
+			country_construction_add = 10
 		}
 	}
 
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_steel_add = 60 #50
-			building_input_glass_add = 50 #40
-			building_input_explosives_add = 15 #10
+			building_input_steel_add = 50
+			building_input_glass_add = 40
+			building_input_explosives_add = 10
 			building_input_tools_add = 20
 		}
 
@@ -112,6 +110,8 @@ pm_steel_frame_buildings = {
 			state_construction_mult = 0.015
 		}	
 	}
+	
+	ai_value = 250
 }
 
 pm_arc_welded_buildings = {
@@ -123,7 +123,7 @@ pm_arc_welded_buildings = {
 		
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 13 #15
+			country_construction_add = 15
 		}
 	}
 
@@ -153,4 +153,6 @@ pm_arc_welded_buildings = {
 			state_construction_mult = 0.02
 		}	
 	}
+	
+	ai_value = 350
 }

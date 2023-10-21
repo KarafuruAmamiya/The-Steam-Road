@@ -2,12 +2,14 @@
 on_monthly_pulse_country = {
 	on_actions = {
 		vfm_events_hidden
+		vfm_events_korea
 	}
 }
 
 on_yearly_pulse_country = {
     on_actions = {
 		vfm_events_yearly_greece
+		vfm_disasters_yearly_country
 	}
 }
 
@@ -17,6 +19,17 @@ on_five_year_pulse_country = {
 	}
 }
 
+on_yearly_pulse_state = {
+	on_actions = {
+	    vfm_natural_disaster_yearly
+	}
+}
+
+on_decade_pulse_state = {
+    on_actions = {
+		vfm_natural_disaster_decade
+	}
+}
 # Root = Releasing Country
 # scope:target = Released Country
 on_country_released_as_own_subject = {
@@ -38,6 +51,13 @@ on_country_released_as_overlord_subject = {
 on_country_released_as_independent = {
 	on_actions = {
 		vfm_released_independent_recognized
+	}
+}
+
+# Root = State
+on_state_incorporation = {
+	on_actions = {
+		vfm_frontier_colonialism_clearance
 	}
 }
 

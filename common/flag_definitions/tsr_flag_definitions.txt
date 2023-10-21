@@ -573,6 +573,15 @@ CHI = { # China
 		}
 	}
 	flag_definition = {
+		coa = CHI_kor_monarchy
+		priority = 50
+		trigger = {
+			scope:actor = {
+				was_formed_from = KOR
+			}
+		}
+	}
+	flag_definition = {
 		coa = CHI_republic
 		subject_canton = CHI_republic
 		allow_overlord_canton = yes

@@ -16,17 +16,42 @@
 			text = doctrine_of_lapse_cooldown_tt
 			NOT = { has_variable = doctrine_of_lapse_cooldown }
 		}
+		THIS = c:PER
+		any_subject_or_below = {
+			count > 3
+			is_player = no
+			country_is_in_india = yes
+			is_subject_type = subject_type_puppet
+			OR = {
+				ruler = {
+					OR = {
+						age < 16
+						has_trait = senile
+						has_trait = psychological_affliction
+						has_trait = sickly
+						has_trait = cancer
+						has_trait = opium_addiction
+						has_trait = cocaine_addiction
+					}
+				}
+				NOT = {
+					any_scope_character = {
+						is_heir = no
+					}
+				}
+			}
+		}
 	}
 
 	when_taken = {
 		trigger_event = { id = raj.2 days = 0 popup = yes }
 		set_variable = {
 			name = doctrine_of_lapse_cooldown
-			years = 5
+			years = 2
 		}
 	}
 
 	ai_chance = {
-		base = 5
+		base = 1000
 	}
 }

@@ -96,18 +96,19 @@ discrimination_events.1 = {
 			name = enforced_segregation
 			months = normal_modifier_time
 		}
+		# vfm bugfix missing scope:discriminated_culture_pop
 		if = {
 			limit = { exists = scope:discriminated_culture_pop }
 			add_radicals = {
 				value = small_radicals
-				culture = scope:discriminated_culture_pop
+				culture = scope:discriminated_culture_pop.culture
 			}
 		}
 		if = {
 			limit = { exists = scope:discriminated_religion_pop }
 			add_radicals = {
 				value = small_radicals
-				culture = scope:discriminated_religion_pop.culture
+				religion = scope:discriminated_religion_pop.religion
 			}
 		}
 	}
@@ -130,10 +131,6 @@ discrimination_events.1 = {
 					months = normal_modifier_time
 				}
 			}
-			add_loyalists = {
-				value = small_radicals
-				culture = scope:discriminated_culture_pop.culture
-			}
 		}
 
 		if = {
@@ -149,6 +146,21 @@ discrimination_events.1 = {
 					name = segregation_eroding
 					months = normal_modifier_time
 				}
+			}
+		}
+		# vfm bugfix missing scope:discriminated_culture_pop
+		if = {
+			limit = { exists = scope:discriminated_culture_pop }
+			add_loyalists = {
+				value = small_radicals
+				culture = scope:discriminated_culture_pop.culture
+			}
+		}
+		if = {
+			limit = { exists = scope:discriminated_religion_pop }
+			add_loyalists = {
+				value = small_radicals
+				religion = scope:discriminated_religion_pop.religion
 			}
 		}
 	}

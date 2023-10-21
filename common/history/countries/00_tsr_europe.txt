@@ -48,9 +48,7 @@
 			set_ig_suppression = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 	}
 	c:AUS = { # Austria
 		effect_starting_technology_tier_3_tech = yes
@@ -80,9 +78,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
-		}
+		
 	}
 	c:BOH = { # Bohemia
 		effect_starting_technology_tier_3_tech = yes
@@ -109,9 +105,7 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:BLN = { # Bayern-Landshut
 		effect_starting_technology_tier_2_tech = yes
@@ -138,9 +132,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
-		}
+		
 	}
 	c:BRA = { # Brunswick
 		effect_starting_technology_tier_2_tech = yes
@@ -151,9 +143,7 @@
 			level = 2
 		}			
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:BRK = { # Brandenburg-Kustrin
 		effect_starting_technology_tier_2_tech = yes
@@ -192,12 +182,6 @@
 		
 		add_taxed_goods = g:liquor
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
-		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -224,12 +208,6 @@
 		}
 		
 		add_taxed_goods = g:liquor
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -286,9 +264,7 @@
 			level = 1
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:ENG = { # England
 		set_next_election_date = 1838.2.1
@@ -336,13 +312,6 @@
 			level = 2
 		}
 	
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_landed_gentry
-		}
-		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_anglican_church
-		}
 	}
 	c:EST = { # Estonia
 		effect_starting_technology_tier_3_tech = yes
@@ -389,7 +358,6 @@
 		}	
 
 		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 			add_ruling_interest_group = yes
 		}
 
@@ -456,7 +424,6 @@
 		}	
 		
 		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
 			add_ruling_interest_group = yes
 		}
 
@@ -487,7 +454,6 @@
 		}	
 
 		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
 			add_ruling_interest_group = yes
 		}
 	}
@@ -502,9 +468,7 @@
 			institution = institution_schools
 			level = 1
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 	}
 	c:GAL = { # Ruthenia
 		effect_starting_technology_tier_3_tech = yes
@@ -546,9 +510,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
-		}
+		
 
 	}
 	c:GLG = { # Glogow
@@ -576,9 +538,7 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:GOS = { # Goslar
 		effect_starting_technology_tier_2_tech = yes
@@ -627,12 +587,6 @@
 		ig:ig_rural_folk = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 	}
 	c:HES = { # Hesse
 		effect_starting_technology_tier_2_tech = yes
@@ -644,10 +598,6 @@
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 2
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church 
 		}			
 	}
 	c:HSA = { # Hanseatic Provinces
@@ -693,9 +643,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:IBE = { # Iberia
 		effect_starting_technology_tier_2_tech = yes
@@ -735,14 +683,6 @@
 
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
-		}
-		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
-		}
-		
-		ig:ig_landowners = {
-			add_ideology = ideology_pious
 		}
 	}
 	c:ING = { # Ingria
@@ -796,7 +736,6 @@
 		}
 
 		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 			add_ruling_interest_group = yes
 		}
 	}
@@ -846,14 +785,6 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_landowners = {
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_republican_paternalistic
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:KNZ = { # Konstanz
 		effect_starting_technology_tier_2_tech = yes
@@ -877,13 +808,8 @@
 			institution = institution_schools
 			level = 1
 		}
-		
-		ig:ig_intelligentsia = {
-			remove_ideology = ideology_anti_clerical
-		}
 		ig:ig_devout = {
 			set_ig_bolstering = yes
-			set_interest_group_name = ig_catholic_church
 		}
 	}
 	c:LIT = { # Lithuania
@@ -908,7 +834,6 @@
 
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_catholic_church
 		}
 		
 		ig:ig_landowners = {
@@ -958,7 +883,6 @@
 		}	
 
 		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
 			add_ruling_interest_group = yes
 		}
 
@@ -993,9 +917,7 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 	}
 	c:MOL = { # Moldavia
 		effect_starting_technology_tier_3_tech = yes
@@ -1011,12 +933,6 @@
 		}
 
 		add_journal_entry = { type = je_unify_romania }
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 	}
 	c:MSC = { # Muscovy
 		effect_starting_technology_tier_3_tech = yes
@@ -1049,9 +965,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 	}
 	c:MUN = { # Muenster
 		effect_starting_technology_tier_2_tech = yes
@@ -1076,12 +990,8 @@
 			level = 1
 		}
 		
-		ig:ig_intelligentsia = {
-			remove_ideology = ideology_anti_clerical
-		}
 		ig:ig_devout = {
 			set_ig_bolstering = yes
-			set_interest_group_name = ig_catholic_church
 		}
 	}
 	c:MUL = { # Mulhouse
@@ -1117,12 +1027,8 @@
 			level = 1
 		}
 		
-		ig:ig_intelligentsia = {
-			remove_ideology = ideology_anti_clerical
-		}
 		ig:ig_devout = {
 			set_ig_bolstering = yes
-			set_interest_group_name = ig_catholic_church
 		}
 	}
 	c:NAS = { # Nassau
@@ -1135,9 +1041,7 @@
 			institution = institution_schools
 			level = 1
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:NET = { # Netherlands
 		effect_starting_technology_tier_1_tech = yes
@@ -1182,9 +1086,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:PAP = { # Pope
 		effect_starting_technology_tier_2_tech = yes
@@ -1211,19 +1113,9 @@
 			institution = institution_schools
 			level = 2
 		}
-		
-		ig:ig_landowners = {
-			set_interest_group_name = ig_roman_landowners
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_papal_paternalistic
-		}
-		ig:ig_intelligentsia = {
-			remove_ideology = ideology_anti_clerical
-		}
 
 		ig:ig_devout = {
 			set_ig_bolstering = yes
-			set_interest_group_name = ig_roman_curia
 		}
 	}
 	c:SLB = { # Sloboda Host
@@ -1251,11 +1143,6 @@
 		
 		add_taxed_goods = g:liquor
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1293,9 +1180,7 @@
 		ig:ig_intelligentsia = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
-		}
+		
 	}
 	c:POL = { # Poland
 		effect_starting_technology_tier_3_tech = yes
@@ -1320,7 +1205,6 @@
 
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_catholic_church
 		}
 		
 		ig:ig_landowners = {
@@ -1337,12 +1221,6 @@
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 1
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
 		}
 	}
 	c:RHE = { # Rhineland
@@ -1370,7 +1248,6 @@
 		}	
 
 		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 			add_ruling_interest_group = yes
 		}
 
@@ -1404,9 +1281,7 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}	
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 	}
 	c:RPU = { # Royal Prussia
 		effect_starting_technology_tier_2_tech = yes
@@ -1447,16 +1322,6 @@
 		
 		ig:ig_intelligentsia = { 
 			set_ig_suppression = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_russian_patriarch
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_gentry_assembly
 		}
 	}
 	c:SAX = { # Saxony
@@ -1501,7 +1366,6 @@
 		ig:ig_devout = {
 			set_ig_bolstering = yes
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_evangelical_church
 		}
 		
 		add_modifier = {
@@ -1554,9 +1418,7 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 		
 		ig:ig_intelligentsia = {
 			set_ig_suppression = yes
@@ -1602,14 +1464,7 @@
 			institution = institution_schools
 			level = 2
 		}
-	
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_landed_gentry
-		}
 		
-		ig:ig_devout = { 
-			set_interest_group_name = ig_evangelical_church
-		}
 	}
 	c:SLO = { # Slovenia / Cilli
 		effect_starting_technology_tier_3_tech = yes
@@ -1622,9 +1477,7 @@
 			level = 1
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
+		
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1648,7 +1501,6 @@
 		}
 		
 		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church 
 			add_ruling_interest_group = yes
 		}
 	}
@@ -1675,12 +1527,6 @@
 		
 		add_taxed_goods = g:liquor
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
-		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -1697,9 +1543,7 @@
 			level = 1
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:SWI = { # Switzerland
 		# set_next_election_date = ???
@@ -1734,9 +1578,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 	c:TRS = { # Transylvania
 		effect_starting_technology_tier_3_tech = yes
@@ -1749,12 +1591,6 @@
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 1
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
 		}
 	}
 	c:TTR = { # Tatarstan
@@ -1785,10 +1621,6 @@
 			set_ig_suppression = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-		
 		add_modifier = {
 			name = cizye_tax
 			months = -1
@@ -1828,10 +1660,6 @@
 		ig:ig_rural_folk = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church 
-		}
 	}
 	c:ZAP = { # Zaporizhian Host
 		effect_starting_technology_tier_3_tech = yes
@@ -1857,12 +1685,6 @@
 		}
 		
 		add_taxed_goods = g:liquor
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1898,12 +1720,6 @@
 			institution = institution_schools
 			level = 1
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_orthodox_church
-			remove_ideology = ideology_patriarchal
-			add_ideology = ideology_orthodox_patriarch
-		}
 	}
 	c:WUR = { # Wurttemberg
 		effect_starting_technology_tier_2_tech = yes		
@@ -1914,8 +1730,6 @@
 			level = 2
 		}	
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_evangelical_church
-		}
+		
 	}
 }

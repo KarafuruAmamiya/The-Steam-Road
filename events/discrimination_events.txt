@@ -107,7 +107,7 @@ discrimination_events.1 = {
 			limit = { exists = scope:discriminated_religion_pop }
 			add_radicals = {
 				value = small_radicals
-				culture = scope:discriminated_religion_pop
+				culture = scope:discriminated_religion_pop.culture
 			}
 		}
 	}
@@ -132,7 +132,7 @@ discrimination_events.1 = {
 			}
 			add_loyalists = {
 				value = small_radicals
-				culture = scope:discriminated_culture_pop
+				culture = scope:discriminated_culture_pop.culture
 			}
 		}
 

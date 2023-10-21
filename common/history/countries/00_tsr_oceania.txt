@@ -44,18 +44,6 @@
 			level = 2
 		}
 		
-		ig:ig_rural_folk = {
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
-		}
-		
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-			set_interest_group_name = ig_shia_madrasahs
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_shiite_moralist
-		}
-		
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
 	}
@@ -141,16 +129,6 @@
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 2
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
-
-		ig:ig_rural_folk = {
-			add_ruling_interest_group = yes
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
 		}
 
 		add_taxed_goods = g:grain

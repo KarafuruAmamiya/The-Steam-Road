@@ -14,6 +14,13 @@
 		exists = c:SAX
 		c:SAX = ROOT
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_elector_palatinate = {
@@ -32,6 +39,13 @@ gov_elector_palatinate = {
 		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_palatinate = {
@@ -47,6 +61,13 @@ gov_palatinate = {
 		has_law = law_type:law_monarchy
 		exists = c:PLT
 		c:PLT = ROOT
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -72,6 +93,13 @@ gov_electorate = {
 		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_electorate_boh = {
@@ -90,6 +118,13 @@ gov_electorate_boh = {
 		c:BOH = ROOT
 		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -111,6 +146,13 @@ gov_electorate_theocracy = {
 		}
 		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
+	}
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -136,6 +178,13 @@ gov_free_city = {
 		has_law = law_type:law_presidential_republic
 		country_has_voting_franchise = yes
 	}
+	
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
 }
 
 gov_serene_republic = {
@@ -151,6 +200,13 @@ gov_serene_republic = {
 		has_law = law_type:law_parliamentary_republic
 		country_has_voting_franchise = yes
 	}
+	
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
 }
 
 gov_sister_republic = {
@@ -164,6 +220,13 @@ gov_sister_republic = {
 		has_law = law_type:law_parliamentary_republic
 		country_has_voting_franchise = yes
 		AND = { exists = c:ITA is_subject_of = c:ITA }
+	}
+	
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
 	}
 }
 
@@ -182,6 +245,13 @@ gov_archduchy = {
 		exists = c:AUS
 		c:AUS = ROOT
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_shah = {
@@ -197,7 +267,14 @@ gov_shah = {
 		has_law = law_type:law_monarchy
 		exists = c:SRV
 		c:SRV = ROOT
-	}			
+	}		
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_persian_empire = {
@@ -214,7 +291,14 @@ gov_persian_empire = {
 		country_tier = empire
 		exists = c:PER
 		c:PER = ROOT
-	}			
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_ottoman_empire = {
@@ -231,7 +315,14 @@ gov_ottoman_empire = {
 		country_tier = empire
 		exists = c:TUR
 		c:TUR = ROOT
-	}			
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_satrapies = {
@@ -255,6 +346,13 @@ gov_satrapies = {
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -280,6 +378,13 @@ gov_special_satrapies_muslim = {
 			country_has_state_religion = rel:shiite
 		}
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_special_satrapies_hindu = {
@@ -300,6 +405,13 @@ gov_special_satrapies_hindu = {
 		}
 		is_subject_type = subject_type_dominion
 		country_has_state_religion = rel:hindu
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -325,6 +437,13 @@ gov_iberian_viceroyalty = {
 		}
 		country_is_in_europe = no
 	}
+	
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
 }
 
 gov_puppet_shogunate = {
@@ -341,6 +460,13 @@ gov_puppet_shogunate = {
 		c:UES = ROOT
 		has_law = law_type:law_monarchy
 		AND = { exists = c:FRA is_subject_of = c:FRA }
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -364,10 +490,17 @@ gov_daimyo = {
 			country_has_primary_culture = cu:ryukyan
 		}
 	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
 }
 
 gov_hetmanate = {
-	transfer_of_power = presidential_elective
+	transfer_of_power = dictatorial
 	new_leader_on_reform_government = no
 
 	male_ruler = "RULER_TITLE_HETMAN"
@@ -395,6 +528,13 @@ gov_hetmanate = {
             }
         }
     }
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
 }
 
 gov_khaganate = {
@@ -411,6 +551,13 @@ gov_khaganate = {
 		country_tier = empire
 		exists = c:BUK
 		c:BUK = ROOT
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -431,5 +578,12 @@ gov_peasant_republic = {
 		has_law = law_type:law_agrarianism
 		exists = c:CLD
 		c:CLD = ROOT
+	}
+	
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
 	}
 }

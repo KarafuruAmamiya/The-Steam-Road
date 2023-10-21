@@ -4,10 +4,6 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
-
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -41,28 +37,9 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
-	c:ASK = {
+	c:ASK = { # Ashikaga
 		effect_starting_technology_tier_4_tech = yes
 
 		add_technology_researched = urban_planning
@@ -91,26 +68,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:ASN = { # Asano
 		effect_starting_technology_tier_4_tech = yes
@@ -141,26 +99,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:BAK = {
 		effect_starting_technology_tier_4_tech = yes
@@ -188,10 +127,6 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:BLG = { # Bulungan
 		effect_starting_technology_tier_4_tech = yes
@@ -200,10 +135,6 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
 	c:BNJ = { # Banjar
@@ -214,9 +145,6 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:BRU = { # Brunei
 		effect_starting_technology_tier_4_tech = yes
@@ -225,10 +153,6 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
 	c:BTN = { # Buton
@@ -240,21 +164,13 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 	}
 	c:CAM = { # Khmer
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -272,11 +188,7 @@
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_censorship
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
-
+		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
@@ -304,24 +216,6 @@
 		
 		set_government_wage_level = high
 		set_tax_level = low
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_confucian
-			remove_ideology = ideology_pious
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_confucian
-		}
 		
 		add_journal_entry = { type = je_reconquer_china }
 	}
@@ -329,12 +223,6 @@
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -345,12 +233,6 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_isolationism	
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -365,9 +247,6 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:FEI = { # French East Indies
 		effect_starting_technology_tier_3_tech  = yes
@@ -382,10 +261,6 @@
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_censorship
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -407,11 +282,6 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_mahayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 	}
 	c:HSW = { # Hosokawa
 		effect_starting_technology_tier_4_tech = yes
@@ -442,26 +312,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:HTK = { # Hatakeyama
 		effect_starting_technology_tier_4_tech = yes
@@ -492,26 +343,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:HXI = { # Haixi
 		effect_starting_technology_tier_4_tech = yes
@@ -524,10 +356,7 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+
 	}
 	c:IGW = { # Imagawa
 		effect_starting_technology_tier_4_tech = yes
@@ -558,26 +387,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:IMG = { # Inner Mongolia
 		effect_starting_technology_tier_4_tech = yes
@@ -590,21 +400,16 @@
 		activate_law = law_type:law_shared_heritage
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
+		
+		add_modifier = nomadic_structures
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_vajrayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 	}
 	c:JMB = { # Jambi
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -621,24 +426,6 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_confucian
-			remove_ideology = ideology_pious
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_confucian
-		}
 	}
 	c:KED = {
 		effect_starting_technology_tier_4_tech = yes
@@ -664,9 +451,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -679,18 +464,6 @@
 
 		activate_law = law_type:law_isolationism
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_mahayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_yangban
-			add_ruling_interest_group = yes
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
 	}
 	c:KHM = { # Kham
 		effect_starting_technology_tier_4_tech = yes
@@ -704,12 +477,6 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_vajrayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-			add_ruling_interest_group = yes
-		}
 	}
 	c:KHR = { # Khorchin
 		effect_starting_technology_tier_4_tech = yes
@@ -722,10 +489,9 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
+		add_modifier = nomadic_structures
+		
 	}
 	c:KNA	= { # Konawe
 		effect_starting_technology_tier_4_tech = yes
@@ -736,9 +502,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 	}
 	c:KTI	= { # Kutai
 		effect_starting_technology_tier_4_tech = yes
@@ -747,10 +511,6 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
 	c:LUW	= { # Luwu
@@ -762,9 +522,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 	}
 	c:LXA = { # Lan Xang
 		effect_starting_technology_tier_4_tech = yes
@@ -772,15 +530,6 @@
 		activate_law = law_type:law_isolationism	
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}
 	}
 	c:MGD = { # Maguindanao
 		effect_starting_technology_tier_4_tech = yes
@@ -791,9 +540,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 	}
 	c:MGL = { # Mongolia
 		effect_starting_technology_tier_4_tech = yes
@@ -806,22 +553,15 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
+		
+		add_modifier = nomadic_structures
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:MPH = { # Muang Phuan
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_isolationism	
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -836,9 +576,6 @@
 			add_ruling_interest_group = yes
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:NBU = { # Nanbu
 		effect_starting_technology_tier_4_tech = yes
@@ -869,26 +606,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:OGW = { # Ogasawara
 		effect_starting_technology_tier_4_tech = yes
@@ -919,35 +637,14 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:PAS = { # Paser
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -958,9 +655,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -971,9 +666,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -984,9 +677,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1003,24 +694,9 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
+		
+		add_modifier = nomadic_structures
 
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_confucian
-			remove_ideology = ideology_pious
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_confucian
-		}
 	}
 	c:RYU = { # Ryukyu
 		effect_starting_technology_tier_4_tech = yes
@@ -1033,30 +709,12 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_freedom_of_conscience
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_mahayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
 	}
 	c:SIA = { # Ayutthaya
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_isolationism	
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1067,9 +725,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1080,9 +736,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1093,9 +747,7 @@
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_slave_trade
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1130,26 +782,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:SUL = { # Sulu
 		effect_starting_technology_tier_4_tech = yes
@@ -1158,9 +791,7 @@
 		
 		add_taxed_goods = g:tobacco
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1178,11 +809,6 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = {
-			set_interest_group_name = ig_theravada_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
 	}
 	c:TER = { # Ternate
 		effect_starting_technology_tier_4_tech = yes
@@ -1190,9 +816,7 @@
 		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_racial_segregation
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
@@ -1210,12 +834,6 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_vajrayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-			add_ruling_interest_group = yes
-		}
 	}
 	c:TSU = { # Tsugaru
 		effect_starting_technology_tier_4_tech = yes
@@ -1246,26 +864,7 @@
 			level = 1
 		}
 
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:UES = { # Uesugi
 		effect_starting_technology_tier_4_tech = yes
@@ -1298,26 +897,7 @@
 			level = 1
 		}
 		
-		ig:ig_armed_forces = {
-			add_ideology = ideology_bakufu
-			set_interest_group_name = ig_samurai
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_buddhist_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
-
-		ig:ig_landowners = {
-			set_interest_group_name = ig_shogunate
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_rural_folk = {
-			set_interest_group_name = ig_peasants
-		}
+		
 	}
 	c:WRK = { # Warka
 		effect_starting_technology_tier_4_tech = yes
@@ -1330,24 +910,6 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_confucian
-			remove_ideology = ideology_pious
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_confucian
-		}
 	}
 	c:XBO = { # Xibo
 		effect_starting_technology_tier_4_tech = yes
@@ -1361,9 +923,6 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:YUE = { # Yue
 		effect_starting_technology_tier_4_tech = yes
@@ -1385,24 +944,6 @@
 		
 		set_government_wage_level = high
 		set_tax_level = low
-
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
-		
-		ig:ig_devout = {
-			set_interest_group_name = ig_confucian
-			remove_ideology = ideology_pious
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_confucian
-		}
 	}
 	c:YUN = { # Yunnan
 		effect_starting_technology_tier_4_tech = yes
@@ -1423,16 +964,6 @@
 		set_government_wage_level = high
 		set_tax_level = low
 
-		ig:ig_landowners = { 
-			set_interest_group_name = ig_scholar_officials
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_scholar_paternalistic
-		}
-		
-		ig:ig_intelligentsia = { 
-			set_interest_group_name = ig_literati
-			remove_ideology = ideology_anti_clerical
-		}
 	}
 	
 	# Decentralized Tribes

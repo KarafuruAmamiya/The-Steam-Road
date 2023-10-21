@@ -84,6 +84,7 @@
 				limit = {
 					has_variable = completed_akkovin_reform_economy_je
 					has_variable = completed_akkovin_reform_education_je
+					set_variable = completed_akkovin_reform_bureaucracy_je
 					NOT = { has_variable = ideology_change }
 				}
 				trigger_event = { id = akkovin_crisis.17 }
@@ -226,7 +227,6 @@ je_akkovin_reform_education = {
 			name = akc_reform_var
 			add = 1
 		}
-		trigger_event = { id = akkovin_crisis.17 }
 	}
 
 	current_value = {

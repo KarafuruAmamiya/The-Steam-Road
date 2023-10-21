@@ -206,9 +206,13 @@ persian_flavor.3 = {
 			}
 		}
 		scope:arabestan_state = {
+			convert_population = {
+				target = rel:zandism
+				value = 0.05
+			}
 			add_radicals_in_state = {
-				religion = rel:shiite
-				value = small_radicals
+				religion = rel:zandism
+				value = 1
 			}
 		}
 		
@@ -225,6 +229,13 @@ persian_flavor.3 = {
 		}
 		scope:mohammad_zand_scope = {
 			set_as_interest_group_leader = yes
+		}
+		
+		scope:arabestan_state = {
+			convert_population = {
+				target = rel:zandism
+				value = 0.1
+			}
 		}
 		
 		ai_chance = {
@@ -263,7 +274,6 @@ persian_flavor.4 = { #The Iranian Identity
 	
 	option = { #All Iranians are citizens of the empire
 		name = persian_flavor.4.a
-		default_option = yes
 		custom_tooltip = {
 			text = united_iran_tt
 			set_variable = united_iran
@@ -275,40 +285,109 @@ persian_flavor.4 = { #The Iranian Identity
 		add_primary_culture = cu:tajik
 		add_primary_culture = cu:baluchi
 		
-		ig:ig_landowners = {
+		every_interest_group = {
+			limit = {
+				OR = {
+					leader = {
+						law_stance = {
+							law = law_type:law_national_supremacy
+							value > neutral
+						}
+						law_stance = {
+							law = law_type:law_ethnostate
+							value > neutral
+						}
+					}
+					law_stance = {
+						law = law_type:law_national_supremacy
+						value > neutral
+					}
+					law_stance = {
+						law = law_type:law_ethnostate
+						value > neutral
+					}
+				}
+			}
 			add_modifier = {
 				name = rejected_iranian_identity
 				months = normal_modifier_time
 			}
 		}
-		ig:ig_devout = {
-			add_modifier = {
-				name = rejected_iranian_identity
-				months = normal_modifier_time
-			}
+		
+		ai_chance = {
+			base = 25
 		}
 	}
 	
 	option = { #The empire should be ruled by Persians
 		name = persian_flavor.4.b
+		default_option = yes
 		remove_primary_culture = azerbaijani
-		#Add non-Persian radicals
-		ig:ig_landowners = {
+		add_radicals = {
+			culture = cu:azerbaijani
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:luri
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:kurdish
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:caspian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:pashtun
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:tajik
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:baluchi
+			value = large_radicals
+		}
+		
+		add_modifier = {
+			name = russification_modifier
+			months = long_modifier_time
+		}
+		
+		every_interest_group = {
+			limit = {
+				OR = {
+					leader = {
+						law_stance = {
+							law = law_type:law_national_supremacy
+							value > neutral
+						}
+						law_stance = {
+							law = law_type:law_ethnostate
+							value > neutral
+						}
+					}
+					law_stance = {
+						law = law_type:law_national_supremacy
+						value > neutral
+					}
+					law_stance = {
+						law = law_type:law_ethnostate
+						value > neutral
+					}
+				}
+			}
 			add_modifier = {
 				name = persian_ruled_empire
 				months = normal_modifier_time
 			}
 		}
-	}
-	
-	option = { #Our country must return to the teachings of Islam
-		name = persian_flavor.4.c
-		#Negate Zandism and devout debuff from Romantic Nationalism
-		ig:ig_devout = {
-			add_modifier = {
-				name = return_to_devout
-				months = normal_modifier_time
-			}
+		
+		ai_chance = {
+			base = 75
 		}
 	}
 }
@@ -473,6 +552,47 @@ persian_renaissance.6 = { #Fire Temple of Yazd
 	option = {
 		name = persian_renaissance.6.a
 		default_option = yes
+	}
+}
+
+persian_renaissance.7 = { #Persian Nationalism
+	type = country_event
+	title = persian_renaissance.7.t
+	desc = persian_renaissance.7.d
+	flavor =  persian_renaissance.7.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+	}
+	
+	immediate = {
+		set_variable = iranian_identity
+	}
+	
+	option = { #Adopt a secular identity
+		name = persian_renaissance.7.a
+		default_option = yes
+		ig:ig_devout = {
+			add_modifier = {
+				name = adopted_blasphemous_beliefs
+				months = -1
+			}
+		}
+		add_radicals = {
+			religion = rel:shiite
+			value = large_radicals
+		}
+	}
+	
+	option = { #Our country must follow the path laid by God
+		name = persian_renaissance.7.b
+		
 	}
 }
 

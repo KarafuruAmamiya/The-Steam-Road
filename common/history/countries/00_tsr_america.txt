@@ -25,10 +25,6 @@
 			institution = institution_colonial_affairs
 			level = 2
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:BTC = { # Batavian Company
 		effect_starting_technology_tier_2_tech = yes
@@ -72,13 +68,6 @@
 
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
-		}
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
-		ig:ig_rural_folk = {
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
 		}
 	}
 	c:CLD = { # New Caledonia
@@ -138,14 +127,7 @@
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = { 
-			set_interest_group_name = ig_catholic_church
-		}
-		ig:ig_rural_folk = {
-			remove_ideology = ideology_isolationist
-			add_ideology = ideology_isolationist_expansionism
-		}
-		
+
 		add_modifier = {
 			name = lusitanian_league
 		}
@@ -167,10 +149,6 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 		}
 	}
 	c:KNM = { # Kuntermark Company
@@ -205,10 +183,6 @@
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 2
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 		}
 		
 		add_modifier = {
@@ -260,9 +234,6 @@
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = {
-			set_interest_group_name = ig_anglican_church
-		}
 		add_taxed_goods = g:grain
 	}
 	c:ORC = { # Orenoco / New Provence
@@ -292,10 +263,6 @@
 		ig:ig_intelligentsia = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:PEU = { # Peru
 		effect_starting_technology_tier_3_tech = yes
@@ -322,10 +289,6 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:TPR = { # Transpratina
 		effect_starting_technology_tier_3_tech = yes
@@ -344,10 +307,6 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
 		}
 	}
 	c:VML = { # Vlaamsland Company
@@ -391,10 +350,6 @@
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_closed_borders
 		activate_law = law_type:law_tenant_farmers
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:MXS = { # Moxos
 		effect_starting_technology_tier_4_tech = yes
@@ -405,10 +360,6 @@
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_closed_borders
 		activate_law = law_type:law_tenant_farmers
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_catholic_church
-		}
 	}
 	c:APN = { # Apurina
 		effect_starting_technology_tier_6_tech = yes

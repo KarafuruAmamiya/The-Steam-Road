@@ -1,0 +1,70 @@
+﻿agitator_louise_michel = {
+	first_name = Louise
+	last_name = Michel
+	historical = yes
+	culture = cu:french
+	religion = rel:catholic
+	female = yes
+	interest_group = ig_intelligentsia
+	ideology = ideology_feminist
+	birth_date = 1830.5.29
+	dna = dna_louise_michel
+	traits = {
+		brave
+		firebrand
+		persistent
+	}
+	agitator_usage = {
+		country_trigger = {
+			has_dlc_feature = voice_of_the_people_content
+			c:FRA ?= this
+		}
+        interest_group_trigger = {
+            is_marginal = no
+            OR = {
+                is_interest_group_type = ig_intelligentsia
+                is_interest_group_type = ig_trade_unions
+            } 
+        }   
+		earliest_usage_date = 1869.1.1
+		latest_usage_date = 1890.1.1
+		chance = 50
+	}
+}
+
+fra_delescluze_character_template = {
+    first_name = Louis_Charles
+    last_name = Delescluze
+    historical = yes
+    birth_date = 1809.5.25
+    is_agitator = yes
+    female = no
+    culture = cu:french
+    interest_group = ig_intelligentsia
+    ideology = ideology_communist
+    dna = dna_louis_delescluze
+    traits = {
+        literary
+        inspirational_orator
+        brave
+    }
+}
+
+rus_jaroslaw_dabrowski_character_template = {
+    first_name = Jaroslaw
+    last_name = Dabrowski
+    historical = yes
+    culture = cu:polish
+    religion = rel:catholic
+    female = no
+    is_agitator = yes
+    interest_group = ig_armed_forces
+    ideology = ideology_radical
+    birth_date = 1836.11.13
+    dna = dna_jaroslaw_dabrowski
+    traits = {
+        persistent
+        brave
+        mountain_commander
+    }
+}

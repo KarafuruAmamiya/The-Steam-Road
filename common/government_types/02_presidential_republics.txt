@@ -22,6 +22,51 @@
 		}
 		country_is_in_europe = yes
 	}
+	
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_provisional_government = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_variable = revolutionary_prov_gov_var
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_technate_presidential = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHIEF_EXECUTIVE"
+	female_ruler = "RULER_TITLE_CHIEF_EXECUTIVE"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_technocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
 }
 
 gov_banana_republic = {
@@ -41,6 +86,13 @@ gov_banana_republic = {
 			exporter = root.market
 			goods = g:fruit
 		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -77,6 +129,13 @@ gov_warlord_state = {
 			root.capital.region = sr:region_central_asia
 		}
 	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
 }
 
 gov_fascist_state = {
@@ -90,8 +149,19 @@ gov_fascist_state = {
 			has_law = law_type:law_presidential_republic
 			has_law = law_type:law_parliamentary_republic
 		}
-		has_law = law_type:law_autocracy 
+		OR = {
+			has_law = law_type:law_autocracy 
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_single_party_state 
+		}
 		coa_fascist_trigger = yes
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -107,8 +177,12 @@ gov_chartered_company = {
 		OR = {
 			is_subject_type = subject_type_chartered_company
 		}
-
-
+	}
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
 	}
 }
 
@@ -206,6 +280,13 @@ gov_colonial_administration = {
 			}
 		}
 	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
 }
 
 gov_crown_colony = {
@@ -245,6 +326,13 @@ gov_crown_colony = {
 		}
 		country_is_in_europe = no
 	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
 }
 
 gov_military_dictatorship = {
@@ -260,6 +348,13 @@ gov_military_dictatorship = {
 			has_law = law_type:law_mass_conscription
 			has_law = law_type:law_professional_army
 		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -277,6 +372,13 @@ gov_presidential_dictatorship = {
 			has_law = law_type:law_national_militia
 		}
 	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
 }
 
 gov_junta = {
@@ -293,6 +395,13 @@ gov_junta = {
 			has_law = law_type:law_professional_army
 		}
 	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
 }
 
 gov_presidential_oligarchy = {
@@ -304,6 +413,16 @@ gov_presidential_oligarchy = {
 	possible = {
 		has_law = law_type:law_presidential_republic
 		country_has_voting_franchise = no
+		NOT = {
+			coa_fascist_trigger = yes
+		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -317,6 +436,35 @@ gov_presidential_democracy = {
 	possible = {
 		has_law = law_type:law_presidential_republic
 		country_has_voting_franchise = yes
+		NOR = { 
+			has_law = law_type:law_single_party_state
+			has_law = law_type:law_technocracy
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
 	}
 }
 
+gov_presidential_single_party_state = {
+	transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_single_party_state
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}

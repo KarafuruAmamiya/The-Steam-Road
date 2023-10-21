@@ -235,9 +235,12 @@ conservative_party = {
 			limit = {
 				OR = {
 					has_ideology = ideology:ideology_paternalistic
+					has_ideology = ideology:ideology_akkovin_paternalistic
+					has_ideology = ideology:ideology_safavid_paternalistic
 					has_ideology = ideology:ideology_stratocratic
 					has_ideology = ideology:ideology_patriarchal
 					has_ideology = ideology:ideology_moralist
+					has_ideology = ideology:ideology_shiite_moralist
 				}
 			}
 			add = {
@@ -319,6 +322,8 @@ conservative_party = {
 				OR = {
 					has_ideology = ideology:ideology_plutocratic
 					has_ideology = ideology:ideology_paternalistic
+					has_ideology = ideology:ideology_akkovin_paternalistic
+					has_ideology = ideology:ideology_safavid_paternalistic
 				}
 				owner = {
 					has_law = law_type:law_universal_suffrage
@@ -474,7 +479,10 @@ conservative_party = {
 			limit = {
 				OR = {
 					has_ideology = ideology:ideology_moralist
+					has_ideology = ideology:ideology_shiite_moralist
 					has_ideology = ideology:ideology_paternalistic
+					has_ideology = ideology:ideology_akkovin_paternalistic
+					has_ideology = ideology:ideology_safavid_paternalistic
 				}
 				owner = {
 					NOR = {

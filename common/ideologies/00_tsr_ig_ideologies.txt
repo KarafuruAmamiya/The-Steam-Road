@@ -152,7 +152,7 @@ ideology_safavid_paternalistic = {
 		law_traditionalism = disapprove
 		law_agrarianism = disapprove
 		law_interventionism = approve
-		law_mixed_economy = strongly_approve
+		law_mixed_economy = neutral
 		law_laissez_faire = neutral
 		law_cooperative_ownership = strongly_disapprove
 		law_command_economy = strongly_disapprove
@@ -164,5 +164,69 @@ ideology_safavid_paternalistic = {
 		law_national_guard = strongly_approve
 		law_no_home_affairs = disapprove
 		law_guaranteed_liberties = strongly_disapprove
+	}
+}
+
+ideology_akkovin_paternalistic = {
+	icon = "gfx/interface/icons/ideology_icons/paternalistic.dds"
+	
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_theocracy = neutral			
+		law_presidential_republic = neutral
+		law_parliamentary_republic = disapprove
+		law_council_republic = strongly_disapprove
+	}
+	
+	lawgroup_distribution_of_power = {
+		law_single_party_state = neutral
+		law_landed_voting = strongly_approve
+		law_autocracy = approve
+		law_oligarchy = strongly_approve
+		law_weighted_wealth_voting = approve
+		law_wealth_voting = neutral
+		law_census_voting = disapprove
+		law_weighted_universal_suffrage = disapprove
+		law_universal_suffrage = strongly_disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+	
+	lawgroup_bureaucracy = {
+		law_hereditary_bureaucrats = approve
+		law_appointed_bureaucrats = disapprove
+		law_elected_bureaucrats = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_local_police = approve
+		law_dedicated_police = neutral
+		law_militarized_police = neutral
+		law_no_police = disapprove
+	}
+	
+	lawgroup_economic_system = {		
+		law_traditionalism = approve
+		law_agrarianism = strongly_approve
+		law_interventionism = disapprove
+		law_mixed_economy = disapprove
+		law_industry_banned = disapprove
+		law_laissez_faire = disapprove
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+	}
+	
+	lawgroup_trade_policy = {		
+		law_free_trade = approve	
+		law_mercantilism = neutral
+		law_protectionism = disapprove
+		law_isolationism = strongly_disapprove
+	}		
+	
+	lawgroup_slavery = {
+		law_slavery_banned = neutral
+		law_legacy_slavery = approve
+		law_debt_slavery = strongly_disapprove
+		law_slave_trade = disapprove
 	}
 }

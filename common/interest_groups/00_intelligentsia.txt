@@ -29,6 +29,27 @@
 			set_ig_trait = ig_trait:ig_trait_avant_garde
 			set_ig_trait = ig_trait:ig_trait_propagandists
 		}
+		# Theocratic Intellegentsia
+		if = {
+			limit = {
+				has_law = law_type:law_theocracy
+			}
+			ig:ig_intelligentsia = {
+				remove_ideology = ideology_anti_clerical
+			}
+		}
+		# Literati
+		else_if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = han_chinese
+				}
+			}
+			ig:ig_intelligentsia = { 
+				set_interest_group_name = ig_literati
+				remove_ideology = ideology_anti_clerical
+			}
+		}
 	}
 
 	on_disable = {}
@@ -154,7 +175,7 @@
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
-				leader = {
+				leader ?= {
 					value = popularity
 					multiply = 0.0025
 					add = 1

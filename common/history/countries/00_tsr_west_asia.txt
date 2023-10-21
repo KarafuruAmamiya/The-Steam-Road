@@ -23,12 +23,9 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_local_governors
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 		
 		add_modifier = {
 			name = akkovin_crisis
@@ -69,9 +66,7 @@
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_legacy_slavery
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs 
-		}
+		
 	}
 	c:HDJ = { # Hedjaz
 		effect_starting_technology_tier_3_tech = yes
@@ -97,13 +92,6 @@
 			level = 1
 		}
 		
-		ig:ig_landowners = {
-			add_ideology = ideology_pious
-		}
-
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs 
-		}
 	}
 	c:JAB = { # Jabal Shammar
 		effect_starting_technology_tier_4_tech = yes
@@ -115,9 +103,7 @@
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_frontier_colonialism
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 		add_journal_entry = { type = je_arabian_desert }
 	}
 	c:KAT = { # Kathiri
@@ -154,11 +140,6 @@
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = {
-			set_interest_group_name = ig_shia_madrasahs
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_shiite_moralist
-		}
 	}
 	c:NEJ = { # Najd
 		effect_starting_technology_tier_4_tech = yes
@@ -175,9 +156,7 @@
 			level = 1
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 		add_journal_entry = { type = je_arabian_desert }
 	}
 	c:OMA = { # Oman
@@ -186,12 +165,6 @@
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_slave_trade
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_shia_madrasahs
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_shiite_moralist
-		}
 	}
 	c:PER = { # Persia
 		set_next_election_date = 1838.10.3
@@ -241,21 +214,14 @@
 			level = 1
 		}
 		
-		ig:ig_petty_bourgeoisie = {
-			set_interest_group_name = ig_bazaari
-		}
+		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			remove_ideology = ideology_paternalistic
-			add_ideology = ideology_safavid_paternalistic
 		}
 		ig:ig_armed_forces = {
 			add_ruling_interest_group = yes
 		}
 		ig:ig_devout = {
-			set_interest_group_name = ig_shia_madrasahs
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_shiite_moralist
 			add_ruling_interest_group = yes
 		}
 		
@@ -319,9 +285,6 @@
 		}
 		
 		ig:ig_devout = {
-			set_interest_group_name = ig_shia_madrasahs
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_shiite_moralist
 			add_ruling_interest_group = yes
 		}
 
@@ -352,9 +315,7 @@
 			level = 1
 		}
 
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs 
-		}
+		
 	}
 	c:TUR = { # Ottoman Empire
 		effect_starting_technology_tier_3_tech = yes
@@ -391,12 +352,9 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-			set_interest_group_name = ig_local_governors
 		}
 
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
 		
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes

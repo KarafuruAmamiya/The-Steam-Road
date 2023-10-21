@@ -27,6 +27,18 @@
 			set_ig_trait = ig_trait:ig_trait_middle_managers
 			set_ig_trait = ig_trait:ig_trait_treasury_bonds
 		}
+		# Bazaari
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:persian
+					country_has_primary_culture = cu:jonubi
+				}
+			}
+			ig:ig_petty_bourgeoisie = {
+				set_interest_group_name = ig_bazaari
+			}
+		}
 	}
 
 	on_disable = {}
@@ -183,7 +195,7 @@
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
-				leader = {
+				leader ?= {
 					value = popularity
 					multiply = 0.0025
 					add = 1

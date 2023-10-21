@@ -188,6 +188,12 @@ on_native_uprising = {
 # Root = Country
 on_capitulation = {
 	effect = {
+		if = {
+			limit = {
+				has_variable = revolutionary_prov_gov_var
+			}
+			remove_variable = revolutionary_prov_gov_var
+		}
 		set_variable = {
             name = recently_lost_war
             days = 1825

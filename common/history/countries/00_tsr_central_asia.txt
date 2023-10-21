@@ -11,10 +11,8 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
-
-		ig:ig_devout = { 
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
+		add_modifier = nomadic_structures
 	}
 	c:BDK = { # Badakshan
 		effect_starting_technology_tier_4_tech = yes
@@ -23,10 +21,6 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
 	c:BUK = { # Bukharan Khaganate
@@ -65,10 +59,8 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
+		add_modifier = nomadic_structures
 	}
 	c:DZU = { # Dzungaria
 		effect_starting_technology_tier_4_tech = yes
@@ -84,10 +76,8 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
+		add_modifier = nomadic_structures
 	}
 	c:KAB = { # Kabulistan
 		effect_starting_technology_tier_4_tech = yes
@@ -109,10 +99,6 @@
 		
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
-		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
 		}
 	}
 	c:TSN = { # Transoxiana
@@ -136,10 +122,6 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
 	}
 	c:TUV = { # Tuva
 		effect_starting_technology_tier_4_tech = yes
@@ -153,12 +135,8 @@
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_land_based_taxation	
 		activate_law = law_type:law_debt_slavery
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_vajrayana_monks
-			remove_ideology = ideology_moralist
-			add_ideology = ideology_buddhist_moralist
-		}
+		
+		add_modifier = nomadic_structures
 	}
 	c:XIN = { # Uyghuristan / Kashgar
 		effect_starting_technology_tier_4_tech = yes
@@ -174,10 +152,8 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
-
-		ig:ig_devout = {
-			set_interest_group_name = ig_sunni_madrasahs
-		}
+		
+		add_modifier = nomadic_structures
 	}
 	
 	#Decentralized

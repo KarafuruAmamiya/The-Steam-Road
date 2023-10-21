@@ -7,6 +7,10 @@
 	}
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOR = {
 			is_country_type = decentralized 
 			has_law = law_type:law_isolationism
@@ -23,10 +27,20 @@
 		NOT = { has_war_with = scope:target_country }
 		NOT = { is_subject_of = scope:target_country }
 		is_junior_in_customs_union = no
+		hidden_trigger = {
+			scope:target_country = { is_junior_in_customs_union = no }
+		}
 		has_diplomatic_relevance = scope:target_country
 		NOR = {
 			scope:target_country = { has_law = law_type:law_isolationism }
-			has_law = law_type:law_isolationism					
+			has_law = law_type:law_isolationism
+			scope:target_country = { has_journal_entry = je_warlord_china }
+			scope:target_country = {
+				this = c:CHI
+			}
+			scope:target_country = {
+				this = c:BUK
+			}				
 		}		
 		custom_tooltip = {
 			text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER
@@ -34,7 +48,20 @@
 		}
 		is_revolutionary = no
 		scope:target_country = {
+			any_primary_culture = {
+				shares_heritage_trait_with_any_primary_culture = ROOT
+			}
+		}
+		custom_tooltip = {
+			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
+			is_on_same_continent = yes
+		}
+		scope:target_country = {
 			is_revolutionary = no
+			custom_tooltip = {
+				text = tut_customs_union_block_txt
+				NOT = { has_variable = tut_customs_union_block }
+			}
 		}
 		custom_tooltip = {
 			text = DIPLO_ACTION_MARKET_CONNECTION_REQUIRED
@@ -100,7 +127,13 @@
 				scope:target_country = { is_subject_of = root }
 				is_junior_in_customs_union = yes
 				scope:target_country = { has_law = law_type:law_isolationism }
-				has_law = law_type:law_isolationism		
+				has_law = law_type:law_isolationism
+				scope:target_country = {
+					this = c:CHI
+				}
+				scope:target_country = {
+					this = c:BUK
+				}	
 			}
 		}
 
@@ -157,9 +190,24 @@
 
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_BASE"
-				value = -100
+				value = -125
 			}
-			
+
+			if = {
+				limit = {
+					OR = {
+						is_subject = yes
+						scope:actor = {
+							is_subject = yes # subjects should not be allowed to break free and join a customs unions, and this at least ensures the AI will reject such requests
+						}
+					}
+				}
+				add = {
+					desc = "SUBJECT_IS_ALREADY_SUBJECT"
+					value = -1000
+				}
+			}
+
 			if = {
 				limit = {
 					NOR = {
@@ -342,7 +390,69 @@
 
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_BASE"
-				value = -100
+				value = -125 #was 100
+			}
+
+			if = { #Zollverein
+				limit = {
+					AND = {
+						scope:target_country = {
+								OR = {
+									country_has_primary_culture = cu:north_german
+									country_has_primary_culture = cu:south_german
+								}
+							}
+						scope:actor = {
+							country_has_primary_culture = cu:north_german
+							OR = {
+								country_rank = rank_value:great_power
+								country_rank = rank_value:major_power
+							}
+						}
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_PRUSSIA"
+					value = 100
+				}
+			}
+
+			if = {
+				limit = {
+					AND = {
+						scope:target_country = {
+								OR = {
+									country_has_primary_culture = cu:north_italian
+									country_has_primary_culture = cu:south_italian
+								}
+							}
+						scope:actor = {
+							NOR = { 
+								country_has_primary_culture = cu:north_italian
+								country_has_primary_culture = cu:south_italian
+							}
+						}
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_ITALIA"
+					value = -50
+				}
+			}
+
+			if = {
+				limit = {
+					OR = {
+						is_subject = yes # countries that were a junior member of a customs union, got a request to switch, and then got puppeted should not be able to break free by accepting
+						scope:actor = {
+							is_subject = yes # countries should not accept the customs union requests of subjects, since such pacts would be immediately broken anyway
+						}
+					}
+				}
+				add = {
+					desc = "SUBJECT_IS_ALREADY_SUBJECT"
+					value = -1000
+				}
 			}
 
 			if = {
@@ -360,7 +470,7 @@
 				}
 				add = {
 					desc = "DIPLOMATIC_ACCEPTANCE_NOT_ADJACENT_MARKETS"
-					value = -20
+					value = -50
 				}
 			}
 
@@ -643,6 +753,10 @@ join_customs_union = {
 	can_use_obligations = yes
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOT = { is_country_type = decentralized }
 
 		scope:target_country = {
@@ -671,10 +785,24 @@ join_customs_union = {
 		}
 
 		is_revolutionary = no
+		
+		scope:target_country = {
+			any_primary_culture = {
+				shares_heritage_trait_with_any_primary_culture = ROOT
+			}
+		}
+		custom_tooltip = {
+			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
+			is_on_same_continent = yes
+		}
 
 		scope:target_country = {
 			is_revolutionary = no
 			is_junior_in_customs_union = no
+			custom_tooltip = {
+				text = tut_customs_union_block_txt
+				NOT = { has_variable = tut_customs_union_block }
+			}
 		}
 		
 		custom_tooltip = {
@@ -736,6 +864,10 @@ change_customs_union = {
 	can_use_obligations = yes
 
 	potential = {
+		custom_tooltip = {
+			text = tut_customs_union_block_txt
+			NOT = { has_variable = tut_customs_union_block }
+		}
 		NOT = { is_country_type = decentralized }
 		is_junior_in_customs_union = no
 		scope:target_country = {
@@ -762,7 +894,22 @@ change_customs_union = {
 		is_revolutionary = no
 
 		scope:target_country = {
+			any_primary_culture = {
+				shares_heritage_trait_with_any_primary_culture = ROOT
+			}
+		}
+
+		custom_tooltip = {
+			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
+			is_on_same_continent = yes
+		}
+
+		scope:target_country = {
 			is_revolutionary = no
+			custom_tooltip = {
+				text = tut_customs_union_block_txt
+				NOT = { has_variable = tut_customs_union_block }
+			}
 		}
 		
 		custom_tooltip = {

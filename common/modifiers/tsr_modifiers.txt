@@ -113,7 +113,7 @@ akkovin_bureaucracy = {
 
 akkovin_army_reform = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	country_military_weekly_innovation_mult = 0.25
+	country_military_tech_research_speed_mult = 0.25
 	battle_offense_owned_province_mult = 0.2
 	battle_defense_owned_province_mult = 0.2
 }
@@ -126,18 +126,19 @@ akkovin_urbanization = {
 
 akkovin_education = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
-	country_society_weekly_innovation_mult = 0.33
+	country_society_tech_research_speed_mult = 0.33
 }
 
 tribal_structures = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
 	unit_offense_mult = 0.1
-	country_military_weekly_innovation_mult = -0.25
+	country_military_tech_research_speed_mult = -0.25
 }
 
 kurdish_autonomy = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	state_radicals_from_sol_change_accepted_culture_mult = -0.15
+	state_conscription_rate_add = 0.05
 	state_construction_mult = -0.15
 	state_infrastructure_add = -10
 }
@@ -320,7 +321,7 @@ zandism_spreading = {
 
 national_museum_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	country_society_tech_cost_mult = -0.05
+	country_society_tech_research_speed_mult = 0.05
 	country_prestige_mult = 0.01
 }
 
@@ -425,6 +426,7 @@ post_zandi_purge = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	interest_group_pol_str_mult = -0.5
 	interest_group_pop_attraction_mult = -0.5
+	interest_group_approval_add = -10
 }
 
 modifier_conversion_of_persia = {
@@ -438,4 +440,16 @@ modifier_second_jihad = {
 	building_barracks_throughput_mult = 0.15
 	building_arms_industry_throughput_mult = 0.15
 	state_assimilation_mult = 0.10
+}
+
+adopted_blasphemous_ideals = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -10
+}
+
+nomadic_structures = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	state_conscription_rate_add = 0.10
+	unit_offense_mult = 0.1
+	country_military_tech_research_speed_mult = -0.25
 }

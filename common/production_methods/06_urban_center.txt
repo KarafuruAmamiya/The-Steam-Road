@@ -1,7 +1,7 @@
 ﻿pm_market_stalls = {
 	texture = "gfx/interface/icons/production_method_icons/market_stalls.dds"
-	
-	building_modifiers = { 
+
+	building_modifiers = {
 		workforce_scaled = {
 			building_input_wood_add = 3 #5
 			building_output_services_add = 15 #25
@@ -12,18 +12,18 @@
 			building_employment_clerks_add = 900
 			building_employment_shopkeepers_add = 400
 		}
-		
+
 		unscaled = {
 			building_shopkeepers_shares_add = 10
 		}
 	}
-}		
+}
 
 pm_market_squares = {
 	texture = "gfx/interface/icons/production_method_icons/market_squares.dds"
-	
+
 	unlocking_technologies = { urban_planning }
-	
+
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_wood_add = 3 #5
@@ -95,11 +95,15 @@ pm_arcades = {
 
 pm_no_street_lighting = {
 	texture = "gfx/interface/icons/production_method_icons/no_street_lighting.dds"
-}	
+
+	city_lights_color_index = 0	# Needs to match city_graphics_data.settings color array
+}
 
 pm_gas_streetlights = {
 	texture = "gfx/interface/icons/production_method_icons/gas_streetlights.dds"
-	
+
+	city_lights_color_index = 1	# Needs to match city_graphics_data.settings color array
+
 	unlocking_technologies = {
 	}
 
@@ -118,11 +122,13 @@ pm_gas_streetlights = {
 
 pm_electric_streetlights = {
 	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
-	
+
+	city_lights_color_index = 2	# Needs to match city_graphics_data.settings color array
+
 	unlocking_technologies = {
 		electrical_generation
 	}
-	
+
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_electricity_add = 5 #10

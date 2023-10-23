@@ -19,6 +19,8 @@ vfm_natural_disaster_events.1 = { #Draught for more arid zones
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
+	cooldown = { months = long_modifier_time }
+
 	trigger = {
 	    has_agricultural_disaster = no
 		any_scope_building = {
@@ -123,6 +125,8 @@ vfm_natural_disaster_events.2 = { #Draught for normal
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	cooldown = { months = very_long_modifier_time }
 
 	trigger = {
 	    has_agricultural_disaster = no
@@ -279,6 +283,8 @@ vfm_natural_disaster_events.4 = { #Catastrophic draught for more arid zones
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
+	cooldown = { months = very_long_modifier_time }
+
 	trigger = {
         has_agricultural_disaster = no
 		any_scope_building = {
@@ -414,10 +420,12 @@ vfm_natural_disaster_events.5 = { #Storm - coastal state
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
+	cooldown = { months = normal_modifier_time }
+
 	trigger = {
 	    is_coastal = yes
 		NOR = { # exclude inner seas like black sea
-			region = sr:region_ukraine
+			region = sr:region_dnieper
 			region = sr:region_east_balkans
 			region = sr:region_caucasus
 			region = sr:region_baltic
@@ -426,8 +434,7 @@ vfm_natural_disaster_events.5 = { #Storm - coastal state
 			state_region = s:STATE_KASTAMONU
 			state_region = s:STATE_TRABZON
 			state_region = s:STATE_BASRA
-			state_region = s:STATE_HAIL
-			state_region = s:STATE_NEJD
+			state_region = s:STATE_HAASA
 			state_region = s:STATE_KHUZESTAN
 			
 		}
@@ -499,6 +506,8 @@ vfm_natural_disaster_events.6 = { #Storm - any state
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	cooldown = { months = long_modifier_time }
 
 	trigger = {
 		any_scope_building = {
@@ -635,6 +644,8 @@ vfm_natural_disaster_events.7 = { #Hurricane - coastal state
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/devastation"
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	cooldown = { months = long_modifier_time }
 
 	trigger = {
 	    is_coastal = yes
@@ -780,6 +791,8 @@ vfm_natural_disaster_events.8 = { #Draught for normal
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	cooldown = { months = very_long_modifier_time }
 
 	trigger = {
 	    has_agricultural_disaster = no

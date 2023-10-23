@@ -674,9 +674,11 @@ on_diplomatic_play_started = {
 		if = {
 			limit = {
 				is_diplomatic_play_type = dp_opium_wars
+				scope:initiator = {
+					NOT = { has_variable = FOW_decision_taken }
+				}
 			}
-			root = {
-				limit = { NOT = { has_variable = FOW_decision_taken } }
+			scope:initiator = {
 				trigger_event = { id = opium_wars.9 days = 0 }
 			}
 		}

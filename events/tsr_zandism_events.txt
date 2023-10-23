@@ -51,7 +51,7 @@ zandism_events.1 = {
 						target = rel:shiite
 						value >= 0.7
 					}
-					total_population > 700000
+					state_population > 700000
 					is_capital = no
 				}
 				add_modifier = {
@@ -251,7 +251,7 @@ zandism_events.3 = {
 			limit = {
 				any_scope_state = {
 					any_scope_pop = {
-						has_pop_religion = zandism
+						religion = rel:zandism
 					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
@@ -260,7 +260,7 @@ zandism_events.3 = {
 			random_scope_state = {
 				limit = {
 					any_scope_pop = {
-						has_pop_religion = zandism
+						religion = rel:zandism
 					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
@@ -563,7 +563,7 @@ zandism_events.4 = {
 		}
 		random_scope_pop = {
 			limit = {
-				has_pop_religion = zandism
+				religion = rel:zandism
 			}
 			religion = {
 				save_scope_as = zandism_scope
@@ -598,7 +598,7 @@ zandism_events.4 = {
 				}
 				every_scope_pop = {
 					limit = {
-						has_pop_religion = zandism
+						religion = rel:zandism
 					}
 					change_pop_religion = {
 						target = rel:shiite value = 0.5
@@ -607,16 +607,18 @@ zandism_events.4 = {
 				every_scope_pop = {
 					limit = {
 						NOR = { 
-							has_pop_religion = zandism 
-							has_pop_religion = shiite 
+							religion = rel:zandism 
+							religion = rel:shiite 
 						}
 					}
-					convert_population = {
+					change_pop_religion = {
 						target = rel:shiite value = 0.1
 					}
 				}
-				add_devastation = {
-					value = 0.2
+				state_region = {
+					add_devastation = {
+						value = 0.2
+					}
 				}
 			}
 		}

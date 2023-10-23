@@ -15,7 +15,8 @@
     possible = {
 		AND = {
 			owns_entire_state_region = STATE_GUJARAT
-			s:STATE_GUJARAT = {
+			any_scope_state = {
+				state_region = s:STATE_GUJARAT
 				OR = {
 					turmoil >= 0.5
 					radical_fraction = {
@@ -26,7 +27,8 @@
 		}
 		AND = {
 			owns_entire_state_region = STATE_TRAVANCORE
-			s:STATE_TRAVANCORE = {
+			any_scope_state = {
+				state_region = s:STATE_TRAVANCORE
 				OR = {
 					turmoil >= 0.5
 					radical_fraction = {
@@ -67,7 +69,7 @@
 		}
 		OR = {
 			is_at_war = no
-			is_diplomatic_play_comitted_participant = no
+			is_diplomatic_play_committed_participant = no
 		}
 	}
 	

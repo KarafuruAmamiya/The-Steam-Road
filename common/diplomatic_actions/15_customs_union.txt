@@ -34,7 +34,7 @@
 		NOR = {
 			scope:target_country = { has_law = law_type:law_isolationism }
 			has_law = law_type:law_isolationism
-			scope:target_country = { has_journal_entry = je_warlord_china }
+			scope:target_country = { has_journal_entry = je_eclipse_of_persia }
 			scope:target_country = {
 				this = c:CHI
 			}
@@ -51,10 +51,6 @@
 			any_primary_culture = {
 				shares_heritage_trait_with_any_primary_culture = ROOT
 			}
-		}
-		custom_tooltip = {
-			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
-			is_on_same_continent = yes
 		}
 		scope:target_country = {
 			is_revolutionary = no
@@ -791,11 +787,6 @@ join_customs_union = {
 				shares_heritage_trait_with_any_primary_culture = ROOT
 			}
 		}
-		custom_tooltip = {
-			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
-			is_on_same_continent = yes
-		}
-
 		scope:target_country = {
 			is_revolutionary = no
 			is_junior_in_customs_union = no
@@ -898,12 +889,6 @@ change_customs_union = {
 				shares_heritage_trait_with_any_primary_culture = ROOT
 			}
 		}
-
-		custom_tooltip = {
-			text = DIPLO_ACTION_SAME_CONTINENT_REQUIRED
-			is_on_same_continent = yes
-		}
-
 		scope:target_country = {
 			is_revolutionary = no
 			custom_tooltip = {

@@ -49,7 +49,7 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 				limit = {
 					is_incorporated = yes
 					any_scope_pop = {
-						has_pop_religion = zoroastrian
+						religion = rel:zoroastrian
 					}
 				}
 				add_modifier = {
@@ -322,7 +322,7 @@ persian_flavor.4 = { #The Iranian Identity
 	option = { #The empire should be ruled by Persians
 		name = persian_flavor.4.b
 		default_option = yes
-		remove_primary_culture = azerbaijani
+		remove_primary_culture = cu:azerbaijani
 		add_radicals = {
 			culture = cu:azerbaijani
 			value = large_radicals
@@ -580,7 +580,7 @@ persian_renaissance.7 = { #Persian Nationalism
 		default_option = yes
 		ig:ig_devout = {
 			add_modifier = {
-				name = adopted_blasphemous_beliefs
+				name = adopted_blasphemous_ideals
 				months = -1
 			}
 		}

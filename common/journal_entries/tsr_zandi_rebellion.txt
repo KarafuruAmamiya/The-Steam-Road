@@ -12,7 +12,7 @@
 			has_global_variable = mohammad_zand_var
 		}
 		calc_true_if = {
-			amount >= 5
+			amount >= 3
 			custom_tooltip = {
 				text = secularization_tt
 				has_variable = zandism_secularization
@@ -36,7 +36,29 @@
 					has_ideology = ideology:ideology_persian_constitutionalist
 				}
 			}
-			standard_of_living < 10
+		}
+		calc_true_if = {
+			amount >= 3
+			has_journal_entry = je_eclipse_of_persia
+			radical_fraction = {
+				value >= 0.25
+				culture = cu:persian
+			}
+			in_default = yes
+			has_revolution = yes
+			government_legitimacy < 30
+			is_junior_in_customs_union = yes
+			OR = {
+				average_sol < 10
+				any_scope_state = {
+					count >= 2
+					is_incorporated = yes
+					state_region = { 
+						is_homeland = cu:persian
+					}
+					average_sol <= 8
+				}
+			}
 			any_scope_state = {
 				count >= 3
 				is_incorporated = yes
@@ -44,6 +66,13 @@
 					is_homeland = cu:persian
 				}
 				turmoil > 0.15
+			}
+			any_scope_state = {
+				is_incorporated = yes
+				state_region = { 
+					is_homeland = cu:persian
+				}
+				state_unemployment_rate >= 0.2
 			}
 		}
 		is_subject = no

@@ -116,6 +116,8 @@
 ideology_persian_constitutionalist = {
 	icon = "gfx/interface/icons/ideology_icons/republican.dds"
 	
+	character_ideology = yes
+	
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove	
 		law_monarchy = neutral
@@ -169,7 +171,7 @@ ideology_persian_constitutionalist = {
 	possible = {
 		NOT = { has_role = agitator }
 		exists = c:PER
-		c:PER = this
+		owner = c:PER
 		scope:interest_group = { 
 			OR = {
 				is_interest_group_type = ig_industrialists
@@ -250,7 +252,7 @@ ideology_persian_constitutionalist = {
 					is_interest_group_type = ig_devout
 				}
 			}
-			add = -50
+			add = -25
 		}
 		# more likely if Persia is declining and they still have regressive laws
 		if = {

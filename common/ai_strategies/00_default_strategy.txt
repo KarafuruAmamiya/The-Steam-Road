@@ -2371,7 +2371,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:north_italian
 					AND = {
 						country_has_primary_culture = cu:south_italian
-						NOT = { c:ARN = this }
+						NOT = { c:ARN ?= this }
 					}
 					is_secessionist = yes
 					scope:target_country = {

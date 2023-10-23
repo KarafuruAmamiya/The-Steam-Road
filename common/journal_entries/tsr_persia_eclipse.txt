@@ -5,22 +5,30 @@
 			has_technology_researched = nationalism
 			has_technology_researched = egalitarianism
 		}	}	possible = {
-		any_state = {
-			state_region = { is_homeland = cu:persian }
-			NOR = { 
-				owner = ROOT 
-				owner = {
-					is_subject_of = ROOT
+		calc_true_if = {
+			amount >= 2
+			any_state = {
+				state_region = { is_homeland = cu:persian }
+				NOR = { 
+					owner = ROOT 
+					owner = {
+						is_subject_of = ROOT
+					}
 				}
 			}
-		}
-		any_scope_state = {
-			count >= 5
-			is_incorporated = yes
-			OR = {
-				turmoil >= 0.2
-				devastation >= 0.2
+			any_scope_state = {
+				count >= 5
+				is_incorporated = yes
+				OR = {
+					turmoil >= 0.2
+					devastation >= 0.2
+				}
 			}
+			custom_tooltip = {
+				text = zandi_rebellion_start_tt
+				has_variable = zandi_rebellion_start
+			}
+			is_losing_power_rank = yes
 		}	}
 
 	immediate = {

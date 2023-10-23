@@ -120,14 +120,6 @@ NPolitics = {
 }
 
 NEconomy = {
-    MAX_WAGE_STEP_CHANGE = 0.15
-	BUILDING_WEEKS_BETWEEN_PAY_CHANGES = 8
-	
-	TRADE_ROUTE_AUTO_INCREASE_ACCEPTABLE_REVENUE_DIFFERENCE = 1.15 #1.1 Multiply revenue of new trade route level by this for the purpose of considering whether it's OK to auto-increase level (means that trade routes can level up even when slightly decreasing overall revenue)
-	TRADE_ROUTE_AUTO_INCREASE_VERY_LOW_PRODUCTIVITY_THRESHOLD = 2.5 #3 If trade route's productivity is below this, always automatically decrease its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_INCREASE_LOW_PRODUCTIVITY_THRESHOLD = 4.5 #6 If trade route's productivity would drop below this, don't automatically increase its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_INCREASE_HIGH_PRODUCTIVITY_THRESHOLD = 8 #10 If trade route's productivity is above this, it's always fine to automatically increase its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_REDUCTION_ACCEPTABLE_REVENUE_DIFFERENCE = 1.2 # Multiply revenue of current trade route level by this for the purpose of considering whether we should auto-decrease level (means that trade routes won't level down just for the purpose of a small revenue increase)
 } 
 
 NMilitary = {
@@ -161,47 +153,9 @@ NDiplomacy = {
 }
 
 NPops = {
-    CONVERSION_RATE = 0.001						# Percentage of pops who will Convert into a different Religion each month, if eligible (halved from vanilla)
 	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.006 #0.005 # Scales by literacy
 	
-	CULTURAL_MIGRATION_BASE = 0.1								# Base amount of a pop that wants to move due to mass migration
-	CULTURAL_MIGRATION_FROM_RADICALS = 0.1						# At 100% radicals, this fraction of the pop wants to mass migrate
-	MIGRATION_UNEMPLOYMENT_MULT = 10.0							# Amount of migration from SoL is increased by this when a pop is unemployed
-	MIGRATION_MAX_POP_AMOUNT = 5000								# No more than this amount of a pop can migrate each week
-	MIGRATION_MAX_PER_STATE_BASE = 500							# No more than this amount of people can move from or to a state in a single week (base)	
-	MIGRATION_MAX_PER_STATE_INFRASTRUCTURE = 5					# No more than this amount of people can move from or to a state in a single week (scales with infrastructure)
-	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 5.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 15.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	
-	MASS_MIGRATION_SPAWN_CHANCE = 0.75 					# Per week for each potential mass migration, scales with turmoil (1 = 1%)
-	MASS_MIGRATION_SPAWN_CHANCE_STRUGGLING_FACTOR = 0.2 # Chance increases by this for each point of SoL below 10 for a culture in a country
-	MASS_MIGRATION_SPAWN_CHANCE_STARVING_FACTOR = 0.8 	# Chance increases by this for each point of SoL below 5 for a culture in a country 
-	MASS_MIGRATION_DURATION_MONTHS = 48					# How long does a mass migration last in months
-	MASS_MIGRATION_COOLDOWN_MONTHS = 24					# How many months before the same culture can mass migrate from a country again
-	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.20			# Must have at least this much turmoil in cultural homelands to create a migration target
-	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
-	
-	INDIVIDUALS_TAXED_PER_TAX_CAPACITY = 15000			# How many pops can be taxed efficiently for each tax capacity
-}
-
-### Pop Growth Constants
-@min_birthrate = 0.0010
-@max_birthrate = 0.0050
-@min_mortality = 0.0005
-@max_mortality = 0.0070
-@pop_growth_sol_equilibrium = 5 #was 8					# Equilibrium is where (with no birthrate/death-rate mods) growth is stagnant
-@pop_growth_sol_delta_cap = 15							# SoL Delta Cap is where net growth stops increasing with rising SoL, i.e. both drop at the same pace
-@pop_growth_sol_cap = 30								# SoL Cap is where they birthrate/death-rate stop dropping
-
-@mortality_at_equilibrium = @[max_birthrate-(pop_growth_sol_equilibrium*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
-@birthrate_at_delta_cap = @[max_birthrate-(pop_growth_sol_delta_cap*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
-@improving_slope = @[(birthrate_at_delta_cap-min_birthrate-min_mortality-mortality_at_equilibrium)/(pop_growth_sol_delta_cap-pop_growth_sol_equilibrium)]
-@improving_intercept = @[-1*improving_slope*pop_growth_sol_equilibrium+mortality_at_equilibrium]
-@mortality_at_delta_cap = @[improving_slope*pop_growth_sol_delta_cap+improving_intercept]
-@fixed_delta_slope = @[(min_mortality-mortality_at_delta_cap)/(pop_growth_sol_cap-pop_growth_sol_delta_cap)]
-		
-NPops = {
-	RADICALS_MAX_FROM_LOW_SOL = 0.12 #0.15				# If pop is already this % radical, don't add more radicals from low SOL (Scales by delta between SoL and expected min SoL)
+	RADICALS_MAX_FROM_LOW_SOL = 0.149 #0.15				# If pop is already this % radical, don't add more radicals from low SOL (Scales by delta between SoL and expected min SoL)
 	RADICALS_MAX_FROM_DISCRIMINATION = 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
 	ASSIMILATION_RATE = 0.006 #0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	CONVERSION_RATE = 0.001						# Percentage of pops who will Convert into a different Religion each month, if eligible
@@ -216,7 +170,7 @@ NPops = {
 	MIGRATION_PULL_REDUCTION_FROM_UNEMPLOYMENT_MAX = 50		# Migration pull reduction from unemployment cannot exceed this
 
 	# The below factors are applied *after* migration pull threshold checks, so they only impact how large a share of migration a state gets
-	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET = 30.0			# Migration pull multiplied by this from target state being a cultural migration target
+	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET = 60.0 #30.0			# Migration pull multiplied by this from target state being a cultural migration target
 	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET_ADJACENCY = 10.0 #5.0	# Migration pull multiplied by this from target state being next to a cultural migration target
 	MIGRATION_PULL_MULT_FROM_NO_DISCRIMINATION = 1.0		# Migration pull multiplier increased by this if pop is moving from discrimination to no discrimination (not applied to mass migration targets)
 	MIGRATION_PULL_MULT_FROM_HOMELANDS = 0.5				# Migration pull multiplier increased by this if pop is moving to cultural homelands (not applied to mass migration targets)
@@ -238,17 +192,17 @@ NPops = {
 	MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION = 0.00001 #0.0005	# Max emigration per week is clamped to this fraction of a state's population
 	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_ORIGIN_FRACTION = 0.005	# The amount of unemployed workers in a state * this value is added to how many people can move from it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
 	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_TARGET_FRACTION = 0.005	# The amount of unemployed workers in a state * this value is removed from how many people can move to it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 90.0 #5.0 #3.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 100.0 #12.0 #8.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 120.0 #5.0 #3.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 150.0 #12.0 #8.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
 	MIGRATION_AVERAGE_ATTRACTION_EMIGRATION_MULT = 0.25			# States with an average migration attraction gets this multiplier to emigrants
 	
 	# Factors for creating mass migration targets
-	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.2 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
+	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.15 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
 	MASS_MIGRATION_ORIGIN_MIN_EMIGRANTS = 100000		# A country must have at least this many possible migrants to trigger a mass migration
-	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15 #0.2			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
+	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.149			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
 	MASS_MIGRATION_TARGET_MIN_ARABLE_LAND = 50			# A state must have at least this much arable land to be a mass migration target
 	MASS_MIGRATION_STATE_MIN_MARKET_ACCESS = 0.5		# A state must have at least this much market access to their market to be a mass migration target or origin state
-	MASS_MIGRATION_SPAWN_CHANCE = 0.5 					# Per week for each potential mass migration, scales with turmoil (1 = 1%)
+	MASS_MIGRATION_SPAWN_CHANCE = 0.6 #0.5 					# Per week for each potential mass migration, scales with turmoil (1 = 1%)
 	MASS_MIGRATION_SPAWN_CHANCE_STRUGGLING_FACTOR = 0.1 # Chance increases by this for each point of SoL below 10 for a culture in a country
 	MASS_MIGRATION_SPAWN_CHANCE_STARVING_FACTOR = 0.5 	# Chance increases by this for each point of SoL below 5 for a culture in a country (added on top of struggling factor)
 	MASS_MIGRATION_TARGET_COUNTRY_RANDOM_FACTOR = 0.5	# The higher this is, the more random the selection of mass migration country targets will be
@@ -256,11 +210,33 @@ NPops = {
 	MASS_MIGRATION_DURATION_MONTHS = 12					# How long does a mass migration last in months
 	MASS_MIGRATION_COOLDOWN_MONTHS = 30					# How many months before the same culture can mass migrate from a country again
 	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 5	# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
-	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )				# Percentage of pops who will Convert into a different Religion each month, if eligible
-	
-	INDIVIDUALS_TAXED_PER_TAX_CAPACITY = 15000			# How many pops can be taxed efficiently for each tax capacity
-	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.006 #0.005 # Scales by literacy
+	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )
+
+	COLONIZATION_RIGHTS_GROWTH_MULTIPLIER = 2.0			# Colonial growth AND max colonial growth are multiplied by this if you have colonization rights
+	COLONIAL_GROWTH_BASE_FACTOR = 0.00001				# Colonial growth generated by a state is ( total pops / 1000 ) * this * modifier from institution
+	MIN_BASE_COLONIAL_GROWTH = 0.01						# Country base colonial growth from population cannot be lower than this
+	MAX_BASE_COLONIAL_GROWTH = 0.05 #0.1						# Country base colonial growth from population cannot be higher than this
+	MAX_COLONIAL_GROWTH = 0.02							# Colonies can grow by this much at most per day 
+
+	#LITERACY_DIEOFF_BIAS = 1.5 #0.7					# Percentage of literate pops who die of old age compared to the current literacy rate, the higher this value the faster the population becomes illiterate when literacy suffers
 }
+
+### Pop Growth Constants
+@min_birthrate = 0.0010
+@max_birthrate = 0.0050
+@min_mortality = 0.0005
+@max_mortality = 0.0070
+@pop_growth_sol_equilibrium = 5 #was 8					# Equilibrium is where (with no birthrate/death-rate mods) growth is stagnant
+@pop_growth_sol_delta_cap = 15							# SoL Delta Cap is where net growth stops increasing with rising SoL, i.e. both drop at the same pace
+@pop_growth_sol_cap = 30								# SoL Cap is where they birthrate/death-rate stop dropping
+
+@mortality_at_equilibrium = @[max_birthrate-(pop_growth_sol_equilibrium*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
+@birthrate_at_delta_cap = @[max_birthrate-(pop_growth_sol_delta_cap*(max_birthrate-min_birthrate)/pop_growth_sol_cap)]
+@improving_slope = @[(birthrate_at_delta_cap-min_birthrate-min_mortality-mortality_at_equilibrium)/(pop_growth_sol_delta_cap-pop_growth_sol_equilibrium)]
+@improving_intercept = @[-1*improving_slope*pop_growth_sol_equilibrium+mortality_at_equilibrium]
+@mortality_at_delta_cap = @[improving_slope*pop_growth_sol_delta_cap+improving_intercept]
+@fixed_delta_slope = @[(min_mortality-mortality_at_delta_cap)/(pop_growth_sol_cap-pop_growth_sol_delta_cap)]
+
 ### End Pop Growth Constant defines
 
 NEvents = {

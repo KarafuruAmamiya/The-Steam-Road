@@ -20,7 +20,7 @@ bic_breakup.1 = {
 	duration = 3
 	
 	trigger = {
-		this ?= c:RAJ
+		c:RAJ ?= this
 		is_subject = no
 		is_at_war = no
 		NOT = {	
@@ -55,6 +55,17 @@ bic_breakup.1 = {
 		custom_tooltip = {
 			text = india_princes_independent_tt
 			break_up_raj = yes
+		}
+		hidden_effect = {
+			every_scope_character = {
+				limit = {
+					OR = {
+						culture = cu:persian
+						culture = cu:azerbaijani
+					}
+				}
+				kill_character = yes
+			}
 		}
 	}
 
@@ -92,6 +103,15 @@ bic_breakup.1 = {
 			add_primary_culture = cu:chhattisgarhi
 			add_primary_culture = cu:gondi
 			set_state_religion = rel:hindu
+			every_scope_character = {
+				limit = {
+					OR = {
+						culture = cu:persian
+						culture = cu:azerbaijani
+					}
+				}
+				kill_character = yes
+			}
 		}
 	}
 	option = {

@@ -55,6 +55,20 @@ HRE = { # Holy Roman Empire
 		STATE_SLOVENIA
 		STATE_WEST_SLOVAKIA
 		STATE_LORRAINE
+		STATE_LOMBARDY
+		STATE_VENETIA
+		STATE_PIEDMONT
+		STATE_WEST_SWITZERLAND
+		STATE_EAST_SWITZERLAND
+		STATE_TYROL
+		STATE_STYRIA
+		STATE_SLOVENIA
+		STATE_ISTRIA
+		STATE_DALMATIA
+		STATE_ROMAGNA
+		STATE_EMILIA
+		STATE_TUSCANY
+		STATE_LAZIO
 	}
 
 	required_states_fraction = 1
@@ -62,14 +76,9 @@ HRE = { # Holy Roman Empire
 	ai_will_do = { always = yes }
 
 	possible = {
-		trigger_if = {
-			limit = {
-				exists = c:SAX
-				c:SAX = ROOT
-			}
-			c:SAX = { has_modifier = hre_emperor }
-			is_subject = no
-		}
+		NOT = { has_game_rule = plausible_formable_nations }
+		has_modifier = hre_emperor
+		is_subject = no
 	}
 }
 

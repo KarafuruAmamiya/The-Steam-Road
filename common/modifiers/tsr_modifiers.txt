@@ -121,8 +121,8 @@ akkovin_army_reform = {
 
 akkovin_urbanization = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_urban_center_throughput_mult = 0.33
-	building_construction_sector_throughput_mult = 0.25
+	building_urban_center_throughput_add = 0.33
+	building_construction_sector_throughput_add = 0.25
 }
 
 akkovin_education = {
@@ -257,8 +257,8 @@ tribes_cooperation = {
 
 bedouin_raid = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	building_livestock_ranch_throughput_mult = -0.1
-	building_wheat_farm_throughput_mult = -0.1
+	building_livestock_ranch_throughput_add = -0.1
+	building_wheat_farm_throughput_add = -0.1
 	state_mortality_mult = 0.1
 	state_migration_pull_mult = -0.1
 }
@@ -328,13 +328,13 @@ national_museum_modifier = {
 
 curbed_opium_trade = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-	building_opium_plantation_throughput_mult = -0.5
+	building_opium_plantation_throughput_add = -0.5
 	state_building_opium_plantation_max_level_add = -5
 }
 
 curbed_opium_trade_max = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-	building_opium_plantation_throughput_mult = -0.75
+	building_opium_plantation_throughput_add = -0.75
 	state_building_opium_plantation_max_level_add = -10
 }
 
@@ -350,7 +350,7 @@ opium_wars_addiction_modifier = {
 	state_mortality_mult = 0.025
 	unit_offense_mult = -0.15
 	unit_defense_mult = -0.15
-	country_army_power_projection_mult = -0.15
+	country_prestige_from_army_power_projection_mult = -0.15
 }
 
 opium_wars_modifier = {
@@ -438,8 +438,8 @@ modifier_conversion_of_persia = {
 
 modifier_second_jihad = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	building_barracks_throughput_mult = 0.15
-	building_arms_industry_throughput_mult = 0.15
+	building_barracks_throughput_add = 0.15
+	building_arms_industry_throughput_add = 0.15
 	state_assimilation_mult = 0.10
 }
 

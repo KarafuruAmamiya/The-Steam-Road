@@ -23,15 +23,53 @@
 
 	on_enable = {
 		ig:ig_armed_forces = {
-			set_ig_trait = ig_trait:ig_trait_materiel_waste
-			set_ig_trait = ig_trait:ig_trait_veteran_consultation
-			set_ig_trait = ig_trait:ig_trait_patriotic_fervor
+			if = {
+				limit = {
+					owner = {
+						c:CHI ?= this
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_newly_created_army
+				set_ig_trait = ig_trait:ig_trait_self_strengthening
+				set_ig_trait = ig_trait:ig_trait_parochial_leadership
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							c:FRA ?= this
+							country_has_primary_culture = cu:french
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_materiel_waste
+				set_ig_trait = ig_trait:ig_trait_veteran_consultation
+				set_ig_trait = ig_trait:ig_trait_elan_vital
+			}
+			else_if = {
+				limit = {
+					owner = {
+						any_primary_culture = {
+							has_discrimination_trait = hispanophone
+							has_discrimination_trait = south_european_heritage
+							NOT = { has_discrimination_trait = iberian_culture_group }
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_materiel_waste
+				set_ig_trait = ig_trait:ig_trait_veteran_consultation
+				set_ig_trait = ig_trait:ig_trait_el_buen_jefe
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_materiel_waste
+				set_ig_trait = ig_trait:ig_trait_veteran_consultation
+				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
+			}
 		}
 		# Samurai
 		if = {
 			limit = {
 				country_has_primary_culture = cu:japanese
-				NOT = { has_global_variable = fall_of_the_samurai_global_var }
 			}
 			ig:ig_armed_forces = {
 				add_ideology = ideology_bakufu
@@ -61,6 +99,29 @@
 					pop_is_discriminated = no
 				}
 				value = 25
+				if = { # Militarisation of colonial settlers
+					limit = {
+						owner = {
+							has_law = law_type:law_colonial_resettlement
+						}
+						state = {
+							is_incorporated = no
+						}
+					}
+					add = 50
+				}
+				if = { # Separation of the military and people
+					limit = {
+						NOR = {
+							is_pop_type = soldiers
+							is_pop_type = officers
+						}
+						owner = {
+							has_law = law_type:law_professional_army
+						}
+					}
+					divide = 2
+				}
 			}
 		}
 
@@ -71,6 +132,54 @@
 					is_pop_type = soldiers
 				}
 				value = 100
+				if = { # Institutional loyalty
+					limit = {
+						owner = {
+							has_law = law_type:law_professional_army
+						}
+					}
+					add = 50
+				}
+				if = { # Pay makes soldiers more inclined to be loyal to Armed Forces
+					limit = {
+						owner = {
+							military_wage_level = very_low
+						}
+					}
+					multiply = 0.75
+				}
+				if = {
+					limit = {
+						owner = {
+							military_wage_level = low
+						}
+					}
+					multiply = 0.85
+				}
+				if = {
+					limit = {
+						owner = {
+							military_wage_level = medium
+						}
+					}
+					multiply = 1
+				}
+				if = {
+					limit = {
+						owner = {
+							military_wage_level = high
+						}
+					}
+					multiply = 1.15
+				}
+				if = {
+					limit = {
+						owner = {
+							military_wage_level = very_high
+						}
+					}
+					multiply = 1.25
+				}
 			}
 		}
 
@@ -81,6 +190,14 @@
 					is_pop_type = aristocrats
 				}
 				value = 50
+				if = {
+					limit = {
+						owner = {
+							has_law = law_type:law_peasant_levies
+						}
+					}
+					add = 50
+				}
 			}
 		}
 
@@ -90,7 +207,7 @@
 				limit = {
 					is_pop_type = officers
 				}
-				value = 200
+				value = 250
 			}
 		}
 
@@ -117,6 +234,32 @@
 				value = 1
 				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
 				min = 0
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
 			}
 		}
 	}

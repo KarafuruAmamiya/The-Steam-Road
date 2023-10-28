@@ -709,20 +709,43 @@ widget = {
 
 	clickable_version_number = {
 		
-		parentanchor = bottom|right
-		position = { -15 -25 }
-
+		parentanchor = right|bottom
+		position = { -15 -15 }
 		using = tooltip_se
 
-		blockoverride "background"
-		{
-			
-		}
+		blockoverride "background" {}
 	}
-	text_single = {
-		parentanchor = bottom|right
-		position = { -15 -8 }
-		text = "VFM_VERSION"
+
+	flowcontainer = {
+		direction = vertical
+		scale = "[ScaleToFitElementInside('(int32)1920', '(int32)1080')]"
+		margin = { 20 20 }
+		parentanchor = right|vcenter
+		position = { -400 0 }
+
+		background = {
+			using = entry_bg_simple_solid
+		}
+
+		textbox = {
+			autoresize = yes
+			multiline = yes
+			align = nobaseline
+			max_width = 600
+			text = "MAIN_MENU_DISCLAIMER"
+		}
+
+		button_text = {
+			size = { 300 24 }
+			alpha = 1
+			tooltip = "DISCORD_URL"
+			using = tooltip_below
+			onclick = "[OpenDiscordUrl]"
+
+			blockoverride "text" {
+				text = "MAIN_MENU_DISCLAIMER_DISCORD_LINK"
+			}
+		}
 	}
 
 	widget = {

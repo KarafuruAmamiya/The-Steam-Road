@@ -97,6 +97,10 @@ je_take_subject = {
 			or = {
 				has_diplomatic_pact = {
 					who = root
+					type = dependency
+				}
+				has_diplomatic_pact = {
+					who = root
 					type = puppet
 				}
 				has_diplomatic_pact = {
@@ -110,6 +114,14 @@ je_take_subject = {
 				has_diplomatic_pact = {
 					who = root
 					type = personal_union
+				}
+				has_diplomatic_pact = {
+					who = root
+					type = vassal
+				}
+				has_diplomatic_pact = {
+					who = root
+					type = tributary
 				}
 			}
 			count >= 5

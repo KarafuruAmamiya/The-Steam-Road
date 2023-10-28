@@ -110,10 +110,7 @@ raj.1 = {
 			every_subject_or_below = {
 				if = {
 					limit = { 
-						OR = {
-							is_subject_type = subject_type_puppet
-							is_subject_type = subject_type_dominion
-						}
+						is_subject_type = subject_type_puppet
 						country_is_in_india = yes
 					}
 					make_independent = yes
@@ -122,6 +119,20 @@ raj.1 = {
 						create_diplomatic_pact = {
 							country = scope:new_raj_puppet
 							type = puppet
+						}
+					}
+				}
+				else_if = {
+					limit = { 
+						is_subject_type = subject_type_dominion
+						country_is_in_india = yes
+					}
+					make_independent = yes
+					save_scope_as = new_raj_dominion
+					c:RAJ = {
+						create_diplomatic_pact = {
+							country = scope:new_raj_dominion
+							type = dominion
 						}
 					}
 				}

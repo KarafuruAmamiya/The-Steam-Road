@@ -144,6 +144,7 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		if = {
 			limit = {
 				any_subject_or_below = {
+					NOT = { any_overlord_or_above = { NOT = { ROOT = this } } }
 					OR = {
 						country_is_in_europe = yes
 						country_is_in_middle_east = yes
@@ -152,6 +153,7 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 			}
 			every_subject_or_below = {
 				limit = {
+					NOT = { any_overlord_or_above = { NOT = { ROOT = this } } }
 					OR = {
 						country_is_in_europe = yes
 						country_is_in_middle_east = yes

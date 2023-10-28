@@ -67,6 +67,10 @@ law_state_religion = {
 			value = 0.25
 		}
 	}
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
 	
 	ai_will_do = {
 		exists = ruler
@@ -176,9 +180,13 @@ law_denominational_exclusion = {
 		}
 	}
 	
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	}
+	
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -272,6 +280,10 @@ law_freedom_of_conscience = {
 				}
 			}			
 		}
+	}
+	
+	can_impose = { 
+		is_subject_of = scope:initiator	
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -377,7 +389,7 @@ law_shared_roots = {
 					}
 					is_pop_type = academics
 				}
-				value = 0.25		
+				value = 0.25
 			}
 		}
 		add = {
@@ -388,20 +400,24 @@ law_shared_roots = {
 					owner = { NOT = { has_law = law_type:law_total_separation } }
 				}
 				add = 0.5
-
+				
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
 					add = 0.5
 				}
-			}			
+			}		
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -474,30 +490,34 @@ law_total_separation = {
 				limit = {
 					is_pop_type = academics
 				}
-				value = 0.25	
+				value = 0.25
 			}
 		}
 		add = {
-			desc = "POP_DISCRIMINATED"		
+			desc = "POP_DISCRIMINATED"
 			if = {
 				limit = { 
-					is_pop_type = academics
+					religion_accepted = no
 				}
-				add = 0.5		
+				add = 0.5
 
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
 					add = 0.5
-				}				
+				}
 			}			
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -601,10 +621,14 @@ law_state_atheism = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition

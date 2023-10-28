@@ -184,6 +184,8 @@ al_afghani_events.1 = {
 	flavor = al_afghani_events.1.f
 
 	cooldown = { months = short_modifier_time }
+	
+	dlc = dlc004
 
 	duration = 3
 
@@ -201,12 +203,7 @@ al_afghani_events.1 = {
 		}
 		OR = { # Either al-Afghani is "dead" or he is an exile
 			NOT = {
-				any_character_in_exile_pool = {
-					has_variable = al_afghani_var
-				}
-				any_character = {
-					has_variable = al_afghani_var
-				}
+				has_global_variable = al_afghani_is_alive_global_var
 			}
 			any_character_in_exile_pool = {
 				has_variable = al_afghani_var
@@ -401,6 +398,8 @@ al_afghani_events.2 = {
 	flavor = al_afghani_events.2.f
 
 	cooldown = { months = short_modifier_time }
+	
+	dlc = dlc004
 
 	duration = 3
 
@@ -480,6 +479,8 @@ al_afghani_events.3 = {
 	flavor = al_afghani_events.3.f
 
 	cooldown = { months = normal_modifier_time }
+	
+	dlc = dlc004
 
 	duration = 3
 

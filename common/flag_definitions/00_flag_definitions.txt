@@ -1459,37 +1459,6 @@ DAI = { # Dai Nam
 	}	
 }
 
-DEI = { # Dutch East India Company
-	flag_definition = {
-		coa = DEI
-		priority = 10
-	}
-	flag_definition = {
-		coa = DEI_subject
-		priority = 20
-		trigger = {
-			coa_def_colonial_ensign_trigger = yes
-		}
-	}
-#	flag_definition = { # this is the company flag
-#		coa = DEI_voc
-#		coa_with_overlord_canton = DEI_voc
-#		priority = 100
-#		trigger = {
-#			coa_def_republic_flag_trigger = yes
-#			AND = {
-#				exists = c:NET
-#				c:NET = {
-#					has_diplomatic_pact = {
-#						who = c:DEI
-#						type = dominion
-#						is_initiator = yes
-#				}
-#			}
-#		}
-#	}
-}
-
 DEN = { # Denmark
 	flag_definition = {
 		coa = DEN
@@ -4645,6 +4614,14 @@ PUE = { # Pueblo
 	}	
 }
 
+RHE = { # Rhineland
+	flag_definition = {
+		coa = RHE
+		subject_canton = RHE
+		priority = 1
+	}
+}
+
 ROM = { # Romania
 	flag_definition = {
 		coa = ROM
@@ -4708,6 +4685,16 @@ RUS = { # Russia
 		}
 	}
 	flag_definition = {
+		coa = RUS_soviet_technocracy
+		priority = 1750 # need to override the DEFAULT
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+			scope:actor = {
+				has_law = law_type:law_technocracy
+			}
+		}
+	}
+	flag_definition = {
 		coa = RUS_fascist
 		subject_canton = RUS_fascist
 		priority = 1500
@@ -4723,6 +4710,13 @@ RUS = { # Russia
 			coa_def_theocracy_flag_trigger = yes
 		}
 	}	
+	flag_definition = {
+		coa = RUS_nihilist
+		priority = 1500 # need to override the DEFAULT
+		trigger = { 
+			coa_def_nihilist_flag_trigger = yes
+		}
+	}
 }	
 
 SAK = { # Siak
@@ -4776,6 +4770,15 @@ SAS = { # South Australia
 		allow_overlord_canton = yes
 	}
 }
+
+SAV = { # Savoy
+	flag_definition = {
+		coa = SAV		
+		subject_canton = SAV
+		priority = 1
+	}
+}
+
 
 SAX = { # Saxony
 	flag_definition = {
@@ -5439,6 +5442,14 @@ TUN = { # Tunis
 	}
 }
 
+TUG = { # Touggourt
+	flag_definition = {
+		coa = TUG
+		subject_canton = TUG
+		priority = 1
+	}
+}
+
 TUR = { # Turkey
 	flag_definition = {
 		coa = TUR
@@ -5718,6 +5729,15 @@ WAL = { # Wallachia
 		trigger = { 
 			coa_def_turkish_ensign_trigger = yes		
 		}
+	}
+	flag_definition = {
+		coa = ROM_united_principalities
+		priority = 100
+		trigger = { 
+			scope:actor = {
+				has_variable = ROM_united_principality
+			}
+		}
 	}	
 }	
 
@@ -5963,5 +5983,155 @@ ZIM = { # Zimbabwe
 		coa = ZIM	
 		subject_canton = ZIM
 		priority = 1
+	}
+}
+
+YUZ = { # Yuanzhumin
+	flag_definition = {
+		coa = YUZ	
+		subject_canton = YUZ
+		priority = 1
+	}
+}
+
+PNS = { # Polynesia
+	flag_definition = {
+		coa = PNS
+		subject_canton = PNS
+		priority = 1
+	}
+	flag_definition = {
+		coa = PNS_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+PLY = { # Tahiti
+	flag_definition = {
+		coa = PLY	
+		subject_canton = PLY
+		priority = 1
+	}
+	flag_definition = {
+		coa = PLY_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+KAU = { # Kaurna
+	flag_definition = {
+		coa = KAU	
+		subject_canton = KAU
+		priority = 1
+	}
+}
+
+PRC = { # Paris Commune
+	flag_definition = {
+		coa = PRC
+		subject_canton = PRC
+		priority = 1
+	}
+
+	flag_definition = {
+		coa = PRS
+		subject_canton = PRS
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+HRE = {
+	flag_definition = {
+		coa = HRE	
+		subject_canton = HRE
+		priority = 1
+	}
+	flag_definition = {
+		coa = HRE_republic
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+			coa_def_communist_flag_trigger = no
+		}
+	}
+	flag_definition = {
+		coa = HRE_technate
+		priority = 15
+		trigger = { 
+			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
+				has_law = law_type:law_technocracy
+			}
+		}
+	}
+	flag_definition = {
+		coa = HRE_fascist
+		priority = 20
+		trigger = { 
+			coa_def_fascist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = HRE_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+UNL = {
+	flag_definition = {
+		coa = UNL	
+		subject_canton = UNL
+		priority = 1
+	}
+	flag_definition = {
+		coa = UNL_republic
+		priority = 5
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = UNL_burgundy
+		priority = 5
+		trigger = { 
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = UNL_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+RHN = {
+	flag_definition = {
+		coa = RHN	
+		subject_canton = RHN
+		priority = 1
+	}
+	flag_definition = {
+		coa = RHN_communist
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
 	}
 }

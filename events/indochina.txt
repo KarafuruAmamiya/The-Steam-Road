@@ -76,6 +76,7 @@ indochina.1 = {
 			}
 			save_scope_as = catholic_activity_in_state
 		}
+		save_scope_as = persecuting_indochinese_state
 	}
 
 	option = {
@@ -437,7 +438,11 @@ indochina.4 = {
 
 	option = {
 		name = indochina.4.a
-		default_option = yes
+		trigger = {
+			any_scope_state = {
+				region = sr:region_indochina
+			}
+		}
 
 		every_scope_state = {
 			limit = {
@@ -508,6 +513,7 @@ indochina.4 = {
 
 	option = {
 		name = indochina.4.dd
+		default_option = yes
 
 		add_modifier = {
 			name = indochinese_union_glory

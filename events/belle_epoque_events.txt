@@ -1942,9 +1942,9 @@ belle_epoque_events.20 = {
 		}
 		if = {
 			limit = {
-				exists = c:ASK
+				exists = c:BUK
 			}
-			c:ASK = {
+			c:BUK = {
 				save_scope_as = japan_scope
 			}
 		}
@@ -2080,16 +2080,16 @@ belle_epoque_events.20 = {
 	option = {
 		name = belle_epoque_events.20.j
 		trigger = {
-			exists = c:ASK
+			exists = c:BUK
 			NOT = {
-				this = c:ASK
+				this = c:BUK
 			}
-			c:ASK = {
+			c:BUK = {
 				relations:root >= 20
 			} 
 		}
 		change_relations = {
-			country = c:ASK
+			country = c:BUK
 			value = 10
 		}
 	}

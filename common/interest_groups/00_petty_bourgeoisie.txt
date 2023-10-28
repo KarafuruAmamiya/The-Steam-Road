@@ -23,20 +23,56 @@
 	
 	on_enable = {
 		ig:ig_petty_bourgeoisie = {
-			set_ig_trait = ig_trait:ig_trait_xenophobia
-			set_ig_trait = ig_trait:ig_trait_middle_managers
-			set_ig_trait = ig_trait:ig_trait_treasury_bonds
-		}
-		# Bazaari
-		if = {
-			limit = {
-				OR = {
-					country_has_primary_culture = cu:persian
-					country_has_primary_culture = cu:jonubi
+			if = {
+				limit = {
+					owner = { c:SCA ?= this}
 				}
+				set_ig_trait = ig_trait:ig_trait_xenophobia
+				set_ig_trait = ig_trait:ig_trait_bergsbrukens_valdistrikten
+				set_ig_trait = ig_trait:ig_trait_treasury_bonds
 			}
-			ig:ig_petty_bourgeoisie = {
-				set_interest_group_name = ig_bazaari
+			else_if = {
+				limit = {
+					owner = { c:TUR ?= this }
+				}
+						set_ig_trait = ig_trait:ig_trait_xenophobia
+						set_ig_trait = ig_trait:ig_trait_effendi
+						set_ig_trait = ig_trait:ig_trait_reorganization
+			}
+			else_if = {
+				limit = {
+					owner = { c:EGY ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_xenophobia
+				set_ig_trait = ig_trait:ig_trait_effendi
+				set_ig_trait = ig_trait:ig_trait_treasury_bonds
+			}
+			else_if = {
+				limit = {
+					has_dlc_feature = voice_of_the_people_content
+					owner = { c:FRA ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_xenophobia
+				set_ig_trait = ig_trait:ig_trait_haute_finance
+				set_ig_trait = ig_trait:ig_trait_master_of_the_house
+			}
+			else_if = {
+				limit = {
+					owner = { 
+						OR = {
+							c:ENG ?= this 
+							c:GBR ?= this 
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_bah_humbug
+				set_ig_trait = ig_trait:ig_trait_civil_service
+				set_ig_trait = ig_trait:ig_trait_old_lady_of_threadneedle_street
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_xenophobia
+				set_ig_trait = ig_trait:ig_trait_middle_managers
+				set_ig_trait = ig_trait:ig_trait_treasury_bonds
 			}
 		}
 	}
@@ -45,28 +81,38 @@
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		OR = {
-			pop_has_primary_culture = yes
-			AND = {
-				culture = {
-					shares_heritage_trait_with_any_primary_culture = root
-					shares_non_heritage_trait_with_any_primary_culture = root
-				}
-				owner = { 
-					NOT = { has_law = law_type:law_ethnostate } 
-				}
-			}
-			is_pop_type = shopkeepers
-			is_pop_type = capitalists
-		}
+		pop_has_primary_culture = yes
 		NOR = {
 			is_pop_type = aristocrats
-			is_pop_type = peasants
+			is_pop_type = capitalists
+		}
+		OR = {
+			pop_employment_building_group = bg_manufacturing
+			pop_employment_building_group = bg_service
+			pop_employment_building_group = bg_urban_facilities
+			pop_employment_building_group = bg_government
+			AND = {
+				custom_tooltip = {
+					text = owner_has_homesteading_tt
+					owner = {
+						OR = {
+							has_law = law_type:law_homesteading
+							has_law = law_type:law_commercialized_agriculture
+						}
+					}
+				}
+				OR = {
+					pop_employment_building_group = bg_agriculture
+					pop_employment_building_group = bg_ranching
+					pop_employment_building_group = bg_plantations
+				}
+				strata = middle
+			}
 		}
 	}
 
 	pop_weight = {
-		value = 0
+		value = 50
 
 		add = {
 			desc = "POP_SHOPKEEPERS"
@@ -74,7 +120,7 @@
 				limit = {
 					is_pop_type = shopkeepers
 				}
-				value = 200
+				value = 250
 			}
 		}
 
@@ -84,111 +130,70 @@
 				limit = {
 					is_pop_type = clerks
 				}
-				value = 50
+				value = 100
 			}
 		}
-		
+
 		add = {
-			desc = "POP_CAPITALISTS"
+			desc = "POP_ENGINEERS"
 			if = {
 				limit = {
-					is_pop_type = capitalists
-				}
-				value = 10
-			}
-		}
-		
-		add = {
-			desc = "POP_URBAN"
-			if = {
-				limit = {
-					OR = {
-						pop_employment_building_group = bg_manufacturing
-						pop_employment_building_group = bg_service
-						pop_employment_building_group = bg_urban_facilities
-						pop_employment_building_group = bg_government
-					}
+					is_pop_type = engineers
 				}
 				value = 50
 			}
 		}
-		
-		add = {
-			desc = "WEALTH_10_20"
 
-			if = {
-				limit = {
-					wealth >= 10
-					wealth < 20
-					strata >= middle
-					owner = {
-						NOT = { has_law = law_type:law_council_republic }
-					}
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_elected_bureaucrats
 				}
-				add = 5
+			}
+			add = {
+				desc = "POP_BUREAUCRATS_ELECTED"
+				if = {
+					limit = {
+						is_pop_type = bureaucrats
+					}
+					value = 50
+				}
 			}
 		}
 
 		add = {
-			desc = "WEALTH_20_30"
-
+			desc = "HOMESTEADING_LAW"
 			if = {
 				limit = {
-					wealth >= 20
-					wealth < 30
-					strata >= middle
+					is_pop_type = farmers
 					owner = {
-						NOT = { has_law = law_type:law_council_republic }
+						has_law = law_type:law_homesteading
 					}
 				}
-				add = 7
+				value = 25
+
+				if = {
+					limit = {
+						state = {
+							is_slave_state = yes
+						}
+					}
+					subtract = 25
+				}
 			}
 		}
 
 		add = {
-			desc = "WEALTH_30_40"
-
+			desc = "URBAN_POP"
 			if = {
 				limit = {
-					wealth >= 30
-					wealth < 40
-					strata >= middle
-					owner = {
-						NOT = { has_law = law_type:law_council_republic }
+					NOR = {
+						pop_employment_building_group = bg_agriculture
+						pop_employment_building_group = bg_ranching
+						pop_employment_building_group = bg_plantations
 					}
 				}
-				add = 10
-			}
-		}
-
-		add = {
-			desc = "WEALTH_40_50"
-
-			if = {
-				limit = {
-					wealth >= 40
-					wealth < 50
-					strata >= middle
-					owner = {
-						NOT = { has_law = law_type:law_council_republic }
-					}
-				}
-				add = 12
-			}
-		}
-
-		add = {
-			desc = "WEALTH_50"
-
-			if = {
-				limit = {
-					wealth >= 50
-					strata >= middle
-					owner = {
-						NOT = { has_law = law_type:law_council_republic }
-					}
-				}
-				add = 15
+				value = 25
 			}
 		}
 
@@ -229,6 +234,33 @@
 				value = 1
 				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
 				min = 0
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
 			}
 		}
 	}

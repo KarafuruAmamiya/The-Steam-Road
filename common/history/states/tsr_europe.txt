@@ -728,7 +728,7 @@
 	}
 	s:STATE_ELSASS = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x6E4891 xCC3250 }
 		}
 		create_state = {
@@ -737,6 +737,7 @@
 		}
 		
 		add_homeland = south_german
+		add_homeland = alemannic
 	}
 	s:STATE_LORRAINE = {
 		create_state = {
@@ -776,7 +777,7 @@
 	}
 	s:STATE_WURTTEMBERG = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x100060 xC541D2 x318061 }
 		}
 		create_state = {
@@ -792,7 +793,7 @@
 	}
 	s:STATE_BADEN = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { "xB00160" "xB08061" }
 		}
 		create_state = {
@@ -804,7 +805,7 @@
 	}
 	s:STATE_BAVARIA = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x68CE1C xE76994 x18A2E1 x565185 x704A5F xC347B1 }
 		}
 		create_state = {
@@ -820,7 +821,7 @@
 	}
 	s:STATE_OBERPFALZ = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x3101A0 x82F4B9 xA7094D x010AD7 x318021 xFE59E7 }
 		}
 		
@@ -828,7 +829,7 @@
 	}
 	s:STATE_FRANCONIA = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x9040A0 x51C0A0 xA55FB1 }
 		}
 		create_state = {
@@ -844,7 +845,7 @@
 			owned_provinces = { "x29CCD6" "xC1B963" "xD080A0" }
 		}
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x5D7A68 x904020 x8983EF }
 		}
 		
@@ -852,7 +853,7 @@
 	}
 	s:STATE_PFALZ = {
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x11C021 x707505 xE0A2B9 }
 		}
 		
@@ -948,7 +949,7 @@
 			owned_provinces = { x8B7C67 x963794 x3E794B x2248E2 xC08020 xFF1DBB x7F2222 "x564289" }
 		}
 		create_state = {
-			country = c:PLT
+			country = c:PFA
 			owned_provinces = { x1141A0 x90C020 }
 		}
 		add_homeland = north_german
@@ -988,7 +989,7 @@
 		
 		add_homeland = french
 	}
-	s:STATE_CALAIS = {
+	s:STATE_FRENCH_LOW_COUNTRIES = {
 		create_state = {
 			country = c:FRA
 			owned_provinces = { "x106000" "x70C020" "xA0A080" "xD0854D" "xE0A0C0" }
@@ -1218,6 +1219,7 @@
 		}
 		
 		add_homeland = south_italian
+		add_claim = c:ITA
 	}
 	s:STATE_CAMPANIA = {
 		create_state = {
@@ -1226,6 +1228,7 @@
 		}
 		
 		add_homeland = south_italian
+		add_claim = c:ITA
 	}
 	s:STATE_ABRUZZO = {
 		create_state = {
@@ -1242,6 +1245,7 @@
 		}
 		
 		add_homeland = south_italian
+		add_claim = c:ITA
 	}	
 	s:STATE_APULIA = {
 		create_state = {
@@ -1250,6 +1254,7 @@
 		}
 		
 		add_homeland = south_italian
+		add_claim = c:ITA
 	}
 	s:STATE_SICILY = {
 		create_state = {
@@ -1258,6 +1263,7 @@
 		}
 		
 		add_homeland = south_italian
+		add_claim = c:ITA
 	}
 	s:STATE_MALTA = {
 		create_state = {
@@ -1267,6 +1273,7 @@
 		}
 		
 		add_homeland = maltese
+		add_claim = c:ITA
 	}
 	s:STATE_CORSICA = {
 		create_state = {
@@ -1477,7 +1484,9 @@
 			owned_provinces = { x10E0C0 xABE0B3 }
 		}
 		
-		add_homeland = spanish
+		add_claim = c:ARN
+		add_devastation = 50
+		add_homeland = catalan
 		add_homeland = basque
 	}
 	s:STATE_CATALONIA = {
@@ -1628,6 +1637,7 @@
 		}
 		
 		add_homeland = north_german
+		add_claim = c:SAX
 	}
 	s:STATE_ELBE = {
 		create_state = {
@@ -1640,6 +1650,7 @@
 		}
 		
 		add_homeland = north_german
+		add_claim = c:SAX
 	}
 	
 	# Ukraine and Belarus
@@ -1938,6 +1949,7 @@
 		}
 		add_homeland = kalmyk
 		add_homeland = russian
+		add_homeland = tatar
 	}
 	
 	#Ottoman Empire

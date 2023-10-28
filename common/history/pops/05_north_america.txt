@@ -1,28 +1,6 @@
 ﻿POPS = {
 
 	# USC
-
-	s:STATE_DISTRICT_OF_COLUMBIA = {
-		# total population of DC in 1830 was 30261, and 33745 in 1840. 32003 serves as a workable average.
-		# + Fairfax County, VA. Total pop in 1830 was 9204, 5203 free/4001 slaves
-		# + Montgomery Co, Prince George's Co, Charles co, St. Mary's Co and Calvert Co in MD- 80418 total, 42176 free/38242 slaves
-		# Number of actual pops adjusted from historical research to better fit the buildings
-		region_state:USC = { 
-			create_pop = {
-				culture = yankee
-				size = 27544
-			}		
-			create_pop = {
-				culture = dixie
-				size = 86263
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = afro_american
-				size = 7818
-			}
-		}
-	}
 	s:STATE_NEW_YORK = {
 		region_state:USC = {
 			create_pop = {
@@ -95,89 +73,49 @@
 		region_state:USC = {
 			create_pop = {
 				culture = dixie
-				size = 303597
+				size = 464513
 			}
 			create_pop = {
 				culture = dixie
 				religion = catholic
-				size = 48000
-			}
-			create_pop = {
-				culture = afro_american
-				size = 18120
-			}
-			create_pop = {
-				pop_type = slaves
-				culture = afro_american
-				size = 102079
-			}
-		}
-	}
-
-	s:STATE_WEST_VIRGINIA = {
-		region_state:USC = {
-			create_pop = {
-				culture = dixie
-				size = 160916
+				size = 76000
 			}
 			create_pop = {
 				culture = cherokee
 				size = 8990
 			}
 			create_pop = {
-				pop_type = slaves
 				culture = afro_american
-				size = 18081 # 17673 slaves in WV's counties in 1830, 18488 slaves in 1840
-			}
-			create_pop = {
-				culture = afro_american
-				size = 1808 # don't have easy numbers for WV's free non-white population, but ~10% of the enslaved population seems to roughly track
-			}
-			create_pop = {
-				culture = dixie
-				religion = catholic
-				size = 28000
-			}
-		}
-	}
-	s:STATE_MARYLAND = { # Actually Maryland + Delaware
-		region_state:USC = {
-			create_pop = {
-				culture = dixie
-				size = 151997
-			}
-			create_pop = {
-				culture = afro_american
-				size = 17641
+				size = 19928
 			}
 			create_pop = {
 				pop_type = slaves
 				culture = afro_american
-				size = 19467
+				size = 120160
 			}
 		}
 	}
-
-	s:STATE_DELAWARE = {
+	s:STATE_MARYLAND = {
 		region_state:USC = {
 			create_pop = {
+				culture = yankee
+				size = 27544
+			}	
+			create_pop = {
 				culture = dixie
-				size = 77000
+				size = 315260
 			}
-	
 			create_pop = {
-					culture = afro_american
-					size = 16919
+				culture = afro_american
+				size = 34560
 			}
-	
 			create_pop = {
-					pop_type = slaves
-					culture = afro_american
-					size = 2605
+				pop_type = slaves
+				culture = afro_american
+				size = 29890
 			}
 		}
 	}
-
 	s:STATE_PENNSYLVANIA = {
 		region_state:USC = {
 			create_pop = {
@@ -229,27 +167,11 @@
 			}
 		}
 	}
-	s:STATE_RHODE_ISLAND = {
-		region_state:USC = {
-			create_pop = {
-				culture = yankee
-				size = 104820
-			}
-		}
-	}
-	s:STATE_CONNECTICUT = {
-		region_state:USC = {
-			create_pop = {
-				culture = yankee
-				size = 109228
-			}
-		}
-	}
 	s:STATE_MASSACHUSETTS = {
 		region_state:USC = {
 			create_pop = {
 				culture = yankee
-				size = 263704
+				size = 477752
 			}
 			create_pop = {
 				culture = yankee

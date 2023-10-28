@@ -12,14 +12,32 @@ on_monthly_pulse_country = {
 		dei_breakup.1
 		unable_to_enact.1
 		italy_flavor.1
+		poland_events.3 # Polish Unification
+		colonial_administration_events.2 # African Colony Radicals
 		# Exile Agitators Events
 		yeet_agitator_events.1
 		yeet_agitator_events.2
 		yeet_agitator_events.3
 	}
+	effect = {
+		every_character_in_exile_pool = {
+			limit = {
+				popularity <= 15
+			}
+			kill_character = yes
+		}
+		if = {
+			limit = {
+				year < 1930
+				NOT = { has_global_variable = germany_formed }
+				c:GER ?= { is_country_alive = yes }
+			}
+			set_global_variable = germany_formed
+		}
+	}
 	# Election Events
 	random_events = {
-		50 = 0
+		20 = 0
 		1 = election_liberal_events.1
 		1 = election_liberal_events.2
 		1 = election_liberal_events.3
@@ -112,22 +130,6 @@ on_monthly_pulse_country = {
 		5 = 0
 		1 = coup.1
 	}
-	effect = {
-		every_character_in_exile_pool = {
-			limit = {
-				popularity <= 15
-			}
-			kill_character = yes
-		}
-		if = {
-			limit = {
-				year < 1930
-				NOT = { has_global_variable = germany_formed }
-				c:GER ?= { is_country_alive = yes }
-			}
-			set_global_variable = germany_formed
-		}
-	}
 }
 
 on_weekly_pulse = {
@@ -164,7 +166,7 @@ on_native_uprising = {
 		every_country = {
 			limit = {
 				is_country_type = decentralized
-				is_diplomatic_play_enemy_of = root
+				is_diplomatic_play_involved_with = root
 				NOT = { has_war_with = root }
 			}
 			save_scope_as = native_nation
@@ -198,7 +200,7 @@ on_capitulation = {
             name = recently_lost_war
             days = 1825
             value = yes
-        }
+        } 
 		if = {
 			limit = {
 				is_country_type = decentralized
@@ -251,6 +253,23 @@ on_character_death = {
 			owner = {
 				trigger_event = character_deaths.1
 			}
+		}
+		
+		if = {
+			limit = {
+				has_variable = expedition_leader_var
+			}
+			owner = {
+				trigger_event = expedition_events.110
+			}
+		}
+		
+		# Al-Afghani exist check
+		if = {
+			limit = {
+				has_template = al_afghani_character_template
+			}
+			remove_global_variable = al_afghani_is_alive_global_var
 		}
 	}
 }
@@ -311,13 +330,7 @@ on_law_enactment_started = {
 }
 
 # Root = owner Country of the Law
-# executed when the end of a checkpoint is reached and the result is success
-# (currently, this means the law will get enacted so it will be followed by
-# on_law_enactment_ended and on_law_enacted).
-#
-# NOTE: at the point in time when this on-action is triggered, the law
-# is still considered being enacted, therefore the `currently_enacting_law` link
-# will work as expected, even though the enactment is about to end
+# Executed when the end of a checkpoint is reached and the result is success
 on_law_checkpoint_success = {
 	effect = {
 		add_enactment_phase = 1
@@ -331,7 +344,7 @@ on_law_checkpoint_success = {
 }
 
 # Root = owner Country of the Law
-# executed when the end of a checkpoint is reached and the result is advance
+# Executed when the end of a checkpoint is reached and the result is advance
 on_law_checkpoint_advance = {
 	random_events = {
 		10 = laws.1
@@ -434,7 +447,7 @@ on_law_checkpoint_advance = {
 }
 
 # Root = owner Country of the Law
-# executed when the end of a checkpoint is reached and the result is debate
+# Executed when the end of a checkpoint is reached and the result is debate
 on_law_checkpoint_debate = {
 	random_events = {
 		10 = children_rights_events.2
@@ -542,12 +555,7 @@ on_law_checkpoint_debate = {
 }
 
 # Root = owner Country of the Law
-# executed when the end of a checkpoint is reached and the result is stall
-#
-# NOTE: at the point in time when this on-action is triggered, the law
-# is still considered being enacted, therefore the `currently_enacting_law` link
-# will work as expected, even if the resulting event is particularly bad and
-# will proceed to stop the enactment
+# Executed when the end of a checkpoint is reached and the result is stall
 on_law_checkpoint_stall = {
 	random_events = {
 		10 = children_rights_events.3
@@ -643,8 +651,6 @@ on_law_checkpoint_stall = {
 		10 = agitator_legal_events.10
 		10 = technocracy.1
 	}
-	effect = {
-	}
 }
 
 # Root = owner Country of the Law
@@ -655,6 +661,19 @@ on_law_checkpoint_stall = {
 # will work as expected, even though the enactment is _just_ about to end
 on_law_enactment_pass = {
 	effect = {
+		if = {
+			limit = {
+				is_player = yes
+				NOT = { has_variable = achievement_vox_populi_var }
+				any_political_movement = {
+					desired_law = ROOT.currently_enacting_law.type
+					any_supporting_character = {
+						has_role = agitator
+					}
+				}
+			}
+			set_variable = achievement_vox_populi_var
+		}
 		if = {
 			limit = {
 				c:PER ?= this
@@ -695,8 +714,6 @@ on_law_enactment_fail = {
 # is still considered being enacted, therefore the `currently_enacting_law` link
 # will work as expected, even though the enactment is _just_ about to end
 on_law_enactment_ended = {
-	effect = {
-	}
 }
 
 # Root owner Country of the Law

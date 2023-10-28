@@ -320,7 +320,10 @@ expedition_events.612 = { #Failed expedition
 		name = expedition_events.612.a
 		default_option = yes
 		trigger = {
-			var:expedition_progress < 6
+			OR = {
+				var:expedition_progress < 6
+				is_ai = yes
+			}
 		}
 		scope:expedition_leader = {
 			place_character_in_void = 24

@@ -1,0 +1,701 @@
+﻿je_the_paris_commune_france_button_a = {
+	name = "je_the_paris_commune_repress_communard_sympathizers"
+	desc = "je_the_paris_commune_repress_communard_sympathizers_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		scope:journal_entry = {
+				not = {
+				custom_tooltip = {
+					text = paris_commune_on_cooldown_tt
+					has_variable = je_the_paris_commune_decision_cooldown
+				}
+			}
+		}
+	}
+
+	effect = {
+        custom_tooltip = cooldown_three_months_tt
+		scope:journal_entry = {
+			set_variable = { name = je_the_paris_commune_decision_cooldown months = 3 }
+		}	
+        add_radicals = {
+            value = small_radicals
+            strata = poor
+        }
+        custom_tooltip = commune_progress_subtract_10
+        change_global_variable = {
+            name = paris_commune_progress_var
+            add = -10
+        }
+	}
+}
+
+je_the_paris_commune_france_button_b = {
+	name = "je_the_paris_commune_concessions_to_communards"
+	desc = "je_the_paris_commune_concessions_to_communards_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = paris_commune_on_cooldown_tt
+					has_variable = je_the_paris_commune_decision_cooldown
+				}
+			}
+		}	
+	}
+
+	effect = {
+		scope:journal_entry = {
+			custom_tooltip = cooldown_three_months_tt
+			set_variable = { name = je_the_paris_commune_decision_cooldown months = 3 }
+		}	
+		add_loyalists = {
+			value = small_radicals
+			strata = poor
+        }
+        custom_tooltip = commune_progress_add_10
+        change_global_variable = {
+            name = paris_commune_progress_var
+            add = 10
+        }
+	}
+}
+
+je_confederation_of_the_rhine_confederate_button = {
+	name = "je_confederation_of_the_rhine_confederate_button"
+	desc = "je_confederation_of_the_rhine_confederate_button_desc"
+
+	visible = { 
+		NOT = {
+			exists = c:RHN
+		}
+	}
+
+	possible = {
+		NOT = {
+			exists = c:RHN
+		}
+		any_country = {
+			is_subject_of = ROOT
+			capital = {
+				OR = {
+					region = sr:region_rhine
+					region = sr:region_low_countries
+					region = sr:region_north_germany
+					region = sr:region_south_germany
+				}
+			}
+			NOT = {
+				has_diplomatic_pact = {
+					who = ROOT
+					type = personal_union
+					is_initiator = no
+				}
+			}
+			count >= 2
+		}
+	}
+
+	ai_chance = {
+		base = 50
+	}
+
+	effect = {
+		trigger_event = { id = rhine_confederation.1 }
+	}
+}
+
+je_confederation_of_the_rhine_expand_button = {
+	name = "je_confederation_of_the_rhine_expand_button"
+	desc = "je_confederation_of_the_rhine_expand_button_desc"
+
+	visible = { 
+		exists = c:RHN
+	}
+
+	possible = {
+		c:RHN ?= {
+			is_subject_of = ROOT
+		}
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = rhine_expansion_cooldown_tt
+					has_variable = rhine_expansion_cooldown
+				}
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = root_has_german_subjects_tt
+				any_country = {
+					is_subject_of = ROOT
+					NOT = {
+						c:RHN ?= this
+					}
+					capital = {
+						OR = {
+							region = sr:region_rhine
+							region = sr:region_low_countries
+							region = sr:region_north_germany
+							region = sr:region_south_germany
+						}
+					}
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}
+				}
+			}
+			custom_tooltip = {
+				text = root_has_german_states_tt
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:south_german
+							is_homeland = cu:north_german
+						}
+					}
+					OR = {
+						region = sr:region_rhine
+						region = sr:region_low_countries
+						region = sr:region_north_germany
+						region = sr:region_south_germany
+					}
+					is_incorporated = no
+					trigger_if = {
+						limit = {
+							ROOT = {
+								country_has_primary_culture = cu:french
+							}
+						}
+						NOR = {
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_NORTH_RHINE
+							state_region = s:STATE_PFALZ
+							state_region = s:STATE_ELSASS
+							state_region = s:STATE_FLANDERS
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 50
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						c:RHN ?= this
+					}
+					is_subject_of = ROOT
+					capital = {
+						OR = {
+							region = sr:region_rhine
+							region = sr:region_low_countries
+							region = sr:region_north_germany
+							region = sr:region_south_germany
+						}
+					}
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}
+					is_player = no
+				}
+			}
+			custom_tooltip = {
+				text = rhine_annexes_subjects_tt
+				every_country = {
+					limit = {
+						NOT = {
+							c:RHN ?= this
+						}
+						is_subject_of = ROOT
+						capital = {
+							OR = {
+								region = sr:region_rhine
+								region = sr:region_low_countries
+								region = sr:region_north_germany
+								region = sr:region_south_germany
+							}
+						}
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+						}
+						is_player = no
+					}
+					c:RHN ?= {
+						annex = PREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:south_german
+							is_homeland = cu:north_german
+						}
+					}
+					OR = {
+						region = sr:region_rhine
+						region = sr:region_low_countries
+						region = sr:region_north_germany
+						region = sr:region_south_germany
+					}
+					is_incorporated = no
+					trigger_if = {
+						limit = {
+							ROOT = {
+								country_has_primary_culture = cu:french
+							}
+						}
+						NOR = {
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_NORTH_RHINE
+							state_region = s:STATE_PFALZ
+							state_region = s:STATE_ELSASS
+							state_region = s:STATE_FLANDERS
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = rhine_annexes_states_tt
+				every_scope_state = {
+					limit = {
+						state_region = {
+							OR = {
+								is_homeland = cu:south_german
+								is_homeland = cu:north_german
+							}
+						}
+						OR = {
+							region = sr:region_rhine
+							region = sr:region_low_countries
+							region = sr:region_north_germany
+							region = sr:region_south_germany
+						}
+						is_incorporated = no
+						trigger_if = {
+							limit = {
+								ROOT = {
+									country_has_primary_culture = cu:french
+								}
+							}
+							NOR = {
+								state_region = s:STATE_RHINELAND
+								state_region = s:STATE_NORTH_RHINE
+								state_region = s:STATE_PFALZ
+								state_region = s:STATE_ELSASS
+								state_region = s:STATE_FLANDERS
+							}
+						}
+					}
+					set_state_owner = c:RHN
+				}
+			}
+		}
+		scope:journal_entry = {
+			custom_tooltip = confederation_of_rhine_cooldown_year_tt
+			set_variable = { name = rhine_expansion_cooldown years = 3 }
+		}
+	}
+}
+
+je_unite_the_principalities_button = {
+	name = "je_unite_the_principalities_button"
+	desc = "je_unite_the_principalities_button_desc"
+
+	visible = { always = yes }
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+        custom_tooltip = {
+            text = je_unite_the_principalities_friend_with_all_great_powers_tt
+			NOT = {
+		        any_country = {
+		            country_rank >= rank_value:great_power
+		            NOT = { has_war_with = ROOT }
+		            has_interest_marker_in_region = ROOT.capital.region
+		            relations:root < 0
+		        }
+	        }
+        }
+        custom_tooltip = {
+            text = je_unite_the_principalities_amicable_or_better_relations_tt
+            NOT = { has_variable = romania_unification_in_motion }
+	        any_country = {
+	        	NOT = { this = ROOT }
+	        	country_has_primary_culture = cu:romanian
+	            relations:root >= 25
+	            OR = {
+	            	AND = {
+	            		exists = top_overlord
+						is_subject = yes
+						top_overlord = {
+							THIS = root.top_overlord
+						}
+					}
+					is_subject = no
+	            }
+	        }
+        }
+	}
+
+	effect = {
+		if = {
+			limit = {
+				is_subject = yes
+				exists = top_overlord
+			}
+			set_variable = romania_subject
+        	top_overlord = {
+        		trigger_event = { 
+	        		id = romania.1 
+	        	}
+	        }
+	    }
+	    trigger_event = { id = romania.2 }
+	}
+}
+
+je_marea_unire = {
+	name = "je_marea_unire_button"
+	desc = "je_marea_unire_button_desc"
+
+	visible = { 
+		exists = c:TRS
+		NOR = { 
+			c:TRS ?= ROOT 
+			c:TRS ?= {
+				is_subject_of = ROOT
+			}
+		}
+		c:TRS = {
+			is_player = no
+		}
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		is_at_war = no
+
+		exists = c:TRS
+        c:TRS = {
+        	is_subject = no
+            relations:root >= 25
+            is_at_war = no
+        }
+    }
+
+	effect = {
+		if = {
+			limit = {
+				has_law = law_type:law_monarchy
+				c:TRS ?= {
+					has_law = law_type:law_monarchy
+				}
+			}
+			create_diplomatic_pact = {
+				country = c:TRS
+				type = personal_union
+			}
+		}
+		else = {
+			create_diplomatic_pact = {
+				country = c:TRS
+				type = puppet
+			}
+		}
+	}
+}
+
+je_scramble_for_africa_colonial_land_swap = {
+	name = "je_scramble_for_africa_colonial_land_swap_button"
+	desc = "je_scramble_for_africa_colonial_land_swap_button_desc"
+
+	visible = {
+		capital = {
+			state_is_in_africa = no
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_ethiopia
+				region = sr:region_senegal
+				region = sr:region_niger
+				region = sr:region_congo
+				region = sr:region_southern_africa
+				region = sr:region_zanj		
+			}
+			state_region = {
+				any_scope_state = {
+					owner = {
+						NOT = { this = ROOT }
+						OR = {
+							country_is_in_africa = no
+							AND = {
+								is_subject = yes
+			            		exists = top_overlord
+								top_overlord = {
+									country_is_in_africa = no
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	possible = {
+		# My name is Mike, Designer of Designs;
+		# Look on my Script, ye Mighty, and despair!
+
+		custom_tooltip = {
+			text = colony_swap_cannot_already_be_in_negotiations
+
+			NOR = { 
+				has_variable = negotiating_colony_swap 
+				has_variable = je_scramble_for_africa_colony_swap_cooldown
+			}
+		}
+
+		custom_tooltip = {
+			text = colony_swap_conditions
+			any_scope_state = {
+				is_split_state = yes
+				OR = {
+					region = sr:region_ethiopia
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj		
+				}
+				save_temporary_scope_as = potential_swap_state
+
+				state_region = {
+					any_scope_state = {
+						owner = {
+							NOT = { ROOT = this }
+
+							OR = {
+								country_is_in_africa = no
+								AND = {
+									is_subject = yes
+				            		exists = top_overlord
+									top_overlord = {
+										country_is_in_africa = no
+									}
+								}
+							}
+							any_scope_state = {
+								state_region = {
+									any_scope_state = {
+										owner = ROOT
+										NOT = { scope:potential_swap_state = this }
+									}
+								}
+								OR = {
+									region = sr:region_ethiopia
+									region = sr:region_senegal
+									region = sr:region_niger
+									region = sr:region_congo
+									region = sr:region_southern_africa
+									region = sr:region_zanj		
+								}								
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = instigating_swap_partner
+
+		set_variable = negotiating_colony_swap
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			scope:journal_entry = {
+				set_variable = { name = je_scramble_for_africa_colony_swap_cooldown months = 6 }
+			}	
+		}
+
+		random_scope_state = {
+			limit = {
+				is_split_state = yes
+				OR = {
+					region = sr:region_ethiopia
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj		
+				}
+				state_region = {
+					any_scope_state = {
+						owner = {
+							NOT = { ROOT = this }
+							OR = {
+								country_is_in_africa = no
+								AND = {
+									is_subject = yes
+				            		exists = top_overlord
+									top_overlord = {
+										country_is_in_africa = no
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			save_scope_as = swappable_state_1
+
+			state_region = {
+				save_scope_as = state_1_region
+
+				random_scope_state = {
+					limit = {
+						owner = {
+							NOT = { ROOT = this }
+							OR = {
+								country_is_in_africa = no
+								AND = {
+									is_subject = yes
+				            		exists = top_overlord
+									top_overlord = {
+										country_is_in_africa = no
+									}
+								}
+							}
+						}
+					}
+					save_scope_as = other_swappable_state_1
+					if = {
+						limit = {
+							owner = {
+								is_subject = no
+								country_is_in_africa = no
+							}
+						}
+						owner = {
+							save_scope_as = other_swap_partner
+						}
+					}
+					else_if = {
+						limit = {
+							owner = {
+								is_subject = yes
+								exists = top_overlord
+								top_overlord = {
+									country_is_in_africa = no
+								}
+							}
+						}
+						owner = {
+							top_overlord = {
+								save_scope_as = other_swap_partner
+							}
+						}
+					}
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				is_split_state = yes
+				NOT = { scope:swappable_state_1 ?= this }
+				OR = {
+					region = sr:region_ethiopia
+					region = sr:region_senegal
+					region = sr:region_niger
+					region = sr:region_congo
+					region = sr:region_southern_africa
+					region = sr:region_zanj		
+				}
+				state_region = {
+					any_scope_state = {
+						OR = {
+							owner = scope:other_swap_partner
+							owner = {
+								top_overlord ?= scope:other_swap_partner
+							}
+						}
+					}
+				}
+			}
+			save_scope_as = swappable_state_2
+
+			state_region = {
+				save_scope_as = state_2_region
+
+				random_scope_state = {
+					limit = {
+						OR = {
+							owner = scope:other_swap_partner
+							owner = {
+								top_overlord ?= scope:other_swap_partner
+							}
+						}
+					}
+					save_scope_as = other_swappable_state_2
+				}
+			}
+		}
+
+		trigger_event = { id = colonial_swap.1 }
+	}
+
+	ai_chance = {
+		base = 0
+
+		modifier = {
+			trigger = {
+				OR = {
+					has_strategy = ai_strategy_territorial_expansion
+					has_strategy = ai_strategy_maintain_power_balance
+				}
+			}
+			add = 50
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 100
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_armed_isolationism
+			}
+			add = -100
+		}
+	}
+}

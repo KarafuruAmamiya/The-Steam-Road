@@ -23,9 +23,72 @@
 
 	on_enable = {
 		ig:ig_landowners = {
-			set_ig_trait = ig_trait:ig_trait_noble_privileges
-			set_ig_trait = ig_trait:ig_trait_family_ties
-			set_ig_trait = ig_trait:ig_trait_noblesse_oblige
+			if = {
+				limit = {
+					owner = { c:RUS ?= this}
+				}
+				set_ig_trait = ig_trait:ig_trait_profitable_estates
+				set_ig_trait = ig_trait:ig_trait_the_velvet_book
+				set_ig_trait = ig_trait:ig_trait_bad_boyars
+			}
+			else_if = {
+				limit = {
+					owner = { c:AMR ?= this}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_latifundios
+			}
+			else_if = {
+				limit = {
+					OR = {
+						owner = { c:SAX ?= this}
+						AND = {
+							owner = { c:NGF ?= this}
+							c:NGF ?= { was_formed_from = SAX }
+						}
+						AND = {
+							owner = { c:GER ?= this }
+							c:GER ?= { was_formed_from = SAX }
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_junkerdom
+			}
+			else_if = {
+				limit = {
+					OR = {
+						owner = { c:AUS ?= this}
+						AND = {
+							owner = { c:GER ?= this }
+							c:GER ?= { was_formed_from = AUS }
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_wiener_walzer
+			}
+			else_if = {
+				limit = {
+					owner = { 
+						OR = {
+							country_has_primary_culture = cu:yankee
+							country_has_primary_culture = cu:dixie
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_patrician_philanthropy
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_noblesse_oblige
+			}
 		}
 		
 		# Local Governors
@@ -166,6 +229,20 @@
 				add_ideology = ideology_akkovin_paternalistic
 			}
 		}
+		# VTM - this does not work on start up unfortunately and must be handled in history global for the initial setup
+		else_if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+					has_law = law_type:law_council_republic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
 	}
 	on_disable = {}
 	on_character_ig_membership = {}
@@ -218,11 +295,21 @@
 				limit = {
 					is_pop_type = farmers
 				}
-				value = 50
+				value = 25
+				add = this.standard_of_living
 				
 				if = {
 					limit = { owner = { has_law = law_type:law_homesteading } }
-					add = 50
+					multiply = 1.25
+				}
+
+				if = {
+					limit = {
+						state = {
+							is_slave_state = yes
+						}
+					}
+					multiply = 4
 				}
 			}
 		}
@@ -250,6 +337,33 @@
 				value = 1
 				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
 				min = 0
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
 			}
 		}
 	}

@@ -234,16 +234,20 @@
             base = 0
             modifier = {
                 add = 1100
-                AND = {
-                    exists = scope:pop
-                    scope:pop = {
-                        OR = {
-							religion = rel:mahayana
-							religion = rel:theravada
-							religion = rel:gelugpa
-						}
+                OR = {
+                    AND = {
+                        exists = scope:pop
+                        scope:pop = {
+                            religion = {
+                                has_discrimination_trait = buddhist_heritage
+                            }
+                        }
+                        clergy_clothes_pop_trigger = yes
                     }
-                    clergy_clothes_pop_trigger = yes
+                    AND = {
+                        politician_clothes_trigger = yes
+                        devout_clothes_trigger = yes
+                    }
                 }
             }
         }

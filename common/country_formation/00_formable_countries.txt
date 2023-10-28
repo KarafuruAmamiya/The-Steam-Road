@@ -358,3 +358,51 @@ ALD = {
 	
 	ai_will_do = { always = yes }
 }
+
+UNL = {
+	states = {
+		STATE_HOLLAND
+		STATE_FLANDERS
+		STATE_WALLONIA
+		STATE_FRIESLAND
+		STATE_GELRE
+		STATE_FRENCH_LOW_COUNTRIES
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}
+
+RHN = {
+	states = {
+		STATE_HESSE
+		STATE_SAXONY
+		STATE_SCHLESWIG_HOLSTEIN
+		STATE_ANHALT
+		STATE_FRANCONIA
+		STATE_BAVARIA
+		STATE_BRUNSWICK
+		STATE_HANNOVER
+		STATE_BADEN
+		STATE_WURTTEMBERG
+		STATE_RUHR
+		STATE_WESTPHALIA
+		STATE_ELBE
+		STATE_MECKLENBURG
+	}
+
+	required_states_fraction = 0.75
+	
+	ai_will_do = { always = yes }
+	
+	possible = {
+		has_technology_researched = nationalism
+		NOR = {
+			c:PFA ?= this
+			c:SAX ?= this
+			c:NGF ?= this
+			c:SGF ?= this
+		}
+	}
+}

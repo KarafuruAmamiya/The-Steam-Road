@@ -29,13 +29,13 @@ navigation = {
 }
 
 drydocks = {
-	# Increases Port max level by 2
+	# Increases Port max level by 3
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/drydock.dds"
 	category = military
 	
 	modifier = {
-		state_building_port_max_level_add = 2
+		state_building_port_max_level_add = 3
 	}
 	
 	unlocking_technologies = {	
@@ -277,7 +277,7 @@ field_works = {
 }
 
 logistics = {
-	# #todo#! Does nothing yet
+	# increases number of conscriptable battalions
 	era = era_2
 	texture = "gfx/interface/icons/invention_icons/logistics_tech.dds"
 	category = military
@@ -332,10 +332,6 @@ shell_gun = {
 	ai_weight = {
 		value = 1
 		if = {
-			limit = { army_size > 75 }
-			add = 0.25
-		}
-		if = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 0.25
 		}
@@ -354,11 +350,7 @@ percussion_cap = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important tech in general
-		if = {
-			limit = { army_size > 75 }
-			add = 0.5
-		}
+		value = 2 # Important tech in general
 		if = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 0.5
@@ -377,7 +369,7 @@ rifling = {
 	}
 	
 	ai_weight = {
-		value = 1.75 # Important tech in general
+		value = 2 # Important tech in general
 		if = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 0.25
@@ -396,7 +388,7 @@ general_staff = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important tech in general
+		value = 2 # Important tech in general
 		if = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 0.75
@@ -463,15 +455,11 @@ hydraulic_cranes = {
 	}
 	
 	ai_weight = {
-		value = 0.75
+		value = 1
 		
 		# Important for anyone with a navy
 		if = {
-			limit = { navy_size >= 7 }
-			add = 0.5
-		}
-        if = {
-			limit = { navy_size >= 20 }
+			limit = { navy_size >= 5 }
 			add = 0.5
 		}
 	}
@@ -539,8 +527,9 @@ military_statistics = {
 	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
 	category = military
 	
+	
 	modifier = {
-		building_mobilization_cost_mult = -0.2
+		military_formation_organization_gain_mult = 0.1
 	}
 	
 	unlocking_technologies = {	
@@ -620,7 +609,7 @@ handcranked_machine_gun = {
 }
 
 self_propelled_torpedoes = {
-	# #todo#! Does nothing yet
+	# Unlocks Torpedo Boat PM in Naval Base
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/self_propelled_torpedoes.dds"
 	category = military
@@ -704,13 +693,13 @@ jeune_ecole = {
 
 floating_harbor = {
 	# Unlocks Industrial Port PM in Ports
-	# Increases Port Level by 3
+	# Increases Port Level by 4
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
 	category = military
 	
 	modifier = {
-		state_building_port_max_level_add = 3
+		state_building_port_max_level_add = 4
 	}
 	
 	unlocking_technologies = {	
@@ -718,15 +707,11 @@ floating_harbor = {
 	}
 	
 	ai_weight = {
-		value = 0.75
+		value = 1
 		
 		# Important for anyone with a navy
 		if = {
-			limit = { navy_size >= 9 }
-			add = 0.5
-		}
-        if = {
-			limit = { navy_size >= 24 }
+			limit = { navy_size >= 5 }
 			add = 0.5
 		}		
 	}
@@ -747,16 +732,12 @@ gantry_cranes = {
 	}
 	
 	ai_weight = {
-		value = 0.75
+		value = 1
 		
 		# Important for anyone with a navy
 		if = {
-			limit = { navy_size >= 10 }
-			add = 0.5
-		}
-        if = {
-			limit = { navy_size >= 30 }
-			add = 0.5
+			limit = { navy_size >= 5 }
+			add = 1
 		}		
 	}
 }
@@ -801,7 +782,8 @@ war_propaganda = {
 }
 
 wargaming = {
-	# #todo#! Does nothing yet
+	# Unlocks Siege Artillery PM in Barracks
+	# Reduces Morale loss
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/wargaming.dds"
 	category = military
@@ -858,7 +840,8 @@ bolt_action_rifles = {
 }
 
 automatic_machine_guns = {
-	# #todo#! Does nothing yet
+	# Unlocks Recoil Mechaniscm PM in Arms Factory
+	# Unlocks Machine Gunners PMs in Barracks and Conscription Centers
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
 	category = military
@@ -893,7 +876,7 @@ submarine = {
 }
 
 destroyer = {
-	# #todo#! Does nothing yet
+	# Unlocks Destroyer PM on Naval Bases
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/destroyers.dds"
 	category = military
@@ -997,15 +980,11 @@ concrete_dockyards = {
 	}
 	
 	ai_weight = {
-		value = 0.75
+		value = 1
 		
 		# Important for anyone with a navy
 		if = {
-			limit = { navy_size >= 10 }
-			add = 0.5
-		}
-        if = {
-			limit = { navy_size >= 30 }
+			limit = { navy_size >= 5 }
 			add = 0.5
 		}		
 	}
@@ -1045,7 +1024,7 @@ chemical_warfare = {
 }
 
 stormtroopers = {
-	# #todo#! Does nothing yet
+	# Unlocks Infiltrators PM in Barracks
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
 	category = military

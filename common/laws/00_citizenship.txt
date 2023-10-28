@@ -36,10 +36,14 @@ law_ethnostate = {
 	pop_support = {
 		value = 0
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -83,10 +87,14 @@ law_national_supremacy = {
 	pop_support = {
 		value = 0
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -146,6 +154,10 @@ law_racial_segregation = {
 			}			
 		}
 	}
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
 	
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -347,9 +359,13 @@ law_shared_heritage = {
 		}
 	}
 	
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+	
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -498,10 +514,14 @@ law_cultural_exclusion = {
 			}			
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -560,10 +580,14 @@ law_multicultural = {
 			}			
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition

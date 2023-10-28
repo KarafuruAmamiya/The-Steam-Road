@@ -39,10 +39,23 @@ TUN = { # Tunisia
 		trigger = {
 			exists = scope:actor
 			scope:actor = { 
-				NOT = { 
-					has_technology_researched = nationalism 
-					owns_entire_state_region = STATE_TUNISIA
-				}
+				has_law = law_type:law_monarchy
+			}
+		}
+		#Hafsids can turn into either Tunisia or Algeria
+	}
+	dynamic_country_name = {
+		name = dyn_c_tunisia
+		adjective = TUN_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_technology_researched = nationalism 
+				owns_entire_state_region = STATE_TUNISIA
 			}
 		}
 	}
@@ -494,6 +507,16 @@ MGL = { # Mongolia
 			}
 		}
 	}
+	dynamic_country_name = {
+		name = dyn_c_mongolian_peoples_republic
+		adjective = dyn_c_mongolian_peoples_republic_adj
+		is_main_tag_only = yes
+		priority = 0
+
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
 }
 
 CHI = { # China
@@ -610,6 +633,23 @@ AMR = { # America
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+}
+
+PFA = { # Pfalz
+	dynamic_country_name = {
+		name = dyn_c_pfalz_bayern #Palatinate-Bavaria
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				any_scope_state = {
+					state_region = s:STATE_BAVARIA
+				}
+			}
 		}
 	}
 }

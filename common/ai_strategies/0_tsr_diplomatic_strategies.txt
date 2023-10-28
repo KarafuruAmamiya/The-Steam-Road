@@ -33,19 +33,7 @@
 	
 		if = {
 			limit = { 
-				scope:target_country = {
-					OR = {
-						country_has_primary_culture = cu:levantine
-						country_has_primary_culture = cu:mashriqi
-						country_has_primary_culture = cu:iraqi
-						country_has_primary_culture = cu:misri
-						country_has_primary_culture = cu:khaleeji
-						country_has_primary_culture = cu:omani
-						country_has_primary_culture = cu:yemenite
-						country_has_primary_culture = cu:hadramhi
-						country_has_primary_culture = cu:bedouin
-					}				
-				}
+				scope:target_country = { can_form_nation = ARA }
 			}
 			add = 25
 		}
@@ -60,21 +48,9 @@
 		
 		if = {
 			limit = { 
-				scope:target_country = {
-					OR = {
-						country_has_primary_culture = cu:levantine
-						country_has_primary_culture = cu:mashriqi
-						country_has_primary_culture = cu:iraqi
-						country_has_primary_culture = cu:misri
-						country_has_primary_culture = cu:khaleeji
-						country_has_primary_culture = cu:omani
-						country_has_primary_culture = cu:yemenite
-						country_has_primary_culture = cu:hadramhi
-						country_has_primary_culture = cu:bedouin
-					}					
-				}
+				scope:target_country = { can_form_nation = ARA }
 			}
-			add = 10
+			add = 2.5
 		}
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
@@ -86,7 +62,29 @@
 				}					
 			}
 			multiply = 0.25
-		}			
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}
 	}
 
 	building_group_weights = {
@@ -126,7 +124,17 @@
 							state_region = { 
 								is_homeland = cu:bedouin 
 							}
-						}					
+						}
+						owner = {
+							NOR = { 
+								is_supporting_unification_candidate = { who = root country_formation = ARA }
+								is_subject_of = root
+								has_diplomatic_pact = {
+									who = scope:target_country
+									type = customs_union
+								}							
+							}						
+						}
 					}	
 					can_reach_target_state = yes
 				}
@@ -171,7 +179,10 @@
 				}
 				add = 100
 			}
-		}		
+		}
+		unification_leadership = {
+			value = 1000
+		}	
 	}	
 	
 	secret_goal_scores = {
@@ -191,7 +202,14 @@
 							country_has_primary_culture = cu:bedouin
 						}
 						NOT = { is_unification_candidate = ARA }
-						is_supporting_unification_candidate = { who = root country_formation = ARA }
+						OR = { 
+							is_supporting_unification_candidate = { who = root country_formation = ARA }
+							is_subject_of = root
+							has_diplomatic_pact = {
+								who = scope:target_country
+								type = customs_union
+							}							
+						}
 					}
 				}
 				add = 1000
@@ -212,8 +230,15 @@
 							country_has_primary_culture = cu:hadramhi
 							country_has_primary_culture = cu:bedouin
 						}					
-						NOT = { is_unification_candidate = ARA }
-						NOT = { is_supporting_unification_candidate = { who = root country_formation = ARA } }
+						NOR = { 
+							is_unification_candidate = ARA
+							is_supporting_unification_candidate = { who = root country_formation = ARA }
+							is_subject_of = root
+							has_diplomatic_pact = {
+								who = scope:target_country
+								type = customs_union
+							}							
+						}
 					}
 				}
 				add = 1000
@@ -222,20 +247,8 @@
 		conquer = {				
 			if = {
 				limit = {
-					scope:target_country = {
-						OR = {
-							country_has_primary_culture = cu:levantine
-							country_has_primary_culture = cu:mashriqi
-							country_has_primary_culture = cu:iraqi
-							country_has_primary_culture = cu:misri
-							country_has_primary_culture = cu:khaleeji
-							country_has_primary_culture = cu:omani
-							country_has_primary_culture = cu:yemenite
-							country_has_primary_culture = cu:hadramhi
-							country_has_primary_culture = cu:bedouin
-						}					
+					scope:target_country = {				
 						is_unification_candidate = ARA
-						NOT = { is_supporting_unification_candidate = { who = root country_formation = ARA } }
 					}
 				}
 				add = 1000

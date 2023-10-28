@@ -25,7 +25,7 @@
 		subject_canton = SGF_BAV
 		priority = 2
 		trigger = {
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -34,7 +34,7 @@
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -43,7 +43,7 @@
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 }
@@ -142,7 +142,7 @@ GER = { # Germany
 		priority = 100
 		trigger = {
 			exists = scope:actor
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -151,7 +151,7 @@ GER = { # Germany
 		priority = 25
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -159,7 +159,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -168,7 +168,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = PLT }
+			scope:actor = { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -244,6 +244,14 @@ GER = { # Germany
 					}
 				}
 			}
+		}
+	}
+	flag_definition = {
+		coa = GER_nihilist
+		subject_canton = GER_nihilist
+		priority = 1500
+		trigger = { 
+			coa_def_nihilist_flag_trigger = yes
 		}
 	}
 }

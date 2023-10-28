@@ -38,12 +38,18 @@ aragon_sicily.1 = { # The loss of Catalonia
 		ai_chance = {
 			base = 25
 		}
-		custom_tooltip = aragon_sicily.1.tt
-		hidden_effect = {
+		custom_tooltip = {
+			text =	aragon_sicily.1.tt
 			every_scope_state = {
 				add_radicals_in_state = {
-					value = 1.5
+					value = very_large_radicals
 					culture = cu:south_italian
+				}
+			}
+			every_scope_state = {
+				add_loyalists_in_state = {
+					value = large_radicals
+					culture = cu:catalan
 				}
 			}
 			set_variable = iberian_war_aftermath
@@ -74,8 +80,14 @@ aragon_sicily.1 = { # The loss of Catalonia
 		hidden_effect = {
 			every_scope_state = {
 				add_loyalists_in_state = {
-					value = 0.5
+					value = large_radicals
 					culture = cu:south_italian
+				}
+			}
+			every_scope_state = {
+				add_radicals_in_state = {
+					value = very_large_radicals
+					culture = cu:catalan
 				}
 			}
 			set_variable = iberian_war_aftermath

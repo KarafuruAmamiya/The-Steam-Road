@@ -291,15 +291,20 @@ paris_commune.2 = {
 			}
 			save_scope_as = paris_scope
 		}
-		random_scope_general = {
+		random_military_formation = {
 			limit = {
 				any_combat_units = {
 					building.state.region = {	
 						this = sr:region_france
 					}
 				}
+				any_scope_general = {
+					has_role = general
+				}
 			}
-			save_scope_as = commune_destroyer_general
+			random_scope_general = {
+				save_scope_as = commune_destroyer_general
+			}
 		}
 	}
 

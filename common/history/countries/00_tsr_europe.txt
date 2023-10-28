@@ -18,6 +18,7 @@
 		
 		add_technology_researched = napoleonic_warfare
 
+		add_taxed_goods = g:wine
 		set_tax_level = medium
 		
 		set_tariffs_import_priority = g:artillery
@@ -651,6 +652,7 @@
 		set_tax_level = medium
 		
 		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
@@ -743,6 +745,7 @@
 		set_next_election_date = 1838.12.7
 
 		set_tax_level = medium
+		set_tariffs_import_priority = g:engines
 		
 		effect_starting_technology_tier_1_tech = yes
 	
@@ -923,7 +926,7 @@
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
-		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_tenant_farmers
 		
@@ -931,8 +934,6 @@
 			institution = institution_schools
 			level = 1
 		}
-
-		add_journal_entry = { type = je_unify_romania }
 	}
 	c:MSC = { # Muscovy
 		effect_starting_technology_tier_3_tech = yes
@@ -1148,7 +1149,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:PLT = { # The Palatinate
+	c:PFA = { # The Palatinate
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1710,11 +1711,11 @@
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
-		activate_law = law_type:law_slave_trade
+		add_technology_researched = sericulture # Silk!
+		
+		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_tenant_farmers
-
-		add_journal_entry = { type = je_unify_romania }
 		
 		set_institution_investment_level = {
 			institution = institution_schools

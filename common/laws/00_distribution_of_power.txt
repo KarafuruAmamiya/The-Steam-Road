@@ -64,10 +64,14 @@ law_autocracy = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -147,10 +151,14 @@ law_technocracy = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -223,10 +231,14 @@ law_oligarchy = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -281,6 +293,10 @@ law_elder_council = {
 	pop_support = {
 		value = 0
 	}
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -368,10 +384,14 @@ law_landed_voting = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -448,10 +468,14 @@ law_wealth_voting = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -527,10 +551,14 @@ law_census_voting = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -614,10 +642,14 @@ law_universal_suffrage = {
 			}			
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -682,10 +714,14 @@ law_anarchy = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
@@ -745,27 +781,29 @@ law_single_party_state = {
 	}
 
 	on_activate = {
-		if = {
-			limit = {
+		hidden_effect = {
+			if = {
+				limit = {
+					ROOT = {
+						ruler.interest_group = {
+							has_party = yes
+						}
+					}
+				}
 				ROOT = {
-					ruler.interest_group = {
-						has_party = yes
-					}
+					set_variable = { name = only_valid_party value = ruler.interest_group.party }
 				}
 			}
-			ROOT = {
-				set_variable = { name = only_valid_party value = ruler.interest_group.party }
-			}
-		}
-		else_if = {
-			limit = {
-				NOT = {
-					any_active_party = {
-						exists = this
+			else_if = {
+				limit = {
+					NOT = {
+						any_active_party = {
+							exists = this
+						}
 					}
 				}
+				root = { gen_ruler_party = yes }
 			}
-			root = { gen_ruler_party = yes }
 		}
 		hidden_effect = { #Clears all currently active parties
 			deactivate_parties = yes
@@ -842,10 +880,14 @@ law_single_party_state = {
 			}
 		}
 	}
-	
+
+	can_impose = { 
+		is_subject_of = scope:initiator	
+	} 
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { 
 				has_journal_entry = je_government_petition

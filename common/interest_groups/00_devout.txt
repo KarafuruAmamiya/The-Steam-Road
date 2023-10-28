@@ -20,13 +20,105 @@
 		ig_trait_divine_right
 		ig_trait_pious_fiction
 	}
-	
+
 	on_enable = {
 		ig:ig_devout = {
-			set_ig_trait = ig_trait:ig_trait_pious_fiction
-			set_ig_trait = ig_trait:ig_trait_divine_right
-			set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							country_has_state_religion = rel:protestant
+							country_has_state_religion = rel:reformed
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_divine_right
+				set_ig_trait = ig_trait:ig_trait_work_ethic
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							country_has_state_religion = rel:hindu
+							country_has_state_religion = rel:mahayana
+							country_has_state_religion = rel:theravada
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_divine_right
+				set_ig_trait = ig_trait:ig_trait_asceticism
+			}
+			else_if = {
+				limit = {
+					owner = {
+						country_has_state_religion = rel:sikh
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_khalsa
+				set_ig_trait = ig_trait:ig_trait_kar_seva
+			}
+			else_if = {
+				limit = {
+					owner = {
+						country_has_state_religion = rel:gelugpa
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_divine_right
+				set_ig_trait = ig_trait:ig_trait_temporal_mandate
+			}
+			else_if = {
+				limit = {
+					owner = {
+						country_has_state_religion = rel:jewish
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_traditsye
+				set_ig_trait = ig_trait:ig_trait_yeshivot
+				set_ig_trait = ig_trait:ig_trait_the_best_revenge
+			}
+			else_if = {
+				limit = {
+					owner = {
+						country_has_state_religion = rel:shinto
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_haibutsu_kishaku
+				set_ig_trait = ig_trait:ig_trait_secular_shrine_theory
+				set_ig_trait = ig_trait:ig_trait_heavenly_sovereign
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+						}
+						NOT = { c:TUR ?= this }
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_sharia
+				set_ig_trait = ig_trait:ig_trait_da_wat
+			}
+			else_if = {
+				limit = {
+					owner = { c:TUR ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_mecelle
+				set_ig_trait = ig_trait:ig_trait_da_wat
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_pious_fiction
+				set_ig_trait = ig_trait:ig_trait_divine_right
+				set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+			}
 		}
+		
 		### Specific
 
 		# Buddhist Monks (Japan)
@@ -94,6 +186,8 @@
 			}
 			ig:ig_devout = {
 				set_interest_group_name = ig_roman_curia
+				remove_ideology = ideology_moralist
+				add_ideology = ideology_papal_moralist
 			}
 		}
 
@@ -216,15 +310,26 @@
 
 	on_disable = {}
 	on_character_ig_membership = {
-		change_character_religion = scope:interest_group.owner.country_definition.religion
+		if = {
+			limit = {
+				NOT = {
+					owner = {
+						has_law = law_type:law_state_atheism
+					}
+				}
+			}
+			change_character_religion = scope:interest_group.owner.religion
+		}
+		else = {
+			change_character_religion = scope:interest_group.owner.country_definition.religion
+		}
 	}
 
 
 	pop_potential = {
-		#has_state_religion = yes
-		custom_tooltip = {
-			text = TRIGGER_HAS_STATE_RELIGION
-			has_original_state_religion = yes
+		religion = scope:interest_group.leader.religion
+		NOT = {
+			has_pop_religion = atheist
 		}
 	}
 
@@ -237,7 +342,7 @@
 				limit = {
 					is_pop_type = clergymen
 				}
-				value = 200
+				value = 250
 			}
 		}
 
@@ -250,78 +355,12 @@
 				value = 100
 			}
 		}
-
+		
 		add = {
-			desc = "LITERACY_50_60"
-
-			if = {
-				limit = {
-					NOT = {
-						is_pop_type = clergymen
-					}
-					literacy_rate >= 0.50
-					literacy_rate < 0.60
-				}
-				add = -2
-			}
-		}
-
-		add = {
-			desc = "LITERACY_60_70"
-
-			if = {
-				limit = {
-					NOT = {
-						is_pop_type = clergymen
-					}
-					literacy_rate >= 0.60
-					literacy_rate < 0.70
-				}
-				add = -4
-			}
-		}
-
-		add = {
-			desc = "LITERACY_70_80"
-
-			if = {
-				limit = {
-					NOT = {
-						is_pop_type = clergymen
-					}
-					literacy_rate >= 0.70
-					literacy_rate < 0.80
-				}
-				add = -6
-			}
-		}
-
-		add = {
-			desc = "LITERACY_80_90"
-
-			if = {
-				limit = {
-					NOT = {
-						is_pop_type = clergymen
-					}
-					literacy_rate >= 0.80
-					literacy_rate < 0.90
-				}
-				add = -8
-			}
-		}
-
-		add = {
-			desc = "LITERACY_90_100"
-
-			if = {
-				limit = {
-					NOT = {
-						is_pop_type = clergymen
-					}
-					literacy_rate >= 0.90
-				}
-				add = -10
+			desc = "POP_LITERACY"
+			this = {
+				value = literacy_rate
+				multiply = -20
 			}
 		}
 
@@ -352,29 +391,41 @@
 			}
 		}
 
-
-		# VANILLA # WE SHOULD PROBABLY REMOVE THIS 
 		if = {
 			limit = {
-				owner = {
-					has_law = law_type:law_state_atheism
+				scope:interest_group = {
+					is_in_government = yes
 				}
 			}
-			multiply = {
-				desc = "STATE_ATHEISM_LAW"
-				value = 0.1
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
 			}
 		}
-
-		# VTM # ATHEISTS DONT GO TO CHURCH
 		if = {
 			limit = {
-				religion = rel:atheist
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		# VTM
+		if = {
+			limit = {
+				has_pop_religion = atheist
 			}
 			multiply = {
 				value = 0.0
 			}
-		}
+		}		
 	}
 
 	monarch_weight = {

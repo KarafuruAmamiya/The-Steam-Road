@@ -516,6 +516,28 @@ gov_kaiser = {
 	}
 }
 
+gov_confederation_of_the_rhine = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_PRINCE_PRIMATE"
+	female_ruler = "RULER_TITLE_PRINCESS_PRIMATE"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCE"
+	
+	possible = {
+		c:RHN ?= this
+		has_law = law_type:law_monarchy
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
 
 gov_decentralized_realm = {
 	transfer_of_power = hereditary
@@ -558,6 +580,52 @@ gov_hm_gov = {
 		AND = { exists = c:GBR c:GBR = ROOT }
 	}
 	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_fra_constitutional_monarchy_legitimist = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+	
+	male_heir = "RULER_TITLE_DAUPHIN"
+	female_heir = "RULER_TITLE_DAUPHINE"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_has_primary_culture = cu:french
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_fra_absolute_monarchy_legitimist = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+	
+	male_heir = "RULER_TITLE_DAUPHIN"
+	female_heir = "RULER_TITLE_DAUPHINE"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		country_has_primary_culture = cu:french
+	}
+
 	on_government_type_change = {
 		change_to_hereditary = yes
 	}

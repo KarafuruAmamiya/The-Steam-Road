@@ -25,7 +25,7 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 			type = hre
 		}
 		remove_diplomatic_pact = {
-			country = c:PLT 
+			country = c:PFA 
 			type = hre
 		}
 		remove_diplomatic_pact = {
@@ -176,8 +176,8 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 	trigger = {
 		has_global_variable = hre_end
 		NOT = { has_variable = pre_sgf_done }
-		exists = c:PLT
-		this = c:PLT
+		exists = c:PFA
+		this = c:PFA
 		is_subject = no
 		is_at_war = no
 	}
@@ -185,37 +185,37 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 	immediate = {
 		c:WUR = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = 80
 			}
 		}
 		c:ULM = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = 80
 			}
 		}
 		c:KNZ = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = 80
 			}
 		}
 		c:MUL = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = 80
 			}
 		}
 		c:FRN = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = 80
 			}
 		}
 		c:SAX = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
@@ -227,7 +227,7 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 		ai_chance = {
 			base = 75
 		}
-		c:PLT = {
+		c:PFA = {
 			create_diplomatic_pact = {
 				country = c:WUR
 				type = customs_union
@@ -261,36 +261,36 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 		}
 		c:WUR = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
 		c:ULM = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
 		c:KNZ = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
 		c:MUL = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
 		c:FRN = {
 			change_relations = {
-				country = c:PLT
+				country = c:PFA
 				value = -80
 			}
 		}
 		hidden_effect = {
-			c:PLT = {
+			c:PFA = {
 				set_strategy = ai_strategy_unify_germany
 			}
 		}

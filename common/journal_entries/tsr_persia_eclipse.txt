@@ -281,37 +281,6 @@
 je_constitutional_reformation = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
-	is_shown_when_inactive = {
-		c:PER ?= this
-		OR = {
-			has_law = law_type:law_autocracy
-			has_law = law_type:law_oligarchy
-			has_law = law_type:law_landed_voting
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_denominational_exclusion
-			has_law = law_type:law_legacy_slavery
-			has_law = law_type:law_debt_slavery
-			has_law = law_type:law_slave_trade
-			has_law = law_type:law_serfdom
-			has_law = law_type:law_tenant_farmers
-		}
-		has_technology_researched = nationalism
-	}
-
-	possible = {
-		any_scope_character = {
-			AND = {
-				has_ideology = ideology:ideology_persian_constitutionalist
-				OR = {
-					is_ruler = yes
-					interest_group = {
-						is_in_government = yes
-					}
-				}
-			}
-		}
-	}
-
 	complete = {
 		NOR = {
 			has_law = law_type:law_autocracy
@@ -325,25 +294,16 @@ je_constitutional_reformation = {
 			has_law = law_type:law_serfdom
 			has_law = law_type:law_tenant_farmers
 			has_law = law_type:law_no_womens_rights
-			has_law = law_type:law_no_workers_rights
 			has_law = law_type:law_child_labor_allowed
 		}
-		OR = {
-			has_law = law_type:law_right_of_assembly
-			has_law = law_type:law_protected_speech
+		ig:ig_intelligentsia = {
+			is_powerful = yes
+			is_in_government = yes
 		}
-		OR = {
-			ig:ig_intelligentsia = {
-				is_powerful = yes
-			}
-			ig:ig_petty_bourgeoisie = {
-				is_powerful = yes
-			}
-		}
-		custom_tooltip = {
-			text = iranian_romantic_nationalism_tt
-			has_variable = persian_renaissance_romantic_nationalism
-		}
+	}
+	
+	on_complete = {
+		trigger_event = { id = persian_flavor.11 }
 	}
 
 	fail = {

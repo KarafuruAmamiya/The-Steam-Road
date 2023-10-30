@@ -484,6 +484,13 @@ law_wealth_voting = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_constitutional_reformation
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -566,6 +573,13 @@ law_census_voting = {
                 scope:law = var:desired_law_var
 			}
 			add = 750
+		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_constitutional_reformation
+			}
+			add = 500
 		}
 	}
 }

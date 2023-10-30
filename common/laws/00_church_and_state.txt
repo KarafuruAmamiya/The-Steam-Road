@@ -297,6 +297,20 @@ law_freedom_of_conscience = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_variable = secular_persia
+			}
+			add = 1000
+		}
+		
+		if = {
+			limit = { 
+				has_variable = je_constitutional_reformation
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -425,6 +439,20 @@ law_shared_roots = {
                 scope:law = var:desired_law_var
 			}
 			add = 750
+		}
+		
+		if = {
+			limit = { 
+				has_variable = secular_persia
+			}
+			add = 500
+		}
+		
+		if = {
+			limit = { 
+				has_variable = je_constitutional_reformation
+			}
+			add = 500
 		}
 	}
 }

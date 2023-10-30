@@ -448,6 +448,11 @@ adopted_blasphemous_ideals = {
 	interest_group_approval_add = -10
 }
 
+refused_reforms = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -10
+}
+
 nomadic_structures = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	state_conscription_rate_add = 0.10
@@ -458,4 +463,66 @@ nomadic_structures = {
 swayed_to_constitutionalist = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_opposition_ig_approval_add = -2
+}
+
+modifier_secularization_support = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_pop_support_law_freedom_of_conscience_add = 0.10
+	state_pop_support_law_shared_roots_add = 0.05
+}
+
+modifier_no_secularization_support = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_pop_support_law_freedom_of_conscience_add = -0.10
+	state_pop_support_law_shared_roots_add = -0.10
+}
+
+modifier_kermani_in_exile = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds
+	interest_group_pop_attraction_mult = -0.10
+	interest_group_approval_add = -2	
+}
+
+kermani_scot_free = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -5
+}
+
+executed_kermani = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -10
+}
+
+reformed_constitution = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_approval_add = 5
+}
+
+constitutional_reformation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_loyalists_from_sol_change_mult = 0.15
+}
+
+constitutional_reformation_religion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_loyalists_from_sol_change_accepted_religion_mult = 0.15
+	state_loyalists_from_sol_change_mult = 0.15
+}
+
+constitutional_reformation_suffrage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_legitimacy_base_add = 15
+	state_loyalists_from_sol_change_mult = 0.15
+}
+
+constitutional_reformation_land_reform = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_group_bg_agriculture_throughput_add = 0.15
+	state_loyalists_from_sol_change_mult = 0.15
+}
+
+constitutional_reformation_education = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.15
+	state_loyalists_from_sol_change_mult = 0.15
 }

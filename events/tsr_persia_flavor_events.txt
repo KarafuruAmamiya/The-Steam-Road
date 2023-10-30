@@ -264,7 +264,7 @@ persian_flavor.4 = { #The Iranian Identity
 		NOR = {
 			has_law = law_type:law_state_religion
 			has_law = law_type:law_ethnostate
-			has_law = law_type:law_racial_supremacy
+			has_law = law_type:law_national_supremacy
 		}
 	}
 	
@@ -311,6 +311,13 @@ persian_flavor.4 = { #The Iranian Identity
 			add_modifier = {
 				name = rejected_iranian_identity
 				months = normal_modifier_time
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_variable = zandism_minorities } }
+				set_variable = zandism_minorities
 			}
 		}
 		
@@ -388,6 +395,696 @@ persian_flavor.4 = { #The Iranian Identity
 		
 		ai_chance = {
 			base = 75
+		}
+	}
+}
+
+# Mirza Aqa Khan Kermani
+persian_flavor.5 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.5.t
+	desc = persian_flavor.5.d
+	flavor = persian_flavor.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:kermani_scope
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	trigger = {
+		c:PER ?= this
+		ig:ig_intelligentsia = {
+			is_marginal = no
+			ig_approval <= 0	
+		}
+		game_date >= 1854.1.1
+		game_date < 1900.1.1
+		NOT = { has_global_variable = kermani_var }
+		any_scope_state = {
+			state_region = s:STATE_KERMAN
+		}
+		any_country = {
+			NOT = { root = this }
+			OR = {
+				country_is_in_europe = yes
+				gunpowder_empire_trigger = yes
+			}
+			OR = {
+				has_interest_marker_in_region = region_arabic
+				has_interest_marker_in_region = region_anatolia
+				has_interest_marker_in_region = region_persia
+			}
+		}
+	}
+
+	immediate = {
+		set_global_variable = kermani_var
+		create_character = {
+			template = per_kermani_character_template
+			on_created = {
+				set_variable = kermani
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = kermani
+			}
+			save_scope_as = kermani_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KERMAN
+			}
+			save_scope_as = kerman_state
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_state
+		}
+		if = {
+			limit = {
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				NOT = { has_technology_researched = egalitarianism }
+			}
+			add_technology_progress = { progress = 2500 technology = egalitarianism }
+		}
+	}
+
+	option = {
+		name = persian_flavor.5.a
+		default_option = yes
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					NOR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+		scope:kermani_scope = {
+			interest_group = {
+				add_modifier = {
+					name = modifier_kermani_in_exile
+					months = normal_modifier_time
+					is_decaying = yes
+				}
+			}
+			exile_character_with_martyrdom = yes
+		}
+		
+		hidden_effect = {
+			random_country = {
+				limit = {
+					NOT = { root = this }
+					OR = {
+						country_is_in_europe = yes
+						gunpowder_empire_trigger = yes
+					}
+					OR = {
+						has_interest_marker_in_region = region_arabic
+						has_interest_marker_in_region = region_anatolia
+						has_interest_marker_in_region = region_persia
+					}
+				}
+				trigger_event = { id = persian_flavor.6 days = 3 }
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.5.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+		show_as_tooltip = {
+			create_character = {
+				template = per_kermani_character_template
+			}
+		}
+		capital = {
+			add_radicals_in_state = {
+				value = small_radicals
+				pop_type = academics
+			}
+		}
+	}
+}
+
+# Mirza Aqa Khan Kermani (Exile)
+persian_flavor.6 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.6.t
+	desc = persian_flavor.6.d
+	flavor = persian_flavor.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:kermani_scope
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+
+	immediate = {
+		c:PER = {
+			save_scope_as = per_scope
+		}
+		random_character_in_exile_pool = {
+			limit = {
+				has_variable = kermani
+			}
+			transfer_character = root
+			save_scope_as = kermani_scope
+		}
+		if = {
+			limit = {
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
+		if = {
+			limit = {
+				NOT = { has_technology_researched = egalitarianism }
+			}
+			add_technology_progress = { progress = 2500 technology = egalitarianism }
+		}
+	}
+	
+	option = {
+		name = persian_flavor.6.a
+		default_option = yes
+		show_as_tooltip = {
+			create_character = {
+				template = per_kermani_character_template
+			}
+		}
+	}
+}
+
+# Rise of Constitutionalism Movements
+persian_flavor.7 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.7.t
+	desc = persian_flavor.7.d
+	flavor = persian_flavor.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	trigger = {
+		c:PER ?= this
+		OR = {
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_landed_voting
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_denominational_exclusion
+			has_law = law_type:law_legacy_slavery
+			has_law = law_type:law_debt_slavery
+			has_law = law_type:law_slave_trade
+			has_law = law_type:law_serfdom
+			has_law = law_type:law_tenant_farmers
+		}
+		has_technology_researched = nationalism
+		any_scope_character = {
+			OR = {
+				is_ruler = yes
+				has_role = agitator
+				interest_group = {
+					is_marginal = no
+				}
+			}
+			has_ideology = ideology:ideology_persian_constitutionalist
+		}
+		NOT = { has_variable = constitutionalism_var }
+	}
+
+	immediate = {
+		set_variable = constitutionalism_var
+	}
+	
+	option = {
+		name = persian_flavor.7.a
+		default_option = yes
+		add_journal_entry = { type = je_constitutional_reformation }
+		ig:ig_intelligentsia = {
+			set_ig_bolstering = yes
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_variable = zandism_constitutionalism } }
+				set_variable = zandism_constitutionalism
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.7.b
+		set_variable = rejected_constitutionalism
+		add_radicals = {
+			interest_group = ig:ig_intelligentsia
+			value = medium_radicals
+		}
+		ig:ig_intelligentsia = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+			add_modifier = {
+				name = refused_reforms
+				months = long_modifier_time
+			}
+			set_ig_suppression = yes
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					NOR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+	}
+}
+
+# Kermani's Critiques
+persian_flavor.8 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.8.t
+	desc = persian_flavor.8.d
+	flavor = persian_flavor.8.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_prison"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+	
+	minor_left_icon = scope:kermani_scope
+	
+	trigger = {
+		c:PER ?= root
+		OR = {
+			any_country = {
+				NOT = { c:PER ?= this }
+				any_scope_character = {
+					has_variable = kermani
+				}
+			}
+			any_character_in_exile_pool = {
+				has_variable = kermani
+			}
+		}
+		has_variable = rejected_constitutionalism
+		NOT = { has_variable = kermani_critique }
+	}
+
+	immediate = {
+		set_variable = kermani_critique
+		random_character = {
+			limit = { has_variable = kermani }
+			save_scope_as = kermani_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = prime_minister_trigger
+			}
+			save_scope_as = prime_minister_scope
+			interest_group = {
+				save_scope_as = prime_minister_ig_scope
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.8.a
+		trigger = {
+			any_country = {
+				NOT = { c:PER ?= this }
+				any_scope_character = {
+					has_variable = kermani
+				}
+			}
+		}
+		default_option = yes
+		random_country = {
+			limit = {
+				NOT = { c:PER ?= this }
+				any_scope_character = {
+					has_variable = kermani
+				}
+			}
+			trigger_event = { id = persian_flavor.9 days = 3 }
+		}
+	}
+	
+	option = {
+		name = persian_flavor.8.b
+		trigger = {
+			any_character_in_exile_pool = {
+				has_variable = kermani
+			}
+		}
+		
+		random_character_in_exile_pool = {
+			limit = { has_variable = kermani }
+			transfer_character = root
+		}
+		
+		trigger_event = { id = persian_flavor.10 days = 7 }
+	}
+	
+	option = {
+		name = persian_flavor.8.c
+		scope:prime_minister_ig_scope = {
+			add_modifier = {
+				name = kermani_scot_free
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Persia Demands Kermani's Return
+persian_flavor.9 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.9.t
+	desc = persian_flavor.9.d
+	flavor = persian_flavor.9.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_prison"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:kermani_scope
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	immediate = {
+		root = {
+			save_scope_as = shelter_scope
+		}
+		c:PER = {
+			save_scope_as = per_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = kermani
+			}
+			save_scope_as = kermani_scope
+		}
+	}
+	
+	option = {
+		name = persian_flavor.9.a
+		default_option = yes
+		scope:kermani_scope = {
+			transfer_character = c:PER
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_interest_marker_in_region = region_arabic
+						has_interest_marker_in_region = region_anatolia
+						has_interest_marker_in_region = region_persia
+					}
+				}
+				post_notification = returned_kermani
+			}
+			c:PER = {
+				trigger_event = { id = persian_flavor.10 days = 7 }
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					NOR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.9.b
+		change_relations = {
+			country = c:PER
+			value = -20
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_interest_marker_in_region = region_arabic
+						has_interest_marker_in_region = region_anatolia
+						has_interest_marker_in_region = region_persia
+					}
+				}
+				post_notification = did_not_return_kermani
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_strategy = ai_strategy_progressive_agenda
+						has_strategy = ai_strategy_egalitarian_agenda
+						has_strategy = ai_strategy_nationalist_agenda
+					}
+				}
+				add = 100
+			}
+		}
+	}
+}
+
+# Kermani's Execution
+persian_flavor.10 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.10.t
+	desc = persian_flavor.10.d
+	flavor = persian_flavor.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_hostile_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:kermani_scope
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = kermani
+			}
+			save_scope_as = kermani_scope
+		}
+	}
+	
+	option = {
+		name = persian_flavor.10.a
+		default_option = yes
+		scope:kermani_scope = {
+			kill_character = yes
+		}
+		
+		add_radicals = {
+			interest_group = ig:ig_intelligentsia
+			value = large_radicals
+		}
+		
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = executed_kermani
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Constitutional Reformation
+persian_flavor.11 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.11.t
+	desc = persian_flavor.11.d
+	flavor = persian_flavor.11.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.11.a
+		default_option = yes
+		add_modifier = {
+			name = constitutional_reformation
+			months = normal_modifier_time
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = reformed_constitution
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.11.b
+		trigger = {
+			has_law = law:law_shared_roots
+		}
+		add_modifier = {
+			name = constitutional_reformation_religion
+			months = normal_modifier_time
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = reformed_constitution
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.11.c
+		trigger = {
+			has_law = law:law_census_voting
+		}
+		add_modifier = {
+			name = constitutional_reformation_suffrage
+			months = normal_modifier_time
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = reformed_constitution
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.11.d
+		trigger = {
+			has_law = law:law_homesteading
+		}
+		add_modifier = {
+			name = constitutional_reformation_land_reform
+			months = normal_modifier_time
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = reformed_constitution
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.11.e
+		trigger = {
+			has_law = law:law_compulsory_primary_school
+		}
+		add_modifier = {
+			name = constitutional_reformation_education
+			months = normal_modifier_time
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = reformed_constitution
+				months = normal_modifier_time
+			}
 		}
 	}
 }
@@ -578,21 +1275,43 @@ persian_renaissance.7 = { #Persian Nationalism
 	option = { #Adopt a secular identity
 		name = persian_renaissance.7.a
 		default_option = yes
+		set_variable = secular_persia
 		ig:ig_devout = {
 			add_modifier = {
 				name = adopted_blasphemous_ideals
-				months = -1
+				months = long_modifier_time
 			}
 		}
-		add_radicals = {
-			religion = rel:shiite
-			value = large_radicals
+		add_modifier = {
+			name = modifier_secularization_support
+			months = long_modifier_time
+		}
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_variable = zandism_secularization } }
+				set_variable = zandism_secularization
+			}
+		}
+		
+		ai_chance = {
+			base = 75
 		}
 	}
 	
 	option = { #Our country must follow the path laid by God
 		name = persian_renaissance.7.b
+		add_loyalists = {
+			religion = rel:shiite
+			value = large_radicals
+		}
+		add_modifier = {
+			name = modifier_no_secularization_support
+			months = long_modifier_time
+		}
 		
+		ai_chance = {
+			base = 25
+		}
 	}
 }
 

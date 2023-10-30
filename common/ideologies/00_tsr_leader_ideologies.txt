@@ -63,7 +63,7 @@
 	}
 	
 	leader_weight = {
-		value = 100
+		value = 50
 		# less likely when issues are not relevant
 		if = {
 			limit = {
@@ -114,7 +114,7 @@
 }
 
 ideology_persian_constitutionalist = {
-	icon = "gfx/interface/icons/ideology_icons/populist.dds"
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_populist.dds"
 	
 	character_ideology = yes
 	
@@ -157,8 +157,8 @@ ideology_persian_constitutionalist = {
 	lawgroup_land_reform = {
 		law_serfdom = strongly_disapprove
 		law_tenant_farmers = disapprove
-		law_commercialized_agriculture = strongly_approve
-		law_homesteading = approve
+		law_commercialized_agriculture = approve
+		law_homesteading = strongly_approve
 		law_collectivized_agriculture = disapprove
 	}
 	                                       
@@ -168,18 +168,34 @@ ideology_persian_constitutionalist = {
 		law_elected_bureaucrats = approve
 	}
 	
+	lawgroup_rights_of_women = {
+		law_no_womens_rights = disapprove
+		law_women_own_property = approve
+		law_women_in_the_workplace = neutral
+		law_womens_suffrage = neutral
+	}
+	
+	lawgroup_childrens_rights = {
+		law_child_labor_allowed = disapprove
+		law_restricted_child_labor = neutral
+		law_compulsory_primary_school = approve
+	}
+	
 	possible = {
 		NOT = { has_role = agitator }
 		exists = c:PER
 		owner = c:PER
-		has_technology_researched = nationalism
+		owner = {
+			has_technology_researched = nationalism
+			has_technology_researched = egalitarianism
+		}
 		scope:interest_group = { 
 			OR = {
 				is_interest_group_type = ig_industrialists
 				is_interest_group_type = ig_petty_bourgeoisie
 				is_interest_group_type = ig_intelligentsia
 				is_interest_group_type = ig_armed_forces
-				is_interest_group_type = ig_devout #lots of constitutionalist clerics in Iran
+				is_interest_group_type = ig_devout #there were lots of constitutionalist clerics in Iran
 			}
 		}
 		scope:interest_group = {
@@ -246,6 +262,15 @@ ideology_persian_constitutionalist = {
 			}
 			add = 50
 		}
+		# more likely when the JE is active
+		if = {
+			limit = {
+				owner = {
+					has_journal_entry = je_constitutional_reformation
+				}
+			}
+			add = 20
+		}
 		# a bit less likely for Devout
 		if = {
 			limit = {
@@ -253,18 +278,22 @@ ideology_persian_constitutionalist = {
 					is_interest_group_type = ig_devout
 				}
 			}
-			add = -25
+			add = -30
 		}
 		# more likely if Persia is declining and they still have regressive laws
 		if = {
 			limit = {
 				owner = {
-					#has_journal_entry = je_eclipse_of_persia
-					NOR = {
-						has_law = law_type:law_census_voting
-						has_law = law_type:law_slavery_banned
-						has_law = law_type:law_freedom_of_conscience
-						has_law = law_type:law_shared_roots
+					has_journal_entry = je_eclipse_of_persia
+					OR = {
+						has_law = law_type:law_autocracy
+						has_law = law_type:law_oligarchy
+						has_law = law_type:law_landed_voting
+						has_law = law_type:law_legacy_slavery
+						has_law = law_type:law_debt_slavery
+						has_law = law_type:law_slave_trade
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_denominational_exclusion
 					}
 				}
 			}

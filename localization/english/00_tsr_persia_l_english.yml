@@ -19,9 +19,6 @@
  rejected_zand_tt: "Mohammad Hussain Zand has appeared and we have rejected him."
  zand_appears_tt: "Mohammad Hussain Zand has appeared."
  zandism_spreading: "Spread of Zandism"
- secularization_tt: "Increasing #BOLD secularization#! of the country"
- tolerated_heathens_tt: "Increasing tolerance of #BOLD heathens and heretics#!"
- religious_conflicts_tt: "Increasing incidents of #BOLD religious conflicts#!"
  
  zandism_events.1.t: "Rise of Zandism Movement"
  zandism_events.1.d: "#BOLD Sheikh Mohammad Hussain Zand#!'s strange movement in [SCOPE.sState('zandism_state').GetName] has recently gained popular traction in [ROOT.GetCountry.GetName]. After declaring himself a representative of the Imam, Zand was excommunicated by the [SCOPE.gsInterestGroup('devout_scope').GetName], yet his number of followers continue to grow with each passing days."
@@ -60,6 +57,9 @@
  safavids_destroyed: "[SCOPE.sCountry('islamic_state_scope').GetName] does not exist"
  dp_zandi_rebellion: "Zandi Rebellion"
  dp_zandi_rebellion_tooltip: "Start a $dp_zandi_rebellion$ [concept_diplomatic_play]"
+ zandi_rebellion_criteria_1: "At least three of the following is true:\n- Increasing #BOLD secularization#! of the country\n- Increasing tolerance of #BOLD heathens and heretics#!\n- Increasing tolerance of #BOLD minority groups#!\n- Increasing incidents of #BOLD religious conflicts#!\n- We are supporting the #BOLD Constitutional Reformation#!\n- We are currently suppressing the [SCOPE.gsInterestGroup('ig_devout').GetName]\n- The approval of the [SCOPE.gsInterestGroup('ig_devout').GetName] is at or below #red 10#!"
+ zandi_rebellion_criteria_2: "At least three of the following is true:\n- We have the #BOLD Eclipse of Persia#! [concept_journal_entry]\n- Over #BOLD 15%#! of our Persian pops are radicals\n- We are in #BOLD default#!\n- Our [concept_legitimacy] is below #30#!\n- We are in a [concept_customs_union] under another country\n- Rampant #BOLD poverty#! in our country\n- Rampant #BOLD turmoil#! in our country\n- We have enacted [GetLawType('law_freedom_of_conscience').GetName], [GetLawType('law_shared roots').GetName], [GetLawType('law_total_separation').GetName], or [GetLawType('law_multicultural').GetName]"
+ 
  zandi_rebellion_modifier: "Zandi Revolution"
  zandi_revolution_modifier: "Jihad Through Revolution"
  zandi_theocratic_socialism: "Land Socialization"
@@ -84,6 +84,12 @@
  je_constitutional_reformation_reason: "Inspired by the ideals of the 1780 Revolution and driven by a coalition of intellectuals, clergy, merchants, and ordinary citizens, the Constitutionalist movement has risen to demand a new constitution with a representative government and greater political freedoms."
  iranian_romantic_nationalism_tt: "We have adopted Romantic Nationalism"
  zandi_rebellion_start_tt: "The Zandi Rebellion has begun"
+ reformed_constitution: "Reformed Constitution"
+ constitutional_reformation: "Constitutional Reformation"
+ constitutional_reformation_religion: "Constitutional Reformation: Religious Rights"
+ constitutional_reformation_suffrage: "Constitutional Reformation: Suffrage Rights"
+ constitutional_reformation_land_reform: "Constitutional Reformation: Land Rights"
+ constitutional_reformation_education: "Constitutional Reformation: Educational Committee"
  
  sway_to_constitutionalism: "Sway to Constitutionalist"
  sway_to_constitutionalism_desc: "With the proper combination of bribes and persuasion, a politician might be persuaded to support our reform attempts."
@@ -93,6 +99,7 @@
  sway_to_constitutionalism_compatible_ideology_tt_compatibility_list: "[Concept('concept_ideology','$concept_ideologies$')] opposed to [GetIdeology('ideology_persian_constitutionalist').GetName] includes:\n[GetIdeology('ideology_atheist').GetName]\n[GetIdeology('ideology_theocrat').GetName]\n[GetIdeology('ideology_republican_leader').GetName]\n[GetIdeology('ideology_radical').GetName]\n[GetIdeology('ideology_social_democrat').GetName]\n[GetIdeology('ideology_communist').GetName]\n[GetIdeology('ideology_vanguardist').GetName]\n[GetIdeology('ideology_anarchist').GetName]\n[GetIdeology('ideology_humanitarian').GetName]"
  swayed_to_constitutionalist: "Overt Constitutionalist Influence"
  sway_to_constitutionalism_tt: "We have swayed a politician into supporting the #BOLD Constitutional Reformation#!"
+ refused_reforms: "Refused to Reform"
  
  #Persian Renaissance
  je_persian_renaissance: "Iranian Renaissance"
@@ -103,8 +110,8 @@
  persian_renaissance_science_philosophy_button_desc: "Long before the European Renaissance generated the radical ideas that eventually reshaped the West, Iranian statesmen, artists, and intellectuals had formulated ideas that strikingly anticipate those of modernity. However, these intellectual reforms encountered a widespread opposition from the court and the Ulemma. Now that our empire has embraced the possibility of another reform, let us encourage the new generation of intellectuals."
  persian_renaissance_historical_sites_button: "Our Ancient Past"
  persian_renaissance_historical_sites_button_desc: "The ancient history of Iran has an impressively rich and varied cultural legacy that has influenced not only our civilization but also those of the West and East until today. By restoring the ruins of the past, we may continue to inspire the future."
- persian_renaissance_literature_button: "Promote Literary Works"
- persian_renaissance_literature_button_desc: "The rise of popular literature reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics. By facilitating them, we can increase the support of reforms in our country."
+ persian_renaissance_literature_button: "Literature and Schools"
+ persian_renaissance_literature_button_desc: "The increasing literacy of our empire has led to a rise of popular literature. These literary works reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics."
  persian_renaissance_architecture_button: "Commission Architectural Works"
  persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West has led to a new architectural movement that combines neoclassical-style buildings prevalent in Europe with traditional Iranian architecture. Let us adopt this new architectural style to signify our move toward modernization."
  persian_renaissance_art_and_music_button: "Encourage Artists and Musicians"
@@ -112,6 +119,8 @@
  persian_renaissance_romantic_nationalism_button: "Romantic Nationalism"
  persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, through the rise of nationalism we shall be more united than ever before."
  adopted_blasphemous_ideals: "Blasphemous Ideals Adopted"
+ modifier_secularization_support: "Increased Secularization Support"
+ modifier_no_secularization_support: "Suppressed Secularization Support"
  
  persian_renaissance.1.t: "The Academy of Iran"
  persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [GetPlayer.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
@@ -173,6 +182,39 @@
  rejected_iranian_identity: "Rejected Iranian Nationalism"
  persian_ruled_empire: "Persian-ruled Empire"
  return_to_devout: "Appeased Clergy"
+ 
+ persian_flavor.5.t: "[SCOPE.sCharacter('kermani_scope').GetFullName]"
+ persian_flavor.5.d: "[SCOPE.sCharacter('kermani_scope').GetFullName] is an Iranian intellectual who advocates for political, social, and religious reform characteristic of his generation of intellectuals. Born in [SCOPE.sState('kerman_state').GetName], he belonged to an important local family with a rich background in mysticism. After his brief career as a tax collector ended, he decided to leave to [SCOPE.sState('isfahan_state').GetName], where he joined a literary circle that was discussing "new and progressive ideas"."
+ persian_flavor.5.f: "A chauvinistic, anti-Arab, and anti-Islamic color pervades his major works. Denouncing the Islamic legacy within Iranian culture, he claimed that Iran’s authentic identity could be sought only in the pre-Islamic past; contrasting the "noble Aryan nation" with the Semitic Arab "savage, lizard-eaters". In glorifying the ancient past, [SCOPE.sCharacter('kermani_scope').GetFullName] more often than not viewed it in the light of his contemporary western liberal ideal. Naturally, his views clashes with the current political climate of [ROOT.GetCountry.GetName]."
+ persian_flavor.5.a: "He will only bring unrest to our country."
+ persian_flavor.5.b: "His ideas might benefit us."
+ 
+ persian_flavor.6.t: "[SCOPE.sCharacter('kermani_scope').GetFullName]"
+ persian_flavor.6.d: "[SCOPE.sCharacter('kermani_scope').GetFullName] is an Iranian intellectual who advocates for political, social, and religious reform characteristic of his generation of intellectuals. After enraging the [SCOPE.sCountry('per_scope').GetAdjectiveNoFormatting] government, he recently arrived in [ROOT.GetCountry.GetCapital.GetCityHubName] to avoid capture, where he became acquainted with western science and wrote practically all his works."
+ persian_flavor.6.f: "A chauvinistic, anti-Arab, and anti-Islamic color pervades his major works. Denouncing the Islamic legacy within Iranian culture, he claimed that Iran’s authentic identity could be sought only in the pre-Islamic past; contrasting the "noble Aryan nation" with the Semitic Arab "savage, lizard-eaters". In glorifying the ancient past, [SCOPE.sCharacter('kermani_scope').GetFullName] more often than not viewed it in the light of his contemporary western liberal ideal. Naturally, his views clashes with the current political climate of [SCOPE.sCountry('per_scope').GetName]."
+ persian_flavor.6.a: "What a strange foreigner."
+ 
+ persian_flavor.8.t: "[SCOPE.sCharacter('kermani_scope').GetLastName]'s Critiques of [ROOT.GetCountry.GetName]"
+ persian_flavor.8.d: "Despite not longer living within our borders, [SCOPE.sCharacter('kermani_scope').GetFullName] still has the galls to criticize the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s latest policies, siding with the Constitutional Reformation movements. To make matter worse, his letters attacking Prime Minister [SCOPE.sCharacter('prime_minister_scope').GetFullName], the court, and the ulemmas has left the [SCOPE.gsInterestGroup('prime_minister_ig_scope').GetName] calling for his head."
+ persian_flavor.8.f: ""We have witnessed the once-glorious Expansive Realm of Iran plagued by corruption and stagnation. The cherished values of justice and enlightenment have been overshadowed by the darkness of despotism, held in the grips of the corrupt Ulemmas' dogma for far too long, and it is no secret that self-interest have taken priority among the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s advisors and officials. It is time to relinquish the power of the Safavids and embrace a government that derives its authority from the will of the Iranians themselves.""
+ persian_flavor.8.a: "Extradite him back to the empire!"
+ persian_flavor.8.b: "Find and capture him!"
+ persian_flavor.8.c: "What harm can a mere writer do?"
+ 
+ persian_flavor.9.t: "[SCOPE.sCountry('per_scope').GetAdjectiveNoFormatting] Authorities Demand the Extradition of [SCOPE.sCharacter('kermani_scope').GetLastName]"
+ persian_flavor.9.d: "The activities and writings of [SCOPE.sCharacter('kermani_scope').GetFullName] was brought to light when some of his letters addressed to the Shiʿite mojtaheds of the [SCOPE.sCountry('per_scope').GetName] came to the attention of the [SCOPE.sCountry('per_scope').GetAdjectiveNoFormatting] consul in our country. It is clear that [SCOPE.sCharacter('kermani_scope').GetLastName] would not escape unscathed if he were to return to [SCOPE.sCountry('per_scope').GetName]."
+ persian_flavor.9.f: ""We have witnessed the once-glorious Expansive Realm of Iran plagued by corruption and stagnation. The cherished values of justice and enlightenment have been overshadowed by the darkness of despotism, held in the grips of the corrupt Ulemmas' dogma for far too long, and it is no secret that self-interest have taken priority among the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s advisors and officials. It is time to relinquish the power of the Safavids and embrace a government that derives its authority from the will of the Iranians themselves.""
+ persian_flavor.9.a: "Turn him in."
+ persian_flavor.9.b: "What authority do the Persians have in our country?"
+ 
+ persian_flavor.10.t: "The Execution of [SCOPE.sCharacter('kermani_scope').GetFullName]"
+ persian_flavor.10.d: "Following [SCOPE.sCharacter('kermani_scope').GetLastName]'s arrest, he has been suspected with the assassination attempt on the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] at the hand of an alleged Bābī closely associated with Jamaluddin al-Afghani. He was then moved and executed in Tabriz."
+ persian_flavor.10.f: ""I want it to be known that my calls were not acts of treason but rather acts of profound love for Iran. I believed, and continue to believe, that the ideas I wrote would allow our people to enjoy better living conditions and a better intellectual environment. In ending my life, you may extinguish my physical existence, but you cannot extinguish the thirst for liberty, justice, and enlightenment that will persist in the hearts of countless Iranians. I pray that one day, our nation will recognize the importance of these ideals and that my sacrifice may not have been in vain.""
+ persian_flavor.10.a: "Good riddance."
+ 
+ modifier_kermani_in_exile: "Kermani in Exile"
+ kermani_scot_free: "Did Not Pursue Kermani"
+ executed_kermani: "Executed Kermani"
  
  #Decisions
  excavation_of_persepolis: "Excavation of Persepolis"

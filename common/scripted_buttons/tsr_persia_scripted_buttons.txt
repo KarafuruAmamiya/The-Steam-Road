@@ -75,10 +75,23 @@ persian_renaissance_literature = {
 		NOT = {
 			has_variable = persian_renaissance_literature
 		}
-		#has_variable = Mirza Aqa Khan Kermani
 		has_technology_researched = dialectics
 		has_technology_researched = realism
-		literacy_rate > 0.5
+		any_scope_building = {
+			count >= 5
+			is_building_type = building_university
+			occupancy > 0.9
+			level >= 5
+		}
+		trigger_if = {
+			limit = {
+				has_global_variable = tsr_uhre
+			}
+			literacy_rate >= 0.40
+		}
+		trigger_else = {
+			literacy_rate >= 0.65
+		}
 	}
 
 	effect = {
@@ -100,11 +113,19 @@ persian_renaissance_architecture = {
 		NOT = {
 			has_variable = persian_renaissance_architecture
 		}
-		#has_variable = Nasir-ol-Molk Mosque
-		#has_variable = Shazdeh Garden
-		#has_variable = Golestan Palace (renovate the citadel of Tehran)
-		#has_variable = Renovate Ali Qapu Gate
-		#has_variable = Courthouse of Isfahan
+		NOT = {
+			any_scope_building = {
+				is_building_type = building_construction_sector
+				building_has_goods_shortage = yes
+				has_active_production_method = pm_wooden_buildings
+			}
+		}
+		capital = {
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 15
+			}
+		}
 	}
 
 	effect = {
@@ -113,30 +134,50 @@ persian_renaissance_architecture = {
 			name = persian_renaissance_var
 			add = 1
 		}
+		trigger_event = { id = persian_renaissance.8 }
 	}
 }
 
-persian_renaissance_art_and_music = {
-	name = "persian_renaissance_art_and_music_button"
-	desc = "persian_renaissance_art_and_music_button_desc"
+persian_renaissance_textile_arts = {
+	name = "persian_renaissance_textile_arts_button"
+	desc = "persian_renaissance_textile_arts_button_desc"
 
 	visible = { always = yes }
 
 	possible = {
 		NOT = {
-			has_variable = persian_renaissance_art_and_music
+			has_variable = persian_renaissance_textile_arts
 		}
 		any_scope_building = {
-			count >= 4
+			count >= 3
 			is_building_type = building_arts_academy
 			occupancy >= 0.9
-			level >= 3
+			level >= 5
 		}
-		#Some decisions
+		any_scope_building = {
+			count >= 3
+			is_building_type = building_textile_mill
+			has_active_production_method = pm_craftsman_sewing
+			building_has_goods_shortage = no
+			occupancy >= 0.9
+			level >= 25
+		}
+		any_market = {
+			count >= 10
+			NOT = { owner = root }
+			any_trade_route = {
+				exporter.owner = root
+				OR = {
+					goods = g:luxury_clothes
+					goods = g:clothes
+				}
+				is_trade_route_productive = yes
+			}
+		}
 	}
 
 	effect = {
-		set_variable = persian_renaissance_art_and_music
+		set_variable = persian_renaissance_textile_arts
 		change_variable = {
 			name = persian_renaissance_var
 			add = 1
@@ -158,7 +199,10 @@ persian_renaissance_romantic_nationalism = {
 		ig:ig_devout = {
 			is_powerful = no
 		}
-		has_variable = persian_renaissance_historical_sites
+		custom_tooltip = {
+			text = persian_renaissance_historical_sites_tt
+			has_variable = persian_renaissance_historical_sites
+		}
 	}
 
 	effect = {

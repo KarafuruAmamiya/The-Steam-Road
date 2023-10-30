@@ -66,8 +66,8 @@ company_east_india_company = {
 	}
 }
 
-# J. & P. Coats
-company_j_p_coats = {
+# Vatan National Corporation
+company_vatan = {
 	texture = "gfx/interface/icons/company_icons/historical_company_icons/gb_jp_coats.dds"
 	
 	flavored_company = yes
@@ -77,12 +77,12 @@ company_j_p_coats = {
 	}
 	
 	potential = {
-		has_interest_marker_in_region = region_gaelic
+		has_interest_marker_in_region = region_persia
 	}
 	
 	possible = {
 		any_scope_state = {
-			state_region = s:STATE_LOWLANDS
+			state_region = s:STATE_ISFAHAN
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_textile_mills

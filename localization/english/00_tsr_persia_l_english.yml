@@ -107,20 +107,21 @@
  je_persian_renaissance_goal: "We have facilitated all 6 aspects of the Iranian Renaissance."
  
  persian_renaissance_science_philosophy_button: "Science, Philosophy, and Intellectualism"
- persian_renaissance_science_philosophy_button_desc: "Long before the European Renaissance generated the radical ideas that eventually reshaped the West, Iranian statesmen, artists, and intellectuals had formulated ideas that strikingly anticipate those of modernity. However, these intellectual reforms encountered a widespread opposition from the court and the Ulemma. Now that our empire has embraced the possibility of another reform, let us encourage the new generation of intellectuals."
+ persian_renaissance_science_philosophy_button_desc: "Long before the European Renaissance generated the radical ideas that eventually reshaped the West, Iranian statesmen, artists, and intellectuals had formulated ideas that strikingly anticipate those of modernity. Let us encourage a new generation of intellectuals."
  persian_renaissance_historical_sites_button: "Our Ancient Past"
  persian_renaissance_historical_sites_button_desc: "The ancient history of Iran has an impressively rich and varied cultural legacy that has influenced not only our civilization but also those of the West and East until today. By restoring the ruins of the past, we may continue to inspire the future."
  persian_renaissance_literature_button: "Literature and Schools"
  persian_renaissance_literature_button_desc: "The increasing literacy of our empire has led to a rise of popular literature. These literary works reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics."
- persian_renaissance_architecture_button: "Commission Architectural Works"
- persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West has led to a new architectural movement that combines neoclassical-style buildings prevalent in Europe with traditional Iranian architecture. Let us adopt this new architectural style to signify our move toward modernization."
- persian_renaissance_art_and_music_button: "Encourage Artists and Musicians"
- persian_renaissance_art_and_music_button_desc: "Ever since the 1780 Revolution, young artists musicians sought new forms of art and music to synchronize with the tide of social changes. The relative laxing of religious laws has also allowed more freedom for artisians to express themselves in various new ways. Let us sponsor these new artistic movements within our country."
+ persian_renaissance_architecture_button: "Urbanization and Architecture"
+ persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West and the rise of larger cities has led to a new a new architectural movement combining European neoclassical styles with traditional Iranian styles."
+ persian_renaissance_textile_arts_button: "Textile Arts"
+ persian_renaissance_textile_arts_button_desc: "Although Western clothing influences became more and more prevalent, it is still our duty to exude the pride and ancient glory of the Persian Empire through elements of traditional dress and carpetry. Let us expand our textile industries and show the majesty of Persian textile to the world."
  persian_renaissance_romantic_nationalism_button: "Romantic Nationalism"
- persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, through the rise of nationalism we shall be more united than ever before."
+ persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, we shall be more united than ever before."
  adopted_blasphemous_ideals: "Blasphemous Ideals Adopted"
  modifier_secularization_support: "Increased Secularization Support"
  modifier_no_secularization_support: "Suppressed Secularization Support"
+ persian_renaissance_historical_sites_tt: "We have restored at least 5 ancient ruins."
  
  persian_renaissance.1.t: "The Academy of Iran"
  persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [GetPlayer.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
@@ -151,6 +152,15 @@
  persian_renaissance.6.d: "The Atash Beram of Yazd has been burning since about 470 AD, originally started by a Sassanian Shah. From there it was transferred to Aqda where it was kept for 700 years. The fire was then moved in 1173 to Nahid-e Pars temple in Ardakan, where it remained for 300 years until it was moved again to the house of a high priest in Yazd. With the construction of the new temple finished, the fire is now finally consecrated in its new home."
  persian_renaissance.6.f: ""
  persian_renaissance.6.a: "Wonderful."
+ 
+ 
+ persian_renaissance.8.t: "The Remodeling of Isfahan"
+ persian_renaissance.8.d: "With new elements and styles of European architecture and building techniques introduced to the country, new projects has begun to remodel [SCOPE.sState('isfahan_state').GetName] into a 'modern' city, demolishing the dense urban fabric in parts of the old city and replacing them with boulevards and open squares inspired by what the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] saw in his visits to Europe. The new layout of the city is planned to include wide streets and avenues in the vein of European capitals."
+ persian_renaissance.8.f: ""You remember the old bazaars? Those bustling, narrow streets where we traded and met friends and neighbors for generations? They're tearin' 'em down, bit by bit, just to build these wide open gardens that the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] fancied over yonder in the West. Now, I ain't no scholar, but it feels more like they're tryin' to make Esfahan into some foreign place.""
+ persian_renaissance.8.a: "Splendid."
+ modifier_isfahan_renewal: "Remodeling of Isfahan"
+ modifier_isfahan_positive: "Remodeling of Isfahan"
+ modifier_isfahan_negative: "Against the Remodeling of Isfahan"
  
  #Persian flavor events
  persian_flavor.1.t: "The Rights of Zoroastrians"
@@ -203,7 +213,7 @@
  
  persian_flavor.9.t: "[SCOPE.sCountry('per_scope').GetAdjectiveNoFormatting] Authorities Demand the Extradition of [SCOPE.sCharacter('kermani_scope').GetLastName]"
  persian_flavor.9.d: "The activities and writings of [SCOPE.sCharacter('kermani_scope').GetFullName] was brought to light when some of his letters addressed to the Shiʿite mojtaheds of the [SCOPE.sCountry('per_scope').GetName] came to the attention of the [SCOPE.sCountry('per_scope').GetAdjectiveNoFormatting] consul in our country. It is clear that [SCOPE.sCharacter('kermani_scope').GetLastName] would not escape unscathed if he were to return to [SCOPE.sCountry('per_scope').GetName]."
- persian_flavor.9.f: ""We have witnessed the once-glorious Expansive Realm of Iran plagued by corruption and stagnation. The cherished values of justice and enlightenment have been overshadowed by the darkness of despotism, held in the grips of the corrupt Ulemmas' dogma for far too long, and it is no secret that self-interest have taken priority among the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s advisors and officials. It is time to relinquish the power of the Safavids and embrace a government that derives its authority from the will of the Iranians themselves.""
+ persian_flavor.9.f: ""We have witnessed the once-glorious Expansive Realm of Iran plagued by corruption and stagnation. The cherished values of justice and enlightenment have been overshadowed by the darkness of despotism, held in the grips of the corrupt Ulemmas' dogma for far too long, and it is no secret that self-interest have taken priority among the [SCOPE.sCountry('per_scope').GetRuler.GetPrimaryRoleTitle]'s advisors and officials. It is time to relinquish the power of the Safavids and embrace a government that derives its authority from the will of the Iranians themselves.""
  persian_flavor.9.a: "Turn him in."
  persian_flavor.9.b: "What authority do the Persians have in our country?"
  

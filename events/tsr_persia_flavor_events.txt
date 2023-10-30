@@ -1026,7 +1026,7 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.b
 		trigger = {
-			has_law = law:law_shared_roots
+			has_law = law_type:law_shared_roots
 		}
 		add_modifier = {
 			name = constitutional_reformation_religion
@@ -1042,7 +1042,7 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.c
 		trigger = {
-			has_law = law:law_census_voting
+			has_law = law_type:law_census_voting
 		}
 		add_modifier = {
 			name = constitutional_reformation_suffrage
@@ -1058,7 +1058,7 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.d
 		trigger = {
-			has_law = law:law_homesteading
+			has_law = law_type:law_homesteading
 		}
 		add_modifier = {
 			name = constitutional_reformation_land_reform
@@ -1074,7 +1074,7 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.e
 		trigger = {
-			has_law = law:law_compulsory_primary_school
+			has_law = law_type:law_compulsory_primary_school
 		}
 		add_modifier = {
 			name = constitutional_reformation_education
@@ -1275,7 +1275,6 @@ persian_renaissance.7 = { #Persian Nationalism
 	option = { #Adopt a secular identity
 		name = persian_renaissance.7.a
 		default_option = yes
-		set_variable = secular_persia
 		ig:ig_devout = {
 			add_modifier = {
 				name = adopted_blasphemous_ideals
@@ -1298,7 +1297,7 @@ persian_renaissance.7 = { #Persian Nationalism
 		}
 	}
 	
-	option = { #Our country must follow the path laid by God
+	option = { #A country must be based on divine guidance
 		name = persian_renaissance.7.b
 		add_loyalists = {
 			religion = rel:shiite
@@ -1315,5 +1314,64 @@ persian_renaissance.7 = { #Persian Nationalism
 	}
 }
 
+persian_renaissance.8 = { #The Remodeling of Isfahan
+	type = country_event
+	placement = scope:isfahan_state
+	title = persian_renaissance.8.t
+	desc = persian_renaissance.8.d
+	flavor =  persian_renaissance.8.f
+	duration = 3
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_state
+		}
+	}
+	
+	option = { #
+		name = persian_renaissance.8.a
+		default_option = yes
+		scope:isfahan_state = {
+			add_modifier = {
+				name = modifier_isfahan_renewal
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = modifier_isfahan_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = modifier_isfahan_positive
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = modifier_isfahan_negative
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = modifier_isfahan_negative
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
 #Karakum Frontier events
-#The ancient city of Merv, previously fading into obscurity ever since its sacking by the Mongols, has experienced some revitalization as a developing #industrial center in [ROOT.GetCountry.GetName]. However, it is lacking in manpower if we wish to turn it into an industrial city, and local governors #suggest incorporating the Turkmen nomads into farms and factories.
+#The ancient city of Merv, previously fading into obscurity ever since its sacking by the Mongols, has experienced some revitalization as a developing industrial center in [ROOT.GetCountry.GetName]. However, it is lacking in manpower if we wish to turn it into an industrial city, and local governors suggest incorporating the Turkmen nomads into farms and factories.

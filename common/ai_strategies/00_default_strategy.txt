@@ -136,6 +136,7 @@ ai_strategy_default = {
 					OR = {
 						country_has_primary_culture = cu:north_german
 						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:rhenish
 					}
 					c:FRA = {
 			      		is_diplomatic_play_initiator = yes
@@ -2712,11 +2713,13 @@ ai_strategy_default = {
 					OR = {
 						country_has_primary_culture = cu:north_german
 						country_has_primary_culture = cu:south_german					
+						country_has_primary_culture = cu:rhenish					
 					}
 					scope:target_country = {
 						NOR = {
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:south_german						
+							country_has_primary_culture = cu:rhenish						
 						}
 					}
 					scope:target_country = { NOT = { is_subject_of = root } }
@@ -3738,6 +3741,7 @@ ai_strategy_default = {
 						OR = {
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
 						}
 						country_rank <= rank_value:minor_power
 					}
@@ -3765,6 +3769,7 @@ ai_strategy_default = {
 					OR = {
 						country_has_primary_culture = cu:north_german
 						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:rhenish
 					}
 					scope:target_country = {
 						this = c:FRA
@@ -4756,6 +4761,7 @@ ai_strategy_default = {
 						OR = {
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
 						}
 						country_rank <= rank_value:minor_power
 					}

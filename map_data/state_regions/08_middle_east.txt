@@ -95,7 +95,8 @@ STATE_NIZWA = {
 STATE_ABU_DHABI = {
     id = 400
     subsistence_building = "building_subsistence_pastures"
-    provinces = { "x0DC972" "x1830A7"  "x28D126" "x4D3B30"  "x631F32" "x65A581" "x69B568" "x70D020" "x723F1D" "x8C6854" "xA9240B" "xC9472E" "xD12977" "xE8E0A4"  "xF0D021" "xFF7473" }
+    provinces = { "x0DC972" "x1830A7"  "x28D126" "x4D3B30"  "x631F32" "x65A581" "x69B568" "x70D020" "x723F1D" "x8C6854" "xA9240B" "xC9472E" "xD12977" "xE8E0A4"  "xF0D021" "xFF7473" "x505AE0" "x2768F8" "xEF5020" }
+	prime_land = { "x505AE0" "x2768F8" "xEF5020" }
 	traits = { "state_trait_arabian_desert" }
     city = "x505AE0"
     port = "x65A581"
@@ -234,7 +235,7 @@ STATE_HAIL = {
 STATE_HAASA = {
     id = 606
     subsistence_building = "building_subsistence_pastures"
-    provinces = { "x68C89A" "xDABB9C" "x00F060" "x4C5D5F" "x705120" "x920B4A" "xCB2408" "xEF8A47" "x16AA3B" "x1BC279" "x2BAA0A" "x4B8848" "x90E0EA" "x3E4014" "x7DA074" "x2BCAA5" "xDD5764" "x28C1E8" "x83A8BC" "xCCA55B" "x04600E" "x3F4AE7" "x0ACC6B" "xA96ED6" "x91E56C" "x2255C1" "x4DE08D" "xECF47B" "x1E06DA" "xE03651" "xDC89F7" "xD5DCA6" "x0E606A" "x92CA55" "xA7B102" }
+    provinces = { "x68C89A" "xDABB9C" "x00F060" "x4C5D5F" "x705120" "x920B4A" "xCB2408" "xEF8A47" "x16AA3B" "x1BC279" "x2BAA0A" "x4B8848" "x90E0EA" "x3E4014" "x7DA074" "x2BCAA5" "xDD5764" "x28C1E8" "x83A8BC" "xCCA55B" "x04600E" "x3F4AE7" "x0ACC6B" "xA96ED6" "x91E56C" "x2255C1" "x4DE08D" "xECF47B" "x1E06DA" "xE03651" "xDC89F7" "xD5DCA6" "x0E606A" "x92CA55" "xA7B102" "xC5E0C7" "xB3E853" "x0835E8" "x0065FA" "x765651" "x416A9E" "x71E27F" "xD8F2D3" "xABB380" "x468626" }
 	prime_land = { "x4B8848" "x4C5D5F" "x2BAA0A" "x3E4014" }
     traits = { "state_trait_arabian_desert" "state_trait_rich_oil" }
     city = ""
@@ -242,32 +243,10 @@ STATE_HAASA = {
     farm = ""
     mine = ""
     wood = ""
-    arable_land = 10
+    arable_land = 15
 	arable_resources = { "bg_livestock_ranches" }
     capped_resources = {
         bg_fishing = 4
-    }
-    resource = {
-        type = "bg_oil_extraction"
-        undiscovered_amount = 35
-    }
-    naval_exit_id = 3046
-}
-
-STATE_QATAR = {
-    id = 607
-    subsistence_building = "building_subsistence_pastures"
-    provinces = { "xC5E0C7" "xB3E853" "x0835E8" "x0065FA" "x765651" "x416A9E" "x71E27F" "xD8F2D3" "xABB380" "x468626" "x505AE0" "x2768F8" "xEF5020" }
-    traits = { "state_trait_arabian_desert" "state_trait_rich_oil" }
-    city = ""
-    port = ""
-    farm = ""
-    mine = ""
-    wood = ""
-    arable_land = 5
-	arable_resources = { "bg_livestock_ranches" }
-    capped_resources = {
-        bg_fishing = 2
     }
     resource = {
         type = "bg_oil_extraction"

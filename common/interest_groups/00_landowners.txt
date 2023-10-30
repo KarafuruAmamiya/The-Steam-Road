@@ -84,6 +84,14 @@
 				set_ig_trait = ig_trait:ig_trait_family_ties
 				set_ig_trait = ig_trait:ig_trait_patrician_philanthropy
 			}
+			else_if = {
+				limit = {
+					owner = { c:PER ?= this}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_knowledge_of_the_land
+				set_ig_trait = ig_trait:ig_trait_shadow_of_god
+			}
 			else = {
 				set_ig_trait = ig_trait:ig_trait_noble_privileges
 				set_ig_trait = ig_trait:ig_trait_family_ties
@@ -216,6 +224,8 @@
 			ig:ig_landowners = {
 				remove_ideology = ideology_paternalistic
 				add_ideology = ideology_safavid_paternalistic
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_safavid_stratocratic
 			}
 		}
 		# Akkovin Aristocracy

@@ -25,28 +25,26 @@
 				text = religious_conflicts_tt
 				has_variable = zandism_religious_conflicts
 			}
+			custom_tooltip = {
+				text = sway_to_constitutionalism_tt
+				has_variable = zandism_sway_to_constitutionalism
+			}
 			ig:ig_devout = {
 				is_being_suppressed = yes
 			}
 			ig:ig_devout = {
 				ig_approval <= -10
 			}
-			ig:ig_devout = {
-				leader = {
-					has_ideology = ideology:ideology_persian_constitutionalist
-				}
-			}
 		}
 		calc_true_if = {
 			amount >= 3
 			has_journal_entry = je_eclipse_of_persia
 			radical_fraction = {
-				value >= 0.25
+				value >= 0.15
 				culture = cu:persian
 			}
 			in_default = yes
-			has_revolution = yes
-			government_legitimacy < 30
+			government_legitimacy <= 30
 			is_junior_in_customs_union = yes
 			OR = {
 				average_sol < 10
@@ -56,7 +54,7 @@
 					state_region = { 
 						is_homeland = cu:persian
 					}
-					average_sol <= 8
+					average_sol <= 9
 				}
 			}
 			any_scope_state = {
@@ -66,13 +64,6 @@
 					is_homeland = cu:persian
 				}
 				turmoil > 0.15
-			}
-			any_scope_state = {
-				is_incorporated = yes
-				state_region = { 
-					is_homeland = cu:persian
-				}
-				state_unemployment_rate >= 0.2
 			}
 		}
 		is_subject = no

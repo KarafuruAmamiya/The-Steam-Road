@@ -85,6 +85,15 @@
  iranian_romantic_nationalism_tt: "We have adopted Romantic Nationalism"
  zandi_rebellion_start_tt: "The Zandi Rebellion has begun"
  
+ sway_to_constitutionalism: "Sway to Constitutionalist"
+ sway_to_constitutionalism_desc: "With the proper combination of bribes and persuasion, a politician might be persuaded to support our reform attempts."
+ sway_to_constitutionalism_correct_ig_in_government_tt: "[Character.GetFullNamePossessive] [concept_interest_group] [Character.GetInterestGroup.GetName] is [concept_in_government] and #tooltippable #tooltip:[Character.GetTooltipTag],sway_to_constitutionalism_correct_ig_in_government_tt_compatibility_list ideologically compatible with [GetIdeology('ideology_persian_constitutionalist').GetName]#!#!"
+ sway_to_constitutionalism_correct_ig_in_government_tt_compatibility_list: "[Concept('concept_interest_group','$concept_interest_groups$')] compatible with [GetIdeology('ideology_persian_constitutionalist').GetName] includes:\n[GetInterestGroupVariant('ig_armed_forces',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_petty_bourgeoisie',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_industrialists',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_intelligentsia',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_devout',Character.GetCountry).GetName]"
+ sway_to_constitutionalism_compatible_ideology_tt: "[Character.GetFullNamePossessive] current [concept_ideology] ([Character.GetIdeology.GetName)]) is #b not#! #tooltippable #tooltip:[Character.GetTooltipTag],sway_to_constitutionalism_compatible_ideology_tt_compatibility_list opposed to [GetIdeology('ideology_persian_constitutionalist').GetName]#!#!"
+ sway_to_constitutionalism_compatible_ideology_tt_compatibility_list: "[Concept('concept_ideology','$concept_ideologies$')] opposed to [GetIdeology('ideology_persian_constitutionalist').GetName] includes:\n[GetIdeology('ideology_atheist').GetName]\n[GetIdeology('ideology_theocrat').GetName]\n[GetIdeology('ideology_republican_leader').GetName]\n[GetIdeology('ideology_radical').GetName]\n[GetIdeology('ideology_social_democrat').GetName]\n[GetIdeology('ideology_communist').GetName]\n[GetIdeology('ideology_vanguardist').GetName]\n[GetIdeology('ideology_anarchist').GetName]\n[GetIdeology('ideology_humanitarian').GetName]"
+ swayed_to_constitutionalist: "Overt Constitutionalist Influence"
+ sway_to_constitutionalism_tt: "We have swayed a politician into supporting the #BOLD Constitutional Reformation#!"
+ 
  #Persian Renaissance
  je_persian_renaissance: "Iranian Renaissance"
  je_persian_renaissance_reason: "Beginning in the 19th century, the westernization of Iran has brought with them new ideas and knowledge, and with it a new renaissance for culture and enlightenment. By embracing it, we shall increase the glory of our nation and exude our national pride to the world."

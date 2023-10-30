@@ -114,7 +114,7 @@
 }
 
 ideology_persian_constitutionalist = {
-	icon = "gfx/interface/icons/ideology_icons/republican.dds"
+	icon = "gfx/interface/icons/ideology_icons/populist.dds"
 	
 	character_ideology = yes
 	
@@ -172,6 +172,7 @@ ideology_persian_constitutionalist = {
 		NOT = { has_role = agitator }
 		exists = c:PER
 		owner = c:PER
+		has_technology_researched = nationalism
 		scope:interest_group = { 
 			OR = {
 				is_interest_group_type = ig_industrialists

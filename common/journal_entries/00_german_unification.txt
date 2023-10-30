@@ -6,6 +6,7 @@
 			country_has_primary_culture = cu:north_german
 			country_has_primary_culture = cu:baltic_german
 			country_has_primary_culture = cu:south_german
+			country_has_primary_culture = cu:rhenish
 		}
 	}
 
@@ -14,6 +15,7 @@
 			country_has_primary_culture = cu:north_german
 			country_has_primary_culture = cu:baltic_german
 			country_has_primary_culture = cu:south_german
+			country_has_primary_culture = cu:rhenish
 		}	
 	}
  
@@ -24,6 +26,7 @@
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:baltic_german
 					country_has_primary_culture = cu:south_german				
+					country_has_primary_culture = cu:rhenish				
 				}
 			}
 			has_technology_researched = nationalism	
@@ -44,13 +47,29 @@
 									OR = {
 										country_has_primary_culture = cu:north_german
 										country_has_primary_culture = cu:baltic_german
+										country_has_primary_culture = cu:rhenish
 									} 
 								}
 							}						
 							AND = {
 								country_has_primary_culture = cu:south_german
-								root = { country_has_primary_culture = cu:south_german }
-							}						
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
+							}	
+							AND = {
+								country_has_primary_culture = cu:rhenish
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:north_german 
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
+							}
 						}
 					}			
 				}			
@@ -64,13 +83,29 @@
 									OR = {
 										country_has_primary_culture = cu:north_german
 										country_has_primary_culture = cu:baltic_german
+										country_has_primary_culture = cu:rhenish
 									} 
 								}
 							}						
 							AND = {
 								country_has_primary_culture = cu:south_german
-								root = { country_has_primary_culture = cu:south_german }
-							}						
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
+							}
+							AND = {
+								country_has_primary_culture = cu:rhenish
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:north_german 
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
+							}							
 						}					
 					}
 					save_scope_as = german_unifier_candidate
@@ -84,6 +119,7 @@
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:baltic_german
 							country_has_primary_culture = cu:south_german					
+							country_has_primary_culture = cu:rhenish					
 						}
 					}			
 				}			
@@ -94,6 +130,7 @@
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:baltic_german					
 							country_has_primary_culture = cu:south_german						
+							country_has_primary_culture = cu:rhenish						
 						}					
 					}
 					save_scope_as = german_unifier_candidate
@@ -110,13 +147,29 @@
 									OR = {
 										country_has_primary_culture = cu:north_german
 										country_has_primary_culture = cu:baltic_german
+										country_has_primary_culture = cu:rhenish
 									} 
 								}
 							}						
 							AND = {
 								country_has_primary_culture = cu:south_german
-								root = { country_has_primary_culture = cu:south_german }
-							}						
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:south_german
+										country_has_primary_culture = cu:rhenish
+									}
+								}
+							}	
+							AND = {
+								country_has_primary_culture = cu:rhenish
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:north_german 
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
+							}	
 						}
 					}			
 				}			
@@ -130,12 +183,28 @@
 									OR = {
 										country_has_primary_culture = cu:north_german
 										country_has_primary_culture = cu:baltic_german
+										country_has_primary_culture = cu:rhenish
 									} 
 								}
 							}						
 							AND = {
 								country_has_primary_culture = cu:south_german
-								root = { country_has_primary_culture = cu:south_german }
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:south_german
+										country_has_primary_culture = cu:rhenish
+									}
+								}
+							}	
+							AND = {
+								country_has_primary_culture = cu:rhenish
+								root = { 
+									OR = {
+										country_has_primary_culture = cu:north_german 
+										country_has_primary_culture = cu:south_german 
+										country_has_primary_culture = cu:rhenish 
+									}
+								}
 							}						
 						}					
 					}
@@ -150,6 +219,7 @@
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:baltic_german
 							country_has_primary_culture = cu:south_german					
+							country_has_primary_culture = cu:rhenish					
 						}
 					}			
 				}			
@@ -159,7 +229,8 @@
 						OR = {
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:baltic_german					
-							country_has_primary_culture = cu:south_german						
+							country_has_primary_culture = cu:south_german							
+							country_has_primary_culture = cu:rhenish							
 						}					
 					}
 					save_scope_as = german_unifier_candidate

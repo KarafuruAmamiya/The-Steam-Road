@@ -21,6 +21,7 @@ german_unification.1 = {
 				desc = german_unification.1.d2
 				trigger = {
 					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:rhenish
 				}
 			}
 		}
@@ -54,7 +55,11 @@ german_unification.1 = {
 					AND = {
 						root = { country_has_primary_culture = cu:south_german }
 						country_has_primary_culture = cu:south_german
-					}					
+					}
+					AND = {
+						root = { country_has_primary_culture = cu:rhenish }
+						country_has_primary_culture = cu:rhenish
+					}	
 				}
 				NOT = {
 					THIS = ROOT
@@ -110,7 +115,10 @@ german_unification.1 = {
 		}
 		else_if = {
 			limit = {
-				country_has_primary_culture = cu:south_german
+				OR = {
+					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:rhenish
+				}
 				NOT = { exists = c:SGF }
 				OR = {
 					country_tier = kingdom
@@ -142,7 +150,10 @@ german_unification.1 = {
 		}
 		else_if = {
 			limit = {
-				country_has_primary_culture = cu:south_german
+				OR = {
+					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:rhenish
+				}
 				NOT = { exists = c:SGF }
 				OR = {
 					country_tier = kingdom
@@ -199,6 +210,10 @@ german_unification.2 = {
 		add_radicals = {
 			value = medium_radicals
 			culture = cu:south_german
+		}	
+		add_radicals = {
+			value = medium_radicals
+			culture = cu:rhenish
 		}		
 		add_radicals = {
 			value = medium_radicals
@@ -397,6 +412,10 @@ german_unification.4 = {
 			value = 0.1
 			culture = cu:south_german
 		}
+		add_loyalists = {
+			value = 0.1
+			culture = cu:rhenish
+		}
 	}
 }
 
@@ -457,7 +476,12 @@ german_unification.5 = {
 			}
 		}
 		else_if = {
-			limit = { country_has_primary_culture = cu:south_german }
+			limit = { 
+				OR = {
+					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:rhenish 
+				}
+			}
 			add_journal_entry = {
 				type = je_south_german_unification
 			}

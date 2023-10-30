@@ -998,10 +998,6 @@ arab_wars.9 = {
 			text = centralization_tt
 			c:AKN = { has_variable = centralization_stance }
 		}
-		custom_tooltip = {
-			text = akturkification_tt
-			c:AKN = { has_variable = akturkification_start }
-		}
 		has_attitude = {
 			who = c:AKN
 			attitude = rebellious
@@ -1433,7 +1429,6 @@ arab_wars.14 = {
 			tag = HAA
 			origin = this
 			state = s:STATE_HAASA.region_state:PER
-			state = s:STATE_QATAR.region_state:PER
 			state = s:STATE_ABU_DHABI.region_state:PER
 			on_created = {
 				activate_law = law_type:law_monarchy
@@ -1487,9 +1482,6 @@ arab_wars.14 = {
 			add_claim = c:PER
 		}
 		s:STATE_ABU_DHABI = {
-			add_claim = c:PER
-		}
-		s:STATE_QATAR = {
 			add_claim = c:PER
 		}
 		
@@ -1631,9 +1623,6 @@ arab_wars.14 = {
 			add_claim = c:PER
 		}
 		s:STATE_ABU_DHABI = {
-			add_claim = c:PER
-		}
-		s:STATE_QATAR = {
 			add_claim = c:PER
 		}
 		

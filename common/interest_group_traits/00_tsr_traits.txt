@@ -1,0 +1,50 @@
+﻿# Persia
+
+ig_trait_grand_bazaar = {
+	icon = "gfx/interface/icons/ig_trait_icons/treasury_bonds.dds"
+	min_approval = loyal
+	
+	modifier = {
+		country_trade_route_competitiveness_mult = 0.1
+		market_land_trade_capacity_add = 10
+	}
+}
+
+ig_trait_traditional_funds = {
+	icon = "gfx/interface/icons/ig_trait_icons/middle_managers.dds"
+	min_approval = happy
+	
+	modifier = {
+		state_tax_collection_mult = 0.1
+	}
+}
+
+ig_trait_foreign_infiltration = {
+	icon = "gfx/interface/icons/ig_trait_icons/xenophobia.dds"
+	max_approval = unhappy
+	
+	modifier = {
+		country_society_tech_research_speed_mult = -0.25 #represents their unwillingness to adapt to modern ideals when radicalized
+		political_movement_radicalism_mult = 0.25
+	}
+}
+
+ig_trait_shadow_of_god = {
+	icon = "gfx/interface/icons/ig_trait_icons/noblesse_oblige.dds"
+	min_approval = loyal
+	
+	modifier = {
+		state_radicals_from_sol_change_accepted_culture_mult = -0.1
+		state_radicals_from_sol_change_accepted_religion_mult = -0.1
+	}
+}
+
+ig_trait_knowledge_of_the_land = {
+	icon = "gfx/interface/icons/ig_trait_icons/family_ties.dds"
+	min_approval = happy
+	
+	modifier = {
+		state_infrastructure_from_population_add = 0.5
+		state_infrastructure_from_population_max_add = 10
+	}
+}

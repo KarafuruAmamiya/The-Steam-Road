@@ -880,12 +880,14 @@ akkovin_crisis.9 = {
 				c:TUR = ROOT
 				is_ai = no
 				is_at_war = no
+				NOT = { has_truce_with = c:AKN }
 			}
 			AND = {
 				exists = c:PER
 				c:PER = ROOT
 				is_ai = no
 				is_at_war = no
+				NOT = { has_truce_with = c:AKN }
 			}
 		}
 		exists = c:AKN

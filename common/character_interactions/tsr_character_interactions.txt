@@ -1,0 +1,65 @@
+﻿sway_to_constitutionalism = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_populist.dds"
+	potential = {
+		owner = scope:actor
+		owner = {
+			has_journal_entry = je_constitutional_reformation
+		}
+		is_ruler = no
+		is_heir = no
+		NOT = { has_ideology = ideology:ideology_persian_constitutionalist }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = sway_to_constitutionalism_correct_ig_in_government_tt
+			interest_group = {
+				is_in_government = yes
+				OR = {
+					is_interest_group_type = ig_intelligentsia
+					is_interest_group_type = ig_devout
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_industrialists
+					is_interest_group_type = ig_armed_forces
+				}
+			}
+		}
+		custom_tooltip = {
+			text = sway_to_constitutionalism_compatible_ideology_tt
+			NOR = {
+				has_ideology = ideology:ideology_atheist
+				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_republican_leader
+				has_ideology = ideology:ideology_radical
+				has_ideology = ideology:ideology_social_democrat
+				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_vanguardist
+				has_ideology = ideology:ideology_anarchist
+				has_ideology = ideology:ideology_humanitarian
+			}
+		}
+	}
+
+	effect = {
+		set_ideology = ideology:ideology_persian_constitutionalist
+		owner = {
+			add_modifier = { # country_opposition_ig_approval_add
+				name = swayed_to_constitutionalist
+				months = 60
+			}
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_variable = zandism_sway_to_constitutionalism } }
+				}
+				set_variable = zandism_sway_to_constitutionalism
+			}
+		}
+	}
+
+	cooldown = { months = 24 }
+	show_confirmation_box = yes
+
+	ai_chance = {
+		value = 1
+	}
+}

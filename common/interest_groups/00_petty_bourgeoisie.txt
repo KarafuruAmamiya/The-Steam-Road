@@ -69,10 +69,31 @@
 				set_ig_trait = ig_trait:ig_trait_civil_service
 				set_ig_trait = ig_trait:ig_trait_old_lady_of_threadneedle_street
 			}
+			else_if = {
+				limit = {
+					owner = { c:PER ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_foreign_infiltration
+				set_ig_trait = ig_trait:ig_trait_traditional_funds
+				set_ig_trait = ig_trait:ig_trait_grand_bazaar
+			}
 			else = {
 				set_ig_trait = ig_trait:ig_trait_xenophobia
 				set_ig_trait = ig_trait:ig_trait_middle_managers
 				set_ig_trait = ig_trait:ig_trait_treasury_bonds
+			}
+		}
+		
+		### Specific
+
+		# Bazaari
+		if = {
+			limit = {
+				country_has_primary_culture = cu:persian
+			}
+			ig:ig_petty_bourgeoisie = {
+				set_interest_group_name = ig_bazaari
+				add_ideology = ideology_pious
 			}
 		}
 	}

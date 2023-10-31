@@ -192,7 +192,8 @@ al_afghani_events.1 = {
 	trigger = {
 		has_dlc_feature = voice_of_the_people_content
 		has_global_variable = nahda_start
-		game_date < 1877.1.1
+		game_date >= 1845.1.1
+		game_date < 1890.1.1
 		NOT = {
 			has_variable = rejected_al_afghani
 		}
@@ -214,7 +215,6 @@ al_afghani_events.1 = {
 				state_is_in_subsaharan_africa = no
 				state_is_in_americas = no
 				state_is_in_oceania = no
-				state_is_in_east_asia = no
 			}
 			any_scope_pop = {
 				OR = {
@@ -486,13 +486,6 @@ al_afghani_events.3 = {
 
 	trigger = {
 		has_dlc_feature = voice_of_the_people_content
-		any_primary_culture = {
-			OR = {
-				has_discrimination_trait = western_european_heritage
-				has_discrimination_trait = eastern_european_heritage
-				has_discrimination_trait = south_european_heritage
-			}
-		}
 		NOR = {
 			country_has_state_religion = rel:sunni 
 			country_has_state_religion = rel:shiite
@@ -506,7 +499,6 @@ al_afghani_events.3 = {
 				state_is_in_subsaharan_africa = no
 				state_is_in_americas = no
 				state_is_in_oceania = no
-				state_is_in_east_asia = no
 			}
 			any_scope_pop = {
 				OR = {

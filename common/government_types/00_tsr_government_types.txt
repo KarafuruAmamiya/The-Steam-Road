@@ -171,6 +171,7 @@ gov_free_city = {
 			AND = { exists = c:GOS c:GOS = ROOT }
 			AND = { exists = c:MUL c:MUL = ROOT }
 			AND = { exists = c:COB c:COB = ROOT }
+			AND = { exists = c:REG c:REG = ROOT }
 		}
 		any_scope_state = {
 			count <= 1
@@ -241,7 +242,7 @@ gov_archduchy = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_tier = principality
+		country_tier = grand_principality
 		exists = c:AUS
 		c:AUS = ROOT
 	}

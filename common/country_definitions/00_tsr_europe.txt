@@ -29,7 +29,7 @@ RPU = { # Royal Prussia
 	
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { baltic_german }
 	capital = STATE_WEST_PRUSSIA
@@ -63,7 +63,7 @@ LIT = { # Lithuania
 	
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { lithuanian byelorussian }
 	religion = catholic
@@ -110,7 +110,7 @@ IRE = {
 	
 	country_type = recognized
 
-	tier = principality
+	tier = kingdom
 	
 	cultures = { irish }
 	capital = STATE_MUNSTER
@@ -206,7 +206,7 @@ RHE = { # Rhineland
 	
 	country_type = recognized
 
-	tier = principality
+	tier = kingdom #post-HRE rank
 	
 	cultures = { rhenish french }
 	religion = reformed
@@ -218,7 +218,7 @@ PFA = { # The Palatinate
 	
 	country_type = recognized
 
-	tier = principality
+	tier = kingdom #post-HRE rank
 	
 	cultures = { rhenish south_german }
 	religion = catholic
@@ -376,7 +376,7 @@ AUS = { # Austria
 
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { south_german }
 	capital = STATE_AUSTRIA
@@ -387,7 +387,7 @@ WUR = {
 	
 	country_type = recognized
 
-	tier = kingdom
+	tier = principality
 	
 	cultures = { south_german }
 	religion = reformed
@@ -400,7 +400,7 @@ HES = {
 	
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { rhenish }
 	capital = STATE_HESSE
@@ -428,6 +428,18 @@ HSA = { # Hanseatic Provinces
 	cultures = { north_german }
 	religion = reformed
 	capital = STATE_ELBE
+}
+
+REG = { # Regensburg
+	color = { 221  41  111 }
+	
+	country_type = recognized
+
+	tier = city_state
+	
+	cultures = { south_german }
+	capital = STATE_OBERPFALZ
+	is_named_from_capital = yes
 }
 
 # Iberia
@@ -487,7 +499,7 @@ TTR = { # Tatarstan
 	
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { tatar }
 	capital = STATE_TARTARIA
@@ -531,7 +543,7 @@ GAL = { # Ruthenia
 	
 	country_type = recognized
 
-	tier = principality
+	tier = grand_principality
 	
 	cultures = { ukrainian polish }
 	religion = catholic

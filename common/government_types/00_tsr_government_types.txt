@@ -36,7 +36,6 @@ gov_elector_palatinate = {
 		has_law = law_type:law_monarchy
 		exists = c:PFA
 		c:PFA = ROOT
-		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
 	}
 	
@@ -86,11 +85,10 @@ gov_electorate = {
 		or = {
 			AND = { exists = c:BOH c:BOH = ROOT }
 			AND = { exists = c:RHE c:RHE = ROOT }
-			AND = { exists = c:MUN c:MUN = ROOT }
+			AND = { exists = c:MAI c:MAI = ROOT }
 			AND = { exists = c:BRK c:BRK = ROOT }
 			AND = { exists = c:KNZ c:KNZ = ROOT }
 		}
-		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
 	}
 	
@@ -116,7 +114,30 @@ gov_electorate_boh = {
 		country_tier = kingdom
 		exists = c:BOH
 		c:BOH = ROOT
-		is_subject_of = c:SAX
+		NOT = { has_global_variable = hre_end }
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_grand_duchy_net = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_GRAND_DUCHESS" 
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:NET
+		c:NET = ROOT
 		NOT = { has_global_variable = hre_end }
 	}
 	
@@ -142,9 +163,8 @@ gov_electorate_theocracy = {
 		country_tier = principality
 		or = {
 			AND = { exists = c:KNZ c:KNZ = ROOT }
-			AND = { exists = c:MUN c:MUN = ROOT }
+			AND = { exists = c:MAI c:MAI = ROOT }
 		}
-		is_subject_of = c:SAX
 		NOT = { has_global_variable = hre_end }
 	}
 	

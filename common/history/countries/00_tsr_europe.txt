@@ -815,6 +815,20 @@
 			set_ig_bolstering = yes
 		}
 	}
+	c:LGE = { # Liege
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_religious_schools
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+	}
 	c:LIT = { # Lithuania
 		effect_starting_technology_tier_3_tech = yes
 		
@@ -842,6 +856,12 @@
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
 		}
+	}
+	c:LUX = { # Luxembourg
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_reactionary = yes	
+		
+		activate_law = law_type:law_racial_segregation
 	}
 	c:LVN = { # Livonia
 		effect_starting_technology_tier_3_tech = yes
@@ -891,6 +911,33 @@
 
 		ig:ig_landowners = {
 			add_ruling_interest_group = yes
+		}
+	}
+	c:MAI = { # Mainz
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+		
+        set_ruling_interest_groups = {
+        	ig_devout
+        }
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_charitable_health_system
+		activate_law = law_type:law_oligarchy
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		ig:ig_devout = {
+			set_ig_bolstering = yes
 		}
 	}
 	c:MML = { # Memel

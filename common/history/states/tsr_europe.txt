@@ -956,7 +956,7 @@
 			owned_provinces = { x8B7C67 x963794 x3E794B x2248E2 xC08020 xFF1DBB x7F2222 "x564289" }
 		}
 		create_state = {
-			country = c:PFA
+			country = c:MAI
 			owned_provinces = { x1141A0 x90C020 }
 		}
 		add_homeland = rhenish
@@ -1583,7 +1583,11 @@
 	s:STATE_WALLONIA = {
 		create_state = {
 			country = c:FRA
-			owned_provinces = { xB0A0C0 x916574 x2D32D7 x8080A0 xEF2040 x3A5FB9 xD001A0 }
+			owned_provinces = { xB0A0C0 x916574 x2D32D7 x8080A0 xD001A0 }
+		}
+		create_state = {
+			country = c:LGE
+			owned_provinces = { xEF2040 x3A5FB9 }
 		}
 
 		add_homeland = french
@@ -1591,12 +1595,12 @@
 	}
 	s:STATE_LUXEMBOURG = {
 		create_state = {
-			country = c:FRA
+			country = c:LUX
 			owned_provinces = { x5180A0 }
 		}
 
 		add_homeland = french
-		add_claim = c:NET
+		add_homeland = luxembourgish
 	}
 	s:STATE_FLANDERS = {
 		create_state = {

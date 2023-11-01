@@ -77,6 +77,22 @@ natural_borders.1 = {
 		}
 		if = {
 			limit = {
+				NOT = { owns_entire_state_region = STATE_WALLONIA }
+			}
+			s:STATE_FLANDERS = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LUXEMBOURG }
+			}
+			s:STATE_LUXEMBOURG = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
 				NOT = { owns_entire_state_region = STATE_RHINELAND }
 			}
 			s:STATE_RHINELAND = {
@@ -142,6 +158,8 @@ natural_borders.1 = {
 				any_scope_state = {
 					OR = {
 						state_region = s:STATE_FLANDERS
+						state_region = s:STATE_WALLONIA
+						state_region = s:STATE_LUXEMBOURG
 						state_region = s:STATE_RHINELAND
 						state_region = s:STATE_NORTH_RHINE
 						state_region = s:STATE_LORRAINE
@@ -350,6 +368,8 @@ natural_borders.4 = {
 			limit = {
 				OR = {
 					state_region = s:STATE_FLANDERS
+					state_region = s:STATE_WALLONIA
+					state_region = s:STATE_LUXEMBOURG
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_LORRAINE
@@ -370,6 +390,8 @@ natural_borders.4 = {
 			limit = {
 				OR = {
 					state_region = s:STATE_FLANDERS
+					state_region = s:STATE_WALLONIA
+					state_region = s:STATE_LUXEMBOURG
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_LORRAINE
@@ -512,7 +534,6 @@ rhine_confederation.1 = {
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_PFALZ
 					state_region = s:STATE_ELSASS
-					state_region = s:STATE_FLANDERS
 				}
 				NOT = {
 					ROOT = owner
@@ -565,7 +586,6 @@ rhine_confederation.1 = {
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_PFALZ
 					state_region = s:STATE_ELSASS
-					state_region = s:STATE_FLANDERS
 				}
 				is_incorporated = no
 			}
@@ -579,7 +599,6 @@ rhine_confederation.1 = {
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_PFALZ
 					state_region = s:STATE_ELSASS
-					state_region = s:STATE_FLANDERS
 				}
 				c:RHN ?= owner
 			}

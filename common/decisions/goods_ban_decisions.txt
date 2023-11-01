@@ -1,12 +1,13 @@
 ﻿ban_opium = {
 	is_shown = {
-		has_journal_entry = je_opium_obsession
 		exists = market
 		market.owner = root
 		NOT = { is_banning_goods = g:opium }
 	}
 
 	possible = {
+		NOT = { has_law = law_type:law_free_trade }
+		has_law = law_type:law_substances_banned
 		exists = market	
 	}
 
@@ -22,12 +23,23 @@
 		modifier = {
 			trigger = {
 				OR = {
+					any_primary_culture = {
+						has_cultural_obsession = opium
+					}
+					AND = {
+						exists = ruler
+						ruler = { 
+							has_ideology = ideology:ideology_theocrat 
+						}
+					}
+				}
+				OR = {
 					has_strategy = ai_strategy_conservative_agenda
 					has_strategy = ai_strategy_reactionary_agenda
 					has_strategy = ai_strategy_maintain_mandate_of_heaven
 				}
 			}
-			add = 10
+			add = 100
 		}	 
     }	
 }
@@ -37,11 +49,11 @@ remove_opium_ban = {
 		is_banning_goods = g:opium
 		exists = market
 		market.owner = root
-		NOT = { has_variable = lost_opium_wars }
 	}
 
 	possible = {
 		always = yes
+		NOT = { has_law = law_type:law_substances_banned }
 	}
 
 	when_taken = {
@@ -62,7 +74,6 @@ remove_opium_ban = {
 
 ban_liquor = {
 	is_shown = {
-		has_variable = prohibition_laws_var
 		exists = market
 		market.owner = root
 		NOT = { is_banning_goods = g:liquor }
@@ -71,6 +82,7 @@ ban_liquor = {
 	possible = {
 		NOT = { has_law = law_type:law_free_trade }
 		exists = market
+		has_law = law_type:law_substances_banned
 	}
 
 	when_taken = {
@@ -85,12 +97,23 @@ ban_liquor = {
 		modifier = {
 			trigger = {
 				OR = {
+					any_primary_culture = {
+						has_cultural_obsession = liquor
+					}
+					AND = {
+						exists = ruler
+						ruler = { 
+							has_ideology = ideology:ideology_theocrat 
+						}
+					}
+				}
+				OR = {
 					has_strategy = ai_strategy_conservative_agenda
 					has_strategy = ai_strategy_reactionary_agenda
 					has_strategy = ai_strategy_maintain_mandate_of_heaven
 				}
 			}
-			add = 10
+			add = 100
 		}
     }	
 }
@@ -104,6 +127,7 @@ remove_liquor_ban = {
 
 	possible = {
 		always = yes
+		NOT = { has_law = law_type:law_substances_banned }
 	}
 
 	when_taken = {

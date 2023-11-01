@@ -34,7 +34,10 @@ opium_events.1 = {
 				exporter.owner = root
 				goods = g:opium
 			}
-			owner = {
+			any_scope_country = {
+				country_is_in_europe = yes
+				has_law = law_type:law_no_substances_regulation
+				any_scope_state = { is_coastal = yes }
 				any_primary_culture = {
 					NOT = {
 						has_cultural_obsession = opium
@@ -80,7 +83,10 @@ opium_events.1 = {
 					exporter.owner = root
 					goods = g:opium
 				}
-				owner = {
+				any_scope_country = {
+					has_law = law_type:law_no_substances_regulation
+					country_is_in_europe = yes
+					any_scope_state = { is_coastal = yes }
 					any_primary_culture = {
 						NOT = {
 							has_cultural_obsession = opium
@@ -92,7 +98,12 @@ opium_events.1 = {
 					}
 				}
 			}
-			owner = {
+			every_scope_country = {
+				limit = { 
+					country_is_in_europe = yes 
+					any_scope_state = { is_coastal = yes }
+					has_law = law_type:law_no_substances_regulation
+				}
 				save_scope_as = opium_addict_country
 				random_primary_culture = {
 					limit = {
@@ -129,7 +140,12 @@ opium_events.1 = {
 					exporter.owner = root
 					goods = g:opium
 				}
-				owner = {
+				any_scope_country = {
+					limit = { 
+						country_is_in_europe = yes 
+						any_scope_state = { is_coastal = yes }
+						has_law = law_type:law_no_substances_regulation
+					}
 					any_primary_culture = {
 						NOT = {
 							has_cultural_obsession = opium
@@ -141,7 +157,12 @@ opium_events.1 = {
 					}
 				}
 			}
-			owner = {
+			every_scope_country = {
+				limit = { 
+					country_is_in_europe = yes 
+					any_scope_state = { is_coastal = yes }
+					has_law = law_type:law_no_substances_regulation
+				}
 				every_primary_culture = {
 					limit = {
 						NOT = { has_cultural_obsession = opium }

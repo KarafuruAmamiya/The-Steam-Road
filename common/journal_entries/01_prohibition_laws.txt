@@ -11,6 +11,7 @@
 		has_distillery = yes
 		market = { exists = yes }
 		is_junior_in_customs_union = no
+		has_law = law_type:law_no_substances_regulation
 	}
 
 	possible = {
@@ -90,6 +91,7 @@
 			text = liquor_ban_tt
 			is_banning_goods = liquor
 		}
+		NOT = { has_law = law_type:law_no_substances_regulation }
 	}
 	
 

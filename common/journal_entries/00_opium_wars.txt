@@ -12,12 +12,6 @@
 			if = {
 				limit = {
 					is_banning_goods = opium
-					is_at_war = no
-					NOT = {
-						any_scope_building = {
-							is_building_type = building_illegal_opium_plantation
-						}
-					}
 				}
 				change_variable = {
 					name = opium_wars_completion_tracker
@@ -34,11 +28,7 @@
 			is_banning_goods = opium
 		}
 		is_at_war = no
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_illegal_opium_plantation
-			}
-		}
+		NOT = { has_law = law_type:law_no_substances_regulation }
 	}
 
 	on_complete = {
@@ -56,7 +46,7 @@
 	}
 
 	goal_add_value = {
-		add = 60
+		add = 120 #10 years
 	}
 
 	progressbar = yes

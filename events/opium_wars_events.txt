@@ -231,6 +231,11 @@ opium_wars.2 = {
 			country = scope:opium_wars_aggressor_country
 			value = 20
 		}
+		set_variable = lost_opium_wars
+		remove_variable = opium_wars_exporter
+		add_radicals = {
+			value = large_radicals
+		}
 		add_modifier = {
 			name = bowed_down_to_foreigners
 			months = long_modifier_time
@@ -829,6 +834,7 @@ opium_wars.9 = {
 			limit = {
 				has_variable = opium_wars_aggressor
 				NOT = { this = root }
+				country_rank >= rank_value:great_power
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_1
@@ -838,6 +844,7 @@ opium_wars.9 = {
 				has_variable = opium_wars_aggressor
 				NOT = { this = root }
 				NOT = { this = scope:opium_war_ally_1 }
+				country_rank >= rank_value:great_power
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_2
@@ -848,6 +855,7 @@ opium_wars.9 = {
 				NOT = { this = root }
 				NOT = { this = scope:opium_war_ally_1 }
 				NOT = { this = scope:opium_war_ally_2 }
+				country_rank >= rank_value:great_power
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_3

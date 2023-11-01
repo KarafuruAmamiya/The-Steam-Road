@@ -467,6 +467,9 @@ opium_wars.4 = {
 			name = opium_wars_navy_modifier
 			months = normal_modifier_time
 		}
+		hidden_effect = {
+			trigger_event = { id = opium_wars.11 }
+		}
 		remove_variable = opium_wars_aggressor
 	}
 }
@@ -873,7 +876,7 @@ opium_wars.9 = {
 			}
 			add_war_goal = {
 				holder = root
-				type = take_treaty_port
+				type = conquer_state
 				target_state = s:STATE_MOGOSTAN.region_state:PER
 				primary_demand = yes
 			}
@@ -1009,6 +1012,46 @@ opium_wars.10 = {
 					months = short_modifier_time
 				}
 			}
+		}
+	}
+}
+
+# Hormuz Subject
+opium_wars.11 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_MOGOSTAN
+			}
+			save_scope_as = mogostan_state
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = ROOT
+			country_type = colonial
+			tier = principality
+			
+			capital = scope:mogostan_state
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			
+			on_created = {
+				activate_law = law_type:law_presidential_republic
+				every_state = {
+					remove_variable = state_to_cede
+				}
+			}
+		}
+		create_diplomatic_pact = {
+			country = scope:mogostan_state.owner
+			type = overseas_territory
 		}
 	}
 }

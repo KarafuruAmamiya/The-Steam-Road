@@ -275,6 +275,22 @@ DEFAULT = {
 			}
 		}
 	}
+	dynamic_country_name = {
+		name = hormuz_special_region_name
+		adjective = hormuz_special_region_name_adj
+		
+		is_revolutionary = no
+		priority = 100
+		
+		trigger = {
+			scope:actor = {
+				is_country_type = colonial
+				is_subject = yes
+				is_subject_type = subject_type_overseas_territory
+				capital = { state_region = s:STATE_MOGOSTAN }
+			}
+		}
+	}
 }
 
 SCA = {

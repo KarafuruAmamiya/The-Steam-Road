@@ -81,9 +81,7 @@ gov_electorate = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_tier = principality
 		or = {
-			AND = { exists = c:BOH c:BOH = ROOT }
 			AND = { exists = c:RHE c:RHE = ROOT }
 			AND = { exists = c:MAI c:MAI = ROOT }
 			AND = { exists = c:BRK c:BRK = ROOT }
@@ -111,7 +109,6 @@ gov_electorate_boh = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_tier = kingdom
 		exists = c:BOH
 		c:BOH = ROOT
 		NOT = { has_global_variable = hre_end }

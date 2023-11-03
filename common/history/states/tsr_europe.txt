@@ -476,15 +476,20 @@
 	s:STATE_SILESIA = {
 		create_state = {
 			country = c:GLG
-			owned_provinces = { "x1B72C9" "x3A89EA" "x6E617F" "x732DC0" "x94D624" "xC00121" "xC108EA" xCE74AB }
+			owned_provinces = { "x1B72C9" "x732DC0" "x94D624" "xC00121" "xC108EA" xCE74AB }
 		}
 		create_state = {
 			country = c:SRB
 			owned_provinces = { x614121 x272E48 }
 		}
+		create_state = {
+			country = c:POL
+			owned_provinces = { "x3A89EA" "x6E617F" }
+		}
 		
 		add_homeland = silesian
 		add_homeland = sorb
+		add_claim = c:POL
 	}
 	s:STATE_UPPER_SILESIA = {
 		create_state = {

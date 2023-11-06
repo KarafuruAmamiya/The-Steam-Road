@@ -18638,16 +18638,52 @@ SAX = {
 SAX_absolute_monarchy = {
 	pattern = "pattern_solid.tga"
 	color1 = "white"
+	color2 = "black_light"
+	color3 = "yellow_dark"
+	color4 = "green"
 
 	colored_emblem = {
 		texture = "ce_bicolor_bottom.dds"
 		color1 = "green"
 		color2 = "green"
 	}
-    sub = {
-        parent = "sub_SAX_coa" 
-        instance = { scale = { 0.9 0.9 } offset = { 0.05 0.1 } }
-    }	
+    colored_emblem = {
+		texture = "ce_eagle_doubleheaded_base.dds"
+		color1 = color2
+		color2 = color3
+		color3 = color1
+		instance = { scale = { 0.85 0.85 } position = { 0.5 0.52 } }
+	}	
+	colored_emblem = {
+		texture = "ce_eagle_claws.dds"
+		color1 = color3
+		color2 = color1
+		color3 = color4
+	}
+	sub = {
+        parent = "sub_SAX_crown" 
+        instance = { scale = { 0.43 0.43 } offset = { 0.29 0.07 } }
+    }
+	colored_emblem = {
+		texture = "ce_shield_saxony.dds"
+		color1 = "black"
+		color2 = "yellow"
+		color3 = "green"
+		instance = { scale = { 0.35 0.35 } position = { 0.5 0.49 } }		
+	}	
+}
+SAX_hre = {
+	pattern = "pattern_solid.tga"
+	color1 = "yellow"
+	
+	textured_emblem = {
+		texture = "te_eagle_hre.dds"
+		instance = { scale = { 1 1 } position = { 0.5 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_saxony.dds"
+		instance = { scale = { 0.35 0.35 } position = { 0.5 0.5 } }		
+	}
 }
 SAX_republic = {
 	# pre 1815 colours and coa design (barruly)

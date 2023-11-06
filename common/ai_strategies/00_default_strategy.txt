@@ -3391,6 +3391,100 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
+					has_journal_entry = je_arab_nationalism_subject
+					scope:target_country = {
+						NOT = {
+							any_primary_culture = {
+								has_discrimination_trait = arabic_heritage
+							}
+						}
+						any_scope_state = {
+							state_region = { 
+								is_homeland = cu:levantine 
+							}
+							state_region = { 
+								is_homeland = cu:mashriqi 
+							}
+							state_region = { 
+								is_homeland = cu:iraqi 
+							}
+							state_region = { 
+								is_homeland = cu:misri 
+							}
+							state_region = { 
+								is_homeland = cu:maghrebi 
+							}
+							state_region = { 
+								is_homeland = cu:khaleeji 
+							}
+							state_region = { 
+								is_homeland = cu:omani 
+							}
+							state_region = { 
+								is_homeland = cu:yemenite 
+							}
+							state_region = { 
+								is_homeland = cu:bedouin 
+							}
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						has_journal_entry = je_arab_nationalism_subject
+						AND = {
+							any_primary_culture = {
+								has_discrimination_trait = arabic_heritage
+							}
+							has_technology_researched = pan-nationalism
+						}
+					}
+					scope:target_country = {
+						NOT = {
+							any_primary_culture = {
+								has_discrimination_trait = arabic_heritage
+							}
+						}
+						any_scope_state = {
+							state_region = { 
+								is_homeland = cu:levantine 
+							}
+							state_region = { 
+								is_homeland = cu:mashriqi 
+							}
+							state_region = { 
+								is_homeland = cu:iraqi 
+							}
+							state_region = { 
+								is_homeland = cu:misri 
+							}
+							state_region = { 
+								is_homeland = cu:maghrebi 
+							}
+							state_region = { 
+								is_homeland = cu:khaleeji 
+							}
+							state_region = { 
+								is_homeland = cu:omani 
+							}
+							state_region = { 
+								is_homeland = cu:yemenite 
+							}
+							state_region = { 
+								is_homeland = cu:bedouin 
+							}
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
 					lenient_ai_behavior_trigger = yes
 				}
 				multiply = 0.75
@@ -3680,6 +3774,85 @@ ai_strategy_default = {
 					scope:target_country = {
 						any_scope_state = {
 							state_region = { is_homeland = cu:greek }
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					has_journal_entry = je_arab_nationalism_subject
+					scope:target_country = {
+						any_scope_state = {
+							state_region = { 
+								is_homeland = cu:levantine 
+							}
+							state_region = { 
+								is_homeland = cu:mashriqi 
+							}
+							state_region = { 
+								is_homeland = cu:iraqi 
+							}
+							state_region = { 
+								is_homeland = cu:misri 
+							}
+							state_region = { 
+								is_homeland = cu:maghrebi 
+							}
+							state_region = { 
+								is_homeland = cu:khaleeji 
+							}
+							state_region = { 
+								is_homeland = cu:omani 
+							}
+							state_region = { 
+								is_homeland = cu:yemenite 
+							}
+							state_region = { 
+								is_homeland = cu:bedouin 
+							}
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						has_journal_entry = je_arab_nationalism_subject
+						has_technology_researched = pan-nationalism
+					}
+					scope:target_country = {
+						any_scope_state = {
+							state_region = { 
+								is_homeland = cu:levantine 
+							}
+							state_region = { 
+								is_homeland = cu:mashriqi 
+							}
+							state_region = { 
+								is_homeland = cu:iraqi 
+							}
+							state_region = { 
+								is_homeland = cu:misri 
+							}
+							state_region = { 
+								is_homeland = cu:maghrebi 
+							}
+							state_region = { 
+								is_homeland = cu:khaleeji 
+							}
+							state_region = { 
+								is_homeland = cu:omani 
+							}
+							state_region = { 
+								is_homeland = cu:yemenite 
+							}
+							state_region = { 
+								is_homeland = cu:bedouin 
+							}
 						}
 					}
 				}

@@ -1033,36 +1033,37 @@ raj.6 = {
 				}
 			}
 		}
-		if = {
-			limit = { 
-				exists = c:BUN
-				c:BUN = {
-					is_subject_of = root
-				}
-				is_player = no
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = c:PER
-					target_is = c:GUJ
-				}
-				add_target_backers = {
-					c:BUN
-				}
-				add_war_goal = {
-					holder = c:BUN
-					type = independence
-					target_country = c:PER
-					primary_demand = yes
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = annex_country
-					target_country = c:BUN
-					primary_demand = yes
-				}
-			}
-		}
+#		Depends on the Rani Lakhsmibai event
+#		if = {
+#			limit = { 
+#				exists = c:BUN
+#				c:BUN = {
+#					is_subject_of = root
+#				}
+#				is_player = no
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = c:PER
+#					target_is = c:GUJ
+#				}
+#				add_target_backers = {
+#					c:BUN
+#				}
+#				add_war_goal = {
+#					holder = c:BUN
+#					type = independence
+#					target_country = c:PER
+#					primary_demand = yes
+#				}
+#				add_war_goal = {
+#					holder = c:PER
+#					type = annex_country
+#					target_country = c:BUN
+#					primary_demand = yes
+#				}
+#			}
+#		}
 		if = {
 			limit = { 
 				exists = c:MEW

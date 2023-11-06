@@ -347,7 +347,7 @@ gov_satrapies = {
 	transfer_of_power = hereditary
 
 	male_ruler = "RULER_TITLE_SATRAP"
-	female_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = ""
 	
 	male_heir = "RULER_TITLE_CROWN_PRINCE"
 	female_heir = "RULER_TITLE_CROWN_PRINCESS"
@@ -355,8 +355,37 @@ gov_satrapies = {
 	possible = {
 		has_law = law_type:law_monarchy
 		AND = { exists = c:PER is_subject_of = c:PER }
-		NOT = { exists = c:MRT c:MRT = ROOT }
+		country_is_in_india = no
 		NOT = { exists = c:SRV c:SRV = ROOT }
+		OR = {
+			is_subject_type = subject_type_dominion
+			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_dependency
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_indian_satrapies = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = "RULER_TITLE_RANI"
+	
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = "RULER_TITLE_CROWN_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_is_in_india = yes
+		AND = { exists = c:PER is_subject_of = c:PER }
+		NOT = { exists = c:MRT c:MRT = ROOT }
 		NOT = { exists = c:MUG c:MUG = ROOT }
 		NOT = { exists = c:DEC c:DEC = ROOT }
 		OR = {
@@ -425,6 +454,57 @@ gov_special_satrapies_hindu = {
 		country_has_state_religion = rel:hindu
 	}
 	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_indian_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_RAJA"
+	female_ruler = "RULER_TITLE_RANI"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_is_in_india = yes
+		NOT = { is_subject_of = c:PER }
+		country_has_state_religion = rel:hindu
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_indian_sultanate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SULTAN"
+	female_ruler = "RULER_TITLE_SULTANA"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_is_in_india = yes
+		NOT = { is_subject_of = c:PER }
+		OR = {
+			country_has_state_religion = rel:sunni
+			country_has_state_religion = rel:shiite
+		}
+	}
+
 	on_government_type_change = {
 		change_to_hereditary = yes
 	}

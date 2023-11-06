@@ -17,12 +17,12 @@
 		law_mixed_economy = neutral
 		law_agrarianism = neutral
 		law_industry_banned = strongly_disapprove
-		law_traditionalism = strongly_disapprove		
+		law_traditionalism = disapprove		
 		law_laissez_faire = disapprove		
 	}
 	
 	lawgroup_land_reform = {
-		law_serfdom = strongly_disapprove
+		law_serfdom = disapprove
 		law_tenant_farmers = approve
 		law_homesteading = neutral
 		law_collectivized_agriculture = strongly_disapprove
@@ -39,12 +39,12 @@
 	
 	possible = {
 		owner = {
-			NOR = { 
-				has_law = law_type:law_slavery_banned 
-				has_law = law_type:law_tenant_farmers
-				has_law = law_type:law_homesteading
-				has_law = law_type:law_collectivized_agriculture
-				has_law = law_type:law_commercialized_agriculture
+			OR = {
+				has_law = law_type:law_traditionalism 
+				has_law = law_type:law_peasant_levies 
+				has_law = law_type:law_serfdom
+				has_law = law_type:law_debt_slavery 
+				has_law = law_type:law_slave_trade 
 			}
 			NOT = { has_technology_researched = human_rights }
 			NOT = { has_technology_researched = egalitarianism } #Switch to reformer instead
@@ -57,7 +57,7 @@
 				has_variable = chose_fascism
 				has_variable = chose_conservatism
 				has_variable = chose_ethno_nationalism
-				has_ideology = ideology:ideology_pro_slavery
+				has_ideology = ideology:ideology_stratocratic
 			}
 		}
 	}
@@ -175,10 +175,11 @@ ideology_persian_constitutionalist = {
 		law_womens_suffrage = neutral
 	}
 	
-	lawgroup_childrens_rights = {
-		law_child_labor_allowed = disapprove
-		law_restricted_child_labor = neutral
-		law_compulsory_primary_school = approve
+	lawgroup_education_system = {
+		law_private_schools = neutral
+		law_public_schools = approve
+		law_religious_schools = disapprove
+		law_no_schools = strongly_disapprove
 	}
 	
 	possible = {
@@ -290,10 +291,9 @@ ideology_persian_constitutionalist = {
 						has_law = law_type:law_oligarchy
 						has_law = law_type:law_landed_voting
 						has_law = law_type:law_legacy_slavery
-						has_law = law_type:law_debt_slavery
-						has_law = law_type:law_slave_trade
 						has_law = law_type:law_state_religion
 						has_law = law_type:law_denominational_exclusion
+						has_law = law_type:law_no_womens_rights
 					}
 				}
 			}

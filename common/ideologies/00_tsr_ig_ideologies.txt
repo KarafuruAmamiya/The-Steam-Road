@@ -279,3 +279,47 @@ ideology_safavid_stratocratic = {
 		law_collectivized_agriculture = strongly_disapprove
 	}
 }
+
+ideology_bazaari_reactionary = {
+	icon = "gfx/interface/icons/ideology_icons/reactionary.dds"
+	
+	lawgroup_governance_principles = {
+		law_monarchy = approve
+		law_theocracy = approve		
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
+		law_council_republic = disapprove
+	}
+
+	lawgroup_citizenship = {
+		law_ethnostate = approve
+		law_national_supremacy = strongly_approve
+		law_racial_segregation = approve
+		law_shared_heritage = neutral
+		law_cultural_exclusion = neutral
+		law_multicultural = disapprove	
+	}
+
+	lawgroup_migration = {
+		law_closed_borders = approve
+		law_migration_controls = strongly_approve
+		law_no_migration_controls = disapprove
+	}
+	
+	lawgroup_economic_system = {	
+		law_command_economy = strongly_disapprove
+		law_cooperative_ownership = disapprove
+		law_interventionism = approve
+		law_agrarianism = neutral
+		law_traditionalism = strongly_disapprove		
+		law_laissez_faire = disapprove	
+		law_industry_banned = strongly_disapprove	
+	}
+	
+	lawgroup_trade_policy = {
+		law_protectionism = strongly_approve
+		law_mercantilism = approve
+		law_free_trade = disapprove
+		law_isolationism = neutral
+	}
+}

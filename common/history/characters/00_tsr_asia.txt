@@ -90,6 +90,49 @@
 			}
 		}
 	}
+	c:BUN = {
+		create_character = {
+			first_name = Raghunath_Rao_III
+			last_name = Newalkar
+			culture = cu:marathi
+			religion = rel:hindu
+			historical = yes
+			ruler = yes
+			female = no
+			ideology = ideology_royalist
+			interest_group = ig_landowners
+			age = 70
+			traits = {
+				expensive_tastes experienced_political_operator
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = Gangadhar_Rao
+			last_name = Newalkar
+			culture = cu:marathi
+			religion = rel:hindu
+			historical = yes
+			heir = yes
+			female = no
+			ideology = ideology_moderate
+			interest_group = ig_landowners
+			birth_date = 1814.1.1
+			dna = dna_gangadhar_rao
+			traits = {
+				tactful
+				honorable
+				basic_political_operator
+			}
+			on_created = {
+				set_variable = {
+					name = is_gangadhar_rao
+				}
+			}
+		}	
+	}
 	c:CHI = {
 		create_character = {
 			first_name = "Jixi"
@@ -98,7 +141,7 @@
 			ruler = yes
 			female = no
 			birth_date = 1805.1.21
-    		culture = cu:han
+    		culture = cu:zhongyuan
 			interest_group = ig_landowners
 			ideology = ideology_traditionalist
 			traits = {
@@ -275,9 +318,7 @@
 				ambitious persistent explorer
 			}
 			on_created = {
-				set_variable = {
-					name = is_hosayn_safavid
-				}
+				set_variable = is_married
 			}
 		}	
 
@@ -293,7 +334,12 @@
 			interest_group = ig_intelligentsia
 			ideology = ideology_persian_constitutionalist
 			traits = {
-				innovative hedonist firebrand
+				direct innovative firebrand
+			}
+			on_created = {
+				set_variable = {
+					name = is_mohammad_safavid
+				}
 			}
 		}
 		
@@ -657,6 +703,7 @@
 			first_name = "Suleyman_II"
 			last_name = "Osmanoglu"
 			historical = yes
+			is_general = yes
 			ruler = yes
 			female = no
 			birth_date = 1808.12.1

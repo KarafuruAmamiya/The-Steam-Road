@@ -354,11 +354,10 @@ gov_satrapies = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		AND = { exists = c:PER is_subject_of = c:PER }
+		exists = c:PER 
+		is_subject_of = c:PER
 		country_is_in_india = no
-		NOT = { exists = c:SRV c:SRV = ROOT }
 		OR = {
-			is_subject_type = subject_type_dominion
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 		}
@@ -384,12 +383,12 @@ gov_indian_satrapies = {
 	possible = {
 		has_law = law_type:law_monarchy
 		country_is_in_india = yes
-		AND = { exists = c:PER is_subject_of = c:PER }
-		NOT = { exists = c:MRT c:MRT = ROOT }
-		NOT = { exists = c:MUG c:MUG = ROOT }
-		NOT = { exists = c:DEC c:DEC = ROOT }
+		exists = c:PER 
+		is_subject_of = c:PER 
+		c:PER = {
+			has_law = law_type:law_monarchy
+		}
 		OR = {
-			is_subject_type = subject_type_dominion
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 		}
@@ -414,6 +413,7 @@ gov_special_satrapies_muslim = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
+		country_is_in_india = yes
 		exists = c:PER 
 		is_subject_of = c:PER 
 		c:PER = {
@@ -445,6 +445,7 @@ gov_special_satrapies_hindu = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
+		country_is_in_india = yes
 		exists = c:PER 
 		is_subject_of = c:PER 
 		c:PER = {

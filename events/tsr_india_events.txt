@@ -1420,3 +1420,135 @@ raj.7 = {
 		}
 	}
 }
+
+namespace = indian_flavor
+
+#Indian Flavor
+indian_flavor.1 = { #Bundelkhand Succession Crisis
+	type = country_event
+	title = indian_flavor.1.t
+	desc = indian_flavor.1.d
+	flavor =  indian_flavor.1.f
+	duration = 3
+	
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:gangadhar_rao_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	
+	trigger = {
+		c:BUN ?= this
+		exists = c:PER
+		is_subject_of = c:PER
+		game_date >= 1853.11.21
+		ruler = {
+			has_variable = is_gangadhar_rao
+		}
+		NOT = { has_variable = bundelkhand_succession_crisis }
+	}
+	immediate = {
+		set_variable = bundelkhand_succession_crisis
+		random_scope_character = {
+			limit = {
+				has_variable = is_gangadhar_rao
+			}
+			save_scope_as = gangadhar_rao_scope
+		}
+		create_character = {
+			template = per_lakshmibai_character_template
+			on_created = {
+				set_variable = rani_lakshmibai
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = rani_lakshmibai
+			}
+			save_scope_as = lakshmibai_scope
+		}
+		if = {
+			limit = {
+				any_scope_character = {
+					is_heir = yes
+				}
+				heir = {
+					kill_character = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = indian_flavor.1.a #Long Live the Rani
+		default_option = yes
+		random_scope_character = {
+			limit = {
+				has_variable = is_gangadhar_rao
+			}
+			kill_character = yes
+		}
+		show_as_tooltip = {
+			create_character = {
+				template = per_lakshmibai_character_template
+			}
+		}
+		create_character = {
+			template = per_damodar_rao_character_template
+			on_created = {
+				set_variable = damodar_rao
+			}
+		}
+		
+		hidden_effect = {
+			c:PER = {
+				trigger_event = { id = indian_flavor.2 }
+			}
+		}
+	}
+}
+
+indian_flavor.2 = { #Rani Lakhsmibai
+	type = country_event
+	title = indian_flavor.2.t
+	desc = indian_flavor.2.d
+	flavor =  indian_flavor.2.f
+	duration = 3
+	
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:lakshmibai_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	immediate = {
+		random_character = {
+			limit = {
+				has_variable = rani_lakshmibai
+			}
+			save_scope_as = lakshmibai_scope
+		}
+		random_character = {
+			limit = {
+				has_variable = damodar_rao
+			}
+			save_scope_as = damodar_rao_scope
+		}
+		c:BUN = {
+			save_scope_as = bundelkhand_scope
+			set_variable = illegitimate_can_annex
+		}
+	}
+	option = {
+		name = indian_flavor.2.a #Let her rule for now
+	}
+	option = {
+		name = indian_flavor.2.b #Damodar Rao cannot succeed the satrapy!
+		default_option = yes
+		change_relations = {
+			country = c:BUN
+			value = -100
+		}
+	}
+}

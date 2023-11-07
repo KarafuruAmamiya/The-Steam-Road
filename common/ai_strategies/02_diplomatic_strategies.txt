@@ -1081,39 +1081,7 @@ ai_strategy_unify_china = {
 				}
 				add = 300
 			}		
-		}	
-		conquer_state = {
-			if = {
-				limit = {
-					scope:target_state = {				
-						state_region = {
-							OR = {
-								is_homeland = cu:manchu
-								is_homeland = cu:han
-							}		
-						}
-					}
-					can_reach_target_state = yes
-				}
-				add = 100
-			}
-		}
-		return_state = {
-			if = {
-				limit = {
-					scope:target_state = {					
-						state_region = {
-							OR = {
-								is_homeland = cu:manchu
-								is_homeland = cu:han
-							}
-						}	
-					}
-					can_reach_target_state = yes
-				}
-				add = 200
-			}
-		}		
+		}			
 	}			
 	
 	secret_goal_scores = {

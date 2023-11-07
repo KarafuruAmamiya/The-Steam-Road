@@ -311,21 +311,30 @@ kor.6 = { #Successor to the mandate of heaven
     option ={ #take the mandate of heaven
         name = kor.6.a 
         ai_chance = { base = 0 }
-        add_primary_culture = cu:han
         custom_tooltip = {
             text = claim_china_tt
             every_state_region = {
                 limit = {
-                    OR = {
-                        is_homeland = cu:han
-                        is_homeland = cu:manchu
-                    }
+                    is_homeland = cu:yue
+                    is_homeland = cu:hakka
+                    is_homeland = cu:min
+                    is_homeland = cu:gan
+                    is_homeland = cu:jianghuai
+                    is_homeland = cu:jin
+                    is_homeland = cu:jiaoliao
+                    is_homeland = cu:shangjiang
+                    is_homeland = cu:wu
+                    is_homeland = cu:xiang
+                    is_homeland = cu:jilu
+                    is_homeland = cu:zhongyuan
                 }
                 add_claim = c:KOR
             }
             every_country = {
                 limit = { 
-                    country_has_primary_culture = cu:han
+                    any_primary_culture = {
+						has_discrimination_trait = han_chinese
+					}
                 }
                 change_relations = {
                     country = c:KOR
@@ -339,7 +348,9 @@ kor.6 = { #Successor to the mandate of heaven
         ai_chance = { base = 1 }
         every_country = {
             limit = { 
-                country_has_primary_culture = cu:han
+                any_primary_culture = {
+					has_discrimination_trait = han_chinese
+				}
             }
             change_relations = {
                 country = c:KOR

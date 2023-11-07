@@ -160,7 +160,9 @@ colored_emblem_texture_lists = {
 		}	
 		special_selection = {
 			trigger = { 
-					country_definition_has_culture = cu:han
+					any_primary_culture = {
+						has_discrimination_trait = han_chinese
+					}
 			}
 			50 = "ce_dragon_china.dds"			
 		}			

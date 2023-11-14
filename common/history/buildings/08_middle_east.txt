@@ -315,7 +315,7 @@
 				building="building_wheat_farm"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" "pm_privately_owned" }
+				activate_production_methods={ "pm_simple_farming" "pm_tools_disabled" "pm_no_secondary" "pm_privately_owned" }
 			}
 			create_building={
 				building="building_vineyard_plantation"
@@ -556,7 +556,7 @@
 				building="building_food_industry"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_privately_owned_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
+				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_government_administration"
@@ -755,6 +755,12 @@
 				level=3
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_naval_base"
+				level=5
+				reserves=1
+				activate_production_methods={ "pm_no_naval_theory" }
 			}
 		}
 	}
@@ -1068,7 +1074,7 @@
 				building="building_food_industry"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_privately_owned_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
+				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_wheat_farm"
@@ -1156,7 +1162,7 @@
 				building="building_food_industry"
 				level=6
 				reserves=1
-				activate_production_methods={ "pm_privately_owned_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
+				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_silk_plantation"
@@ -1367,7 +1373,7 @@
 				building="building_food_industry"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_privately_owned_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
+				activate_production_methods={ "pm_merchant_guilds_building_food_industry" "pm_disabled_canning" "pm_sweeteners" "pm_manual_dough_processing" "pm_disabled_distillery" }
 			}
 			create_building={
 				building="building_paper_mills"
@@ -1651,7 +1657,7 @@
 				building="building_wheat_farm"
 				level=5
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_no_secondary" }
 			}
 			create_building={
 				building="building_barracks"
@@ -1715,7 +1721,7 @@
 				building="building_wheat_farm"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_no_secondary" }
 			}
 			create_building={
 				building="building_barracks"

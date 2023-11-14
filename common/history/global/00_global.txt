@@ -7,7 +7,6 @@ GLOBAL = {
 	every_country = {
 		limit = { 
 			NOT = { has_law = law_type:law_slavery_banned }
-			NOT = {	c:AKN ?= this } 
 		}
 		ig:ig_landowners = { add_ideology = ideology_pro_slavery }
 	}
@@ -111,6 +110,12 @@ GLOBAL = {
             }
             add_modifier = zoroastrian_persecution
         }
+		every_scope_state = {
+            limit = {
+				state_is_in_india = yes
+            }
+            set_variable = hindustani_subject_state
+        }
 	}
 	
 	c:IBE = {
@@ -213,6 +218,18 @@ GLOBAL = {
                 culture = cu:misri
             }
         }
+    }
+	
+	every_country = {
+		limit = { 
+			country_is_in_india = yes
+			exists = c:PER
+			is_subject_of = c:PER
+		}
+        set_variable = hindustani_subject
+		every_scope_state = {
+			set_variable = hindustani_subject_state
+		}
     }
 	
 	random_market = {

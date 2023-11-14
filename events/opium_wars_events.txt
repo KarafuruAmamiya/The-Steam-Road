@@ -256,6 +256,10 @@ opium_wars.2 = {
 				name = curbed_opium_trade
 				months = -1
 			}
+			change_relations = {
+				country = root
+				value = -50
+			}
 		}
 		hidden_effect = {	
 			every_country = {
@@ -456,6 +460,10 @@ opium_wars.4 = {
 			add_modifier = {
 				name = curbed_opium_trade_max
 				months = -1
+			}
+			change_relations = {
+				country = root
+				value = -100
 			}
 		}
 	}
@@ -885,9 +893,9 @@ opium_wars.9 = {
 			limit = {
 				exists = c:AKN
 				c:AKN = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
+					has_diplomatic_pact = {
+						who = c:PER
+						type = treaty_of_baglar_pact
 					}
 				}
 			}
@@ -1052,6 +1060,33 @@ opium_wars.11 = {
 		create_diplomatic_pact = {
 			country = scope:mogostan_state.owner
 			type = overseas_territory
+		}
+	}
+}
+
+# Remove Opium Nerf when not Persian subject
+opium_wars.12 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_modifier = curbed_opium_trade
+			has_modifier = curbed_opium_trade_max
+		}
+		any_overlord_or_above = {
+			NOT = { c:PER = this }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_modifier = curbed_opium_trade }
+			remove_modifier = curbed_opium_trade
+		}
+		if = {
+			limit = { has_modifier = curbed_opium_trade_max }
+			remove_modifier = curbed_opium_trade_max
 		}
 	}
 }

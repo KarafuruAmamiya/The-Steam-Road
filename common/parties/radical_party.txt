@@ -142,13 +142,12 @@ radical_party = {
 				trigger = {
 					AND = {
 						OR = {
-							country_has_primary_culture = cu:han
-							country_has_primary_culture = cu:hakka
+							any_primary_culture = {
+								has_discrimination_trait = han_chinese
+							}
 							country_has_primary_culture = cu:miao
-							country_has_primary_culture = cu:min
 							country_has_primary_culture = cu:zhuang
 							country_has_primary_culture = cu:yi
-							country_has_primary_culture = cu:yue
 						}
 						NOT = { has_law = law_type:law_monarchy }
 					}

@@ -114,6 +114,7 @@ UKR = { # Ukraine
 LVN = { # Livonia
 	dynamic_country_name = { # Livland
 		name = dyn_c_livland
+		adjective = dyn_c_livland_adj
 		
 		is_main_tag_only = yes
 		priority = 5
@@ -131,6 +132,7 @@ LVN = { # Livonia
 EST = { # Estonia
 	dynamic_country_name = { # Estland
 		name = dyn_c_estland
+		adjective = dyn_c_estland_adj
 		
 		is_main_tag_only = yes
 		priority = 5
@@ -148,6 +150,7 @@ EST = { # Estonia
 ING = { # Ingria
 	dynamic_country_name = { # Ingermanland
 		name = dyn_c_ingermanland
+		adjective = dyn_c_ingermanland_adj
 		
 		is_main_tag_only = yes
 		priority = 5
@@ -203,6 +206,7 @@ AUR = { # Aurelia
 USC = { # United States of Columbia
 	dynamic_country_name = {
 		name = dyn_c_united_states_columbia
+		adjective = USC_ADJ
 
 		is_main_tag_only = yes
 		priority = 0
@@ -215,6 +219,7 @@ USC = { # United States of Columbia
 	
 	dynamic_country_name = {
 		name = dyn_c_united_senators_columbia
+		adjective = USC_ADJ
 		priority = 1
 		
 		trigger = {
@@ -246,6 +251,7 @@ USC = { # United States of Columbia
 
 	dynamic_country_name = {
 		name = dyn_c_united_syndicates_columbia
+		adjective = USC_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -257,6 +263,7 @@ USC = { # United States of Columbia
 
 	dynamic_country_name = {
 		name = dyn_c_united_synods_columbia
+		adjective = USC_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -379,20 +386,9 @@ DAI = { # Dai Viet
 		priority = 0
 		
 		trigger = {
-			exists = c:CHI
-			c:CHI = {
-				OR = {
-					has_diplomatic_pact = {
-						who = c:DAI
-						type = vassal
-						is_initiator = yes
-					}
-					has_diplomatic_pact = {
-						who = c:DAI
-						type = puppet
-						is_initiator = yes
-					}
-				}
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:CHI
 			}
 		}
 	}
@@ -431,6 +427,7 @@ PER = {
 HAA = { 
 	dynamic_country_name = {
 		name = dyn_c_haa # United Emirates
+		adjective = HAA_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -480,6 +477,7 @@ XIN = { # Uyghuristan
 DZU = { # Dzungaria
 	dynamic_country_name = {
 		name = dyn_c_dzungar_khanate # Dzungar Khanate
+		adjective = DZU_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -496,6 +494,7 @@ DZU = { # Dzungaria
 MGL = { # Mongolia
 	dynamic_country_name = {
 		name = dyn_c_mongol_khanate # Mongol Khanate
+		adjective = MGL_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -564,6 +563,7 @@ CHI = { # China
 	}
 	dynamic_country_name = {
 		name = dyn_c_peoples_republic_of_china
+		adjective = CHI_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -624,22 +624,10 @@ AKN = { # Akturkistan
 	}
 }
 
-AMR = { # America
-	dynamic_country_name = {
-		name = dyn_c_american_empire
-		
-		is_main_tag_only = yes
-		priority = 0
-		
-		trigger = {
-			coa_def_monarchy_flag_trigger = yes
-		}
-	}
-}
-
 PFA = { # Pfalz
 	dynamic_country_name = {
 		name = dyn_c_pfalz_bayern #Palatinate-Bavaria
+		adjective = dyn_c_pfalz_bayern_adj
 		
 		is_main_tag_only = yes
 		priority = 0

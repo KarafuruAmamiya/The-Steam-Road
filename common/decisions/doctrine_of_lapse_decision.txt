@@ -18,7 +18,6 @@
 		}
 		THIS = c:PER
 		any_subject_or_below = {
-			count > 3
 			is_player = no
 			country_is_in_india = yes
 			is_subject_type = subject_type_puppet
@@ -32,12 +31,17 @@
 						has_trait = cancer
 						has_trait = opium_addiction
 						has_trait = cocaine_addiction
+						has_trait = grifter
 					}
 				}
 				NOT = {
 					any_scope_character = {
-						is_heir = no
+						is_heir = yes
 					}
+				}
+				any_scope_character = {
+					is_heir = yes
+					is_female = yes
 				}
 				has_variable = illegitimate_can_annex
 			}

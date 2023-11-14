@@ -402,6 +402,33 @@ gov_indian_satrapies = {
 	}
 }
 
+gov_special_satrapies_raj = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = ""
+	
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = ""
+	
+	possible = {
+		c:RAJ ?= this
+		has_law = law_type:law_monarchy
+		exists = c:PER 
+		is_subject_of = c:PER 
+		c:PER = {
+			has_law = law_type:law_monarchy
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
 gov_special_satrapies_muslim = {
 	transfer_of_power = hereditary
 

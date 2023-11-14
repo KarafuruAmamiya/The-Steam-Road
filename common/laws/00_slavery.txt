@@ -115,6 +115,13 @@ law_slavery_banned = {
 			}
 			add = 1000
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_surat_riots
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -134,7 +141,7 @@ law_debt_slavery = {
 			if = {
 				limit = {
 					NOT = { has_ideology = ideology:ideology_pro_slavery }
-					owner = { NOT = { c:AKN ?= this }  }
+					
 				}			
 				add_ideology = ideology_pro_slavery 
 			}
@@ -247,7 +254,7 @@ law_slave_trade = {
 			if = {
 				limit = {
 					NOT = { has_ideology = ideology:ideology_pro_slavery }
-					owner = { NOT = { c:AKN ?= this }  }
+					
 				}			
 				add_ideology = ideology_pro_slavery 
 			}
@@ -346,7 +353,7 @@ law_legacy_slavery = {
 			if = {
 				limit = {
 					NOT = { has_ideology = ideology:ideology_pro_slavery }
-					owner = { NOT = { c:AKN ?= this }  }
+					
 				}			
 				add_ideology = ideology_pro_slavery 
 			}

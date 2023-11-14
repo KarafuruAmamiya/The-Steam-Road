@@ -1,12 +1,76 @@
 ﻿l_english:
 
  #Raj Events
- raj.1.t: "The Raj"
- raj.1.d: "The age of Hindustani Satrapies has ended, and Hindustan too shall be ruled under the benevolent light of the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]. History shall mark this day as the inception of the Raj, a union of equal status to Iran itself."
- raj.1.f: ""As long as we rule Hindustan, we are the greatest power in the world. If we lose it, we shall drop straight away to a third-rate Power. Even if it requires despotic methods, our grip over Hindustan shall never be broken!""
- raj.1.a: "Zenda bâd Šâh!"
- raj.1.b: "Raj Zindābād!"
- activate_british_raj: "The Satrapy system will be abolished and reformed into the Raj"
+ raj.8.t: "Hindustani Rebellion"
+ raj.8.d: "Revolutionaries in [SCOPE.sCountry('gujarat_scope').GetCapital.GetCityHubName] have declared independence from the rule of [SCOPE.sCountry('per_scope').GetName]. They call for aid from all Hindustani states in their struggle."
+ raj.8.f: ""The Farsis are formidable adversaries. What guarantee do we have that your rebellion won't lead to more suffering for our people?"\n\n"I understand your fears, my [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]. But our cause is just, and we fight not just for [SCOPE.sCountry('gujarat_scope').GetName] but for the freedom of all Hindustani from the Farsi yoke. If we stand together, our collective strength might just defy the odds.""
+ raj.8.a: "If the call for freedom echoes through your fields, it shall resonate in our lands as well."
+ raj.8.b: "We will not shed [ROOT.GetCountry.GetAdjectiveNoFormatting] blood for [SCOPE.sCountry('gujarat_scope').GetName]."
+ 
+ #Hindustani Uprising
+ je_hindustani_uprising: "Hindustani Uprising"
+ je_hindustani_uprising_reason: "Beginning in Gujarat, our Hindustani subjects has risen up in a widespread revolt against us. No matter what, we must crush them and retake Hindustan!"
+ no_independent_indian_subject_tt: "None of our Hindustani subject manage to break free."
+ independent_indian_subject_tt: "We failed to bring our Hindustani subjects back into our fold."
+ 
+ je_surat_riots: "Surat Riots"
+ je_surat_riots_reason: "An uprising compromised of peasants and farmers throughout Gujarat has gathered in Surat, threatening to destabilize the region. We must restore order to the region and crush any secessionist thoughts."
+ je_surat_riots_goal: "Quell the turmoil in Gujarat for #BOLD five#! years."
+ 
+ indian_flavor.3.t: "Surat Riots"
+ indian_flavor.3.d: "Peasants and farmers throughout Gujarat has risen up in Surat when economic distress they blamed on our current state of affairs caused widespread imprisonment or enslavement of those who failed to repay their loans. Although this is not the first uprising of this nature, we still need to monitor the situation before it spirals out of control."
+ indian_flavor.3.f: ""The Farsis has turned us into thralls on our own land. They take more than we can yield while they reap the benefits. They forced payments with high revenue rates upon us, and when we cannot repay, they seize our lands, our homes, and even our families!""
+ indian_flavor.3.a: "Concerning."
+ surat_riots: "Surat Riots"
+ 
+ indian_flavor.4.t: "Agriculturists Relief Act"
+ indian_flavor.4.d: "Following the uprising in Gujarat and the banning of any forms of slavery throughout our Empire, the parliament has passed the Agriculturists Relief Act, which further protected the Gujarati farmers from arrest and imprisonment for their inability to repay debts."
+ indian_flavor.4.f: ""WHEREAS it has come to the attention of [ROOT.GetCountry.GetRuler.GetHerHis] Majesty's Parliament that the conditions prevailing in the region of Gujarat necessitate the enactment of legislative measures to ameliorate the hardships faced by the agriculturists and peasants;\n\nAND WHEREAS previous policies have led to widespread imprisonment and servitude of the said agriculturists and peasants due to their inability to repay debts, thereby exacerbating economic distress;\n\nNOW, THEREFORE, BE IT ENACTED by the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s most Excellent Majesty, and by the authority of the same, as follows:""
+ indian_flavor.4.a: "Zenda bâd Šâh!"
+ gujarat_relief_act: "Agriculturists Relief Act"
+ 
+ indian_flavor.5.t: "Mobs in [SCOPE.sState('revolt_state_scope').GetCityHubName]"
+ indian_flavor.5.d: "The riotings in [SCOPE.sState('revolt_state_scope').GetCityHubName] has risen to a new level. Rampaging throughout the streets wielding clubs and bhuj, they would even attack Iranian stores and businesses to 'drive out the intruders'. To make matter worse, some of the rioters are suspected to harbor insurrectionist stances."
+ indian_flavor.5.f: ""I have seen the greed in their eyes and how they cares not for our well-being. They bleed us dry and build opulent palaces and gardens while we starve. What choice do we have? If we don't act, our children will inherit a life worse than ours.""
+ indian_flavor.5.a: "Bah! Our merchants can handle a little disruption."
+ indian_flavor.5.b: "Find the provocators and arrest them!"
+ indian_flavor.5.c: "Bring in the guns!"
+ indian_flavor.5.d: "Let's listen to what they have to say."
+ indian_flavor.5.tt1: "Your lack of response could escalate the situation."
+ indian_flavor.5.tt2: "Your response could keep the situation from escalating."
+ indian_flavor.5.tt3: "Your response will most likely escalate the situation."
+ police_crackdown: "Police Crackdown"
+ 
+ indian_flavor.6.t: "The Port of [SCOPE.sState('port_scope').GetPortHubName] Disrupted!"
+ indian_flavor.6.d: "Iranian merchants and sailors are complaining about how disruptions caused by the riots have affected their seafaring livelihoods. Less ships have docked in [SCOPE.sState('port_scope').GetPortHubName] and even those who do are afraid of getting caught in the turmoil. They demand that we do something before the economic woes spread to them."
+ indian_flavor.6.f: ""Look what those goons have done! Our shops are closed, and the markets are deserted. Our shipments are stuck, and the entire trade network is paralyzed. Can't we find a way to resolve this before I lose my fortune?""
+ indian_flavor.6.a: "They can endure a few more months of disruption."
+ indian_flavor.6.b: "We must implement more stringent measures!"
+ ports_disrupted: "Ports Disrupted"
+ 
+ indian_flavor.7.t: "Restoring Order to [SCOPE.sState('riots_state').GetName]"
+ indian_flavor.7.d: "The news of the turmoil in Gujarat have reached even the hallowed halls of the highest Parliament in [SCOPE.sState('capital_state').GetCityHubName]. In addition to the decrees we have enacted in the region, they propose additional measures to restore some semblance of order, although this may be unnecessary expenses on our part."
+ indian_flavor.7.f: "By [ROOT.GetCountry.GetRuler.GetHerHis] Majesty's Command, we shall enact additional decrees as follow:"
+ indian_flavor.7.a: "...Tightening of security measures in Gujarat Region."
+ indian_flavor.7.b: "...Additional welfare provided to those in distress."
+ indian_flavor.7.c: "These are unnecessary measures."
+ harsh_suppression: "Harsh Suppression"
+ relief_packages: "Relief Packages"
+ ignored_turmoil: "Ignored Turmoil in Gujarat"
+ 
+ indian_flavor.8.t: "Insurrection in [SCOPE.sState('revolution_scope').GetName]!"
+ indian_flavor.8.d: "The chaos in [SCOPE.sState('revolution_scope').GetName] has turned into a full-blown insurrection. Rioters clashed with the Iranian forces deployed in [SCOPE.sState('revolution_scope').GetCityHubName], Iranian stores and markets are being looted and smashed, and the city's streets are dyed red with blood."
+ indian_flavor.8.f: ""Jaya jaya garavī gujarāta!\nJaya jaya garavī gujarāta,\nDīpē aruṇuṁ parabhāta,\nJaya jaya garavī gujarāta!""
+ indian_flavor.8.a: "Gun them all down!"
+ indian_flavor.8.b: "Try to de-escalate the situation."
+ indian_flavor.8.c: "It is time for us to act."
+ 
+ indian_flavor.9.t: "Insurrection Spreads to [SCOPE.sState('spreading_revolt_state').GetName]!"
+ indian_flavor.9.d: "Another wave of insurrection has arrived, this time in [SCOPE.sState('spreading_revolt_state').GetCityHubName], apparently inspired by the previous insurrection movements in the region. More forces has been deployed to the region, but the situation continue to escalate."
+ indian_flavor.9.f: ""Dhvaja prakāśaśē jhaḷaḷa kasumbī,\nprēma śaurya aṅkita;\nTuṁ bhaṇava bhaṇava nija santaji sa'unē,\nPrēma bhaktinī rīta\nŪn̄cī tuja sundara jāta,\nJaya jaya garavī gujarāta.""
+ indian_flavor.9.a: "Gun them all down!"
+ indian_flavor.9.b: "Try to de-escalate the situation."
+ indian_flavor.9.c: "It is time for us to act."
  
  #Indian Flavor
  indian_flavor.1.t: "Bundelkhand Succession Crisis"

@@ -223,9 +223,30 @@ on_capitulation = {
 				exists = c:TAU
 				exists = c:PER
 				this = c:TAU
-				is_subject_of = c:PER
+				any_overlord_or_above = {
+					c:PER = this
+				}
+				is_subject_type = subject_type_protectorate
 			}
 			trigger_event = { id = burmese_war.1 }
+		}
+		if = {
+			limit = {
+				exists = c:PER
+				any_overlord_or_above = {
+					c:PER = this
+				}
+				OR = {
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dominion
+					is_subject_type = subject_type_dependency
+				}
+				NOT = { has_variable = hindustani_subject }
+			}
+			set_variable = hindustani_subject
+			every_scope_state = {
+				set_variable = hindustani_subject_state
+			}
 		}
 	}
 }

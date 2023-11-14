@@ -469,7 +469,12 @@ brazilian_commander_monarch_headgear = {
                     AND = {
 						exists = scope:pop
                         scope:pop = {
-                            NOT = { religion = { has_discrimination_trait = muslim } }
+							OR = {
+								NOT = { religion = { has_discrimination_trait = muslim } }
+								owner = {
+									has_variable = kashf_e_hijab_var
+								}
+							}
                         }
                         indian_clothes_pop_trigger = yes
                         OR = {
@@ -499,6 +504,9 @@ brazilian_commander_monarch_headgear = {
 					exists = scope:pop
                     scope:pop = {
 						religion = { has_discrimination_trait = muslim }
+						owner = {
+							NOT = { has_variable = kashf_e_hijab_var }
+						}
                     }
                     indian_clothes_pop_trigger = yes
 					OR = {
@@ -1000,10 +1008,7 @@ brazilian_commander_monarch_headgear = {
 					NOT = {
 						religion = rel:jewish
 					}
-					OR = {
-                        is_pop_type = farmers
-                        is_pop_type = peasants
-                    }
+					strata = poor
                 }
             }
 			modifier = {
@@ -1013,6 +1018,9 @@ brazilian_commander_monarch_headgear = {
 						culture = cu:bedouin
 						culture = cu:mashriqi
 						culture = cu:khaleeji
+					}
+					owner = {
+						NOT = { has_variable = kashf_e_hijab_var }
 					}
 					soldier_clothes_pop_trigger = no
 					officers_clothes_pop_trigger = no
@@ -1028,6 +1036,7 @@ brazilian_commander_monarch_headgear = {
 							country_has_primary_culture = cu:mashriqi
 							country_has_primary_culture = cu:khaleeji
 						}
+						NOT = { has_variable = kashf_e_hijab_var }
 					}
                     agitator_character_trigger = no
 				}
@@ -1092,6 +1101,9 @@ brazilian_commander_monarch_headgear = {
                         has_discrimination_trait = arabic_heritage
                     }
 					upper_clothes_pop_trigger = yes
+					owner = {
+						NOT = { has_variable = kashf_e_hijab_var }
+					}
                 }
             }
 			modifier = {
@@ -1116,11 +1128,16 @@ brazilian_commander_monarch_headgear = {
             modifier = {
                 add = 6000
                 tsr_fez_trigger = yes
-                    OR = {
-                        military_clothes_trigger = yes
-                        politician_clothes_trigger = yes
-                        monarchy_clothes_trigger = yes
-                    }
+                OR = {
+                    military_clothes_trigger = yes
+                    politician_clothes_trigger = yes
+                    monarchy_clothes_trigger = yes
+                }
+				scope:character ?= {
+					home_country = {
+						NOT = { has_variable = kashf_e_hijab_var }
+					}
+				}
             }
 			modifier = {
                 add = 90000
@@ -1157,6 +1174,81 @@ brazilian_commander_monarch_headgear = {
 					officers_clothes_pop_trigger = yes
 					middle_clothes_pop_trigger = yes					
 					upper_clothes_pop_trigger = yes					
+				}
+				scope:pop ?= {
+					owner = {
+						NOT = { has_variable = kashf_e_hijab_var }
+					}
+				}
+            }
+        }
+    }
+	
+	ottoman_military_fez_no_hijab = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_fez_no_hijab
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 6000
+                tsr_fez_trigger = yes
+                OR = {
+					military_clothes_trigger = yes
+					politician_clothes_trigger = yes
+					monarchy_clothes_trigger = yes
+                }
+				scope:character ?= {
+					owner = {
+						has_variable = kashf_e_hijab_var
+					}
+				}
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = syr_bustani_character_template
+                }
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = egy_shidyaq_character_template
+                }
+            }
+        }
+	}
+	
+	ottoman_officers_military_fez_no_hijab = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_fez_no_hijab
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+				tsr_fez_pop_trigger = yes
+				european_clothes_pop_trigger = no
+				OR = {
+					soldier_clothes_pop_trigger = yes
+					officers_clothes_pop_trigger = yes
+					middle_clothes_pop_trigger = yes					
+					upper_clothes_pop_trigger = yes					
+				}
+				scope:pop ?= {
+					owner = {
+						has_variable = kashf_e_hijab_var
+					}
 				}
             }
         }
@@ -1252,6 +1344,9 @@ brazilian_commander_monarch_headgear = {
 							religion = {
 								has_discrimination_trait = muslim
 							}
+							owner = {
+								NOT = { has_variable = kashf_e_hijab_var }
+							}
 						}
 					}
 					AND = {
@@ -1260,7 +1355,23 @@ brazilian_commander_monarch_headgear = {
 							religion = {
 								has_discrimination_trait = muslim
 							}
+							home_country = {
+								NOT = { has_variable = kashf_e_hijab_var }
+							}
 						}
+					}
+				}
+            }
+			modifier = {
+                add = 100
+				arabic_clothes_pop_trigger = yes
+				scope:pop ?= {
+					religion = {
+						has_discrimination_trait = muslim
+					}
+					OR = {
+						strata = poor
+						strata = middle
 					}
 				}
             }
@@ -1280,7 +1391,6 @@ brazilian_commander_monarch_headgear = {
             base = 0
             modifier = {
                 add = 200
-				arabic_clothes_pop_trigger = yes
 				OR = {
 					AND = {
 						arabic_clothes_pop_trigger = yes
@@ -1293,6 +1403,9 @@ brazilian_commander_monarch_headgear = {
 								culture = cu:mashriqi
 								culture = cu:yemenite
 								culture = cu:khaleeji
+							}
+							owner = {
+								NOT = { has_variable = kashf_e_hijab_var }
 							}
 						}
 					}
@@ -1308,7 +1421,23 @@ brazilian_commander_monarch_headgear = {
 								culture = cu:yemenite
 								culture = cu:khaleeji
 							}
+							home_country = {
+								NOT = { has_variable = kashf_e_hijab_var }
+							}
 						}
+					}
+				}
+            }
+			modifier = {
+                add = 100
+				arabic_clothes_pop_trigger = yes
+				scope:pop ?= {
+					religion = {
+						has_discrimination_trait = muslim
+					}
+					OR = {
+						strata = poor
+						strata = middle
 					}
 				}
             }

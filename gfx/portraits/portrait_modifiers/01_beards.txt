@@ -104,17 +104,28 @@
             modifier = {
 				add = 100
                 exists = scope:character
-                scope:character = { age > 16 }
-                OR = {
-                    arabic_clothes_trigger = yes
-                    arabic_clothes_pop_trigger = yes
-                }
+                scope:character = { 
+					age > 16 
+					culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
+            }
+			modifier = {
+				add = 100
+                exists = scope:pop
+                scope:pop = { 
+					culture = {
+						has_discrimination_trait = arabic_heritage
+					}
+				}
             }
 			modifier = {
                 add = 10000
 				devout_clothes_trigger = yes
                 exists = scope:character
                 scope:character = {
+					age > 16
 					OR = {
 						religion = rel:sunni
 						religion = rel:shiite
@@ -138,6 +149,78 @@
             }
         }
     }    
+	
+	caucasian_middle_east_beards = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = caucasian_middle_east_beards
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+				add = 100
+                exists = scope:character
+                scope:character = { 
+					age > 16 
+					culture = {
+						OR = {
+							has_discrimination_trait = oghuz
+							has_discrimination_trait = iranian_heritage
+						}
+					}
+				}
+            }
+			modifier = {
+                add = 100
+                exists = scope:pop
+                scope:pop = {
+					culture = {
+						OR = {
+							has_discrimination_trait = oghuz
+							has_discrimination_trait = iranian_heritage
+						}
+					}
+                }
+            }
+        }
+    }
+	
+	arabic_mustaches = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = mustaches
+                template = caucasian_middle_east_mustaches
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+				add = 100
+                exists = scope:character
+                scope:character = { age > 16 }
+                OR = {
+                    arabic_clothes_trigger = yes
+                    arabic_clothes_pop_trigger = yes
+                }
+            }
+			modifier = {
+                add = 10000
+                exists = scope:pop
+                scope:pop = {
+					OR = {
+						arabic_clothes_trigger = yes
+						arabic_clothes_pop_trigger = yes
+					}
+				}
+			}
+		}
+	}
 
     full_facial_hair = {
         dna_modifiers = {

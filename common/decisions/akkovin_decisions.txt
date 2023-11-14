@@ -78,9 +78,9 @@ cancel_treaty_of_baglar = {
 	is_shown = {
 		exists = c:AKN
 		root = c:AKN
-		OR = {
-			has_modifier = treaty_of_baglar
-			has_modifier = treaty_of_baglar_2
+		has_diplomatic_pact = {
+			who = c:PER
+			type = treaty_of_baglar_pact
 		}
 	}
 
@@ -92,6 +92,10 @@ cancel_treaty_of_baglar = {
 	}
 
 	when_taken = {
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = treaty_of_baglar_pact
+		}
 		if = {
 			limit = { has_modifier = treaty_of_baglar }
 			remove_modifier = treaty_of_baglar
@@ -103,14 +107,6 @@ cancel_treaty_of_baglar = {
 		change_relations = {
 			country = c:PER
 			value = -100
-		}
-		remove_diplomatic_pact = {
-			country = c:PER
-			type = trade_agreement
-		}
-		remove_diplomatic_pact = {
-			country = c:PER
-			type = defensive_pact
 		}
 		if = {
 			limit = {

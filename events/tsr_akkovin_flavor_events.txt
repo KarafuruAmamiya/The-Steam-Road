@@ -583,6 +583,10 @@ treaty_of_baglar_events.2 = { # Persia demands you to embargo their rivals
 				}
 			}
 		}
+		has_diplomatic_pact = {
+			who = c:PER
+			type = treaty_of_baglar_pact
+		}
 		OR = {
 			has_modifier = treaty_of_baglar
 			has_modifier = treaty_of_baglar_2
@@ -623,6 +627,10 @@ treaty_of_baglar_events.3 = { # Persia demands you to enter their market
 			is_country_type = unrecognized
 		}
 		exists = c:PER
+		has_diplomatic_pact = {
+			who = c:PER
+			type = treaty_of_baglar_pact
+		}
 		has_modifier = treaty_of_baglar_2
 	}
 

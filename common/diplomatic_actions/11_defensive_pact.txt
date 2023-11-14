@@ -332,20 +332,6 @@
 					multiply = -5
 				}					
 			}
-			
-			if = {
-				limit = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-					scope:actor = { has_variable = baglar_treaty_signed }
-				}
-				add = {
-					desc = "TREATY_OF_BAGLAR"
-					add = 1000
-				}					
-			}	
 		}
 
 		propose_score = {
@@ -355,20 +341,6 @@
 				value = scope:target_country.country_rank
 				multiply = 3
 			}
-
-			if = {
-				limit = {
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-					scope:actor = { has_variable = baglar_treaty_signed }
-				}
-				add = {
-					desc = "TREATY_OF_BAGLAR"
-					add = 1000
-				}					
-			}	
 		}
 
 		propose_break_score = {

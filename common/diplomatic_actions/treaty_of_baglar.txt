@@ -1,0 +1,46 @@
+﻿treaty_of_baglar_pact = {
+	can_select = no
+	can_use_obligations = yes
+
+	potential = {
+		always = no
+	}	
+	
+	pact = {
+		is_defensive_pact = yes
+		is_trade_agreement = yes
+		
+		relations_progress_per_day = 1 # At 100, +1 relations
+		relations_improvement_max = 80		
+
+
+		actor_can_break = {
+			always = no
+		}
+
+		target_can_break = {
+			always = no
+		}
+
+		should_invalidate = {
+			OR = {
+				has_war_with = scope:target_country				
+				AND = {
+					scope:target_country = { is_non_customs_union_subject = yes }
+					scope:target_country = { is_subject_of = root }
+				}
+				AND = {
+					is_non_customs_union_subject = yes
+					is_subject_of = scope:target_country
+				}
+				NOT = { exists = c:PER }
+				NOT = { exists = c:AKN }
+			}
+		}
+
+		break_effect = {
+			change_relations = { country = scope:target_country value = -30 }
+			create_truce = { country = scope:target_country months = 12 }
+		}
+	}
+}

@@ -553,6 +553,14 @@ akkovin_crisis.6 = {
 				}
 			}
 		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = trade_agreement
+		}
+		create_diplomatic_pact = {
+			country = c:PER
+			type = treaty_of_baglar_pact
+		}
 		add_modifier = {
 			name = treaty_of_baglar
 			months = 120
@@ -579,10 +587,6 @@ akkovin_crisis.6 = {
 		name = akkovin_crisis.6.b
 		trigger = {
 			c:PER ?= ROOT
-		}
-		create_diplomatic_pact = {
-			country = c:AKN
-			type = defensive_pact
 		}
 		custom_tooltip = treaty_of_baglar_tt
 		set_variable = baglar_treaty_signed
@@ -733,11 +737,7 @@ akkovin_crisis.7 = {
 		}
 		remove_diplomatic_pact = {
 			country = c:PER
-			type = trade_agreement
-		}
-		remove_diplomatic_pact = {
-			country = c:PER
-			type = defensive_pact
+			type = treaty_of_baglar_pact
 		}
 		if = {
 			limit = {
@@ -898,6 +898,10 @@ akkovin_crisis.9 = {
 				count < 9
 			}
 			NOR = {
+				has_diplomatic_pact = {
+					who = c:PER
+					type = treaty_of_baglar_pact
+				}
 				has_modifier = treaty_of_baglar
 				has_modifier = treaty_of_baglar_2
 			}
@@ -1196,6 +1200,10 @@ akkovin_crisis.10 = {
 		c:AKN = { 
 			has_variable = akkovin_fail 
 			is_country_type = unrecognized
+			has_diplomatic_pact = {
+				who = c:PER
+				type = treaty_of_baglar_pact
+			}
 			OR = {
 				has_modifier = treaty_of_baglar
 				has_modifier = treaty_of_baglar_2

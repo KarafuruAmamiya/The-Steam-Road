@@ -947,6 +947,10 @@ arab_wars.8 = {
 		if = {
 			limit = {
 				c:AKN = {
+					has_diplomatic_pact = {
+						who = c:PER
+						type = treaty_of_baglar_pact
+					}
 					OR = {
 						has_modifier = treaty_of_baglar
 						has_modifier = treaty_of_baglar_2
@@ -1169,6 +1173,10 @@ arab_wars.11 = {
 				}
 				set_variable = {
 					name = adopt_western_uniforms
+					value = yes
+				}
+				set_variable = {
+					name = adopt_western_clothes
 					value = yes
 				}
 			}		
@@ -1445,6 +1453,10 @@ arab_wars.14 = {
 				}
 				set_variable = {
 					name = adopt_western_uniforms
+					value = yes
+				}
+				set_variable = {
+					name = adopt_western_clothes
 					value = yes
 				}
 			}		

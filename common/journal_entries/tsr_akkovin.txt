@@ -470,9 +470,13 @@ je_akkovin_reform_sovereignty = {
 		custom_tooltip = {
 			text = no_baglar_treaty_tt
 			has_variable = baglar_treaty_signed
-			AND = {
-				NOT = { has_modifier = treaty_of_baglar }
-				NOT = { has_modifier = treaty_of_baglar_2 }
+			NOR = {
+				has_diplomatic_pact = {
+					who = c:PER
+					type = treaty_of_baglar_pact
+				}
+				has_modifier = treaty_of_baglar }
+				has_modifier = treaty_of_baglar_2 }
 			}
 		}
 		custom_tooltip = {
@@ -1134,6 +1138,10 @@ je_akkovin_partition_tur = { #WIP
 			limit = {
 				exists = c:AKN
 				c:AKN = {
+					has_diplomatic_pact = {
+						who = c:PER
+						type = treaty_of_baglar_pact
+					}
 					OR = {
 						has_modifier = treaty_of_baglar
 						has_modifier = treaty_of_baglar_2

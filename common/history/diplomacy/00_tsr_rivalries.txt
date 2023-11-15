@@ -1,16 +1,6 @@
 ﻿DIPLOMACY = {
 	c:ENG = {
 		create_diplomatic_pact = {
-			country = c:NET
-			type = rivalry
-		}
-	}
-	c:NET = {
-		create_diplomatic_pact = {
-			country = c:ENG
-			type = rivalry
-		}
-		create_diplomatic_pact = {
 			country = c:IBE
 			type = rivalry
 		}
@@ -51,7 +41,29 @@
 	}
 	c:TUR = {
 		create_diplomatic_pact = {
-			country = c:AKN
+			country = c:ITA
+			type = rivalry
+		}
+	}
+	c:ITA = {
+		create_diplomatic_pact = {
+			country = c:TUR
+			type = rivalry
+		}
+	}
+	c:IBE = {
+		create_diplomatic_pact = {
+			country = c:ARN
+			type = rivalry
+		}
+		create_diplomatic_pact = {
+			country = c:ENG
+			type = rivalry
+		}
+	}
+	c:ARN = {
+		create_diplomatic_pact = {
+			country = c:IBE
 			type = rivalry
 		}
 	}
@@ -64,22 +76,6 @@
 	c:POL = {
 		create_diplomatic_pact = {
 			country = c:SAX
-			type = rivalry
-		}
-	}
-	c:IBE = {
-		create_diplomatic_pact = {
-			country = c:ARN
-			type = rivalry
-		}
-		create_diplomatic_pact = {
-			country = c:NET
-			type = rivalry
-		}
-	}
-	c:ARN = {
-		create_diplomatic_pact = {
-			country = c:IBE
 			type = rivalry
 		}
 	}

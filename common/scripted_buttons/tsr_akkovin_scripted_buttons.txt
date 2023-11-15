@@ -15,6 +15,10 @@
 					limit = {
 						c:AKN = {
 							NOR = {
+								has_diplomatic_pact = {
+									who = c:PER
+									type = treaty_of_baglar_pact
+								}
 								has_modifier = treaty_of_baglar
 								has_modifier = treaty_of_baglar_2
 							}
@@ -33,6 +37,10 @@
 						limit = {
 							c:AKN = {
 								NOR = {
+									has_diplomatic_pact = {
+										who = c:PER
+										type = treaty_of_baglar_pact
+									}
 									has_modifier = treaty_of_baglar
 									has_modifier = treaty_of_baglar_2
 								}
@@ -50,6 +58,10 @@
 		if = {
 			limit = {
 				c:AKN = {
+					has_diplomatic_pact = {
+						who = c:PER
+						type = treaty_of_baglar_pact
+					}
 					OR = {
 						has_modifier = treaty_of_baglar
 						has_modifier = treaty_of_baglar_2
@@ -156,7 +168,10 @@ je_akkovin_crisis_button = {
 	possible = {
 		custom_tooltip = {
 			text = erzurum_edict_tt
-			has_modifier = treaty_of_baglar
+			has_diplomatic_pact = {
+				who = c:PER
+				type = treaty_of_baglar_pact
+			}
 		}
 		NOT = { has_variable = erzurum_edict }
 	}

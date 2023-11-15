@@ -148,3 +148,59 @@ je_set_up_paper_import = {
 
 	transferable = no
 }
+
+je_set_up_tools_import = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_scope
+		}
+	}
+
+	complete = {
+		capital.market = {
+			mg:tools = { market_goods_cheaper <= 0.05 }
+		}
+	}
+
+	on_complete = {
+		ig:ig_trade_unions = {
+			add_modifier = {
+				name = ig_secured_desired_imports
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = ig_secured_desired_imports
+				months = normal_modifier_time
+			}
+		}
+	}
+
+
+	on_timeout = {
+		ig:ig_trade_unions = {
+			add_modifier = {
+				name = ig_refused_desired_imports
+				months = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = ig_refused_desired_imports
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	timeout = 1825
+
+	weight = 200
+
+	transferable = no
+}

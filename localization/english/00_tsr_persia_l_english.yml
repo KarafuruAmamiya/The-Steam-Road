@@ -4,7 +4,7 @@
  je_eclipse_of_persia: "Eclipse of Persia"
  je_eclipse_of_persia_reason: "The Persian Empire under the Safavid dynasty has been the dominant power in the Iranian Plateau and one of Asia's major powers for centuries. However, hints of decline has surfaced, and it remains to be seen whether the empire can make it through the turn of the century."
  je_eclipse_of_persia_goal: "A number of factors risk accelerating the decline of [SCOPE.GetRootScope.GetCountry.GetName]"
- persia_eclipse_criteria: "Each of the following will contribute #red 20%#! to the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Losing control over #BOLD India#!\n- Losing control over #BOLD Arabia#!\n- Failing to stop the #BOLD Zandi Rebellion#!\n- Failing to stop #BOLD European#! enroachment into the Iranian homelands\n- Going into debt and taking any [concept_loans]\n- Having a [concept_civil_war]\n- Becoming a [concept_subject] under another country\n- Abolishing the [SCOPE.sLaw('monarchy_scope').GetName]\n\nEach of the following will detract #green -20%#! from the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Retaking lost #BOLD Persian#! homelands\n- Successfully concluded the #BOLD Constitutional Reformation#!\n- Finishing the #BOLD Stamp Out Monarchism#! [concept_journal_entry]\n- No #BOLD European#! country borders the Iranian homelands"
+ persia_eclipse_criteria: "Each of the following will contribute #red 20%#! to the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Losing control over #BOLD India#!\n- Losing control over #BOLD Arabia#!\n- Failing the #BOLD Constitutional Reformation#!\n- Failing to stop #BOLD European#! enroachment into the Iranian homelands\n- Going into debt and taking any [concept_loans]\n- Having a [concept_civil_war]\n- Becoming a [concept_subject] under another country\n- Abolishing the [SCOPE.sLaw('monarchy_scope').GetName]\n\nEach of the following will detract #green -20%#! from the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Retaking lost #BOLD Persian#! homelands\n- Successfully concluded the #BOLD Constitutional Reformation#!\n- Finishing the #BOLD Stamp Out Monarchism#! [concept_journal_entry]\n- No #BOLD European#! country borders the Iranian homelands"
  persia_eclipse_point_add_name: "Eclipse Accelerated"
  persia_eclipse_point_add_desc: "The decline of [SCOPE.GetRootScope.GetCountry.GetName] has progressed further."
  persia_eclipse_point_add_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
@@ -110,8 +110,8 @@
  persian_renaissance_science_philosophy_button_desc: "Long before the European Renaissance generated the radical ideas that eventually reshaped the West, Iranian statesmen, artists, and intellectuals had formulated ideas that strikingly anticipate those of modernity. Let us encourage a new generation of intellectuals."
  persian_renaissance_historical_sites_button: "Our Ancient Past"
  persian_renaissance_historical_sites_button_desc: "The ancient history of Iran has an impressively rich and varied cultural legacy that has influenced not only our civilization but also those of the West and East until today. By restoring the ruins of the past, we may continue to inspire the future."
- persian_renaissance_literature_button: "Literature and Schools"
- persian_renaissance_literature_button_desc: "The increasing literacy of our empire has led to a rise of popular literature. These literary works reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics."
+ persian_renaissance_literature_button: "Literature and Language"
+ persian_renaissance_literature_button_desc: "The contemporary literary works reflects a transitional time between tradition and modernity, a notable example being a move from neoclassic literary tradition inherent of conservative Islamic society to reformist aesthetics.  Many argued that our literature should evolve to reflect the realities of a country in transition."
  persian_renaissance_architecture_button: "Urbanization and Architecture"
  persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West and the rise of larger cities has led to a new a new architectural movement combining European neoclassical styles with traditional Iranian styles."
  persian_renaissance_textile_arts_button: "Textile Arts"
@@ -221,10 +221,14 @@
  persian_flavor.10.d: "Following [SCOPE.sCharacter('kermani_scope').GetLastName]'s arrest, he has been suspected with an assassination attempt on the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle], whose perpetrator happens to also be an alleged Bābī closely associated with Jamaluddin al-Afghani. He was then moved to and executed in Tabriz."
  persian_flavor.10.f: ""I want it to be known that my calls were not acts of treason but rather acts of profound love for Iran. I believed, and continue to believe, that the ideas I wrote would allow our people to enjoy better living conditions and a better intellectual environment. In ending my life, you may extinguish my physical existence, but you cannot extinguish the thirst for liberty, justice, and enlightenment that will persist in the hearts of countless Iranians. I pray that one day, our nation will recognize the importance of these ideals and that my sacrifice may not have been in vain.""
  persian_flavor.10.a: "Good riddance."
- 
  modifier_kermani_in_exile: "Kermani in Exile"
  kermani_scot_free: "Did Not Pursue Kermani"
  executed_kermani: "Executed Kermani"
+ 
+ persian_flavor.12.t: "[SCOPE.sCountry('exporter_country').GetName]"
+ persian_flavor.16.t: "[SCOPE.sCountry('western_country').GetName]"
+ 
+ kashf_e_hijab_tt: "Women of the upper and middle strata will unveil in public."
  
  #Decisions
  excavation_of_persepolis: "Excavation of Persepolis"
@@ -239,6 +243,16 @@
  grant_zoroastrian_rights: "Grant Zoroastrian Rights"
  grant_zoroastrian_rights_desc: "For long, the Zoroastrians in our country has been persecuted, killed, or forced to convert into Shia Islam. However, the adoption of nationalism has recognized them too as people of the Iranian Empire, and many are advocating to give them and other religious minorities fundamental rights."
  can_build_fire_temple_tt: "We will be able to build the [GetBuildingType('building_yazd_atash_beram').GetName] [concept_monument]."
+ 
+ je_set_up_tools_import: "Set Up Tools Import"
+ je_set_up_tools_import_status: "Bring down the price of $tools$."
+ je_set_up_tools_import_reason: "At the request of the $ig_trade_unions$ and $ig_petty_bourgeoisie$, we have promised to bring down the price of $tools$ to reduce machine prices for the craft workers."
+ 
+ royal_slavery_abolished_tt: "We have abolished the harem and other kinds of royal slavery."
+ 
+ encourage_unveiling: "Encourage Unveiling"
+ encourage_unveiling_desc: "To increase women's participation in society and modernize our country, it is necessary to encourage them to appear without a veil in public."
+ have_adopted_western_clothes_tt: "We have adopted Western clothes."
 
  # Burmese War
  burmese_war.1.t: "End of the Taungoo Empire"

@@ -26,6 +26,11 @@
 				ig:ig_devout = {
 					ig_approval <= -10
 				}
+				ig:ig_devout = {
+					leader = {
+						has_ideology = ideology:ideology_persian_constitutionalist
+					}
+				}
 			}
 		}
 		custom_tooltip = {
@@ -33,31 +38,26 @@
 			calc_true_if = {
 				amount >= 3
 				has_journal_entry = je_eclipse_of_persia
-				radical_fraction = {
-					value >= 0.15
-					culture = cu:persian
-				}
 				in_default = yes
 				government_legitimacy <= 30
-				is_junior_in_customs_union = yes
-				OR = {
-					average_sol < 10
-					any_scope_state = {
-						count >= 2
-						is_incorporated = yes
-						state_region = { 
-							is_homeland = cu:persian
-						}
-						average_sol <= 9
+				any_scope_state = {
+					count >= 2
+					is_incorporated = yes
+					state_region = { 
+						is_homeland = cu:persian
 					}
+					average_sol <= 9
 				}
 				any_scope_state = {
-					count >= 3
 					is_incorporated = yes
 					state_region = { 
 						is_homeland = cu:persian
 					}
 					turmoil > 0.15
+				}
+				radical_fraction = {
+					value >= 0.15
+					culture = cu:persian
 				}
 				OR = {
 					has_law = law_type:law_shared_roots
@@ -97,15 +97,6 @@
 			has_modifier = zandism_spreading
 			count >= 4
 			turmoil >= 0.15
-		}
-		ig:ig_devout = {
-			OR = {
-				ig_approval <= -10
-				is_insurrectionary = yes
-				leader = {
-					has_ideology = ideology:ideology_persian_constitutionalist
-				}
-			}
 		}
 		NOT = { 
 			has_law = law_type:law_state_atheism

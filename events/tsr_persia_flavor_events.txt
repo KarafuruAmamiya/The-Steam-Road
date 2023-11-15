@@ -1,5 +1,6 @@
 ﻿namespace = persian_flavor
 namespace = persian_renaissance
+namespace = persian_eclipse
 #namespace = karakum_frontier
 
 #Persian Flavor
@@ -66,6 +67,7 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 			add_modifier = {
 				name = tolerated_heathens
 				months = long_modifier_time
+				is_decaying = yes
 			}
 		}
 		hidden_effect = {
@@ -120,6 +122,7 @@ persian_flavor.2 = { #Fire Temple vandalized!
 			add_modifier = {
 				name = anti_zoroastrian_tolerated
 				months = long_modifier_time
+				is_decaying = yes
 			}
 		}
 	}
@@ -311,6 +314,7 @@ persian_flavor.4 = { #The Iranian Identity
 			add_modifier = {
 				name = rejected_iranian_identity
 				months = normal_modifier_time
+				is_decaying = yes
 			}
 		}
 		
@@ -709,6 +713,7 @@ persian_flavor.7 = {
 			add_modifier = {
 				name = refused_reforms
 				months = long_modifier_time
+				is_decaying = yes
 			}
 			set_ig_suppression = yes
 		}
@@ -761,6 +766,9 @@ persian_flavor.8 = {
 			any_character_in_exile_pool = {
 				has_variable = kermani
 			}
+		}
+		any_scope_character = {
+			has_variable = prime_minister_trigger
 		}
 		has_variable = rejected_constitutionalism
 		NOT = { has_variable = kermani_critique }
@@ -830,6 +838,7 @@ persian_flavor.8 = {
 			add_modifier = {
 				name = kermani_scot_free
 				months = normal_modifier_time
+				is_decaying = yes
 			}
 		}
 	}
@@ -989,12 +998,13 @@ persian_flavor.10 = {
 			add_modifier = {
 				name = executed_kermani
 				months = normal_modifier_time
+				is_decaying = yes
 			}
 		}
 	}
 }
 
-# Constitutional Reformation
+# Constitutional Reformation Succeeds (Creation of the Majlis)
 persian_flavor.11 = {
 	type = country_event
 	placement = root
@@ -1077,7 +1087,7 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.e
 		trigger = {
-			has_law = law_type:law_compulsory_primary_school
+			has_law = law_type:law_public_schools
 		}
 		add_modifier = {
 			name = constitutional_reformation_education
@@ -1092,7 +1102,2408 @@ persian_flavor.11 = {
 	}
 }
 
-#Persian Renaissance
+# Bazaar Merchants Complains About Western Goods
+persian_flavor.12 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.12.t
+	desc = persian_flavor.12.d
+	flavor = persian_flavor.12.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_farmers_market"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	cooldown = { months = normal_modifier_time }
+	
+	trigger = {
+		c:PER ?= this
+		has_technology_researched = stock_exchange
+		NOT = { has_law = law_type:law_protectionism }
+		NOT = { has_variable = protect_bazaars }
+		any_market = {
+			owner = root
+			any_trade_route = {
+				OR = {
+					goods = g:clothes
+					goods = g:luxury_clothes
+					goods = g:furniture
+					goods = g:luxury_furniture
+					goods = g:silk
+					goods = g:fabric
+					goods = g:fish
+					goods = g:groceries
+					goods = g:dye
+					goods = g:glass
+					goods = g:porcelain
+					goods = g:tools
+					goods = g:meat
+					goods = g:fruit
+					goods = g:liquor
+					goods = g:wine
+					goods = g:tea
+					goods = g:coffee
+					goods = g:sugar
+					goods = g:tobacco
+					goods = g:fine_art
+				}
+				exporter.owner = {
+					country_is_in_europe = yes
+					gunpowder_empire_trigger = no
+				}
+				is_trade_route_productive = yes
+			}
+		}
+	}
+	
+	immediate = {
+		ig:ig_petty_bourgeoisie = {
+			save_scope_as = bazaari_ig
+		}
+		ig:ig_industrialists = {
+			save_scope_as = industrialists_ig
+		}
+		random_market = {
+			limit = {
+				owner = root
+				any_trade_route = {
+					OR = {
+						goods = g:clothes
+						goods = g:luxury_clothes
+						goods = g:furniture
+						goods = g:luxury_furniture
+						goods = g:silk
+						goods = g:fabric
+						goods = g:fish
+						goods = g:groceries
+						goods = g:dye
+						goods = g:glass
+						goods = g:porcelain
+						goods = g:tools
+						goods = g:meat
+						goods = g:fruit
+						goods = g:liquor
+						goods = g:wine
+						goods = g:tea
+						goods = g:coffee
+						goods = g:sugar
+						goods = g:tobacco
+						goods = g:fine_art
+					}
+					exporter.owner = {
+						country_is_in_europe = yes
+						gunpowder_empire_trigger = no
+					}
+					is_trade_route_productive = yes
+				}
+			}
+			random_trade_route = {
+				limit = {
+					OR = {
+						goods = g:clothes
+						goods = g:luxury_clothes
+						goods = g:furniture
+						goods = g:luxury_furniture
+						goods = g:silk
+						goods = g:fabric
+						goods = g:fish
+						goods = g:groceries
+						goods = g:dye
+						goods = g:glass
+						goods = g:porcelain
+						goods = g:tools
+						goods = g:meat
+						goods = g:fruit
+						goods = g:liquor
+						goods = g:wine
+						goods = g:tea
+						goods = g:coffee
+						goods = g:sugar
+						goods = g:tobacco
+						goods = g:fine_art
+					}
+					exporter.owner = {
+						country_is_in_europe = yes
+						gunpowder_empire_trigger = no
+					}
+					is_trade_route_productive = yes
+				}
+				exporter.owner = {
+					limit = {
+						country_is_in_europe = yes
+						gunpowder_empire_trigger = no
+					}
+					save_scope_as = exporter_country
+				}
+			}
+		}
+	}
+	
+	option = { # They should deal with it!
+		name = persian_flavor.12.a
+		default_option = yes
+		
+		scope:bazaari_ig = {
+			add_modifier = {
+				name = domestic_merchants_scorned
+				months = normal_modifier_time
+			}
+		}
+		every_scope_state = {
+			limit = {
+				ig_state_pol_strength_share = {
+					target = scope:bazaari_ig
+					value > 0.1
+				}
+			}
+			add_modifier = {
+				name = modifier_protectionism_support
+				months = long_modifier_time
+			}
+		}
+	}
+	option = { # If they can complain, they can improve their products!
+		name = persian_flavor.12.b
+		scope:bazaari_ig = {
+			add_modifier = {
+				name = domestic_merchants_scorned_max
+				months = normal_modifier_time
+			}
+		}
+		scope:industrialists_ig = {
+			add_modifier = {
+				name = respected_market_freedom
+				months = normal_modifier_time
+			}
+		}
+		every_scope_state = {
+			limit = {
+				ig_state_pol_strength_share = {
+					target = scope:bazaari_ig
+					value > 0.1
+				}
+			}
+			add_modifier = {
+				name = modifier_protectionism_support
+				months = long_modifier_time
+			}
+		}
+	}
+	option = { # We need to protect our bazaars
+		name = persian_flavor.12.c
+		trigger = {
+			scope:bazaari_ig = {
+				is_in_government = yes
+				is_marginal = no
+			}
+			NOT = { has_journal_entry = je_government_petition }
+		}
+		set_variable = protect_bazaars
+		add_journal_entry = { type = je_government_petition }
+		every_scope_state = {
+			limit = {
+				ig_state_pol_strength_share = {
+					target = scope:bazaari_ig
+					value > 0.1
+				}
+			}
+			add_modifier = {
+				name = modifier_protectionism_support
+				months = long_modifier_time
+			}
+		}
+	}
+}
+
+# Foreign Military Advisors
+persian_flavor.13 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.13.t
+	desc = persian_flavor.13.d
+	flavor = persian_flavor.13.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_westerners_arriving"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	immediate = {
+		save_scope_as = hiring_country
+		random_country = {
+            limit = {
+				NOT = { root = this }
+                country_rank = rank_value:great_power 
+                relations:root >= relations_threshold:neutral
+				trigger_if = {
+					limit = {
+						year <= 1861
+					}
+					AND = {
+						has_technology_researched = general_staff
+						has_technology_researched = percussion_cap
+						has_technology_researched = screw_frigate
+						has_technology_researched = power_of_the_purse
+						OR = {
+							has_technology_researched = field_works
+							has_technology_researched = logistics
+							has_technology_researched = triage
+							has_technology_researched = shell_gun
+							has_technology_researched = rifling
+							has_technology_researched = hydraulic_cranes
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = {
+						year > 1861
+						year <= 1886
+					}
+					calc_true_if = {
+						amount >= 5
+						has_technology_researched = modern_nursing
+						has_technology_researched = enlistment_offices
+						has_technology_researched = electric_telegraph
+						has_technology_researched = military_statistics
+						has_technology_researched = repeaters
+						has_technology_researched = breech_loading_artillery
+						has_technology_researched = handcranked_machine_gun
+						has_technology_researched = self_propelled_torpedoes
+						has_technology_researched = monitor_tech
+						has_technology_researched = ironclad_tech
+						has_technology_researched = jeune_ecole
+						has_technology_researched = floating_harbor
+						has_technology_researched = gantry_cranes
+					}
+				}
+				trigger_else_if = {
+					limit = {
+						year > 1886
+						year <= 1911
+					}
+					calc_true_if = {
+						amount >= 5
+						has_technology_researched = trench_works
+						has_technology_researched = war_propaganda
+						has_technology_researched = wargaming
+						has_technology_researched = defense_in_depth
+						has_technology_researched = bolt_action_rifles
+						has_technology_researched = automatic_machine_guns
+						has_technology_researched = submarine
+						has_technology_researched = destroyer
+						has_technology_researched = dreadnought
+						has_technology_researched = sea_lane_strategies
+						has_technology_researched = landing_craft
+						has_technology_researched = concrete_dockyards
+					}
+				}
+            }
+            save_scope_as = army_country
+        }
+		#random_country = {
+        #    limit = { 
+        #        has_war_with = root
+		#		is_country_type = recognized
+		#		country_rank >= rank_value:major_power 
+        #    }
+        #    save_scope_as = enemy_country
+        #}
+	}
+	
+	option = {
+		name = persian_flavor.13.a
+		default_option = yes
+		#Up to era 4
+		if = {
+	        limit = { 
+				NOT = { has_technology_researched = mandatory_service }
+				scope:army_country = {
+					has_technology_researched = mandatory_service
+				}
+			}
+			add_technology_progress = { 
+				progress = 3000 
+				technology = mandatory_service
+			}	
+		}
+		if = {
+	        limit = { 
+				NOT = { has_technology_researched = artillery }
+				scope:army_country = {
+					has_technology_researched = artillery
+				}
+			}
+			add_technology_progress = { 
+				progress = 3000 
+				technology = artillery
+			}	
+		}
+		if = {
+	        limit = { 
+				NOT = { has_technology_researched = line_infantry }
+				scope:army_country = {
+					has_technology_researched = line_infantry
+				}
+				has_technology_researched = mandatory_service
+			}
+			add_technology_progress = { 
+				progress = 3000 
+				technology = line_infantry
+			}	
+		}
+		if = {
+	        limit = { 
+				NOT = { has_technology_researched = napoleonic_warfare }
+				scope:army_country = {
+					has_technology_researched = napoleonic_warfare
+				}
+				has_technology_researched = line_infantry
+			}
+			add_technology_progress = { 
+				progress = 3000 
+				technology = napoleonic_warfare
+			}	
+		}
+		#if = {
+	    #    limit = { 
+		#		NOT = { has_technology_researched = army_reserves }
+		#		scope:army_country = {
+		#			has_technology_researched = army_reserves
+		#		}
+		#		has_technology_researched = line_infantry
+		#	}
+		#	add_technology_progress = { 
+		#		progress = 3000 
+		#		technology = army_reserves
+		#	}	
+		#}
+		if = { 
+	        limit = { 
+				NOT = { has_technology_researched = general_staff }
+				scope:army_country = {
+					has_technology_researched = general_staff
+				}
+				#has_technology_researched = army_reserves (for some reason made this error?)
+			}
+			add_technology_progress = { 
+				progress = 5000 
+				technology = general_staff
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = percussion_cap } 
+				scope:army_country = {
+					has_technology_researched = percussion_cap
+				}
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = percussion_cap
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = paddle_steamer } 
+				scope:army_country = {
+					has_technology_researched = paddle_steamer
+				}
+			}
+            add_technology_progress = { 
+				progress = 3000 
+				technology = paddle_steamer
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = screw_frigate } 
+				scope:army_country = {
+					has_technology_researched = screw_frigate
+				}
+				has_technology_researched = paddle_steamer
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = screw_frigate
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = power_of_the_purse } 
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = power_of_the_purse
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = field_works } 
+				scope:army_country = {
+					has_technology_researched = field_works
+				}
+				has_technology_researched = napoleonic_warfare
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = field_works
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = logistics } 
+				scope:army_country = {
+					has_technology_researched = logistics
+				}
+				has_technology_researched = napoleonic_warfare
+				has_technology_researched = army_reserves
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = logistics
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = rifling } 
+				scope:army_country = {
+					has_technology_researched = rifling
+				}
+				has_technology_researched = percussion_cap
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = rifling
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = triage } 
+				scope:army_country = {
+					has_technology_researched = triage
+				}
+				has_technology_researched = logistics
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = triage
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = shell_gun } 
+				scope:army_country = {
+					has_technology_researched = shell_gun
+				}
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = shell_gun
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = hydraulic_cranes } 
+				scope:army_country = {
+					has_technology_researched = hydraulic_cranes
+				}
+			}
+            add_technology_progress = { 
+				progress = 5000 
+				technology = hydraulic_cranes
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = modern_nursing } 
+				scope:army_country = {
+					has_technology_researched = modern_nursing
+				}
+				has_technology_researched = triage
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = modern_nursing
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = enlistment_offices } 
+				scope:army_country = {
+					has_technology_researched = enlistment_offices
+				}
+				has_technology_researched = logistics
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = enlistment_offices
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = electric_telegraph } 
+				scope:army_country = {
+					has_technology_researched = electric_telegraph
+				}
+				has_technology_researched = logistics
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = electric_telegraph
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = military_statistics } 
+				scope:army_country = {
+					has_technology_researched = military_statistics
+				}
+				has_technology_researched = electric_telegraph
+				has_technology_researched = general_staff
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = military_statistics
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = repeaters } 
+				scope:army_country = {
+					has_technology_researched = repeaters
+				}
+				has_technology_researched = rifling
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = repeaters
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = breech_loading_artillery } 
+				scope:army_country = {
+					has_technology_researched = breech_loading_artillery
+				}
+				has_technology_researched = rifling
+				has_technology_researched = shell_gun
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = breech_loading_artillery
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = handcranked_machine_gun } 
+				scope:army_country = {
+					has_technology_researched = handcranked_machine_gun
+				}
+				has_technology_researched = repeaters
+				has_technology_researched = breech_loading_artillery
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = handcranked_machine_gun
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = self_propelled_torpedoes } 
+				scope:army_country = {
+					has_technology_researched = self_propelled_torpedoes
+				}
+				has_technology_researched = ironclad_tech
+				has_technology_researched = jeune_ecole
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = self_propelled_torpedoes
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = monitor_tech } 
+				scope:army_country = {
+					has_technology_researched = monitor_tech
+				}
+				has_technology_researched = ironclad_tech
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = monitor_tech
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = ironclad_tech } 
+				scope:army_country = {
+					has_technology_researched = ironclad_tech
+				}
+				has_technology_researched = screw_frigate
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = ironclad_tech
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = jeune_ecole } 
+				scope:army_country = {
+					has_technology_researched = jeune_ecole
+				}
+				has_technology_researched = power_of_the_purse
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = jeune_ecole
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = floating_harbor } 
+				scope:army_country = {
+					has_technology_researched = floating_harbor
+				}
+				has_technology_researched = gantry_cranes
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = floating_harbor
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = gantry_cranes } 
+				scope:army_country = {
+					has_technology_researched = gantry_cranes
+				}
+				has_technology_researched = hydraulic_cranes
+			}
+            add_technology_progress = { 
+				progress = 6500 
+				technology = gantry_cranes
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = trench_works } 
+				scope:army_country = {
+					has_technology_researched = trench_works
+				}
+				has_technology_researched = general_staff
+				has_technology_researched = electric_telegraph
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = trench_works
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = war_propaganda } 
+				scope:army_country = {
+					has_technology_researched = war_propaganda
+				}
+				has_technology_researched = enlistment_offices
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = war_propaganda
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = wargaming } 
+				scope:army_country = {
+					has_technology_researched = wargaming
+				}
+				has_technology_researched = military_statistics
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = wargaming
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = defense_in_depth } 
+				scope:army_country = {
+					has_technology_researched = defense_in_depth
+				}
+				has_technology_researched = trench_works
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = defense_in_depth
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = bolt_action_rifles } 
+				scope:army_country = {
+					has_technology_researched = bolt_action_rifles
+				}
+				has_technology_researched = repeaters
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = bolt_action_rifles
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = automatic_machine_guns } 
+				scope:army_country = {
+					has_technology_researched = automatic_machine_guns
+				}
+				has_technology_researched = handcranked_machine_gun
+				has_technology_researched = bolt_action_rifles
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = automatic_machine_guns
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = submarine } 
+				scope:army_country = {
+					has_technology_researched = submarine
+				}
+				has_technology_researched = self_propelled_torpedoes
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = submarine
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = destroyer } 
+				scope:army_country = {
+					has_technology_researched = destroyer
+				}
+				has_technology_researched = monitor_tech
+				has_technology_researched = ironclad_tech
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = destroyer
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = dreadnought } 
+				scope:army_country = {
+					has_technology_researched = dreadnought
+				}
+				has_technology_researched = sea_lane_strategies
+				has_technology_researched = ironclad_tech
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = dreadnought
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = sea_lane_strategies } 
+				scope:army_country = {
+					has_technology_researched = sea_lane_strategies
+				}
+				has_technology_researched = jeune_ecole
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = sea_lane_strategies
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = landing_craft } 
+				scope:army_country = {
+					has_technology_researched = landing_craft
+				}
+				has_technology_researched = jeune_ecole
+				has_technology_researched = monitor_tech
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = landing_craft
+			}	
+		}
+		if = { 
+			limit = { 
+				NOT = { has_technology_researched = concrete_dockyards } 
+				scope:army_country = {
+					has_technology_researched = concrete_dockyards
+				}
+				has_technology_researched = concrete_dockyards
+			}
+            add_technology_progress = { 
+				progress = 8000 
+				technology = concrete_dockyards
+			}	
+		}
+		add_modifier = {
+			name = hiring_western_advisors
+			months = normal_modifier_time
+		}
+        change_relations = {
+            country = scope:army_country
+            value = 20
+        }
+        add_treasury = -300000
+        scope:army_country = { 
+			add_treasury = 300000 
+			post_notification = hired_military_advisors
+		}
+	}
+	
+	option = {
+		name = persian_flavor.13.b
+	}
+}
+
+# 
+persian_flavor.14 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.14.t
+	desc = persian_flavor.14.d
+	flavor = persian_flavor.14.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = persian_flavor.14.a
+		
+	}
+	option = {
+		name = persian_flavor.14.b
+		
+	}
+}
+
+# 
+persian_flavor.15 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.15.t
+	desc = persian_flavor.15.d
+	flavor = persian_flavor.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_gears_pistons"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	
+	option = {
+		name = persian_flavor.15.a
+		default_option = yes
+		
+	}
+	
+	option = {
+		name = persian_flavor.15.b
+
+	}
+}
+
+# Moral Outrage
+persian_flavor.16 = {
+	type = country_event
+	placement = scope:outrage_state
+	title = persian_flavor.16.t
+	desc = persian_flavor.16.d
+	flavor = persian_flavor.16.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	cooldown = { months = normal_modifier_time }
+	
+	trigger = {
+		has_law = law_type:law_state_religion
+		any_scope_state = {
+			is_incorporated = yes
+			state_region = {
+				is_homeland = cu:persian
+				NOT = { has_variable = cracked_down_state }
+			}
+			any_scope_building = {
+				is_building_type = building_port
+				level >= 3
+			}
+		}
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_ideology = ideology:ideology_traditionalist
+			}
+		}
+		OR = {
+			any_market = {
+				owner = root
+				any_trade_route = {
+					exporter.owner = {
+						country_is_in_europe = yes
+						gunpowder_empire_trigger = no
+					}
+				}
+			}
+			any_country = {
+				country_is_in_europe = yes
+				gunpowder_empire_trigger = no
+				OR = {
+					has_diplomatic_pact = {
+						who = root
+						type = customs_union
+					}
+					has_diplomatic_pact = {
+						who = root
+						type = trade_agreement
+					}
+					has_diplomatic_pact = {
+						who = root
+						type = defensive_pact
+					}
+					has_diplomatic_pact = {
+						who = root
+						type = alliance
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				any_market = {
+					owner = root
+					any_trade_route = {
+						exporter.owner = {
+							country_is_in_europe = yes
+							gunpowder_empire_trigger = no
+						}
+					}
+				}
+			}
+			random_market = {
+				limit = {
+					owner = root
+					any_trade_route = {
+						exporter.owner = {
+							country_is_in_europe = yes
+							gunpowder_empire_trigger = no
+						}
+					}
+				}
+				random_trade_route = {
+					limit = {
+						exporter.owner = {
+							country_is_in_europe = yes
+							gunpowder_empire_trigger = no
+						}
+					}
+					exporter.owner = { save_scope_as = western_country }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					country_is_in_europe = yes
+					gunpowder_empire_trigger = no
+					OR = {
+						has_diplomatic_pact = {
+							who = root
+							type = customs_union
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = trade_agreement
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = defensive_pact
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = alliance
+						}
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					country_is_in_europe = yes
+					gunpowder_empire_trigger = no
+					OR = {
+						has_diplomatic_pact = {
+							who = root
+							type = customs_union
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = trade_agreement
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = defensive_pact
+						}
+						has_diplomatic_pact = {
+							who = root
+							type = alliance
+						}
+					}
+				}
+				save_scope_as = western_country
+			}
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				state_region = {
+					is_homeland = cu:persian
+					NOT = { has_variable = cracked_down_state }
+				}
+				any_scope_building = {
+					is_building_type = building_port
+					level >= 3
+				}
+			}
+			save_scope_as = outrage_state
+		}
+		random_interest_group = {
+			limit = {
+				is_in_government = yes
+				leader = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+			save_scope_as = outraged_ig
+			leader = {
+				save_scope_as = outraged_ig_leader
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.16.a #What's wrong with letting youths experiment a little?
+		default_option = yes
+		scope:outraged_ig = {
+			add_modifier = {
+				name = corrupted_youths
+				months = 12
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.16.b #The Westerners are corrupting our society!
+		change_relations = {
+			country = scope:western_country
+			value = -20
+		}
+	}
+	option = {
+		name = persian_flavor.16.c #We need a morality police!
+		trigger = {
+			institution_investment_level = {
+				institution = institution_police
+				value >= 1
+			}
+			NOR = {
+				has_law = law_type:law_right_of_assembly
+				has_law = law_type:law_protected_speech
+			}
+		}
+		if = {
+			limit = {
+				institution_investment_level = {
+					institution = institution_police
+					value < 4
+				}
+			}
+			change_institution_investment_level = {
+				institution = institution_police
+				investment = 1
+			}
+		}
+		scope:outrage_state = {
+			add_modifier = {
+				name = police_crackdown
+				months = 12
+			}
+			state_region = {
+				set_variable = { name = cracked_down_state }
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = against_morality_police
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Helmand River Conflict
+persian_flavor.17 = {
+	type = country_event
+	placement = scope:conflict_state
+	title = persian_flavor.17.t
+	desc = persian_flavor.17.d
+	flavor = persian_flavor.17.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_agriculture.dds"
+	
+	trigger = {
+		has_technology_researched = mechanical_tools
+		NOT = {
+			has_variable = helmand_river_conflict
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				count >= 3
+				OR = {
+					is_building_group = bg_agriculture
+					is_building_group = bg_plantations
+				}
+				level >= 10
+			}
+			OR = {
+				has_state_trait = state_trait_helmand_river
+				any_neighbouring_state = {
+					has_state_trait = state_trait_helmand_river
+				}
+			}
+		}
+		OR = {
+			any_scope_state = {
+				has_state_trait = state_trait_helmand_river
+				NOT = { is_homeland_of_country_cultures = root }
+			}
+			any_country = {
+				NOR = {
+					root = this
+					is_country_type = decentralized
+				}
+				any_scope_state = {
+					has_state_trait = state_trait_helmand_river
+					is_incorporated = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		set_variable = helmand_river_conflict
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_building = {
+					count >= 3
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_plantations
+					}
+					level >= 10
+				}
+				OR = {
+					has_state_trait = state_trait_helmand_river
+					any_neighbouring_state = {
+						has_state_trait = state_trait_helmand_river
+					}
+				}
+			}
+			save_scope_as = conflict_state
+		}
+	}
+	
+	option = {
+		name = persian_flavor.17.a #Prioritize the water for irrigation
+		default_option = yes
+		
+		every_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_building = {
+					count >= 3
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_plantations
+					}
+					level >= 10
+				}
+				OR = {
+					has_state_trait = state_trait_helmand_river
+					any_neighbouring_state = {
+						has_state_trait = state_trait_helmand_river
+					}
+				}
+			}
+			add_modifier = {
+				name = helmand_river_irrigation
+				months = -1
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_helmand_river
+					NOT = { is_homeland_of_country_cultures = root }
+					NOT = { scope:conflict_state = this }
+				}
+			}
+			every_scope_state = {
+				limit = {
+					NOT = { is_homeland_of_country_cultures = root }
+					NOT = { scope:conflict_state = this }
+					has_state_trait = state_trait_helmand_river
+				}
+				add_modifier = {
+					name = river_water_diverted
+					months = -1
+				}
+				add_radicals_in_state = {
+					value = large_radicals
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOR = {
+						root = this
+						is_country_type = decentralized
+					}
+					any_scope_state = {
+						has_state_trait = state_trait_helmand_river
+						is_incorporated = yes
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					NOR = {
+						root = this
+						is_country_type = decentralized
+					}
+					any_scope_state = {
+						has_state_trait = state_trait_helmand_river
+						is_incorporated = yes
+					}
+				}
+				change_relations = {
+					country = root
+					value = -30
+				}
+				hidden_effect = {
+					trigger_event = { id = persian_flavor.20 }
+				}
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.17.b #Water rights must remain equal
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = refused_irrigation_project
+				months = 12
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_serfdom 
+					has_law = law_type:law_tenant_farmers
+				}
+			}
+			ig:ig_landowners = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_commercialized_agriculture 
+			}
+			ig:ig_industrialists = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_collectivized_agriculture 
+			}
+			ig:ig_trade_unions = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+	}
+}
+
+# Amu Darya River Conflict
+persian_flavor.18 = {
+	type = country_event
+	placement = scope:conflict_state
+	title = persian_flavor.18.t
+	desc = persian_flavor.18.d
+	flavor = persian_flavor.18.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_agriculture.dds"
+	
+	trigger = {
+		has_technology_researched = mechanical_tools
+		NOT = { has_variable = amu_darya_conflict }
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				count >= 3
+				OR = {
+					is_building_group = bg_agriculture
+					is_building_group = bg_plantations
+				}
+				level >= 10
+			}
+			OR = {
+				has_state_trait = state_trait_oxus_river
+				any_neighbouring_state = {
+					has_state_trait = state_trait_oxus_river
+				}
+			}
+		}
+		OR = {
+			any_scope_state = {
+				has_state_trait = state_trait_oxus_river
+				NOT = { is_homeland_of_country_cultures = root }
+			}
+			any_country = {
+				NOR = {
+					root = this
+					is_country_type = decentralized
+				}
+				any_scope_state = {
+					has_state_trait = state_trait_oxus_river
+					is_incorporated = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		set_variable = amu_darya_conflict
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_building = {
+					count >= 3
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_plantations
+					}
+					level >= 10
+				}
+				OR = {
+					has_state_trait = state_trait_oxus_river
+					any_neighbouring_state = {
+						has_state_trait = state_trait_oxus_river
+					}
+				}
+			}
+			save_scope_as = conflict_state
+		}
+	}
+	
+	option = {
+		name = persian_flavor.18.a #Demand more water
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_building = {
+					count >= 3
+					OR = {
+						is_building_group = bg_agriculture
+						is_building_group = bg_plantations
+					}
+					level >= 10
+				}
+				OR = {
+					has_state_trait = state_trait_oxus_river
+					any_neighbouring_state = {
+						has_state_trait = state_trait_oxus_river
+					}
+				}
+			}
+			add_modifier = {
+				name = amu_darya_irrigation
+				months = -1
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_oxus_river
+					NOT = { is_homeland_of_country_cultures = root }
+					NOT = { scope:conflict_state = this }
+				}
+			}
+			every_scope_state = {
+				limit = {
+					NOT = { is_homeland_of_country_cultures = root }
+					NOT = { scope:conflict_state = this }
+					has_state_trait = state_trait_oxus_river
+				}
+				add_modifier = {
+					name = river_water_diverted
+					months = -1
+				}
+				add_radicals_in_state = {
+					value = large_radicals
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOR = {
+						root = this
+						is_country_type = decentralized
+					}
+					any_scope_state = {
+						has_state_trait = state_trait_oxus_river
+						is_incorporated = yes
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					NOR = {
+						root = this
+						is_country_type = decentralized
+					}
+					any_scope_state = {
+						has_state_trait = state_trait_oxus_river
+						is_incorporated = yes
+					}
+				}
+				change_relations = {
+					country = root
+					value = -30
+				}
+				hidden_effect = {
+					trigger_event = { id = persian_flavor.20 }
+				}
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.18.b #Water rights must remain equal
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = refused_irrigation_project
+				months = 12
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_serfdom 
+					has_law = law_type:law_tenant_farmers
+				}
+			}
+			ig:ig_landowners = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_commercialized_agriculture 
+			}
+			ig:ig_industrialists = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_collectivized_agriculture 
+			}
+			ig:ig_trade_unions = {
+				add_modifier = {
+					name = refused_irrigation_project
+					months = 12
+				}
+			}
+		}
+	}
+}
+
+# Zayanderud Water Supply
+persian_flavor.19 = {
+	type = country_event
+	placement = scope:isfahan_scope
+	title = persian_flavor.19.t
+	desc = persian_flavor.19.d
+	flavor = persian_flavor.19.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_gears_pistons"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	
+	trigger = {
+		c:PER ?= this
+		ig:ig_industrialists = {
+			is_in_government = yes
+			is_marginal = no
+		}
+		any_scope_state = {
+			state_region = s:STATE_ISFAHAN
+			any_scope_building = {
+				OR = {
+					is_building_group = bg_heavy_industry
+					is_building_group = bg_power
+					is_building_group = bg_oil_extraction
+				}
+				level >= 10
+			}
+		}
+		NOT = { has_variable = zayanderud_water_event }
+	}
+	
+	immediate = {
+		set_variable = zayanderud_water_event
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_scope
+		}
+		ig:ig_industrialists = {
+			save_scope_as = industrialists_scope
+		}
+	}
+	
+	option = {
+		name = persian_flavor.19.a
+		default_option = yes
+		
+		scope:isfahan_scope = {
+			every_scope_building = {
+				limit = {
+					OR = {
+						is_building_group = bg_heavy_industry
+						is_building_group = bg_power
+						is_building_group = bg_oil_extraction
+					}
+					level >= 10
+				}
+				add_modifier = {
+					name = increased_water_supply
+					months = -1
+				}
+			}
+			add_modifier = {
+				name = reduced_water_resources
+				months = -1
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				strata = poor
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				strata = middle
+			}
+		}
+		
+		scope:industrialists_scope = {
+			add_modifier = {
+				name = extra_water_resources
+				months = 12
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.19.b
+		scope:industrialists_scope = {
+			add_modifier = {
+				name = refused_water_resources
+				months = 12
+			}
+		}
+	}
+}
+
+# Response to Water Conflict
+persian_flavor.20 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.20.t
+	desc = persian_flavor.20.d
+	flavor = persian_flavor.20.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	immediate = {
+		if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_helmand_river
+				}
+			}
+			random_country = {
+				limit = {
+					any_scope_state = {
+						has_modifier = helmand_river_irrigation
+					}
+				}
+				save_scope_as = helmand_river_conflict_country
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_oxus_river
+				}
+			}
+			random_country = {
+				limit = {
+					any_scope_state = {
+						has_modifier = amu_darya_irrigation
+					}
+				}
+				save_scope_as = amu_darya_conflict_country
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.20.a
+		default_option = yes
+		
+		if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_helmand_river
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_state_trait = state_trait_helmand_river
+				}
+				add_modifier = {
+					name = river_water_diverted
+					months = -1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					has_state_trait = state_trait_oxus_river
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_state_trait = state_trait_oxus_river
+				}
+				add_modifier = {
+					name = river_water_diverted
+					months = -1
+				}
+			}
+		}
+	}
+}
+
+# End of the Harem Institution?
+persian_flavor.21 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.21.t
+	desc = persian_flavor.21.d
+	flavor = persian_flavor.21.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_upperclass_party"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	trigger = {
+		any_scope_character = {
+			has_variable = is_mohammad_safavid
+			is_heir = yes
+			age >= 15
+			NOT = { has_variable = is_married }
+		}
+		NOT = { has_variable = harem_scandal }
+	}
+	
+	immediate = {
+		set_variable = harem_scandal
+		ig:ig_landowners = {
+			save_scope_as = landowners_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = is_mohammad_safavid
+				is_heir = yes
+				age >= 15
+				NOT = { has_variable = is_married }
+			}
+			save_scope_as = mohammad_safavid_scope
+		}
+	}
+	
+	option = {
+		name = persian_flavor.21.a #Let the Crown Prince do as he pleases
+		default_option = yes
+		
+		scope:landowners_scope = {
+			add_modifier = {
+				name = tolerated_the_prince
+				months = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = harem_institution_questioned
+			months = long_modifier_time
+		}
+		scope:mohammad_safavid_scope = {
+			add_modifier = {
+				name = the_prince_radical_thoughts
+				months = -1
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.21.b #What is he thinking? Get back to studying!
+		scope:mohammad_safavid_scope = {
+			add_modifier = {
+				name = the_prince_radical_thoughts
+				months = -1
+			}
+		}
+	}
+}
+
+# Vatan Factory Strike
+persian_flavor.22 = {
+	type = country_event
+	placement = scope:isfahan_scope
+	title = persian_flavor.22.t
+	desc = persian_flavor.22.d
+	flavor = persian_flavor.22.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_factory_closed"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	
+	trigger = {
+		c:PER ?= this
+		has_technology_researched = labor_movement
+		NOT = { has_variable = vatan_factory_strike }
+		any_scope_state = {
+			state_region = s:STATE_ISFAHAN
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				OR = {
+					has_active_production_method = pm_sewing_machines
+					has_active_production_method = pm_electric_sewing_machines
+				}
+				level >= 25
+			}
+		}
+	}
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_scope
+		}
+		ig:ig_trade_unions = {
+			save_scope_as = trade_unions_scope
+		}
+		ig:ig_petty_bourgeoisie = {
+			save_scope_as = bazaari_scope
+		}
+		ig:ig_industrialists = {
+			save_scope_as = industrialists_scope
+		}
+		set_variable = vatan_factory_strike
+	}
+	
+	option = {
+		name = persian_flavor.22.a #Increase the education of the workers
+		default_option = yes
+		scope:trade_unions_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		scope:bazaari_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		scope:isfahan_scope = {
+			add_modifier = {
+				name = vatan_workers_education
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.22.b #Prioritize purchase from smaller workers
+		scope:trade_unions_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		scope:bazaari_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		scope:industrialists_scope = {
+			add_modifier = {
+				name = prioritized_smaller_merchants_negative
+				months = normal_modifier_time
+			}
+		}
+		scope:isfahan_scope = {
+			add_modifier = {
+				name = vatan_small_merchants
+				months = normal_modifier_time
+			}
+		}
+	}
+	option = {
+		name = persian_flavor.22.c #Subsidize the smaller workers with machines
+		trigger = {
+			capital.market = {
+				mg:tools = { market_goods_pricier > 0.05 }
+			}
+		}
+		scope:trade_unions_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		scope:bazaari_scope = {
+			add_modifier = {
+				name = petition_accepted
+				months = normal_modifier_time
+			}
+		}
+		add_journal_entry = {
+			type = je_set_up_tools_import
+		}
+	}
+	option = {
+		name = persian_flavor.22.d #Ignore them
+		scope:trade_unions_scope = {
+			add_modifier = {
+				name = weavers_plight_ignored
+				months = normal_modifier_time
+			}
+		}
+		scope:bazaari_scope = {
+			add_modifier = {
+				name = weavers_plight_ignored
+				months = normal_modifier_time
+			}
+		}
+		scope:isfahan_scope = {
+			add_modifier = {
+				name = vatan_workers_strike
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+
+# The Liberation of Royal Slaves
+persian_flavor.23 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.23.t
+	desc = persian_flavor.23.d
+	flavor = persian_flavor.23.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_upperclass_party"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	trigger = {
+		has_law = law_type:law_monarchy
+		religion = {
+			has_discrimination_trait = muslim
+		}
+		has_variable = slavery_recently_abolished
+		NOT = { has_variable = royal_slavery_abolished }
+	}
+	
+	immediate = {
+		set_variable = royal_slavery_abolished
+	}
+	
+	option = {
+		name = persian_flavor.23.a #The Harem women can live public lives
+		default_option = yes
+		add_modifier = {
+			name = freedom_of_harem_women
+			months = long_modifier_time
+		}
+	}
+	option = {
+		name = persian_flavor.23.b #The Eunuchs are no longer under subjugation
+		add_modifier = {
+			name = freedom_of_eunuchs
+			months = long_modifier_time
+		}
+	}
+}
+
+# 
+persian_flavor.24 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.24.t
+	desc = persian_flavor.24.d
+	flavor = persian_flavor.24.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	trigger = {
+	}
+	
+	option = {
+		name = persian_flavor.24.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.24.b
+		
+	}
+}
+
+# European Teachers in Academies
+persian_flavor.25 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.25.t
+	desc = persian_flavor.25.d
+	flavor = persian_flavor.25.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.25.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.25.b
+		
+	}
+}
+
+# Constitutional Reformation JE
+
+# Debate Among the Ulemmas
+persian_flavor.26 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.26.t
+	desc = persian_flavor.26.d
+	flavor = persian_flavor.26.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.26.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.26.b
+		
+	}
+}
+
+# Reactionary Ulemma Agitator/Leader Speaks Against the Constitution
+persian_flavor.26 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.27.t
+	desc = persian_flavor.27.d
+	flavor = persian_flavor.27.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.27.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.27.b
+		
+	}
+}
+
+# Pro-Democracy Ulemmas Issues Fatwas Against Protests
+persian_flavor.28 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.28.t
+	desc = persian_flavor.28.d
+	flavor = persian_flavor.28.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.28.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.28.b
+		
+	}
+}
+
+# Anti-Democracy Ulemmas Issues Fatwas Against Reforms
+persian_flavor.29 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.29.t
+	desc = persian_flavor.29.d
+	flavor = persian_flavor.29.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.29.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.29.b
+		
+	}
+}
+
+# Rebellious Ulemma Executed
+persian_flavor.30 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.30.t
+	desc = persian_flavor.30.d
+	flavor = persian_flavor.30.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.30.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.30.b
+		
+	}
+}
+
+# New 'Foreign' Constitution Questioned
+persian_flavor.31 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.31.t
+	desc = persian_flavor.31.d
+	flavor = persian_flavor.31.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	option = {
+		name = persian_flavor.31.a
+		default_option = yes
+		
+	}
+	option = {
+		name = persian_flavor.31.b
+		
+	}
+}
+
+# Kashf-e Hijab
+persian_flavor.32 = {
+	type = country_event
+	placement = root
+	title = persian_flavor.32.t
+	desc = persian_flavor.32.d
+	flavor = persian_flavor.32.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_sufferage"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { country_has_state_religion = rel:atheist }
+			}
+			religion = {
+				save_scope_as = state_religion
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.32.a #Women has the right to wear whatever they want
+		default_option = yes
+		ig:ig_devout = {
+			add_modifier = {
+				name = unveiled_women_devout
+				months = -1
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = unveiled_women_intelligentsia
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				NOT = { country_has_state_religion = rel:atheist }
+			}
+			add_radicals = {
+				religion = scope:state_religion
+				value = medium_radicals
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+	option = {
+		name = persian_flavor.32.b #Place a full ban on veiling
+		ig:ig_devout = {
+			add_modifier = {
+				name = banned_veils
+				months = -1
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = unveiled_women_intelligentsia
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				NOT = { country_has_state_religion = rel:atheist }
+			}
+			add_radicals = {
+				religion = scope:state_religion
+				value = large_radicals
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+	}
+}
+
+# Persian Renaissance
 persian_renaissance.1 = { #Founding of the Academy of Iran
 	type = country_event
 	title = persian_renaissance.1.t
@@ -1115,7 +3526,7 @@ persian_renaissance.1 = { #Founding of the Academy of Iran
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = academy_of_iran_modifier
-				months = long_modifier_time
+				months = normal_modifier_time
 			}
 		}
 	}
@@ -1142,7 +3553,7 @@ persian_renaissance.2 = { #National Museum of Iran
 		default_option = yes
 		add_modifier = {
 			name = national_museum_modifier
-			months = long_modifier_time
+			months = normal_modifier_time
 		}
 	}
 }
@@ -1282,17 +3693,12 @@ persian_renaissance.7 = { #Persian Nationalism
 			add_modifier = {
 				name = adopted_blasphemous_ideals
 				months = long_modifier_time
+				is_decaying = yes
 			}
 		}
 		add_modifier = {
 			name = modifier_secularization_support
 			months = long_modifier_time
-		}
-		hidden_effect = {
-			if = {
-				limit = { NOT = { has_variable = zandism_secularization } }
-				set_variable = zandism_secularization
-			}
 		}
 		
 		ai_chance = {
@@ -1346,33 +3752,93 @@ persian_renaissance.8 = { #The Remodeling of Isfahan
 		scope:isfahan_state = {
 			add_modifier = {
 				name = modifier_isfahan_renewal
-				months = normal_modifier_time
+				months = 12
 			}
 		}
 		ig:ig_landowners = {
 			add_modifier = {
 				name = modifier_isfahan_positive
-				months = normal_modifier_time
+				months = 12
 			}
 		}
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = modifier_isfahan_positive
-				months = normal_modifier_time
+				months = 12
 			}
 		}
 		ig:ig_rural_folk = {
 			add_modifier = {
 				name = modifier_isfahan_negative
-				months = normal_modifier_time
+				months = 12
 			}
 		}
 		ig:ig_petty_bourgeoisie = {
 			add_modifier = {
 				name = modifier_isfahan_negative
-				months = normal_modifier_time
+				months = 12
 			}
 		}
+	}
+}
+
+persian_renaissance.9 = { #A New Schooling System/Dar ul-Funun
+	type = country_event
+	placement = root
+	title = persian_renaissance.9.t
+	desc = persian_renaissance.9.d
+	flavor =  persian_renaissance.9.f
+	duration = 3
+	event_image = {
+		video = "middleeast_engineer_blueprint"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		
+	}
+	
+	option = { #
+		name = persian_renaissance.9.a
+		default_option = yes
+		
+	}
+	
+	option = { #
+		name = persian_renaissance.9.b
+		
+	}
+}
+
+persian_renaissance.10 = { #The Silk Markets of Persia
+	type = country_event
+	placement = root
+	title = persian_renaissance.10.t
+	desc = persian_renaissance.10.d
+	flavor =  persian_renaissance.10.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		
+	}
+	
+	option = { #
+		name = persian_renaissance.10.a
+		default_option = yes
+		
+	}
+	
+	option = { #
+		name = persian_renaissance.10.b
+		
 	}
 }
 

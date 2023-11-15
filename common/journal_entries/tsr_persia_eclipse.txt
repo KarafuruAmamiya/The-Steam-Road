@@ -17,18 +17,15 @@
 				}
 			}
 			any_scope_state = {
-				count >= 5
+				count >= 3
 				is_incorporated = yes
 				OR = {
 					turmoil >= 0.2
 					devastation >= 0.2
 				}
 			}
-			custom_tooltip = {
-				text = zandi_rebellion_start_tt
-				has_variable = zandi_rebellion_start
-			}
 			is_losing_power_rank = yes
+			has_technology_researched = political_agitation
 		}	}
 
 	immediate = {
@@ -115,21 +112,7 @@
 					NOT = { 
 						has_variable = persia_eclipse_lost_india 
 					}
-					OR = {
-						has_variable = failed_hindustani_uprising
-						any_scope_state = {
-							state_region = {
-								state_is_in_india = yes
-							}
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								state_region = {
-									state_is_in_india = yes
-								}
-							}
-						}
-					}
+					has_variable = failed_hindustani_uprising
 				}
 				set_variable = persia_eclipse_lost_india
 				post_notification = persia_eclipse_point_add
@@ -142,22 +125,8 @@
 				limit = {
 					NOT = { 
 						has_variable = persia_eclipse_lost_arabia
-						OR = {
-							has_variable = failed_arab_revolt
-							any_scope_state = {
-								state_region = {
-									state_is_in_arabia = yes
-								}
-							}
-							any_subject_or_below = {
-								any_scope_state = {
-									state_region = {
-										state_is_in_arabia = yes
-									}
-								}
-							}
-						}
 					}
+					has_variable = failed_arab_revolt
 				}
 				set_variable = persia_eclipse_lost_arabia
 				post_notification = persia_eclipse_point_add
@@ -270,6 +239,20 @@
 					subtract = 1
 				}
 			}
+			if = {
+				limit = {
+					NOT = { 
+						has_variable = persia_eclipse_failed_reformation
+					}
+					has_variable = failed_reformation
+				}
+				set_variable = persia_eclipse_failed_reformation
+				post_notification = persia_eclipse_point_add
+				change_variable = {
+					name = persia_eclipse_var
+					add = 1
+				}
+			}
 		}
 	}
 
@@ -294,10 +277,11 @@ je_constitutional_reformation = {
 			has_law = law_type:law_serfdom
 			has_law = law_type:law_tenant_farmers
 			has_law = law_type:law_no_womens_rights
-			has_law = law_type:law_child_labor_allowed
+			has_law = law_type:law_religious_schools
+			has_law = law_type:law_no_schools
 		}
 		ig:ig_intelligentsia = {
-			is_powerful = yes
+			is_marginal = no
 			is_in_government = yes
 		}
 	}
@@ -320,6 +304,16 @@ je_constitutional_reformation = {
 				}
 			}
 		}
+	}
+	
+	timeout = 7300
+	
+	on_fail = {
+		set_variable = failed_reformation
+	}
+	
+	on_timeout = {
+		set_variable = failed_reformation
 	}
 
 	transferable = no

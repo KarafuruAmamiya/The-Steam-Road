@@ -1,12 +1,11 @@
 ﻿excavation_of_persepolis = {
 	is_shown = {
 		owns_entire_state_region = STATE_FARS
+		NOT = { has_variable = persepolis_excavation }
 	}
 
 	possible = {
-		NOT = { has_variable = persepolis_excavation }
-		has_technology_researched = logistics
-		has_technology_researched = mechanical_tools
+		has_technology_researched = mechanical_tools	
 	}
 
 	when_taken = {
@@ -25,12 +24,12 @@
 excavation_of_ctesiphon = {
 	is_shown = {
 		owns_entire_state_region = STATE_BAGHDAD
+		NOT = { has_variable = ctesiphon_excavation }
 	}
 
 	possible = {
-		NOT = { has_variable = ctesiphon_excavation }
-		has_technology_researched = logistics
 		has_technology_researched = mechanical_tools
+		has_technology_researched = nationalism
 	}
 
 	when_taken = {
@@ -49,12 +48,12 @@ excavation_of_ctesiphon = {
 excavation_of_susa = {
 	is_shown = {
 		owns_entire_state_region = STATE_KHUZESTAN
+		NOT = { has_variable = susa_excavation }
 	}
 
 	possible = {
-		NOT = { has_variable = susa_excavation }
-		has_technology_researched = logistics
 		has_technology_researched = mechanical_tools
+		has_technology_researched = dialectics
 	}
 
 	when_taken = {
@@ -90,6 +89,225 @@ grant_zoroastrian_rights = {
 			set_variable = granted_zoroastrian_rights
 		}
 		trigger_event = { id = persian_flavor.1 }
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+hire_foreign_military_advisors = {
+	is_shown = {
+		is_subject = no
+		NOR = {
+			c:AKN ?= this
+			has_variable = akkovin_fail
+		}
+		OR = {
+			country_rank >= rank_value:minor_power
+			country_rank = rank_value:unrecognized_major_power
+		}
+		NOT = { has_law = law_type:law_isolationism }
+		NOT = { has_law = law_type:law_peasant_levies }
+		is_at_war = yes
+		any_country = {
+			has_war_with = root
+			is_country_type = recognized
+			country_rank >= rank_value:major_power
+		}
+		has_technology_researched = military_drill
+		has_technology_researched = standing_army
+		has_technology_researched = navigation
+		has_technology_researched = gunsmithing
+		has_technology_researched = admiralty
+		has_technology_researched = artillery
+		has_technology_researched = drydocks
+		has_technology_researched = international_relations
+	}
+
+	possible = {
+		any_country = {
+            country_rank = rank_value:great_power
+			trigger_if = {
+				limit = {
+					year <= 1861
+				}
+				AND = {
+					has_technology_researched = general_staff
+					has_technology_researched = percussion_cap
+					has_technology_researched = screw_frigate
+					has_technology_researched = power_of_the_purse
+					OR = {
+						has_technology_researched = field_works
+						has_technology_researched = logistics
+						has_technology_researched = triage
+						has_technology_researched = shell_gun
+						has_technology_researched = rifling
+						has_technology_researched = hydraulic_cranes
+					}
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					year > 1861
+					year <= 1886
+				}
+				calc_true_if = {
+					amount >= 5
+					has_technology_researched = modern_nursing
+					has_technology_researched = enlistment_offices
+					has_technology_researched = electric_telegraph
+					has_technology_researched = military_statistics
+					has_technology_researched = repeaters
+					has_technology_researched = breech_loading_artillery
+					has_technology_researched = handcranked_machine_gun
+					has_technology_researched = self_propelled_torpedoes
+					has_technology_researched = monitor_tech
+					has_technology_researched = ironclad_tech
+					has_technology_researched = jeune_ecole
+					has_technology_researched = floating_harbor
+					has_technology_researched = gantry_cranes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					year > 1886
+					year <= 1911
+				}
+				calc_true_if = {
+					amount >= 5
+					has_technology_researched = trench_works
+					has_technology_researched = war_propaganda
+					has_technology_researched = wargaming
+					has_technology_researched = defense_in_depth
+					has_technology_researched = bolt_action_rifles
+					has_technology_researched = automatic_machine_guns
+					has_technology_researched = submarine
+					has_technology_researched = destroyer
+					has_technology_researched = dreadnought
+					has_technology_researched = sea_lane_strategies
+					has_technology_researched = landing_craft
+					has_technology_researched = concrete_dockyards
+				}
+			}
+            relations:root >= relations_threshold:neutral
+        }
+		NOT = {
+			trigger_if = {
+				limit = {
+					year <= 1861
+				}
+				AND = {
+					has_technology_researched = general_staff
+					has_technology_researched = napoleonic_warfare
+					#has_technology_researched = army_reserves
+					has_technology_researched = percussion_cap
+					has_technology_researched = paddle_steamer
+					has_technology_researched = screw_frigate
+					has_technology_researched = power_of_the_purse
+					has_technology_researched = field_works
+					has_technology_researched = logistics
+					has_technology_researched = triage
+					has_technology_researched = shell_gun
+					has_technology_researched = percussion_cap
+					has_technology_researched = rifling
+					has_technology_researched = hydraulic_cranes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					year > 1861
+					year <= 1886
+				}
+				AND = {
+					has_technology_researched = modern_nursing
+					has_technology_researched = enlistment_offices
+					has_technology_researched = electric_telegraph
+					has_technology_researched = military_statistics
+					has_technology_researched = repeaters
+					has_technology_researched = breech_loading_artillery
+					has_technology_researched = handcranked_machine_gun
+					has_technology_researched = self_propelled_torpedoes
+					has_technology_researched = monitor_tech
+					has_technology_researched = ironclad_tech
+					has_technology_researched = jeune_ecole
+					has_technology_researched = floating_harbor
+					has_technology_researched = gantry_cranes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					year > 1886
+					year <= 1911
+				}
+				AND = {
+					has_technology_researched = trench_works
+					has_technology_researched = war_propaganda
+					has_technology_researched = wargaming
+					has_technology_researched = defense_in_depth
+					has_technology_researched = bolt_action_rifles
+					has_technology_researched = automatic_machine_guns
+					has_technology_researched = submarine
+					has_technology_researched = destroyer
+					has_technology_researched = dreadnought
+					has_technology_researched = sea_lane_strategies
+					has_technology_researched = landing_craft
+					has_technology_researched = concrete_dockyards
+				}
+			}
+		}
+		NOT = { has_variable = foreign_advisor }
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = advisors_25_years
+			set_variable = { name = foreign_advisor years = 25 }
+		}
+		trigger_event = { id = persian_flavor.13 }
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+encourage_unveiling = {
+	is_shown = {
+		religion = {
+			has_discrimination_trait = muslim
+		}
+		NOT = { has_variable = kashf_e_hijab_var }
+	}
+
+	possible = {
+		NOR = {
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_denominational_exclusion
+			has_law = law_type:law_no_womens_rights
+		}
+		custom_tooltip = {
+			text = royal_slavery_abolished_tt
+			has_variable = royal_slavery_abolished
+		}
+		has_technology_researched = nationalism
+		ig:ig_devout = {
+			is_powerful = no
+			is_in_government = no
+		}
+		custom_tooltip = {
+			text = have_adopted_western_clothes_tt
+			has_variable = adopt_western_clothes
+			has_variable = adopt_western_uniforms
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = kashf_e_hijab_tt
+			set_variable = kashf_e_hijab_var
+		}
+		trigger_event = { id = persian_flavor.32 }
 	}
 
 	ai_chance = {

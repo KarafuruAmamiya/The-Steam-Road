@@ -34,9 +34,14 @@
 						has_trait = grifter
 					}
 				}
-				NOT = {
-					any_scope_character = {
-						is_heir = yes
+				AND = {
+					ruler = {
+						age > 16
+					}
+					NOT = {
+						any_scope_character = {
+							is_heir = yes
+						}
 					}
 				}
 				any_scope_character = {

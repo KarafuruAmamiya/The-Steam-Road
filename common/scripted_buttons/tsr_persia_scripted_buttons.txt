@@ -9,8 +9,9 @@
 			has_variable = persian_renaissance_science_philosophy
 		}
 		ig:ig_intelligentsia = {
-			is_powerful = yes
+			is_marginalized = no
 		}
+		has_technology_researched = realism
 		any_scope_building = {
 			count >= 5
 			is_building_type = building_university
@@ -21,15 +22,19 @@
 			occupancy >= 0.9
 			level >= 3
 		}
+		institution_investment_level = {
+			institution = institution_schools
+			value >= 5
+		}
 	}
 
 	effect = {
 		set_variable = persian_renaissance_science_philosophy
+		trigger_event = { id = persian_renaissance.9 }
 		change_variable = {
 			name = persian_renaissance_var
 			add = 1
 		}
-		trigger_event = { id = persian_renaissance.1 }
 	}
 }
 
@@ -56,12 +61,12 @@ persian_renaissance_historical_sites = {
 	}
 
 	effect = {
+		trigger_event = { id = persian_renaissance.2 }
 		set_variable = persian_renaissance_historical_sites
 		change_variable = {
 			name = persian_renaissance_var
 			add = 1
 		}
-		trigger_event = { id = persian_renaissance.2 }
 	}
 }
 
@@ -76,13 +81,6 @@ persian_renaissance_literature = {
 			has_variable = persian_renaissance_literature
 		}
 		has_technology_researched = dialectics
-		has_technology_researched = realism
-		any_scope_building = {
-			count >= 5
-			is_building_type = building_university
-			occupancy > 0.9
-			level >= 5
-		}
 		trigger_if = {
 			limit = {
 				has_global_variable = tsr_uhre
@@ -92,9 +90,16 @@ persian_renaissance_literature = {
 		trigger_else = {
 			literacy_rate >= 0.65
 		}
+		any_scope_building = {
+			count >= 3
+			is_building_type = building_arts_academy
+			occupancy >= 0.9
+			level >= 5
+		}
 	}
 
 	effect = {
+		trigger_event = { id = persian_renaissance.1 }
 		set_variable = persian_renaissance_literature
 		change_variable = {
 			name = persian_renaissance_var
@@ -129,12 +134,12 @@ persian_renaissance_architecture = {
 	}
 
 	effect = {
+		trigger_event = { id = persian_renaissance.8 }
 		set_variable = persian_renaissance_architecture
 		change_variable = {
 			name = persian_renaissance_var
 			add = 1
 		}
-		trigger_event = { id = persian_renaissance.8 }
 	}
 }
 
@@ -147,12 +152,6 @@ persian_renaissance_textile_arts = {
 	possible = {
 		NOT = {
 			has_variable = persian_renaissance_textile_arts
-		}
-		any_scope_building = {
-			count >= 3
-			is_building_type = building_arts_academy
-			occupancy >= 0.9
-			level >= 5
 		}
 		any_scope_building = {
 			count >= 3
@@ -177,6 +176,7 @@ persian_renaissance_textile_arts = {
 	}
 
 	effect = {
+		trigger_event = { id = persian_renaissance.10 }
 		set_variable = persian_renaissance_textile_arts
 		change_variable = {
 			name = persian_renaissance_var
@@ -196,9 +196,6 @@ persian_renaissance_romantic_nationalism = {
 			has_variable = persian_renaissance_romantic_nationalism
 		}
 		has_technology_researched = nationalism
-		ig:ig_devout = {
-			is_powerful = no
-		}
 		custom_tooltip = {
 			text = persian_renaissance_historical_sites_tt
 			has_variable = persian_renaissance_historical_sites
@@ -206,8 +203,8 @@ persian_renaissance_romantic_nationalism = {
 	}
 
 	effect = {
-		set_variable = persian_renaissance_romantic_nationalism
 		trigger_event = { id = persian_renaissance.7 }
+		set_variable = persian_renaissance_romantic_nationalism
 		change_variable = {
 			name = persian_renaissance_var
 			add = 1

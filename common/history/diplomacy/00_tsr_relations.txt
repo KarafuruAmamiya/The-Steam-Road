@@ -56,6 +56,7 @@
 		set_relations = { country = c:PER value = 20 }
 		set_relations = { country = c:BUK value = -20 }
 		set_relations = { country = c:AKN value = 30 }
+		set_relations = { country = c:TUR value = -30 }
 		set_relations = { country = c:IRE value = 30 }
 		set_relations = { country = c:PRM value = 30 }
 		set_relations = { country = c:ITA value = 30 }
@@ -157,9 +158,10 @@
 		set_relations = { country = c:NWX value = -50 }
 		set_relations = { country = c:USC value = -50 }
         set_relations = { country = c:SCA value = -50 }
+        set_relations = { country = c:IBE value = -50 }
 		set_relations = { country = c:SCO value = -50 }
 		set_relations = { country = c:IRE value = -50 }
-		set_relations = { country = c:FLA value = 50 }
+		set_relations = { country = c:FLA value = 80 }
 		set_relations = { country = c:PER value = -20 }
 	}
 	c:GRE = {
@@ -206,6 +208,9 @@
 	c:AKN = {
 		set_relations = { country = c:TUR value = -50 }
 		set_relations = { country = c:BUK value = -50 }
+	}
+	c:TUR = {
+		set_relations = { country = c:TUN value = 50 }
 	}
 	c:RYA = {
 		set_relations = { country = c:AKN value = -50 }

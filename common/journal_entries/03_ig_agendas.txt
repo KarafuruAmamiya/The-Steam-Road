@@ -2,25 +2,68 @@
     icon = "gfx/interface/icons/event_icons/event_scales.dds"
     
     immediate = {
-        random_interest_group = {
-            limit = {
-                is_in_government = yes
-                is_marginal = no
-                any_preferred_law = {
-                    law_is_valid_for_ig_petition = yes
-                }
-            }
-            save_scope_as = government_petition_ig
-            ordered_preferred_law = {
-                limit = {
-					law_is_valid_for_ig_petition = yes
-                }
-                min = 0 
-                max = 2
-                check_range_bounds = no
-                save_scope_as = government_petition_law
-            }
-        }
+		if = {
+			limit = {
+				has_variable = protect_bazaars
+			}
+			random_interest_group = {
+				limit = {
+					is_interest_group_type = ig_petty_bourgeoisie 
+					is_in_government = yes
+					is_marginal = no
+				}
+				save_scope_as = government_petition_ig
+			}
+			random_law = {
+				limit = {
+					type = law_type:law_protectionism
+				}
+				save_scope_as = government_petition_law
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = surat_riots_demands
+			}
+			random_interest_group = {
+				limit = {
+					is_in_government = yes
+					is_marginal = no
+					law_stance = {
+						law = law_type:law_slavery_banned
+						value > neutral
+					}
+				}
+				save_scope_as = government_petition_ig
+			}
+			random_law = {
+				limit = {
+					type = law_type:law_slavery_banned
+				}
+				save_scope_as = government_petition_law
+			}
+		}
+		else = {
+			random_interest_group = {
+				limit = {
+					is_in_government = yes
+					is_marginal = no
+					any_preferred_law = {
+						law_is_valid_for_ig_petition = yes
+					}
+				}
+				save_scope_as = government_petition_ig
+				ordered_preferred_law = {
+					limit = {
+						law_is_valid_for_ig_petition = yes
+					}
+					min = 0 
+					max = 2
+					check_range_bounds = no
+					save_scope_as = government_petition_law
+				}
+			}
+		}
         if = {
             limit = {
                 exists = scope:government_petition_law

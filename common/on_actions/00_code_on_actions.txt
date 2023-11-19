@@ -1474,13 +1474,10 @@ on_capitulation = {
 		}
 		if = {
 			limit = {
-				exists = c:TAU
-				exists = c:PER
-				this = c:TAU
-				any_overlord_or_above = {
-					c:PER = this
-				}
+				c:TAU ?= this
 				is_subject_type = subject_type_protectorate
+				has_truce_with = c:PER
+				
 			}
 			trigger_event = { id = burmese_war.1 }
 		}

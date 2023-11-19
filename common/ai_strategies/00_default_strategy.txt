@@ -6289,43 +6289,6 @@ ai_strategy_default = {
 			value = 100
 			if = {
 				limit = {
-					is_subject_of = c:AKN
-					NOT = { has_variable = independence_plot_leader }
-				}
-				add = -100
-			}
-			if = {
-				limit = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-					is_subject_of = c:AKN
-					c:AKN = { has_variable = centralization_stance }
-				}
-				add = 50
-			}
-			if = {
-				limit = {
-					any_primary_culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-					is_subject_of = c:AKN
-					c:AKN = { has_variable = akturkification_start }
-				}
-				add = 50
-			}
-			if = {
-				limit = {
-					is_subject_of = c:AKN
-					has_variable = independence_plot_leader
-					any_country = {
-						has_variable = independence_plot
-					}
-				}
-				add = 100
-			}
-			if = {
-				limit = {
 					has_journal_entry = je_arab_nationalism_subject
 				}
 				add = 100

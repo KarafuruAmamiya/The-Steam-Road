@@ -14,8 +14,17 @@ anarchist_party = {
 			triggered_desc = {
 				desc = party_socialist_league
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_anarcho_communist_federation
+				trigger = {
+					exists = c:FRA
+					THIS = c:FRA
 				}
 			}
 			triggered_desc = {

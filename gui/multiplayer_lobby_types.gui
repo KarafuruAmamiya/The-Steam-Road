@@ -2,6 +2,7 @@
 ### it is the selected nation info in lobby.
 
 template multiplayer_lobby_selected_country_info {
+	visible = "[LobbyView.HasSelectedPlayable]"
 	datacontext = "[LobbyView.AccessSelectedPlayable.AccessCountry]"
 	margin_top = 10
 	margin_bottom = 20
@@ -15,7 +16,7 @@ template multiplayer_lobby_selected_country_info {
 			using = vertical_scrollbar		
 		}
 		background = {
-			using = dark_area
+			using = entry_bg_simple
 			margin = { 1 0 }
 			margin_bottom = 2
 		}
@@ -25,12 +26,7 @@ template multiplayer_lobby_selected_country_info {
 		scrollwidget = {
 			flowcontainer = {
 				direction = vertical
-				margin_bottom = 60
-			
-				#state = {
-				#	name = _show
-				#	on_start = "[InformationPanel.IsTabSelected('country_flavor)]"
-				#}
+				margin_bottom = 10
 				
 				### NATION NAME
 				widget = {

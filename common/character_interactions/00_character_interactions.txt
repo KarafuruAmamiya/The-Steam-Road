@@ -18,8 +18,9 @@ grant_command_to_ruler = {
 
 	potential = {
 		is_ruler = yes
-		NOT = {
+		NOR = {
 			has_role = general
+			has_role = admiral
 		}
 		owner = scope:actor
 	}
@@ -409,6 +410,7 @@ exile_character = {
 
 	potential = {
 		is_in_exile_pool = no
+		is_in_void = no
 		is_ruler = no
 		is_heir = no
 		# Cannot exile pure commanders, we have the retire interaction for that
@@ -898,7 +900,7 @@ retire_commander = {
 			limit = {
 				OR = {	
 					has_trait = expert_convoy_raider
-					# has_trait = expert_artillery_commander
+					has_trait = expert_artillery_commander
 					has_trait = expert_offensive_planner
 					has_trait = expert_defensive_strategist
 					has_trait = expert_naval_commander
@@ -910,7 +912,7 @@ retire_commander = {
 			limit = {
 				OR = {	
 					has_trait = experienced_convoy_raider
-					# has_trait = experienced_artillery_commander
+					has_trait = experienced_artillery_commander
 					has_trait = experienced_offensive_planner
 					has_trait = experienced_defensive_strategist
 					has_trait = experienced_naval_commander

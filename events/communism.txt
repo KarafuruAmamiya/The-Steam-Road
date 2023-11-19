@@ -25,14 +25,9 @@ communism.1 = {
 	immediate = {
 		random_interest_group = {
 			limit = {
-				is_in_government = yes
-				ig_clout > 0.15
-				leader = {
-					OR = {
-						has_ideology = ideology:ideology_communist
-						has_ideology = ideology:ideology_vanguardist
-						has_ideology = ideology:ideology_anarchist
-					}
+				law_stance = {
+					law = law_type:law_council_republic
+					value > neutral
 				}
 			}
 			set_variable = communist_ig_var
@@ -765,7 +760,7 @@ communism.9 = {
 			any_scope_pop = {
 				pop_is_discriminated = no
 				standard_of_living > 15
-				workplace = {
+				workplace ?= {
 					OR = {
 					    has_active_production_method = pm_worker_cooperative_building_food_industry
 					    has_active_production_method = pm_worker_cooperative_building_textile_mills
@@ -804,7 +799,7 @@ communism.9 = {
 				any_scope_pop = {
 					pop_is_discriminated = no
 					standard_of_living > 15
-					workplace = {
+					workplace ?= {
 						OR = {
                             has_active_production_method = pm_worker_cooperative_building_food_industry
                             has_active_production_method = pm_worker_cooperative_building_textile_mills
@@ -837,7 +832,7 @@ communism.9 = {
 				limit = {
 					pop_is_discriminated = no
 					standard_of_living > 15
-					workplace = {
+					workplace ?= {
 						OR = {
                             has_active_production_method = pm_worker_cooperative_building_food_industry
                             has_active_production_method = pm_worker_cooperative_building_textile_mills

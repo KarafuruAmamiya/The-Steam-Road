@@ -507,22 +507,268 @@ ai_strategy_default = {
 		max = 30
 	}
 	
+	# How much does the AI desire a state owned by another country
+	# Using this value in other strategies will function additively
+	# root = country
+	# scope:target_state = state
+	# scope:target_country = state owner
+	state_value = {
+		value = 0		
+
+		if = { # PUT STATE SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
+		
+			limit = {	
+				OR = {
+					scope:target_state = { owner = root }
+					can_reach_target_state = yes
+				}				
+			}	
+
+			if = {
+				limit = {
+					OR = {
+						scope:target_state = { owner = root }				
+						ai_desires_target_state = yes
+					}
+				}
+				
+				add = {
+					value = 20
+				
+					add = {
+						value = scope:target_state.state_population
+						divide = 100000
+						max = 20						
+					}
+					
+					add = {
+						value = scope:target_state.gdp
+						divide = 100000
+						max = 20
+					}						
+				}	
+
+				if = {
+					limit = { scope:target_state = { is_treaty_port = yes } }
+					add = 20
+				}
+			}
+			
+			if = {
+				limit = {
+					scope:target_state = { owner = root }
+				}		
+				
+				if = { # Very reluctant to cede incorporate states
+					limit = { scope:target_state = { is_incorporated = yes } }
+					
+					if = {
+						limit = {
+							scope:target_state = { is_homeland_of_country_cultures = root }
+						}
+						multiply = 8.0
+					}
+					else = {
+						multiply = 6.0 
+					}	
+				}
+				else_if = { # Reluctant to cede states adjacent or sea adjacent to incorporate states
+					limit = { 
+						scope:target_state = { 
+							OR = {
+								any_neighbouring_state = { 
+									owner = root 
+									is_incorporated = yes 
+								} 							
+								any_sea_node_adjacent_state = { 
+									owner = root 
+									is_incorporated = yes 
+								}
+							}
+						} 
+					}
+					
+					if = {
+						limit = {
+							scope:target_state = { is_homeland_of_country_cultures = root }
+						}
+						multiply = 6.0
+					}
+					else = {
+						multiply = 4.0 
+					}	
+				}				
+				else = { # Value owned states higher than foreign states by default
+					if = {
+						limit = {
+							scope:target_state = { is_homeland_of_country_cultures = root }
+						}
+						multiply = 3.0
+					}
+					else = {
+						multiply = 2.0 
+					}							
+				}
+		
+				# Isolated states are worth less
+				# Check that this isn't caused by convoy raiding through the is_at_war trigger
+				if = {
+					limit = {
+						is_at_war = no 
+						scope:target_state = { is_isolated_from_market = yes }					
+					}
+					multiply = 0.5
+					
+					if = {
+						limit = { 					
+							NOT = {
+								any_neighbouring_state = { owner = root }
+							}
+						}
+						multiply = 0.5
+					}
+				}		
+			}
+			else = {
+				if = {
+					limit = { 
+						OR = {
+							scope:target_state = { 
+								is_split_state = yes 
+								region = { 
+									any_scope_state = { owner = ROOT }
+								}
+							}
+							scope:target_state = { has_claim_by = root } 
+						}					
+					}
+					multiply = 2.0
+				}
+
+				if = {
+					limit = { 
+						NOT = { has_strategic_land_adjacency = scope:target_state } 
+						scope:target_state = { has_port = no }
+					}
+					multiply = 0.5
+				}
+
+				if = {
+					limit = {
+						has_strategic_land_adjacency = scope:target_country
+						NOT = { has_strategic_land_adjacency = scope:target_state }
+					}
+					multiply = 0.5
+				}
+				else_if = {
+					limit = {
+						is_adjacent_to_country = scope:target_country
+						NOT = { is_adjacent_to_state = scope:target_state }
+					}
+					multiply = 0.75
+				}		
+
+				# More reluctant to get involved in plays for states that AI doesn't strongly desire
+				if = {
+					limit = {
+						is_diplomatic_play_involved_with = scope:target_country
+						ai_strongly_desires_target_state = no					
+					}
+					multiply = 0.5
+				}
+			
+				if = {
+					limit = {
+						scope:target_state = { is_homeland_of_country_cultures = root }
+					}
+					multiply = 1.5
+				}				
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_greek_nationalism
+					scope:target_state.state_region = { is_homeland = cu:greek }
+				}
+				add = 50
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_consolidate_colonial_rule
+					scope:target_country = {
+						any_scope_state = {
+							OR = {
+								state_region = s:STATE_BURMA
+								state_region = s:STATE_RAKHINE
+								state_region = s:STATE_SAGAING
+								state_region = s:STATE_KACHIN
+								state_region = s:STATE_SHAN_STATES
+								state_region = s:STATE_PEGU
+								state_region = s:STATE_ASSAM
+								state_region = s:STATE_HIMALAYAS
+							}
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					lenient_ai_behavior_trigger = yes
+					scope:target_state = { is_homeland_of_country_cultures = scope:target_country }
+				}
+				multiply = 0.0
+			}
+
+			if = {
+				limit = {
+					has_journal_entry = je_opium_wars
+					scope:target_country = {
+						has_variable = opium_wars_exporter
+					}
+				}
+				multiply = 0
+			}
+		}
+		
+		min = 0
+		if = {
+			limit = { scope:target_state = { owner = root } }
+			max = 1000
+		}
+		else = {
+			max = 200
+		}			
+	}
+	
 	# How much does the AI desire another country as their subject
 	# Using this value in other strategies will function additively
-	# root and scope:overlord is the AI doing the evaluation, scope:subject is prospective subject
+	# root is the AI doing the evaluation, scope:target_country is prospective subject
 	subject_value = {
 		value = 0
 
+		# PUT ALL REGULAR SUBJECT SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE SUBJECTS
+		if = {
+			limit = {		
+				OR = {
+					scope:target_country = { is_subject_of = root }
+					can_reach_target_country = yes	
+				}
+			}	
+			
 		add = {
 			if = {
 				limit = {
 					OR = {						
+							scope:target_country = { is_subject_of = root }	
 						has_attitude = {
-							who = scope:subject
+								who = scope:target_country
 							attitude = protective
 						}
 						has_attitude = {
-							who = scope:subject
+								who = scope:target_country
 							attitude = domineering
 						}							
 					}
@@ -531,7 +777,7 @@ ai_strategy_default = {
 				value = 50
 			
 				add = {
-					value = scope:subject.gdp
+						value = scope:target_country.gdp
 					divide = 200000
 					max = 50						
 				}
@@ -540,7 +786,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_secret_goal = {
-						who = scope:subject
+							who = scope:target_country
 						secret_goal = protect
 					}						
 				}
@@ -550,18 +796,29 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
-					NOT = { has_strategic_adjacency = scope:subject }
+						NOT = { has_strategic_adjacency = scope:target_country }
 				}
 				multiply = 0.5
 			}
 		}
+
+			# Special logic for very important subjects like East India Company
+			if = {
+				limit = { 
+					scope:target_country = { 
+						is_subject_of = root
+						prestige >= 250				
+					} 					
+				}
+				add = 100
+			}								
 
 		if = {
 			limit = {
 				has_journal_entry = je_scramble_for_africa
 
 				# Scramble for Africa powers should only care about the Boers once diamonds are found
-				scope:subject = {
+					scope:target_country = {
 					country_is_in_africa = yes
 					any_scope_building = {
 						OR = {
@@ -574,13 +831,47 @@ ai_strategy_default = {
 			add = 50
 		}
 
+			if = {
+				limit = {
+					lenient_ai_behavior_trigger = yes
+				}
+				multiply = 0.5
+			}
+
+			if = {
+				limit = {
+					AND = {
+						has_radical_leftist_government = no			
+						scope:target_country = {
+							has_radical_leftist_government = yes
+						}
+					}
+					
+				}
+				multiply = 1.5
+			}
+
+			if = {
+				limit = {
+					AND = {
+						has_radical_leftist_economy = no			
+						scope:target_country = {
+							has_radical_leftist_economy = yes
+						}
+					}
+					
+				}
+				multiply = 1.5
+			}	
+		}
+
 		min = 0
-		max = 100
+		max = 200
 	}
 
 	# How much does the AI desire becoming another country's subject
 	# Using this value in other strategies will function additively
-	# root and scope:subject is the AI doing the evaluation, scope:overlord is prospective overlord
+	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
 		value = -100
 
@@ -770,7 +1061,7 @@ ai_strategy_default = {
 		}	
 
 		max = 0
-		min = -100
+		min = -200
 	}		
 	
 	# Recklessness multiplies the AI's estimation of its own strength, so at recklessness 2 it believes its forces to be twice as strong as they actually are
@@ -1452,7 +1743,7 @@ ai_strategy_default = {
 			value = 0			
 			if = {
 				limit = { has_technology_researched = artillery }
-				add = 10
+				add = 15
 			}	
 			if = {
 				limit = { has_technology_researched = napoleonic_warfare }
@@ -1460,11 +1751,11 @@ ai_strategy_default = {
 			}	
 			if = {
 				limit = { has_technology_researched = breech_loading_artillery }
-				add = 5
+				add = 10
 			}
 			if = {
 				limit = { has_technology_researched = wargaming }
-				add = 5
+				add = 10
 			}
 			
 			if = {
@@ -1792,7 +2083,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_is_in_north_america = yes
-					has_law = law_type:law_frontier_colonialism
+					has_law = law_type:law_frontier_colonization
 				}
 				multiply = 0.0
 			}		
@@ -1823,7 +2114,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_is_in_north_america = yes
-					has_law = law_type:law_frontier_colonialism
+					has_law = law_type:law_frontier_colonization
 				}
 				multiply = 0.0
 			}		
@@ -1854,7 +2145,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_is_in_north_america = yes
-					has_law = law_type:law_frontier_colonialism
+					has_law = law_type:law_frontier_colonization
 				}
 				multiply = 0.0
 			}			
@@ -1875,7 +2166,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_is_in_north_america = yes
-					has_law = law_type:law_frontier_colonialism
+					has_law = law_type:law_frontier_colonization
 				}
 				multiply = 0.0
 			}			
@@ -1906,7 +2197,7 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_is_in_north_america = yes
-					has_law = law_type:law_frontier_colonialism
+					has_law = law_type:law_frontier_colonization
 				}
 				multiply = 0.0
 			}		
@@ -5086,6 +5377,13 @@ ai_strategy_default = {
 						}
 						multiply = 1.25
 					}					
+
+					if = {
+						limit = {
+							scope:target_state = { is_incorporated = no	}
+						}
+						multiply = 0.25
+					}
 				}										
 			}
 			if = {
@@ -5591,6 +5889,16 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
+					has_journal_entry = je_opium_wars
+					scope:target_country = {
+						has_variable = opium_wars_exporter
+					}
+				}
+				add = 75
+			}
+
+			if = {
+				limit = {
 					AND = {
 						has_radical_leftist_government = no			
 						scope:target_country = {
@@ -5614,6 +5922,16 @@ ai_strategy_default = {
 				}
 				add = 50
 			}					
+			
+			# Not worth doing against very small markets
+			if = {
+				limit = {
+					scope:target_country = {
+						gdp < 2000000
+					}
+				}
+				multiply = 0
+			}				
 			
 			# Don't want to open our own market...
 			if = {
@@ -5752,8 +6070,7 @@ ai_strategy_default = {
 				}
 				add = 75
 			}
-			}
-
+			
 			min = 0
 			max = 200			
 		}			
@@ -5843,7 +6160,8 @@ ai_strategy_default = {
 					add = 1
 					min = 0.25
 					max = 2.0
-				}		
+				}
+			}		
 
 				# releasing these seem the break the breackup_bic event code?
 			if = {
@@ -5874,7 +6192,6 @@ ai_strategy_default = {
 
 				multiply = 0
 			}
-			}	
 
 			min = 0
 			max = 100			

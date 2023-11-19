@@ -264,6 +264,39 @@ french_empire_clothes_pop_trigger = {
 	}
 }
 
+russian_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = c:RUS
+		exists = home_country
+		home_country = {
+			OR = {
+				AND = {
+					c:RUS = this
+					is_subject = no # preventing uniform conflicts if RUS becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:RUS
+			}		
+		}
+	}
+}
+
+russian_empire_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = c:RUS
+		home_country = {
+			OR = {
+				AND = {
+					c:RUS = this
+					is_subject = no # preventing uniform conflicts if RUS becomes a subject of another country with puppet uniforms
+				}
+				is_subject_of = c:RUS
+			}		
+		}
+	}
+}
+
 german_clothes_trigger = {
 	exists = scope:character
 	scope:character = {
@@ -1061,7 +1094,7 @@ south_american_clothes_character_trigger = {
 			culture = cu:south_andean
 			culture = cu:andino
 			culture = cu:mexican
-			culture = cu:solaradan
+			culture = cu:soalleiran
 			culture = cu:caribenho
 			culture = cu:andino
 			culture = cu:pacifico
@@ -1078,7 +1111,7 @@ south_american_clothes_pop_trigger = {
 			culture = cu:south_andean
 			culture = cu:andino
 			culture = cu:mexican
-			culture = cu:solaradan
+			culture = cu:soalleiran
 			culture = cu:caribenho
 			culture = cu:andino
 			culture = cu:pacifico

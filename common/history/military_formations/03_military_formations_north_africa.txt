@@ -1,0 +1,158 @@
+﻿MILITARY_FORMATIONS = {
+	c:EGY = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_nile_basin
+			name = "Jaish al-Misr"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOWER_EGYPT
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALEXANDRIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_UPPER_EGYPT
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MIDDLE_EGYPT
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ASWAN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_SINAI
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_nile_basin
+			name = "Bahriat al-Misria"
+
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_ALEXANDRIA
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ALEXANDRIA
+				count = 7
+			}
+		}
+	}
+
+	c:TUN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = "Jaish al-Hafsiyun"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CONSTANTINE
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALGIERS
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CONSTANTINE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CONSTANTINE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TLEMCEN
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SFAX
+				count = 4
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_africa
+			name = "Bahriat al-Hafsiyun"
+
+			combat_unit = { # Husayniyya
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CONSTANTINE
+				count = 1
+			}
+		}
+	}
+	
+	c:MOR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = "Ejército de Marruecos"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MARRAKECH
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FEZ
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_OUJDA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_INNER_MOROCCO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ERRACHIDIA
+				count = 6
+			}
+		}
+	}
+}

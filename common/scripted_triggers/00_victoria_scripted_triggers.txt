@@ -59,3 +59,47 @@ law_is_valid_for_ig_petition = {
 	} 			
 	can_be_enacted = yes
 }
+
+character_has_patrol_coast_order = {
+	OR = {
+		has_commander_order = patrol_coast
+		has_commander_order = patrol_carrier_assualt
+		has_commander_order = escort_convoys_advanced
+	}
+}
+
+character_has_raid_convoys_order = {
+	OR = {
+		has_commander_order = raid_convoys
+		has_commander_order = raid_unrestricted_sub
+	}
+}
+
+character_has_escort_convoys_order = {
+	OR = {
+		has_commander_order = escort_convoys
+		has_commander_order = escort_convoys_advanced
+	}
+}
+
+character_has_advance_order = {
+	OR = {
+		has_commander_order = advance
+		has_commander_order = advance_reckless
+		has_commander_order = advance_cautious
+		has_commander_order = advance_heavy_barrage
+		has_commander_order = advance_pillager
+		has_commander_order = advance_cavalry_assualt
+		has_commander_order = advance_tank_assualt
+	}
+}
+
+character_has_defend_order = {
+	OR = {
+		has_commander_order = defend
+		has_commander_order = defend_dig_in
+		has_commander_order = defend_desperate_charge
+		has_commander_order = defend_last_stand
+		has_commander_order = defend_guerilla_warfare
+	}
+}

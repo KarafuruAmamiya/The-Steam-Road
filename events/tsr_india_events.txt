@@ -72,6 +72,14 @@ raj.1 = {
 					}
 					activate_law = law_type:law_peasant_levies
 				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_industry_banned
+						}
+					}
+					activate_law = law_type:law_industry_banned
+				}
 			}
 		}
 		c:PER = {
@@ -95,11 +103,16 @@ raj.1 = {
 				OR = {
 					state_is_in_india = yes
 					state_region = s:STATE_KASHMIR
+					state_region = s:STATE_HIMALAYAS
 				}
 				NOR = {
 					state_region = s:STATE_GUJARAT
 					state_region = s:STATE_SAURASHTRA
 					state_region = s:STATE_SINDH
+					state_region = s:STATE_CIRCARS
+					state_region = s:STATE_CEYLON
+					state_region = s:STATE_TRAVANCORE
+					state_region = s:STATE_SOUTH_BENGAL
 				}
 			}
 			set_state_owner = c:RAJ
@@ -245,7 +258,7 @@ raj.2 = {
 						}
 						AND = {
 							ruler = {
-								age > 16
+								age > 30
 							}
 							NOT = {
 								any_scope_character = {
@@ -289,7 +302,7 @@ raj.2 = {
 						}
 						AND = {
 							ruler = {
-								age > 16
+								age > 30
 							}
 							NOT = {
 								any_scope_character = {
@@ -334,7 +347,7 @@ raj.2 = {
 						}
 						AND = {
 							ruler = {
-								age > 16
+								age > 30
 							}
 							NOT = {
 								any_scope_character = {

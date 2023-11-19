@@ -260,7 +260,10 @@ fascism_events.2 = { #fascist leader gains popularity
 				}
 				NOT = { has_variable = og_fascist_ig }
 				leader = {
-					has_ideology = ideology:ideology_fascist
+					OR = {
+						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
+					}
 				}
 			}
 			leader = {
@@ -312,7 +315,10 @@ fascism_events.2 = { #fascist leader gains popularity
 				}
 				NOT = { has_variable = og_fascist_ig }
 				leader = {
-					has_ideology = ideology:ideology_fascist
+					OR = {
+						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
+					}
 				}
 			}
 		}

@@ -2,6 +2,8 @@
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
 
+	group = je_group_objectives
+
 	complete = {
 		ig:ig_intelligentsia = {
 			is_powerful = yes
@@ -29,6 +31,8 @@ je_liberate_the_slaves = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
 	
+	group = je_group_objectives
+	
 	complete = {
 		has_law = law_type:law_slavery_banned
 	}
@@ -40,6 +44,8 @@ je_liberate_the_slaves = {
 je_pass_laws = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
+	
+	group = je_group_objectives
 	
 	complete = {
 		NOT = { has_law = law_type:law_state_religion }
@@ -66,6 +72,8 @@ je_pass_laws = {
 je_public_services = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
+	
+	group = je_group_objectives
 	
 	complete = {
 		institution_investment_level = {
@@ -116,6 +124,8 @@ je_women_and_children = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
 	
+	group = je_group_objectives
+	
 	complete = {
 		has_law = law_type:law_compulsory_primary_school
 		has_law = law_type:law_womens_suffrage
@@ -148,6 +158,8 @@ je_women_and_children = {
 je_egalitarian_society = {
 	should_be_pinned_by_default = yes
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
+
+	group = je_group_objectives
 	active_update_frequency = 1
 	
 	complete = {

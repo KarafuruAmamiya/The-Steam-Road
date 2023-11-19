@@ -2,10 +2,11 @@
 	c:AMR = { # America
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_shared_heritage
@@ -47,12 +48,13 @@
 		
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_shared_heritage
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_no_schools
@@ -103,6 +105,7 @@
 	c:CSR = { # Cispratina
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_presidential_republic
@@ -110,7 +113,7 @@
 		activate_law = law_type:law_shared_heritage
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_per_capita_based_taxation
@@ -135,6 +138,7 @@
 	c:JUL = { # Juliana
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
@@ -168,17 +172,27 @@
 	c:MRZ = { # Marizia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = mass_communication
+		add_technology_researched = egalitarianism
+		add_technology_researched = central_archives
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_frontier_colonialism
-		activate_law = law_type:law_oligarchy 
+		activate_law = law_type:law_frontier_colonization
+		activate_law = law_type:law_autocracy
 		activate_law = law_type:law_shared_heritage
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_no_schools
-		activate_law = law_type:law_no_police
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_national_militia
+		
+		set_institution_investment_level = {
+			institution = institution_home_affairs
+			level = 3
+		}
 		
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
@@ -209,7 +223,7 @@
 		effect_starting_technology_tier_2_tech = yes
 		
 		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_religious_schools
@@ -221,7 +235,7 @@
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_no_police
 		activate_law = law_type:law_right_of_assembly
 		
@@ -239,13 +253,14 @@
 	c:ORC = { # Orenoco / New Provence
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_no_schools
@@ -267,14 +282,15 @@
 	c:PEU = { # Peru
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_per_capita_based_taxation
@@ -293,6 +309,7 @@
 	c:TPR = { # Transpratina
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting

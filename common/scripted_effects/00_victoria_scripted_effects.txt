@@ -9,7 +9,7 @@ ai_expedition_simulator_start = {
 			}
 		}
 		set_variable = expedition_leader_var
-		set_character_busy = yes
+		set_character_busy_and_immortal = yes
 	}
 	set_variable = on_expedition
 	add_modifier = {
@@ -147,6 +147,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -201,6 +202,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -255,6 +257,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -284,6 +287,7 @@ adopt_random_antigovernment_ideology = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
 									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
 									has_ideology = ideology:ideology_social_democrat
 								}
 							}
@@ -307,6 +311,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -327,7 +332,7 @@ adopt_random_antigovernment_ideology = {
 					if = {
 						limit = {
 							owner = {
-								has_law = law_type:law_multiculturalism
+								has_law = law_type:law_multicultural
 							}
 						}
 						multiply = {
@@ -451,6 +456,7 @@ adopt_random_antigovernment_ideology = {
 						NOT = {
 							ruler = {
 								has_ideology = ideology:ideology_fascist	
+								has_ideology = ideology:ideology_integralist
 							}
 						}
 					}
@@ -463,6 +469,7 @@ adopt_random_antigovernment_ideology = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
 									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
 									has_ideology = ideology:ideology_social_democrat
 								}
 							}
@@ -486,6 +493,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -671,7 +679,10 @@ adopt_random_antigovernment_ideology = {
 						has_technology_researched = feminism
 						NOT = {
 							ruler = {
+								OR = {
 								has_ideology = ideology:ideology_humanitarian	
+									has_ideology = ideology:ideology_humanitarian_royalist
+								}
 							}
 						}
 					}
@@ -718,6 +729,7 @@ adopt_random_antigovernment_ideology = {
 									has_ideology = ideology:ideology_radical
 									has_ideology = ideology:ideology_feminist
 									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
 									has_ideology = ideology:ideology_social_democrat
 								}
 							}
@@ -741,6 +753,7 @@ adopt_random_antigovernment_ideology = {
 							owner.ruler = {
 								OR = {
 									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
 									has_ideology = ideology:ideology_ethno_nationalist
 									has_ideology = ideology:ideology_traditionalist
 								}
@@ -1132,6 +1145,7 @@ fascist_agitator_election_scope_effect = {
 		limit = {
 			OR = {
 				has_ideology = ideology:ideology_fascist
+				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_ethno_nationalist
 				AND = {
 					this.interest_group = {
@@ -1229,6 +1243,7 @@ liberal_agitator_election_scope_effect = {
 			OR = {
 				has_ideology = ideology:ideology_reformer
 				has_ideology = ideology:ideology_humanitarian
+				has_ideology = ideology:ideology_humanitarian_royalist
 				has_ideology = ideology:ideology_market_liberal
 				this.interest_group = {
 					is_member_of_party = owner.py:liberal_party
@@ -1369,12 +1384,14 @@ gen_ruler_party = {
 				ruler = {
 					OR = {
 						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
 						has_ideology = ideology:ideology_ethno_nationalist
 					}
 				}
 				ruler.interest_group.leader = {
 					OR = {
 						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
 						has_ideology = ideology:ideology_ethno_nationalist
 					}
 				}
@@ -1417,6 +1434,7 @@ gen_ruler_party = {
 						has_ideology = ideology:ideology_social_democrat
 						has_ideology = ideology:ideology_feminist
 						has_ideology = ideology:ideology_humanitarian
+						has_ideology = ideology:ideology_humanitarian_royalist
 					}
 				}
 				ruler.interest_group.leader = {
@@ -1424,6 +1442,7 @@ gen_ruler_party = {
 						has_ideology = ideology:ideology_social_democrat
 						has_ideology = ideology:ideology_feminist
 						has_ideology = ideology:ideology_humanitarian
+						has_ideology = ideology:ideology_humanitarian_royalist
 					}
 				}
 				ruler = {
@@ -2186,4 +2205,55 @@ clear_communism_vars = {
 	remove_variable = communism_progress_from_characters
 	remove_variable = communism_progress_from_laws
 	remove_variable = communism_progress_var_add
+}
+
+replicate_laws_from_root = {
+	every_law = {
+		limit = {
+			ROOT = {
+				has_law = PREV.type
+			}
+			PREV = {
+				NOT = {
+					has_law = PREV.type
+				}
+			}
+		}
+		PREV = {
+			activate_law = PREV.type
+		}
+	}
+}
+
+replicate_laws_from_prev = {
+	every_law = {
+		limit = {
+			PREV = {
+				has_law = PREV.type
+			}
+			ROOT = {
+				NOT = {
+					has_law = PREV.type
+				}
+			}
+		}
+		ROOT = {
+			activate_law = PREV.type
+		}
+	}
+}
+
+paris_commune_update_tick = {
+	set_global_variable = {
+		name = paris_commune_drift_final_var
+		value = 0
+	}
+	change_global_variable = {
+		name = paris_commune_drift_final_var
+		add = global_var:paris_commune_progress_drift
+	}
+	change_global_variable = {
+		name = paris_commune_drift_final_var
+		add = var:PRC_recognition_level
+	}
 }

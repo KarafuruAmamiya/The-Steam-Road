@@ -1,0 +1,429 @@
+﻿MILITARY_FORMATIONS = {
+	c:AMR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_brazil
+			name = "Ejército del Sur"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MINAS_DORADAS
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NUEVO_LEON
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CEMARA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_PIABAS
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_brazil
+			name = "Ejército de Amazonas"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BAHIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_COSTA_PIRATAS
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SAN_LUIS
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_brazil
+			name = "Ejército Américano"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NUEVO_LEON
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CEMARA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CEMARA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_brazil
+			name = "Armada de América"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_NUEVO_LEON
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_BAHIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_COSTA_PIRATAS
+				count = 6
+			}
+		}
+	}
+
+	c:CHL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_andes
+			name = "Exército do Chile"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CANDELARIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CANDELARIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOS_RIOS
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CANDELARIA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_andes
+			name = "Marinha do Chile"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CANDELARIA
+				count = 1
+			}
+		}
+	}
+	
+	c:MRZ = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_andes
+			name = "Exército Mariziano"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CUSCO
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANTOFAGASTA
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TARAPACA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOXOS
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SALTA
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CHIQUIAGO
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_POTOSI
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AREQUIPA
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_POTOSI
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CHIQUIAGO
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_andes
+			name = "Marinha Nacional de Marizia"
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_AREQUIPA
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_AREQUIPA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ANTOFAGASTA
+				count = 3
+			}
+		}
+	}
+
+	c:CSR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_la_plata
+			name = "Exército Cispratino"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_RIO_DA_PRATA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOURINHA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_RIO_DA_PRATA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_la_plata
+			name = "Marinha Cispratina"
+
+			combat_unit = { # Nothing the size of a frigate
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_RIO_DA_PRATA
+				count = 1
+			}
+		}
+	}
+
+	c:JUL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_la_plata
+			name = "Exército Republicano do Juliana"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_JULIANA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_JULIANA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_JULIANA
+				count = 1
+			}
+		}
+	}
+
+	c:PEU = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_andes
+			name = "Ejército del Perú"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LIMA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CAJAMARCA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ICA
+				count = 1
+			}
+		}
+	}
+
+	c:ORC = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_gran_colombia
+			name = "Armée de Nouvelle-Provence"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PAYS_DE_GRACE
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CAROU
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MARONI
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_PAYS_DE_GRACE
+				count = 2
+			}
+		}
+	}
+
+	c:TPR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_la_plata
+			name = "Exército Nacional"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRANSPRATINA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_URUGUAY
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ENTRE_RIOS
+				count = 3
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CORRIENTES
+				count = 1
+			}
+		}
+	}
+
+	c:NWX = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_brazil
+			name = "New Wessex Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KINGSBAY
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_DEVON
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_JACOBIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CURITYBA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PENZANCE
+				count = 1
+			}
+		}
+	}
+}

@@ -45,8 +45,8 @@ law_state_religion = {
 	
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = 0.3
-		state_radicals_from_sol_change_accepted_religion_mult = -0.15
-		state_loyalists_from_sol_change_accepted_religion_mult = 0.15	
+		state_radicals_from_sol_change_accepted_religion_mult = -0.1
+		state_loyalists_from_sol_change_accepted_religion_mult = 0.1	
 		country_authority_add = 200
 	}
 	
@@ -68,10 +68,6 @@ law_state_religion = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -180,10 +176,6 @@ law_denominational_exclusion = {
 		}
 	}
 	
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	}
-	
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -280,10 +272,6 @@ law_freedom_of_conscience = {
 				}
 			}			
 		}
-	}
-	
-	can_impose = { 
-		is_subject_of = scope:initiator	
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -425,10 +413,6 @@ law_shared_roots = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -532,10 +516,6 @@ law_total_separation = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -636,16 +616,12 @@ law_state_atheism = {
 			desc = "POP_ATHEISTS"
 			if = {
 				limit = {
-					religion = rel:atheist
+					has_pop_religion = atheist
 				}
 				value = 0.5
 			}
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

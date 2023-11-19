@@ -1,0 +1,727 @@
+﻿MILITARY_FORMATIONS = {
+	c:TUR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_east_balkans
+			name = "Hassa Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BULGARIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WESTERN_THRACE
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BOSNIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_NORTHERN_THRACE
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_west_balkans
+			name = "Rumeli Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CROATIA
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SOUTHERN_SERBIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ALBANIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SKOPIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SKOPIA
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_anatolia
+			name = "Konstantiniyye Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EASTERN_THRACE
+				count = 25
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_ANKARA
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_anatolia
+			name = "Anadolu Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ADANA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HARPUT
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HUDAVENDIGAR
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_AYDIN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_KONYA
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dnieper
+			name = "Rutenya Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TAURIDA
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CRIMEA
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_anatolia
+			name = "Donanma-yı Humâyûn"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_HUDAVENDIGAR
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_EASTERN_THRACE
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_AYDIN
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ANTALYA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ADANA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HUDAVENDIGAR
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_KARASI
+				count = 3
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_dnieper
+			name = "Donanma-yı Kara Deñiz"
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_TAURIDA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CRIMEA
+				count = 10
+			}
+		}
+	}
+	
+	c:PER = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_persia
+			name = "Arteš-e Šāhanšāhi"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FARS
+				count = 30
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ISFAHAN
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_IRAKAJEMI
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_KERMAN
+				count = 10
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_persia
+			name = "Arteš-e Âzarbâyjân"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TABRIZ
+				count = 20
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_URMIA
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TABRIZ
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GILAN
+				count = 10
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_persia
+			name = "Arteš-e Xorâsân"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTH_KHORASAN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SOUTH_KHORASAN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_HERAT
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SISTAN
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_arabic
+			name = "Arteš-e 'Arabestân"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BAGHDAD
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_NASIRIYA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_BASRA
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = "Arteš-e Hendustân"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GUJARAT
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAURASHTRA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SOUTH_BENGAL
+				count = 10
+			}
+			
+			save_scope_as = indianarmy_per
+		}
+		
+		create_character = {
+			is_general = yes
+			first_name = Farajollah
+			last_name = Daei
+			historical = yes
+			age = 50
+			culture = cu:persian
+			hq = region_north_india
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			commander_rank = commander_rank_3
+			traits = {
+				experienced_artillery_commander
+				cruel
+			}
+			save_scope_as = per_gen1
+			on_created = {
+				set_variable = per_gen1_var
+			}
+		}
+		
+		scope:per_gen1 = {
+			transfer_to_formation = scope:indianarmy_per
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_persia
+			name = "Nâvdân-e Fârs"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MOGOSTAN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_KHUZESTAN
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FARS
+				count = 16
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_arabic
+			name = "Nâvdân-e 'Adan"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_BASRA
+				count = 6
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_ABU_DHABI
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ADEN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_YEMEN
+				count = 3
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_india
+			name = "Nâvdân-e Xâvar"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_SAURASHTRA
+				count = 11
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_GUJARAT
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CEYLON
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOUTH_BENGAL
+				count = 10
+			}
+		}
+	}
+
+	c:KAT = {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_arabic
+			name = "Bahriat al-Mukalla"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_HADHRAMAUT
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HADHRAMAUT
+				count = 5
+			}
+		}
+	}
+	
+	c:AKN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_anatolia
+			name = "Kürdüstan Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_DIYARBAKIR
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BITLIS
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_VAN
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HARPUT
+				count = 3
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_DIYARBAKIR
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_DIYARBAKIR
+				count = 3
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_anatolia
+			name = "Ermenistan Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ERZURUM
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRABZON
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KARS
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GREATER_CAUCASUS
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_KUBAN
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_arabic
+			name = "Cezire Ordusu"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MOSUL
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ANBAR
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DEIR_EZ_ZOR
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SHAHRIZOR
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_ALEPPO
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_arabic
+			name = "Aqdeniz Donanması"
+
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_ALEPPO
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ALEPPO
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_anatolia
+			name = "Qaradeniz Donanması"
+
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_TRABZON
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GREATER_CAUCASUS
+				count = 7
+			}
+		}
+	}
+	
+	c:SYR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_arabic
+			name = "Jaish al-Suriah"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SYRIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HAMA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PALESTINE
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TRANSJORDAN
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SYRIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_LEBANON
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_arabic
+			name = "Bahriat al-Suriah"
+
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_LEBANON
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_PALESTINE
+				count = 5
+			}
+		}
+	}
+	
+	c:HDJ = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_arabic
+			name = "Jaish al-Hijaz"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HEDJAZ
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MEDINA
+				count = 7
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HEDJAZ
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HEDJAZ
+				count = 3
+			}
+		}
+	}
+}

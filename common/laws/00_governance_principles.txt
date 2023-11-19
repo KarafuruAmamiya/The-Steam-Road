@@ -26,10 +26,6 @@ law_chiefdom = {
 		value = 0
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -81,10 +77,6 @@ law_monarchy = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -124,6 +116,23 @@ law_presidential_republic = {
 		country_authority_add = 100
 	}
 	
+	on_activate = {
+		if = {
+			limit = {
+				any_interest_group = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
+			}
+		}
+	}
+	
 	possible_political_movements = {
 		law_council_republic
 		law_monarchy
@@ -142,10 +151,6 @@ law_presidential_republic = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -188,6 +193,23 @@ law_parliamentary_republic = {
 		country_legitimacy_govt_size_add = 1
 	}
 	
+	on_activate = {
+		if = {
+			limit = {
+				any_interest_group = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
+			}
+		}
+	}
+
 	possible_political_movements = {
 		law_council_republic
 		law_monarchy
@@ -206,10 +228,6 @@ law_parliamentary_republic = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -270,10 +288,6 @@ law_theocracy = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -310,6 +324,20 @@ law_council_republic = {
 		custom_tooltip = {
 			text = enact_law_radical_leftist_government_warning_desc
 		}	
+		if = {
+			limit = {
+				any_interest_group = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_constitutionalist
+				}
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
+			}
+		}	
 	}		
 
 	modifier = {
@@ -336,10 +364,6 @@ law_council_republic = {
 			}
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 	
 	ai_will_do = {
 		exists = ruler

@@ -10,8 +10,10 @@ cholera.1 = {
 			triggered_desc = {
 				desc = cholera.1.d1
 				trigger = {
-					exists = c:ENG
-					this = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 				}
 			}
 			triggered_desc = {

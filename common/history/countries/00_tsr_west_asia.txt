@@ -119,7 +119,7 @@
 
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 
 		
 		add_journal_entry = { type = je_arabian_desert }
@@ -144,7 +144,7 @@
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_legacy_slavery
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_religious_schools
 		
 		set_institution_investment_level = {
@@ -172,7 +172,7 @@
 
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -218,7 +218,7 @@
 		activate_law = law_type:law_legacy_slavery # While technically banned, except in certain states slavery is still around but "discouraged"
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_migration_controls
@@ -279,6 +279,8 @@
 		
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
+		
+		add_company = company_type:company_east_india_company
 	}
 	c:SRV = { # Shirvan
 		effect_starting_technology_tier_3_tech = yes

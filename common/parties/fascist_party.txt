@@ -12,8 +12,10 @@
 			triggered_desc = {
 				desc = party_british_union_of_fascists
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 				}
 			}
 			triggered_desc = {
@@ -246,6 +248,7 @@
 					OR = {
 						has_ideology = ideology:ideology_fascist
 						has_ideology = ideology:ideology_ethno_nationalist
+						has_ideology = ideology:ideology_integralist
 					}
 				}
 			}
@@ -258,7 +261,10 @@
 			limit = {
 				is_powerful = yes
 				leader = {
+					OR = {
 					has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_integralist
+					}
 				}
 			}
 			add = {
@@ -289,7 +295,10 @@
 					any_interest_group = {
 						is_powerful = yes
 						leader = {
+							OR = {
 							has_ideology = ideology:ideology_fascist
+								has_ideology = ideology:ideology_integralist
+							}
 						}
 					}
 				}
@@ -327,6 +336,7 @@
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_pacifist
 						has_ideology = ideology:ideology_humanitarian
+						has_ideology = ideology:ideology_humanitarian_royalist
 					}	
 				}
 			}
@@ -364,6 +374,31 @@
 			add = {
 				value = -3
 				desc = "from_moderate"
+			}
+		}
+		if = { # corporatists fall in line if they don't have christian democrats
+			limit = {
+				owner = {
+					any_interest_group = {
+						is_powerful = yes
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_fascist
+								has_ideology = ideology:ideology_integralist
+							}
+						}
+					}
+				}
+				OR = {
+					has_ideology = ideology:ideology_corporatist
+					leader = {
+						has_ideology = ideology:ideology_corporatist_leader
+					}
+				}
+			}
+			add = {
+				value = 5
+				desc = "from_corporatism"
 			}
 		}
 		if = { # patriots are inclined towards fascism

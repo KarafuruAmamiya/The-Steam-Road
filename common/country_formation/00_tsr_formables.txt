@@ -1,16 +1,4 @@
-﻿GBR = { # Great Britain
-	use_culture_states = yes
-
-	required_states_fraction = 1.0
-	
-	ai_will_do = { always = yes }
-	
-	possible = {
-		is_subject = no
-	}
-}
-
-PER = { # Persia
+﻿PER = { # Persia
 	use_culture_states = yes
 
 	required_states_fraction = 0.75
@@ -18,66 +6,6 @@ PER = { # Persia
 	ai_will_do = { always = yes }
 	
 	possible = {
-		is_subject = no
-	}
-}
-
-HRE = { # Holy Roman Empire
-	states = {
-		STATE_POMERANIA
-		STATE_ELBE
-		STATE_WESTPHALIA
-		STATE_ANHALT
-		STATE_RHINELAND
-		STATE_NORTH_RHINE
-		STATE_SCHLESWIG_HOLSTEIN
-		STATE_HANNOVER
-		STATE_BRUNSWICK
-		STATE_SAXONY
-		STATE_HESSE
-		STATE_MECKLENBURG
-		STATE_BRANDENBURG
-		STATE_WURTTEMBERG
-		STATE_BADEN
-		STATE_BAVARIA
-		STATE_FRANCONIA
-		STATE_AUSTRIA
-		STATE_STYRIA
-		STATE_TYROL
-		STATE_PFALZ
-		STATE_OBERPFALZ
-		STATE_ELSASS
-		STATE_THURINGIA
-		STATE_BOHEMIA
-		STATE_MORAVIA
-		STATE_UPPER_SILESIA
-		STATE_FLANDERS
-		STATE_SLOVENIA
-		STATE_WEST_SLOVAKIA
-		STATE_LORRAINE
-		STATE_LOMBARDY
-		STATE_VENETIA
-		STATE_PIEDMONT
-		STATE_WEST_SWITZERLAND
-		STATE_EAST_SWITZERLAND
-		STATE_TYROL
-		STATE_STYRIA
-		STATE_SLOVENIA
-		STATE_ISTRIA
-		STATE_DALMATIA
-		STATE_ROMAGNA
-		STATE_EMILIA
-		STATE_TUSCANY
-		STATE_LAZIO
-	}
-
-	required_states_fraction = 1
-
-	ai_will_do = { always = yes }
-
-	possible = {
-		NOT = { has_game_rule = plausible_formable_nations }
-		has_modifier = hre_emperor
 		is_subject = no
 	}
 }
@@ -111,34 +39,6 @@ ITA = { # Italy
 	}
 }
 
-RUS = { # Russia
-	use_culture_states = yes
-
-	required_states_fraction = 0.75
-	
-	ai_will_do = { always = yes }
-	
-	possible = {
-		is_subject = no
-	}
-}
-
-LAO = { # Laos
-	states = {
-		STATE_LUANG_PRABANG
-		STATE_CHAMPASAK
-		STATE_SAVANH_NAKHONE
-	}
-
-	required_states_fraction = 1.0
-	
-	ai_will_do = { always = yes }
-	
-	possible = {
-		has_technology_researched = nationalism
-	}
-}
-
 KUR = { # Kurdistan
 	use_culture_states = yes
 	
@@ -155,25 +55,6 @@ KUR = { # Kurdistan
 			}
 		}
 	}
-}
-
-YEM = { # Yemen
-	states = {
-		STATE_YEMEN
-		STATE_ADEN
-	}
-
-	required_states_fraction = 1
-	
-	ai_will_do = { always = yes }
-}
-
-ETH = { # Ethiopia
-	use_culture_states = yes
-
-	required_states_fraction = 0.7
-	
-	ai_will_do = { always = yes }
 }
 
 MGL = { # Mongolia

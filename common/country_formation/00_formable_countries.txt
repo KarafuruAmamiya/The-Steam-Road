@@ -1,4 +1,12 @@
-﻿ENG = {
+﻿GBR = {
+	use_culture_states = yes
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}
+
+ENG = {
 	states = {
 		STATE_HOME_COUNTIES
 		STATE_MIDLANDS
@@ -9,6 +17,14 @@
 	}
 
 	required_states_fraction = 0.75	
+	
+	ai_will_do = { always = yes }
+}
+
+RUS = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.75
 	
 	ai_will_do = { always = yes }
 }
@@ -43,6 +59,21 @@ SWE = {
 	ai_will_do = { always = no }
 }
 
+LAO = { # Laos
+	states = {
+		STATE_LUANG_PRABANG
+		STATE_CHAMPASAK
+		STATE_SAVANH_NAKHONE
+	}
+
+	required_states_fraction = 1.0
+	
+	ai_will_do = { always = yes }
+	
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
 UBD = {
 	use_culture_states = yes
 
@@ -129,6 +160,14 @@ CHI = {
 	use_culture_states = yes
 
 	required_states_fraction = 0.6
+	
+	ai_will_do = { always = yes }
+}
+
+ETH = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.50
 	
 	ai_will_do = { always = yes }
 }
@@ -223,6 +262,23 @@ ZIM = {
 	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
+}
+
+BLH = {
+	states = {
+		STATE_KALAT
+		STATE_MAKRAN
+		STATE_KHARAN
+		STATE_QUETTA
+		STATE_LASBELA
+	}
+
+	required_states_fraction = 0.75
+	ai_will_do = { always = yes }
+	
+	possible = {
+		has_technology_researched = pan-nationalism
+	}
 }
 
 NGF = {
@@ -321,12 +377,50 @@ IDN = {
 	}
 }
 
+YEM = { # Yemen
+	states = {
+		STATE_YEMEN
+		STATE_ADEN
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}
+
+CAU = {
+	states = {
+		STATE_GREATER_CAUCASUS
+		STATE_ARMENIA
+		STATE_AZERBAIJAN
+		STATE_KARS
+	}
+
+	required_states_fraction = 0.75	
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = pan-nationalism
+	}
+}
+
+PNS = {
+	use_culture_states = yes
+
+	required_states_fraction = 0.7 # Basically as long as you've colonized
+
+	possible = {
+		has_technology_researched = pan-nationalism
+	}
+}
+
 KAZ = {
 	states = {
 		STATE_SEMIRECHE
 		STATE_AKMOLINSK
 		STATE_JETISY
-		STATE_URAL
+		STATE_URALSK
 	}
 
 	required_states_fraction = 0.75	
@@ -338,15 +432,6 @@ KAZ = {
 	}
 }
 
-PNS = {
-	use_culture_states = yes
-	required_states_fraction = 0.5 # Basically as long as you've colonized
-
-	possible = {
-		has_technology_researched = pan-nationalism
-	}
-}
-
 ALD = {
 	states = {
 		STATE_ALGIERS
@@ -355,6 +440,20 @@ ALD = {
 	}
 
 	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+}
+
+PEU = {
+	states = {
+		STATE_LIMA
+		STATE_CAJAMARCA
+		STATE_ICA
+		STATE_ECUADOR
+		STATE_GUAYAQUIL
+	}
+
+	required_states_fraction = 0.8
 	
 	ai_will_do = { always = yes }
 }
@@ -404,5 +503,110 @@ RHN = {
 			c:NGF ?= this
 			c:SGF ?= this
 		}
+	}
+}
+HRE = { # Holy Roman Empire
+	states = {
+		STATE_POMERANIA
+		STATE_ELBE
+		STATE_WESTPHALIA
+		STATE_ANHALT
+		STATE_RHINELAND
+		STATE_NORTH_RHINE
+		STATE_SCHLESWIG_HOLSTEIN
+		STATE_HANNOVER
+		STATE_BRUNSWICK
+		STATE_SAXONY
+		STATE_HESSE
+		STATE_MECKLENBURG
+		STATE_BRANDENBURG
+		STATE_WURTTEMBERG
+		STATE_BADEN
+		STATE_BAVARIA
+		STATE_FRANCONIA
+		STATE_AUSTRIA
+		STATE_STYRIA
+		STATE_TYROL
+		STATE_PFALZ
+		STATE_OBERPFALZ
+		STATE_ELSASS
+		STATE_THURINGIA
+		STATE_BOHEMIA
+		STATE_MORAVIA
+		STATE_UPPER_SILESIA
+		STATE_FLANDERS
+		STATE_SLOVENIA
+		STATE_WEST_SLOVAKIA
+		STATE_LORRAINE
+		STATE_LOMBARDY
+		STATE_VENETIA
+		STATE_PIEDMONT
+		STATE_WEST_SWITZERLAND
+		STATE_EAST_SWITZERLAND
+		STATE_TYROL
+		STATE_STYRIA
+		STATE_SLOVENIA
+		STATE_ISTRIA
+		STATE_DALMATIA
+		STATE_ROMAGNA
+		STATE_EMILIA
+		STATE_TUSCANY
+		STATE_LAZIO
+	}
+
+	required_states_fraction = 1
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		NOT = { has_game_rule = plausible_formable_nations }
+		has_modifier = hre_emperor
+		is_subject = no
+	}
+}
+TWT = {
+	use_culture_states = yes
+	
+	required_states_fraction = 0.5
+
+	ai_will_do = { always = no }
+
+	possible = {
+		has_technology_researched = nationalism
+	}
+}
+PAK = {
+	states = {
+		STATE_QUETTA
+		STATE_KALAT
+		STATE_MAKRAN
+		STATE_KARAN
+		STATE_LASBELA
+		STATE_PASHTUNISTAN
+		STATE_KASHMIR
+		STATE_PUNJAB
+		STATE_MULTAN
+		STATE_SINDH
+	}
+
+	required_states_fraction = 0.80 # 4/5 states needed
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		has_technology_researched = pan-nationalism
+		country_has_state_religion = rel:sunni
+	}
+}
+
+MGB = {
+	use_culture_states = yes
+	
+	required_states_fraction = 0.5
+
+	ai_will_do = { always = no }
+
+	possible = {
+		has_technology_researched = pan-nationalism
 	}
 }

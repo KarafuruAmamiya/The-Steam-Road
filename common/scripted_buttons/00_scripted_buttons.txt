@@ -2,7 +2,7 @@
 	name = "je_the_paris_commune_repress_communard_sympathizers"
 	desc = "je_the_paris_commune_repress_communard_sympathizers_desc"
 
-	visible = { always = yes }
+	visible = { has_variable = paris_commune_fra_perspective }
 
 	possible = {
 		scope:journal_entry = {
@@ -36,7 +36,7 @@ je_the_paris_commune_france_button_b = {
 	name = "je_the_paris_commune_concessions_to_communards"
 	desc = "je_the_paris_commune_concessions_to_communards_desc"
 
-	visible = { always = yes }
+	visible = { has_variable = paris_commune_prc_perspective }
 
 	possible = {
 		scope:journal_entry = {
@@ -66,6 +66,71 @@ je_the_paris_commune_france_button_b = {
 	}
 }
 
+je_positivist_movement_embrace_positivism_button = {
+	name = "je_positivist_movement_embrace_positivism_button"
+	desc = "je_positivist_movement_embrace_positivism_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = positivist_cooldown_tt
+					has_variable = positivist_cooldown_var
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = positivists_advance_10
+			change_variable = { name = positivism_progress_var add = 10 }
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = poor
+		}
+		scope:journal_entry = {
+			custom_tooltip = cooldown_year_tt
+			set_variable = { name = positivist_cooldown_var years = 1 }
+		}
+	}
+}
+
+je_positivist_movement_suppress_positivism_button = {
+	name = "je_positivist_movement_suppress_positivism_button"
+	desc = "je_positivist_movement_suppress_positivism_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = positivist_cooldown_tt
+					has_variable = positivist_cooldown_var
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = positivists_retreat_10
+			change_variable = { name = positivism_progress_var subtract = 10 }
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		scope:journal_entry = {
+			custom_tooltip = cooldown_year_tt
+			set_variable = { name = positivist_cooldown_var years = 1 }
+		}
+	}
+}
 je_confederation_of_the_rhine_confederate_button = {
 	name = "je_confederation_of_the_rhine_confederate_button"
 	desc = "je_confederation_of_the_rhine_confederate_button_desc"
@@ -344,7 +409,10 @@ je_unite_the_principalities_button = {
         }
         custom_tooltip = {
             text = je_unite_the_principalities_amicable_or_better_relations_tt
-            NOT = { has_variable = romania_unification_in_motion }
+            NOR = { 
+            	has_variable = romania_unification_in_motion 
+            	has_variable = ROM_united_principality
+            }
 	        any_country = {
 	        	NOT = { this = ROOT }
 	        	country_has_primary_culture = cu:romanian
@@ -430,275 +498,6 @@ je_marea_unire = {
 				country = c:TRS
 				type = puppet
 			}
-		}
-	}
-}
-
-je_scramble_for_africa_colonial_land_swap = {
-	name = "je_scramble_for_africa_colonial_land_swap_button"
-	desc = "je_scramble_for_africa_colonial_land_swap_button_desc"
-
-	visible = {
-		capital = {
-			state_is_in_africa = no
-		}
-		any_scope_state = {
-			OR = {
-				region = sr:region_ethiopia
-				region = sr:region_senegal
-				region = sr:region_niger
-				region = sr:region_congo
-				region = sr:region_southern_africa
-				region = sr:region_zanj		
-			}
-			state_region = {
-				any_scope_state = {
-					owner = {
-						NOT = { this = ROOT }
-						OR = {
-							country_is_in_africa = no
-							AND = {
-								is_subject = yes
-			            		exists = top_overlord
-								top_overlord = {
-									country_is_in_africa = no
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	possible = {
-		# My name is Mike, Designer of Designs;
-		# Look on my Script, ye Mighty, and despair!
-
-		custom_tooltip = {
-			text = colony_swap_cannot_already_be_in_negotiations
-
-			NOR = { 
-				has_variable = negotiating_colony_swap 
-				has_variable = je_scramble_for_africa_colony_swap_cooldown
-			}
-		}
-
-		custom_tooltip = {
-			text = colony_swap_conditions
-			any_scope_state = {
-				is_split_state = yes
-				OR = {
-					region = sr:region_ethiopia
-					region = sr:region_senegal
-					region = sr:region_niger
-					region = sr:region_congo
-					region = sr:region_southern_africa
-					region = sr:region_zanj		
-				}
-				save_temporary_scope_as = potential_swap_state
-
-				state_region = {
-					any_scope_state = {
-						owner = {
-							NOT = { ROOT = this }
-
-							OR = {
-								country_is_in_africa = no
-								AND = {
-									is_subject = yes
-				            		exists = top_overlord
-									top_overlord = {
-										country_is_in_africa = no
-									}
-								}
-							}
-							any_scope_state = {
-								state_region = {
-									any_scope_state = {
-										owner = ROOT
-										NOT = { scope:potential_swap_state = this }
-									}
-								}
-								OR = {
-									region = sr:region_ethiopia
-									region = sr:region_senegal
-									region = sr:region_niger
-									region = sr:region_congo
-									region = sr:region_southern_africa
-									region = sr:region_zanj		
-								}								
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	effect = {
-		save_scope_as = instigating_swap_partner
-
-		set_variable = negotiating_colony_swap
-
-		if = {
-			limit = {
-				is_ai = yes
-			}
-			scope:journal_entry = {
-				set_variable = { name = je_scramble_for_africa_colony_swap_cooldown months = 6 }
-			}	
-		}
-
-		random_scope_state = {
-			limit = {
-				is_split_state = yes
-				OR = {
-					region = sr:region_ethiopia
-					region = sr:region_senegal
-					region = sr:region_niger
-					region = sr:region_congo
-					region = sr:region_southern_africa
-					region = sr:region_zanj		
-				}
-				state_region = {
-					any_scope_state = {
-						owner = {
-							NOT = { ROOT = this }
-							OR = {
-								country_is_in_africa = no
-								AND = {
-									is_subject = yes
-				            		exists = top_overlord
-									top_overlord = {
-										country_is_in_africa = no
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			save_scope_as = swappable_state_1
-
-			state_region = {
-				save_scope_as = state_1_region
-
-				random_scope_state = {
-					limit = {
-						owner = {
-							NOT = { ROOT = this }
-							OR = {
-								country_is_in_africa = no
-								AND = {
-									is_subject = yes
-				            		exists = top_overlord
-									top_overlord = {
-										country_is_in_africa = no
-									}
-								}
-							}
-						}
-					}
-					save_scope_as = other_swappable_state_1
-					if = {
-						limit = {
-							owner = {
-								is_subject = no
-								country_is_in_africa = no
-							}
-						}
-						owner = {
-							save_scope_as = other_swap_partner
-						}
-					}
-					else_if = {
-						limit = {
-							owner = {
-								is_subject = yes
-								exists = top_overlord
-								top_overlord = {
-									country_is_in_africa = no
-								}
-							}
-						}
-						owner = {
-							top_overlord = {
-								save_scope_as = other_swap_partner
-							}
-						}
-					}
-				}
-			}
-		}
-		random_scope_state = {
-			limit = {
-				is_split_state = yes
-				NOT = { scope:swappable_state_1 ?= this }
-				OR = {
-					region = sr:region_ethiopia
-					region = sr:region_senegal
-					region = sr:region_niger
-					region = sr:region_congo
-					region = sr:region_southern_africa
-					region = sr:region_zanj		
-				}
-				state_region = {
-					any_scope_state = {
-						OR = {
-							owner = scope:other_swap_partner
-							owner = {
-								top_overlord ?= scope:other_swap_partner
-							}
-						}
-					}
-				}
-			}
-			save_scope_as = swappable_state_2
-
-			state_region = {
-				save_scope_as = state_2_region
-
-				random_scope_state = {
-					limit = {
-						OR = {
-							owner = scope:other_swap_partner
-							owner = {
-								top_overlord ?= scope:other_swap_partner
-							}
-						}
-					}
-					save_scope_as = other_swappable_state_2
-				}
-			}
-		}
-
-		trigger_event = { id = colonial_swap.1 }
-	}
-
-	ai_chance = {
-		base = 0
-
-		modifier = {
-			trigger = {
-				OR = {
-					has_strategy = ai_strategy_territorial_expansion
-					has_strategy = ai_strategy_maintain_power_balance
-				}
-			}
-			add = 50
-		}
-		modifier = {
-			trigger = {
-				has_strategy = ai_strategy_colonial_expansion
-			}
-			add = 100
-		}
-		modifier = {
-			trigger = {
-				has_strategy = ai_strategy_armed_isolationism
-			}
-			add = -100
 		}
 	}
 }

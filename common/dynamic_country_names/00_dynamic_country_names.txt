@@ -291,6 +291,90 @@ DEFAULT = {
 			}
 		}
 	}
+	dynamic_country_name = {
+		name = colonial_admin_zanj
+		adjective = colonial_admin_zanj_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = zanj_subject_var
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_ethiopia
+		adjective = colonial_admin_ethiopia_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = ethiopia_subject_var
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_southern_africa
+		adjective = colonial_admin_southern_africa_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = southern_africa_subject_var
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_congo
+		adjective = colonial_admin_congo_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = congo_subject_var
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_niger
+		adjective = colonial_admin_niger_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = niger_subject_var
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = colonial_admin_senegal
+		adjective = colonial_admin_senegal_adj
+		use_overlord_prefix = yes
+		
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_variable = senegal_subject_var
+			}
+		}
+	}
 }
 
 SCA = {
@@ -1429,6 +1513,20 @@ WLS = {
 	}
 }
 
+PNS = {
+	dynamic_country_name = {
+		name = dyn_c_united_communes_pns
+		adjective = PNS_ADJ
+
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
 KAZ = {
 	dynamic_country_name = { # Republic
 		name = dyn_c_kazakh_republic
@@ -1460,6 +1558,43 @@ KAZ = {
 				has_law = law_type:law_monarchy
 			}
 			coa_def_independent_trigger = yes
+		}
+	}
+	dynamic_country_name = { # Autonomy
+		name = dyn_c_kazakh_alash_autonomy
+		adjective = dyn_c_kazakh_alash_autonomy_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			AND = {
+				exists = c:RUS
+				c:RUS = {
+					NOR = {
+						has_law = law_type:law_monarchy
+						has_law = law_type:law_council_republic
+					}
+					OR = {
+						has_diplomatic_pact = {
+							who = scope:actor
+							type = puppet
+							is_initiator = yes
+						}
+						has_diplomatic_pact = {
+							who = scope:actor
+							type = dominion
+							is_initiator = yes
+						}
+						has_diplomatic_pact = {
+							who = scope:actor
+							type = protectorate
+							is_initiator = yes
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -1675,6 +1810,22 @@ PLC = {
 		
 		trigger = {
 			scope:actor = { has_variable = greater_commonwealth_var }
+		}
+	}
+}
+
+TIS = { # Turtle Island
+	dynamic_country_name = {
+		name = dyn_c_great_turtle
+		adjective = dyn_c_great_turtle_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				was_formed_from = IRO
+			}
 		}
 	}
 }

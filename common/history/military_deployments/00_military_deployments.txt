@@ -1,0 +1,95 @@
+﻿MILITARY_DEPLOYMENTS = {
+	c:IBE = {
+		random_scope_general = {
+			limit = {
+				has_variable = ibe_gen1_var
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x906040.front
+			}
+		}
+	}
+
+	c:ARN = {
+		random_scope_general = {
+			limit = {
+				has_variable = arn_gen1_var
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x890622.front
+			}
+		}
+
+		random_scope_general = {
+			limit = {
+				has_variable = arn_gen2_var
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x890622.front
+			}
+		}
+	}
+
+	c:KRL = {
+		every_military_formation = {
+			fully_mobilize_army = yes
+			teleport_to_front = p:xD871BE.front
+		}
+	}
+
+	c:USC = {
+		every_military_formation = {
+			fully_mobilize_army = yes
+			teleport_to_front = p:xB040C0.front
+		}
+	}
+	
+	c:PER = {
+		random_scope_general = {
+			limit = {
+				has_variable = per_gen1_var
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x9A018D.front
+			}
+		}
+	}
+	
+	c:TAU = {
+		random_scope_general = {
+			limit = {
+				has_variable = king_haymar
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x75BE27.front
+			}
+		}
+		random_scope_general = {
+			limit = {
+				has_variable = tau_gen1_var
+			}
+
+			commander_military_formation = {
+				fully_mobilize_army = yes
+				teleport_to_front = p:x8D4D75.front
+			}
+		}
+	}
+	
+	c:LXA = {
+		every_military_formation = {
+			fully_mobilize_army = yes
+			teleport_to_front = p:x1E6D3C.front
+		}
+	}
+}

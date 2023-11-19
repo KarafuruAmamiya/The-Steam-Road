@@ -71,6 +71,16 @@ dark_khmer = {
 	}
 }
 
+communist_iran = {
+	color = "communist_austria_red"
+
+	possible = {
+		exists = c:PER
+		THIS = c:PER
+		has_law = law_type:law_council_republic
+	}
+}
+
 imperial_japan = {
 	color = "white"
 
@@ -297,6 +307,20 @@ republican_india = {
 	}
 }
 
+republican_hindustan = {
+	color = "hoi4_pakistan_blue"
+
+	possible = {
+		exists = c:BHT
+		THIS = c:BHT
+		OR = {
+			has_law = law_type:law_parliamentary_republic
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_council_republic
+		}
+	}
+}
+
 nihilist_russia = {
 	color = "nihilist_russia_color"
 
@@ -411,5 +435,28 @@ plc_pink = {
 		exists = c:PLC
 		THIS = c:PLC
 		has_variable = greater_commonwealth_var
+	}
+}
+
+spain_republican = {
+	color = "republican_spain_purple"
+
+	possible = {
+		exists = c:IBE
+		THIS = c:IBE
+		OR = {
+			has_law = law_type:law_parliamentary_republic
+			has_law = law_type:law_presidential_republic
+		}
+	}
+}
+
+spain_communist = {
+	color = "communist_spain_pink"
+
+	possible = {
+		exists = c:IBE
+		THIS = c:IBE
+		has_law = law_type:law_council_republic
 	}
 }

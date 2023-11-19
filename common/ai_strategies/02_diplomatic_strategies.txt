@@ -204,23 +204,6 @@ ai_strategy_territorial_expansion = {
 		bg_army = 1.5
 	}
 	
-	wargoal_scores = {
-		take_treaty_port = {
-			value = 0
-
-			if = {
-				limit = {
-					has_claim = scope:target_state
-					scope:target_country = { has_treaty_port_in_country = root }
-				}
-				add = 25
-			}			
-
-			min = 0
-			max = 100			
-		}
-	}
-	
 	secret_goal_weights = {
 		protect = 0.5
 		conquer = 1.5
@@ -234,6 +217,32 @@ ai_strategy_territorial_expansion = {
 		return_state = 1.5
 		take_treaty_port = 0.5
 	}	
+	
+	secret_goal_scores = {
+		conquer = {
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_strategic_adjacency = scope:target_country
+					scope:target_country.country_rank <= root.country_rank
+				}
+
+			if = {
+				limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+				}
+				add = 25
+			}			
+				else_if = {
+					limit = {				
+						scope:target_country = { is_country_type = unrecognized }						
+					}
+					add = 50
+				}
+			}
+		}
+	}
 		
 	possible = {
 		always = yes
@@ -264,6 +273,11 @@ ai_strategy_territorial_expansion = {
 				}
 			}
 			multiply = 0.75
+		}
+		
+		if = {
+			limit = { has_law = law_type:law_council_republic }
+			multiply = 0.5
 		}
 	}
 }
@@ -334,6 +348,28 @@ ai_strategy_colonial_expansion = {
 			}
 			multiply = 0.1
 		}			
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}		
 	}
 	
 	building_group_weights = {
@@ -399,7 +435,7 @@ ai_strategy_colonial_expansion = {
 
 	wargoal_weights = {
 		conquer_state = 1.5
-		make_puppet = 1.5
+		reduce_autonomy = 1.5
 		take_treaty_port = 1.0
 	}	
 		
@@ -439,6 +475,11 @@ ai_strategy_colonial_expansion = {
 			limit = { has_technology_researched = civilizing_mission }
 			multiply = 1.25
 		}				
+		
+		if = {
+			limit = { has_law = law_type:law_council_republic }
+			multiply = 0.01
+		}			
 	}
 }
 
@@ -491,26 +532,32 @@ ai_strategy_armed_isolationism = {
 
 	wargoal_weights = {
 		conquer_state = 0.0
-		make_puppet = 0.0
-		make_dominion = 0.0
-		make_vassal = 0.0
+		make_protectorate = 0.0
+		reduce_autonomy = 0.0
+		make_tributary = 0.0
 	}	
 	
 	possible = {
 		NOT = { country_rank = rank_value:great_power }
+		NOT = { has_law = law_type:law_council_republic }
 	}
 	
 	weight = {
 		value = 10
 		
 		if = {
+			limit = { is_country_type = unrecognized }
+			add = 50
+		}
+		
+		if = {
 			limit = { has_law = law_type:law_national_militia }
-			add = 20
+			add = 50
 		}
 
 		if = {
 			limit = { has_law = law_type:law_isolationism }
-			add = 20
+			add = 100
 		}	
 
 		if = {
@@ -610,6 +657,28 @@ ai_strategy_economic_imperialism = {
 			}
 			multiply = 0.25
 		}		
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}			
 	}
 	
 	building_group_weights = {
@@ -703,23 +772,33 @@ ai_strategy_economic_imperialism = {
 
 	wargoal_weights = {
 		take_treaty_port = 1.5
-		make_puppet = 1.5
-		make_dominion = 1.0	
-		make_vassal = 1.5	
+		make_protectorate = 1.5
+		reduce_autonomy = 1.5	
+		make_tributary = 1.5	
 	}	
 	
 	wargoal_scores = {	
-		open_market = {
+		take_treaty_port = {
 			value = 0
 		
 			if = {
 				limit = {
-					can_reach_target_country = yes
+					can_reach_target_state = yes
 					scope:target_country = {
 						has_law = law_type:law_isolationism
+						gdp >= 2000000 # Not worth doing against very small markets
+					}
+					scope:target_state = { is_incorporated = yes }
+				}
+				add = {
+					value = 100
+				
+					# More likely to grab a treaty port if we're already enemies in a play, ie they attacked us first
+					if = {
+						limit = { is_diplomatic_play_enemy_of = scope:target_country }
+						multiply = 2.0
 					}
 				}
-				add = 300
 			}
 		}
 	}
@@ -751,6 +830,11 @@ ai_strategy_economic_imperialism = {
 			limit = { navy_size >= 75 }
 			multiply = 1.5
 		}			
+		
+		if = {
+			limit = { has_law = law_type:law_council_republic }
+			multiply = 0.25
+		}
 	}
 }
 
@@ -829,6 +913,28 @@ ai_strategy_unify_germany = {
 				}					
 			}
 			multiply = 0.25
+		}
+		
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
 		}		
 	}
 
@@ -836,49 +942,27 @@ ai_strategy_unify_germany = {
 		bg_army = 1.5
 	}
 	
-	wargoal_scores = {
-		conquer_state = {
-			if = {
-				limit = {
-					scope:target_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:north_german
-								is_homeland = cu:south_german
-								is_homeland = cu:rhenish
-							}
+	state_value = {
+		if = {
+			limit = {
+				scope:target_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:north_german
+							is_homeland = cu:south_german
+							is_homeland = cu:rhenish
 						}
 					}
-					can_reach_target_state = yes				
 				}
-				add = 100
+				can_reach_target_state = yes					
 			}
-      
+			add = 100
 		}
-		return_state = {
-			if = {
-				limit = {
-					scope:target_state = {
-						state_region = {
-							OR = {
-								is_homeland = cu:north_german
-								is_homeland = cu:south_german
-								is_homeland = cu:rhenish
-							}
-						}	
-					}
-					can_reach_target_state = yes
-				}
-				add = 100
-			}
-		}
+	}
+	
+	wargoal_scores = {	
 		unification_leadership = {
-			if = {
-				limit = {
-					has_journal_entry = je_german_unification
-				}
-				add = 100
-			}	
+			value = 1000
 		}	
 	}
 	
@@ -904,7 +988,7 @@ ai_strategy_unify_germany = {
 					}
 				}
 				add = 1000
-			}
+			}		
 		}		
 		dominate = {		
 			if = {
@@ -928,48 +1012,21 @@ ai_strategy_unify_germany = {
 				}
 				add = 1000
 			}		
-		}		
+		}
 		conquer = {				
 			if = {
 				limit = {
 					scope:target_country = {				
-						is_unification_candidate = GER
+						is_unification_candidate =GER
 					}
 				}
 				add = 1000
 			}			
-		}	
-		antagonize = {				
-			if = {
-				limit = {
-					scope:target_country = {
-						is_unification_candidate = GER
-					}
-				}
-				add = 1000
-			}			
-		}		
+		}
 	}	
 
-	wargoal_weights = {
-		conquer_state = 2.0
-		return_state = 2.0
-		unification_leadership = 3.0
-	}	
-		
 	possible = {
-		OR = {
-			AND = {
-				country_rank >= rank_value:major_power
-				has_global_variable = hre_end
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:south_german
-					country_has_primary_culture = cu:rhenish
-				}
-			}
-			is_unification_candidate = GER	
-		}
+		is_unification_candidate = GER	
 		NOT = { country_tier = empire }
 	}
 

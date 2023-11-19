@@ -83,7 +83,7 @@ natural_disaster_events.2 = { #Small Flood
 	flavor = natural_disaster_events.2.f
 
 	event_image = {
-		video = "unspecific_flooding.dds"
+		video = "unspecific_devastation"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -157,7 +157,7 @@ natural_disaster_events.3 = { #Mega Flood
 	flavor = natural_disaster_events.3.f
 
 	event_image = {
-		video = "unspecific_flooding.dds"
+		video = "unspecific_devastation"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -361,12 +361,11 @@ natural_disaster_events.5 = { #Crop Failure
 
 	trigger = {
 		any_scope_state = {
+			average_sol <= 8
 			any_scope_building = {
-				OR = {
   						is_farm_building = yes
-  						is_plantation_building = yes
-  					}
-
+				occupancy >= 0.1
+				weekly_profit <= 0.5
 			}
 			NOR = {
 				has_modifier = modifier_crop_failure
@@ -378,11 +377,11 @@ natural_disaster_events.5 = { #Crop Failure
 	immediate = {
 		random_scope_state = {
 			limit = {
+				average_sol <= 8
 				any_scope_building = {
-					OR = {
   						is_farm_building = yes
-  						is_plantation_building = yes
-  					}
+					occupancy >= 0.1
+					weekly_profit <= 0.5
 				}
 				NOR = {
 					has_modifier = modifier_crop_failure
@@ -392,8 +391,7 @@ natural_disaster_events.5 = { #Crop Failure
 			save_scope_as = crop_fail_state
 			random_scope_building = {
 				limit = {
-					is_farm_building = yes # vfm fix bug, also look for a farm
-  					is_plantation_building = yes
+					is_farm_building = yes
 				}
 				save_scope_as = crop_failure_building
 			}

@@ -2,6 +2,7 @@
 	c:ATL = { # The Antilles
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_oligarchy
@@ -51,7 +52,7 @@
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
@@ -88,6 +89,7 @@
 	}
 	c:BAH = { # The Bahamas
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_freedom_of_conscience
@@ -111,7 +113,7 @@
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_land_based_taxation
@@ -145,6 +147,7 @@
 		set_next_election_date = 1838.12.7
 		
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
@@ -211,13 +214,14 @@
 		
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_state_religion
 
@@ -256,7 +260,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_national_militia
 		
 		set_tariffs_import_priority = g:artillery
@@ -314,6 +318,7 @@
 	c:MEX = { # Mexico
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_oligarchy
@@ -343,12 +348,13 @@
 		set_next_election_date = 1838.10.12
 		
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_landed_voting
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation	
@@ -380,7 +386,7 @@
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms
@@ -406,7 +412,7 @@
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_freedom_of_conscience
-		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_shared_heritage
 		activate_law = law_type:law_mercantilism
@@ -414,7 +420,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_no_police
 		
 		set_tariffs_import_priority = g:artillery
@@ -444,7 +450,9 @@
 			set_ig_suppression = yes
 		}
 		
-		
+		add_modifier = {
+			name = unrestricted_slave_trade_modifier
+		}
 	}
 	c:SML = { # Seminole
 		effect_starting_technology_tier_4_tech = yes
@@ -490,7 +498,7 @@
 		activate_law = law_type:law_protectionism
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_right_of_assembly
-		activate_law = law_type:law_frontier_colonialism
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia

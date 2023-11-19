@@ -1,6 +1,8 @@
 ﻿je_akkovin_crisis = { # Crisis of the Akkovin Confederation
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 	
+	group = je_group_tsr_content
+	
 	should_be_pinned_by_default = yes
 	
 	scripted_button = je_akkovin_crisis_button
@@ -122,6 +124,8 @@
 je_akkovin_reform_economy = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 	
+	group = je_group_tsr_content
+	
 	is_shown_when_inactive = {
 		exists = c:AKN
 		c:AKN = root
@@ -190,6 +194,8 @@ je_akkovin_reform_economy = {
 # Literacy and Universities
 je_akkovin_reform_education = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -261,6 +267,8 @@ je_akkovin_reform_education = {
 # Army Reform
 je_akkovin_reform_army = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -336,6 +344,8 @@ je_akkovin_reform_army = {
 je_akkovin_reform_navy = {
 	icon = "gfx/interface/icons/event_icons/event_naval.dds"
 	
+	group = je_group_tsr_content
+	
 	is_shown_when_inactive = {
 		exists = c:AKN
 		c:AKN = root
@@ -394,6 +404,7 @@ je_akkovin_reform_navy = {
 # Bureaucractic Reform
 je_akkovin_reform_bureaucracy = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -451,6 +462,7 @@ je_akkovin_reform_bureaucracy = {
 # Assert Our Sovereignty
 je_akkovin_reform_sovereignty = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -475,8 +487,8 @@ je_akkovin_reform_sovereignty = {
 					who = c:PER
 					type = treaty_of_baglar_pact
 				}
-				has_modifier = treaty_of_baglar }
-				has_modifier = treaty_of_baglar_2 }
+				has_modifier = treaty_of_baglar
+				has_modifier = treaty_of_baglar_2
 			}
 		}
 		custom_tooltip = {
@@ -544,6 +556,7 @@ je_akkovin_reform_sovereignty = {
 # The Matter of Kurdish Autonomy
 je_akkovin_reform_kurdish = {
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -653,6 +666,7 @@ je_akkovin_reform_kurdish = {
 # Rein in Arabia
 je_akkovin_reform_arabia = {
 	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -844,6 +858,7 @@ je_akkovin_reform_arabia = {
 # Christian Minorities
 je_akkovin_reform_minorities = {
 	icon = "gfx/interface/icons/event_icons/event_religion.dds"
+	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -974,6 +989,7 @@ je_akkovin_reform_minorities = {
 # Promote National Identity
 je_akkovin_reform_nationalism = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	group = je_group_tsr_content
 	
 	scripted_button = je_akkovin_reform_nationalism_akturkification_button
 	
@@ -1054,6 +1070,7 @@ je_akkovin_reform_nationalism = { #WIP
 # Partition of the Akkovin Sultanate (Ottomans)
 je_akkovin_partition_tur = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	group = je_group_tsr_content
 	
 	scripted_button = je_akkovin_partition_tur_button
 	
@@ -1167,6 +1184,7 @@ je_akkovin_partition_tur = { #WIP
 # Partition of the Akkovin Sultanate (Safavids)
 je_akkovin_partition_per = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	group = je_group_tsr_content
 	
 	scripted_button = je_akkovin_partition_per_button
 	

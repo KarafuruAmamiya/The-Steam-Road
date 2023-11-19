@@ -1,5 +1,6 @@
 ﻿je_eclipse_of_persia = {
 	icon = "gfx/interface/icons/event_icons/event_eclipse.dds"
+	group = je_group_tsr_content
 	is_shown_when_inactive = {		c:PER ?= this		has_law = law_type:law_monarchy
 		OR = {
 			has_technology_researched = nationalism
@@ -263,6 +264,7 @@
 
 je_constitutional_reformation = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	group = je_group_tsr_content
 
 	complete = {
 		NOR = {
@@ -278,7 +280,7 @@ je_constitutional_reformation = {
 			has_law = law_type:law_tenant_farmers
 			has_law = law_type:law_no_womens_rights
 			has_law = law_type:law_religious_schools
-			has_law = law_type:law_no_schools
+			has_law = law_type:law_child_labor_allowed
 		}
 		ig:ig_intelligentsia = {
 			is_marginal = no

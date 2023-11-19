@@ -466,23 +466,6 @@
 		
 		create_character = {
 			is_general = yes
-			first_name = Farajollah
-			last_name = Daei
-			historical = yes
-			age = 50
-			culture = cu:persian
-			hq = region_north_india
-			interest_group = ig_landowners
-			ideology = ideology_royalist
-			commander_rank = commander_rank_3
-			traits = {
-				experienced_artillery_commander
-				cruel
-			}
-		}
-		
-		create_character = {
-			is_general = yes
 			first_name = Ulugh
 			last_name = Jahagir
 			historical = yes
@@ -659,6 +642,9 @@
 			ideology = ideology_moderate
 			traits = {
 				brave popular_commander persistent
+			}
+			on_created = {
+				set_variable = king_haymar
 			}
 		}
 		create_character = {

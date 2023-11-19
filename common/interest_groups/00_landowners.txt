@@ -251,11 +251,7 @@
 		# VTM - this does not work on start up unfortunately and must be handled in history global for the initial setup
 		else_if = {
 			limit = {
-				OR = {
-					has_law = law_type:law_presidential_republic
-					has_law = law_type:law_parliamentary_republic
-					has_law = law_type:law_council_republic
-				}
+				coa_republic_trigger = yes
 			}
 			ig:ig_landowners = {
 				remove_ideology = ideology_paternalistic

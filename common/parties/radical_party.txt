@@ -78,8 +78,10 @@ radical_party = {
 			triggered_desc = {
 				desc = party_democratic_progressive_party
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 					has_law = law_type:law_universal_suffrage
 				}
 			}
@@ -268,6 +270,7 @@ radical_party = {
 		leader = { # fascists and conservatives hate radicals
 			NOT = {
 				has_ideology = ideology:ideology_fascist
+				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_ethno_nationalist
 				has_ideology = ideology:ideology_traditionalist
 				has_ideology = ideology:ideology_royalist
@@ -283,6 +286,20 @@ radical_party = {
 		value = {
 			value = -5
 			desc = "base_value"
+		}
+		if = {
+			limit = {
+				owner = {
+					country_is_in_south_america = yes
+					any_primary_culture = {
+						has_discrimination_trait = hispanophone
+					}
+				}
+			}
+			add = {
+				value = -10
+				desc = "south_america_two_party_system"
+			}
 		}
 		if = {
 			limit = {

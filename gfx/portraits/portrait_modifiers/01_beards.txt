@@ -222,6 +222,62 @@
 		}
 	}
 
+	asian_mustaches = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = mustaches
+                template = asian_mustaches
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+				add = 10000
+                exists = scope:character
+                scope:character = { 
+					age > 16 
+					culture = {
+						has_discrimination_trait = malay_culture
+					}
+				}
+            }
+			modifier = {
+                add = 10000
+                exists = scope:pop
+                scope:pop = {
+					culture = {
+						has_discrimination_trait = malay_culture
+					}
+                }
+            }
+		}
+	}
+
+    european_beards = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = african_beards
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                exists = scope:character
+                scope:character = { age > 16 }
+                add = 100
+                OR = {
+                    arabic_clothes_trigger = yes
+                    arabic_clothes_pop_trigger = yes
+                } 
+            }
+        }
+    }
+
     full_facial_hair = {
         dna_modifiers = {
             accessory = {

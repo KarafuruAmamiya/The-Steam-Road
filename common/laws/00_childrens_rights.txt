@@ -36,10 +36,6 @@ law_child_labor_allowed = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -101,10 +97,6 @@ law_restricted_child_labor = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-	
 	ai_will_do = {
 		OR = {
 			has_law = law_type:law_child_labor_allowed
@@ -160,10 +152,6 @@ law_compulsory_primary_school = {
 	pop_support = {
 		value = 0
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

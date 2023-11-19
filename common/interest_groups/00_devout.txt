@@ -306,8 +306,18 @@
 				add_ideology = ideology_sikh_moralist
 			}
 		}
-	}
 
+		### Corporatism
+		if = {
+			limit = {
+				has_technology_researched = corporatism
+			}
+			ig:ig_devout = {
+				remove_ideology = ideology_pious
+				add_ideology = ideology_corporatist
+			}
+		}
+	}
 	on_disable = {}
 	on_character_ig_membership = {
 		if = {
@@ -327,7 +337,7 @@
 
 
 	pop_potential = {
-		religion = scope:interest_group.leader.religion
+		has_state_religion = yes
 		NOT = {
 			has_pop_religion = atheist
 		}
@@ -356,11 +366,97 @@
 			}
 		}
 		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_state_atheism
+				}
+			}
+			multiply = {
+				desc = "STATE_ATHEISM_LAW"
+				value = 0.1
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_state_religion
+				}
+			}
+			multiply = {
+				desc = "STATE_RELIGION_LAW"
+				value = 1.5
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_freedom_of_conscience
+				}
+			}
+			multiply = {
+				desc = "FREEDOM_OF_CONSCIENCE_LAW"
+				value = 1.25
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_religious_schools
+				}
+			}
+			multiply = {
+				desc = "RELIGIOUS_SCHOOLS_LAW"
+				value = owner.institution:institution_schools.investment
+				divide = 5
+				add = 1
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_technology_researched = corporatism
+					NOT = {
+						has_law = law_type:law_total_separation
+						has_law = law_type:law_state_atheism
+					}
+				}
+			}
+			multiply = {
+				desc = "CORPORATISM_TECH"
+				value = 1.25
+			}
+		}
+
 		add = {
 			desc = "POP_LITERACY"
 			this = {
 				value = literacy_rate
 				multiply = -20
+			}
+		}
+		
+		add = {
+			desc = "ideology_shiite_moralist"
+			if = {
+				limit = {
+					has_state_religion = yes
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_shiite_moralist
+						}
+					}
+				}
+				value = 100
 			}
 		}
 

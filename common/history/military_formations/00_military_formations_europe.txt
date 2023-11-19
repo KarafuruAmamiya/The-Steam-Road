@@ -1,0 +1,2888 @@
+﻿MILITARY_FORMATIONS = {
+	c:SCA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_scandinavia
+			name = "Kungliga Skandinaviska Armén"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_SVEALAND
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SVEALAND
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SVEALAND
+				count = 5
+			} 
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_scandinavia
+			name = "Danska Gardet"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_JUTLAND
+				count = 15
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_scandinavia
+			name = "Norska Gardet"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 10
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_baltic
+			name = "Finska Gardet"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_SOUTHERN_FINLAND
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SOUTHERN_FINLAND
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SOUTHERN_FINLAND
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Baltiska Gardet"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_POMERANIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_MECKLENBURG
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_barents
+			name = "Ryska Gardet"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_PSKOV
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_NOVGOROD
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_NOVGOROD
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_NOVGOROD
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_germany
+			name = "Östersjöflottan"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_POMERANIA
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MECKLENBURG
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_JUTLAND
+				count = 14
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ZEALAND
+				count = 15
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_scandinavia
+			name = "Högsjöflottan"
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_SVEALAND
+				count = 22
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GOTALAND
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SCANIA
+				count = 11
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GOTLAND
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOUTHERN_FINLAND
+				count = 4
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_gaelic
+			name = "Nordsjöflottan"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ICELAND
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HIGHLANDS
+				count = 4
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_barents
+			name = "Vitahavsflottan"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_EAST_KARELIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ARKHANGELSK
+				count = 6
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_scandinavia
+			name = "Vinlands Flottan"
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HIGHLANDS
+				count = 6
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_africa
+			name = "Östafrikanska Flottan"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 1
+			}
+		}
+	}
+
+	c:FRA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_france
+			name = "Gardes Royales"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_RHONE
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ILE_DE_FRANCE
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_ORLEANS
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_occitania
+			name = "1e Corps d’Armée"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LIMOUSIN
+				count = 25
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LANGUEDOC
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_GUYENNE
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_PROVENCE
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_rhine
+			name = "2e Corps d’Armée"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LORRAINE
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_BURGUNDY
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CHAMPAGNE
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_FRANCHE_COMTE
+				count = 10
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_occitania
+			name = "Armée d’Afrique"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_PROVENCE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_BRITTANY
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_NORMANDY
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CHAMPAGNE
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_AQUITAINE
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_france
+			name = "Escadre du Nord" # Somewhat anachronistic formation
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_BRITTANY
+				count = 16
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NORMANDY
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_POITOU
+				count = 3
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_occitania
+			name = "Escadre de la Méditerranée" # Slightly anachronistic formation
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_PROVENCE
+				count = 11
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_PROVENCE
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_AQUITAINE
+				count = 12
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_indochina
+			name = "Escadron d'Indiens" # Somewhat anachronistic formation
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_BRITTANY
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_NORMANDY
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_POITOU
+				count = 3
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_japan
+			name = "Escadron du Japon" # Somewhat anachronistic formation
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_LANGUEDOC
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_AQUITAINE
+				count = 4
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LANGUEDOC
+				count = 3
+			}
+		}
+	}
+
+	c:ENG = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_england
+			name = "Household Division"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MIDLANDS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_MIDLANDS
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_MIDLANDS
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_england
+			name = "Home Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HOME_COUNTIES
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HOME_COUNTIES
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_ANGLIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_COUNTRY
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WALES
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_LANCASHIRE
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_england
+			name = "Army of Yorkshire"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_YORKSHIRE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTHUMBRIA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_england
+			name = "Portsmouth Station"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_WEST_COUNTRY
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LANCASHIRE
+				count = 14
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_england
+			name = "Plymouth Station"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_EAST_ANGLIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_YORKSHIRE
+				count = 9
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_england
+			name = "Sheerness Station"
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_HOME_COUNTIES
+				count = 13
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LANCASHIRE
+				count = 16
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_indonesia
+			name = "East Indies Station"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_WEST_COUNTRY
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WALES
+				count = 1
+			}
+		}
+	}
+
+	c:IBE = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Guardia de Corps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LEON
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GALICIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EXTREMADURA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_NAVARRA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_VASCONGADAS
+				count = 3
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Guardia Real"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CASTILLA_LA_VIEJA
+				count = 25
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CASTILLA_LA_NUEVA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CASTILLA_LA_NUEVA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CASTILLA_LA_NUEVA
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "1er Cuerpo de Infantería"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANDALUSIA
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GRANADA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MURCIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MURCIA
+				count = 5
+			}
+			save_scope_as = firstarmy_ibe
+		}
+		
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			traits = {
+				expert_offensive_planner
+				resupply_commander
+				reserved
+			}
+			save_scope_as = ibe_gen1
+			on_created = {
+				set_variable = ibe_gen1_var
+			}
+		}
+		
+		scope:ibe_gen1 = {
+			transfer_to_formation = scope:firstarmy_ibe
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "2er Cuerpo de Infantería"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BEIRA
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALENTEJO
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ESTREMADURA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_PORTO
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_iberia
+			name = "Armada Real"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_PORTO
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ESTREMADURA
+				count = 11
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_ASTURIAS
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GALICIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ANDALUSIA
+				count = 3
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_iberia
+			name = "Flota del Mediterráneo"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MURCIA
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_ANDALUSIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GRANADA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_AL_RIF
+				count = 7
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_new_england
+			name = "Flota de Laurentia"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_BERMUDA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ASTURIAS
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_manchuria
+			name = "Flota Oriental"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ASTURIAS
+				count = 4
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ESTREMADURA
+				count = 3
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_la_plata
+			name = "Flota de America"
+		
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ECUADOR
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOUTH_ATLANTIC_ISLANDS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_PORTO
+				count = 4
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_africa
+			name = "Flota de Cabo"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_GALICIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GALICIA
+				count = 1
+			}
+		}
+	}
+
+	c:PFA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_rhine
+			name = "Kurfürstlich Pfälzische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_PFALZ
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_PFALZ
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_PFALZ
+				count = 4
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "I. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_BAVARIA
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry # Jägers
+				state_region = s:STATE_OBERPFALZ
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_BAVARIA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BAVARIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_BAVARIA
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "II. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_FRANCONIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry # Jägers
+				state_region = s:STATE_WURTTEMBERG
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WURTTEMBERG
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BADEN
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_BADEN
+				count = 2
+			}
+		}
+	}
+
+	c:WUR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "Herzoglich Württembergische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WURTTEMBERG
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_WURTTEMBERG
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WURTTEMBERG
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WURTTEMBERG
+				count = 2
+			}
+		}
+	}
+
+	c:SAX = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Kaiserlich Sächsische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 11
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry # Jägers
+				state_region = s:STATE_SAXONY
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_SAXONY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SAXONY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SAXONY
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "I. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HANNOVER
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ELBE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry # Jägers
+				state_region = s:STATE_HANNOVER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_HANNOVER
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ELBE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_HANNOVER
+				count = 4
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "II. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANHALT
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_THURINGIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ANHALT
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BRANDENBURG
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_ANHALT
+				count = 4
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "III. Armee-Korps"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WESTPHALIA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BRUNSWICK
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_WESTPHALIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WESTPHALIA
+				count = 4
+			}
+		}
+	}
+	
+	c:HES = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Großherzoglich Hessische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HESSE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HESSE
+				count = 2
+			}
+		}
+	}
+
+	c:NAS = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Herzoglich Nassauische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+		}
+	}
+
+	c:BRK = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Kurfürstlich Brandenburgische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BRANDENBURG
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BRANDENBURG
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BRANDENBURG
+				count = 1
+			}
+		}
+	}
+
+	c:MUN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Kurfürstlich Münstersche Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WESTPHALIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WESTPHALIA
+				count = 1
+			}
+		}
+	}
+
+	c:DOR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_rhine
+			name = "Dortmundische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_RUHR
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_RUHR
+				count = 1
+			}
+			
+			combat_unit = { # Holstenske Artilleribrigade
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_RUHR
+				count = 1
+			}
+		}
+	}
+
+	c:HSA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_germany
+			name = "Hanseatische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ELBE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HANNOVER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ELBE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HANNOVER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_HANNOVER
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_germany
+			name = "Hanseatische Kriegsmarine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ELBE
+				count = 1
+			}
+		}
+	}
+
+	c:FLA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_low_countries
+			name = "Vlaamse Garde"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FLANDERS
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_low_countries
+			name = "Vlaamse Marine"
+
+			combat_unit = { # Nothing the size of a frigate at this point in history
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FLANDERS
+				count = 1
+			}
+		}
+	}
+
+	c:GRE = {
+		create_military_formation = { # Greeks
+			type = army
+			hq_region = sr:region_greece
+			name = "Ellinikós Stratós"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ATTICA
+				count = 2
+			}
+		}
+
+		create_military_formation = { # Bavarians
+			type = army
+			hq_region = sr:region_greece
+			name = "Vasilikón Vavarikón Epikourikón Sóma"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PELOPONNESE
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ATTICA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_ATTICA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_greece
+			name = "Vasilikón Naftikón"
+
+			combat_unit = { # Corvette Prinkips Maximilianos (ex Psara)
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WEST_AEGEAN_ISLANDS
+				count = 1
+			}
+		}
+	}
+
+	c:AUS = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "Erzherzogtum Österreich Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AUSTRIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_AUSTRIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_AUSTRIA
+				count = 1
+			}
+		}
+	}
+	
+	c:RHE = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_rhine
+			name = "Kurfürstlich Rheinische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_RHINELAND
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_RHINELAND
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_RHINELAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_RHINELAND
+				count = 1
+			}
+		}
+	}
+	
+	c:FRN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "Großherzogtum Franken Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FRANCONIA
+				count = 4
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_FRANCONIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_FRANCONIA
+				count = 1
+			}
+		}
+	}
+	
+	c:BOH = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_germany
+			name = "Vojsko Českého Království"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BOHEMIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry # Jägers
+				state_region = s:STATE_BOHEMIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_BOHEMIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BOHEMIA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BOHEMIA
+				count = 1
+			}
+		}
+	}
+
+	c:POL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_poland
+			name = "Armia Królewska"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WARSAW
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LUBLIN
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_PLOCK
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WARSAW
+				count = 1
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_poland
+			name = "Kawaleria"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers #Winged Hussars yeahh
+				state_region = s:STATE_WEST_GALICIA
+				count = 10
+			}
+		}
+	}
+	
+	c:LOR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_rhine
+			name = "Armée de Lorraine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LORRAINE
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_LORRAINE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_LORRAINE
+				count = 1
+			}
+		}
+	}
+	
+	c:SCO = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_gaelic
+			name = "Army of Scotland"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOWLANDS
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_gaelic
+			name = "Grangemouth Station"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LOWLANDS
+				count = 1
+			}
+		}
+	}
+
+	c:WAL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_east_balkans
+			name = "Armata Țării Românești"
+
+			combat_unit = { # Regimentului I de Linie, Regimentului II de Linie, Regimentului III de Linie
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WALLACHIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_WALLACHIA
+				count = 1
+			}
+		}
+	}
+
+	c:MOL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_east_balkans
+			name = "Armata Principatului Moldovei"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOLDAVIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MOLDAVIA
+				count = 1
+			}
+		}
+	}
+	
+	c:TRS = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_hungary
+			name = "Armata Principatului Transilvaniei"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SOUTHERN_TRANSYLVANIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SOUTHERN_TRANSYLVANIA
+				count = 1
+			}
+		}
+	}
+
+	c:ARN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_italy
+			name = "Reial Exèrcit de SM el Rei del Regne d'Aragó"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CAMPANIA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ABRUZZO
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_APULIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CALABRIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SICILY
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CAMPANIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_SICILY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CAMPANIA
+				count = 1
+			}
+			save_scope_as = royalarmy_arn
+		}
+		
+		create_character = {
+			is_general = yes
+			age = 66
+			hq = region_south_italy
+			commander_rank = commander_rank_3
+			traits = {
+				plains_commander
+			}
+			save_scope_as = arn_gen1
+			on_created = {
+				set_variable = arn_gen1_var
+			}
+		}
+		
+		scope:arn_gen1 = {
+			transfer_to_formation = scope:royalarmy_arn
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_iberia
+			name = "Guàrdia Reial"
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CATALONIA
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CATALONIA
+				count = 4
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CATALONIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CATALONIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CATALONIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CATALONIA
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_CATALONIA
+				count = 1
+			}
+			save_scope_as = royalguard_arn
+		}
+		
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			commander_rank = commander_rank_3
+			age = 62
+			traits = {
+				reserved
+			}
+			save_scope_as = arn_gen2
+			on_created = {
+				set_variable = arn_gen2_var
+			}
+		}
+		
+		scope:arn_gen2 = {
+			transfer_to_formation = scope:royalguard_arn
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_italy
+			name = "I Cos de l'Exèrcit"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SICILY
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SICILY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BALEARES
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_SARDINIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SARDINIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SARDINIA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_italy
+			name = "Exèrcit de Mar de SM el Rei del Regne d'Aragó"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_CAMPANIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_CATALONIA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_BALEARES
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SICILY
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_iberia
+			name = "Armada Reial"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_CATALONIA
+				count = 4
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_CATALONIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CATALONIA
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CATALONIA
+				count = 6
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CATALONIA
+				count = 5
+			}
+		}
+	}
+
+	c:ITA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_italy
+			name = "I Corpo d'Armata"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LIGURIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_EMILIA
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_CORSICA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LIGURIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EMILIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_LIGURIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_LIGURIA
+				count = 6
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_italy
+			name = "II Corpo d'Armata"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LAZIO
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_UMBRIA
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_UMBRIA
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_UMBRIA
+				count = 3
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ROMAGNA
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_ROMAGNA
+				count = 8
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_italy
+			name = "III Corpo d'Armata"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LOMBARDY
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_VENETIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_VENETIA
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_italy
+			name = "Esercito della Serenissima Repubblica Italiana"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_TUSCANY
+				count = 22
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_TUSCANY
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TUSCANY
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_TUSCANY
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_italy
+			name = "Marina della Serenissima Repubblica Italiana"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_TUSCANY
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_EMILIA
+				count = 8
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_italy
+			name = "Flotta di Genova"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_LIGURIA
+				count = 8
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LIGURIA
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CORSICA
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_italy
+			name = "Flotta di Venezia"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_VENETIA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ISTRIA
+				count = 7
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_DALMATIA
+				count = 6
+			}
+		}
+	}
+
+	c:PAP = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_italy
+			name = "Esercito dello Stato della Chiesa"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LAZIO
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_italy
+			name = "Marina Pontificia"
+
+			combat_unit = { # Nothing the size of a frigate
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+		}
+	}
+
+	c:NET = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_low_countries
+			name = "Groothertogelijke Landmacht"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_HOLLAND
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_FRIESLAND
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_GELRE
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_HOLLAND
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_low_countries
+			name = "Groothertogelijke Marine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_HOLLAND
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_FRIESLAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_HOLLAND
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FRIESLAND
+				count = 5
+			}
+		}
+	}
+
+	c:RPU = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_poland
+			name = "Königlich-Preußische Armee"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_PRUSSIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_PRUSSIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_PRUSSIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EAST_PRUSSIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_EAST_PRUSSIA
+				count = 1
+			}
+		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_poland
+			name = "Königlich-Preußische Marine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WEST_PRUSSIA
+				count = 1
+			}
+		}
+	}
+	
+	c:IRE = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_gaelic
+			name = "Arm Ríoga"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ULSTER
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LEINSTER
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MUNSTER
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_MUNSTER
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CONNAUGHT
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CONNAUGHT
+				count = 1
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_gaelic
+			name = "Cabhlach Ríoga"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MUNSTER
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MUNSTER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_LEINSTER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_LEINSTER
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_CONNAUGHT
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ULSTER
+				count = 1
+			}
+		}
+	}
+	
+	c:ZAP = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dnieper
+			name = "1-y Kozatskyi Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KIEV
+				count = 18
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CHERSON
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_POLTAVA
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_PODOLIA
+				count = 1
+			}
+		}
+	}
+	
+	c:SLB = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dnieper
+			name = "1-y Kozatskyi Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KHARKOV
+				count = 13
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_POLTAVA
+				count = 6
+			}
+		}
+	}
+	
+	c:CHR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dnieper
+			name = "Velykoho Knyazivstva Chernihivs'koho Viys'ko"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CHERNIGOV
+				count = 12
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KURSK
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_ORYOL
+				count = 1
+			}
+		}
+	}
+	
+	c:SMO = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_russia
+			name = "Velikoye Knyazhestvo Smolenskoye Voysko"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SMOLENSK
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KALUG
+				count = 3
+			}
+		}
+	}
+	
+	c:BYE = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_ruthenia
+			name = "Vialikaje Kniastva Polackaje Vojska"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VITEBSK
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MOGILEV
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MINSK
+				count = 1
+			}
+		}
+	}
+	
+	c:LIT = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_baltic
+			name = "Didžiosios Kunigaikštystės Armija"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KAUNAS
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VILNA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry # Jägers
+				state_region = s:STATE_MINSK
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KAUNAS
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_VILNA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_VILNA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_baltic
+			name = "Palanga Stotis"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate # Technically a mere brig.
+				state_region = s:STATE_KAUNAS
+				count = 1
+			}
+		}
+	}
+	
+	c:GAL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_poland
+			name = "1. Korpus Armijny"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_GALICIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_EAST_GALICIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_EAST_GALICIA
+				count = 2
+			}
+		}
+	}
+	
+	c:HUN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_hungary
+			name = "Magyar Honvédsereg"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRANSDANUBIA
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CENTRAL_HUNGARY
+				count = 3
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_hungary
+			name = "I. Hadtestparancsnokság"
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BEKES
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BANAT
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BEKES
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_DELVIDEK
+				count = 1
+			}
+		}
+	}
+	
+	c:MSC = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_russia
+			name = "Otdel’niy Grenaderskiy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOSCOW
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MOSCOW
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MOSCOW
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_barents
+			name = "Gvardeyskiy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VOLOGDA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GALICH
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_VOLOGDA
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_volga
+			name = "1-y Pekhotniy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NIZHNY
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MARI_EL
+				count = 1
+			}
+		}
+	}
+	
+	c:RYA = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_russia
+			name = "1-y Pekhotniy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_RYAZAN
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_RYAZAN
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_RYAZAN
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_russia
+			name = "2-y Pekhotniy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TULA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_TULA
+				count = 1
+			}
+		}
+	}
+	
+	c:TTR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_volga
+			name = "1-nçe Tatar Kórpusy"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ROSTOV
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KAZAN
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_TARTARIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TARTARIA
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_russia
+			name = "2-nçe Tatar Kórpusy"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VORONEZH
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_TAMBOV
+				count = 7
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TAMBOV
+				count = 1
+			}
+		}
+	}
+}

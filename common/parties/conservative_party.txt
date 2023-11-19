@@ -29,8 +29,10 @@ conservative_party = {
 			triggered_desc = {
 				desc = party_tories
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 				}
 			}
 			triggered_desc = {
@@ -285,6 +287,7 @@ conservative_party = {
 						has_ideology = ideology:ideology_royalist
 						has_ideology = ideology:ideology_theocrat
 						has_ideology = ideology:ideology_slaver
+						has_ideology = ideology:ideology_corporatist_leader
 					}
 				}
 			}
@@ -347,6 +350,7 @@ conservative_party = {
 						has_ideology = ideology:ideology_pacifist
 						has_ideology = ideology:ideology_reformer
 						has_ideology = ideology:ideology_humanitarian
+						has_ideology = ideology:ideology_humanitarian_royalist
 					}
 				}
 			}
@@ -657,8 +661,8 @@ conservative_party = {
 			multiply = {
 				value = 0.1
 				desc = "from_more_than_three_prior_members"
-
-			
+			}
+		}
 		if = {
 			limit = {
 				owner = {
@@ -682,6 +686,7 @@ conservative_party = {
 			}
 			add = {
 				value = 1000
+				desc = "from_jacksonian_democrat"
 			}
 		}
 		if = {

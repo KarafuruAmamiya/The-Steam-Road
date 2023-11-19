@@ -49,6 +49,18 @@
 			NOT = { has_technology_researched = human_rights }
 			NOT = { has_technology_researched = egalitarianism } #Switch to reformer instead
 		}
+		NAND = {
+			has_role = agitator
+			owner = {
+				NOR = {
+					has_law = law_type:law_serfdom
+					has_law = law_type:law_peasant_levies
+					has_law = law_type:law_debt_slavery
+					has_law = law_type:law_traditionalism
+					has_law = law_type:law_slave_trade
+				}
+			}
+		}
 		# Any Interest Group
 		scope:interest_group = {
 			NOR = {
@@ -120,7 +132,7 @@ ideology_persian_constitutionalist = {
 	
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove	
-		law_monarchy = neutral
+		law_monarchy = approve
 		law_presidential_republic = approve
 		law_parliamentary_republic = approve
 		law_council_republic = disapprove
@@ -175,20 +187,34 @@ ideology_persian_constitutionalist = {
 		law_womens_suffrage = neutral
 	}
 	
-	lawgroup_education_system = {
-		law_private_schools = neutral
-		law_public_schools = approve
-		law_religious_schools = disapprove
-		law_no_schools = strongly_disapprove
+	lawgroup_childrens_rights = {
+		law_child_labor_allowed = disapprove
+		law_restricted_child_labor = neutral
+		law_compulsory_primary_school = approve
 	}
 	
 	possible = {
-		NOT = { has_role = agitator }
 		exists = c:PER
 		owner = c:PER
 		owner = {
 			has_technology_researched = nationalism
 			has_technology_researched = egalitarianism
+		}
+		# Agitators should have an ideology at odds with current laws
+		NAND = {
+			has_role = agitator
+			owner = {
+				NOR = {
+					has_law = law_type:law_autocracy
+					has_law = law_type:law_oligarchy
+					has_law = law_type:law_landed_voting
+					has_law = law_type:law_legacy_slavery
+					has_law = law_type:law_state_religion
+					has_law = law_type:law_denominational_exclusion
+					has_law = law_type:law_no_womens_rights
+					has_law = law_type:law_child_labor_allowed 
+				}
+			}
 		}
 		scope:interest_group = { 
 			OR = {
@@ -294,6 +320,7 @@ ideology_persian_constitutionalist = {
 						has_law = law_type:law_state_religion
 						has_law = law_type:law_denominational_exclusion
 						has_law = law_type:law_no_womens_rights
+						has_law = law_type:law_child_labor_allowed 
 					}
 				}
 			}

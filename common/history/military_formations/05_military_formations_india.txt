@@ -1,0 +1,192 @@
+﻿MILITARY_FORMATIONS = {
+	c:MUG = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = "Fauj-i Moğol"
+
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KASHMIR
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PASHTUNISTAN
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PUNJAB
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MULTAN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_LUDHIANA
+				count = 3
+			}
+		}
+	}
+	
+	c:MRT = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = "Marāṭhā Sēnā"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KONKAN
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KONKAN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AHMADNAGAR
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DESH
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KONKAN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_AHMADNAGAR
+				count = 5
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_india
+			name = "Marāṭhā Naudala"
+
+			combat_unit = { # Nothing the size of a frigate
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_KONKAN
+				count = 1
+			}
+		}
+	}
+	
+	c:MDU = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = "Madurai Rāṇuvam"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PANDYA_NADU
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CHOLA_NADU
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_KONGU_NADU
+				count = 5
+			}
+		}
+	}
+	
+	c:DEC = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = "Arteš-e Golkonde"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GULBARGA
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HYDERABAD
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GULBARGA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HYDERABAD
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CIRCARS
+				count = 5
+			}
+		}
+	}
+
+	c:BGL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = "Bāṅāli Sēnābāhinī"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTH_BENGAL
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SOUTH_BENGAL
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BIHAR
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_SOUTH_BENGAL
+				count = 5
+			}
+		}	
+	}
+}

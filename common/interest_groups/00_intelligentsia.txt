@@ -8,7 +8,7 @@
 		ideology_nationalist
 		ideology_liberal
 		ideology_anti_clerical
-		ideology_republican
+		ideology_constitutionalist
 		ideology_anti_slavery
 	}
 
@@ -80,6 +80,16 @@
 			ig:ig_intelligentsia = { 
 				set_interest_group_name = ig_literati
 				remove_ideology = ideology_anti_clerical
+			}
+		}
+		# Republican Intelligentsia
+		else_if = {
+			limit = {
+				coa_republic_trigger = yes
+			}
+			ig:ig_intelligentsia = { 
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
 			}
 		}
 	}

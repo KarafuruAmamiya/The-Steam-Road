@@ -17,8 +17,10 @@
 			triggered_desc = {
 				desc = party_british_socialist_party
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 					any_interest_group = {
 						is_powerful = yes
 						leader = {
@@ -303,11 +305,13 @@
 		leader = { # fascists, conservatives, and capitalists hate communism
 			NOR = {
 				has_ideology = ideology:ideology_fascist
+				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_ethno_nationalist
 				has_ideology = ideology:ideology_market_liberal
 				has_ideology = ideology:ideology_traditionalist
 				has_ideology = ideology:ideology_royalist
 				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_corporatist_leader
 			}
 		}
 		OR = {

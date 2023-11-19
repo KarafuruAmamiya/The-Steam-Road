@@ -1,5 +1,8 @@
 ﻿je_unite_the_principalities = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
     is_shown_when_inactive = {
 		country_has_primary_culture = cu:romanian
     }
@@ -8,9 +11,7 @@
         has_technology_researched = nationalism
         NOT = {
             any_overlord_or_above ?= { # Can't unite the principalities if you're already the lesser in a pact with another Romanian state
-                any_primary_culture = {
-                    this = cu:romanian
-                }
+                country_has_primary_culture = cu:romanian
             }
         }
     }
@@ -61,6 +62,8 @@
 
 je_all_for_one = {
     icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_historical_content
 
     scripted_button = je_marea_unire
 

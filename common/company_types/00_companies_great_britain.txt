@@ -1,72 +1,4 @@
-﻿# Šerkat-e Bâzargânan ahl-e Irân dar Hendustân
-company_east_india_company = {
-	texture = "gfx/interface/icons/company_icons/historical_company_icons/gb_eic.dds"
-	
-	flavored_company = yes
-	
-	building_types = {  
-		building_tea_plantation
-		building_tobacco_plantation
-		building_opium_plantation
-	}
-	
-	potential = {
-		country_has_primary_culture = cu:persian
-		OR = {
-			has_interest_marker_in_region = region_north_india
-			has_interest_marker_in_region = region_south_india
-		}
-	}
-	
-	possible = {
-		OR = {
-			any_subject_or_below = {
-				any_scope_state = {
-					OR = {
-						region = sr:region_north_india
-						region = sr:region_south_india
-					}
-					any_scope_building = {
-						OR = {
-							is_building_type = building_tea_plantation
-							is_building_type = building_opium_plantation
-						}
-						level > 10
-					}
-					count >= 4
-				}
-			}
-			any_scope_state = {
-				OR = {
-					region = sr:region_north_india
-					region = sr:region_south_india
-				}
-				any_scope_building = {
-					OR = {
-						is_building_type = building_tea_plantation
-						is_building_type = building_opium_plantation
-					}
-					level > 10
-				}
-				count >= 4
-			}
-		}
-		OR = {
-			has_law = law_type:law_mercantilism
-			has_law = law_type:law_protectionism
-		}
-	}
-	
-	prosperity_modifier = {
-		country_convoys_capacity_mult = 0.2
-	}	
-	
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}
-}
-
-# Vatan National Corporation
+﻿# Vatan National Corporation
 company_vatan = {
 	texture = "gfx/interface/icons/company_icons/historical_company_icons/gb_jp_coats.dds"
 	
@@ -78,6 +10,14 @@ company_vatan = {
 	
 	potential = {
 		has_interest_marker_in_region = region_persia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ISFAHAN
+			}
+		}
 	}
 	
 	possible = {
@@ -118,13 +58,21 @@ company_armstrong_whitworth = {
 		has_interest_marker_in_region = region_england
 	}
 	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_YORKSHIRE
+			}
+		}
+	}		
+	
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_YORKSHIRE
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_military_shipyards
-				level > 10
+				level >= 10
 			}
 		}
 		has_technology_researched = ironclad_tech
@@ -132,8 +80,8 @@ company_armstrong_whitworth = {
 	}
 	
 	prosperity_modifier = {
-		unit_navy_offense_mult = 0.1
-		unit_navy_defense_mult = 0.05
+		unit_combat_unit_type_carrier_offense_mult = 0.15
+		unit_navy_defense_mult = 0.1
 	}	
 	
 	ai_weight = {
@@ -155,6 +103,14 @@ company_john_brown = {
 	
 	potential = {
 		has_interest_marker_in_region = region_gaelic
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWLANDS
+			}
+		}
 	}
 	
 	possible = {
@@ -191,7 +147,15 @@ company_gwr = {
 	}
 	
 	potential = {
-		has_interest_marker_in_region = region_gaelic
+		has_interest_marker_in_region = region_england
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				region = sr:region_england
+			}
+		}
 	}
 	
 	possible = {
@@ -243,6 +207,14 @@ company_bolckow_vaughan = {
 		has_interest_marker_in_region = region_england
 	}
 	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_YORKSHIRE
+			}
+		}
+	}			
+	
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_YORKSHIRE
@@ -253,7 +225,7 @@ company_bolckow_vaughan = {
 					is_building_type = building_iron_mine
 					is_building_type = building_steel_mills
 				}
-				level > 10
+				level >= 10
 			}
 		}
 		has_technology_researched = bessemer_process

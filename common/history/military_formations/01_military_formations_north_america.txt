@@ -1,0 +1,541 @@
+﻿MILITARY_FORMATIONS = {
+	c:USC = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dixie
+			name = "Army of Observation"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TENNESSEE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SOUTH_CAROLINA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_new_england
+			name = "Regular Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_YORK
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_OHIO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KENTUCKY
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PENNSYLVANIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTH_CAROLINA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_VIRGINIA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_dixie
+			name = "Navy Yard, Gosport"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_VIRGINIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_VIRGINIA
+				count = 3
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_new_england
+			name = "Navy Yard, New York"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_NEW_YORK
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_YORK
+				count = 2
+			}
+
+			combat_unit = { # Ahistorical
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_YORK
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_new_england
+			name = "Navy Yard, Boston"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = { # Ahistorical
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+		}
+	}
+
+	c:SLR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_soalleiro
+			name = "Exército Imperial Soalheirano"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SOALLEIRO
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_RIO_VERMELHO_DO_SUL
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_NEW_EVORA
+				count = 1
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_soalleiro
+			name = "Exército Doméstico"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PENSACOLA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_MISSISSIPI
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_PORTO
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRINDADE
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_RIO_GRANDE
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TAMAULIPAS
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_COAHUILA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_soalleiro
+			name = "Armada Nacional"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOALLEIRO
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_SOALLEIRO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_RIO_VERMELHO_DO_SUL
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_mexico
+			name = "Armada do Golfo"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_TAMAULIPAS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_RIO_GRANDE
+				count = 2
+			}
+		}
+		
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_soalleiro
+			name = "Armada das Antilhas"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_PORTO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_PORTO
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_PORTO
+				count = 2
+			}
+		}
+	}
+	
+	c:KRL = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_vinland
+			name = "Karolinska Armén"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VINLAND
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_NORWAY
+				count = 1
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			name = "Nationella Armén"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KANADALAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_OVRELAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GRYNINGSLAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VASTERLAND
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GESPECK
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_vinland
+			name = "Nationella Flottan"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_VINLAND
+				count = 3
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_NEW_NORWAY
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_VASTERLAND
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_KANADALAND
+				count = 2
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_GESPECK
+				count = 1
+			}
+		}
+	}
+	
+	c:AUR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_pacific_coast
+			name = "Exército Aureliano"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_COSTA_DO_OURO
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PAPAGO
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SINALOLA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_COLOMBO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ALTA_TORRES
+				count = 1
+			}
+		}
+	}
+
+	c:MEX = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_mexico
+			name = "Ejército de Operaciones"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MEXICO
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BAJIO
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_VERACRUZ
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_GUERRERO
+				count = 1
+			}
+			save_scope_as = operaciones_army
+		}
+
+		create_character = {
+			# General Santa Anna, caudillo supreme
+			first_name = Antonio
+			last_name = Lopez_de_Santa_Anna
+			historical = yes
+			birth_date = 1794.2.21
+			dna = dna_antonio_lopez
+			hq = region_mexico
+			ig_leader = yes # Both general and IG leader
+			is_general = yes # Both general and IG leader
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = commander_rank_2
+			traits = {
+				ambitious
+			}
+			save_scope_as = antonio_gen
+		}
+
+		scope:antonio_gen = {
+			transfer_to_formation = scope:operaciones_army
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_mexico
+			name = "Ejército Mexicano"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_OAXACA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ZACATECAS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_OAXACA
+				count = 1
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_mexico
+			name = "Armada de México"
+
+			combat_unit = { # Libertad
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_VERACRUZ
+				count = 1
+			}
+		}
+	}
+	
+	c:MYP = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_america
+			name = "Leger van Nieuw Holland"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MAYAPAN
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VEELBOMEN
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NIEUW_DORDRECHT
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ITZA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MAYAPAN
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NICARAGUA
+				count = 4
+			}
+		}
+	}
+}

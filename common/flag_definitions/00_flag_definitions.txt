@@ -701,6 +701,12 @@ BRE = { # Bremen
 
 BRI = { # Brittany
 	flag_definition = {
+		coa = BRI
+		subject_canton = BRI_subject
+		allow_overlord_canton = yes
+		priority = 1
+	}
+	flag_definition = {
 		coa = BRI_republic
 		priority = 10
 		trigger = { 
@@ -1887,10 +1893,28 @@ GBR = { # Great Britain / United Kingdom
 		}
 	}
 	flag_definition = {
+		coa = MAC
+		subject_canton = MAC
+		priority = 22
+		trigger = { 
+			exists = scope:actor
+			scope:actor = { capital ?= { state_region = s:STATE_LANCASHIRE } }
+		}
+	}
+	flag_definition = {
+		coa = MAC_communist
+		priority = 23
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+			scope:actor = { capital ?= { state_region = s:STATE_LANCASHIRE } }
+		}
+	}
+	flag_definition = {
 		coa = GBR_communist
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
+			scope:actor = { NOT = { capital ?= { state_region = s:STATE_LANCASHIRE } } }
 		}
 	}	
 	flag_definition = {
@@ -2701,10 +2725,14 @@ ITA = { # Italy
 		priority = 1
 	}
 	flag_definition = {
-		coa = ITA_monarchy
-		priority = 10
-		trigger = { 
-			coa_def_monarchy_flag_trigger = yes
+		coa = ITA_luccan
+		subject_canton = ITA_luccan
+		priority = 15
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				has_law = law_type:law_monarchy
+			}
 		}
 	}	
 	flag_definition = {
@@ -4267,6 +4295,15 @@ ORI = { # Orissa
 	}
 }
 
+PAK = { # Pakistan
+	flag_definition = {
+		coa = PAK
+		subject_canton = PAK
+		allow_overlord_canton = yes
+		priority = 1
+	}
+}
+
 PAN = { # Sikh Empire
 	flag_definition = {
 		coa = PAN
@@ -5336,6 +5373,32 @@ TID = { # Tidore
 	}
 }
 
+TIS = { # Turtle Island
+	flag_definition = {
+		coa = TIS
+		subject_canton = TIS
+		priority = 1
+	}
+	flag_definition = {
+		coa = TIS_republic
+		subject_canton = TIS_republic
+		priority = 20
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = TIS_haudenosaunee
+		subject_canton = TIS_haudenosaunee
+		priority = 100
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				was_formed_from = IRO
+			}
+		}
+	}	
+}
 
 TNG = { # Tonga
 	flag_definition = {

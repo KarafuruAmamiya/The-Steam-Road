@@ -6,7 +6,7 @@ free_trade_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
-				desc = party_orleanists
+				desc = party_democratic_alliance
 				trigger = {
 					exists = c:FRA
 					THIS = c:FRA
@@ -15,8 +15,10 @@ free_trade_party = {
 			triggered_desc = {
 				desc = party_peelites
 				trigger = {
-					exists = c:ENG
-					THIS = c:ENG
+					OR = {
+						c:ENG ?= this
+						c:GBR ?= this
+					}
 				}
 			}
 			triggered_desc = {
@@ -121,6 +123,21 @@ free_trade_party = {
 			value = -5
 			desc = "base_value"
 		}
+		if = {
+			limit = {
+				owner = {
+					country_is_in_south_america = yes
+					any_primary_culture = {
+						has_discrimination_trait = hispanophone
+					}
+				}
+			}
+			add = {
+				value = -10
+				desc = "south_america_two_party_system"
+			}
+		}
+		
 		if = {
 			limit = {
 				owner = {
@@ -291,6 +308,9 @@ free_trade_party = {
 					has_ideology = ideology:ideology_paternalistic
 					leader = {
 						has_ideology = ideology:ideology_fascist
+					}
+					leader = {
+						has_ideology = ideology:ideology_integralist
 					}
 				}
 			}

@@ -1,6 +1,8 @@
 ﻿je_german_unification_idea = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
+	group = je_group_historical_content
+
 	is_shown_when_inactive = {
 		OR = {
 			country_has_primary_culture = cu:north_german
@@ -257,6 +259,8 @@
 je_north_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
+	group = je_group_historical_content
+	
 	complete = {
 		hidden_trigger = {
 			has_variable = je_unification_progress
@@ -304,48 +308,10 @@ je_north_german_unification = {
 	should_be_pinned_by_default = yes
 }
 
-je_german_unification = {
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-
-	is_shown_when_inactive = {
-		has_variable = je_german_confederate_unifier
-	}
-
-	possible = {
-		hidden_trigger = { has_variable = je_german_confederate_unifier }
-		country_rank >= rank_value:major_power
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		has_global_variable = hre_end
-	}
-
-	complete = {
-		custom_tooltip = {
-			exists = c:GER
-			this = c:GER
-			text = je_german_unification_complete_trigger_desc
-		}	
-	}
-
-	on_complete = {
-		trigger_event = { id = german_unification.4 } # German Unification
-		remove_variable = je_unification_progress
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_german_status
-			}
-		}
-	}
-
-	weight = 1000
-	should_be_pinned_by_default = yes
-}
-
 je_south_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
 
 	complete = {	
 		hidden_trigger = {
@@ -385,6 +351,49 @@ je_south_german_unification = {
 				trigger = {
 					always = yes
 				}
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+
+je_german_unification = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		has_variable = je_german_confederate_unifier
+	}
+
+	possible = {
+		hidden_trigger = { has_variable = je_german_confederate_unifier }
+		country_rank >= rank_value:major_power
+		has_technology_researched = pan-nationalism
+		is_subject = no
+		has_global_variable = hre_end
+	}
+
+	complete = {
+		custom_tooltip = {
+			c:GER ?= this
+			text = je_german_unification_complete_trigger_desc
+		}	
+	}
+
+	on_complete = {
+		show_as_tooltip = {
+			trigger_event = { id = german_unification.4 popup = yes } # German Unification
+		}
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_german_status
 			}
 		}
 	}

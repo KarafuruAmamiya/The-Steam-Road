@@ -14,6 +14,11 @@ zoroastrian_persecution = {
 	state_zoroastrian_standard_of_living_add = -2
 }
 
+bahai_persecution = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	state_bahai_standard_of_living_add = -3
+}
+
 tolerated_heathens = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	interest_group_approval_add = -5
@@ -283,46 +288,9 @@ modifier_protectionism_support = {
 	state_pop_support_law_protectionism_add = 0.25
 }
 
-hiring_western_advisors = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	country_military_tech_spread_mult = 0.25
-}
-
-project_turned_down = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -3
-}
-
-reverse_engineering = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	country_production_tech_research_speed_mult = 0.15
-}
-
-iranian_science = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	country_weekly_innovation_mult = 0.15
-}
-
-iranian_science_ig = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	interest_group_approval_add = 3
-	interest_group_ig_industrialists_pol_str_mult = 0.1
-	interest_group_ig_industrialists_pop_attraction_mult = 0.1
-}
-
 police_crackdown = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
 	state_mortality_mult = 0.02
-}
-
-against_morality_police = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -3
-}
-
-corrupted_youths = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -3
 }
 
 helmand_river_irrigation = {
@@ -446,45 +414,39 @@ banned_veils = {
 	interest_group_pol_str_mult = -0.2
 }
 
-petition_accepted = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
-	interest_group_approval_add = 3
-	interest_group_pol_str_mult = 0.2
-}
-
-vatan_workers_education = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
-	state_education_access_add = 0.1
-	state_pop_qualifications_mult = 0.1
-}
-
-prioritized_smaller_merchants_negative = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
-	interest_group_approval_add = -3
-}
-
-vatan_small_merchants = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
-	goods_output_clothes_mult = 0.1
-	goods_output_luxury_clothes_mult = -0.1
-}
-
-weavers_plight_ignored = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	interest_group_approval_add = -3
-}
-
-vatan_workers_strike = {
+bahai_scare = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	building_textile_mills_throughput_add = -0.25
+	state_turmoil_effects_mult = 0.25
 }
 
-freedom_of_harem_women = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	state_dependent_political_participation_add = 0.05
+tolerated_the_bab = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -3
 }
 
-freedom_of_eunuchs = {
+modifier_bab_popularity = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	state_working_adult_ratio_add = 0.05
+	character_popularity_add = 100
+}
+
+victory_over_bahai = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_approval_add = 3
+	interest_group_pol_str_mult = 0.25
+}
+
+heathens_unpunished = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -3
+}
+
+weak_ruler = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	character_popularity_add = -10
+}
+
+babi_reign_of_terror = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	state_bahai_standard_of_living_add = -3
+	state_turmoil_effects_mult = 0.2
 }

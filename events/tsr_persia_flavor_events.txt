@@ -23,11 +23,9 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 	option = { #Give them only the slightest basic rights
 		name = persian_flavor.1.a
 		default_option = yes
-		every_scope_state = {
-			limit = {
-				has_modifier = zoroastrian_persecution
-			}
-			remove_modifier = zoroastrian_persecution
+		add_radicals = {
+			religion = rel:shiite
+			value = medium_radicals
 		}
 		
 		ai_chance = {
@@ -36,38 +34,27 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 	}
 	option = { #Religious minorities deserve equal status to other citizens of the Empire
 		name = persian_flavor.1.b
-		trigger = {
-			NOT = { has_law = law_type:law_state_atheism }
-		}
-		every_scope_state = {
+		random_scope_state = {
 			limit = {
-				has_modifier = zoroastrian_persecution
+				state_region = s:STATE_YAZD
 			}
-			remove_modifier = zoroastrian_persecution
-		}
-		if = {
-			every_scope_state = {
-				limit = {
-					is_incorporated = yes
-					any_scope_pop = {
-						religion = rel:zoroastrian
-					}
-				}
-				add_modifier = {
-					name = council_of_zoroastrians
-					months = -1
-				}
+			add_modifier = {
+				name = council_of_zoroastrians
+				months = -1
 			}
 		}
 		add_radicals = {
 			religion = rel:shiite
-			value = medium_radicals
+			value = large_radicals
+		}
+		add_loyalists = {
+			religion = rel:zoroastrian
+			value = large_radicals
 		}
 		ig:ig_devout = {
 			add_modifier = {
 				name = tolerated_heathens
 				months = long_modifier_time
-				is_decaying = yes
 			}
 		}
 		hidden_effect = {
@@ -122,7 +109,6 @@ persian_flavor.2 = { #Fire Temple vandalized!
 			add_modifier = {
 				name = anti_zoroastrian_tolerated
 				months = long_modifier_time
-				is_decaying = yes
 			}
 		}
 	}
@@ -247,161 +233,160 @@ persian_flavor.3 = {
 	}
 }
 
-persian_flavor.4 = { #The Iranian Identity
-	type = country_event
-	title = persian_flavor.4.t
-	desc = persian_flavor.4.d
-	flavor =  persian_flavor.4.f
-	duration = 3
-	event_image = {
-		video = "asia_hinduism_sikhism"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-	
-	trigger = {
-		has_technology_researched = pan-nationalism
-		has_variable = persian_renaissance_romantic_nationalism
-		NOT = { has_variable = iranian_identity }
-		NOR = {
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_ethnostate
-			has_law = law_type:law_national_supremacy
-		}
-	}
-	
-	immediate = {
-		set_variable = iranian_identity
-	}
-	
-	option = { #All Iranians are citizens of the empire
-		name = persian_flavor.4.a
-		custom_tooltip = {
-			text = united_iran_tt
-			set_variable = united_iran
-		}
-		add_primary_culture = cu:luri
-		add_primary_culture = cu:kurdish
-		add_primary_culture = cu:caspian
-		add_primary_culture = cu:pashtun
-		add_primary_culture = cu:tajik
-		add_primary_culture = cu:baluchi
-		
-		every_interest_group = {
-			limit = {
-				OR = {
-					leader = {
-						law_stance = {
-							law = law_type:law_national_supremacy
-							value > neutral
-						}
-						law_stance = {
-							law = law_type:law_ethnostate
-							value > neutral
-						}
-					}
-					law_stance = {
-						law = law_type:law_national_supremacy
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_ethnostate
-						value > neutral
-					}
-				}
-			}
-			add_modifier = {
-				name = rejected_iranian_identity
-				months = normal_modifier_time
-				is_decaying = yes
-			}
-		}
-		
-		hidden_effect = {
-			if = {
-				limit = { NOT = { has_variable = zandism_minorities } }
-				set_variable = zandism_minorities
-			}
-		}
-		
-		ai_chance = {
-			base = 25
-		}
-	}
-	
-	option = { #The empire should be ruled by Persians
-		name = persian_flavor.4.b
-		default_option = yes
-		remove_primary_culture = cu:azerbaijani
-		add_radicals = {
-			culture = cu:azerbaijani
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:luri
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:kurdish
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:caspian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:pashtun
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:tajik
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:baluchi
-			value = large_radicals
-		}
-		
-		add_modifier = {
-			name = russification_modifier
-			months = long_modifier_time
-		}
-		
-		every_interest_group = {
-			limit = {
-				OR = {
-					leader = {
-						law_stance = {
-							law = law_type:law_national_supremacy
-							value > neutral
-						}
-						law_stance = {
-							law = law_type:law_ethnostate
-							value > neutral
-						}
-					}
-					law_stance = {
-						law = law_type:law_national_supremacy
-						value > neutral
-					}
-					law_stance = {
-						law = law_type:law_ethnostate
-						value > neutral
-					}
-				}
-			}
-			add_modifier = {
-				name = persian_ruled_empire
-				months = normal_modifier_time
-			}
-		}
-		
-		ai_chance = {
-			base = 75
-		}
-	}
-}
+#persian_flavor.4 = { #The Iranian Identity (should be its own JE)
+#	type = country_event
+#	title = persian_flavor.4.t
+#	desc = persian_flavor.4.d
+#	flavor =  persian_flavor.4.f
+#	duration = 3
+#	event_image = {
+#		video = "asia_hinduism_sikhism"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+#	
+#	trigger = {
+#		has_technology_researched = pan-nationalism
+#		has_variable = persian_renaissance_romantic_nationalism
+#		NOT = { has_variable = iranian_identity }
+#		NOR = {
+#			has_law = law_type:law_state_religion
+#			has_law = law_type:law_ethnostate
+#			has_law = law_type:law_national_supremacy
+#		}
+#	}
+#	
+#	immediate = {
+#		set_variable = iranian_identity
+#	}
+#	
+#	option = { #All Iranians are citizens of the empire
+#		name = persian_flavor.4.a
+#		custom_tooltip = {
+#			text = united_iran_tt
+#			set_variable = united_iran
+#		}
+#		add_primary_culture = cu:luri
+#		add_primary_culture = cu:kurdish
+#		add_primary_culture = cu:caspian
+#		add_primary_culture = cu:pashtun
+#		add_primary_culture = cu:tajik
+#		add_primary_culture = cu:baluchi
+#		
+#		every_interest_group = {
+#			limit = {
+#				OR = {
+#					leader = {
+#						law_stance = {
+#							law = law_type:law_national_supremacy
+#							value > neutral
+#						}
+#						law_stance = {
+#							law = law_type:law_ethnostate
+#							value > neutral
+#						}
+#					}
+#					law_stance = {
+#						law = law_type:law_national_supremacy
+#						value > neutral
+#					}
+#					law_stance = {
+#						law = law_type:law_ethnostate
+#						value > neutral
+#					}
+#				}
+#			}
+#			add_modifier = {
+#				name = rejected_iranian_identity
+#				months = normal_modifier_time
+#			}
+#		}
+#		
+#		hidden_effect = {
+#			if = {
+#				limit = { NOT = { has_variable = zandism_minorities } }
+#				set_variable = zandism_minorities
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 25
+#		}
+#	}
+#	
+#	option = { #The empire should be ruled by Persians
+#		name = persian_flavor.4.b
+#		default_option = yes
+#		remove_primary_culture = cu:azerbaijani
+#		add_radicals = {
+#			culture = cu:azerbaijani
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:luri
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:kurdish
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:caspian
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:pashtun
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:tajik
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:baluchi
+#			value = large_radicals
+#		}
+#		
+#		add_modifier = {
+#			name = russification_modifier
+#			months = long_modifier_time
+#		}
+#		
+#		every_interest_group = {
+#			limit = {
+#				OR = {
+#					leader = {
+#						law_stance = {
+#							law = law_type:law_national_supremacy
+#							value > neutral
+#						}
+#						law_stance = {
+#							law = law_type:law_ethnostate
+#							value > neutral
+#						}
+#					}
+#					law_stance = {
+#						law = law_type:law_national_supremacy
+#						value > neutral
+#					}
+#					law_stance = {
+#						law = law_type:law_ethnostate
+#						value > neutral
+#					}
+#				}
+#			}
+#			add_modifier = {
+#				name = persian_ruled_empire
+#				months = normal_modifier_time
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 75
+#		}
+#	}
+#}
 
 # Mirza Aqa Khan Kermani
 persian_flavor.5 = {
@@ -639,6 +624,7 @@ persian_flavor.7 = {
 	
 	trigger = {
 		c:PER ?= this
+		NOT = { has_variable = shah_mourning } #Give Mohammad Sadiq time to mourn his dad please
 		OR = {
 			has_law = law_type:law_autocracy
 			has_law = law_type:law_oligarchy
@@ -650,16 +636,12 @@ persian_flavor.7 = {
 			has_law = law_type:law_slave_trade
 			has_law = law_type:law_serfdom
 			has_law = law_type:law_tenant_farmers
+			has_law = law_type:law_no_womens_rights
 		}
 		has_technology_researched = nationalism
+		has_technology_researched = egalitarianism
 		any_scope_character = {
-			OR = {
-				is_ruler = yes
-				has_role = agitator
-				interest_group = {
-					is_marginal = no
-				}
-			}
+			is_ruler = yes
 			has_ideology = ideology:ideology_persian_constitutionalist
 		}
 		NOT = { has_variable = constitutionalism_var }
@@ -675,13 +657,6 @@ persian_flavor.7 = {
 		add_journal_entry = { type = je_constitutional_reformation }
 		ig:ig_intelligentsia = {
 			set_ig_bolstering = yes
-		}
-		
-		hidden_effect = {
-			if = {
-				limit = { NOT = { has_variable = zandism_constitutionalism } }
-				set_variable = zandism_constitutionalism
-			}
 		}
 		
 		ai_chance = {
@@ -770,7 +745,11 @@ persian_flavor.8 = {
 		any_scope_character = {
 			has_variable = prime_minister_trigger
 		}
-		has_variable = rejected_constitutionalism
+		any_scope_state = {
+			has_modifier = bahai_persecution
+		}
+		has_variable = babi_assassination_attempt
+		has_modifier = babi_reign_of_terror
 		NOT = { has_variable = kermani_critique }
 	}
 
@@ -838,7 +817,6 @@ persian_flavor.8 = {
 			add_modifier = {
 				name = kermani_scot_free
 				months = normal_modifier_time
-				is_decaying = yes
 			}
 		}
 	}
@@ -1321,10 +1299,10 @@ persian_flavor.12 = {
 	}
 }
 
-# Foreign Military Advisors
+# Rise of Babism
 persian_flavor.13 = {
 	type = country_event
-	placement = root
+	placement = scope:tehran_state
 	title = persian_flavor.13.t
 	desc = persian_flavor.13.d
 	flavor = persian_flavor.13.f
@@ -1332,653 +1310,74 @@ persian_flavor.13 = {
 	duration = 3
 
 	event_image = {
-		video = "asia_westerners_arriving"
+		video = "middleeast_islam"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	icon = "gfx/interface/icons/event_icons/event_religion.dds"
+	
+	minor_left_icon = scope:bab_scope
 	
 	immediate = {
-		save_scope_as = hiring_country
-		random_country = {
-            limit = {
-				NOT = { root = this }
-                country_rank = rank_value:great_power 
-                relations:root >= relations_threshold:neutral
-				trigger_if = {
-					limit = {
-						year <= 1861
-					}
-					AND = {
-						has_technology_researched = general_staff
-						has_technology_researched = percussion_cap
-						has_technology_researched = screw_frigate
-						has_technology_researched = power_of_the_purse
-						OR = {
-							has_technology_researched = field_works
-							has_technology_researched = logistics
-							has_technology_researched = triage
-							has_technology_researched = shell_gun
-							has_technology_researched = rifling
-							has_technology_researched = hydraulic_cranes
-						}
-					}
-				}
-				trigger_else_if = {
-					limit = {
-						year > 1861
-						year <= 1886
-					}
-					calc_true_if = {
-						amount >= 5
-						has_technology_researched = modern_nursing
-						has_technology_researched = enlistment_offices
-						has_technology_researched = electric_telegraph
-						has_technology_researched = military_statistics
-						has_technology_researched = repeaters
-						has_technology_researched = breech_loading_artillery
-						has_technology_researched = handcranked_machine_gun
-						has_technology_researched = self_propelled_torpedoes
-						has_technology_researched = monitor_tech
-						has_technology_researched = ironclad_tech
-						has_technology_researched = jeune_ecole
-						has_technology_researched = floating_harbor
-						has_technology_researched = gantry_cranes
-					}
-				}
-				trigger_else_if = {
-					limit = {
-						year > 1886
-						year <= 1911
-					}
-					calc_true_if = {
-						amount >= 5
-						has_technology_researched = trench_works
-						has_technology_researched = war_propaganda
-						has_technology_researched = wargaming
-						has_technology_researched = defense_in_depth
-						has_technology_researched = bolt_action_rifles
-						has_technology_researched = automatic_machine_guns
-						has_technology_researched = submarine
-						has_technology_researched = destroyer
-						has_technology_researched = dreadnought
-						has_technology_researched = sea_lane_strategies
-						has_technology_researched = landing_craft
-						has_technology_researched = concrete_dockyards
-					}
-				}
-            }
-            save_scope_as = army_country
-        }
-		#random_country = {
-        #    limit = { 
-        #        has_war_with = root
-		#		is_country_type = recognized
-		#		country_rank >= rank_value:major_power 
-        #    }
-        #    save_scope_as = enemy_country
-        #}
+		c:PER ?= this
+		game_date >= 1844.1.1
+		NOT = { has_global_variable = bab_var }
+		any_scope_state = {
+			state_region = s:STATE_IRAKAJEMI
+		}
 	}
-	
+
+	immediate = {
+		set_global_variable = bab_var
+		create_character = {
+			template = per_bab_character_template
+			on_created = {
+				set_variable = bab
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = bab
+			}
+			save_scope_as = bab_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_IRAKAJEMI
+			}
+			save_scope_as = tehran_state
+		}
+	}
+
 	option = {
 		name = persian_flavor.13.a
 		default_option = yes
-		#Up to era 4
-		if = {
-	        limit = { 
-				NOT = { has_technology_researched = mandatory_service }
-				scope:army_country = {
-					has_technology_researched = mandatory_service
+		show_as_tooltip = {
+			create_character = {
+				template = per_bab_character_template
+			}
+		}
+		scope:bab_scope = {
+			add_modifier = {
+				name = modifier_bab_popularity
+				years = 6
+				is_decaying = yes
+			}
+		}
+		hidden_effect = {
+			every_scope_state = {
+				convert_population = {
+					target = rel:bahai
+					value = 0.001
 				}
 			}
-			add_technology_progress = { 
-				progress = 3000 
-				technology = mandatory_service
-			}	
 		}
-		if = {
-	        limit = { 
-				NOT = { has_technology_researched = artillery }
-				scope:army_country = {
-					has_technology_researched = artillery
-				}
-			}
-			add_technology_progress = { 
-				progress = 3000 
-				technology = artillery
-			}	
-		}
-		if = {
-	        limit = { 
-				NOT = { has_technology_researched = line_infantry }
-				scope:army_country = {
-					has_technology_researched = line_infantry
-				}
-				has_technology_researched = mandatory_service
-			}
-			add_technology_progress = { 
-				progress = 3000 
-				technology = line_infantry
-			}	
-		}
-		if = {
-	        limit = { 
-				NOT = { has_technology_researched = napoleonic_warfare }
-				scope:army_country = {
-					has_technology_researched = napoleonic_warfare
-				}
-				has_technology_researched = line_infantry
-			}
-			add_technology_progress = { 
-				progress = 3000 
-				technology = napoleonic_warfare
-			}	
-		}
-		#if = {
-	    #    limit = { 
-		#		NOT = { has_technology_researched = army_reserves }
-		#		scope:army_country = {
-		#			has_technology_researched = army_reserves
-		#		}
-		#		has_technology_researched = line_infantry
-		#	}
-		#	add_technology_progress = { 
-		#		progress = 3000 
-		#		technology = army_reserves
-		#	}	
-		#}
-		if = { 
-	        limit = { 
-				NOT = { has_technology_researched = general_staff }
-				scope:army_country = {
-					has_technology_researched = general_staff
-				}
-				#has_technology_researched = army_reserves (for some reason made this error?)
-			}
-			add_technology_progress = { 
-				progress = 5000 
-				technology = general_staff
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = percussion_cap } 
-				scope:army_country = {
-					has_technology_researched = percussion_cap
-				}
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = percussion_cap
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = paddle_steamer } 
-				scope:army_country = {
-					has_technology_researched = paddle_steamer
-				}
-			}
-            add_technology_progress = { 
-				progress = 3000 
-				technology = paddle_steamer
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = screw_frigate } 
-				scope:army_country = {
-					has_technology_researched = screw_frigate
-				}
-				has_technology_researched = paddle_steamer
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = screw_frigate
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = power_of_the_purse } 
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = power_of_the_purse
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = field_works } 
-				scope:army_country = {
-					has_technology_researched = field_works
-				}
-				has_technology_researched = napoleonic_warfare
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = field_works
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = logistics } 
-				scope:army_country = {
-					has_technology_researched = logistics
-				}
-				has_technology_researched = napoleonic_warfare
-				has_technology_researched = army_reserves
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = logistics
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = rifling } 
-				scope:army_country = {
-					has_technology_researched = rifling
-				}
-				has_technology_researched = percussion_cap
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = rifling
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = triage } 
-				scope:army_country = {
-					has_technology_researched = triage
-				}
-				has_technology_researched = logistics
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = triage
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = shell_gun } 
-				scope:army_country = {
-					has_technology_researched = shell_gun
-				}
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = shell_gun
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = hydraulic_cranes } 
-				scope:army_country = {
-					has_technology_researched = hydraulic_cranes
-				}
-			}
-            add_technology_progress = { 
-				progress = 5000 
-				technology = hydraulic_cranes
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = modern_nursing } 
-				scope:army_country = {
-					has_technology_researched = modern_nursing
-				}
-				has_technology_researched = triage
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = modern_nursing
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = enlistment_offices } 
-				scope:army_country = {
-					has_technology_researched = enlistment_offices
-				}
-				has_technology_researched = logistics
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = enlistment_offices
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = electric_telegraph } 
-				scope:army_country = {
-					has_technology_researched = electric_telegraph
-				}
-				has_technology_researched = logistics
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = electric_telegraph
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = military_statistics } 
-				scope:army_country = {
-					has_technology_researched = military_statistics
-				}
-				has_technology_researched = electric_telegraph
-				has_technology_researched = general_staff
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = military_statistics
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = repeaters } 
-				scope:army_country = {
-					has_technology_researched = repeaters
-				}
-				has_technology_researched = rifling
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = repeaters
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = breech_loading_artillery } 
-				scope:army_country = {
-					has_technology_researched = breech_loading_artillery
-				}
-				has_technology_researched = rifling
-				has_technology_researched = shell_gun
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = breech_loading_artillery
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = handcranked_machine_gun } 
-				scope:army_country = {
-					has_technology_researched = handcranked_machine_gun
-				}
-				has_technology_researched = repeaters
-				has_technology_researched = breech_loading_artillery
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = handcranked_machine_gun
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = self_propelled_torpedoes } 
-				scope:army_country = {
-					has_technology_researched = self_propelled_torpedoes
-				}
-				has_technology_researched = ironclad_tech
-				has_technology_researched = jeune_ecole
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = self_propelled_torpedoes
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = monitor_tech } 
-				scope:army_country = {
-					has_technology_researched = monitor_tech
-				}
-				has_technology_researched = ironclad_tech
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = monitor_tech
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = ironclad_tech } 
-				scope:army_country = {
-					has_technology_researched = ironclad_tech
-				}
-				has_technology_researched = screw_frigate
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = ironclad_tech
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = jeune_ecole } 
-				scope:army_country = {
-					has_technology_researched = jeune_ecole
-				}
-				has_technology_researched = power_of_the_purse
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = jeune_ecole
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = floating_harbor } 
-				scope:army_country = {
-					has_technology_researched = floating_harbor
-				}
-				has_technology_researched = gantry_cranes
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = floating_harbor
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = gantry_cranes } 
-				scope:army_country = {
-					has_technology_researched = gantry_cranes
-				}
-				has_technology_researched = hydraulic_cranes
-			}
-            add_technology_progress = { 
-				progress = 6500 
-				technology = gantry_cranes
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = trench_works } 
-				scope:army_country = {
-					has_technology_researched = trench_works
-				}
-				has_technology_researched = general_staff
-				has_technology_researched = electric_telegraph
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = trench_works
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = war_propaganda } 
-				scope:army_country = {
-					has_technology_researched = war_propaganda
-				}
-				has_technology_researched = enlistment_offices
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = war_propaganda
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = wargaming } 
-				scope:army_country = {
-					has_technology_researched = wargaming
-				}
-				has_technology_researched = military_statistics
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = wargaming
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = defense_in_depth } 
-				scope:army_country = {
-					has_technology_researched = defense_in_depth
-				}
-				has_technology_researched = trench_works
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = defense_in_depth
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = bolt_action_rifles } 
-				scope:army_country = {
-					has_technology_researched = bolt_action_rifles
-				}
-				has_technology_researched = repeaters
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = bolt_action_rifles
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = automatic_machine_guns } 
-				scope:army_country = {
-					has_technology_researched = automatic_machine_guns
-				}
-				has_technology_researched = handcranked_machine_gun
-				has_technology_researched = bolt_action_rifles
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = automatic_machine_guns
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = submarine } 
-				scope:army_country = {
-					has_technology_researched = submarine
-				}
-				has_technology_researched = self_propelled_torpedoes
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = submarine
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = destroyer } 
-				scope:army_country = {
-					has_technology_researched = destroyer
-				}
-				has_technology_researched = monitor_tech
-				has_technology_researched = ironclad_tech
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = destroyer
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = dreadnought } 
-				scope:army_country = {
-					has_technology_researched = dreadnought
-				}
-				has_technology_researched = sea_lane_strategies
-				has_technology_researched = ironclad_tech
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = dreadnought
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = sea_lane_strategies } 
-				scope:army_country = {
-					has_technology_researched = sea_lane_strategies
-				}
-				has_technology_researched = jeune_ecole
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = sea_lane_strategies
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = landing_craft } 
-				scope:army_country = {
-					has_technology_researched = landing_craft
-				}
-				has_technology_researched = jeune_ecole
-				has_technology_researched = monitor_tech
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = landing_craft
-			}	
-		}
-		if = { 
-			limit = { 
-				NOT = { has_technology_researched = concrete_dockyards } 
-				scope:army_country = {
-					has_technology_researched = concrete_dockyards
-				}
-				has_technology_researched = concrete_dockyards
-			}
-            add_technology_progress = { 
-				progress = 8000 
-				technology = concrete_dockyards
-			}	
-		}
-		add_modifier = {
-			name = hiring_western_advisors
-			months = normal_modifier_time
-		}
-        change_relations = {
-            country = scope:army_country
-            value = 20
-        }
-        add_treasury = -300000
-        scope:army_country = { 
-			add_treasury = 300000 
-			post_notification = hired_military_advisors
-		}
-	}
-	
-	option = {
-		name = persian_flavor.13.b
+		add_journal_entry = { type = je_rise_of_bahaism }
 	}
 }
 
-# 
+# Unrest Among the Clergy
 persian_flavor.14 = {
 	type = country_event
 	placement = root
@@ -1989,35 +1388,83 @@ persian_flavor.14 = {
 	duration = 3
 
 	event_image = {
-		video = "middleeast_engineer_blueprint"
+		video = "middleeast_courtroom_upheaval"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_religion.dds"
 	
 	trigger = {
-		
+		ig:ig_devout = {
+			is_in_government = yes
+		}
+		has_law = law_type:law_state_religion
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:persian
+			}
+			religion_percent_state = {
+			   target = rel:bahai
+			   value > 0.01
+			}
+		}
+		NOT = { has_variable = bahai_persecution_start }
 	}
 	
 	immediate = {
-		
+		ig:ig_devout = {
+			save_scope_as = ulemma_scope
+			leader = {
+				save_scope_as = devout_leader_scope
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:persian
+				}
+				religion_percent_state = {
+				   target = rel:bahai
+				   value > 0.01
+				}
+			}
+			save_scope_as = bahai_state
+		}
+		set_variable = bahai_persecution_start
 	}
 	
 	option = {
 		name = persian_flavor.14.a
+		default_option = yes
+		custom_tooltip = {
+			text = babi_persecution_tt
+			every_scope_state = {
+				kill_population_percent_in_state = {
+					percent = 0.10
+					religion = rel:bahai
+				}
+				add_modifier = {
+					name = bahai_persecution
+					months = -1
+				}
+			}
+		}
+		scope:bahai_state = {
+			add_modifier = {
+				name = bahai_scare
+				months = normal_modifier_time
+			}
+		}
 		
-	}
-	option = {
-		name = persian_flavor.14.b
-		
+		trigger_event = { id = persian_flavor.15 months = 1 }
 	}
 }
 
-# 
+# Trial of the Báb
 persian_flavor.15 = {
 	type = country_event
-	placement = root
+	placement = scope:tabriz_scope
 	title = persian_flavor.15.t
 	desc = persian_flavor.15.d
 	flavor = persian_flavor.15.f
@@ -2025,29 +1472,62 @@ persian_flavor.15 = {
 	duration = 3
 
 	event_image = {
-		video = "unspecific_gears_pistons"
+		video = "votp_hostile_court"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	
-	option = {
-		name = persian_flavor.15.a
-		default_option = yes
-		
+	minor_left_icon = scope:bab_char_scope
+	
+	immediate = {
+		random_scope_state = {
+			limit = { state_region = s:STATE_TABRIZ }
+			save_scope_as = tabriz_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_template = per_bab_character_template
+			}
+			save_scope_as = bab_char_scope
+		}
+		ig:ig_devout = {
+			save_scope_as = ulemma_scope
+		}
 	}
 	
 	option = {
-		name = persian_flavor.15.b
-
+		name = persian_flavor.15.a #Follow the clergy's demands
+		default_option = yes
+		add_radicals = {
+			religion = rel:bahai
+			value = large_radicals
+		}
+		scope:bab_char_scope = {
+			add_modifier = {
+				name = modifier_political_martyr
+				months = 24
+				is_decaying = yes
+			}
+		}
+	}
+	
+	option = {
+		name = persian_flavor.15.b #Leave the Báb untouched
+		scope:ulemma_scope = {
+			add_modifier = {
+				name = tolerated_the_bab
+				months = 12
+			}
+		}
 	}
 }
 
-# Moral Outrage
+# The Waning of Babism Movement
 persian_flavor.16 = {
 	type = country_event
-	placement = scope:outrage_state
+	placement = scope:urmia_scope
 	title = persian_flavor.16.t
 	desc = persian_flavor.16.d
 	flavor = persian_flavor.16.f
@@ -2055,236 +1535,70 @@ persian_flavor.16 = {
 	duration = 3
 
 	event_image = {
-		video = "middleeast_police_breaking_door"
+		video = "middleeast_middleclass_cafe"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	
-	cooldown = { months = normal_modifier_time }
+	gui_window = event_window_1char_tabloid
 	
-	trigger = {
-		has_law = law_type:law_state_religion
-		any_scope_state = {
-			is_incorporated = yes
-			state_region = {
-				is_homeland = cu:persian
-				NOT = { has_variable = cracked_down_state }
-			}
-			any_scope_building = {
-				is_building_type = building_port
-				level >= 3
-			}
-		}
-		any_interest_group = {
-			is_in_government = yes
-			leader = {
-				has_ideology = ideology:ideology_traditionalist
-			}
-		}
-		OR = {
-			any_market = {
-				owner = root
-				any_trade_route = {
-					exporter.owner = {
-						country_is_in_europe = yes
-						gunpowder_empire_trigger = no
-					}
-				}
-			}
-			any_country = {
-				country_is_in_europe = yes
-				gunpowder_empire_trigger = no
-				OR = {
-					has_diplomatic_pact = {
-						who = root
-						type = customs_union
-					}
-					has_diplomatic_pact = {
-						who = root
-						type = trade_agreement
-					}
-					has_diplomatic_pact = {
-						who = root
-						type = defensive_pact
-					}
-					has_diplomatic_pact = {
-						who = root
-						type = alliance
-					}
-				}
-			}
-		}
-	}
+	left_icon = scope:prime_minister_scope
 	
 	immediate = {
-		if = {
-			limit = {
-				any_market = {
-					owner = root
-					any_trade_route = {
-						exporter.owner = {
-							country_is_in_europe = yes
-							gunpowder_empire_trigger = no
-						}
-					}
-				}
-			}
-			random_market = {
-				limit = {
-					owner = root
-					any_trade_route = {
-						exporter.owner = {
-							country_is_in_europe = yes
-							gunpowder_empire_trigger = no
-						}
-					}
-				}
-				random_trade_route = {
-					limit = {
-						exporter.owner = {
-							country_is_in_europe = yes
-							gunpowder_empire_trigger = no
-						}
-					}
-					exporter.owner = { save_scope_as = western_country }
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_country = {
-					country_is_in_europe = yes
-					gunpowder_empire_trigger = no
-					OR = {
-						has_diplomatic_pact = {
-							who = root
-							type = customs_union
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = trade_agreement
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = defensive_pact
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = alliance
-						}
-					}
-				}
-			}
-			random_country = {
-				limit = {
-					country_is_in_europe = yes
-					gunpowder_empire_trigger = no
-					OR = {
-						has_diplomatic_pact = {
-							who = root
-							type = customs_union
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = trade_agreement
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = defensive_pact
-						}
-						has_diplomatic_pact = {
-							who = root
-							type = alliance
-						}
-					}
-				}
-				save_scope_as = western_country
-			}
-		}
 		random_scope_state = {
-			limit = {
-				is_incorporated = yes
-				state_region = {
-					is_homeland = cu:persian
-					NOT = { has_variable = cracked_down_state }
-				}
-				any_scope_building = {
-					is_building_type = building_port
-					level >= 3
-				}
-			}
-			save_scope_as = outrage_state
+			limit = { state_region = s:STATE_URMIA }
+			save_scope_as = urmia_scope
 		}
-		random_interest_group = {
+		random_scope_character = {
 			limit = {
-				is_in_government = yes
-				leader = {
-					has_ideology = ideology:ideology_traditionalist
-				}
+				has_template = per_bab_character_template
 			}
-			save_scope_as = outraged_ig
-			leader = {
-				save_scope_as = outraged_ig_leader
+			save_scope_as = bab_char_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = prime_minister_trigger
+			}
+			save_scope_as = prime_minister_scope
+			interest_group = {
+				save_scope_as = prime_minister_ig_scope
 			}
 		}
 	}
 	
 	option = {
-		name = persian_flavor.16.a #What's wrong with letting youths experiment a little?
+		name = persian_flavor.16.a #This is an opportunity to finally execute him
 		default_option = yes
-		scope:outraged_ig = {
-			add_modifier = {
-				name = corrupted_youths
-				months = 12
-			}
-		}
+		trigger_event = { id = persian_flavor.22 days = 3 }
 	}
 	option = {
-		name = persian_flavor.16.b #The Westerners are corrupting our society!
-		change_relations = {
-			country = scope:western_country
-			value = -20
-		}
-	}
-	option = {
-		name = persian_flavor.16.c #We need a morality police!
+		name = persian_flavor.16.b #Take a lenient stance
 		trigger = {
-			institution_investment_level = {
-				institution = institution_police
-				value >= 1
-			}
-			NOR = {
-				has_law = law_type:law_right_of_assembly
-				has_law = law_type:law_protected_speech
+			NOT = { has_law = law_type:law_state_religion }
+			ig:ig_devout = {
+				is_in_government = no
 			}
 		}
-		if = {
-			limit = {
-				institution_investment_level = {
-					institution = institution_police
-					value < 4
-				}
-			}
-			change_institution_investment_level = {
-				institution = institution_police
-				investment = 1
-			}
-		}
-		scope:outrage_state = {
+		scope:prime_minister_ig_scope = {
 			add_modifier = {
-				name = police_crackdown
+				name = tolerated_heathens
 				months = 12
 			}
-			state_region = {
-				set_variable = { name = cracked_down_state }
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = tolerated_heathens
+				months = 12
 			}
 		}
-		ig:ig_intelligentsia = {
-			add_modifier = {
-				name = against_morality_police
-				months = normal_modifier_time
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_variable = zandism_tolerated_heathens }
+				}
+				set_variable = zandism_tolerated_heathens
 			}
 		}
 	}
@@ -2905,7 +2219,7 @@ persian_flavor.20 = {
 	}
 }
 
-# End of the Harem Institution?
+# End the Harem Institution?
 persian_flavor.21 = {
 	type = country_event
 	placement = root
@@ -2915,9 +2229,9 @@ persian_flavor.21 = {
 
 	duration = 3
 
-	event_image = {
-		video = "middleeast_upperclass_party"
-	}
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:mohammad_safavid_scope
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
@@ -2981,10 +2295,10 @@ persian_flavor.21 = {
 	}
 }
 
-# Vatan Factory Strike
+# The Báb's Execution
 persian_flavor.22 = {
 	type = country_event
-	placement = scope:isfahan_scope
+	placement = scope:tabriz_scope
 	title = persian_flavor.22.t
 	desc = persian_flavor.22.d
 	flavor = persian_flavor.22.f
@@ -2992,145 +2306,53 @@ persian_flavor.22 = {
 	duration = 3
 
 	event_image = {
-		video = "unspecific_factory_closed"
+		video = "votp_hostile_court"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-	
-	trigger = {
-		c:PER ?= this
-		has_technology_researched = labor_movement
-		NOT = { has_variable = vatan_factory_strike }
-		any_scope_state = {
-			state_region = s:STATE_ISFAHAN
-			any_scope_building = {
-				is_building_type = building_textile_mill
-				OR = {
-					has_active_production_method = pm_sewing_machines
-					has_active_production_method = pm_electric_sewing_machines
-				}
-				level >= 25
-			}
-		}
-	}
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 	
 	immediate = {
 		random_scope_state = {
+			limit = { state_region = s:STATE_TABRIZ }
+			save_scope_as = tabriz_scope
+		}
+		random_scope_character = {
 			limit = {
-				state_region = s:STATE_ISFAHAN
+				has_template = per_bab_character_template
 			}
-			save_scope_as = isfahan_scope
+			save_scope_as = bab_char_scope
 		}
-		ig:ig_trade_unions = {
-			save_scope_as = trade_unions_scope
+		ig:ig_devout = {
+			save_scope_as = ulemma_scope
 		}
-		ig:ig_petty_bourgeoisie = {
-			save_scope_as = bazaari_scope
-		}
-		ig:ig_industrialists = {
-			save_scope_as = industrialists_scope
-		}
-		set_variable = vatan_factory_strike
+		set_variable = bab_executed
 	}
 	
 	option = {
-		name = persian_flavor.22.a #Increase the education of the workers
+		name = persian_flavor.22.a #RIP
 		default_option = yes
-		scope:trade_unions_scope = {
-			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
+		random_scope_character = {
+			limit = {
+				has_variable = bab
 			}
+			kill_character = yes
 		}
-		scope:bazaari_scope = {
+		add_radicals = {
+			religion = rel:bahai
+			value = 1
+		}
+		scope:ulemma_scope = {
 			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
-			}
-		}
-		scope:isfahan_scope = {
-			add_modifier = {
-				name = vatan_workers_education
-				months = normal_modifier_time
-			}
-		}
-	}
-	option = {
-		name = persian_flavor.22.b #Prioritize purchase from smaller workers
-		scope:trade_unions_scope = {
-			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
-			}
-		}
-		scope:bazaari_scope = {
-			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
-			}
-		}
-		scope:industrialists_scope = {
-			add_modifier = {
-				name = prioritized_smaller_merchants_negative
-				months = normal_modifier_time
-			}
-		}
-		scope:isfahan_scope = {
-			add_modifier = {
-				name = vatan_small_merchants
-				months = normal_modifier_time
-			}
-		}
-	}
-	option = {
-		name = persian_flavor.22.c #Subsidize the smaller workers with machines
-		trigger = {
-			capital.market = {
-				mg:tools = { market_goods_pricier > 0.05 }
-			}
-		}
-		scope:trade_unions_scope = {
-			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
-			}
-		}
-		scope:bazaari_scope = {
-			add_modifier = {
-				name = petition_accepted
-				months = normal_modifier_time
-			}
-		}
-		add_journal_entry = {
-			type = je_set_up_tools_import
-		}
-	}
-	option = {
-		name = persian_flavor.22.d #Ignore them
-		scope:trade_unions_scope = {
-			add_modifier = {
-				name = weavers_plight_ignored
-				months = normal_modifier_time
-			}
-		}
-		scope:bazaari_scope = {
-			add_modifier = {
-				name = weavers_plight_ignored
-				months = normal_modifier_time
-			}
-		}
-		scope:isfahan_scope = {
-			add_modifier = {
-				name = vatan_workers_strike
+				name = victory_over_bahai
 				months = normal_modifier_time
 			}
 		}
 	}
 }
 
-# The Liberation of Royal Slaves
+# Assassination Attempt on the Shah
 persian_flavor.23 = {
 	type = country_event
 	placement = root
@@ -3141,44 +2363,46 @@ persian_flavor.23 = {
 	duration = 3
 
 	event_image = {
-		video = "middleeast_upperclass_party"
+		video = "southamerica_public_figure_assassination"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 	
 	trigger = {
-		has_law = law_type:law_monarchy
-		religion = {
-			has_discrimination_trait = muslim
+		c:PER ?= this
+		has_variable = bab_executed
+		NOT = { has_variable = babi_assassination_attempt }
+		ruler = {
+			NOT = { has_variable = is_mohammad_safavid } #Can't ruin reformation like this
 		}
-		has_variable = slavery_recently_abolished
-		NOT = { has_variable = royal_slavery_abolished }
 	}
 	
 	immediate = {
-		set_variable = royal_slavery_abolished
+		ruler = { save_scope_as = shah_scope }
+		set_variable = babi_assassination_attempt
 	}
 	
 	option = {
-		name = persian_flavor.23.a #The Harem women can live public lives
+		name = persian_flavor.23.a #"I will rule you differently if I survive!"
 		default_option = yes
-		add_modifier = {
-			name = freedom_of_harem_women
-			months = long_modifier_time
-		}
-	}
-	option = {
-		name = persian_flavor.23.b #The Eunuchs are no longer under subjugation
-		add_modifier = {
-			name = freedom_of_eunuchs
-			months = long_modifier_time
+		random_list = {
+			50 = {
+				scope:shah_scope = {
+					kill_character = yes
+				}
+				hidden_effect = {
+					trigger_event = { id = persian_flavor.24 }
+				}
+			}
+			50 = {
+			}
 		}
 	}
 }
 
-# 
+# Death of the Shah
 persian_flavor.24 = {
 	type = country_event
 	placement = root
@@ -3189,31 +2413,66 @@ persian_flavor.24 = {
 	duration = 3
 
 	event_image = {
-		video = "unspecific_world_fair"
+		video = "middleeast_courtroom_upheaval"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	minor_left_icon = scope:new_ruler_scope
 
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 	
-	trigger = {
+	immediate = {
+		set_variable = {
+			name = shah_mourning 
+			days = 180
+		}
+		ruler = {
+			save_scope_as = new_ruler_scope
+		}
 	}
 	
 	option = {
-		name = persian_flavor.24.a
+		name = persian_flavor.24.a #Punish all the Bábís!
 		default_option = yes
-		
+		set_variable = babi_assassination_attempt
+		custom_tooltip = {
+			text = babi_massacre_tt
+			every_scope_state = {
+				kill_population_percent_in_state = {
+					percent = 0.25
+					religion = rel:bahai
+				}
+			}
+		}
+		add_modifier = {
+			name = babi_reign_of_terror
+			months = normal_modifier_time
+		}
+		change_infamy = 10
 	}
 	option = {
-		name = persian_flavor.24.b
-		
+		name = persian_flavor.24.b #We will not continue the cycle of blood
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+			}
+			add_modifier = {
+				name = heathens_unpunished
+				months = normal_modifier_time
+			}
+		}
+		scope:new_ruler_scope = {
+			add_modifier = weak_ruler
+			months = -1
+		}
 	}
 }
 
-# European Teachers in Academies
+# Baha'u'llah
 persian_flavor.25 = {
 	type = country_event
-	placement = root
+	placement = scope:tehran_state
 	title = persian_flavor.25.t
 	desc = persian_flavor.25.d
 	flavor = persian_flavor.25.f
@@ -3226,16 +2485,68 @@ persian_flavor.25 = {
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	icon = "gfx/interface/icons/event_icons/event_religion.dds"
 	
-	option = {
-		name = persian_flavor.25.a
-		default_option = yes
-		
+	minor_left_icon = scope:bahaullah_scope
+	
+	trigger = {
+		c:PER ?= this
+		NOT = { has_global_variable = bahaullah_var }
+		has_modifier = babi_reign_of_terror
+		any_scope_state = {
+			state_region = s:STATE_IRAKAJEMI
+		}
 	}
+
+	immediate = {
+		set_global_variable = bahaullah_var
+		create_character = {
+			template = per_bahaullah_character_template
+			on_created = {
+				set_variable = bahaullah
+			}
+		}
+		ruler = {
+			save_scope_as = shah_scope
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = bahaullah
+			}
+			save_scope_as = bahaullah_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_IRAKAJEMI
+			}
+			save_scope_as = tehran_state
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			save_scope_as = diyarbakir_state
+		}
+	}
+
 	option = {
-		name = persian_flavor.25.b
-		
+		name = persian_flavor.25.a #Exile him from Persia
+		default_option = yes
+		scope:bahaullah_scope = {
+			exile_character_with_martyrdom = yes
+			hidden_effect = {
+				random_country = {
+					limit = {
+						any_scope_state = {
+							state_region = s:STATE_DIYARBAKIR
+						}
+					}
+					save_scope_as = diyarbakir_owner
+				}
+				transfer_character = scope:diyarbakir_owner
+				#To be continued in Ottoman flavor...
+			}
+		}
 	}
 }
 
@@ -3666,62 +2977,55 @@ persian_renaissance.6 = { #Fire Temple of Yazd
 	}
 }
 
-persian_renaissance.7 = { #Persian Nationalism
-	type = country_event
-	title = persian_renaissance.7.t
-	desc = persian_renaissance.7.d
-	flavor =  persian_renaissance.7.f
-	duration = 3
-	event_image = {
-		video = "asia_hinduism_sikhism"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-	
-	trigger = {
-	}
-	
-	immediate = {
-		set_variable = iranian_identity
-	}
-	
-	option = { #Adopt a secular identity
-		name = persian_renaissance.7.a
-		default_option = yes
-		ig:ig_devout = {
-			add_modifier = {
-				name = adopted_blasphemous_ideals
-				months = long_modifier_time
-				is_decaying = yes
-			}
-		}
-		add_modifier = {
-			name = modifier_secularization_support
-			months = long_modifier_time
-		}
-		
-		ai_chance = {
-			base = 75
-		}
-	}
-	
-	option = { #A country must be based on divine guidance
-		name = persian_renaissance.7.b
-		add_loyalists = {
-			religion = rel:shiite
-			value = large_radicals
-		}
-		add_modifier = {
-			name = modifier_no_secularization_support
-			months = long_modifier_time
-		}
-		
-		ai_chance = {
-			base = 25
-		}
-	}
-}
+#persian_renaissance.7 = { #Persian Nationalism (make this more impactful->leads to Iranian identity JE)
+#	type = country_event
+#	title = persian_renaissance.7.t
+#	desc = persian_renaissance.7.d
+#	flavor =  persian_renaissance.7.f
+#	duration = 3
+#	event_image = {
+#		video = "asia_hinduism_sikhism"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+#	
+#	trigger = {
+#	}
+#	
+#	immediate = {
+#		#set_variable = iranian_identity
+#	}
+#	
+#	option = { #Adopt a secular identity
+#		name = persian_renaissance.7.a
+#		default_option = yes
+#		add_modifier = {
+#			name = modifier_secularization_support
+#			months = long_modifier_time
+#		}
+#		
+#		ai_chance = {
+#			base = 75
+#		}
+#	}
+#	
+#	option = { #A country must be based on divine guidance
+#		name = persian_renaissance.7.b
+#		add_loyalists = {
+#			religion = rel:shiite
+#			value = large_radicals
+#		}
+#		add_modifier = {
+#			name = modifier_no_secularization_support
+#			months = long_modifier_time
+#		}
+#		
+#		ai_chance = {
+#			base = 25
+#		}
+#	}
+#}
 
 persian_renaissance.8 = { #The Remodeling of Isfahan
 	type = country_event

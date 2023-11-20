@@ -436,6 +436,12 @@ exile_character = {
 			}
 			has_role = agitator
 		}
+		trigger_if = {
+			limit = {
+				has_variable = bab
+			}
+			NOT = { has_modifier = modifier_bab_popularity }
+		}
 	}
 
 	effect = {

@@ -219,6 +219,32 @@ law_freedom_of_conscience = {
 			}
 			remove_modifier = antireligious_policies
 		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = zoroastrian_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = zoroastrian_persecution
+				}
+				remove_modifier = zoroastrian_persecution
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = bahai_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = bahai_persecution
+				}
+				remove_modifier = bahai_persecution
+			}
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -335,6 +361,44 @@ law_shared_roots = {
 	
 	on_enact = {
 		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = zoroastrian_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = zoroastrian_persecution
+				}
+				remove_modifier = zoroastrian_persecution
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = bahai_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = bahai_persecution
+				}
+				remove_modifier = bahai_persecution
+			}
+		}
 	}
 
 	religious_acceptance_rule = {
@@ -343,14 +407,14 @@ law_shared_roots = {
 			trigger_if = {
 				limit = {
 					scope:country = {
-						OR = {
-							country_has_primary_culture = cu:persian
-							country_has_primary_culture = cu:jonubi
+						any_primary_culture = {
+							has_discrimination_trait = iranian_heritage
 						}
 					}
 				}
 				OR = {
 					has_discrimination_trait = zoroastrian_heritage
+					has_discrimination_trait = yazidi_heritage
 					has_discrimination_trait = christian
 					has_discrimination_trait = muslim
 					has_discrimination_trait = jewish_religion_heritage
@@ -463,6 +527,32 @@ law_total_separation = {
 				has_modifier = antireligious_policies
 			}
 			remove_modifier = antireligious_policies
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = zoroastrian_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = zoroastrian_persecution
+				}
+				remove_modifier = zoroastrian_persecution
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = bahai_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = bahai_persecution
+				}
+				remove_modifier = bahai_persecution
+			}
 		}
 	}
 	
@@ -587,6 +677,32 @@ law_state_atheism = {
 					has_modifier = council_of_zoroastrians
 				}
 				remove_modifier = council_of_zoroastrians
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = zoroastrian_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = zoroastrian_persecution
+				}
+				remove_modifier = zoroastrian_persecution
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = bahai_persecution
+				}
+			}
+			every_scope_state = {
+				limit = {
+					has_modifier = bahai_persecution
+				}
+				remove_modifier = bahai_persecution
 			}
 		}
 	}

@@ -40,6 +40,27 @@
             }
          }
     }
+	
+	no_mustache = {
+         dna_modifiers = {
+             accessory = {
+                 mode = add
+                 gene = mustaches
+                 template = no_mustache
+                 range = { 0 1 } # For the randomness to work correctly
+             }
+         }   
+    
+         weight = {
+             base = 0
+			 modifier = {
+                add = 10000
+                scope:character ?= {
+					has_variable = is_mohammad_safavid
+				}
+			}
+         }
+    }
     
     asian_beards = {
         dna_modifiers = {

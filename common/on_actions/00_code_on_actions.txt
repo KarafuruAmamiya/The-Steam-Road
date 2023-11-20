@@ -44,6 +44,22 @@ on_monthly_pulse_country = {
 			}
 			set_global_variable = germany_formed
 		}
+		if = {
+			limit = {
+				any_scope_character = {
+					has_variable = is_mohammad_safavid
+					is_ruler = yes
+					NOT = { has_variable = mortalize_sadiq }
+				}
+			}
+			random_scope_character = {	
+				limit = {
+					has_variable = is_mohammad_safavid
+				}
+				set_character_immortal = no
+				set_variable = mortalize_sadiq
+			}
+		}
 	}
 	# Election Events
 	random_events = {

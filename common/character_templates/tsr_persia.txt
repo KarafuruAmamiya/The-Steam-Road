@@ -43,7 +43,7 @@ per_kermani_character_template = {
     first_name = Mirza_Aqa_Khan #Mirza is technically a title tho
     last_name = Kermani
     culture = cu:persian
-	religion = rel:shiite #technically Baháʼí 
+	religion = rel:bahai
 	historical = yes
 	is_agitator = yes
     female = no
@@ -55,6 +55,47 @@ per_kermani_character_template = {
         literary
 		direct
 		persistent
+    }
+}
+
+
+#Mirza Husayn Ali Nuri (aka Baha'u'llah)
+per_bahaullah_character_template = {
+    first_name = Mirza_Husayn_Ali #Mirza is technically a title tho
+    last_name = Nuri
+    culture = cu:persian
+	religion = rel:bahai
+	historical = yes
+	is_agitator = yes
+    female = no
+    ideology = ideology_bahai
+    interest_group = ig_devout
+    birth_date = 1817.11.12
+    #dna = dna_bahaullah
+    traits = {
+		persistent
+        inspirational_orator
+		pious
+    }
+}
+
+#Siyyid Ali Muhammad (aka Bab)
+per_bab_character_template = {
+    first_name = Ali
+    last_name = Muhammad
+    culture = cu:persian
+	religion = rel:bahai
+	historical = yes
+	is_agitator = yes
+    female = no
+    ideology = ideology_bahai
+    interest_group = ig_devout
+    birth_date = 1819.10_20
+    #dna = dna_bab
+    traits = {
+		tactful
+		pious
+		inspirational_orator
     }
 }
 

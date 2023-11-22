@@ -51,10 +51,13 @@ soalleiran_clothes_trigger = {
 		home_country = {
 			OR = {
 				AND = {
-					c:SLR = this
+					c:SLR ?= this
 					is_subject = no # preventing uniform conflicts if SLR becomes a subject of another country with puppet uniforms
 				}
-				is_subject_of = c:SLR
+				AND = {
+					exists = c:SLR
+					is_subject_of = c:SLR
+				}
 			}		
 		}
 	}
@@ -67,10 +70,13 @@ soalleiran_clothes_pop_trigger = {
 		home_country = {
 			OR = {
 				AND = {
-					c:SLR = this
+					c:SLR ?= this
 					is_subject = no # preventing uniform conflicts if SLR becomes a subject of another country with puppet uniforms
 				}
-				is_subject_of = c:SLR
+				AND = {
+					exists = c:SLR
+					is_subject_of = c:SLR
+				}
 			}		
 		}
 	}

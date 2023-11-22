@@ -786,7 +786,8 @@
 		}
 		
 		add_homeland = cu:pacifico
-		add_claim = c:SLR
+		add_homeland = cu:mexican
+		add_claim = c:MEX
 	}
 	
 	# Soalleiro and friends
@@ -803,6 +804,7 @@
 		add_homeland = cu:mexican
 		add_homeland = cu:oodham
 		add_homeland = cu:apache
+		add_claim = c:MEX
 	}
 	s:STATE_COAHUILA = {
 		create_state = {
@@ -904,13 +906,27 @@
 		create_state = {
 			country = c:SLR
 			owned_provinces = {
-				x1711F0 x1B1E8B x2126AD x5F2DBA xE80F7D x4A5328 xD72549 x0364B8 x9040C0 xAB5E06 x5171F6 x7A707B xCF5B71 x876BD0 x4887AC x547EEE x08A728 x69827A xA07F85 x76A411 x9A9935 xE5842F x63AA76 x25C814 x10C0C0 xF98E99 x8BDF6D x94D9C2 xDA6117 x54AC76 xEEC0B1
+				x547EEE x5171F6 x69827A x4887AC x63AA76 x2126AD
 			}
 			state_type = unincorporated
+		}
+		create_state = {
+			country = c:PWN
+			owned_provinces = {
+				x1711F0 x1B1E8B xE80F7D x4A5328 x0364B8 x9040C0 xAB5E06 xCF5B71 x876BD0 x08A728 x76A411 xE5842F x25C814 x10C0C0 xDA6117 x54AC76 xEEC0B1
+			}
+		}
+		create_state = {
+			country = c:COM
+			owned_provinces = {
+				x5F2DBA xF98E99 x8BDF6D x94D9C2 xD72549 x7A707B xA07F85 x9A9935
+			}
 		}
 
 		add_homeland = cu:siouan
 		add_homeland = cu:caddoan
+		add_homeland = cu:comanche
+		add_claim = c:SLR
 	}
 	s:STATE_NEW_GALICIA = {
 		create_state = {
@@ -1095,19 +1111,19 @@
 		create_state = {
 			country = c:PWN
 			owned_provinces = { 
-				x09025B x511F34 x770EB3 x1040C0 x394431 x8B2E2A x085848 x5D421A x9324D1 xDF119B x0B51E5 xC020D9 x675507 x7F42E1 xEB3089 x5A6816 xBE4BF0 x6C6CF4 x428D5B xD26D2D x2CA41F x5196C1 xA68A21 x8E9862 x5FA3C8 x24CC25 x05C8DA xD5A04C x05E33E x0CD9E6 xE2B0F1 x69F3E2 x63FAC0 xF5DE3F
+				x09025B x511F34 x770EB3 x1040C0 x394431 x8B2E2A x085848 x5D421A x9324D1 xDF119B x0B51E5 xC020D9 x675507 x7F42E1 xEB3089 x5A6816 xBE4BF0 x6C6CF4 x428D5B xD26D2D x2CA41F x5196C1 xA68A21 x8E9862 x5FA3C8 x24CC25 x05C8DA xD5A04C x05E33E x0CD9E6 xE2B0F1 x69F3E2 x63FAC0 xF5DE3F x2D821B
 			}
 		}
 		create_state = {
 			country = c:COM
 			owned_provinces = { 
-				x029975 xB8266A x49EB3C
+				x029975 xB8266A
 			}
 		}
 		create_state = {
 			country = c:SLR
 			owned_provinces = { 
-				x76F2C5 x924593 x90C040 x2D821B x782001 x671F4C x5BD057 x814008 x6298F3 xB83435 xD1616D xD7F409 x742D27 xE85180 x9B4CC5
+				x76F2C5 x924593 x90C040 x782001 x671F4C x5BD057 x814008 x6298F3 xB83435 xD1616D xD7F409 x742D27 xE85180 x9B4CC5
 			}
 			state_type = unincorporated
 		}
@@ -1120,7 +1136,7 @@
 		create_state = {
 			country = c:COM
 			owned_provinces = { 
-				x432B51 xCF0284 x4439A4 x4034FA x3449B1 xEB0DEB xC32E10 x5C449B x9632BE x51621D x405BB7 xB2484A x0B77C3 xE43B98 xAF6622 x6377BB xEC7601 x13C47E x3DC254 x17C2F0 x70D146 x94CB2D xDAABDA x89CD8D xA1D6F3 xC6EE8B x5A143B x7507ED x384259 xC62026 xE64C00 xD545C6 xCE7722 xEB66DA x32D681 xE0ACB6 x4BE9C6 xBFD5C4 xA00FE0
+				x432B51 xCF0284 x4439A4 x4034FA x3449B1 xEB0DEB xC32E10 x5C449B x9632BE x51621D x405BB7 xB2484A x0B77C3 xE43B98 xAF6622 x6377BB xEC7601 x13C47E x3DC254 x17C2F0 x70D146 x94CB2D xDAABDA x89CD8D xA1D6F3 xC6EE8B x5A143B x7507ED x384259 xC62026 xE64C00 xD545C6 xCE7722 xEB66DA x32D681 xE0ACB6 x4BE9C6 xBFD5C4 xA00FE0 x49EB3C
 			}
 		}
 		add_homeland = cu:comanche
@@ -1147,11 +1163,16 @@
 	s:STATE_TRINDADE = {
 		create_state = {
 			country = c:SLR
-			owned_provinces = { x1402BF x181555 x131940 xAE0966 xB20F72 x403095 x6B20E7 xF205E8 x5F4C23 xEF15A7 x8F2DEF xC03040 x4B4ADB x286941 x316588 x407080 x158786 x637A11 x269541 xDA6506 xF6681C x58998B x47C329 x49BF7D xBCAF1A x71BEC1 xD6ADF2 x2BEBAE x8CD89B xE1CC08 x9AE3BD xA4EE3C xC0F000 xB7FD4E }
+			owned_provinces = { x1402BF x181555 x131940 xB20F72 x403095 x6B20E7 xF205E8 x5F4C23 x8F2DEF x4B4ADB x316588 x407080 x637A11 xDA6506 x58998B xBCAF1A x71BEC1 x2BEBAE x9AE3BD xA4EE3C xC0F000 xB7FD4E }
+		}
+		create_state = {
+			country = c:COM
+			owned_provinces = { x158786 x269541 xF6681C xAE0966 x49BF7D x8CD89B xE1CC08 xD6ADF2 xEF15A7 xC03040 x286941 x47C329 }
 		}
 
 		add_homeland = cu:soalleiran
 		add_homeland = cu:comanche
+		add_claim = c:SLR
 	}
 	s:STATE_RIO_CEDRO = {
 		create_state = {
@@ -1165,12 +1186,17 @@
 	s:STATE_NEW_PORTO = {
 		create_state = {
 			country = c:SLR
-			owned_provinces = { x33031A x1120AB x013AEB x1C3B80 xA909D2 x803040 xFD0D62 xA33609 x973B1C xD22E00 x824F92 x5B5F82 x9D5716 xFE4703 xD15251 xD4536D x5C6FF5 xFB5451 x1B9E2A x7E7CB0 xB47B14 x00B040 x798ACD x2CBC3B x849B8F xEB7B97 x56A8B5 x99A404 x1AC45E x1BB9FA x71ACC7 x1DDB1A x80B0C0 xD19D8F x90B38D x39DB21 x6FD534 xEDA6C0 x18EC9C xD4BE3A xF0BA2E x44F322 x8CDEAE x61EACC }
+			owned_provinces = { x33031A x013AEB xA909D2 x803040 xFD0D62 x5B5F82 xFE4703 xD15251 xD4536D xFB5451 x1B9E2A x7E7CB0 xB47B14 x00B040 x798ACD x2CBC3B x56A8B5 x99A404 x1AC45E x1BB9FA xD19D8F xEDA6C0 x18EC9C xD4BE3A x8CDEAE }
+		}
+		create_state = {
+			country = c:COM
+			owned_provinces = { x1120AB x1C3B80 xA33609 x973B1C xD22E00 x824F92 xF0BA2E x44F322 x71ACC7 x1DDB1A x80B0C0 x90B38D x39DB21 x6FD534 x61EACC x849B8F xEB7B97 x9D5716 x5C6FF5 }
 		}
 			
 		add_homeland = cu:soalleiran
 		add_homeland = cu:afro_brazilian
 		add_homeland = cu:comanche
+		add_claim = c:SLR
 	}
 	s:STATE_FLORIDA = {
 		create_state = {
@@ -1180,7 +1206,7 @@
 		}
 		create_state = {
 			country = c:SML
-			owned_provinces = { x552AD8 x3CDD1A xE740E5 x7FA347 xF41CC0 xAAF2AF x4407A0 }
+			owned_provinces = { x552AD8 x3CDD1A xE740E5 x7FA347 xF41CC0 xAAF2AF x4407A0 x01DEC8 }
 		}
 		
 		add_homeland = cu:dixie
@@ -1278,14 +1304,13 @@
 	# Mexico
 	s:STATE_DURANGO = {
 		create_state = {
-			country = c:SLR
+			country = c:MEX
 			owned_provinces = { 
 				"x00B080" "x10BBF0" "x1C03D7" "x1DD207" "x27C1A1" "x403080" "x476D93" "x4F60EB" "x5B96E6" "x6AAD8E" "x6F6565" "x74AF76" "x83F6C7" "x929ECC" "x95CA42" "xB57A54" "xB7EC5C" "xC46F80" "xD374E4" "xE40A9D" "xE755F0" "xEA20F2" "xEC0A4D" "xF88218" "x13F963" x2F69FF xD87641
 			}
 		}
 		
 		add_homeland = cu:mexican
-		add_homeland = cu:soalleiran
 	}
 	s:STATE_BAJIO = {
 		create_state = {

@@ -995,12 +995,32 @@
 	s:STATE_TAUACONI = {
 			region_state:SLR = {
 				create_pop = {
+					culture = caddoan
+					size = 3000
+				}
+				create_pop = {
+					culture = soalleiran
+					size = 500
+				}
+			}
+			region_state:PWN = {
+				create_pop = {
 					culture = siouan
 					size = 14000
 				}
 				create_pop = {
 					culture = caddoan
 					size = 8000
+				}
+			}
+			region_state:COM = {
+				create_pop = {
+					culture = comanche
+					size = 2000
+				}
+				create_pop = {
+					culture = caddoan
+					size = 4000
 				}
 			}
 			
@@ -1060,6 +1080,12 @@
 				pop_type = slaves
 				culture = afro_brazilian
 				size = 36040
+			}
+		}
+		region_state:COM = {
+			create_pop = {
+				culture = comanche
+				size = 20000
 			}
 		}
 	}
@@ -1162,11 +1188,17 @@
 			create_pop = {
 				culture = comanche
 				religion = catholic
-				size = 20000
+				size = 10000
 			}
 			create_pop = {
 				culture = soalleiran
-				size = 462009
+				size = 472009
+			}
+		}
+		region_state:COM = {
+			create_pop = {
+				culture = comanche
+				size = 20000
 			}
 		}
 	}
@@ -1497,7 +1529,7 @@
 		}
 	}
 	s:STATE_DURANGO = { # est. total of 156999. 153810 in 1830, 160187 in 1840
-		region_state:SLR = {
+		region_state:MEX = {
 			create_pop = {
 				culture = mexican
 				size = 126199

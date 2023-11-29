@@ -264,11 +264,6 @@
 			value = 0
 		}
 		
-		set_variable = {
-			name = persia_eclipse_var
-			value = 0
-		}
-		
 		add_journal_entry = {
 			type = je_consolidate_colonial_rule
 		}
@@ -281,6 +276,9 @@
 		set_variable = adopt_western_clothes
 		
 		add_company = company_type:company_east_india_company
+		company:company_east_india_company = {
+			set_company_establishment_date = 1680.12.31
+		}
 	}
 	c:SRV = { # Shirvan
 		effect_starting_technology_tier_3_tech = yes
@@ -388,6 +386,9 @@
 		}
 
 		add_company = company_type:company_suez_company
+		company:company_suez_company = {
+			set_company_establishment_date = 1823.1.1
+		}
 		
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes

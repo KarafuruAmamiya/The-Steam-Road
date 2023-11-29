@@ -118,6 +118,16 @@ ideology_traditionalist = {
 			}
 			add = 50
 		}
+		# less likely for devout in constitutional Persia
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_devout
+					has_ideology = ideology:ideology_constitutional_moralist
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -529,14 +539,6 @@ ideology_reformer = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_reformer.dds"
 	
 	character_ideology = yes
-	
-	lawgroup_citizenship = {
-		law_multicultural = disapprove	
-		law_ethnostate = disapprove
-		law_national_supremacy = disapprove
-		law_racial_segregation = neutral
-		law_cultural_exclusion = approve
-	}
 	
 	lawgroup_rights_of_women = {
 		law_no_womens_rights = neutral
@@ -2297,6 +2299,16 @@ ideology_theocrat = {
 			}
 			add = -150
 		}
+		# less likely for devout in constitutional Persia
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_devout
+					has_ideology = ideology:ideology_constitutional_moralist
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -2703,6 +2715,16 @@ ideology_authoritarian = {
 						is_interest_group_type = ig_petty_bourgeoisie
 						is_interest_group_type = ig_landowners
 					}
+				}
+			}
+			add = 25
+		}
+		# more likely for more Shia devout
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_devout
+					has_ideology = ideology:ideology_shiite_moralist
 				}
 			}
 			add = 25
@@ -3712,7 +3734,7 @@ ideology_corporatist_leader = {
 	
 	lawgroup_education_system = {
 		law_religious_schools = approve
-		law_public_schools = neutral
+		law_public_schools = approve
 		law_private_schools = neutral	
 		law_no_schools = disapprove	
 	}	
@@ -3905,7 +3927,7 @@ ideology_humanitarian_royalist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_humanitarian_royalist
+					has_law = law_type:law_monarchy
 				}
 			}
 			add = 50

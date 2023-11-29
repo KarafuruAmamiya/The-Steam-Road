@@ -10,6 +10,13 @@
 
 	possible = {
 		has_technology_researched = nationalism
+
+		any_neighbouring_state = {
+			state_is_in_north_america = yes
+			owner = {
+				is_country_type = decentralized
+			}
+		}
 	}
 
 	effect = {
@@ -22,7 +29,8 @@ je_unite_the_nations_organize_the_tribes_button = {
 	desc = "je_unite_the_nations_organize_the_tribes_button_desc"
 
 	visible = {
-		c:TIS ?= this
+		exists = c:TIS
+		c:TIS = this
 	}
 
 	possible = {
@@ -85,7 +93,8 @@ je_unite_the_nations_offer_confederation_button = {
 	desc = "je_unite_the_nations_offer_confederation_button_desc"
 
 	visible = {
-		c:TIS ?= this
+		exists = c:TIS
+		c:TIS = this
 	}
 
 	possible = {

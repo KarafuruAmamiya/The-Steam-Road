@@ -105,6 +105,22 @@ law_denominational_exclusion = {
 		law_theocracy
 	}
 	
+	is_visible = {
+		OR = {
+			religion = { has_discrimination_trait = eastern }
+			religion = { has_discrimination_trait = protestant_heritage }
+			religion = { has_discrimination_trait = orthodox_heritage }
+		}
+	}
+	
+	can_enact = {
+		OR = {
+			religion = { has_discrimination_trait = eastern }
+			religion = { has_discrimination_trait = protestant_heritage }
+			religion = { has_discrimination_trait = orthodox_heritage }
+		}
+	}
+	
 	on_enact = {
 		recalculate_pop_ig_support = yes
 		if = {

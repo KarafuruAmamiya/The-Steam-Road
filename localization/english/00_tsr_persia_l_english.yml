@@ -82,24 +82,67 @@
  #Constitutional Reformation
  je_constitutional_reformation: "Constitutional Reformation"
  je_constitutional_reformation_reason: "Inspired by the ideals of the 1780 Revolution and driven by a coalition of intellectuals, clergy, merchants, and ordinary citizens, the Constitutionalist movement has risen to demand a new constitution with a representative government and greater political freedoms."
- iranian_romantic_nationalism_tt: "We have adopted Romantic Nationalism"
- zandi_rebellion_start_tt: "The Zandi Rebellion has begun"
+ je_constitutional_reformation_goal: "The following reforms has been enacted for 10 years without any revolts:"
+ zandi_rebellion_begins_tt: "We failed to prevent the #bold Zandi Rebellion#!"
+ clerical_conflict_tt: "The clergy will no longer support the Reformation!"
  reformed_constitution: "Reformed Constitution"
  constitutional_reformation: "Constitutional Reformation"
  constitutional_reformation_religion: "Constitutional Reformation: Religious Rights"
  constitutional_reformation_suffrage: "Constitutional Reformation: Suffrage Rights"
- constitutional_reformation_land_reform: "Constitutional Reformation: Land Rights"
  constitutional_reformation_education: "Constitutional Reformation: Educational Committee"
+ je_constitutional_reformation_fail: "The #bold Progress Bar#! has reached #bold 0#!"
  
- sway_to_constitutionalism: "Sway to Constitutionalist"
- sway_to_constitutionalism_desc: "With the proper combination of bribes and persuasion, a politician might be persuaded to support our reform attempts."
- sway_to_constitutionalism_correct_ig_in_government_tt: "[Character.GetFullNamePossessive] [concept_interest_group] [Character.GetInterestGroup.GetName] is [concept_in_government] and #tooltippable #tooltip:[Character.GetTooltipTag],sway_to_constitutionalism_correct_ig_in_government_tt_compatibility_list ideologically compatible with [GetIdeology('ideology_persian_constitutionalist').GetName]#!#!"
- sway_to_constitutionalism_correct_ig_in_government_tt_compatibility_list: "[Concept('concept_interest_group','$concept_interest_groups$')] compatible with [GetIdeology('ideology_persian_constitutionalist').GetName] includes:\n[GetInterestGroupVariant('ig_armed_forces',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_petty_bourgeoisie',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_industrialists',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_intelligentsia',Character.GetCountry).GetName]\n[GetInterestGroupVariant('ig_devout',Character.GetCountry).GetName]"
- sway_to_constitutionalism_compatible_ideology_tt: "[Character.GetFullNamePossessive] current [concept_ideology] ([Character.GetIdeology.GetName)]) is #b not#! #tooltippable #tooltip:[Character.GetTooltipTag],sway_to_constitutionalism_compatible_ideology_tt_compatibility_list opposed to [GetIdeology('ideology_persian_constitutionalist').GetName]#!#!"
- sway_to_constitutionalism_compatible_ideology_tt_compatibility_list: "[Concept('concept_ideology','$concept_ideologies$')] opposed to [GetIdeology('ideology_persian_constitutionalist').GetName] includes:\n[GetIdeology('ideology_atheist').GetName]\n[GetIdeology('ideology_theocrat').GetName]\n[GetIdeology('ideology_republican_leader').GetName]\n[GetIdeology('ideology_radical').GetName]\n[GetIdeology('ideology_social_democrat').GetName]\n[GetIdeology('ideology_communist').GetName]\n[GetIdeology('ideology_vanguardist').GetName]\n[GetIdeology('ideology_anarchist').GetName]\n[GetIdeology('ideology_humanitarian').GetName]"
- swayed_to_constitutionalist: "Overt Constitutionalist Influence"
- sway_to_constitutionalism_tt: "We have swayed a politician into supporting the #BOLD Constitutional Reformation#!"
+ edict_of_yazd_button: "Issue the Edict of Yazd"
+ edict_of_yazd_button_desc: "The championing of the rights of various religious groups has been a part of reformist agenda in Iran ever since the 1750 Revolution.\n\nShould [ROOT.GetCountry.GetName] find itself with an #bold Persian Constitutionalist#! or #bold Reformer#! [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] leader, or should the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] be under sufficient control, the enactment of religious rights could be expedited greatly, although at a cost."
+ edict_of_yazd_button_tt: "Instantly passes the law [GetLawType('law_freedom_of_conscience').GetName] at the cost of infuriating any traditionalist [Concept('concept_interest_group', '$concept_interest_groups$')]."
+ edict_of_yazd_button_tt_2: "[concept_enactment_phase] is greater or equal to #bold 1#!"
+ suppressed_devout_tt: "The [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] is not part of the government, is being suppressed, and has less clout than #bold 20%#!"
+ outraged_over_yazd_edict_modifier: "Outraged Over Edict of Yazd"
+ 
  refused_reforms: "Refused to Reform"
+ 
+ persian_flavor.7.t: "Rise of Constitutionalist Movements"
+ persian_flavor.7.d: "Beginning in the mid-19th century, the rise of the reform-minded and modernization-oriented [ROOT.GetCountry.GetRuler.GetFullName] to the Sun Throne has opened opportunities for reformists to gain prominence in the politics of [ROOT.GetCountry.GetName]. Viewing many of the remaining 'backwards' institutions in Iran as a 'national disgrace', various groups has lobbied for a full-on reformation of the constitution, including those promised in the 1750 Revolution but hasn't been enacted."
+ persian_flavor.7.f: "Iran may have been considered 'civilized' and recognized by Western countries, but the lack of women's rights, limited democratic reforms, remaining vestigial institutions such as slavery and harem, along with the lack of regulations amidst rapid industrialization has led to an outcry among various academic, clerical, and mercantile classes. They believe it is not enough to be a recognized world power; [ROOT.GetCountry.GetName] must stand as an equal among the Western powers of the world politically and socially."
+ persian_flavor.7.a: "It's time for a radical change."
+ 
+ persian_flavor.11.t: "A Renewed Majlis"
+ persian_flavor.11.d: "Against all odds, we have pushed back the old powers and institutions in our country and modernized our constitution and parliament. The Quran shall remain our foundations while the Italian constitution will serve as a partial model for us to look up to. [ROOT.GetCountry.GetName] shall shine and be an example of a beacon of progress and civilization in the East!"
+ persian_flavor.11.f: ""The currents of changes may be swift, and the waves of the old may crash against us, but let it be known that we embark on this journey not as adversaries to our glorious past, but as architects of a future where the tapestry of Iran is woven with threads of enlightenment and civilization. Let the pages of history mark this moment, where the brilliance of our nation illuminates the way forward for the world to see.""
+ persian_flavor.11.a: "A new era is here."
+ persian_flavor.11.b: "Equality and freedom for all Iranians of all religions."
+ persian_flavor.11.b: "The people shall lead the way forward."
+ persian_flavor.11.b: "Our future depends on the new educated generation."
+ 
+ persian_flavor.27.t: "The Role of Islam in the New Constitution"
+ persian_flavor.27.d: "The drafting of the new constitution has been met with concern from certain members of the [SCOPE.gsInterestGroup('devout_scope').GetName] who demands that its content should not go against Islam. In particular, they proposed the establishment of a council of 5 high ranking Twelver Shia clerics tasked to make sure the laws passed by the parliament are not against religious codes, and that the constitution must explicitly state that Islam is the official religion of [ROOT.GetCountry.GetName]."
+ persian_flavor.27.f: ""It is concerning that the new laws proposed by the Majlis and the Shah must be borrowed from Western countries whose code and teachings are completely different from ours. To preserve the dignity of the Shi'ite state, it is necessary that the new constitution preserves the ordinances of Islam and for our mullahs to oversee the Majlis.""
+ persian_flavor.27.a: "Our constitution must not deviate from the teachings of Quran."
+ persian_flavor.27.b: "Secularization is the key to modernization."
+ shia_clerics_committee: "Committee of Shia Clerics"
+ unislamic_constitution: "Unislamic Constitution"
+ 
+ persian_flavor.31.t: "The New Tyranny"
+ persian_flavor.31.d: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état against [ROOT.GetCountry.GetRuler.GetFullName]. Supported mainly by the disgruntled [SCOPE.gsInterestGroup('landowners_scope').GetName], the contender to the throne, Jafar I, has toppled [ROOT.GetCountry.GetRuler.GetFirstName] and planted himself on the Sun Throne, before declaring an absolutist martial law and disbanding the parliament."
+ persian_flavor.31.d2: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état by the disgruntled [SCOPE.gsInterestGroup('landowners_scope').GetName]. [ROOT.GetCountry.GetRuler.GetFullName] was deposed from rule, while a representative from the [SCOPE.gsInterestGroup('landowners_scope').GetName] has installed a martial law promising to return absolutist rule to Iran."
+ persian_flavor.31.d3: "The failure of the reforms, the severe antagonism towards the Reformation from traditionalist clerics and landed elites, and the Zandi Rebellion has led to widespread dissatisfaction against [ROOT.GetCountry.GetRuler.GetFullName]. In the midst of the chaos, [ROOT.GetCountry.GetRuler.GetFullName] was deposed and the [SCOPE.gsInterestGroup('landowners_scope').GetName] has declared martial law, justifying it as a 'temporary measure' to crush the Zandism revolt."
+ persian_flavor.31.f: ""The people have thrown out the law of the Prophet and have set up their own law instead. What is currently happening to Iran can be summed as divine punishment for our neglect and ruin of the Shiʿite state.""
+ persian_flavor.31.a: "Long live Shah Jafar!"
+ persian_flavor.31.b: "These measures will return us to the right path!"
+ the_new_tyranny: "The New Tyranny"
+ 
+ persian_flavor.32.t: "The Unveiling"
+ persian_flavor.32.d: "In an effort to promote nation-building, modernization, and women's rights, [ROOT.GetCountry.GetRuler.GetFullName] has decreed that all women are no longer forced to wear veils in public, and is in fact encouraged to go outside without it. To further promote this, the women of upper echelons has started to perform public representational duties as role models for women participating in public society."
+ persian_flavor.32.f: ""From this day onwards, we unveil not only the faces of our women but the potential of our nation. Let the veils that shroud our women be lifted not in defiance of our values, but in harmony with progress, and may every woman be empowered to stride alongside men in the new epoch of [ROOT.GetCountry.GetName].""
+ persian_flavor.32.a: "They shall be able to choose what they wear."
+ persian_flavor.32.b: "Veils shall no longer be permitted in the civilized era of [ROOT.GetCountry.GetName]!"
+ 
+ unveiled_women_devout: "Unveiled Women"
+ unveiled_women_intelligentsia: "Unveiled Women"
+ banned_veils: "Banned Veils"
+ kashf_e_hijab_tt: "Women of the upper and middle strata will unveil in public."
+ no_kashf_e_hijab_tt: "Muslim women will be forced to wear veil in public."
+ banned_veils_tt: "Every women will be forced to unveil."
  
  #Persian Renaissance
  je_persian_renaissance: "Iranian Renaissance"
@@ -124,12 +167,12 @@
  persian_renaissance_historical_sites_tt: "We have restored at least 5 ancient ruins."
  
  persian_renaissance.1.t: "The Academy of Iran"
- persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [GetPlayer.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
+ persian_renaissance.1.d: "The literary movement developed in academic circles throughout the 19th century resulted in the establishment of the Academy of Iran (Farhangestân-e Iran), as the pioneering institution of its kind in the country. The mission of the Academy was to refine and preserve the Persian language and literature. It was established by the initiative of [ROOT.GetCountry.GetRuler.GetFullName], and many prominent names in the nationalist movement of the time. "
  persian_renaissance.1.f: "The academy was a key institution in the struggle to build Iran as a nation-state. The academy led massive campaigns to replace the many Arabic, French, and Greek loanwords whose immense use in Persian during the previous centuries had created a literary language considerably different from the spoken Persian of the time."
  persian_renaissance.1.a: "Excellent!"
  
  persian_renaissance.2.t: "National Museum of Iran"
- persian_renaissance.2.d: "With various excavation projects and revitalization of relics from bygone eras, the people have realized the importance of cultural heritage. By the order of [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] [GetPlayer.GetRuler.GetFullName], the National Museum of Iran was constructed, built in collaboration with foreign architects and was opened to public."
+ persian_renaissance.2.d: "With various excavation projects and revitalization of relics from bygone eras, the people have realized the importance of cultural heritage. By the order of [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] [ROOT.GetCountry.GetRuler.GetFullName], the National Museum of Iran was constructed, built in collaboration with foreign architects and was opened to public."
  persian_renaissance.2.f: "At the beginning, the first floor of the museum was dedicated to the pre-Islamic era, and the second floor of the museum was dedicated to the post-Islamic era. However, the works of the Islamic era were officially separated from the museum and moved to the adjacent building, which was built a few decades later. This separated the museum into the Museum of Ancient Iran and the Museum of Islamic Archaeology and Art of Iran.\nThe Museum of Ancient Iran consists of two floors. Its halls contain artifacts and fossils from the Lower, Middle, and Upper Paleolithic, as well as the Neolithic, Chalcolithic, early and late Bronze Age, and Iron Ages I-III, through the Median, Achaemenid, Seleucid, Parthian, and Sassanian eras.\nMeanwhile, the Museum of the Islamic era contains Islamic artifacts, with the second floor containing the early Islamic, Seljuq, and Ilkhanid periods while the first floor houses the holy Qurān hall, and artifacts of the Timurid, Zahedi, and Safavid periods."
  persian_renaissance.2.a: "Wonderful."
  
@@ -266,7 +309,7 @@
  victory_over_bahai: "Victory over Bábism"
  
  persian_flavor.23.t: "Assassin!"
- persian_flavor.23.d: "As [GetPlayer.GetRuler.GetFullName] passed along a public road, two Bábí youth, in retaliation for the killings of the Báb and his leading disciples, blocked the monarch to fire birdshot at him."
+ persian_flavor.23.d: "As [ROOT.GetCountry.GetRuler.GetFullName] passed along a public road, two Bábí youth, in retaliation for the killings of the Báb and his leading disciples, blocked the monarch to fire birdshot at him."
  persian_flavor.23.f: ""I will rule you differently if I survive!""
  persian_flavor.23.a: "They calmly stepped forward and..."
  
@@ -287,8 +330,6 @@
  
  #Need Battle of Fort Tabarsi-style event
  
- kashf_e_hijab_tt: "Women of the upper and middle strata will unveil in public."
- 
  #Decisions
  excavation_of_persepolis: "Excavation of Persepolis"
  excavation_of_persepolis_desc: "The ruins of Persepolis, once the capital of the Old Persian Empire, has left people in awe for centuries. In the 19th century, the rising interest has led to a variety of amateur digging occurred at the site, in some cases on a large scale. Let us begin an official excavation and restoration of the site."
@@ -303,16 +344,17 @@
  grant_zoroastrian_rights_desc: "For long, the Zoroastrians in our country has been persecuted, killed, or forced to convert into Shia Islam. However, the adoption of nationalism has recognized them too as people of the Iranian Empire, and many are advocating to give them and other religious minorities fundamental rights."
  can_build_fire_temple_tt: "We will be able to build the [GetBuildingType('building_yazd_atash_beram').GetName] [concept_monument]."
  
- royal_slavery_abolished_tt: "We have abolished the harem and other kinds of royal slavery."
- 
  encourage_unveiling: "Encourage Unveiling"
  encourage_unveiling_desc: "To increase women's participation in society and modernize our country, it is necessary to encourage them to appear without a veil in public."
  have_adopted_western_clothes_tt: "We have adopted Western clothes."
+ 
+ enforce_veiling: "Enforce Veiling"
+ enforce_veiling_desc: "It is necessary that we enforce the use of veils on our women in order to protect their dignity and honor while ridding ourselves of corrupt Western culture."
 
  # Burmese War
  burmese_war.1.t: "End of the Taungoo Empire"
  burmese_war.1.d: "With the fall of their last stronghold in Mandalay, the Taungoo Empire has finally fallen."
- burmese_war.1.f: "Despite our valiant efforts, even after losing our capital of Pegu, the wicked Persians has finally catched up to us. Refusing to submit to them, King [GetPlayer.GetRuler.GetFullName] still attempted to lead the resistance efforts. However, even he was captured and executed, while the rest of the Taungoos were exiled. We no longer have any choice but to submit to a puppet satrap of the Safavids. Will there be a day where we regain our freedom?"
+ burmese_war.1.f: "Despite our valiant efforts, even after losing our capital of Pegu, the wicked Persians has finally catched up to us. Refusing to submit to them, King [ROOT.GetCountry.GetRuler.GetFullName] still attempted to lead the resistance efforts. However, even he was captured and executed, while the rest of the Taungoos were exiled. We no longer have any choice but to submit to a puppet satrap of the Safavids. Will there be a day where we regain our freedom?"
  burmese_war.1.a: "A dark day for Burma."
  
  burmese_war.2.t: "End of the Taungoo Empire"
@@ -346,3 +388,4 @@
  bowed_down_to_foreigners: "Bowed Down to Foreigners"
  curbed_opium_trade_max: "Curbed Opium Trade"
  opium_wars_modifier: "Opium Wars Fervor"
+ landowners_qanat_maintenance: "Landowners Qanat Maintenance"

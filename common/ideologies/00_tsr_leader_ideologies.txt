@@ -154,7 +154,7 @@ ideology_persian_constitutionalist = {
 		law_state_religion = strongly_disapprove
 		law_denominational_exclusion = disapprove
 		law_freedom_of_conscience = approve
-		law_shared_roots = strongly_approve
+		law_shared_roots = neutral
 		law_total_separation = disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -164,14 +164,6 @@ ideology_persian_constitutionalist = {
 		law_legacy_slavery = disapprove
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
-	}
-	
-	lawgroup_land_reform = {
-		law_serfdom = strongly_disapprove
-		law_tenant_farmers = disapprove
-		law_commercialized_agriculture = approve
-		law_homesteading = strongly_approve
-		law_collectivized_agriculture = disapprove
 	}
 	                                       
 	lawgroup_bureaucracy = {
@@ -191,6 +183,12 @@ ideology_persian_constitutionalist = {
 		law_child_labor_allowed = disapprove
 		law_restricted_child_labor = neutral
 		law_compulsory_primary_school = approve
+	}
+	
+	lawgroup_labor_rights = {		
+		law_worker_protections = neutral
+		law_regulatory_bodies = approve
+		law_no_workers_rights = disapprove
 	}
 	
 	possible = {
@@ -317,8 +315,9 @@ ideology_persian_constitutionalist = {
 						has_law = law_type:law_oligarchy
 						has_law = law_type:law_landed_voting
 						has_law = law_type:law_legacy_slavery
+						has_law = law_type:law_debt_slavery
+						has_law = law_type:law_slave_trade
 						has_law = law_type:law_state_religion
-						has_law = law_type:law_denominational_exclusion
 						has_law = law_type:law_no_womens_rights
 						has_law = law_type:law_child_labor_allowed 
 					}

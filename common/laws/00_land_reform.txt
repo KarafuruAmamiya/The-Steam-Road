@@ -32,6 +32,27 @@
 		}
 	}
 	
+	on_activate = {
+		if = {
+			limit = {
+				c:PER ?= this
+				any_scope_state = {
+					state_region = { is_homeland = cu:persian }
+					NOT = { has_modifier = landowners_qanat_maintenance }
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_region = { is_homeland = cu:persian }
+				}
+				add_modifier = {
+					name = landowners_qanat_maintenance
+					months = -1
+				}
+			}
+		}
+	}
+	
 	modifier = {
 		interest_group_ig_landowners_pol_str_mult = 0.5
 	}
@@ -110,6 +131,27 @@ law_tenant_farmers = {
 				}
 			}
 			custom_tooltip = rural_laborers_tu_ig_shift_effect_negative_tt
+		}
+	}
+	
+	on_activate = {
+		if = {
+			limit = {
+				c:PER ?= this
+				any_scope_state = {
+					state_region = { is_homeland = cu:persian }
+					NOT = { has_modifier = landowners_qanat_maintenance }
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_region = { is_homeland = cu:persian }
+				}
+				add_modifier = {
+					name = landowners_qanat_maintenance
+					months = -1
+				}
+			}
 		}
 	}
 
@@ -199,6 +241,21 @@ law_commercialized_agriculture = {
 			custom_tooltip = rural_laborers_tu_ig_shift_effect_tt
 		}
 	}
+	
+	on_activate = {
+		if = {
+			limit = {
+				c:PER ?= this
+				any_scope_state = {
+					has_modifier = landowners_qanat_maintenance
+				}
+			}
+			every_scope_state = {
+				limit = { has_modifier = landowners_qanat_maintenance }
+				remove_modifier = landowners_qanat_maintenance
+			}
+		}
+	}
 
 	pop_support = {
 		value = 0
@@ -241,13 +298,6 @@ law_commercialized_agriculture = {
 			}
 			add = 750
 		}
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_constitutional_reformation
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -286,6 +336,21 @@ law_homesteading = {
 				}
 			}
 			custom_tooltip = rural_laborers_tu_ig_shift_effect_negative_tt
+		}
+	}
+	
+	on_activate = {
+		if = {
+			limit = {
+				c:PER ?= this
+				any_scope_state = {
+					has_modifier = landowners_qanat_maintenance
+				}
+			}
+			every_scope_state = {
+				limit = { has_modifier = landowners_qanat_maintenance }
+				remove_modifier = landowners_qanat_maintenance
+			}
 		}
 	}
 
@@ -332,13 +397,6 @@ law_homesteading = {
 			}
 			add = 750
 		}
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_constitutional_reformation
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -363,6 +421,21 @@ law_collectivized_agriculture = {
 				}
 			}
 			custom_tooltip = farmers_pb_ig_shift_effect_negative_tt
+		}
+	}
+	
+	on_activate = {
+		if = {
+			limit = {
+				c:PER ?= this
+				any_scope_state = {
+					has_modifier = landowners_qanat_maintenance
+				}
+			}
+			every_scope_state = {
+				limit = { has_modifier = landowners_qanat_maintenance }
+				remove_modifier = landowners_qanat_maintenance
+			}
 		}
 	}
 

@@ -459,6 +459,26 @@
 				value = 100
 			}
 		}
+		
+		add = {
+			desc = "ideology_constitutional_moralist"
+			if = {
+				limit = {
+					has_state_religion = yes
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_constitutional_moralist
+						}
+					}
+				}
+				value = 100
+			}
+		}
 
 		multiply = {
 			desc = "LEADER_POPULARITY"

@@ -75,9 +75,8 @@ grant_zoroastrian_rights = {
 	}
 
 	possible = {
-		NOR = {
+		NOT = {
 			has_law = law_type:law_state_religion
-			has_law = law_type:law_denominational_exclusion
 		}
 		NOT = { has_variable = granted_zoroastrian_rights }
 		has_technology_researched = nationalism
@@ -98,8 +97,21 @@ grant_zoroastrian_rights = {
 
 encourage_unveiling = {
 	is_shown = {
-		religion = {
-			has_discrimination_trait = muslim
+		country_definition = {
+			religion = {
+				has_discrimination_trait = muslim
+			}
+		}
+		OR = {
+			country_has_primary_culture = cu:circassian
+			any_primary_culture = {
+				OR = {
+					has_discrimination_trait = arabic_heritage
+					has_discrimination_trait = iranian_heritage
+					has_discrimination_trait = turkic_heritage
+					has_discrimination_trait = aramaic_heritage
+				}
+			}
 		}
 		NOT = { has_variable = kashf_e_hijab_var }
 	}
@@ -107,12 +119,11 @@ encourage_unveiling = {
 	possible = {
 		NOR = {
 			has_law = law_type:law_state_religion
-			has_law = law_type:law_denominational_exclusion
 			has_law = law_type:law_no_womens_rights
 		}
 		has_law = law_type:law_slavery_banned
 		ig:ig_devout = {
-			is_powerful = no
+			ig_clout < 0.15
 			is_in_government = no
 		}
 		custom_tooltip = {
@@ -131,6 +142,105 @@ encourage_unveiling = {
 	}
 
 	ai_chance = {
-		base = 100
+		base = 0
+		modifier = {
+			trigger = {
+				OR = {
+					has_strategy = ai_strategy_progressive_agenda
+					has_strategy = ai_strategy_egalitarian_agenda
+					has_strategy = ai_strategy_nationalist_agenda
+				}
+			}
+			add = 100
+		}
+		modifier = {
+			trigger = {
+				has_law = law_type:law_state_atheism
+			}
+			add = 1000
+		}
+	}
+}
+
+enforce_veiling = {
+	is_shown = {
+		country_definition = {
+			religion = {
+				has_discrimination_trait = muslim
+			}
+		}
+		OR = {
+			country_has_primary_culture = cu:circassian
+			any_primary_culture = {
+				OR = {
+					has_discrimination_trait = arabic_heritage
+					has_discrimination_trait = iranian_heritage
+					has_discrimination_trait = turkic_heritage
+					has_discrimination_trait = aramaic_heritage
+				}
+			}
+		}
+		has_variable = kashf_e_hijab_var
+	}
+
+	possible = {
+		has_law = law_type:law_state_religion
+		has_law = law_type:law_no_womens_rights
+		ig:ig_devout = {
+			ig_clout >= 0.15
+			is_in_government = yes
+			OR = {
+				owner = {
+					ruler = {
+						OR = {
+							has_ideology = ideology:ideology_traditionalist
+							has_ideology = ideology:ideology_theocrat
+						}
+					}
+				}
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_traditionalist
+						has_ideology = ideology:ideology_theocrat
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = no_kashf_e_hijab_tt
+			remove_variable = kashf_e_hijab_var
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+		add_radicals = {
+			strata = middle
+			NOT = { pop_type = clergymen }
+			value = medium_radicals
+		}
+		add_radicals = {
+			strata = rich
+			value = large_radicals
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = forced_veiling
+				months = long_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_reactionary_agenda
+			}
+			add = 100
+		}
 	}
 }

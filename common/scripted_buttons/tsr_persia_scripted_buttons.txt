@@ -235,26 +235,30 @@ edict_of_yazd_button = {
 					}
 				}
 				ig:ig_devout = {
-					is_in_government = no
-					is_being_suppressed = yes
-					ig_clout < 0.2
-					leader = {
-						NOT = { has_ideology = ideology:ideology_persian_constitutionalist }
+					OR = {
+						custom_tooltip = {
+							text = suppressed_devout_tt
+							AND = {
+								is_in_government = no
+								is_being_suppressed = yes
+								ig_clout < 0.2
+							}
+						}
+						leader = {
+							OR = { 
+								has_ideology = ideology:ideology_reformer
+								has_ideology = ideology:ideology_persian_constitutionalist 
+							}
+						}
 					}
 				}
 			}
-			OR = {
-				is_enacting_law = law_type:law_freedom_of_conscience
-				is_enacting_law = law_type:law_shared_roots
-			}
+			is_enacting_law = law_type:law_freedom_of_conscience
 			custom_tooltip = {
 				text = edict_of_yazd_button_tt
 				trigger_if = {
 					limit = {
-						OR = {
-							is_enacting_law = law_type:law_freedom_of_conscience
-							is_enacting_law = law_type:law_shared_roots
-						}
+						is_enacting_law = law_type:law_freedom_of_conscience
 					}
 					enactment_phase >= 1
 				}
@@ -270,9 +274,14 @@ edict_of_yazd_button = {
 		modifier = {
 			trigger = { 
 				ig:ig_devout = {
-					is_in_government = no
-					leader = {
-						NOT = { has_ideology = ideology:ideology_persian_constitutionalist }
+					OR = {
+						is_in_government = no
+						leader = {
+							NOR = { 
+								has_ideology = ideology:ideology_reformer
+								has_ideology = ideology:ideology_persian_constitutionalist 
+							}
+						}
 					}
 				}
 			}
@@ -281,10 +290,17 @@ edict_of_yazd_button = {
 		modifier = {
 			trigger = { 
 				ig:ig_devout = {
-					is_in_government = no
-					is_being_suppressed = yes
-					leader = {
-						NOT = { has_ideology = ideology:ideology_persian_constitutionalist }
+					OR = {
+						AND = {
+							is_in_government = no
+							is_being_suppressed = yes
+						}
+						leader = {
+							NOR = { 
+								has_ideology = ideology:ideology_reformer
+								has_ideology = ideology:ideology_persian_constitutionalist 
+							}
+						}
 					}
 				}
 			}
@@ -323,28 +339,17 @@ edict_of_yazd_button = {
 
 	effect = {
 		custom_tooltip = edict_of_yazd_button_tt_2
-		if = {
+		activate_law = law_type:law_freedom_of_conscience
+		every_interest_group = {
 			limit = {
-				is_enacting_law = law_type:law_freedom_of_conscience
-			}
-			activate_law = law_type:law_freedom_of_conscience
-			ig:ig_devout = {
-				add_modifier = {
-					name = outraged_over_yazd_edict_1_modifier
-					months = normal_modifier_time
+				law_stance = {
+					law = law_type:law_state_religion
+					value > neutral
 				}
 			}
-		}
-		else_if = {
-			limit = {
-				is_enacting_law = law_type:law_shared_roots
-			}
-			activate_law = law_type:law_shared_roots
-			ig:ig_devout = {
-				add_modifier = {
-					name = outraged_over_yazd_edict_2_modifier
-					months = normal_modifier_time
-				}
+			add_modifier = {
+				name = outraged_over_yazd_edict_modifier
+				months = normal_modifier_time
 			}
 		}
 		hidden_effect = {
@@ -352,92 +357,6 @@ edict_of_yazd_button = {
 				limit = { NOT = { has_variable = zandism_secularization } }
 				set_variable = zandism_secularization
 			}
-		}
-	}
-}
-
-# Suppress Slave Trade Button
-je_slave_trade_suppression_button = {
-	name = "je_slave_trade_suppression_button"
-	desc = "je_slave_trade_suppression_button_desc"
-
-	visible = {
-		has_law = law_type:law_slave_trade 
-		NOT = { has_variable = var_slave_trade_suppression_var }
-	}
-
-	possible = {
-		ig:ig_landowners = {
-			is_in_government = no
-		}
-		custom_tooltip = {
-			text = slave_trade_button_cooldown_tt
-			NOT = {
-				has_variable = slave_trade_button_cooldown_var
-			}
-		}
-	}
-
-	effect = {
-		custom_tooltip = je_slave_trade_suppression_button_tt
-		set_variable = var_slave_trade_suppression_var
-		set_variable = {
-			name = slave_trade_button_cooldown_var
-			months = short_modifier_time
-		}
-		every_interest_group = {
-			limit = {
-                law_stance = {
-                    law = law_type:law_slave_trade
-                    value > neutral
-                }
-			}
-			add_modifier = {
-				name = restricted_slave_trade_ig_modifier
-			}
-		}
-		remove_modifier = unrestricted_slave_trade_modifier
-		add_modifier = {
-			name = restricted_slave_trade_modifier
-		}
-	}
-}
-
-# Stop Suppressing Slave Trade Button
-je_slave_trade_end_suppression_button = {
-	name = "je_slave_trade_end_suppression_button"
-	desc = "je_slave_trade_end_suppression_button_desc"
-
-	visible = {
-		has_law = law_type:law_slave_trade 
-		has_variable = var_slave_trade_suppression_var
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = slave_trade_button_cooldown_tt
-			NOT = {
-				has_variable = slave_trade_button_cooldown_var
-			}
-		}
-	}
-
-	effect = {
-		custom_tooltip = je_slave_trade_end_suppression_button_tt
-		remove_variable = var_slave_trade_suppression_var
-		remove_modifier = restricted_slave_trade_modifier
-		set_variable = {
-			name = slave_trade_button_cooldown_var
-			months = short_modifier_time
-		}
-		every_interest_group = {
-			limit = {
-				has_modifier = restricted_slave_trade_ig_modifier
-			}
-			remove_modifier = restricted_slave_trade_ig_modifier
-		}
-		add_modifier = {
-			name = unrestricted_slave_trade_modifier
 		}
 	}
 }

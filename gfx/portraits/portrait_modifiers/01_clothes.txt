@@ -5046,6 +5046,38 @@ chinese_upper_clothes = {
             }
         }
     }
+	arabic_poor_clothes_westernized = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = shirt
+                template = working_class_shirt
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = outfits
+                template = european_working_class_outfits
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        } 
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+                western_clothes_trigger = yes
+				scope:pop ?= {
+					is_pop_type = machinists
+				}
+			}
+        }
+    }
     arabic_middle_clothes = {
         dna_modifiers = {
             accessory = {
@@ -5107,7 +5139,7 @@ chinese_upper_clothes = {
 						arabic_clothes_pop_trigger = yes
 						indian_clothes_pop_trigger = yes
 					}
-                    middle_clothes_pop_trigger = yes
+					middle_clothes_pop_trigger = yes
                 }
            }
         }

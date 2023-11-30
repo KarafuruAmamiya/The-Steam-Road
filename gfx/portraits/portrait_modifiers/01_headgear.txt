@@ -405,8 +405,8 @@
             }
         }
     }
-
-    indian_military_headgear_no_hijab = {
+	
+	indian_military_headgear = {
         dna_modifiers = {
             accessory = {
                 mode = add
@@ -419,69 +419,7 @@
             base = 0
             modifier = {
                 add = 1000
-                OR = {
-                    AND = {
-                        exists = scope:pop
-                        scope:pop = {
-                            religion = rel:sikh
-                            NOT = { is_pop_type = clergymen }
-                        }
-                    }
-                    AND = {
-                        exists = scope:character
-                        scope:character = {
-                            religion = rel:sikh
-                            AND = {
-                                is_ruler = yes
-                                exists = home_country
-                                home_country = {
-                                    has_law = law_type:law_monarchy
-                                }
-                            }
-                        }
-                    }
-                    AND = {
-						exists = scope:pop
-                        scope:pop = {
-							OR = {
-								NOT = { religion = { has_discrimination_trait = muslim } }
-								owner = {
-									has_variable = kashf_e_hijab_var
-								}
-							}
-                        }
-                        indian_clothes_pop_trigger = yes
-                        OR = {
-                            soldier_clothes_pop_trigger = yes
-                            officers_clothes_pop_trigger = yes
-                        }
-                    }
-                }
-            }
-        }
-    }
-	
-	indian_military_headgear = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = arabic_turban
-                range = { 1 1 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 1000
                 AND = {
-					exists = scope:pop
-                    scope:pop = {
-						religion = { has_discrimination_trait = muslim }
-						owner = {
-							NOT = { has_variable = kashf_e_hijab_var }
-						}
-                    }
                     indian_clothes_pop_trigger = yes
 					OR = {
 						soldier_clothes_pop_trigger = yes
@@ -1520,8 +1458,13 @@
 						has_discrimination_trait = muslim
 					}
 					OR = {
-						strata = poor
-						strata = middle
+						is_pop_type = peasants
+						is_pop_type = laborers
+						is_pop_type = clergymen
+						is_pop_type = farmers
+					}
+					owner = {
+						NOT = { has_variable = banned_veils_var }
 					}
 				}
             }
@@ -1586,8 +1529,19 @@
 						has_discrimination_trait = muslim
 					}
 					OR = {
-						strata = poor
-						strata = middle
+						culture = cu:bedouin
+						culture = cu:mashriqi
+						culture = cu:yemenite
+						culture = cu:khaleeji
+					}
+					OR = {
+						is_pop_type = peasants
+						is_pop_type = laborers
+						is_pop_type = clergymen
+						is_pop_type = farmers
+					}
+					owner = {
+						NOT = { has_variable = banned_veils_var }
 					}
 				}
             }

@@ -5,7 +5,7 @@
 
 	possible = {
 		NOT = { has_variable = abolish_jizya_tax }
-		NOT = { ig:ig_devout = { is_powerful = yes } }
+		NOT = { ig:ig_devout = { ig_clout >= 0.15 } }
 		OR = {
 			has_law = law_type:law_shared_roots
 			has_law = law_type:law_total_separation

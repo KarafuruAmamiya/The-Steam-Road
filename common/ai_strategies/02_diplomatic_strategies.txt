@@ -176,15 +176,15 @@ ai_strategy_territorial_expansion = {
 		if = {
 			limit = {
 				"ai_ideological_opinion(scope:target_country)" < 0
-					}
+			}
 			
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = -0.2
 				add = 1
 				max = 4.0
-					}
-				}
+			}
+		}
 		else = {
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
@@ -322,11 +322,11 @@ ai_strategy_territorial_expansion = {
 					has_strategic_adjacency = scope:target_country
 					scope:target_country.country_rank <= root.country_rank
 				}
-
+			}
 			if = {
 				limit = {
-						NOT = { is_country_type = unrecognized }
-						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					NOT = { is_country_type = unrecognized }
+					scope:target_country = { NOT = { is_country_type = unrecognized } }
 				}
 				add = 25
 			}			

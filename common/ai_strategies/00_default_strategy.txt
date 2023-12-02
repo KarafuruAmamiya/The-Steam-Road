@@ -6360,23 +6360,21 @@ ai_strategy_default = {
 					add = 25
 				}
 
-				# Relations with target
-				multiply = {
-					value = "scope:target_country.relations:root"
-					multiply = -0.01
-					add = 1
-					min = 0.5
-					max = 2.0				
-				}
+			multiply = {
+				value = "scope:target_country.relations:root"
+				multiply = -0.01
+				add = 1
+				min = 0.5
+				max = 2.0				
+			}
 				
-				# Ideological opinion of target
-				multiply = {
-					value = "ai_ideological_opinion(scope:target_country)"
-					multiply = -0.05
-					add = 1
-					min = 0.5
-					max = 2.0
-				}				
+			# Ideological opinion of target
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+				max = 2.0
 			}
 
 			min = 0

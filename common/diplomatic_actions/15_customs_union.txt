@@ -637,22 +637,21 @@
 		}
 		
 		if = {
-				limit = {
-					scope:target_country = {
-						OR = {
-							c:CHI ?= THIS
-							c:BUK ?= THIS
-						}
-						OR = {
-							country_rank >= rank_value:unrecognized_major_power
-							country_rank >= rank_value:great_power
-						}
+			limit = {
+				scope:target_country = {
+					OR = {
+						c:CHI ?= THIS
+						c:BUK ?= THIS
+					}
+					OR = {
+						country_rank >= rank_value:unrecognized_major_power
+						country_rank >= rank_value:great_power
 					}
 				}
-				add = {
-					desc = "DIPLOMATIC_ACCEPTANCE_IS_CHINA"
-					value = -1000
-				}
+			}
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_IS_CHINA"
+				value = -1000
 			}
 		}
 		

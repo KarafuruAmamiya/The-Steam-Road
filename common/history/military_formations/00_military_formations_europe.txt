@@ -1,9 +1,9 @@
 ﻿MILITARY_FORMATIONS = {
-	c:SCA = {
+	c:SWE = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_scandinavia
-			name = "Kungliga Skandinaviska Armén"
+			name = "Kungliga Svenska Armén"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_skirmish_infantry
@@ -22,30 +22,6 @@
 				state_region = s:STATE_SVEALAND
 				count = 5
 			} 
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_scandinavia
-			name = "Danska Gardet"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_JUTLAND
-				count = 10
-			}
-		}
-		
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_scandinavia
-			name = "Norska Gardet"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 10
-			}
 		}
 		
 		create_military_formation = {
@@ -74,12 +50,6 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_skirmish_infantry
 				state_region = s:STATE_POMERANIA
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_SCHLESWIG_HOLSTEIN
 				count = 10
 			}
 
@@ -127,7 +97,7 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				state_region = s:STATE_GOTALAND
 				count = 15
 			}
 			
@@ -145,20 +115,8 @@
 			
 			combat_unit = {
 				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_JUTLAND
-				count = 14
-			}
-			
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 8
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_ZEALAND
-				count = 15
+				state_region = s:STATE_GOTLAND
+				count = 4
 			}
 		}
 
@@ -186,37 +144,13 @@
 			
 			combat_unit = {
 				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_GOTLAND
+				state_region = s:STATE_ALAND
 				count = 2
 			}
 			
 			combat_unit = {
 				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_SOUTHERN_FINLAND
-				count = 4
-			}
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_gaelic
-			name = "Nordsjöflottan"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_ICELAND
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_WESTERN_NORWAY
-				count = 10
-			}
-			
-			combat_unit = {
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_HIGHLANDS
 				count = 4
 			}
 		}
@@ -243,16 +177,11 @@
 			type = fleet
 			hq_region = sr:region_scandinavia
 			name = "Vinlands Flottan"
-			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_WESTERN_NORWAY
-				count = 2
-			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_HIGHLANDS
-				count = 6
+				count = 10
 			}
 		}
 
@@ -263,14 +192,102 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_WESTERN_NORWAY
+				state_region = s:STATE_SCANIA
 				count = 1
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_WESTERN_NORWAY
+				state_region = s:STATE_SCANIA
 				count = 1
+			}
+		}
+		
+		activate_production_method = {
+			building_type = building_naval_base
+			production_method = pm_power_of_the_purse
+		}	
+		activate_production_method = {
+			building_type = building_barracks
+			production_method = pm_general_training
+		}
+	}
+	
+	c:DEN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_scandinavia
+			name = "Hæren"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_JUTLAND
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 10
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_scandinavia
+			name = "Kongelige Danske Marine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ZEALAND
+				count = 15
+			}
+		}
+		
+		activate_production_method = {
+			building_type = building_naval_base
+			production_method = pm_power_of_the_purse
+		}	
+		activate_production_method = {
+			building_type = building_barracks
+			production_method = pm_general_training
+		}
+	}
+	
+	c:NOR = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_scandinavia
+			name = "Hæren"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 10
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_scandinavia
+			name = "Kongelige Norske Marine"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_ICELAND
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 10
 			}
 		}
 		

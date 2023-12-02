@@ -29,8 +29,8 @@ journal_flavor_scandinavia.8 = { #motala verkstad
 				limit = {
 					owner = {
 						OR = {
-							c:SWE = THIS
-							c:SCA = THIS
+							c:SWE ?= THIS
+							c:SCA ?= THIS
 						}
 					}
 				}
@@ -104,7 +104,7 @@ journal_flavor_scandinavia.9 = { #glasriket
 					owner = {
 						OR = {
 							c:SWE = THIS
-							c:SCA = THIS
+							c:SWE = THIS
 						}
 					}
 				}

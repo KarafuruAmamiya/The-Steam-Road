@@ -30,7 +30,7 @@ krl_independence.1 = {
 		name = krl_independence.1.a
 		random_diplomatic_play = {
 			limit = { 
-				initiator_is = c:SCA
+				initiator_is = c:SWE
 				target_is = c:KRL
 			}
 			war = {
@@ -68,7 +68,7 @@ krl_independence.2 = {
 		exists = c:USC
 		this = c:USC
 		any_diplomatic_play = {
-			initiator_is = c:SCA
+			initiator_is = c:SWE
 			target_is = c:KRL
 			any_scope_initiator_ally = {
 				this = c:USC
@@ -85,7 +85,7 @@ krl_independence.2 = {
 	option = { # We must support our allies
 		name = krl_independence.2.a
 		change_relations = {
-			country = c:SCA
+			country = c:SWE
 			value = 50
 		}
 		ig:ig_armed_forces = {
@@ -120,7 +120,7 @@ krl_independence.2 = {
 		hidden_effect = {
 			random_diplomatic_play = {
 				limit = { 
-					initiator_is = c:SCA
+					initiator_is = c:SWE
 					target_is = c:KRL
 				}
 				war = {
@@ -179,7 +179,7 @@ krl_independence.3 = {
 		exists = c:KRL
 		this = c:KRL
 		is_at_war = no
-		NOT = { is_subject_of = c:SCA }
+		NOT = { is_subject_of = c:SWE }
 	}
 
 	option = { # The fallen heroes shall never be forgotten!
@@ -253,14 +253,14 @@ krl_independence.5 = {
 
 	trigger = {
 		has_variable = karolean_independence_war
-		exists = c:SCA
-		this = c:SCA
+		exists = c:SWE
+		this = c:SWE
 		has_diplomatic_pact = {
 			who = c:USC
 			type = defensive_pact
 		}
 		any_diplomatic_play = {
-			initiator_is = c:SCA
+			initiator_is = c:SWE
 			target_is = c:KRL
 			war = {
 				NOT = {
@@ -311,8 +311,8 @@ krl_independence.6 = {
 
 	trigger = {
 		has_variable = karolean_independence_war
-		exists = c:SCA
-		this = c:SCA
+		exists = c:SWE
+		this = c:SWE
 	}
 
 	option = {
@@ -344,7 +344,7 @@ krl_independence.7 = {
 		exists = c:KRL
 		this = c:KRL
 		is_at_war = no
-		is_subject_of = c:SCA
+		is_subject_of = c:SWE
 	}
 
 	option = {
@@ -375,7 +375,7 @@ krl_independence.7 = {
 		remove_variable = karolean_independence_war
 		remove_modifier = karolean_independence_war
 		
-		c:SCA = {
+		c:SWE = {
 			trigger_event = {
 				id = krl_independence.8
 	    	}
@@ -404,10 +404,10 @@ krl_independence.8 = {
 
 	trigger = {
 		has_variable = karolean_independence_war
-		exists = c:SCA
-		this = c:SCA
+		exists = c:SWE
+		this = c:SWE
 		is_at_war = no
-		c:KRL = { is_subject_of = c:SCA }
+		c:KRL = { is_subject_of = c:SWE }
 	}
 
 	option = {

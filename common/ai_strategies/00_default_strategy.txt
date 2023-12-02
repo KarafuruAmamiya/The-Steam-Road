@@ -1483,8 +1483,8 @@ ai_strategy_default = {
 				scope:target_country = {
 					OR = {
 						AND = {
-							exists = c:SCA
-							THIS = c:SCA
+							exists = c:SWE
+							THIS = c:SWE
 						}
 						AND = {
 							exists = c:NET
@@ -3295,8 +3295,8 @@ ai_strategy_default = {
 							this = c:FRA
 						}
 						AND = {
-							exists = c:SCA
-							this = c:SCA
+							exists = c:SWE
+							this = c:SWE
 						}
 					}
 				}
@@ -5559,7 +5559,7 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
-			if = { # Scandinavia wants Vinland back
+			if = { # Sweden wants Vinland back
 				limit = {
 					exists = c:KRL
 					scope:target_country = c:KRL

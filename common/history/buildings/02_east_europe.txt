@@ -1,6 +1,6 @@
 ﻿BUILDINGS={
 	s:STATE_INGRIA={
-		region_state:ING={
+		region_state:SWE={
 			create_building={
 				building="building_government_administration"
 				level=2
@@ -9,7 +9,7 @@
 			}
 			create_building={
 				building="building_textile_mills"
-				level=2
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
 			}
@@ -20,14 +20,20 @@
 				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_apple_orchards" }
 			}
 			create_building={
-				building="building_barracks"
-				level=5
+				building="building_glassworks"
+				level=3
 				reserves=1
-				activate_production_methods={ "pm_no_organization" }
+				activate_production_methods={ "pm_forest_glass" "pm_merchant_guilds_building_glassworks" "pm_manual_glassblowing" "pm_ceramics" }
+			}
+			create_building={
+				building="building_arts_academy"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_traditional_art" }
 			}
 			create_building={
 				building="building_port"
-				level=1
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
@@ -414,7 +420,7 @@
 		}
 	}
 	s:STATE_EAST_KARELIA={
-		region_state:SCA={
+		region_state:SWE={
 			create_building={
 				building="building_fishing_wharf"
 				level=2
@@ -430,7 +436,7 @@
 		}
 	}
 	s:STATE_PSKOV={
-		region_state:SCA={			
+		region_state:SWE={			
 			create_building={
 				building="building_rye_farm"
 				level=8
@@ -452,7 +458,7 @@
 		}
 	}
 	s:STATE_PETROZAVODSK={
-		region_state:SCA={
+		region_state:SWE={
 			create_building={
 				building="building_logging_camp"
 				level=2
@@ -468,7 +474,7 @@
 		}
 	}
 	s:STATE_ARKHANGELSK={
-		region_state:SCA={
+		region_state:SWE={
 			create_building={
 				building="building_fishing_wharf"
 				level=1
@@ -732,7 +738,7 @@
 		}
 	}
 	s:STATE_NOVGOROD={
-		region_state:SCA={
+		region_state:SWE={
 			create_building={
 				building="building_paper_mills"
 				level=3
@@ -744,12 +750,6 @@
 				level=5
 				reserves=1
 				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
-			}
-			create_building={
-				building="building_tooling_workshops"
-				level=6
-				reserves=1
-				activate_production_methods={ "pm_steel" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
 			}
 		}
 	}

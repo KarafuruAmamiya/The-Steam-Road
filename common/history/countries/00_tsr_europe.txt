@@ -254,6 +254,42 @@
 		}
 
 	}
+	c:DEN = { # Denmark
+		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_per_capita_based_taxation
+    	activate_law = law_type:law_censorship
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+	}
 	c:DOR = { # Dortmund
 		effect_starting_technology_tier_2_tech = yes
 		
@@ -705,28 +741,6 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:ING = { # Ingria
-		effect_starting_technology_tier_3_tech = yes
-		add_technology_researched = napoleonic_warfare
-		
-		# Laws 
-		activate_law = law_type:law_presidential_republic
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_tenant_farmers
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_religious_schools
-		
-		set_institution_investment_level = {
-			institution = institution_schools
-			level = 1
-		}
-	}
 	c:IRE = { # Ireland
 		effect_starting_technology_tier_2_tech = yes
 		
@@ -764,6 +778,8 @@
 
 		set_tax_level = medium
 		set_tariffs_import_priority = g:engines
+		
+		add_taxed_goods = g:liquor
 		
 		effect_starting_technology_tier_1_tech = yes
 		add_technology_researched = logistics
@@ -1157,6 +1173,41 @@
 
 		
 	}
+	c:NOR = { # Norway
+		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_conservative = yes
+		
+		add_taxed_goods = g:liquor
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property		
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_appointed_bureaucrats		
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools	
+		activate_law = law_type:law_censorship
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+	}
 	c:PAP = { # Pope
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
@@ -1457,23 +1508,27 @@
 		
 		add_journal_entry = { type = je_hre_falls_apart }
 	}
-	c:SCA = { # Scandinavia
+	c:SWE = { # Sweden
 		effect_starting_technology_tier_1_tech = yes
+		effect_starting_politics_conservative = yes
 		
 		add_taxed_goods = g:liquor
+		add_taxed_goods = g:luxury_clothes
+		add_taxed_goods = g:luxury_furniture
 		add_technology_researched = repeaters #needle gun was a swedish invention in this timeline
 		
 		# Laws 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_protectionism
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_public_schools
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_colonial_resettlement
 		activate_law = law_type:law_professional_army

@@ -90,7 +90,7 @@
 			name = "Anadolu Ordusu"
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_ADANA
 				count = 10
 			}
@@ -126,7 +126,7 @@
 			name = "Rutenya Ordusu"
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_TAURIDA
 				count = 10
 			}
@@ -244,7 +244,19 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_TABRIZ
-				count = 20
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_GILAN
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_URMIA
+				count = 10
 			}
 			
 			combat_unit = {
@@ -258,12 +270,6 @@
 				state_region = s:STATE_TABRIZ
 				count = 5
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_GILAN
-				count = 10
-			}
 		}
 		
 		create_military_formation = {
@@ -275,6 +281,12 @@
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_NORTH_KHORASAN
 				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SISTAN
+				count = 5
 			}
 
 			combat_unit = {
@@ -288,12 +300,6 @@
 				state_region = s:STATE_HERAT
 				count = 5
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SISTAN
-				count = 5
-			}
 		}
 
 		create_military_formation = {
@@ -304,7 +310,13 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_BAGHDAD
-				count = 15
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BAGHDAD
+				count = 10
 			}
 
 			combat_unit = {
@@ -326,7 +338,7 @@
 			name = "Arteš-e Hendustân"
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_GUJARAT
 				count = 10
 			}
@@ -340,7 +352,13 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_SOUTH_BENGAL
-				count = 10
+				count = 7
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SOUTH_BENGAL
+				count = 3
 			}
 			
 			save_scope_as = indianarmy_per
@@ -407,7 +425,7 @@
 			}
 			
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_ABU_DHABI
 				count = 1
 			}
@@ -437,7 +455,7 @@
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_GUJARAT
 				count = 4
 			}

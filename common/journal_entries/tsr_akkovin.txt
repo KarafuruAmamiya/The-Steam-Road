@@ -186,7 +186,7 @@ je_akkovin_reform_economy = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 	progressbar = yes
 }
@@ -258,7 +258,7 @@ je_akkovin_reform_education = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 
 	progressbar = yes
@@ -289,15 +289,22 @@ je_akkovin_reform_army = {
 		army_size >= 100
 		has_technology_researched = general_staff
 		has_technology_researched = percussion_cap
-		NOT = {
-			has_law = law_type:law_peasant_levies
+		NOR = {
 			any_scope_building = {
-				is_building_type = building_barracks
-				building_has_goods_shortage = yes
-				has_active_production_method = pm_no_organization
-				# TO DO: Hook this whole part into Formation composition rather than old barracks PM 
-				# has_active_production_method = pm_no_artillery
-				# has_active_production_method = pm_cannon_artillery
+				is_building_type = building_barracks				
+				OR = {
+					building_has_goods_shortage = yes
+					has_active_production_method = pm_no_organization
+				}
+			}
+			any_military_formation = {
+				filter = {
+					is_army = yes
+				}
+				any_combat_unit = {
+					has_unit_type = unit_type:combat_unit_type_irregular_infantry
+				}
+				percent >= 0.25
 			}
 		}
 		custom_tooltip = {
@@ -336,7 +343,7 @@ je_akkovin_reform_army = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -367,15 +374,17 @@ je_akkovin_reform_navy = {
 		has_technology_researched = screw_frigate
 		NOT = {
 			any_scope_building = {
-				is_building_type = building_naval_base
-				has_active_production_method = pm_no_naval_theory
+				is_building_type = building_naval_base				
+				OR = {
+					building_has_goods_shortage = yes
+					has_active_production_method = pm_no_naval_theory
+				}
 			}
 		}
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_shipyards
-				has_active_production_method = pm_basic_shipbuilding
-			}
+		any_scope_building = {
+			is_building_type = building_military_shipyards
+			occupancy > 0.9
+			level >= 3
 		}
 	}
 
@@ -396,7 +405,7 @@ je_akkovin_reform_navy = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -455,7 +464,7 @@ je_akkovin_reform_bureaucracy = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -548,7 +557,7 @@ je_akkovin_reform_sovereignty = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -657,7 +666,7 @@ je_akkovin_reform_kurdish = {
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 	
 	progressbar = yes
@@ -851,7 +860,7 @@ je_akkovin_reform_arabia = {
 	transferable = no
 
 	weight = 5000
-	
+	should_be_pinned_by_default = yes
 	progressbar = yes
 }
 
@@ -982,7 +991,7 @@ je_akkovin_reform_minorities = {
 	transferable = no
 
 	weight = 5000
-	
+	should_be_pinned_by_default = yes
 	progressbar = yes
 }
 
@@ -991,7 +1000,7 @@ je_akkovin_reform_nationalism = { #WIP
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_tsr_content
 	
-	scripted_button = je_akkovin_reform_nationalism_akturkification_button
+	#scripted_button = je_akkovin_reform_nationalism_akturkification_button
 	
 	is_shown_when_inactive = {
 		exists = c:AKN
@@ -1011,17 +1020,11 @@ je_akkovin_reform_nationalism = { #WIP
 	complete = {
 		has_technology_researched = nationalism
 		OR = {
-			AND = {
-				custom_tooltip = {
-					text = akturkification_start_tt
-					has_variable = akturkification_start
-				}
-				any_scope_state = {
-					count >= 12
-					any_scope_pop = {
-						has_pop_culture = akturk
-						percent > 0.75
-					}
+			any_scope_state = {
+				count >= 10
+				any_scope_pop = {
+					has_pop_culture = akturk
+					percent > 0.75
 				}
 			}
 			AND = {
@@ -1063,7 +1066,7 @@ je_akkovin_reform_nationalism = { #WIP
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -1177,7 +1180,7 @@ je_akkovin_partition_tur = { #WIP
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }
 
@@ -1264,6 +1267,6 @@ je_akkovin_partition_per = { #WIP
 	}
 
 	transferable = no
-
+	should_be_pinned_by_default = yes
 	weight = 5000
 }

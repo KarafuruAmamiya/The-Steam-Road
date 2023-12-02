@@ -804,17 +804,6 @@ on_diplomatic_play_started = {
 				trigger_event = { id = arab_wars.17 days = 0 } 
 			}
 		}
-		if = {
-			limit = {
-				is_diplomatic_play_type = dp_opium_wars
-				scope:initiator = {
-					NOT = { has_variable = FOW_decision_taken }
-				}
-			}
-			scope:initiator = {
-				trigger_event = { id = opium_wars.9 days = 0 }
-			}
-		}
 	}
 }
 
@@ -1382,12 +1371,6 @@ on_country_formed = {
 				c:UNL ?= ROOT
 			}
 			trigger_event = { id = formation.19 popup = yes }
-		}
-		else_if = {
-			limit = {
-				c:RHN ?= ROOT
-			}
-			trigger_event = { id = formation.20 popup = yes }
 		}
 		else_if = {
 			limit = {
@@ -2149,25 +2132,6 @@ on_law_enactment_pass = {
 					has_variable = var_slave_trade_suppression_var
 				}
 				remove_variable = var_slave_trade_suppression_var
-			}
-		}
-		if = {
-			limit = {
-				c:PER ?= this
-				OR = {
-					has_law = law_type:law_state_religion
-					has_law = law_type:law_freedom_of_conscience
-				}
-				OR = {
-					is_enacting_law = law_type:law_shared_roots
-					is_enacting_law = law_type:law_freedom_of_conscience
-					is_enacting_law = law_type:law_total_separation
-					is_enacting_law = law_type:law_state_atheism
-				}
-			}
-			if = {
-				limit = { NOT = { has_variable = zandism_secularization } }
-				set_variable = zandism_secularization
 			}
 		}
 	}

@@ -1,11 +1,15 @@
 ﻿FOW_start_opium_war_play_dec = {
     is_shown = {
         has_journal_entry = je_opium_wars
+		has_variable = opium_wars_aggressor
         exists = c:PER
         is_ai  = yes # AI only; player doesn't need help starting the Opium War lol just start the damn diplo play
     }
     
     possible = {
+		any_country = {
+			NOT = { has_variable = FOW_decision_taken }
+		}
         is_at_war = no
         is_diplomatic_play_committed_participant = no
         c:PER ?= {

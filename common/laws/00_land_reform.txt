@@ -41,13 +41,16 @@
 					NOT = { has_modifier = landowners_qanat_maintenance }
 				}
 			}
-			every_scope_state = {
-				limit = {
-					state_region = { is_homeland = cu:persian }
-				}
-				add_modifier = {
-					name = landowners_qanat_maintenance
-					months = -1
+			custom_tooltip = {
+				text = landowners_qanat_maintenance_gain_tt
+				every_scope_state = {
+					limit = {
+						state_region = { is_homeland = cu:persian }
+					}
+					add_modifier = {
+						name = landowners_qanat_maintenance
+						months = -1
+					}
 				}
 			}
 		}
@@ -55,6 +58,7 @@
 	
 	modifier = {
 		interest_group_ig_landowners_pol_str_mult = 0.5
+		state_infrastructure_from_population_max_mult = -0.2
 	}
 
 	possible_political_movements = {
@@ -84,6 +88,13 @@
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 
@@ -143,13 +154,16 @@ law_tenant_farmers = {
 					NOT = { has_modifier = landowners_qanat_maintenance }
 				}
 			}
-			every_scope_state = {
-				limit = {
-					state_region = { is_homeland = cu:persian }
-				}
-				add_modifier = {
-					name = landowners_qanat_maintenance
-					months = -1
+			custom_tooltip = {
+				text = landowners_qanat_maintenance_gain_tt
+				every_scope_state = {
+					limit = {
+						state_region = { is_homeland = cu:persian }
+					}
+					add_modifier = {
+						name = landowners_qanat_maintenance
+						months = -1
+					}
 				}
 			}
 		}
@@ -190,6 +204,13 @@ law_tenant_farmers = {
 		value = 0
 		
 		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
@@ -209,6 +230,10 @@ law_commercialized_agriculture = {
 
 	disallowing_laws = {
 		law_traditionalism
+	}
+
+	modifier = {
+		state_farmers_investment_pool_efficiency_mult = 0.1
 	}
 
 	possible_political_movements = {
@@ -243,6 +268,17 @@ law_commercialized_agriculture = {
 	}
 	
 	on_activate = {
+		add_modifier = {
+			name = land_redistribution_modifier
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		add_modifier = {
+			name = land_redistribution_compensation_modifier
+			months = long_modifier_time
+			is_decaying = yes
+			multiplier = money_amount_multiplier_small
+		}
 		if = {
 			limit = {
 				c:PER ?= this
@@ -250,9 +286,12 @@ law_commercialized_agriculture = {
 					has_modifier = landowners_qanat_maintenance
 				}
 			}
-			every_scope_state = {
-				limit = { has_modifier = landowners_qanat_maintenance }
-				remove_modifier = landowners_qanat_maintenance
+			custom_tooltip = {
+				text = landowners_qanat_maintenance_loss_tt
+				every_scope_state = {
+					limit = { has_modifier = landowners_qanat_maintenance }
+					remove_modifier = landowners_qanat_maintenance
+				}
 			}
 		}
 	}
@@ -291,6 +330,13 @@ law_commercialized_agriculture = {
 		value = 0
 		
 		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
@@ -315,7 +361,8 @@ law_homesteading = {
 	}
 
 	modifier = {
-		country_farmers_pol_str_mult = 0.25
+		country_farmers_pol_str_mult = 0.10
+		state_farmers_investment_pool_efficiency_mult = 0.25
 	}
 
 	on_enact = {
@@ -340,6 +387,17 @@ law_homesteading = {
 	}
 	
 	on_activate = {
+		add_modifier = {
+			name = land_redistribution_modifier
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		add_modifier = {
+			name = land_redistribution_compensation_modifier
+			months = long_modifier_time
+			is_decaying = yes
+			multiplier = money_amount_multiplier_small
+		}
 		if = {
 			limit = {
 				c:PER ?= this
@@ -347,9 +405,12 @@ law_homesteading = {
 					has_modifier = landowners_qanat_maintenance
 				}
 			}
-			every_scope_state = {
-				limit = { has_modifier = landowners_qanat_maintenance }
-				remove_modifier = landowners_qanat_maintenance
+			custom_tooltip = {
+				text = landowners_qanat_maintenance_loss_tt
+				every_scope_state = {
+					limit = { has_modifier = landowners_qanat_maintenance }
+					remove_modifier = landowners_qanat_maintenance
+				}
 			}
 		}
 	}
@@ -391,6 +452,13 @@ law_homesteading = {
 		
 		if = {
 			limit = { 
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
+			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
@@ -405,11 +473,7 @@ law_collectivized_agriculture = {
 	
 	icon = "gfx/interface/icons/law_icons/collectivized_agriculture.dds"
 	
-	progressiveness = 50
-
-	modifier = {
-		
-	}
+	progressiveness = 25
 
 	on_enact = {
 		custom_tooltip = rural_laborers_tu_ig_shift_effect_tt
@@ -432,9 +496,12 @@ law_collectivized_agriculture = {
 					has_modifier = landowners_qanat_maintenance
 				}
 			}
-			every_scope_state = {
-				limit = { has_modifier = landowners_qanat_maintenance }
-				remove_modifier = landowners_qanat_maintenance
+			custom_tooltip = {
+				text = landowners_qanat_maintenance_loss_tt
+				every_scope_state = {
+					limit = { has_modifier = landowners_qanat_maintenance }
+					remove_modifier = landowners_qanat_maintenance
+				}
 			}
 		}
 	}
@@ -448,6 +515,15 @@ law_collectivized_agriculture = {
 		law_tenant_farmers
 		law_homesteading
 		law_commercialized_agriculture
+	}
+
+	on_activate = {
+		add_modifier = {
+			name = land_redistribution_modifier
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		## Red Sun in the Sky starts playing ##
 	}
 
 	unlocking_technologies = { socialism }
@@ -473,6 +549,13 @@ law_collectivized_agriculture = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 

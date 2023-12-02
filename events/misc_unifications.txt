@@ -577,7 +577,6 @@ formation.17 = {
 			c:KAZ ?= THIS
 			c:HRE ?= THIS
 			c:UNL ?= THIS
-			c:RHN ?= THIS
 		}
 	}
 
@@ -839,55 +838,6 @@ formation.19 = {
 
 	option = {
 		name = formation.19.a
-		default_option = yes
-		add_modifier = {
-			name = unification_prestige
-			months = very_long_modifier_time
-		}
-		ai_chance = {
-			factor = 1
-		}
-	}
-}
-
-# Confederation of the Rhine
-formation.20 = {
-	type = country_event
-	placement = ROOT
-
-	title = formation.20.t
-	desc = formation.20.d
-	flavor = formation.20.f
-
-	event_image = {
-		video = "unspecific_signed_contract"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	duration = 3
-
-	trigger = {
-		c:RHN ?= THIS
-		NOT = { has_global_variable = has_formed_rhn }
-	}
-
-	immediate = {
-		set_global_variable = has_formed_rhn
-		save_scope_as = formation_country
-		ruler = { save_scope_as = ruler_scope }
-		every_country = {
-			limit = {
-				has_diplomatic_relevance = ROOT
-			}
-			post_notification = unification_notification_one_culture
-		}
-	}
-
-	option = {
-		name = formation.20.a
 		default_option = yes
 		add_modifier = {
 			name = unification_prestige

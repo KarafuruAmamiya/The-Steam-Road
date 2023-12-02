@@ -1,0 +1,84 @@
+﻿# Root = State
+on_monthly_pulse_state = {
+	on_actions = {
+		colonial_progress_claim_check_on_action 
+		colonial_isolation_check_on_action
+	}
+}
+
+# Root = Colony state
+colonial_progress_claim_check_on_action = {
+	effect = {
+		if = {
+			limit = {
+				NOT = { owner = { has_claim = root.state_region } }
+				state_is_colony = yes
+				num_provinces >= state_region_num_provinces_half
+				state_is_claimed_state = yes
+				NOT = {
+					owner = {
+						has_law = law_type:law_no_colonial_affairs
+					}
+				}
+			} 
+			state_region = {
+				add_claim = root.owner
+			}
+			every_state = {
+				limit = {
+					NOT = { owner = root.owner }
+					state_region = root.state_region
+					num_provinces >= state_region_num_provinces_fifth
+					NOT = {
+						owner = {
+							has_law = law_type:law_no_colonial_affairs
+						}
+					}
+				}
+				save_scope_as = minor_colony_scope
+				state_region = {
+					add_claim = scope:minor_colony_scope.owner
+				}
+			}
+			root = {
+				save_scope_as = colony_notification_state
+			}
+			root.owner = {
+				save_scope_as = colonizer_notification_country
+				post_notification = zz_colony_development_major
+			}
+			every_country = {
+				limit = {
+					has_interest_marker_in_region = root.region
+					is_ai = no
+					NOT = {
+						this = root.owner
+					}					
+				}
+				#post_notification = zz_colony_development_major_other
+			}										
+		}
+	}
+}
+
+colonial_isolation_check_on_action = {
+	effect = {
+		if = {
+			limit = {
+				state_is_colony = yes
+				is_isolated_from_market = yes
+				NOT = { has_modifier = isolated_colony_modifier }
+			}
+			add_modifier = {
+				name = isolated_colony_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				is_isolated_from_market = no
+				has_modifier = isolated_colony_modifier
+			}
+			remove_modifier = isolated_colony_modifier
+		}
+	}
+}

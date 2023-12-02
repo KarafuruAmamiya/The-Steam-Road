@@ -763,13 +763,11 @@
                     african_diaspora_pop_clothes_trigger = yes
                     AND = {
                         native_american_clothes_pop_trigger = yes
-                        AND = {
                             scope:pop ?= {
                                 NOT = { culture = cu:inuit }
                             }
                         }
                     }
-                }
 
                 scope:pop ?= {
                     NAND = {

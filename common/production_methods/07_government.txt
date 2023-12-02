@@ -16,6 +16,8 @@
 			country_convoys_capacity_add = 20
 		}
 	}
+	
+	ai_value = 500
 }			
 
 pm_basic_port = {
@@ -38,10 +40,15 @@ pm_basic_port = {
 		}
 	}
 	state_modifiers = {
+		unscaled = {
+			state_market_access_price_impact = 0.05
+		}
 		workforce_scaled = {
 			state_infrastructure_add = 5
 		}
 	}
+	
+	ai_value = 50000
 }		
 
 pm_industrial_port = {
@@ -70,10 +77,14 @@ pm_industrial_port = {
 		}
 	}
 	state_modifiers = {
+		unscaled = {
+			state_market_access_price_impact = 0.05
+		}
 		workforce_scaled = {
 			state_infrastructure_add = 7.5
 		}
 	}	
+	ai_value = 100000
 }
 
 pm_modern_port = {
@@ -101,10 +112,15 @@ pm_modern_port = {
 		}
 	}
 	state_modifiers = {
+		unscaled = {
+			state_market_access_price_impact = 0.05
+		}
 		workforce_scaled = {
 			state_infrastructure_add = 10
 		}
 	}
+	
+	ai_value = 100000	
 }
 
 pm_simple_organization = {
@@ -128,8 +144,6 @@ pm_simple_organization = {
 			building_employment_clerks_add = 4000
 		}
     }
-    
-    ai_value = 10000
 }
 
 pm_horizontal_drawer_cabinets = {
@@ -160,7 +174,6 @@ pm_horizontal_drawer_cabinets = {
 			building_employment_clerks_add = 4000
 		}
 	}		
-    ai_value = 100000
 }
 
 pm_vertical_filing_cabinets = {
@@ -190,8 +203,6 @@ pm_vertical_filing_cabinets = {
 			building_employment_clerks_add = 4000
 		}
 	}	
-    
-    ai_value = 200000
 }
 
 pm_switch_boards = {
@@ -223,8 +234,6 @@ pm_switch_boards = {
 			building_employment_bureaucrats_add = 2500
 		}
 	}	
-    
-    ai_value = 400000
 }
 
 pm_hereditary_bureaucrats = {
@@ -311,8 +320,6 @@ pm_scholastic_education = {
 			state_pop_qualifications_mult = 0.1
 		}	
 	}
-    
-    ai_value = 50000
 }
 
 pm_philosophy_department = {
@@ -344,8 +351,6 @@ pm_philosophy_department = {
 			state_pop_qualifications_mult = 0.15
 		}	
 	}
-    
-    ai_value = 100000
 }
 
 pm_analytical_philosophy_department = {
@@ -377,8 +382,6 @@ pm_analytical_philosophy_department = {
 			state_pop_qualifications_mult = 0.2
 		}	
 	}
-    
-    ai_value = 200000
 }
 
 pm_secular_academia = {

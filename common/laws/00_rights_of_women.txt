@@ -13,7 +13,7 @@ law_no_womens_rights = {
 	}
 
 	modifier = {
-		state_birth_rate_mult = 0.05
+		state_birth_rate_mult = 0.10 #0.08
 	}
 	
 	possible_political_movements = {
@@ -34,6 +34,13 @@ law_no_womens_rights = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+		if = {
+			limit = { 
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 
@@ -58,6 +65,7 @@ law_women_own_property = {
 
 	modifier = {
 		state_working_adult_ratio_add = 0.05
+		state_birth_rate_mult = 0.05 #0.04
 	}
 	
 	possible_political_movements = {
@@ -113,6 +121,13 @@ law_women_own_property = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 
@@ -217,6 +232,13 @@ law_women_in_the_workplace = {
 		
 		if = {
 			limit = { 
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
+			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
@@ -285,6 +307,13 @@ law_womens_suffrage = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+				if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 

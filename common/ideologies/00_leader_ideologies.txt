@@ -153,6 +153,20 @@ ideology_atheist = {
 		law_state_atheism = strongly_approve
 	}
 	
+	lawgroup_health_system = { # VTM
+		law_no_health_system = disapprove
+		law_charitable_health_system = disapprove
+		law_private_health_insurance = neutral
+		law_public_health_insurance = neutral
+	}
+	
+	lawgroup_education_system = { # VTM
+		law_no_schools = disapprove
+		law_religious_schools = disapprove
+		law_private_schools = neutral
+		law_public_schools = neutral
+	}
+	
 	possible = {
 		# Agitators should have an ideology at odds with current laws
 		NAND = {
@@ -163,7 +177,10 @@ ideology_atheist = {
 					has_law = law_type:law_parliamentary_republic
 					has_law = law_type:law_council_republic
 				}
-				has_law = law_type:law_state_atheism
+				OR = {
+					has_law = law_type:law_state_atheism
+					has_law = law_type:law_total_separation # VTM
+				}
 			}
 		}
 		# Monarchs cannot be republicans
@@ -199,7 +216,7 @@ ideology_atheist = {
 	}
 	
 	leader_weight = {
-		value = 100
+		value = 25 #100
 		# this is not very relevant if you're a republic with religious freedom
 		if = { 
 			limit = {
@@ -223,7 +240,15 @@ ideology_atheist = {
 					}
 				}
 			}
-			add = 75
+			add = 125 #75
+		}
+		if = { # VTM
+			limit = {
+				owner = {
+					has_law = law_type:law_state_religion
+				}
+			}
+			add = 50 
 		}
 		if = {
 			limit = { 
@@ -434,11 +459,11 @@ ideology_radical = {
 						}
 						any_scope_state = {
 							is_incorporated = yes
-							turmoil >= 0.10
+							turmoil >= 0.1 # 0.25
 						}
 					}
 				}
-				add = 200
+				add = 200 #100
 			}
 			if = {
 				limit = {
@@ -453,7 +478,7 @@ ideology_radical = {
 						}
 					}
 				}
-				add = 150
+				add = 150 # 50
 			}
 			# less likely if issues are not relevant
 			if = {
@@ -480,7 +505,7 @@ ideology_radical = {
 						has_technology_researched = socialism
 					}
 				}
-				add = -300
+				add = -300 # 200
 			}
 			if = {
 				limit = {
@@ -571,7 +596,6 @@ ideology_reformer = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_cultural_exclusion
 				has_law = law_type:law_freedom_of_conscience
 				has_law = law_type:law_compulsory_primary_school
 			}
@@ -595,9 +619,6 @@ ideology_reformer = {
 			limit = {
 				owner = {
 					NOR = {
-						has_law = law_type:law_ethnostate
-						has_law = law_type:law_national_supremacy
-						has_law = law_type:law_racial_segregation
 						has_law = law_type:law_state_religion
 						has_law = law_type:law_denominational_exclusion
 						has_law = law_type:law_no_womens_rights
@@ -1251,6 +1272,13 @@ ideology_social_democrat = {
 		law_old_age_pension = strongly_approve
 	}
 	
+	lawgroup_slavery = { # VTM
+		law_slavery_banned = approve
+		law_debt_slavery = strongly_disapprove		
+		law_slave_trade = strongly_disapprove	
+		law_legacy_slavery = disapprove	
+	}
+	
 	lawgroup_substances_regulation = {
 		law_substances_banned = approve
 		law_restricted_substances_use = neutral
@@ -1339,7 +1367,7 @@ ideology_social_democrat = {
 					NOT = { has_law = law_type:law_council_republic }
 				}
 			}
-			add = 75
+			add = 100 # 75
 		}
 		# extremely unlikely for trade unions in council republic
 		if = {
@@ -1402,6 +1430,20 @@ ideology_communist = {
 		law_collectivized_agriculture = approve
 	}
 	
+	lawgroup_colonization = { # VTM
+		law_no_colonial_affairs = approve
+		law_colonial_resettlement = disapprove
+		law_frontier_colonization = disapprove
+		law_colonial_exploitation = strongly_disapprove
+	}
+
+	lawgroup_slavery = { # VTM
+		law_slavery_banned = approve
+		law_debt_slavery = strongly_disapprove		
+		law_slave_trade = strongly_disapprove	
+		law_legacy_slavery = disapprove	
+	}
+	
 	lawgroup_substances_regulation = {
 		law_substances_banned = strongly_approve
 		law_restricted_substances_use = neutral
@@ -1451,6 +1493,7 @@ ideology_communist = {
 	}
 	
 	leader_weight = {
+		value = 50 # 0 removed 50 from vanguard and added it here
 		# More likely for angry IG's outside of council republic
 		if = {
 			limit = {
@@ -1485,7 +1528,7 @@ ideology_communist = {
 					is_interest_group_type = ig_armed_forces
 				}
 			}
-			multiply = 0.3
+			multiply = 0.1 # 0.3
 		}
 		value = {
 			value = 100
@@ -1554,6 +1597,43 @@ ideology_vanguardist = {
 		law_homesteading = neutral
 		law_collectivized_agriculture = approve
 	}
+	
+	lawgroup_free_speech = { # VTM
+		law_protected_speech = disapprove
+		law_right_of_assembly = neutral
+		law_censorship = approve
+		law_outlawed_dissent = strongly_approve
+	}	
+
+	lawgroup_internal_security = { # VTM
+		law_guaranteed_liberties = disapprove
+		law_no_home_affairs = neutral
+		law_national_guard = approve
+		law_secret_police = strongly_approve
+	}
+
+	lawgroup_church_and_state = { # VTM
+		law_state_religion = strongly_disapprove
+		law_denominational_exclusion = disapprove
+		law_freedom_of_conscience = neutral
+		law_shared_roots = neutral
+		law_total_separation = approve
+		law_state_atheism = neutral
+	}
+	
+	lawgroup_colonization = { # VTM
+		law_no_colonial_affairs = approve
+		law_colonial_resettlement = disapprove
+		law_frontier_colonization = neutral
+		law_colonial_exploitation = strongly_disapprove
+	}
+	
+	lawgroup_slavery = { # VTM
+		law_slavery_banned = approve
+		law_debt_slavery = strongly_disapprove		
+		law_slave_trade = strongly_disapprove	
+		law_legacy_slavery = disapprove	
+	}
 
 	lawgroup_substances_regulation = {
 		law_substances_banned = strongly_approve
@@ -1605,7 +1685,7 @@ ideology_vanguardist = {
 	}
 	
 	leader_weight = {
-		value = 100
+		value = 50 # 100
 		# More likely for angry IG's outside of council republic
 		if = {
 			limit = {
@@ -1617,7 +1697,7 @@ ideology_vanguardist = {
 					NOT = { is_interest_group_type = ig_armed_forces }
 				}
 			}
-			add = 100
+			add = 75 # 100
 		}
 		# More likely when SoL is low outside of council republic
 		if = {
@@ -1636,10 +1716,12 @@ ideology_vanguardist = {
 					OR = {
 						has_law = law_type:law_autocracy
 						has_law = law_type:law_oligarchy
+						has_law = law_type:law_technocracy
+						has_law = law_type:law_single_party_state
 					}
 				}
 			}
-			add = 50
+			add = 100 # 50
 		}
 		# Unlikely for content IG's under anarchism
 		if = {
@@ -1693,7 +1775,7 @@ ideology_vanguardist = {
 					is_interest_group_type = ig_armed_forces
 				}
 			}
-			multiply = 0.3
+			multiply = 0.15 # 0.3
 		}
 		if = {
 			limit = {
@@ -1715,6 +1797,14 @@ ideology_fascist = {
 	
 	character_ideology = yes
 
+	lawgroup_governance_principles = { # VTM
+		law_council_republic = strongly_disapprove
+		law_parliamentary_republic = disapprove
+		law_presidential_republic = neutral
+		law_monarchy = neutral
+		law_theocracy = neutral
+	}
+
 	lawgroup_distribution_of_power = {
 		law_single_party_state = strongly_approve
 		law_autocracy = approve
@@ -1725,6 +1815,16 @@ ideology_fascist = {
 		law_census_voting = strongly_disapprove
 		law_wealth_voting = strongly_disapprove
 		law_landed_voting = strongly_disapprove				
+	}
+
+	lawgroup_economic_system = { # VTM
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = disapprove
+		law_industry_banned = strongly_disapprove
+		law_traditionalism = neutral
+		law_interventionism = neutral
+		law_laissez_faire = neutral
+		law_agrarianism = neutral
 	}
 
 	lawgroup_citizenship = {
@@ -1748,6 +1848,13 @@ ideology_fascist = {
 		law_right_of_assembly = disapprove
 		law_censorship = neutral
 		law_outlawed_dissent = strongly_approve
+	}
+
+	lawgroup_internal_security = { # VTM
+		law_guaranteed_liberties = strongly_disapprove
+		law_no_home_affairs = disapprove
+		law_national_guard = approve
+		law_secret_police = strongly_approve
 	}
 
 	lawgroup_policing = {
@@ -1780,7 +1887,7 @@ ideology_fascist = {
 	}
 	
 	leader_weight = {
-		value = 100
+		value = 75 # 100
 		# More likely if paying war reparations
 		if = {
 			limit = {
@@ -1891,6 +1998,39 @@ ideology_fascist = {
 			}
 			add = 150
 		}
+
+		## VTM 
+		# more likely with strong socialists
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_law = law_type:law_council_republic }
+					any_interest_group = {
+						NOT = { scope:interest_group = this }
+						is_powerful = yes
+						ig_is_socialist = yes
+					}
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_industrialists
+						is_interest_group_type = ig_petty_bourgeoisie
+					}
+					ig_approval <= 0
+				}
+			}
+			add = 100
+		}
+		# red scare can make you more fascist
+		if = {
+			limit = {
+				scope:interest_group = {
+					has_variable = fascist_uptick
+				}
+			}
+			add = 25
+		}
 	}
 }
 
@@ -1928,11 +2068,11 @@ ideology_anarchist = {
 		law_agrarianism = neutral
 		law_traditionalism = strongly_disapprove	
 		law_laissez_faire = strongly_disapprove
-		law_industry_banned = disapprove
+		law_industry_banned = strongly_disapprove # disapprove
 	}
 
 	lawgroup_army_model = {
-		law_national_militia = strongly_approve
+		law_national_militia = approve # strongly_approve, want Anarchists to prioritize other issues
 		law_professional_army = neutral
 		law_mass_conscription = disapprove
 		law_peasant_levies = strongly_disapprove
@@ -1958,6 +2098,20 @@ ideology_anarchist = {
 		law_parliamentary_republic = disapprove
 		law_theocracy = strongly_disapprove
 		law_council_republic = strongly_approve
+	}
+	
+	lawgroup_colonization = { # VTM
+		law_no_colonial_affairs = approve
+		law_colonial_resettlement = disapprove
+		law_frontier_colonization = disapprove
+		law_colonial_exploitation = strongly_disapprove
+	}
+
+	lawgroup_slavery = { # VTM
+		law_slavery_banned = approve
+		law_debt_slavery = strongly_disapprove		
+		law_slave_trade = strongly_disapprove	
+		law_legacy_slavery = disapprove	
 	}
 	
 	lawgroup_substances_regulation = {
@@ -2009,7 +2163,7 @@ ideology_anarchist = {
 	}
 	
 	leader_weight = {
-		value = 100
+		value = 25 # 100
 		# More likely for angry IG's outside of council republic
 		if = {
 			limit = {
@@ -2020,7 +2174,7 @@ ideology_anarchist = {
 					ig_approval <= -5
 				}
 			}
-			add = 100
+			add = 150 # 100
 		}
 		# More likely when SoL is low outside of council republic
 		if = {
@@ -2081,7 +2235,7 @@ ideology_ethno_nationalist = {
 
 	possible = {
 		owner = {
-			has_technology_researched = political_agitation
+			has_technology_researched = pan-nationalism
 		}
 		# Agitator ideologies should disapprove of a current law
 		NAND = {
@@ -2679,8 +2833,14 @@ ideology_authoritarian = {
 						has_law = law_type:law_autocracy
 						has_law = law_type:law_oligarchy
 					}
-					has_law = law_type:law_secret_police
-					has_law = law_type:law_outlawed_dissent
+					OR = {
+						has_law = law_type:law_secret_police
+						has_law = law_type:law_national_guard # VTM						
+					}
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
 				}
 			}
 			add = -50
@@ -2916,6 +3076,13 @@ ideology_humanitarian = {
 		law_child_labor_allowed = strongly_disapprove
 		law_restricted_child_labor = disapprove
 		law_compulsory_primary_school = approve
+	}
+	
+	lawgroup_slavery = { # VTM
+		law_slavery_banned = approve
+		law_debt_slavery = strongly_disapprove		
+		law_slave_trade = strongly_disapprove	
+		law_legacy_slavery = disapprove	
 	}
 	
 	lawgroup_substances_regulation = {
@@ -3734,7 +3901,7 @@ ideology_corporatist_leader = {
 	
 	lawgroup_education_system = {
 		law_religious_schools = approve
-		law_public_schools = approve
+		law_public_schools = neutral
 		law_private_schools = neutral	
 		law_no_schools = disapprove	
 	}	

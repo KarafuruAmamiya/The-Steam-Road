@@ -1,5 +1,6 @@
 ﻿je_corn_laws = {
-	icon = "gfx/interface/icons/event_icons/event_agriculture.dds"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
 	group = je_group_internal_affairs
 
 	is_shown_when_inactive = {
@@ -9,7 +10,7 @@
 		}
 		OR = {
 			has_export_priority_tariffs = g:grain
-			has_law = law_type:law_isolationism
+			has_law = law_type:law_protectionism
 			has_law = law_type:law_mercantilism
 		}
 	}
@@ -22,7 +23,7 @@
 		}
 		has_export_priority_tariffs = g:grain
 		OR = {
-			has_law = law_type:law_isolationism
+			has_law = law_type:law_protectionism
 			has_law = law_type:law_mercantilism
 		}
 		ig:ig_landowners = {
@@ -31,9 +32,25 @@
 		}
 	}
 
+	immediate = {
+		set_variable = {
+			name = corn_laws_timer
+			value = 0
+		}
+	}
+
 	complete = {
+		custom_tooltip = {
+			text = "JE_CORN_LAWS_TIMER_TOOLTIP"
+			var:corn_laws_timer >= 60
+		}
 		NOT = {
 			has_export_priority_tariffs = g:grain
+			market_capital.market = {
+				mg:grain = { 
+					market_goods_pricier > 0.25 
+				}
+			}
 		}
 	}
 
@@ -44,7 +61,7 @@
 			if = {
 				limit = {
 					ig:ig_landowners = {
-						is_in_government = yes
+						#is_in_government = yes
 						leader = {
 							NOT = { has_ideology = ideology:ideology_market_liberal }
 						}
@@ -61,6 +78,10 @@
 				value = 0.1
 				pop_type = laborers
 			}
+			add_loyalists = {
+				value = 0.1
+				pop_type = peasants
+			}
 		}
 	}
 
@@ -71,6 +92,24 @@
 	}
 
 	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOR = {
+						has_export_priority_tariffs = g:grain
+						market_capital.market = {
+							mg:grain = { 
+								market_goods_pricier > 0.25 
+							}
+						}
+					}
+				}
+				change_variable = {
+					name = corn_laws_timer
+					add = 1
+				}
+			}
+		}
 		random_events = {
 			100 = 0
 			10 = corn_laws.2
@@ -78,6 +117,88 @@
 			10 = corn_laws.4
 		}
 	}
+
+	# a script value computing the goal completion metric
+	current_value = {
+		value = var:corn_laws_timer
+	}
+
+	# when the journal entry is activated current_value and goal_add_value are evaluated and added together to determine the goal value
+	goal_add_value = {
+		value = var:corn_laws_timer
+		add = 60
+	}	
+
+	timeout = 3650
+
+	on_timeout = {
+		custom_tooltip = {
+			text = "JE_CORN_LAWS_TIMEOUT_IF_TOOLTIP"
+			if = {
+				limit = {
+					market_capital.market = {
+						mg:grain = { 
+							market_goods_pricier > 0.25 
+						}
+					}					
+				}
+			}
+			add_radicals = {
+				value = 0.10
+				pop_type = laborers
+			}
+			add_radicals = {
+				value = 0.10
+				pop_type = peasants
+			}
+			
+		}
+		show_as_tooltip = {
+			add_radicals = {
+				value = 0.10
+				pop_type = laborers
+			}
+			add_radicals = {
+				value = 0.10
+				pop_type = peasants
+			}
+		}
+		
+		custom_tooltip = {
+			text = "JE_CORN_LAWS_TIMEOUT_ELSE_TOOLTIP"
+			if = {
+				limit = {
+					NOT = {
+						market_capital.market = {
+							mg:grain = { 
+								market_goods_pricier > 0.25 
+							}
+						}						
+					}
+				}
+			}
+			add_radicals = {
+				value = 0.05
+				pop_type = laborers
+			}
+			add_radicals = {
+				value = 0.05
+				pop_type = peasants
+			}
+		}
+		show_as_tooltip = {
+			add_radicals = {
+				value = 0.05
+				pop_type = laborers
+			}
+			add_radicals = {
+				value = 0.05
+				pop_type = peasants
+			}
+		}
+	}
+
+	progressbar = yes
 
 	weight = 100
 	should_be_pinned_by_default = yes

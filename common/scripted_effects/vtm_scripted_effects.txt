@@ -1,0 +1,25 @@
+﻿warlord_setup_effect = {
+	activate_law = law_type:law_autocracy 
+	activate_law = law_type:law_presidential_republic
+	activate_law = law_type:law_peasant_levies
+	activate_law = law_type:law_no_social_security
+	activate_law = law_type:law_no_police
+	activate_law = law_type:law_no_health_system
+	activate_law = law_type:law_no_schools
+	activate_law = law_type:law_no_home_affairs
+		
+	every_scope_character = {
+		random_list = {
+			80 =  {
+			}
+
+			20 = {
+				add_trait = bandit
+			}
+		}			
+	}
+	add_modifier = {
+		name = warlord_dominance
+		months = 360
+	}
+}

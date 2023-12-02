@@ -6,7 +6,6 @@
 	is_shown_when_inactive = {
 		OR = {
 			country_has_primary_culture = cu:north_german
-			country_has_primary_culture = cu:baltic_german
 			country_has_primary_culture = cu:south_german
 			country_has_primary_culture = cu:rhenish
 		}
@@ -15,7 +14,6 @@
 	possible = {
 		OR = {
 			country_has_primary_culture = cu:north_german
-			country_has_primary_culture = cu:baltic_german
 			country_has_primary_culture = cu:south_german
 			country_has_primary_culture = cu:rhenish
 		}	
@@ -26,7 +24,6 @@
 			filter = {
 				OR = {
 					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:baltic_german
 					country_has_primary_culture = cu:south_german				
 					country_has_primary_culture = cu:rhenish				
 				}
@@ -48,7 +45,6 @@
 								root = { 
 									OR = {
 										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:baltic_german
 										country_has_primary_culture = cu:rhenish
 									} 
 								}
@@ -84,7 +80,6 @@
 								root = { 
 									OR = {
 										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:baltic_german
 										country_has_primary_culture = cu:rhenish
 									} 
 								}
@@ -119,7 +114,6 @@
 						country_rank >= rank_value:great_power 
 						OR = {
 							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:baltic_german
 							country_has_primary_culture = cu:south_german					
 							country_has_primary_culture = cu:rhenish					
 						}
@@ -129,8 +123,7 @@
 					limit = { 
 						country_rank >= rank_value:great_power 
 						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:baltic_german					
+							country_has_primary_culture = cu:north_german					
 							country_has_primary_culture = cu:south_german						
 							country_has_primary_culture = cu:rhenish						
 						}					
@@ -148,7 +141,6 @@
 								root = { 
 									OR = {
 										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:baltic_german
 										country_has_primary_culture = cu:rhenish
 									} 
 								}
@@ -184,7 +176,6 @@
 								root = { 
 									OR = {
 										country_has_primary_culture = cu:north_german
-										country_has_primary_culture = cu:baltic_german
 										country_has_primary_culture = cu:rhenish
 									} 
 								}
@@ -219,7 +210,6 @@
 						country_rank >= rank_value:major_power 
 						OR = {
 							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:baltic_german
 							country_has_primary_culture = cu:south_german					
 							country_has_primary_culture = cu:rhenish					
 						}
@@ -229,8 +219,7 @@
 					limit = { 
 						country_rank >= rank_value:major_power 
 						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:baltic_german					
+							country_has_primary_culture = cu:north_german				
 							country_has_primary_culture = cu:south_german							
 							country_has_primary_culture = cu:rhenish							
 						}					
@@ -278,6 +267,18 @@ je_north_german_unification = {
 		}				
 	}
 
+	fail = {
+		custom_tooltip = {
+			text = je_german_unification_german_hegemony_has_been_decided
+			any_country = {
+				has_variable = je_german_confederate_unifier
+			}	
+		}	
+	}
+
+	on_fail = {
+	}
+
 	on_monthly_pulse = {
 		events = {
 			german_unification.3 # Bismarck
@@ -296,6 +297,10 @@ je_north_german_unification = {
 		remove_variable = je_unification_progress
 	}
 
+	invalid = {
+		exists = c:GER
+    }
+
 	status_desc = {
 		first_valid = {
 			triggered_desc = { 
@@ -312,6 +317,18 @@ je_south_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	group = je_group_historical_content
+
+	fail = {
+		custom_tooltip = {
+			text = je_german_unification_german_hegemony_has_been_decided
+			any_country = {
+				has_variable = je_german_confederate_unifier
+			}	
+		}	
+	}
+
+	on_fail = {
+	}
 
 	complete = {	
 		hidden_trigger = {
@@ -354,6 +371,77 @@ je_south_german_unification = {
 			}
 		}
 	}
+	
+	invalid = {
+		exists = c:GER
+    }
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+
+je_rhenish_unification = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
+
+	fail = {
+		custom_tooltip = {
+			text = je_german_unification_german_hegemony_has_been_decided
+			any_country = {
+				has_variable = je_german_confederate_unifier
+			}	
+		}	
+	}
+
+	on_fail = {
+	}
+
+	complete = {	
+		hidden_trigger = {
+			has_variable = je_unification_progress
+		}	
+		has_technology_researched = nationalism
+		is_unification_candidate = GER
+		custom_tooltip = {
+			text = je_german_unification_sole_candidate_trigger_desc
+			NOT = {
+				any_country = {
+					NOT = { this = root }				
+					is_unification_candidate = GER
+				}
+			}	
+		}	
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = { 
+				limit = { NOT = { has_variable = je_unification_progress } } 
+				set_variable = je_unification_progress
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = german_unification.1 } # Confederation of the Rhine
+		remove_variable = je_unification_progress
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_rhenish_status
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+	
+	invalid = {
+		exists = c:GER
+    }
 
 	weight = 1000
 	should_be_pinned_by_default = yes
@@ -388,6 +476,24 @@ je_german_unification = {
 			trigger_event = { id = german_unification.4 popup = yes } # German Unification
 		}
 		remove_variable = je_unification_progress
+		
+		every_state = {
+			limit = {
+				state_region = {
+					OR = {
+						is_homeland = cu:north_german
+						is_homeland = cu:south_german
+						is_homeland = cu:rhenish
+					}
+				}
+				NOT = {
+					owner = ROOT
+				}
+			}
+			state_region = {
+				add_claim = ROOT
+			}
+		}	
 	}
 
 	status_desc = {

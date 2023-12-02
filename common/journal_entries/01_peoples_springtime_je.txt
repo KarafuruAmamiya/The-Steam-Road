@@ -54,6 +54,49 @@
 
 	immediate = {
 		trigger_event = { id = 1848.4 }
+		hidden_effect = {
+			if = {
+				limit = {
+					is_revolutionary = no
+					}
+				save_scope_as = originator
+				every_country = {
+					limit = {
+						OR = {
+							capital = {
+								OR = {
+									region = sr:region_england
+									region = sr:region_gaelic
+									region = sr:region_iberia
+									region = sr:region_france
+									region = sr:region_occitania
+									region = sr:region_rhine
+									region = sr:region_low_countries
+									region = sr:region_north_italy
+									region = sr:region_south_italy
+									region = sr:region_west_balkans
+									region = sr:region_east_balkans
+									region = sr:region_greece
+									region = sr:region_north_germany
+									region = sr:region_south_germany
+									region = sr:region_baltic
+									region = sr:region_scandinavia
+									region = sr:region_poland
+									region = sr:region_ruthenia
+									region = sr:region_dnieper
+									region = sr:region_central_russia
+									region = sr:region_anatolia
+									region = sr:region_persia
+								}
+							} 
+							has_interest_marker_in_region = scope:originator.capital.region
+						}
+						NOT = { this = root }
+					}
+					post_notification = springtime_of_the_people_je_opened
+				}
+			}
+		}
 	}
 
 	complete = {
@@ -155,4 +198,50 @@
 	can_revolution_inherit = no
 
 	timeout = 3650
+
+	on_timeout = {
+		hidden_effect = {
+			if = {
+				limit = {
+					is_revolutionary = no
+					}
+				save_scope_as = originator
+				every_country = {
+					limit = {
+						OR = {
+							capital = {
+								OR = {
+									region = sr:region_england
+									region = sr:region_gaelic
+									region = sr:region_iberia
+									region = sr:region_france
+									region = sr:region_occitania
+									region = sr:region_rhine
+									region = sr:region_low_countries
+									region = sr:region_north_italy
+									region = sr:region_south_italy
+									region = sr:region_west_balkans
+									region = sr:region_east_balkans
+									region = sr:region_greece
+									region = sr:region_north_germany
+									region = sr:region_south_germany
+									region = sr:region_baltic
+									region = sr:region_scandinavia
+									region = sr:region_poland
+									region = sr:region_ruthenia
+									region = sr:region_dnieper
+									region = sr:region_central_russia
+									region = sr:region_anatolia
+									region = sr:region_persia
+								}
+							} 
+							has_interest_marker_in_region = scope:originator.capital.region
+						}
+						NOT = { this = root }
+					}
+					post_notification = springtime_of_the_people_je_over
+				}
+			}
+		}
+	}
 }

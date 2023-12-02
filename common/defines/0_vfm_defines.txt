@@ -72,13 +72,34 @@ NAI = {
 	INSTITUTION_SPENDING_DECREASE_SPENDING_RATIO = 2.1 # 2.0 If current institution spending is at least max spending * this, try to degrade some institutions 
 	
 	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
-	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
+	
+	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # 2.0 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
 	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -70 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
+	DIPLO_PLAY_WEAK_ABANDON_SUPPORT_THRESHOLD = -25 # If support for the side an AI country is backing drops below this, consider abandoning it
+	DIPLO_PLAY_STRONG_ABANDON_SUPPORT_THRESHOLD = -50 # If support for the side an AI country is backing drops below this, abandon it immediately
+	
 	MONEY_SPENDING_INNOVATION_CRITICAL_THRESHOLD = 0.5 #0.25 # If innovation production compared to cap is worse than this, AI considers it very important to improve
-	AI_PEACE_AGREEMENT_BASE_VALUE = -40 #-10
-	FRONT_OR_HQ_IMPORTANCE_MIN_SCORE  = 20 #50		
-	HQ_STATIONING_IMPORTANCE_NOT_OWN_HQ_WEIGHT_MULT = 2.0 #1.2
+	
+	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # For each wargoal we have that's being pressed, apply wargoal value * this
+	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
+	
+	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 #5 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
+	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
+	
+	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
+
+	HQ_DEFENSE_MIN_THEATER_SCORE = 20								# Theater of local HQ must have at least this importance score to have a minimum garrison
+	FRONT_IMPORTANCE_MIN_SCORE = 20 #50		
+	FRONT_IMPORTANCE_WHEN_IN_DISADVANTAGE_WEIGHT_MULT = 1.5 #1.2
+
+	MIN_GOVERNMENT_LEGITIMACY = 25 #50				# If legitimacy is below this, consider adding IGs we don't really like to the government
+	
+	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #2 # Scales with movement support for movement that wants to enact the law
 	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #6 # Scales with movement radicalism for movement that wants to enact the law
+
+	DIPLO_PLAY_REVERSE_SWAY_BECOME_SUBJECT_VALUE_FACTOR = -1.0 #1.0 # Multiplied by how much the AI wants to become a subject of the sway target
+	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
+	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
 }
 
 NCountry = {
@@ -96,7 +117,7 @@ NPolitics = {
 	SECESSION_COOLDOWN_YEARS = 5
 	
 	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.3 #0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
-	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.001 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
+	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.0015 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
 	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
 	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
@@ -105,14 +126,53 @@ NPolitics = {
 	IG_APPROVAL_FROM_RADICALS = -5 #-15		# If 100% of the political strength of the IG is radical, change approval by this amount
 	IG_APPROVAL_FROM_LAW = 1 		# IG approval/disapproval for laws that are for/against their ideologies
 	IG_APPROVAL_FROM_LAW_STRONG_STANCE = 3 #2 		# IG approval/disapproval for laws that are strongly for/against their ideologies
+	SECESSION_COOLDOWN_YEARS = 10 #5
+
+	STATE_BUREAUCRACY_BASE_COST = 10		# The base cost per incorporated state
+	STATE_BUREAUCRACY_POP_BASE_COST = 4		# The base BUR multiplier per population multiple
+	STATE_BUREAUCRACY_POP_MULTIPLE = 200000 #100000	# Number of people BUR cost is based on
+	MINIMUM_INVESTMENT_COST = 10			# The absolute minimum cost in BUR per investment level
 }
 
 NEconomy = {
+	BUILDING_RAISE_WAGES_MIN_RELEVANT_POP_SIZE = 150 #50 # Pops with less workforce than this are ignored when checking whether a profitable building should raise wages because of radicalizing workers
+	BUILDING_RAISE_WAGES_DISCRIMINATION_FACTOR = 0.50 #0.66 # Profitable buildings only care to raise wages for discriminated pops if their wealth to expected SoL ratio is less than this
+	BUILDING_LOWER_WAGES_TARGET_WEALTH_MULT = 1.15 #1.20 # Buildings will consider lowering wages if all significant pops working in them have this * the target wealth to expected SoL ratio
+	BUILDING_PROFIT_TARGET_TO_RAISE_WAGES = 0.40 #0.30	# Required profit margin to consider raising wages for SoL or employment reasons, with BUILDING_WEEKS_BETWEEN_PAY_CHANGES weeks cooldown
+	BUILDING_PROFIT_TARGET_TO_LOWER_WAGES = 0.25 #0.15	# If profit margin is this or below, consider lowering wages for SoL or employment reasons, with BUILDING_WEEKS_BETWEEN_PAY_CHANGES weeks cooldown	
 } 
 
 NMilitary = {
-	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.0005
-	MAPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.005
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MIN = 0.0025 # 0.05 	# The minimum percentage of manpower a unit can lose each week due to attrition
+	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.1 	# The maximum percentage of manpower a unit can lose each week due to attrition
+
+
+	BATTLE_LETHALITY_MIN = 0.00025 # 0.001
+	BATTLE_LETHALITY_MAX = 0.00250 # 0.005
+	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.25 # 0.5		# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
+	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 1.75 # 1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - increasing this makes CE more important and battles more lethal
+
+	BASE_MORALE_RECOVERED_PER_DAY = 0.03			# Default morale recovered is 3% per day
+	BASE_MORALE_RECOVERED_PER_DAY_SLOW_RATE = 0.1	# If current morale exceeds formation supply, multiply the excess gained by this value
+	BASE_MORALE_LOST_PER_DAY = 0.05					# Default morale lost when out of supply is 5%
+
+	CONVOY_RAIDING_NUM_POSSIBLE_ATTACK_NODES = 5			# How many sea zones will be shown as possible attack sites for convoy raided player
+	CONVOY_RAIDING_DELAY_BASE_DAYS = 14						# atleast this many days between each admiral raiding attempt
+	CONVOY_RAIDING_DELAY_MAX_RANDOM_DAYS_FACTOR = 7			# up to this many extra days between each admiral raiding attempt
+
+	CONVOY_RAIDING_STRENGTH_MULT = 0.3					# How strong each Convoy raiding point is ( num flotillas * ce offense )
+	CONVOY_RAIDING_COOLDOWN_DAYS_MIN = 10					# Min days until the next convoy raiding in the sea node
+	CONVOY_RAIDING_COOLDOWN_DAYS_MAX = 20					# Max days until the next convoy raiding in the sea node
+	CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR = 0.1			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
+	CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR = 0.5			# Actual convoy raiding damage is scaled between CONVOY_RAIDING_DAMAGE_MIN_RANDOM_FACTOR and CONVOY_RAIDING_DAMAGE_MAX_RANDOM_FACTOR to provide some random variability
+	CONVOY_RAIDING_DEFENSE_MULT = 0.3 #0.15						# How much is Convoy raiding strength reduced by patrolling flotillas  ( num flotillas * ce defense )
+	CONVOY_RAIDING_MAX_DEFENSE = 0.90						# Example: the defender can never block more than 90% of the convoy damage they're currently taking
+		
+	# Convoy recovery rate after being raided is based on a global and a local rate, using whichever is lower
+	CONVOY_RAIDING_GLOBAL_RECOVERY_RATE = 0.0015 #0.001				# The rate at which damaged convoys are replaced each day, relative to total number of produced convoys in the raided country
+	CONVOY_RAIDING_LOCAL_RECOVERY_RATE = 0.015 #0.01				# The rate at which damaged convoys are replaced each day, relative to total number of convoys passing through the sea node
+	
+	MANPOWER_RATIO_REQUIRED_TO_CLEAR_DEFEATED_ADMIRALS = 0.9 #0.5	# A Defeated fleet without at least this ratio of current/max manpower will remain Defeated
 	USE_TRAVEL_NETWORK = no						# (Temp) toggle for using direct travel vs travel network
 }
 
@@ -136,7 +196,106 @@ NDiplomacy = {
 	WAR_GOAL_INFAMY_HOMELAND_FACTOR = -0.5 # Infamy is adjusted by this if the states taken/puppeted etc are Homelands of the aggressor
 	WAR_GOAL_INFAMY_UNINCORPORATED_FACTOR = -0.75 # Infamy is adjusted by this if the states taken/puppeted etc are unincorporated
 	WAR_GOAL_INFAMY_OWN_SUBJECT_MULT = 0.67 # Infamy is multiplied by this for wargoals targeting your own subject
+	
+	COLONY_PROVINCE_BASE_SCORE = 10
+	COLONY_PROVINCE_COASTAL_SCORE = 75 # 30 # Replaces COLONY_BASE_SCORE for provinces with a coastline
+	COLONY_PROVINCE_ADJACENCY_SCORE = 25 # 20 # How much will colonies prioritize adjacency to existing provinces when growing the colony
+	COLONY_PROVINCE_NO_ADJACENCY_MULT = 0.1 # Multiply by this if no adjacencies at all
+	COLONY_PROVINCE_RANDOM_FACTOR = 1.25 # 1.5 # The higher this is, the more random colonization province picking will be
 }
+
+### Pop Growth Constants
+## Base Values per month
+@min_birthrate = 0.00055			# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
+@max_birthrate = 0.00450			# Maximum base birthrate per month (at SOL = 0 if not modified by malnourishment)
+@min_mortality = 0.00045			# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
+@max_mortality = 0.00600			# Maximum base mortality per month (at SOL = 0 if not modified by malnourishment)
+
+## SoL Thresholds
+@pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
+@pop_growth_transition_sol = 9 #10     # Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
+@pop_growth_max_sol = 11 #20			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+@pop_growth_stable_sol = 14 #30			# Stable is where birthrate and mortality stop changing and hit their minimum values
+
+## Others
+@transition_birthrate_mult = 0.95 #1.0		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
+@max_growth_mortality_mult = 0.40 #0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
+
+### Pop Growth Derived values
+# Generally, for each one of these derived values below we're really just doing one of three operations (or combination of them):
+# - Calculate a Point: sol * slope + start_value   					(x_at_y)
+# - Calculate a Slope: (start_value - end_value) / number_of_steps	(x_slope)
+# - Calculate an Intercept: -slope*sol + end_value					(x_intercept)
+# Intercepts are only needed for line segments that don't start at 0 SoL
+
+@birthrate_at_transition = @[max_birthrate*transition_birthrate_mult]
+@rate_at_equilibrium = @[pop_growth_equilibrium_sol*((birthrate_at_transition-max_birthrate)/pop_growth_transition_sol)+max_birthrate] # determines both mortality and birthrate
+
+## Mortality from 0 to pop_growth_equilibrium_sol
+@mortality_starving_slope = @[(rate_at_equilibrium-max_mortality)/pop_growth_equilibrium_sol]
+
+## Birthrate from 0 to pop_growth_transition_sol
+@birthrate_pretransition_slope = @[(birthrate_at_transition-rate_at_equilibrium)/pop_growth_transition_sol]
+
+## Mortality from pop_growth_equilibrium_sol to pop_growth_max_sol
+@birthrate_at_growth_max = @[(pop_growth_max_sol-pop_growth_transition_sol)*((min_birthrate-birthrate_at_transition)/(pop_growth_stable_sol-pop_growth_transition_sol))+birthrate_at_transition]
+@mortality_at_growth_max = @[birthrate_at_growth_max*max_growth_mortality_mult]
+@mortality_equilibrium_to_growth_max_slope = @[(mortality_at_growth_max-rate_at_equilibrium)/(pop_growth_max_sol-pop_growth_equilibrium_sol)]
+@mortality_equilibrium_to_growth_max_intercept = @[-mortality_equilibrium_to_growth_max_slope*pop_growth_equilibrium_sol+rate_at_equilibrium]
+
+## Birthrate from pop_growth_transition_sol to pop_growth_stable_sol
+@birthrate_transition_slope = @[(min_birthrate-birthrate_at_transition)/(pop_growth_stable_sol-pop_growth_transition_sol)]
+@birthrate_transition_intercept = @[-birthrate_transition_slope*pop_growth_stable_sol+min_birthrate]
+
+## Mortality from pop_growth_max_sol to pop_growth_stable_sol
+@mortality_growth_max_to_stable_slope = @[(min_mortality-mortality_at_growth_max)/(pop_growth_stable_sol-pop_growth_max_sol)]
+@mortality_growth_max_to_stable_intercept = @[-mortality_growth_max_to_stable_slope*pop_growth_stable_sol+min_mortality]
+
+### Pseudo algorithm to determine base Mortality / Birthrate
+## Mortality
+# if (sol < POP_GROWTH_EQUILIBRIUM_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_STARVING_SLOPE + POP_GROWTH_MAX_MORTALITY }
+# else if (sol < POP_GROWTH_MAX_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_SLOPE + POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_INTERCEPT }
+# else if (sol < POP_GROWTH_STABLE_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_SLOPE + POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_INTERCEPT }
+# else { mortality = POP_GROWTH_MIN_MORTALITY }
+
+## Birthrate
+# if (sol < POP_GROWTH_EQUILIBRIUM_SOL)
+# { birthrate = (sol * POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE + POP_GROWTH_MAX_BIRTHRATE) * (1 - malnourishment * (POP_GROWTH_EQUILIBRIUM_SOL - sol)) }
+# else if (sol < POP_GROWTH_TRANSITION_SOL)
+# { birthrate = sol * POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE + POP_GROWTH_MAX_BIRTHRATE }
+# else if (sol < POP_GROWTH_STABLE_SOL)
+# { birthrate = sol * POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE + POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT }
+# else { birthrate = POP_GROWTH_MIN_BIRTHRATE } 
+
+NPops = {
+	## Birthrate
+	POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE = @birthrate_pretransition_slope
+	POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE = @birthrate_transition_slope
+	POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT = @birthrate_transition_intercept
+
+	## Mortality
+	POP_GROWTH_MORTALITY_STARVING_SLOPE = @mortality_starving_slope
+	POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_SLOPE = @mortality_equilibrium_to_growth_max_slope
+	POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_INTERCEPT = @mortality_equilibrium_to_growth_max_intercept
+	POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_SLOPE = @mortality_growth_max_to_stable_slope
+	POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_INTERCEPT = @mortality_growth_max_to_stable_intercept
+
+	## Base Values
+	POP_GROWTH_MIN_BIRTHRATE = @min_birthrate					# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
+	POP_GROWTH_MAX_BIRTHRATE = @max_birthrate					# Maximum base birthrate per month (at SOL = 0 if not modified by malnourishment)
+	POP_GROWTH_MIN_MORTALITY = @min_mortality					# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
+	POP_GROWTH_MAX_MORTALITY = @max_mortality					# Maximum base mortality per month (at SOL = 0 if not modified by malnourishment)
+
+	## SoL Thresholds
+	POP_GROWTH_EQUILIBRIUM_SOL = @pop_growth_equilibrium_sol	# Equilibrium is pops stop starving and where growth first becomes positive
+	POP_GROWTH_TRANSITION_SOL = @pop_growth_transition_sol		# Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
+	POP_GROWTH_MAX_SOL = @pop_growth_max_sol					# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+	POP_GROWTH_STABLE_SOL = @pop_growth_stable_sol				# Stable is where birthrate and mortality stop changing and hit their minimum values
+}
+### End Pop Growth Constant defines
 
 NPops = {
 	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.006 #0.005 # Scales by literacy
@@ -145,6 +304,8 @@ NPops = {
 	RADICALS_MAX_FROM_DISCRIMINATION = 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
 	ASSIMILATION_RATE = 0.006 #0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	CONVERSION_RATE = 0.001						# Percentage of pops who will Convert into a different Religion each month, if eligible
+	
+	### MIGRATION
 	MIGRATION_PULL_EMPTY_STATE = 100						# If a state has no pops at all, give it a huge migration pull
 	MIGRATION_PULL_FROM_LIVING_STANDARD = 1					# Migration pull from each point of average living standard in target state	
 	MIGRATION_PULL_FROM_AVAILABLE_EMPLOYMENT = 0.5			# Migration pull is increased by for each 10k available non subsistence jobs
@@ -156,36 +317,36 @@ NPops = {
 	MIGRATION_PULL_REDUCTION_FROM_UNEMPLOYMENT_MAX = 50		# Migration pull reduction from unemployment cannot exceed this
 
 	# The below factors are applied *after* migration pull threshold checks, so they only impact how large a share of migration a state gets
-	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET = 60.0 #30.0			# Migration pull multiplied by this from target state being a cultural migration target
-	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET_ADJACENCY = 10.0 #5.0	# Migration pull multiplied by this from target state being next to a cultural migration target
+	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET = 20.0 #30.0			# Migration pull multiplied by this from target state being a cultural migration target
+	MIGRATION_PULL_MULT_FROM_CULTURE_TARGET_ADJACENCY = 5.0	# Migration pull multiplied by this from target state being next to a cultural migration target
 	MIGRATION_PULL_MULT_FROM_NO_DISCRIMINATION = 1.0		# Migration pull multiplier increased by this if pop is moving from discrimination to no discrimination (not applied to mass migration targets)
 	MIGRATION_PULL_MULT_FROM_HOMELANDS = 0.5				# Migration pull multiplier increased by this if pop is moving to cultural homelands (not applied to mass migration targets)
 	
 	# General factors for how many pops will migrate
 	MIGRATION_PULL_HIGH_THRESHOLD = 1.25						#	State must have a migration pull of at least market average * this to get economic immigration
 	MIGRATION_PULL_LOW_THRESHOLD = 0.75							# State must have a migration pull of less or equal than market average * this to get full amount of emigration
-	ECONOMIC_MIGRATION_BASE = 0.03								# Base amount of a pop that wants to move for economic reasons
+	ECONOMIC_MIGRATION_BASE = 0.02								# Base amount of a pop that wants to move for economic reasons
 	ECONOMIC_MIGRATION_FROM_SOL_DIFFERENCE = 0.01				# Each point of difference of pop SoL to the market's average SoL makes this fraction of the pop want to economically migrate (in %)
 	ECONOMIC_MIGRATION_STATE_POPULATION_THRESHOLD = 100000				# States with less pops than this have reduced economic emigration numbers to avoid total depopulation
-	CULTURAL_MIGRATION_BASE = 0.10 #0.08 #0.05								# Base amount of a pop that wants to move due to mass migration
+	CULTURAL_MIGRATION_BASE = 0.05 #0.08 #0.05								# Base amount of a pop that wants to move due to mass migration
 	CULTURAL_MIGRATION_FROM_RADICALS = 0.25 #0.05						# At 100% radicals, this fraction of the pop wants to mass migrate
-	MIGRATION_UNEMPLOYMENT_MULT = 20.0							# Amount of migration from SoL is increased by this when a pop is unemployed
+	MIGRATION_UNEMPLOYMENT_MULT = 10.0							# Amount of migration from SoL is increased by this when a pop is unemployed
 	MIGRATION_MIN_STATE_POPS = 20000							# A state with less pops than this will not get emigration
 	MIGRATION_MIN_POP_AMOUNT = 1								# No less than this amount of a pop can migrate each week (if any migration at all should happen)
 	MIGRATION_MAX_POP_AMOUNT = 10000							# No more than this amount of a pop can migrate each week
 	MIGRATION_MAX_PER_STATE_BASE = 250 #500							# No more than this amount of people can move from or to a state in a single week (base)	
-	MIGRATION_MAX_PER_STATE_INFRASTRUCTURE = 1.5 #2					# No more than this amount of people can move from or to a state in a single week (scales with infrastructure)
-	MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION = 0.00001 #0.0005	# Max emigration per week is clamped to this fraction of a state's population
+	MIGRATION_MAX_PER_STATE_INFRASTRUCTURE = 1 #2					# No more than this amount of people can move from or to a state in a single week (scales with infrastructure)
+	MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION = 0.00025 #0.0005	# Max emigration per week is clamped to this fraction of a state's population
 	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_ORIGIN_FRACTION = 0.005	# The amount of unemployed workers in a state * this value is added to how many people can move from it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
 	MIGRATION_MAX_PER_STATE_UNEMPLOYMENT_TARGET_FRACTION = 0.005	# The amount of unemployed workers in a state * this value is removed from how many people can move to it (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 120.0 #5.0 #3.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
-	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 150.0 #12.0 #8.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MIGRATION_MAX_PER_STATE_CULTURAL_EMIGRATION_MULT = 14.0 #3.0		# Weekly emigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
+	MIGRATION_MAX_PER_STATE_CULTURAL_IMMIGRATION_MULT = 18.0 #8.0		# Weekly immigration caps are multiplied by this amount by this for cultural-type migration (after clamping from MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION)
 	MIGRATION_AVERAGE_ATTRACTION_EMIGRATION_MULT = 0.25			# States with an average migration attraction gets this multiplier to emigrants
 	
 	# Factors for creating mass migration targets
-	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.15 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
+	MASS_MIGRATION_ORIGIN_MIN_TURMOIL = 0.20 #0.25			# Must have at least this much turmoil in cultural homelands to create a migration target
 	MASS_MIGRATION_ORIGIN_MIN_EMIGRANTS = 100000		# A country must have at least this many possible migrants to trigger a mass migration
-	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.149			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
+	MASS_MIGRATION_TARGET_MAX_TURMOIL = 0.15			# Must have this or less turmoil among the culture for a country to be picked as a mass migration target
 	MASS_MIGRATION_TARGET_MIN_ARABLE_LAND = 50			# A state must have at least this much arable land to be a mass migration target
 	MASS_MIGRATION_STATE_MIN_MARKET_ACCESS = 0.5		# A state must have at least this much market access to their market to be a mass migration target or origin state
 	MASS_MIGRATION_SPAWN_CHANCE = 0.6 #0.5 					# Per week for each potential mass migration, scales with turmoil (1 = 1%)
@@ -194,7 +355,7 @@ NPops = {
 	MASS_MIGRATION_TARGET_COUNTRY_RANDOM_FACTOR = 0.5	# The higher this is, the more random the selection of mass migration country targets will be
 	MASS_MIGRATION_TARGET_STATE_RANDOM_FACTOR = 0.5		# The higher this is, the more random the selection of mass migration state targets in the target country will be
 	MASS_MIGRATION_DURATION_MONTHS = 12					# How long does a mass migration last in months
-	MASS_MIGRATION_COOLDOWN_MONTHS = 30					# How many months before the same culture can mass migrate from a country again
+	MASS_MIGRATION_COOLDOWN_MONTHS = 30	#60				# How many months before the same culture can mass migrate from a country again
 	MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY = 5	# Countries with at least this number of possible target states do not receive any penalty to their mass migration target score
 	MASS_MIGRATION_FEW_TARGET_STATES_PENALTY = 0.25		# Mass migration target score is divided by ( 1 + this * number of possible target states less than MASS_MIGRATION_NUM_TARGET_STATES_FOR_NO_PENALTY )
 
@@ -218,6 +379,11 @@ NCharacters = {
 	RULER_AGE_FOR_HEIR_CHANCE_BOOST = 30 		# A year after this age start boosting chance of heir generation
 	RULER_HEIR_GENERATION_CHANCE = 0.000125 	# Per day
 	RULER_HEIR_CHANCE_BOOST_SCALE = -0.00000833	# Added to RULER_HEIR_CHANCE_BOOST for each year after RULER_AGE_FOR_HEIR_CHANCE_BOOST
+	
+	AGITATOR_MOVEMENT_SUPPORT_WEIGHT = 0.33 # 0.5 # Political movements will gain support from agitators' popularity multiplied by this weight
+	AGITATOR_EXPECTED_SPAWN_INTERVAL_0_LITERACY = 20 # At 0% literacy, a new agitator is expected to spawn in a given country once every this many years. (supports decimal values)
+	AGITATOR_EXPECTED_SPAWN_INTERVAL_100_LITERACY = 5 # At 100% literacy, a new agitator is expected to spawn in a given country once every this many years. (supports decimal values)
+	AGITATOR_MOVEMENT_POPULARITY_THRESHOLD = 15 # Agitators whose popularity is at or lower than this threshold will not be considered when starting/joining political movements
 }
 
 NCommands = {
@@ -232,6 +398,8 @@ NBattle = {
 }
 
 NWar = {
+	OCCUPATION_STATE_DEFENSIVE_BATTLE_VICTORY_SCORE = 50 # How many occupation "points" each country receives after winning a defensive battle
+	OCCUPATION_STATE_CLEAR_OCCUPATION_FRACTION = 0.5 # Fraction of occupation score dedicated to clear occupation from your own States (if any).
 }
 
 NText = {

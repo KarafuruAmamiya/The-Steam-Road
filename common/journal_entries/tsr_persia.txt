@@ -504,6 +504,7 @@ je_eclipse_of_persia = {
 	transferable = no
 	weight = 10000
 	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
 }
 
 je_constitutional_reformation = {
@@ -573,9 +574,7 @@ je_constitutional_reformation = {
 
 	fail = {
 		OR = {
-			any_civil_war = {
-				civil_war_progress > 0.9
-			}
+			highest_secession_progress > 0.9
 			custom_tooltip = {
 				text = zandi_rebellion_begins_tt
 				exists = c:ZNI

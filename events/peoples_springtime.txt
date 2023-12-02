@@ -226,6 +226,7 @@ peoples_springtime.3 = {
 		custom_tooltip = {
 			text = peoples_springtime.3.a.tt
 			create_character = {
+				culture = primary_culture
 				ig_leader = yes
 				ideology = ideology_radical
 				interest_group = scope:radical_ig
@@ -253,6 +254,7 @@ peoples_springtime.3 = {
 			}
 		}
 		create_character = {
+			culture = primary_culture
 			is_agitator = yes
 			ideology = ideology_radical
 			interest_group = scope:radical_ig
@@ -564,6 +566,415 @@ peoples_springtime.8 = {
 		default_option = yes
 		add_loyalists = {
 			value = 0.1
+		}
+	}
+}
+
+peoples_springtime.120 = {
+	type = country_event
+	placement = scope:generic_nationalist_state_scope
+	event_image = {
+		video = "gfx/event_pictures/europenorthamerica_springtime_of_nations.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/springtime_of_nation"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = peoples_springtime.120.t
+	desc = peoples_springtime.120_1.d
+	flavor = peoples_springtime.120.f
+
+	trigger = {
+		has_journal_entry = je_springtime_of_the_peoples
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_pop = {
+				state.state_region = { is_homeland = prev.culture }
+				culture_accepted = no
+			}
+		}
+		NOT = {
+			has_variable = generic_nationalism_cooldown
+		}
+	}
+
+	duration = 3
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_is_in_europe = yes
+				is_incorporated = yes
+				any_scope_pop = {
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+			}
+			save_scope_as = generic_nationalist_state_scope
+			set_variable = {
+				name = generic_nationalist_state_var
+				days = 360
+			}
+			random_scope_pop = {
+				limit = { 
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				culture = {
+					save_scope_as = discriminated_culture_scope
+				}
+			}
+		}
+
+		set_variable = {
+			name = generic_nationalism_cooldown
+			months = 30
+		}
+		
+	}
+
+	option = {
+		name = peoples_springtime.120.a						
+        default_option = yes
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+		custom_tooltip = peoples_springtime.120.tt1
+		hidden_effect = { 
+			random_list = {
+				75 = { 
+					trigger_event = { 
+						id = peoples_springtime.121 days = 60
+					}
+				}
+				25 = {
+				}
+			}
+		}
+	}
+	option = {
+		name = peoples_springtime.120.b
+		change_infamy = 5
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+		custom_tooltip = peoples_springtime.120.tt2
+		hidden_effect = { 
+			random_list = {
+				30 = { 
+					trigger_event = {
+						id = peoples_springtime.121 days = 60
+					}
+				}
+				70 = { 
+				}
+			}
+		}
+	}
+}
+
+# Mob Event
+peoples_springtime.121 = {
+	type = country_event
+	placement = scope:mob_state_scope
+	title = peoples_springtime.121.t
+	desc = peoples_springtime.121.d
+	flavor = peoples_springtime.121.f
+
+	event_image = {
+		video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/vandalized_storefront"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_springtime_of_the_peoples
+		NOT = {
+			any_scope_state = {
+				has_variable = generic_mob_state_var
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_pop = {
+				state.state_region = { is_homeland = prev.culture }
+				culture_accepted = no
+			}
+			has_variable = generic_nationalist_state_var
+		}
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_pop = {
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				has_variable = generic_nationalist_state_var
+			}
+			set_variable = {
+				name = generic_mob_state_var
+				months = 24
+			}
+			save_scope_as = mob_state_scope
+			cu:south_german = {
+				save_scope_as = mob_culture
+			}
+			random_scope_pop = {
+				limit = { 
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				save_scope_as = mob_victim_pop_scope
+				culture = { save_scope_as = mob_victim_culture }
+			}
+		}
+	}
+	
+	option = {
+		name = peoples_springtime.121.a						
+        default_option = yes
+		add_modifier = { 
+			name = mobilizing_the_militia
+			multiplier = money_amount_multiplier_very_small
+			months = short_modifier_time
+		}
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+		custom_tooltip = peoples_springtime.121.tt1
+		hidden_effect = { 
+			random_list = {
+				50 = { 
+					trigger_event = {
+						id = peoples_springtime.122 days = 60
+					}
+				}
+				50 = { 
+					trigger_event = {
+						id = peoples_springtime.123 days = 60
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = peoples_springtime.121.b
+		add_modifier = { 
+			name = deploying_the_army
+			multiplier = money_amount_multiplier_very_small
+			months = short_modifier_time
+		}
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+		custom_tooltip = peoples_springtime.121.tt2
+		hidden_effect = { 
+			random_list = {
+				20 = { 
+					trigger_event = {
+						id = peoples_springtime.122 days = 60
+					}
+				}
+				80 = { 
+					trigger_event = { 
+						id = peoples_springtime.123 days = 60
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = peoples_springtime.121.c
+		add_radicals = {
+			value = large_radicals
+			culture = scope:mob_victim_culture
+		}
+		custom_tooltip = peoples_springtime.121.tt3
+		hidden_effect = { 
+			random_list = {
+				80 = { 
+					trigger_event = { 
+						id = peoples_springtime.122 days = 60
+					}
+				}
+				20 = { 
+					trigger_event = {
+						id = peoples_springtime.123 days = 60
+					}
+				}
+			}
+		}
+	}
+}
+# Massacre Event
+peoples_springtime.122 = {
+	type = country_event
+	placement = scope:massacre_state_scope
+	title = peoples_springtime.122.t
+	desc = peoples_springtime.122.d
+	flavor = peoples_springtime.122.f
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_police_breaking_door.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/police_breaking_door"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_springtime_of_the_peoples
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_pop = {
+				state.state_region = { is_homeland = prev.culture }
+				culture_accepted = no
+			}
+			has_variable = generic_mob_state_var
+		}
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_pop = {
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				has_variable = generic_mob_state_var
+			}
+			remove_variable = generic_mob_state_var
+			save_scope_as = massacre_state_scope
+			cu:south_german = { save_scope_as = ROOT_culture }
+			random_scope_pop = {
+				limit = { 
+					culture_accepted = no
+					this.state.state_region = {
+						is_homeland = prev.culture
+					}
+				}
+				culture = {
+					save_scope_as = massacre_victims
+				}
+			}
+		}
+	}
+	option = { # breaks up crowds by gunning down rioters
+		name = peoples_springtime.122.a			
+        default_option = yes
+		create_incident = {
+			country = root
+			value = 20
+		}
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = very_large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+	}
+	option = { # let it peter out
+		name = peoples_springtime.122.b
+		scope:generic_nationalist_state_scope = {
+			add_radicals = {
+				value = very_large_radicals
+				culture = scope:discriminated_culture_scope
+			}
+		}
+		random_scope_state = {
+			limit = {
+				is_capital = yes
+			}
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+	}
+}
+# Order Restored Event
+peoples_springtime.123 = {
+	type = country_event
+	placement = scope:orderrestored_state_scope
+	title = peoples_springtime.123.t
+	desc = peoples_springtime.123.d
+	flavor = peoples_springtime.123.f
+
+	event_image = {
+		video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/middleclass_cafe"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_springtime_of_the_peoples
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_pop = {
+				state.state_region = { is_homeland = prev.culture }
+				culture_accepted = no
+			}
+			has_variable = generic_mob_state_var
+		}
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				any_scope_pop = {
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				has_variable = generic_mob_state_var
+			}
+			remove_variable = generic_mob_state_var
+			save_scope_as = orderrestored_state_scope
+			random_scope_pop = {
+				limit = { 
+					state.state_region = { is_homeland = prev.culture }
+					culture_accepted = no
+				}
+				culture = { save_scope_as = orderrestored_victim_pop_scope }
+			}
+		}
+	}
+	option = { # situation is calming down
+		name = peoples_springtime.123.a
+        default_option = yes
+		add_loyalists = {
+			value = 0.10
+			culture = scope:orderrestored_victim_pop_scope
+		}
+		add_loyalists = {
+			value = 0.05
 		}
 	}
 }

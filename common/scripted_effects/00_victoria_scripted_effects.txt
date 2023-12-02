@@ -2070,6 +2070,7 @@ calculate_communism_progress = {
 			change_variable = { name = communism_progress_from_loyalists add = prev.loyalty }
 		}
 	}
+	change_variable = { name = communism_progress_from_loyalists multiply = -1 }
 	#From Poverty
 	set_variable = { name = communism_progress_from_poverty value = 0 }
 	every_scope_state = {

@@ -1,0 +1,325 @@
+﻿### VTM ###
+
+vtm_je_french_natural_borders_button_a = {
+	name = "vtm_je_french_natural_borders_reject_natural_borders"
+	desc = "vtm_je_french_natural_borders_reject_natural_borders_desc"
+
+	visible = {
+		NOT = { has_variable = natural_borders_var }
+		NOT = { has_variable = reject_natural_borders }
+	}
+
+	effect = {
+		set_variable = natural_borders_var
+		custom_tooltip = {
+			text = dismiss_natural_borders_tt
+			set_variable = reject_natural_borders
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_armed_forces
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_ethno_nationalist
+							has_ideology = ideology:ideology_fascist
+							has_ideology = ideology:ideology_authoritarian
+							has_ideology = ideology:ideology_bonapartist
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = no_natural_borders
+				months = long_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+
+	# TODO
+	ai_chance = {
+		base = 0
+
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_pacifist
+							has_ideology = ideology:ideology_moderate
+						}
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+vtm_je_french_natural_borders_button_b = {
+	name = "vtm_je_french_natural_borders_embrace_natural_borders"
+	desc = "vtm_je_french_natural_borders_embrace_natural_borders_desc"
+
+	visible = {
+		NOT = { has_variable = natural_borders_var }
+		NOT = { has_variable = reject_natural_borders }
+	}
+
+	effect = {
+		set_variable = natural_borders_var
+		trigger_event = { id = natural_borders.1 popup = yes }
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_FLANDERS }
+			}
+			s:STATE_FLANDERS = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_WALLONIA }
+			}
+			s:STATE_WALLONIA = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LUXEMBOURG }
+			}
+			s:STATE_LUXEMBOURG = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_RHINELAND }
+			}
+			s:STATE_RHINELAND = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_NORTH_RHINE }
+			}
+			s:STATE_NORTH_RHINE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LORRAINE }
+			}
+			s:STATE_LORRAINE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_ELSASS }
+			}
+			s:STATE_ELSASS = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_PFALZ }
+			}
+			s:STATE_PFALZ = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LIGURIA }
+			}
+			s:STATE_LIGURIA = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_WEST_SWITZERLAND }
+			}
+			s:STATE_WEST_SWITZERLAND = {
+				add_claim = ROOT
+			}
+		}
+		change_infamy = 30
+		add_modifier = {
+			name = france_natural_borders_pursuit
+			months = long_modifier_time # very_long_modifier_time
+			# country_infamy_decay_mult
+		}
+		custom_tooltip = {
+			text = rhine_crisis_tt
+			every_country = {
+				limit = {
+					relations:root < relations_threshold:amicable
+					OR = {
+						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:rhenish
+						country_has_primary_culture = cu:alemannic
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:french
+					}
+				}
+			}
+			set_secret_goal = {
+				country = c:FRA
+				secret_goal = antagonize
+			}
+			change_relations = {
+				country = root
+				value = -10
+			}
+		}
+	}
+	hidden_effect = {
+		set_strategy = ai_strategy_restore_natural_borders
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_ethno_nationalist
+							has_ideology = ideology:ideology_fascist
+							has_ideology = ideology:ideology_authoritarian
+						}
+					}
+				}
+			}
+			add = 15
+		}
+	}
+}
+
+vtm_je_french_natural_borders_button_c = {
+	name = "vtm_je_french_natural_borders_reject_natural_borders"
+	desc = "vtm_je_french_natural_borders_reject_natural_borders_desc"
+
+	visible = {
+		has_variable = natural_borders_var
+		NOT = { has_variable = reject_natural_borders }
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = dismiss_natural_borders_tt
+			remove_variable = natural_borders_var
+			set_variable = reject_natural_borders
+		}
+		#trigger_event = { id = natural_borders.1 popup = yes }
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_FLANDERS }
+			}
+			s:STATE_FLANDERS = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_WALLONIA }
+			}
+			s:STATE_WALLONIA = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LUXEMBOURG }
+			}
+			s:STATE_LUXEMBOURG = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_RHINELAND }
+			}
+			s:STATE_RHINELAND = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_NORTH_RHINE }
+			}
+			s:STATE_NORTH_RHINE = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LORRAINE }
+			}
+			s:STATE_LORRAINE = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_ELSASS }
+			}
+			s:STATE_ELSASS = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_PFALZ }
+			}
+			s:STATE_PFALZ = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LIGURIA }
+			}
+			s:STATE_LIGURIA = {
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_WEST_SWITZERLAND }
+			}
+			s:STATE_WEST_SWITZERLAND = {
+				remove_claim = ROOT
+			}
+		}
+		change_infamy = -10
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					is_in_government = yes
+					leader = {
+						has_ideology = ideology:ideology_pacifist
+					}
+				}
+			}
+			add = 20	
+		}
+	}
+}	

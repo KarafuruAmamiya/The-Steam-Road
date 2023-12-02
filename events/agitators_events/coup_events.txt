@@ -39,7 +39,8 @@ coup.1 = {
 						law = law_type:law_autocracy
 						value >= approve
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			AND = {
@@ -51,7 +52,8 @@ coup.1 = {
 						law = law_type:law_council_republic
 						value < neutral
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			AND = {
@@ -72,7 +74,8 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			AND = {
@@ -88,7 +91,8 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 		}
@@ -110,14 +114,16 @@ coup.1 = {
 						law = law_type:law_autocracy
 						value >= approve
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			random_interest_group = {
 				limit = {
 					is_powerful = yes
 					is_in_government = yes
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 					law_stance = {
 						law = law_type:law_autocracy
 						value >= approve
@@ -146,7 +152,8 @@ coup.1 = {
 						law = law_type:law_council_republic
 						value < approve
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			random_interest_group = {
@@ -157,7 +164,8 @@ coup.1 = {
 						law = law_type:law_council_republic
 						value < approve
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 				set_variable = coup_ig_var
 				save_scope_as = coup_ig
@@ -244,7 +252,7 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
 				}
 			}
 			random_interest_group = {
@@ -261,7 +269,7 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
 				}
 				set_variable = coup_ig_var
 				save_scope_as = coup_ig
@@ -324,7 +332,8 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 			}
 			random_interest_group = {
@@ -337,7 +346,8 @@ coup.1 = {
 							value < neutral
 						}
 					}
-					ig_approval < 0
+					ig_approval < -5 #0
+					ig_clout >= 0.30
 				}
 				set_variable = coup_ig_var
 				save_scope_as = coup_ig
@@ -654,6 +664,7 @@ coup.2 = {
 					}
 				}
 				create_character = {
+					culture = primary_culture
 					ruler = yes
 					interest_group = scope:coup_ig
 				}	
@@ -731,6 +742,7 @@ coup.2 = {
 			}
 		}
 		create_character = {
+			culture = primary_culture
 			ruler = yes
 			interest_group = scope:coup_ig
 		}	
@@ -987,6 +999,7 @@ coup.3 = {
 			}
 		}
 		create_character = {
+			culture = primary_culture
 			interest_group = scope:coup_ig
 			ig_leader = yes
 			ideology = ideology_moderate
@@ -1043,7 +1056,7 @@ coup.3 = {
 				name = coup_prevented
 				months = long_modifier_time
 				is_decaying = yes
-				multiplier = -5 # -10 approval
+				multiplier = -3 # -6 approval
 			}
 			set_variable = { name = coup_guilty days = 3650 }
 		}
@@ -1062,7 +1075,7 @@ coup.3 = {
 				name = coup_prevented
 				months = long_modifier_time
 				is_decaying = yes
-				multiplier = -4 # -8 approval
+				multiplier = -2 # -4 approval
 			}
 			set_variable = { name = coup_guilty days = 3650 }
 		}

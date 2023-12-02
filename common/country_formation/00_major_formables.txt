@@ -23,31 +23,37 @@
 	unification_play = dp_unify_germany
 	leadership_play = dp_leadership_germany
 	
-	ai_will_do = { has_technology_researched = pan-nationalism }
+	ai_will_do = { has_technology_researched = nationalism }
 
 	possible = {
-		has_technology_researched = pan-nationalism
-		custom_tooltip = {
-			text = je_german_unification_idea_trigger_desc
-			has_variable = je_german_unification_idea
-		}
 		custom_tooltip = {
 			text = hre_doesnt_exist
-			NOT = {
-				OR = {
-					exists = c:HRE
-					AND = {
-						exists = c:SAX
-						c:SAX = { has_modifier = hre_emperor }
-					}
-				}
+			NOR = {
+				exists = c:HRE
+				c:SAX ?= { has_modifier = hre_emperor }
 			}
 		}
-		custom_tooltip = {
-			text = no_confederation_of_the_rhine_tt
-			NOT = {
-				exists = c:RHN
+		OR = {
+			any_country = {
+				filter = {
+					country_rank >= rank_value:major_power
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:rhenish
+					}
+				}
+				has_technology_researched = pan-nationalism	
+				percent >= 1.00
 			}
+			custom_tooltip = {
+				text = je_german_unification_idea_trigger_desc
+				has_variable = je_german_unification_idea
+			}
+			custom_tooltip = {
+				text = german_homelands_trigger_desc
+				has_global_variable = german_homelands_under_threat
+			}					
 		}
 	}
 }

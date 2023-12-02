@@ -25,10 +25,16 @@ dei_breakup.1 = {
 		c:FEI ?= this
 		is_subject = no
 		is_at_war = no
+		NOT = {
+			has_global_variable = dei_collapse_var
+		}
 	}
 
 	immediate = {
-		set_variable = bic_collapse_var #Intended
+		cu:french = {
+			save_scope_as = dutch_culture
+		}
+		set_global_variable = dei_collapse_var
 	}
 
 	option = {
@@ -46,18 +52,15 @@ dei_breakup.1 = {
 						}
 					}
 					any_neighbouring_state = {
-						owner = { is_subject_of = ROOT }
+						owner = {
+							capital.region = sr:region_indonesia
+						}
 					}
 				}
 			}
 			random_country = {
 				limit = {
-					OR = {
-						is_subject_of = ROOT
-						any_primary_culture = {
-							has_discrimination_trait = malay_heritage
-						}
-					}
+					capital.region = sr:region_indonesia
 					any_scope_state = {
 						any_neighbouring_state = {
 							is_capital = no
@@ -98,15 +101,14 @@ dei_breakup.1 = {
 			}
 		}
 		change_tag = JAV
+		set_country_type = unrecognized
 		hidden_effect = {
 			remove_primary_culture = cu:french
 			add_primary_culture = cu:javan
 			set_state_religion = rel:sunni
 			every_scope_character = {
 				limit = {
-					OR = {
-						culture = cu:french
-					}
+					culture = cu:french
 				}
 				kill_character = yes
 			}

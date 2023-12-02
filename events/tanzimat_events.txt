@@ -668,7 +668,7 @@ tanzimat_events.6 = {
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -697,11 +697,11 @@ tanzimat_events.6 = {
 		}
 		scope:mob_state_scope = {
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -729,7 +729,7 @@ tanzimat_events.6 = {
 				culture = scope:mob_victim_culture
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				religion = scope:mob_religion
 			}
 		}
@@ -834,11 +834,11 @@ tanzimat_events.7 = {
 		}
 		scope:massacre_state_scope = {
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				religion = rel:sunni
 			}
 			add_radicals_in_state = {
-				value = large_radicals
+				value = very_large_radicals
 				religion = scope:massacre_victims
 			}
 		}
@@ -1147,55 +1147,11 @@ tanzimat_events.10 = {
 		if = {
 			limit = {
 				any_scope_pop = { 
-					religion = rel:zoroastrian 
+					religion = rel:yazidi 
 				}
 			}
 			add_radicals = {
-				religion = rel:zoroastrian
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:hindu 
-				}
-			}
-			add_radicals = {
-				religion = rel:hindu
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:jainist 
-				}
-			}
-			add_radicals = {
-				religion = rel:jainist
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:sikh 
-				}
-			}
-			add_radicals = {
-				religion = rel:sikh
-				value = medium_radicals
-			}
-		}
-		if = {
-			limit = {
-				any_scope_pop = { 
-					religion = rel:animist 
-				}
-			}
-			add_radicals = {
-				religion = rel:animist
+				religion = rel:yazidi
 				value = medium_radicals
 			}
 		}

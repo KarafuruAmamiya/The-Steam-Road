@@ -38,10 +38,10 @@ ai_desires_target_state = {
 			has_strategic_adjacency = scope:target_state
 		}
 		AND = { # Colonialist AI wants colonies
-			OR = {
-				has_strategy = ai_strategy_economic_imperialism
+			# OR = {
+			# 	has_strategy = ai_strategy_economic_imperialism
 				has_strategy = ai_strategy_colonial_expansion
-			}
+			# }
 			scope:target_state.owner = { is_country_type = unrecognized }				
 			can_reach_target_state = yes
 		}

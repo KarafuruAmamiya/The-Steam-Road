@@ -48,6 +48,13 @@ law_child_labor_allowed = {
 		
 		if = {
 			limit = { 
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
+			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
@@ -113,6 +120,13 @@ law_restricted_child_labor = {
 		value = 0
 		
 		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
@@ -155,6 +169,13 @@ law_compulsory_primary_school = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 		
 		if = {
 			limit = { 

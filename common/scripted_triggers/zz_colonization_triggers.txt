@@ -1,0 +1,28 @@
+﻿country_is_colonial_capped = {
+	modifier:country_colonial_capacity_cap_add < num_active_colonies
+}
+
+state_is_colony = {	
+	state_region = {
+		any_scope_state = {
+			owner = {
+				is_country_type = decentralized
+			}
+		}
+	}
+}
+
+state_is_claimed_state = {
+	OR = {
+		region = sr:region_nile_basin
+		region = sr:region_ethiopia
+		region = sr:region_north_africa
+		region = sr:region_senegal
+		region = sr:region_niger
+		region = sr:region_congo
+		region = sr:region_southern_africa
+		region = sr:region_zanj		
+		region = sr:region_indonesia
+		region = sr:region_oceania
+	}
+}

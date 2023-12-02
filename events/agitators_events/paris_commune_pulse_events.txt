@@ -1248,10 +1248,30 @@ paris_commune_pulse_events.6 = {
 					}
 				}
 				activate_law = law_type:law_state_atheism
-				capital = {	
+				set_state_religion = rel:atheist
+				add_modifier = {
+					name = antireligious_policies
+					months = long_modifier_time
+					is_decaying = yes # VTM
+				}
+				custom_tooltip = {
+					text = state_atheism_conversion_tt
+					if = {
+						limit = {
+							NOT = {
+								has_variable = did_state_atheism_already # no fun allowed
+							}				
+						}
+						set_variable = did_state_atheism_already
+						every_scope_state = {
+							limit = {
+								is_incorporated = yes
+							}
 					convert_population = {
 						target = rel:atheist
-						value = 0.1
+								value = 0.10 # 0.15
+							}
+						}
 					}
 				}
 			}

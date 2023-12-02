@@ -1,0 +1,46 @@
+﻿update_colonies_sgui = {
+	scope = country
+
+	is_valid = {
+		num_active_colonies >= 1
+	}
+
+	effect = {
+		clear_variable_list = my_colonies_list
+		every_scope_state = {
+			limit = {
+				is_under_colonization = yes
+				#state_is_colony = yes
+			}
+			root = {
+				add_to_variable_list = {
+					name = my_colonies_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+is_major_colony_sgui = {
+	scope = state
+
+	is_shown = {
+		owner.country_rank >= rank_value:great_power
+		state_is_in_africa = yes
+		state_is_colony = yes
+		num_provinces >= state_region_num_provinces_half
+	}
+}
+
+is_minor_colony_sgui = {
+	scope = state
+	
+	is_shown = {
+		owner.country_rank >= rank_value:great_power
+		state_is_in_africa = yes
+		state_is_colony = yes
+		num_provinces >= state_region_num_provinces_fifth
+		num_provinces < state_region_num_provinces_half
+	}
+}

@@ -284,17 +284,23 @@ BLH = {
 NGF = {
 	states = {
 		STATE_ANHALT
-		STATE_RHINELAND
-		STATE_NORTH_RHINE
+		STATE_WESTPHALIA
+		STATE_HANNOVER
+		STATE_ELBE
+		STATE_SCHLESWIG_HOLSTEIN
+		STATE_BRANDENBURG
+		STATE_MECKLENBURG
+		STATE_POMERANIA
 		STATE_BRUNSWICK
 		STATE_SAXONY
-		STATE_HESSE
 		STATE_THURINGIA
 	}
 
-	required_states_fraction = 1
+	required_states_fraction = 0.65
 
 	possible = {
+		country_has_primary_culture = cu:north_german
+		NOT = { country_has_primary_culture = cu:rhenish }
 		has_technology_researched = nationalism
 	}
 
@@ -304,14 +310,42 @@ NGF = {
 SGF = {
 	states = {
 		STATE_WURTTEMBERG
-		STATE_BADEN
+		STATE_BAVARIA
 		STATE_FRANCONIA
-		STATE_PFALZ
 		STATE_OBERPFALZ
-		STATE_ELSASS
+		STATE_AUSTRIA
+		STATE_STYRIA
+		STATE_TYROL
 	}
 
 	required_states_fraction = 1
+	
+	possible = {
+		country_has_primary_culture = cu:south_german
+		NOT = { country_has_primary_culture = cu:rhenish }
+		has_technology_researched = nationalism
+	}
+	
+	ai_will_do = { always = yes }
+}
+
+RHN = {
+	states = {
+		STATE_BADEN
+		STATE_PFALZ
+		STATE_ELSASS
+		STATE_HESSE
+		STATE_NORTH_RHINE
+		STATE_RHINELAND
+		STATE_RUHR
+	}
+
+	required_states_fraction = 1
+	
+	possible = {
+		country_has_primary_culture = cu:rhenish
+		has_technology_researched = nationalism
+	}
 	
 	ai_will_do = { always = yes }
 }
@@ -473,38 +507,6 @@ UNL = {
 	ai_will_do = { always = yes }
 }
 
-RHN = {
-	states = {
-		STATE_HESSE
-		STATE_SAXONY
-		STATE_SCHLESWIG_HOLSTEIN
-		STATE_ANHALT
-		STATE_FRANCONIA
-		STATE_BAVARIA
-		STATE_BRUNSWICK
-		STATE_HANNOVER
-		STATE_BADEN
-		STATE_WURTTEMBERG
-		STATE_RUHR
-		STATE_WESTPHALIA
-		STATE_ELBE
-		STATE_MECKLENBURG
-	}
-
-	required_states_fraction = 0.75
-	
-	ai_will_do = { always = yes }
-	
-	possible = {
-		has_technology_researched = nationalism
-		NOR = {
-			c:PFA ?= this
-			c:SAX ?= this
-			c:NGF ?= this
-			c:SGF ?= this
-		}
-	}
-}
 HRE = { # Holy Roman Empire
 	states = {
 		STATE_POMERANIA

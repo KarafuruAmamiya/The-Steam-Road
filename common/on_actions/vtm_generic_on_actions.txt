@@ -1,0 +1,53 @@
+﻿# Root = Country
+# scope:target = Uprising country
+on_secession_start = {
+	on_actions = {
+		secession_homelands_claims_on_action
+	}
+}
+
+secession_homelands_claims_on_action = {
+	effect = {
+		if = {
+			limit = {
+				ROOT = {
+					any_scope_state = {
+						is_homeland_of_country_cultures = scope:target
+						NOT = { has_claim_by = scope:target }
+					}
+				}
+			}
+			ROOT = {
+				every_scope_state = {
+					limit = {
+						is_homeland_of_country_cultures = scope:target
+						NOT = { has_claim_by = scope:target }
+					}
+					state_region = {
+						add_claim = scope:target
+					}
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					any_scope_play_involved = { this = ROOT }
+					any_scope_play_involved = { this = scope:target }
+					is_diplomatic_play_type = dp_secession
+				}
+				every_state = {
+					limit = {
+						owner = ROOT
+						is_homeland_of_country_cultures = scope:target
+					}
+					prev = {
+						add_war_goal = {
+							holder = scope:target
+							type = return_state
+							target_state = prev
+						}
+					}
+				}
+			}
+		}
+	}
+}

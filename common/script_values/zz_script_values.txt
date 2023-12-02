@@ -1,0 +1,55 @@
+﻿num_active_colonies = {
+	value = {
+		value = 0
+		IF = {
+			LIMIT = {
+				has_colonial_growth = yes
+			}
+			every_scope_state = {
+				limit = { 
+					is_under_colonization = yes
+					
+				}
+				add = 1
+			}
+		}
+    }
+}
+
+num_active_law = {
+	value = {
+		value = 1
+		if = {
+			limit = {
+					has_law = law_type:law_no_colonial_affairs
+			}
+			add = -1
+		}
+	}
+}
+
+state_region_num_provinces_half = {
+	value = {
+		every_state = {
+			limit = {
+				state_region = root.state_region
+			}
+			add = num_provinces
+		}
+		multiply = 0.5
+		round = yes
+	}
+}
+
+state_region_num_provinces_fifth = {
+	value = {
+		every_state = {
+			limit = {
+				state_region = root.state_region
+			}
+			add = num_provinces
+		}
+		multiply = 0.3
+		round = yes
+	}
+}

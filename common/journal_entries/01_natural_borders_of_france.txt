@@ -3,10 +3,32 @@
 
 	group = je_group_historical_content
 
+	scripted_button = vtm_je_french_natural_borders_button_a
+	scripted_button = vtm_je_french_natural_borders_button_b
+	scripted_button = vtm_je_french_natural_borders_button_c
+
 	is_shown_when_inactive = {
 		exists = c:FRA
 		this = c:FRA
 		has_dlc_feature = voice_of_the_people_content
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					any_scope_state = {
+						OR = {
+							state_region = s:STATE_NORTH_RHINE
+							state_region = s:STATE_RHINELAND
+							state_region = s:STATE_ELSASS
+							state_region = s:STATE_PFALZ
+						}
+					}
+				}
+				set_global_variable = german_homelands_under_threat
+			}
+		}
 	}
 
 	possible = {
@@ -27,10 +49,6 @@
 				}
 			}
 		}
-	}
-
-	immediate = {
-		trigger_event = { id = natural_borders.1 popup = yes }
 	}
 
 	complete = {
@@ -104,159 +122,9 @@
 	}
 
 	invalid = {
-		has_variable = reject_natural_borders
-	}
-
-	should_be_pinned_by_default = yes
-
-	weight = 100
-}
-
-je_confederation_of_the_rhine = {
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	group = je_group_foreign_affairs
-
-	is_shown_when_inactive = {
-		OR = {
-			any_country = {
-				is_subject_of = ROOT
-				capital = {
-					OR = {
-						region = sr:region_rhine
-						region = sr:region_low_countries
-						region = sr:region_north_germany
-						region = sr:region_south_germany
-					}
-				}
-			}
-			any_scope_state = {
-				state_region = {
-					OR = {
-						is_homeland = cu:south_german
-						is_homeland = cu:north_german
-						is_homeland = cu:rhenish
-					}
-				}
-				OR = {
-					region = sr:region_rhine
-					region = sr:region_low_countries
-					region = sr:region_north_germany
-					region = sr:region_south_germany
-				}
-				is_incorporated = no
-				NOT = {
-					ROOT = {
-						has_claim = prev.state_region
-					}
-				}
-			}
-		}
-		NOR = {
-			country_has_primary_culture = cu:north_german
-			country_has_primary_culture = cu:south_german
-			country_has_primary_culture = cu:rhenish
-		}
-	}
-
-	possible = {
-		country_rank >= rank_value:great_power
-		any_country = {
-			is_subject_of = ROOT
-			capital = {
-				OR = {
-					region = sr:region_rhine
-					region = sr:region_low_countries
-					region = sr:region_north_germany
-					region = sr:region_south_germany
-				}
-			}
-			NOT = {
-				has_diplomatic_pact = {
-					who = ROOT
-					type = personal_union
-					is_initiator = no
-				}
-			}
-			count >= 2
-		}
-	}
-
-	immediate = {
-		save_scope_as = rhine_overlord
-		cu:north_german = {
-			save_scope_as = north_german_scope
-		}
-		cu:south_german = {
-			save_scope_as = south_german_scope
-		}
-	}
-
-	scripted_button = je_confederation_of_the_rhine_confederate_button
-	scripted_button = je_confederation_of_the_rhine_expand_button
-
-	invalid = {
-		NOR = {
-			any_country = {
-				is_subject_of = ROOT
-				capital = {
-					OR = {
-						region = sr:region_rhine
-						region = sr:region_low_countries
-						region = sr:region_north_germany
-						region = sr:region_south_germany
-					}
-				}
-			}
-			any_scope_state = {
-				state_region = {
-					OR = {
-						is_homeland = cu:south_german
-						is_homeland = cu:north_german
-						is_homeland = cu:rhenish
-					}
-				}
-				OR = {
-					region = sr:region_rhine
-					region = sr:region_low_countries
-					region = sr:region_north_germany
-					region = sr:region_south_germany
-				}
-				is_incorporated = no
-			}
-		}
-	}
-
-	complete = {
 		custom_tooltip = {
-			text = no_german_great_powers_tt
-			NOT = {
-				any_country = {
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:south_german
-						country_has_primary_culture = cu:rhenish
-					}
-					country_rank = rank_value:great_power
-				}
-			}
-		}
-	}
-
-	fail = {
-		exists = c:RHN
-		c:RHN ?= {
-			NOT = {
-				is_subject_of = ROOT
-			}
-		}
-	}
-
-	on_fail = {
-		add_modifier = {
-			name = modifier_fall_of_germany
-			months = normal_modifier_time
-			is_decaying = yes
+			text = vtm_reject_natural_borders_tt
+			has_variable = reject_natural_borders
 		}
 	}
 

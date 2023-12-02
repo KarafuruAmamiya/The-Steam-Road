@@ -1,0 +1,201 @@
+template zz_colonization_colonial_capacity
+{
+	flowcontainer = {
+		minimumsize = { 80 30 }
+		maximumsize = { 80 30 }
+		spacing = 2	
+		using = colonial_capacity_tooltip
+		using = tooltip_below
+		datacontext = "[GetScriptedGui('update_colonies_sgui')]"				
+		onmousehierarchyenter = "[GetScriptedGui('update_colonies_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		alpha = "[TransparentIfZero(GetPlayer.MakeScope.ScriptValue('num_active_law'))]"
+		alwaystransparent = no
+		
+		button = {
+			using = glow_button
+			size = { 100 40 }
+			onclick = "[GetLensToolbar.ActivateOption( 'establish_colony' )]"
+			enabled = "[And( GetMetaPlayer.GetPlayedOrObservedCountry.IsValid, GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue('num_active_law'), '(CFixedPoint)0' ) )]"
+	
+			icon = {
+				texture = "gfx/interface/icons/lens_toolbar_icons/establish_colony.dds"
+				size = { 26 26 }
+				parentanchor = top
+			}
+			textbox = {
+				parentanchor = top|hcenter
+				margin_top = 4
+				#raw_text = "#variable [GetPlayer.MakeScope.ScriptValue('num_active_colonies')]#!"
+				raw_text = "COLONIES_VALUE"
+				autoresize = yes
+				align = right|nobaseline
+			}			
+		}
+	}
+}
+
+template colonial_capacity_tooltip 
+{
+	tooltip = "COLONIAL_CAPACITY_TOOLTIP"
+	tooltipwidget = {
+		TooltipWidgetType = {
+			blockoverride "tooltip_content_after" {
+				using = default_list_position
+				margin_top = 10
+
+				flowcontainer = {
+					direction = vertical
+					parentanchor = hcenter
+					margin_bottom = 10
+					margin_left = 10
+					margin_right = 10
+
+					visible = "[GreaterThanOrEqualTo_CFixedPoint( GetPlayer.MakeScope.ScriptValue('num_active_colonies'), '(CFixedPoint)1' )]"
+
+					background = {
+						using = default_background
+					}
+
+					# header
+					textbox = {
+						using = default_list_position
+
+						block "header" {
+							raw_text = "#V Current Colonies:#!"
+						}
+						autoresize = yes
+						align = hcenter|nobaseline
+						margin_top = 10
+						margin_bottom = 10
+						default_format = "#title"
+						multiline = yes
+						maximumsize = { 300 -1 }
+					}
+
+					dynamicgridbox = {
+						datamodel = "[GetPlayer.MakeScope.GetList('my_colonies_list')]"
+						item = {
+							button = {
+								datacontext = "[Scope.GetState]"
+								using = default_button
+								size = { 480 40 }
+								margin_left = 10
+								onmousehierarchyenter = "[AccessHighlightManager.HighlightState(State.Self)]"
+								onmousehierarchyleave = "[AccessHighlightManager.RemoveHighlight]"
+								onclick = "[InformationPanelBar.OpenStatePanel( State.AccessSelf )]"
+								#onrightclick = "[RightClickMenuManager.ShowForState(State.AccessSelf)]" # SUPER WONKY BEHAVIOUR!
+								alwaystransparent = no
+								parentanchor = left
+	
+								textbox = {							
+									size = { 240 40 }
+									margin_left = 10
+									align = left|nobaseline
+									raw_text = "[Scope.GetState.GetName]"
+									parentanchor = top
+									elide = right
+								}
+
+								hbox = {
+									size = { 40 40 }
+									position = { 30 0 }
+
+									icon = {
+										datacontext = "[GetScriptedGui('is_major_colony_sgui')]"
+										tooltip = "major_colony_tooltip"
+										size = { 30 30 }
+										texture = "gfx/interface/icons/zz_colonization/major_colony.dds"
+										visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(Scope.GetState.MakeScope).End )]"
+									}
+									icon = {
+										datacontext = "[GetScriptedGui('is_minor_colony_sgui')]"
+										tooltip = "minor_colony_tooltip"
+										size = { 30 30 }
+										texture = "gfx/interface/icons/zz_colonization/minor_colony.dds"
+										visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(Scope.GetState.MakeScope).End )]"
+									}
+								}
+
+								default_progressbar_horizontal = {
+									size = { 120 20 }
+									position = { 110 0 }
+									parentanchor = center|vcenter
+									tooltip = "STATE_COLONY_TOOLTIP"
+									blockoverride "values" {
+										value = "[Scope.GetState.GetColonyProgressAsFloat]"
+										min = 0
+										max = 1
+									}
+
+									textbox = {
+										visible = "[GreaterThan_int32( State.GetColonyProgressAsDays, '(int32)-1')]"
+										text = "COLONY_MAP_MARKER_DAYS_LEFT"
+										autoresize = yes
+										position = { 10 0 }
+										parentanchor = left|vcenter
+										widgetanchor = left|vcenter
+										align = right|nobaseline
+									}
+									textbox = {
+										visible = "[Not(GreaterThan_int32( State.GetColonyProgressAsDays, '(int32)-1'))]"
+										text = "NO_PROGRESS"
+										autoresize = yes
+										position = { 10 0 }
+										parentanchor = left|vcenter
+										widgetanchor = left|vcenter
+										align = right|nobaseline
+									}									
+								}
+
+								button = {
+									texture = "gfx/interface/icons/generic_icons/not_paused.dds"
+									size = { 33 33 }
+									visible = "[And(State.IsOwner(GetPlayer),Not(State.IsColonizationPaused))]"
+									onclick = "[Execute( State.TogglePauseColonization )]"
+									enabled = "[IsValid( State.TogglePauseColonization )]"
+									tooltip = "STATE_COLONY_TOOLTIP"
+									parentanchor = right|vcenter
+									widgetanchor = right|vcenter
+									position = { -30 0 }							
+								}
+	
+								button = {
+									texture = "gfx/interface/icons/generic_icons/paused.dds"
+									size = { 33 33 }
+									visible = "[And(State.IsOwner(GetPlayer),State.IsColonizationPaused)]"
+									onclick = "[Execute( State.TogglePauseColonization )]"
+									enabled = "[IsValid( State.TogglePauseColonization )]"
+									tooltip = "STATE_COLONY_TOOLTIP"
+									parentanchor = right|vcenter
+									widgetanchor = right|vcenter
+									position = { -30 0 }							
+								}						
+	
+								button = {
+									size = { 22 22 }
+									visible = "[State.IsOwner( GetPlayer )]"
+									tooltip = "CANCEL_COLONY_TOOLTIP"
+									onclick = "[PopupManager.AskConfirmation( State.AbandonColony )]"
+									enabled = "[IsValid( State.AbandonColony )]"
+									texture = "gfx/interface/icons/generic_icons/red_cross.dds"
+									parentanchor = right|vcenter
+									widgetanchor = right|vcenter
+									position = { -10 0 }
+								}								
+							}	
+						}
+					}															
+				}
+				textbox = {
+					autoresize = yes
+					align = hcenter|nobaseline
+					parentanchor = hcenter
+					default_format = "#title"
+					multiline = yes
+					raw_text = "colonial_gameplay_notes_add"
+				}
+			}
+		}	
+	}
+}
+

@@ -11,16 +11,20 @@ german_unification.1 = {
 			triggered_desc = {
 				desc = german_unification.1.d1
 				trigger = {
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:baltic_german
-					}
+					country_has_primary_culture = cu:north_german
+					NOT = { country_has_primary_culture = cu:rhenish }
 				}
 			}
 			triggered_desc = {
 				desc = german_unification.1.d2
 				trigger = {
 					country_has_primary_culture = cu:south_german
+					NOT = { country_has_primary_culture = cu:rhenish }
+				}
+			}
+			triggered_desc = {
+				desc = german_unification.1.d3
+				trigger = {
 					country_has_primary_culture = cu:rhenish
 				}
 			}
@@ -101,10 +105,8 @@ german_unification.1 = {
 		}
 		if = {
 			limit = {
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:baltic_german
-				}
+				country_has_primary_culture = cu:north_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 				NOT = { exists = c:NGF }
 				OR = {
 					country_tier = kingdom
@@ -115,10 +117,8 @@ german_unification.1 = {
 		}
 		else_if = {
 			limit = {
-				OR = {
-					country_has_primary_culture = cu:south_german
-					country_has_primary_culture = cu:rhenish
-				}
+				country_has_primary_culture = cu:north_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 				NOT = { exists = c:SGF }
 				OR = {
 					country_tier = kingdom
@@ -126,6 +126,17 @@ german_unification.1 = {
 				}
 			}
 			change_tag = SGF
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:rhenish
+				NOT = { exists = c:RHN }
+				OR = {
+					country_tier = kingdom
+					country_tier = principality
+				}
+			}
+			change_tag = RHN
 		}
 	}
 	option = {
@@ -136,10 +147,8 @@ german_unification.1 = {
 		}
 		if = {
 			limit = {
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:baltic_german
-				}
+				country_has_primary_culture = cu:north_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 				NOT = { exists = c:NGF }
 				OR = {
 					country_tier = kingdom
@@ -150,10 +159,8 @@ german_unification.1 = {
 		}
 		else_if = {
 			limit = {
-				OR = {
-					country_has_primary_culture = cu:south_german
-					country_has_primary_culture = cu:rhenish
-				}
+				country_has_primary_culture = cu:north_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 				NOT = { exists = c:SGF }
 				OR = {
 					country_tier = kingdom
@@ -162,10 +169,21 @@ german_unification.1 = {
 			}
 			change_tag = SGF
 		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:rhenish
+				NOT = { exists = c:RHN }
+				OR = {
+					country_tier = kingdom
+					country_tier = principality
+				}
+			}
+			change_tag = RHN
+		}
 	}
 }
 
-# Annex a German country after forming NGF/SGF
+# Annex a German country after forming NGF/SGF/RHN
 german_unification.2 = {
 	type = country_event
 	placement = ROOT
@@ -286,6 +304,7 @@ german_unification.3 = {
 			first_name = Otto
 			last_name = von_Bismarck
 			historical = yes
+			culture = cu:north_german
 			ig_leader = yes
 			interest_group = ig_landowners
 			female = no
@@ -313,6 +332,7 @@ german_unification.3 = {
 				first_name = Otto
 				last_name = von_Bismarck
 				historical = yes
+				culture = cu:north_german
 				ig_leader = yes
 				interest_group = ig_landowners
 				female = no
@@ -342,6 +362,7 @@ german_unification.3 = {
 				first_name = Otto
 				last_name = von_Bismarck
 				historical = yes
+				culture = cu:north_german
 				ig_leader = yes
 				interest_group = ig_landowners
 				female = no
@@ -406,10 +427,6 @@ german_unification.4 = {
 		}
 		add_loyalists = {
 			value = 0.1
-			culture = cu:baltic_german
-		}
-		add_loyalists = {
-			value = 0.1
 			culture = cu:south_german
 		}
 		add_loyalists = {
@@ -466,10 +483,8 @@ german_unification.5 = {
 		default_option = yes	
 		if = {
 			limit = { 
-				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:baltic_german 
-				}
+				country_has_primary_culture = cu:north_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 			}
 			add_journal_entry = {
 				type = je_north_german_unification
@@ -477,14 +492,20 @@ german_unification.5 = {
 		}
 		else_if = {
 			limit = { 
-				OR = {
-					country_has_primary_culture = cu:south_german
-					country_has_primary_culture = cu:rhenish 
-				}
+				country_has_primary_culture = cu:south_german
+				NOT = { country_has_primary_culture = cu:rhenish }
 			}
 			add_journal_entry = {
 				type = je_south_german_unification
 			}
 		}		
+		else_if = {
+			limit = { 
+				country_has_primary_culture = cu:rhenish
+			}
+			add_journal_entry = {
+				type = je_rhenish_unification
+			}
+		}
 	}
 }

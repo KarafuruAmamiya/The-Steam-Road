@@ -1,0 +1,27 @@
+﻿l_english:
+ ##### MODIFIERS ######
+ modifier_country_colonial_capacity_cap_add:0 "Active Colonies"
+ modifier_country_colonial_capacity_cap_add_desc:0 "The amount of [Concept('concept_colony', '$concept_colonies$')] that we are supporting at this time."
+ COLONIAL_CAPACITY_TOOLTIP:0 "#tooltip_header $COLONIAL_CAPACITY$#!"
+ COLONIES_VALUE:0 "[GetPlayer.MakeScope.ScriptValue('num_active_colonies') )|+0]"
+
+ ##### NOTIFS #####
+ notification_zz_colony_development_major_name:0 "[SCOPE.sState('colony_notification_state').GetName] has become a @major_colony_icon!#I Major Colony#!"
+ notification_zz_colony_development_major_desc:0 "[SCOPE.sState('colony_notification_state').GetName] has grown sufficiently and is now classified as  @major_colony_icon!#I Major Colony#! granting us a [concept_claim] on the entirety of [SCOPE.sState('colony_notification_state').GetStateRegion.GetName]."
+ notifiaction_zz_colony_development_major_tooltip:0 "#header $notification_zz_colony_development_major_name$#!\n$TOOLTIP_DELIMITER$\n$notification_zz_colony_development_major_desc$"
+
+ notification_zz_colony_development_major_other_name:0 "[SCOPE.sCountry('colonizer_notification_country').GetFlagTextIcon] [SCOPE.sState('colony_notification_state').GetName] became a @major_colony_icon!#I Major Colony#!"
+ notification_zz_colony_development_major_other_desc:0 "[SCOPE.sCountry('colonizer_notification_country').GetFlagTextIcon] [SCOPE.sState('colony_notification_state').GetName] has grown sufficiently enough to be classified as a @major_colony_icon!#I Major Colony#! granting [SCOPE.sCountry('colonizer_notification_country').GetName] a [concept_claim] on the entirety of [SCOPE.sState('colony_notification_state').GetStateRegion.GetName]."
+ notification_zz_colony_development_major_other_tooltip:0 "#header $notification_zz_colony_development_major_other_name$\n$TOOLTIP_DELIMITER$\n$notification_zz_colony_development_major_other_desc$"
+
+ ##### CONCEPTS #####
+ concept_colonial_capacity:0 "#!\n#negative_value $COLONICAL CAPACITY HAS BEEN DEACTIVATED IN THIS VERSION OF VTM!$#!#!"
+ concept_colonial_capacity_desc:0 "The amount of [Concept('concept_colony', '$concept_colonies$')] that we are supporting at this time."
+ COLONIAL_CAPACITY:0 "[concept_colonial_capacity]"
+ concept_colonial_gameplay_notes:0 "Colonial Gameplay Notes"
+ concept_colonial_gameplay_notes_desc:0 "#BOLD Some important gameplay changes to consider:\n- [Concept('concept_country','$concept_countries$')] colonizing states in #I #BOLD Africa, Oceania or Indonesia#!#! will receive a [concept_claim] on the [concept_state_region] once they have acquired at least #BOLD 50%#! the state, turning it into a @major_colony_icon!#I Major Colony#!.\n- [Concept('concept_colony', '$concept_colonies$')] by other [Concept('concept_country','$concept_countries$')] in the same [concept_state_region] in #I #BOLD Africa, Oceania or Indonesia#!#! will be considered @minor_colony_icon!#I Minor Colonies#! once they have acquired #BOLD 20%#! of the state and will also be granted a [concept_claim] when another nation's @major_colony_icon!#I Major Colony#! is created!"
+ colonial_gameplay_notes_add:0 "$TOOLTIP_DELIMITER$\n #BOLD [concept_colonial_gameplay_notes]#!"
+
+ ##### TOOLTIPS #####
+ major_colony_tooltip:0 "This [concept_colony] is considered a @major_colony_icon!#I Major Colony#! of a [concept_great_power] as it controls at least #BOLD 50%#! of its [concept_state_region], granting a [concept_claim] to its owner!"
+ minor_colony_tooltip:0 "This [concept_colony] is considered a @minor_colony_icon!#I Minor Colony#! of a [concept_great_power] as it controls at least #BOLD 30%#! of its [concept_state_region]. This colony will grant its owner a [concept_claim] if it or another nations colony grows to at least #BOLD 50%#!!"

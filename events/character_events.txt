@@ -10,8 +10,7 @@ character_events.100 = {
 			leader = {
 				is_ruler = no
 				is_busy = no
-				is_historical = no
-				NOT = { has_variable = memento_mori_immunity }
+				#is_historical = no
 			}
 		}
 	}
@@ -24,8 +23,11 @@ character_events.100 = {
 				leader = {
 					is_ruler = no
 					is_busy = no
-					is_historical = no
-					NOT = { has_variable = memento_mori_immunity }
+					#is_historical = no
+					NOR = { 
+						has_variable = memento_mori_immunity 
+						#has_variable = vtm_memento_mori_immunity # uncomment if used
+					}
 				}
 			}
 			save_scope_as = memento_mori_ig
@@ -38,11 +40,28 @@ character_events.100 = {
 			}
 		}
 		scope:memento_mori_leader = {
+			if = {
+				limit = {
+					is_historical = yes
+				}
+				random_list = {
+					6 = {
+						kill_character = {
+							hidden = yes
+						}
+						owner = { post_notification = ig_leader_memento_mori }
+					}
+					3 = {}
+				}
+			}
+			else = {
 			kill_character = {
 				hidden = yes
 			}
+				owner = { post_notification = ig_leader_memento_mori }
 		}
-		post_notification = ig_leader_memento_mori
+		}
+		#post_notification = ig_leader_memento_mori
 		# Kill an Agitator occasionally, but not too often
 		if = {
 			limit = {

@@ -246,11 +246,11 @@ raj.2 = {
 					OR = {
 						ruler = {
 							OR = {
-								age < 16
 								has_trait = senile
 								has_trait = psychological_affliction
 								has_trait = sickly
 								has_trait = cancer
+								has_trait = tuberculosis
 								has_trait = opium_addiction
 								has_trait = cocaine_addiction
 								has_trait = grifter
@@ -290,11 +290,11 @@ raj.2 = {
 					OR = {
 						ruler = {
 							OR = {
-								age < 16
 								has_trait = senile
 								has_trait = psychological_affliction
 								has_trait = sickly
 								has_trait = cancer
+								has_trait = tuberculosis
 								has_trait = opium_addiction
 								has_trait = cocaine_addiction
 								has_trait = grifter
@@ -335,11 +335,11 @@ raj.2 = {
 					OR = {
 						ruler = {
 							OR = {
-								age < 16
 								has_trait = senile
 								has_trait = psychological_affliction
 								has_trait = sickly
 								has_trait = cancer
+								has_trait = tuberculosis
 								has_trait = opium_addiction
 								has_trait = cocaine_addiction
 								has_trait = grifter
@@ -377,6 +377,24 @@ raj.2 = {
 				value = very_large_radicals
 			}
 		}
+		if = {
+			limit = {
+				exists = c:BUN
+				scope:doctrine_of_lapse_target_state_1 = {
+					owner = c:BUN
+				}
+				c:BUN = {
+					ruler = {
+						has_template = per_lakshmibai_character_template
+					}
+				}
+			}
+			c:BUN = {
+				ruler = {
+					exile_character_with_martyrdom = yes
+				}
+			}
+		}
 		annex = scope:doctrine_of_lapse_target_state_1.owner
 		create_incident = {
 			country = scope:doctrine_of_lapse_target_state_1.owner
@@ -394,6 +412,24 @@ raj.2 = {
 				value = very_large_radicals
 			}
 		}
+		if = {
+			limit = {
+				exists = c:BUN
+				scope:doctrine_of_lapse_target_state_2 = {
+					owner = c:BUN
+				}
+				c:BUN = {
+					ruler = {
+						has_template = per_lakshmibai_character_template
+					}
+				}
+			}
+			c:BUN = {
+				ruler = {
+					exile_character_with_martyrdom = yes
+				}
+			}
+		}
 		annex = scope:doctrine_of_lapse_target_state_2.owner
 		create_incident = {
 			country = scope:doctrine_of_lapse_target_state_2.owner
@@ -409,6 +445,24 @@ raj.2 = {
 		scope:doctrine_of_lapse_target_state_3 = {
 			add_radicals_in_state = {
 				value = very_large_radicals
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BUN
+				scope:doctrine_of_lapse_target_state_3 = {
+					owner = c:BUN
+				}
+				c:BUN = {
+					ruler = {
+						has_template = per_lakshmibai_character_template
+					}
+				}
+			}
+			c:BUN = {
+				ruler = {
+					exile_character_with_martyrdom = yes
+				}
 			}
 		}
 		annex = scope:doctrine_of_lapse_target_state_3.owner

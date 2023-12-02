@@ -24,11 +24,11 @@
 			OR = {
 				ruler = {
 					OR = {
-						age < 16
 						has_trait = senile
 						has_trait = psychological_affliction
 						has_trait = sickly
 						has_trait = cancer
+						has_trait = tuberculosis
 						has_trait = opium_addiction
 						has_trait = cocaine_addiction
 						has_trait = grifter
@@ -48,7 +48,13 @@
 					is_heir = yes
 					is_female = yes
 				}
-				has_variable = illegitimate_can_annex
+				trigger_if = {
+					c:BUN ?= prev
+					custom_tooltip = {
+						text = damodar_rao_tt
+						has_variable = illegitimate_can_annex
+					}
+				}
 			}
 		}
 	}
@@ -62,6 +68,12 @@
 	}
 
 	ai_chance = {
-		base = 1000
+		base = 0
+		modifier = {
+			trigger = {
+				infamy < infamy_threshold:infamous
+			}
+			add = 1000
+		}
 	}
 }

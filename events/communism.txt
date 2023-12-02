@@ -36,6 +36,9 @@ communism.1 = {
 				save_scope_as = union_leader
 			}
 		}
+		ig:ig_trade_unions = {
+			add_ideology = ideology_socialist
+		}
 		set_variable = {
 			name = je_communism_2_var
 			value = 0
@@ -438,6 +441,7 @@ communism.3 = {
 		}
 		create_character = {
 			#role = politician # Remove this line
+			culture = primary_culture
 			ig_leader = yes
 			interest_group = scope:new_vanguard_ig
 			ideology = ideology_vanguardist
@@ -727,8 +731,8 @@ communism.8 = {
 			hidden_effect = {
 				set_interest_group_name = ig_red_army
 			}
-			remove_ideology= ideology_loyalist
-			add_ideology = ideology_proletarian
+			remove_ideology = ideology_loyalist
+			add_ideology = ideology_socialist
 		}
 	}
 }

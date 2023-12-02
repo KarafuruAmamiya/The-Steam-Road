@@ -230,14 +230,26 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		ruler = {
 			kill_character = yes
 		}
-		if = {
-			limit = {
-				has_variable = akturkification_start
+		hidden_effect = {
+			add_radicals = {
+				value = 0.45
+				culture = cu:kurdish
 			}
-			custom_tooltip = {
-				text = akturkification_over_tt
-				restore_akkovin_homelands = yes
-				remove_modifier = russification_modifier
+			add_radicals = {
+				value = 0.45
+				culture = cu:armenian
+			}
+			add_radicals = {
+				value = 0.45
+				culture = cu:levantine_arab
+			}
+			add_radicals = {
+				value = 0.45
+				culture = cu:mesopotamian_arab
+			}
+			add_radicals = {
+				value = 0.45
+				culture = cu:assyrian
 			}
 		}
 	}

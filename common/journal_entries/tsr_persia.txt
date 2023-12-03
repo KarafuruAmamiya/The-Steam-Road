@@ -245,17 +245,18 @@ je_eclipse_of_persia = {
 	}
 
 	possible = {
-		calc_true_if = {
-			amount >= 2
-			any_state = {
-				state_region = { is_homeland = cu:persian }
-				NOR = { 
-					owner = ROOT 
-					owner = {
-						is_subject_of = ROOT
-					}
+		is_at_war = no
+		any_state = {
+			state_region = { is_homeland = cu:persian }
+			NOR = { 
+				owner = ROOT 
+				owner = {
+					is_subject_of = ROOT
 				}
 			}
+		}
+		calc_true_if = {
+			amount >= 2
 			any_scope_state = {
 				count >= 3
 				is_incorporated = yes
@@ -386,7 +387,6 @@ je_eclipse_of_persia = {
 						has_variable = persia_eclipse_european_enroachment
 					}
 					any_scope_state = {
-						is_incorporated = yes
 						OR = {
 							state_region = { is_homeland = cu:persian }
 							state_region = { is_homeland = cu:caspian }
@@ -450,7 +450,6 @@ je_eclipse_of_persia = {
 					has_variable = persia_eclipse_european_enroachment
 					NOT = {
 						any_state = {
-							is_incorporated = yes
 							OR = {
 								state_region = { is_homeland = cu:persian }
 								state_region = { is_homeland = cu:caspian }

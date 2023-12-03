@@ -155,7 +155,7 @@ persian_renaissance_textile_arts = {
 		}
 		any_scope_building = {
 			count >= 3
-			is_building_type = building_textile_mill
+			is_building_type = building_textile_mills
 			has_active_production_method = pm_craftsman_sewing
 			building_has_goods_shortage = no
 			occupancy >= 0.9
@@ -222,33 +222,27 @@ edict_of_yazd_button = {
 	possible = {
 		has_law = law_type:law_state_religion
 		c:PER ?= {
-			OR = {
-				AND = {
-					any_scope_character = {
-						is_ruler = yes
-						is_heir = yes
-						OR = {
-							has_ideology = ideology:ideology_reformer
-							has_ideology = ideology:ideology_persian_constitutionalist
-						}
-						age >= 20
+			any_scope_character = {
+				OR = {
+					is_ruler = yes
+					interest_group = {
+						is_in_government = yes
 					}
 				}
-				ig:ig_devout = {
-					OR = {
-						custom_tooltip = {
-							text = suppressed_devout_tt
-							AND = {
-								is_in_government = no
-								is_being_suppressed = yes
-								ig_clout < 0.2
-							}
-						}
-						leader = {
-							OR = { 
-								has_ideology = ideology:ideology_reformer
-								has_ideology = ideology:ideology_persian_constitutionalist 
-							}
+				has_ideology = ideology:ideology_persian_constitutionalist
+				age >= 20
+			}
+			ig:ig_devout = {
+				OR = {
+					AND = {
+						is_in_government = no
+						is_being_suppressed = yes
+						ig_clout < 0.2
+					}
+					leader = {
+						OR = { 
+							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_persian_constitutionalist  
 						}
 					}
 				}
@@ -350,12 +344,6 @@ edict_of_yazd_button = {
 			add_modifier = {
 				name = outraged_over_yazd_edict_modifier
 				months = normal_modifier_time
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = { NOT = { has_variable = zandism_secularization } }
-				set_variable = zandism_secularization
 			}
 		}
 	}

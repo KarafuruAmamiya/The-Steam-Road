@@ -103,7 +103,7 @@ opium_wars.1 = {
 	option = {
 		name = opium_wars.1.b
 		trigger = {
-			country_rank >= rank_value:major_power
+			country_rank >= rank_value:great_power
 		}
 		custom_tooltip = {
 			text = opium_wars_tt
@@ -124,7 +124,7 @@ opium_wars.1 = {
 			base = 0
 			modifier = {
 				trigger = {
-					country_rank >= rank_value:major_power
+					country_rank >= rank_value:great_power
 				}
 				add = 10000
 			}
@@ -877,15 +877,15 @@ opium_wars.9 = {
 				target_is = c:PER
 			}
 			add_war_goal = {
-				holder = c:PER
-				type = war_reparations
-				target_country = ROOT
-				primary_demand = yes
-			}
-			add_war_goal = {
 				holder = root
 				type = conquer_state
 				target_state = s:STATE_MOGOSTAN.region_state:PER
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:PER
+				type = war_reparations
+				target_country = root
 				primary_demand = yes
 			}
 		}

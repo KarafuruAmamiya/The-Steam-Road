@@ -228,28 +228,10 @@ al_afghani_events.1 = {
 	immediate = {
 		if = {
 			limit = {
-				NOT = {
-					any_character_in_exile_pool = {
-						has_variable = al_afghani_var
-					}
-					any_character = {
-						has_variable = al_afghani_var
-					}
+				any_character_in_exile_pool = {
+					has_variable = al_afghani_var
 				}
 			}
-			create_character = {
-				template = al_afghani_character_template
-				on_created = {
-					set_variable = al_afghani_var
-					set_variable = {
-						name = al_afghani_cooldown_var
-						months = short_modifier_time
-					}
-				}
-				save_scope_as = al_afghani_scope
-			}
-		}
-		else_if = {
 			random_character_in_exile_pool = {
 				limit = {
 					has_variable = al_afghani_var
@@ -261,6 +243,20 @@ al_afghani_events.1 = {
 					months = short_modifier_time
 				}
 			}
+		}
+		else = {
+			create_character = {
+				template = al_afghani_character_template
+				on_created = {
+					set_variable = al_afghani_var
+					set_variable = {
+						name = al_afghani_cooldown_var
+						months = short_modifier_time
+					}
+				}
+				save_scope_as = al_afghani_scope
+			}
+			set_global_variable = al_afghani_is_alive_global_var
 		}
 		save_scope_as = al_afghani_visiting_country
 	}

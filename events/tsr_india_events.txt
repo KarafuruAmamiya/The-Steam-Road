@@ -869,7 +869,6 @@ raj.6 = {
 			create_diplomatic_play = {
 				name = hindustani_uprising
 				type = dp_annex_war
-				escalation = 80
 				target_country = c:GUJ
 				
 				add_war_goal = {
@@ -1561,7 +1560,7 @@ indian_flavor.7 = { #Restoring Order
 		NOT = { has_variable = restoring_order }
 		OR = {
 			institution_investment_level = {
-				institution = institution_law_enforcement
+				institution = institution_police
 				value >= 2
 			}
 			institution_investment_level = {
@@ -1690,7 +1689,7 @@ indian_flavor.8 = { #Full-Blown Revolt
 		}
 		create_incident = {
 			country = root
-			value = 20
+			value = 10
 		}
 		change_relations = {
 			country = scope:outraged_indian_country
@@ -1843,7 +1842,7 @@ indian_flavor.9 = { #Revolts Spread
 		}
 		create_incident = {
 			country = root
-			value = 20
+			value = 10
 		}
 		change_relations = {
 			country = scope:outraged_indian_country

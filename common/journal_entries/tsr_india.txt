@@ -80,11 +80,25 @@ je_surat_riots = {
 	is_shown_when_inactive = {
         exists = c:PER
         THIS = c:PER
-		owns_entire_state_region = STATE_GUJARAT
+		any_scope_state = {
+			state_region = s:STATE_GUJARAT
+		}
+		any_scope_state = {
+			state_region = s:STATE_SAURASHTRA
+		}
 		has_technology_researched = nationalism
     }
 	
     possible = {
+		any_scope_state = {
+			filter = {
+				OR = {
+					state_region = s:STATE_GUJARAT
+					state_region = s:STATE_SAURASHTRA
+				}
+			}
+			average_sol < 10
+		}
 		OR = {
 			has_journal_entry = je_springtime_of_the_peoples
 			has_journal_entry = je_eclipse_of_persia
@@ -115,7 +129,23 @@ je_surat_riots = {
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
-		has_law = law_type:law_slavery_banned
+		OR = {
+			AND = {
+				any_scope_state = {
+					filter = {
+						state_region = s:STATE_GUJARAT
+					}
+					average_sol >= 11
+				}
+				any_scope_state = {
+					filter = {
+						state_region = s:STATE_SAURASHTRA
+					}
+					average_sol >= 11
+				}
+			}
+			has_law = law_type:law_slavery_banned
+		}
 	}
 
 	on_complete = {

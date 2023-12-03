@@ -1101,6 +1101,60 @@ break_up_raj = {
 		limit = {
 			any_scope_state = {
 				state_region = {
+					is_homeland = cu:gondi
+				}
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:gondi
+				}
+			}
+			save_scope_as = gondi_state
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BAS }
+			}
+			create_country = {
+				tag = BAS
+				origin = root
+				state = scope:gondi_state
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gondi
+					}
+				}
+				set_state_owner = c:BAS
+			}
+		}
+		if = {
+			limit = {
+				exists = c:BAS
+			}
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:gondi
+					}
+				}
+				set_state_owner = c:BAS
+			}
+			if = {
+				limit = {
+					c:BAS = { is_subject_of = root }
+				}
+				c:BAS = { make_independent = yes }
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = {
 					OR = {
 						is_homeland = cu:avadhi
 						is_homeland = cu:kanauji
@@ -1558,60 +1612,6 @@ break_up_raj = {
 					c:ADH = { is_subject_of = root }
 				}
 				c:ADH = { make_independent = yes }
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_scope_state = {
-				state_region = {
-					is_homeland = cu:gondi
-				}
-			}
-		}
-		random_scope_state = {
-			limit = {
-				state_region = {
-					is_homeland = cu:gondi
-				}
-			}
-			save_scope_as = gondi_state
-		}
-		if = {
-			limit = {
-				NOT = { exists = c:BAS }
-			}
-			create_country = {
-				tag = BAS
-				origin = root
-				state = scope:gondi_state
-			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:gondi
-					}
-				}
-				set_state_owner = c:BAS
-			}
-		}
-		if = {
-			limit = {
-				exists = c:BAS
-			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:gondi
-					}
-				}
-				set_state_owner = c:BAS
-			}
-			if = {
-				limit = {
-					c:BAS = { is_subject_of = root }
-				}
-				c:BAS = { make_independent = yes }
 			}
 		}
 	}

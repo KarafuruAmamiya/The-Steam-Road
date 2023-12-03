@@ -31,7 +31,7 @@
 	#}
 	text = {
 		trigger = {
-			interest_group = {
+			interest_group ?= {
 				is_interest_group_type = ig_armed_forces
 				leader = {
 					NOT = { this = root }
@@ -50,7 +50,7 @@
 	}
 	text = {
 		trigger = {
-			interest_group = {
+			interest_group ?= {
 				is_interest_group_type = ig_industrialists
 				leader = {
 					NOT = { this = root }
@@ -65,7 +65,7 @@
 	}
 	text = {
 		trigger = {
-			interest_group = {
+			interest_group ?= {
 				leader = {
 					NOT = { this = root }
 				}
@@ -81,7 +81,7 @@
 	text = {
 		trigger = {
 			OR = {
-				interest_group = {
+				interest_group ?= {
 					is_in_government = yes
 				}
 				is_ruler = yes
@@ -92,7 +92,7 @@
 	}
 	text = {
 		trigger = {
-			interest_group = {
+			interest_group ?= {
 				is_in_government = no
 			}
 			NOT = {

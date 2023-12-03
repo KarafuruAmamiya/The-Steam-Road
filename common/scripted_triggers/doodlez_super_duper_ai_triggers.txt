@@ -60,8 +60,8 @@ law_is_important = {
 			OR = {
 				# Church and State
 				AND = {
-					NOT = { has_law = law_type:state_religion }
-					scope:law.type = law_type:state_religion
+					NOT = { has_law = law_type:law_state_religion }
+					scope:law.type = law_type:law_state_religion
 				}
 				# Citizenship
 				AND = {

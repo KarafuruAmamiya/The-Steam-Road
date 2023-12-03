@@ -105,36 +105,62 @@ je_hre_falls_apart = {
 				is_direct_subject_of = c:SAX 
 				NOT = { is_subject_type = subject_type_hre }
 			}
+			c:NET = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:LUX = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:LGE = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:MAI = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:REG = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
 		}
 	}
 	
 	fail = {
 		custom_tooltip = {
 			text = hre_fail_tt
-			c:FLA = { NOT = { is_subject_of = c:SAX } }
-			c:PFA = { NOT = { is_subject_of = c:SAX } }
-			c:RHE = { NOT = { is_subject_of = c:SAX } }
-			c:NAS = { NOT = { is_subject_of = c:SAX } }
-			c:MUN = { NOT = { is_subject_of = c:SAX } }
-			c:HES = { NOT = { is_subject_of = c:SAX } }
-			c:FRM = { NOT = { is_subject_of = c:SAX } }
-			c:BRA = { NOT = { is_subject_of = c:SAX } }
-			c:GOS = { NOT = { is_subject_of = c:SAX } }
-			c:BRK = { NOT = { is_subject_of = c:SAX } }
-			c:LOR = { NOT = { is_subject_of = c:SAX } }
-			c:MUL = { NOT = { is_subject_of = c:SAX } }
-			c:KNZ = { NOT = { is_subject_of = c:SAX } }
-			c:WUR = { NOT = { is_subject_of = c:SAX } }
-			c:ULM = { NOT = { is_subject_of = c:SAX } }
-			c:SRB = { NOT = { is_subject_of = c:SAX } }
-			c:GLG = { NOT = { is_subject_of = c:SAX } }
-			c:AUS = { NOT = { is_subject_of = c:SAX } }
-			c:BOH = { NOT = { is_subject_of = c:SAX } }
-			c:MVA = { NOT = { is_subject_of = c:SAX } }
-			c:SLV = { NOT = { is_subject_of = c:SAX } }
-			c:SLO = { NOT = { is_subject_of = c:SAX } }
-			c:FRN = { NOT = { is_subject_of = c:SAX } }
-			c:COB = { NOT = { is_subject_of = c:SAX } }
+			OR = {
+				c:FLA = { NOT = { is_subject_of = c:SAX } }
+				c:PFA = { NOT = { is_subject_of = c:SAX } }
+				c:RHE = { NOT = { is_subject_of = c:SAX } }
+				c:NAS = { NOT = { is_subject_of = c:SAX } }
+				c:MUN = { NOT = { is_subject_of = c:SAX } }
+				c:HES = { NOT = { is_subject_of = c:SAX } }
+				c:FRM = { NOT = { is_subject_of = c:SAX } }
+				c:BRA = { NOT = { is_subject_of = c:SAX } }
+				c:GOS = { NOT = { is_subject_of = c:SAX } }
+				c:BRK = { NOT = { is_subject_of = c:SAX } }
+				c:LOR = { NOT = { is_subject_of = c:SAX } }
+				c:MUL = { NOT = { is_subject_of = c:SAX } }
+				c:KNZ = { NOT = { is_subject_of = c:SAX } }
+				c:WUR = { NOT = { is_subject_of = c:SAX } }
+				c:ULM = { NOT = { is_subject_of = c:SAX } }
+				c:SRB = { NOT = { is_subject_of = c:SAX } }
+				c:GLG = { NOT = { is_subject_of = c:SAX } }
+				c:AUS = { NOT = { is_subject_of = c:SAX } }
+				c:BOH = { NOT = { is_subject_of = c:SAX } }
+				c:MVA = { NOT = { is_subject_of = c:SAX } }
+				c:SLV = { NOT = { is_subject_of = c:SAX } }
+				c:SLO = { NOT = { is_subject_of = c:SAX } }
+				c:FRN = { NOT = { is_subject_of = c:SAX } }
+				c:NET = { NOT = { is_subject_of = c:SAX } }
+				c:LUX = { NOT = { is_subject_of = c:SAX } }
+				c:LGE = { NOT = { is_subject_of = c:SAX } }
+				c:MAI = { NOT = { is_subject_of = c:SAX } }
+				c:REG = { NOT = { is_subject_of = c:SAX } }
+			}
 		}
 	}
 	

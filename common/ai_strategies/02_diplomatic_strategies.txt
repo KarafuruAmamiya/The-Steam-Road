@@ -205,7 +205,7 @@ ai_strategy_territorial_expansion = {
 
 		if = {
 			limit = {
-				has_journal_entry = je_je_akkovin_crisis
+				has_journal_entry = je_akkovin_crisis
 				NOT = {
 					has_strategic_land_adjacency = scope:target_country
 				}
@@ -794,64 +794,6 @@ ai_strategy_colonial_expansion = {
 				}
 				add = 5
 			}
-			
-			if = { #Do Not Take Chinese States In Full, unless another power has already done so
-				limit = {
-					country_rank >= rank_value:major_power
-					scope:target_state = {
-						owner = { 
-							OR = {
-								has_journal_entry = je_warlord_china 
-								has_variable = warlord_state
-								top_overlord = {
-									OR = {
-										has_journal_entry = je_warlord_china 
-										has_variable = warlord_state
-										top_overlord = {
-											OR = {
-												has_journal_entry = je_warlord_china 
-												has_variable = warlord_state
-											}
-										}
-									}
-								}
-							}
-						}
-						OR = {
-							region = sr:region_north_china
-							region = sr:region_south_china
-							region = sr:region_manchuria
-							region = sr:region_himalayas
-							region = sr:region_central_asia
-						}
-					}				
-					OR = {
-						country_is_in_north_america = yes
-						country_is_in_europe = yes
-						country_is_in_south_america = yes
-					}					
-					NOT = {
-						any_country = {
-							NOT = { THIS = ROOT }
-							country_rank >= rank_value:major_power
-							OR = {
-								country_is_in_north_america = yes
-								country_is_in_europe = yes
-								country_is_in_south_america = yes
-							}
-							any_scope_state = {
-								NOT = { is_treaty_port = yes }
-								OR = {
-									region = sr:region_north_china
-									region = sr:region_south_china
-									region = sr:region_manchuria
-								}
-							}
-						}					
-					}
-				}
-				multiply = 0
-			}
 		}
 	}	
 		
@@ -867,7 +809,7 @@ ai_strategy_colonial_expansion = {
 		}
 		NOT = {
 			country_is_in_north_america = yes
-			has_law = law_type:law_frontier_colonialism
+			has_law = law_type:law_frontier_colonization
 		}
 	}
 
@@ -2260,23 +2202,29 @@ ai_strategy_unify_germany = {
 	}	
 
 	possible = {
-		OR = {
-			AND = {
-				has_technology_researched = nationalism
-				has_journal_entry = je_schleswig_holstein_question
-				country_rank = rank_value:great_power
-				NOT =  { country_tier = empire	}
+		AND = {
+			OR = {
+				country_has_primary_culture = cu:north_german
+				country_has_primary_culture = cu:south_german
+				country_has_primary_culture = cu:rhenish
 			}
-			AND = {
-				is_unification_candidate = GER	
-				NOT = { country_tier = empire }
-			}
-			AND = {
-				has_technology_researched = pan-nationalism
-				OR = {
-					c:NGF ?= this
-					c:SGF ?= this
-					c:RHN ?= this
+			OR = {
+				AND = {
+					has_technology_researched = nationalism
+					country_rank = rank_value:great_power
+					NOT =  { country_tier = empire }
+				}
+				AND = {
+					is_unification_candidate = GER	
+					NOT = { country_tier = empire }
+				}
+				AND = {
+					has_technology_researched = pan-nationalism
+					OR = {
+						c:NGF ?= this
+						c:SGF ?= this
+						c:RHN ?= this
+					}
 				}
 			}
 		}
@@ -2293,7 +2241,7 @@ ai_strategy_unify_china = {
 	type = diplomatic
 	
 	undesirable_infamy_level = {
-		value = 50
+		value = 75
 	}
 	
 	unacceptable_infamy_level = {
@@ -2315,7 +2263,7 @@ ai_strategy_unify_china = {
 	diplomatic_play_boldness = {
 		value = 50
 	}
-
+		
 	obligation_value = {
 		value = 0
 	
@@ -2330,7 +2278,7 @@ ai_strategy_unify_china = {
 	recklessness = {
 		value = 0.5
 	}	
-
+	
 	aggression = {
 		value = 0.5
 		
@@ -2338,7 +2286,14 @@ ai_strategy_unify_china = {
 			limit = { 
 				scope:target_country = { can_form_nation = CHI }
 			}
-			add = 10
+			add = 2.5
+		}
+
+		if = {
+			limit = { 
+				scope:target_country = { c:CHI ?= this }
+			}
+			add = 2.5
 		}
 
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
@@ -2390,7 +2345,55 @@ ai_strategy_unify_china = {
 				}
 				add = 300
 			}		
-		}			
+		}	
+		conquer_state = {
+			if = {
+				limit = {
+					scope:target_state = {				
+						state_region = {
+							OR = {
+								is_homeland = cu:manchu
+								is_homeland = cu:han
+							}		
+						}
+					}
+					can_reach_target_state = yes
+				}
+				add = 100
+			}
+		}
+		return_state = {
+			if = {
+				limit = {
+					scope:target_state = {					
+						state_region = {
+							OR = {
+								is_homeland = cu:manchu
+								is_homeland = cu:han
+							}
+						}	
+					}
+					can_reach_target_state = yes
+				}
+				add = 200
+			}
+		}
+		make_protectorate = {
+			if = {
+				limit = {
+					scope:target_state = {					
+						state_region = {
+							OR = {
+								is_homeland = cu:manchu
+								is_homeland = cu:han
+							}
+						}	
+					}
+					can_reach_target_state = yes
+				}
+				add = 200
+			}
+		}		
 	}			
 	
 	secret_goal_scores = {
@@ -2398,17 +2401,12 @@ ai_strategy_unify_china = {
 			if = {
 				limit = {
 					scope:target_country = {
-						can_form_nation = CHI
-					}
-				}
-				add = 200
-			}		
-		}		
-		dominate = {		
-			if = {
-				limit = {
-					scope:target_country = {
-						can_form_nation = CHI
+						OR = {
+							country_has_primary_culture = cu:han
+							country_has_primary_culture = cu:uighur
+							country_has_primary_culture = cu:yue
+							country_has_primary_culture = cu:manchu
+						}
 					}
 				}
 				add = 150
@@ -2420,28 +2418,42 @@ ai_strategy_unify_china = {
 					add = 150
 				}	
 			}
-		}		
+		}				
 		conquer = {				
 			if = {
 				limit = {
 					scope:target_country = {
-						can_form_nation = CHI
+						OR = {
+							country_has_primary_culture = cu:han
+							country_has_primary_culture = cu:uighur
+							country_has_primary_culture = cu:yue
+							country_has_primary_culture = cu:manchu
+						}
 					}
 					can_reach_target_country = yes
 				}
 				add = 500
-			}				
+			}			
+			
+			if = {
+				limit = {
+					scope:target_country = {
+						THIS = c:CHI
+					}
+					can_reach_target_country = yes
+				}
+				add = 500
+			}		
 		}			
 	}	
 
-	wargoal_weights = {
-		conquer_state = 2.0
-		return_state = 2.0
-	}	
-		
 	possible = {
-		NOT = { exists = c:CHI }
-		can_form_nation = CHI	
+		OR = {
+			country_has_primary_culture = cu:han
+			country_has_primary_culture = cu:yue
+			country_has_primary_culture = cu:manchu
+			country_has_primary_culture = cu:yi
+		}
 	}
 
 	weight = {
@@ -2450,16 +2462,20 @@ ai_strategy_unify_china = {
 		if = {
 			limit = { NOT = { is_country_type = unrecognized } }
 			add = 100
+		}	
+		if = {
+			limit = { has_variable = warlord_state }
+			add = 200
 		}		
 		
 		if = {
 			limit = { country_rank = rank_value:unrecognized_regional_power }
-			add = 25
+			add = 100
 		}
 
 		if = {
 			limit = { country_rank = rank_value:unrecognized_major_power }
-			add = 50
+			add = 100
 		}		
 	}
 }
@@ -3048,7 +3064,7 @@ ai_strategy_restore_natural_borders = {
 							state_region = s:STATE_NORTH_RHINE
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_PFALZ
-							state_region = s:STATE_ELASS
+							state_region = s:STATE_ELSASS
 							state_region = s:STATE_LORRAINE
 							state_region = s:STATE_WALLONIA
 							state_region = s:STATE_LUXEMBOURG
@@ -3138,7 +3154,7 @@ ai_strategy_restore_natural_borders = {
 								state_region = s:STATE_NORTH_RHINE
 								state_region = s:STATE_RHINELAND
 								state_region = s:STATE_PFALZ
-								state_region = s:STATE_ELASS
+								state_region = s:STATE_ELSASS
 								state_region = s:STATE_LORRAINE
 								state_region = s:STATE_WALLONIA
 								state_region = s:STATE_LUXEMBOURG

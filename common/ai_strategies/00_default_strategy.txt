@@ -55,12 +55,13 @@ ai_strategy_default = {
 	# Added to base neutrality in diplomatic plays	
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
-		value = 60 #50
+		value = 50
 
 		#GPs don't want to get involved with too many other GPs in the early game
 		if = {
 			limit = {
 			    country_rank >= rank_value:great_power
+				NOT = { c:ITA ?= this }
 				any_diplomatic_play = {
 					any_scope_play_involved = {
 						count >= 2
@@ -129,29 +130,6 @@ ai_strategy_default = {
 		#	}
 		#	subtract = 20
 		#}
-		
-		# unite against french aggression
-			if = {
-				limit = {
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:south_german
-						country_has_primary_culture = cu:rhenish
-					}
-					c:FRA = {
-			      		is_diplomatic_play_initiator = yes
-						any_scope_state = {
-							OR = {
-							    state_region = s:STATE_NORTH_RHINE
-								state_region = s:STATE_RHINELAND
-								state_region = s:STATE_ELSASS
-								state_region = s:STATE_PFALZ
-							}
-						}
-				    }
-				}
-				subtract = 50
-			}
 			
 		# increased European GP intervention in Middle East
 		if = {
@@ -200,6 +178,38 @@ ai_strategy_default = {
 			}
 			subtract = 50
 		}
+		
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						country_rank >= rank_value:major_power
+						is_subject_type = subject_type_hre
+					}
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:rhenish
+						country_has_primary_culture = cu:north_italian
+					}
+				}
+				c:FRA ?= {
+					has_journal_entry = je_french_natural_borders
+					is_diplomatic_play_initiator = yes
+				}
+				any_country = {
+					limit = {
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
+						}
+					}
+					is_diplomatic_play_enemy_of = c:FRA
+				}
+			}
+			subtract = 150
+		}
 	}
 	
 	# Added to base boldness in diplomatic plays	
@@ -228,6 +238,37 @@ ai_strategy_default = {
 			}
 			add = 1000
 		}
+		
+		# unite against french aggression
+			if = {
+				limit = {
+					AND = {
+						OR = {
+							country_rank >= rank_value:major_power
+							is_subject_type = subject_type_hre
+						}
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
+							country_has_primary_culture = cu:north_italian
+						}
+					}
+					c:FRA ?= {
+						has_journal_entry = je_french_natural_borders
+						is_diplomatic_play_initiator = yes
+					}
+					any_country = {
+						is_diplomatic_play_enemy_of = c:FRA
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
+						} 
+					}
+				}
+				add = 150
+			}
 	} 
 		
 	# How many maneuvers are we OK with using up in the initial phase to add more wargoals
@@ -1548,6 +1589,7 @@ ai_strategy_default = {
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
 					country_has_primary_culture = cu:rhenish
+					country_has_primary_culture = cu:north_italian
 				}
 				scope:target_country = {
 					c:FRA ?= this
@@ -2101,6 +2143,11 @@ ai_strategy_default = {
 			limit = { has_law = law_type:law_mass_conscription }
 			multiply = 0.9
 		}	
+		
+		if = { #VFM, national militias are meant to be small and supported by conscripts
+			limit = { has_law = law_type:law_national_militia }
+			multiply = 0.05
+		}
 
 		min = 1
 		max = 500		
@@ -2290,7 +2337,7 @@ ai_strategy_default = {
 		value = 0
 		if = {
 			limit = { has_law = law_type:law_national_militia }
-			add = 5
+			add = 10 #VFM, bumped up from 5 to compensate for less barracks wanted by AI
 		}
 		else_if = {
 			limit = { has_law = law_type:law_professional_army }
@@ -3617,14 +3664,9 @@ ai_strategy_default = {
 			
 			if = { # Italy to the rescue
 				limit = {
-					country_has_primary_culture = cu:north_italian
-					AND = {
-						country_has_primary_culture = cu:south_italian
-						NOT = { c:ARN ?= this }
-					}
 					is_secessionist = yes
 					scope:target_country = {
-						country_has_primary_culture = cu:north_italian
+						country_is_in_europe = yes
 					}
 				}
 				add = 1000
@@ -4008,13 +4050,11 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
-			if = {
+			if = { # Italy to the rescue
 				limit = {
-					country_has_primary_culture = cu:north_italian
-					has_technology_researched = nationalism
+					is_secessionist = yes
 					scope:target_country = {
-						country_has_primary_culture = cu:north_italian
-						is_secessionist = yes
+						country_is_in_europe = yes
 					}
 				}
 				add = 1000
@@ -4597,6 +4637,7 @@ ai_strategy_default = {
 							country_has_primary_culture = cu:north_german
 							country_has_primary_culture = cu:south_german
 							country_has_primary_culture = cu:rhenish
+							country_has_primary_culture = cu:north_italian
 						}
 						scope:target_country = {
 							c:FRA ?= this
@@ -4857,22 +4898,29 @@ ai_strategy_default = {
 			# unite against french aggression
 			if = {
 				limit = {
-					country_rank >= rank_value:major_power
-					OR = {
-						country_has_primary_culture = cu:north_german
-						country_has_primary_culture = cu:south_german
-						country_has_primary_culture = cu:rhenish
-					}
-					scope:target_country = {
-						this = c:FRA
-						any_scope_state = {
-							OR = {
-							    state_region = s:STATE_NORTH_RHINE
-								state_region = s:STATE_RHINELAND
-								state_region = s:STATE_ELSASS
-								state_region = s:STATE_PFALZ
-							}
+					AND = {
+						OR = {
+							country_rank >= rank_value:major_power
+							is_subject_type = subject_type_hre
 						}
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
+							country_has_primary_culture = cu:north_italian
+						}
+					}
+					c:FRA ?= {
+						has_journal_entry = je_french_natural_borders
+						is_diplomatic_play_initiator = yes
+					}
+					any_country = {
+						is_diplomatic_play_enemy_of = c:FRA
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:rhenish
+						} 
 					}
 				}
 				add = 150

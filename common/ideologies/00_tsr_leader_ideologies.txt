@@ -305,6 +305,18 @@ ideology_persian_constitutionalist = {
 			}
 			add = -30
 		}
+		# even less likely in theocracy
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_devout
+				}
+				owner = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			add = -1000
+		}
 		# more likely if Persia is declining and they still have regressive laws
 		if = {
 			limit = {

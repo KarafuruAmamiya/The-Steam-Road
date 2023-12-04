@@ -20,7 +20,6 @@
 				has_variable = zandism_minorities
 				has_variable = zandism_tolerated_heathens
 				has_variable = zandism_religious_conflicts
-				has_variable = zandism_constitutionalism
 				ig:ig_devout = {
 					is_being_suppressed = yes
 				}
@@ -36,8 +35,7 @@
 		}
 		custom_tooltip = {
 			text = zandi_rebellion_criteria_2
-			calc_true_if = {
-				amount >= 3
+			OR = {
 				has_journal_entry = je_eclipse_of_persia
 				in_default = yes
 				government_legitimacy <= 30
@@ -47,25 +45,17 @@
 					state_region = { 
 						is_homeland = cu:persian
 					}
-					average_sol <= 9
-				}
-				any_scope_state = {
-					is_incorporated = yes
-					state_region = { 
-						is_homeland = cu:persian
+					OR = {
+						average_sol <= 9
+						turmoil > 0.15
 					}
-					turmoil > 0.15
 				}
-				radical_fraction = {
-					value >= 0.15
-					culture = cu:persian
-				}
-				OR = {
-					has_law = law_type:law_shared_roots
-					has_law = law_type:law_total_separation
-					has_law = law_type:law_freedom_of_conscience
-					has_law = law_type:law_multicultural
-				}
+				NOT = { has_law = law_type:law_state_religion }
+				has_law = law_type:law_census_suffrage
+				has_law = law_type:law_universal_suffrage
+				has_law = law_type:law_shared_heritage
+				has_law = law_type:law_cultural_exclusion
+				has_law = law_type:law_multicultural
 			}
 		}
 		is_subject = no
@@ -108,7 +98,6 @@
 		trigger_event = {
 			id = zandism_events.3
 		}
-		set_variable = zandi_rebellion_start
 	}
 	
 	invalid = {

@@ -9,6 +9,7 @@
 			10 = opium_wars.6
 			5 = opium_wars.7
 			5 = opium_wars.8
+			5 = crime_events.2
 		}
 		effect = {
 			if = {
@@ -42,6 +43,8 @@
 			id = opium_wars.3
 		}
 	}
+	
+	timeout = 5475
 
 	current_value = {
 		value = root.var:opium_wars_completion_tracker
@@ -68,11 +71,8 @@ je_opium_wars = {
 			AND = {
 				exists = c:PER
 				any_scope_state = {
-					is_treaty_port = yes
 					state_region = {
-						any_scope_state = {
-							owner = c:PER
-						}
+						is_homeland = cu:persian
 					}
 				}
 				c:PER = {
@@ -139,5 +139,5 @@ je_opium_wars = {
 	weight = 10000
 	should_be_pinned_by_default = yes
 
-	timeout = 1825
+	timeout = 3650
 }

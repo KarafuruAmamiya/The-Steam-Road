@@ -169,42 +169,6 @@ country_is_in_europe = {
 	}
 }
 
-country_is_in_new_word = {
-	exists = capital
-	capital = {
-		OR = {
-			state_is_in_americas = yes
-			state_is_in_oceania = yes
-		}
-	}
-}
-
-country_is_in_hre = {
-	exists = capital
-	capital = {
-		OR = {
-			region = sr:region_north_germany
-			region = sr:region_south_germany
-			state_region = s:STATE_FLANDERS
-			state_region = s:STATE_UPPER_SILESIA
-			state_region = s:STATE_WEST_SLOVAKIA
-			state_region = s:STATE_SLOVENIA
-			state_region = s:STATE_LORRAINE
-		}
-	}
-}
-
-gunpowder_empire_trigger = {
-	exists = capital
-	capital = {
-		OR = {
-			state_region = s:STATE_DIYARBAKIR
-			state_region = s:STATE_EASTERN_THRACE
-			state_region = s:STATE_ISFAHAN
-		}
-	}
-}
-
 country_is_in_north_america = {
 	exists = capital
 	capital = {

@@ -100,11 +100,8 @@ je_surat_riots = {
 			average_sol < 10
 		}
 		OR = {
-			has_journal_entry = je_springtime_of_the_peoples
-			has_journal_entry = je_eclipse_of_persia
-			has_journal_entry = je_zandi_rebellion
-			has_modifier = opium_wars_lost
 			has_law = law_type:law_commercialized_agriculture
+			has_law = law_type:law_free_trade
 			tax_level = high
 			any_subject_or_below = {
 				country_is_in_india = yes

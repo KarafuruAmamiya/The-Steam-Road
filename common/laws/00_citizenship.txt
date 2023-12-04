@@ -149,15 +149,19 @@ law_racial_segregation = {
 					culture_accepted = no
 					owner = { has_law = law_type:law_national_supremacy }
 				}
-				add = 0.5
-				
+				add = 0.1
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
-					add = 0.5
-				}	
-			}			
+					add = 0.1
+				}
+				multiply = { #We want independance instead!
+					value = literacy_rate
+					add = -1
+					multiply = -1
+				}		
+			}		
 		}
 	}
 	
@@ -347,24 +351,21 @@ law_shared_heritage = {
 			if = {
 				limit = { 
 					culture_accepted = no
-					culture = {
-						OR = {
-							has_discrimination_trait = eastern_european_heritage
-							has_discrimination_trait = western_european_heritage
-							has_discrimination_trait = south_european_heritage
-						}
-					}
-					owner = { has_law = law_type:law_racial_segregation }
+					owner = { has_law = law_type:law_national_supremacy }
 				}
-				add = 0.5
-				
+				add = 0.1
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
-					add = 0.5
-				}	
-			}			
+					add = 0.1
+				}
+				multiply = { #We want independance instead!
+					value = literacy_rate
+					add = -1
+					multiply = -1
+				}		
+			}		
 		}
 	}
 	
@@ -513,26 +514,21 @@ law_cultural_exclusion = {
 			if = {
 				limit = { 
 					culture_accepted = no
-					owner = { 
-						OR = { 
-							has_law = law_type:law_ethnostate
-							is_enacting_law = law_type:law_ethnostate
-							has_law = law_type:law_national_supremacy
-							is_enacting_law = law_type:law_national_supremacy
-							has_law = law_type:law_racial_segregation
-							is_enacting_law = law_type:law_racial_segregation
-						} 
-					}
+					owner = { has_law = law_type:law_national_supremacy }
 				}
-				add = 0.5				
-				
+				add = 0.1
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
-					add = 0.5
-				}	
-			}			
+					add = 0.1
+				}
+				multiply = { #We want independance instead!
+					value = literacy_rate
+					add = -1
+					multiply = -1
+				}		
+			}		
 		}
 	}
 
@@ -592,16 +588,21 @@ law_multicultural = {
 			if = {
 				limit = { 
 					culture_accepted = no
+					owner = { has_law = law_type:law_national_supremacy }
 				}
-				add = 0.5
-				
+				add = 0.1
 				if = {
 					limit = { 
 						standard_of_living <= 10
 					}
-					add = 0.5
-				}	
-			}			
+					add = 0.1
+				}
+				multiply = { #We want independance instead!
+					value = literacy_rate
+					add = -1
+					multiply = -1
+				}		
+			}		
 		}
 	}
 

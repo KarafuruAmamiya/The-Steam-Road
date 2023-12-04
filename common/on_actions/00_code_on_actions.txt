@@ -18,7 +18,6 @@ on_monthly_pulse_country = {
 		italy_flavor.1
 		poland_events.3 # Polish Unification
 		colonial_administration_events.2 # African Colony Radicals
-		sa_migration.5
 		amazonas.1 # Taming Amazonia
 
 		# Exile Agitators Events
@@ -43,22 +42,6 @@ on_monthly_pulse_country = {
 				c:GER ?= { is_country_alive = yes }
 			}
 			set_global_variable = germany_formed
-		}
-		if = {
-			limit = {
-				any_scope_character = {
-					has_variable = is_mohammad_safavid
-					is_ruler = yes
-					NOT = { has_variable = mortalize_sadiq }
-				}
-			}
-			random_scope_character = {	
-				limit = {
-					has_variable = is_mohammad_safavid
-				}
-				set_character_immortal = no
-				set_variable = mortalize_sadiq
-			}
 		}
 	}
 	# Election Events

@@ -1,9 +1,27 @@
-﻿on_yearly_pulse_country = {
+﻿on_weekly_pulse = {
+	effect = {
+		every_scope_building = {
+			limit = {
+                is_building_type = building_railway
+            }
+			if = {
+                limit = {
+                    root = { is_player = no }
+                    is_subsidized = no
+                }
+                set_subsidized = yes
+            }
+		}
+	}
+}
+
+on_yearly_pulse_country = {
 	events = {
 		arabia_flavor.1
 		arabia_flavor.2
 		arabia_flavor.3
 		arabia_flavor.4
+		opium_events.1
 	}
 }
 
@@ -28,6 +46,27 @@ on_monthly_pulse_country = {
 		arab_wars.4
 		raj.4
 		raj.5
-		persian_flavor.4
+		persian_flavor.7
+		indian_flavor.1
+		opium_wars.12
+		tsr_test.2
+	}
+	effect = {
+		if = {
+			limit = {
+				any_scope_character = {
+					has_variable = is_mohammad_safavid
+					is_ruler = yes
+					NOT = { has_variable = mortalize_sadiq }
+				}
+			}
+			random_scope_character = {	
+				limit = {
+					has_variable = is_mohammad_safavid
+				}
+				set_character_immortal = no
+				set_variable = mortalize_sadiq
+			}
+		}
 	}
 }

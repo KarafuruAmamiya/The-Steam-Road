@@ -1,0 +1,385 @@
+﻿abolish_jizya_tax = {
+	is_shown = {
+		has_modifier = cizye_tax
+	}
+
+	possible = {
+		NOT = { has_variable = abolish_jizya_tax }
+		NOT = { ig:ig_devout = { ig_clout >= 0.15 } }
+		OR = {
+			has_law = law_type:law_shared_roots
+			has_law = law_type:law_total_separation
+			has_law = law_type:law_state_atheism
+			AND = {
+				any_scope_character = {
+					AND = {
+						OR = {
+							has_ideology = ideology:ideology_moderate_reformer
+							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_radical
+							has_ideology = ideology:ideology_humanitarian
+						}
+						OR = {
+							is_ruler = yes
+							interest_group = {
+								is_in_government = yes
+							}
+						}
+					}
+				}
+				has_technology_researched = mandatory_service
+				has_technology_researched = line_infantry
+				NOT = {
+					has_law = law_type:law_peasant_levies
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		remove_modifier = cizye_tax
+		set_variable = abolish_jizya_tax
+		if = {
+			limit = {
+				NOR = {
+					has_law = law_type:law_shared_roots
+					has_law = law_type:law_total_separation
+					has_law = law_type:law_state_atheism
+				}
+				AND = {
+					any_scope_character = {
+						AND = {
+							OR = {
+								has_ideology = ideology:ideology_moderate_reformer
+								has_ideology = ideology:ideology_reformer
+								has_ideology = ideology:ideology_radical
+								has_ideology = ideology:ideology_humanitarian
+							}
+							OR = {
+								is_ruler = yes
+								interest_group = {
+									is_in_government = yes
+								}
+							}
+						}
+					}
+					has_technology_researched = mandatory_service
+					has_technology_researched = line_infantry
+					NOT = {
+						has_law = law_type:law_peasant_levies
+					}
+				}
+			}
+			trigger_event = { id = tanzimat_events.10 }
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}
+
+adopt_western_uniforms = {
+
+	is_shown = {
+		any_primary_culture = {
+			OR = {
+				has_discrimination_trait = east_asian_heritage
+				has_discrimination_trait = south_asian_heritage
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
+				has_discrimination_trait = iranian_heritage
+				has_discrimination_trait = arabic_heritage
+				has_discrimination_trait = north_asian_heritage
+				has_discrimination_trait = mongol_heritage
+				has_discrimination_trait = turkic_heritage
+			}
+		} 
+		NOT = { 
+			has_variable = adopt_western_uniforms
+		}
+	}
+
+	possible = {
+		has_technology_researched = line_infantry
+		NOT = { has_law = law_type:law_isolationism }
+		NOT = { has_law = law_type:law_peasant_levies }
+		any_scope_character = {
+			AND = {
+				OR = {
+					has_ideology = ideology:ideology_moderate_reformer
+					has_ideology = ideology:ideology_reformer
+					has_ideology = ideology:ideology_radical
+				}
+				OR = {
+					is_ruler = yes
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+			}
+		}
+		ig:ig_armed_forces = {
+			is_marginal = no
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+				text = adopt_western_uniforms_tt
+				set_variable = adopt_western_uniforms
+			}
+		#set_variable = adopt_western_uniforms
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+adopt_western_clothes = {
+	is_shown = {
+		any_primary_culture = {
+			OR = {
+				has_discrimination_trait = east_asian_heritage
+				has_discrimination_trait = south_asian_heritage
+				has_discrimination_trait = southeast_asian_heritage
+				has_discrimination_trait = malay_heritage
+				has_discrimination_trait = iranian_heritage
+				has_discrimination_trait = arabic_heritage
+				has_discrimination_trait = north_asian_heritage
+				has_discrimination_trait = mongol_heritage
+				has_discrimination_trait = turkic_heritage
+			}
+		} 
+		NOT = { 
+			has_variable = adopt_western_clothes
+		}
+	}
+
+	possible = {
+		NOT = { has_law = law_type:law_isolationism }
+		NOT = { has_law = law_type:law_peasant_levies }
+		NOT = { has_law = law_type:law_traditionalism }
+		NOT = { has_law = law_type:law_land_based_taxation }
+		any_scope_character = {
+			AND = {
+				OR = {
+					has_ideology = ideology:ideology_moderate_reformer
+					has_ideology = ideology:ideology_reformer
+					has_ideology = ideology:ideology_radical
+				}
+				OR = {
+					is_ruler = yes
+					interest_group = {
+						is_in_government = yes
+					}
+				}
+			}
+		}
+		ig:ig_intelligentsia = {
+			is_marginal = no
+		}
+		ig:ig_industrialists = {
+			is_marginal = no
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = adopt_western_clothes_tt
+			set_variable = adopt_western_clothes
+		}
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+encourage_unveiling = {
+	is_shown = {
+		country_definition = {
+			religion = {
+				has_discrimination_trait = muslim
+			}
+		}
+		OR = {
+			country_has_primary_culture = cu:circassian
+			any_primary_culture = {
+				OR = {
+					has_discrimination_trait = arabic_heritage
+					has_discrimination_trait = iranian_heritage
+					has_discrimination_trait = turkic_heritage
+				}
+			}
+		}
+		NOT = { has_variable = kashf_e_hijab_var }
+	}
+
+	possible = {
+		NOR = {
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_no_womens_rights
+		}
+		has_law = law_type:law_slavery_banned
+		ig:ig_devout = {
+			ig_clout < 0.15
+			is_in_government = no
+		}
+		custom_tooltip = {
+			text = have_adopted_western_clothes_tt
+			has_variable = adopt_western_clothes
+			has_variable = adopt_western_uniforms
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = kashf_e_hijab_tt
+			set_variable = kashf_e_hijab_var
+		}
+		trigger_event = { id = persian_flavor.32 }
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				OR = {
+					has_strategy = ai_strategy_progressive_agenda
+					has_strategy = ai_strategy_egalitarian_agenda
+					has_strategy = ai_strategy_nationalist_agenda
+				}
+			}
+			add = 100
+		}
+		modifier = {
+			trigger = {
+				has_law = law_type:law_state_atheism
+			}
+			add = 1000
+		}
+	}
+}
+
+enforce_veiling = {
+	is_shown = {
+		country_definition = {
+			religion = {
+				has_discrimination_trait = muslim
+			}
+		}
+		OR = {
+			country_has_primary_culture = cu:circassian
+			any_primary_culture = {
+				OR = {
+					has_discrimination_trait = arabic_heritage
+					has_discrimination_trait = iranian_heritage
+					has_discrimination_trait = turkic_heritage
+				}
+			}
+		}
+		has_variable = kashf_e_hijab_var
+	}
+
+	possible = {
+		has_law = law_type:law_state_religion
+		has_law = law_type:law_no_womens_rights
+		ig:ig_devout = {
+			ig_clout >= 0.15
+			is_in_government = yes
+			OR = {
+				owner = {
+					ruler = {
+						OR = {
+							has_ideology = ideology:ideology_traditionalist
+							has_ideology = ideology:ideology_theocrat
+						}
+					}
+				}
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_traditionalist
+						has_ideology = ideology:ideology_theocrat
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = no_kashf_e_hijab_tt
+			remove_variable = kashf_e_hijab_var
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+		add_radicals = {
+			strata = middle
+			NOT = { pop_type = clergymen }
+			value = medium_radicals
+		}
+		add_radicals = {
+			strata = rich
+			value = large_radicals
+		}
+		ig:ig_intelligentsia = {
+			add_modifier = {
+				name = forced_veiling
+				months = long_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_reactionary_agenda
+			}
+			add = 100
+		}
+	}
+}
+
+encourage_migration_to_colonies = {
+	is_shown = {
+		institution_investment_level = {
+			institution = institution_colonial_affairs
+			value >= 1
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = no_migration_tt
+			NOT = { has_variable = colonial_migration_var }
+		}
+		any_subject_or_below = {
+			is_direct_subject_of = root
+			is_country_type = colonial
+			NOT = { has_law = law_type:law_colonial_exploitation }
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = sa_migration.5 }
+	}
+
+	ai_chance = {
+		base = 1
+		modifier = {
+			trigger = {
+				any_scope_state = {
+					percent = 0.25
+					is_incorporated = yes
+					state_unemployment_rate >= 0.15
+				}
+			}
+			add = 10
+		}
+	}
+}

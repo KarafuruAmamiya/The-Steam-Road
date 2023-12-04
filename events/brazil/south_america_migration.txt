@@ -251,17 +251,17 @@ sa_migration.3 = {
 	}
 }
 
-#  Subject Receives Great Migration
+# Promoting Colonial Migration
 sa_migration.5 = {
 	type = country_event
-	placement = scope:migration_target_state
+	placement = root
 	
 	title = sa_migration.5.t
 	desc = sa_migration.5.d
 	flavor = sa_migration.5.f
 	
 	event_image = {
-		video = "southamerica_factory_opening"
+		video = "unspecific_steam_ship"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -269,57 +269,147 @@ sa_migration.5 = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	
 	duration = 3
-	
-	trigger = {
-		# triggered by on_monthly_pulse_country, guaranteed first month of the game
-		OR = {
-			has_journal_entry = je_south_america_migration
-			has_journal_entry = je_central_america_migration
-			has_journal_entry = je_american_west_migration
-		}
-		is_subject = yes
-		any_overlord_or_above = {
-			country_is_in_europe = yes
-		}
-		NOT = { has_variable = canada_migration_var }
-	}
 
 	immediate = {
-		set_variable = canada_migration_var
-		overlord = {
-			save_scope_as = migration_country
-			any_primary_culture = {
-				save_scope_as = migration_culture
-			}
+		set_variable = {
+			name = colonial_migration_var
+			months = 60
 		}
-		capital = {
-			save_scope_as = migration_target_state
+		root = {
+			save_scope_as = migration_country
+		}
+		random_primary_culture = {
+			save_scope_as = migration_culture
+		}
+		random_subject_or_below = {
+			limit = {
+				is_direct_subject_of = root
+				is_country_type = colonial
+				NOT = { has_law = law_type:law_colonial_exploitation }
+			}
+			save_scope_as = migration_target_1
+		}
+		random_subject_or_below = {
+			limit = {
+				is_direct_subject_of = root
+				is_country_type = colonial
+				NOT = { has_law = law_type:law_colonial_exploitation }
+				NOT = { scope:migration_target_1 = this }
+			}
+			save_scope_as = migration_target_2
+		}
+		random_subject_or_below = {
+			limit = {
+				is_direct_subject_of = root
+				is_country_type = colonial
+				NOT = { has_law = law_type:law_colonial_exploitation }
+				NOT = { scope:migration_target_1 = this }
+				NOT = { scope:migration_target_2 = this }
+			}
+			save_scope_as = migration_target_3
 		}
 	}
 
 	option = {
 		name = sa_migration.5.a
 		default_option = yes
-		scope:migration_target_state = {
-			create_mass_migration = {
-				origin = scope:migration_country
-				culture = scope:migration_culture
-			}
-			add_modifier = {
-				name = canada_great_migration
-				months = long_modifier_time
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_1 = {
+			capital = {
+				create_mass_migration = {
+					origin = scope:migration_country
+					culture = scope:migration_culture
+				}
+				add_modifier = {
+					name = canada_great_migration
+					months = long_modifier_time
+				}
 			}
 		}
 		ai_chance = {
 			base = 1
+			modifier = {
+				trigger = {
+					scope:migration_target_1 = {
+						total_population < 1000000
+					}
+				}
+				add = 10
+			}
 		}
 	}
 	option = {
 		name = sa_migration.5.b
-		add_modifier = {
-			name = canada_great_migration
-			months = long_modifier_time
+		trigger = {
+			exists = scope:migration_target_2
 		}
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_2 = {
+			capital = {
+				create_mass_migration = {
+					origin = scope:migration_country
+					culture = scope:migration_culture
+				}
+				add_modifier = {
+					name = canada_great_migration
+					months = long_modifier_time
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					scope:migration_target_2 = {
+						total_population < 1000000
+					}
+				}
+				add = 10
+			}
+		}
+	}
+	option = {
+		name = sa_migration.5.c
+		trigger = {
+			exists = scope:migration_target_3
+		}
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_3 = {
+			capital = {
+				create_mass_migration = {
+					origin = scope:migration_country
+					culture = scope:migration_culture
+				}
+				add_modifier = {
+					name = canada_great_migration
+					months = long_modifier_time
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					scope:migration_target_3 = {
+						total_population < 1000000
+					}
+				}
+				add = 10
+			}
+		}
+	}
+	option = {
+		name = sa_migration.5.e
+		remove_variable = colonial_migration_var
 		ai_chance = {
 			base = 0
 		}

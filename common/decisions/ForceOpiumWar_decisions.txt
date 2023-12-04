@@ -10,8 +10,20 @@
 		any_country = {
 			NOT = { has_variable = FOW_decision_taken }
 		}
-        is_at_war = no
-        is_diplomatic_play_committed_participant = no
+		trigger_if = { #Prioritizes France
+			limit = {
+				exists = c:FRA
+				c:FRA = {
+					is_at_war = no
+					is_diplomatic_play_committed_participant = no
+				}
+			}
+			c:FRA = this
+		}
+		trigger_else = {
+			is_at_war = no
+			is_diplomatic_play_committed_participant = no
+		}
         c:PER ?= {
             NOT = {
                 has_truce_with = root
@@ -28,6 +40,7 @@
         create_diplomatic_play = {
 			target_country = c:PER
 			type = dp_opium_wars
+			escalation = 80
         }
 		
 		trigger_event = { id = opium_wars.9 }
@@ -39,7 +52,7 @@
             add     = 1000000 # Large modifier in order to meet...
             trigger = {
                 # ...the historical start date of the war Sept 4, 1849
-                game_date >= 1849.05.25 # Roughly 100 days before the date so war starts on or close to it
+                game_date >= 1849.08.15 # Roughly 20 days before the date so war starts on or close to it
             }
         }
     }

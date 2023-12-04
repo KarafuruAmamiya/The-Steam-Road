@@ -1,0 +1,96 @@
+﻿excavation_of_persepolis = {
+	is_shown = {
+		owns_entire_state_region = STATE_FARS
+		NOT = { has_variable = persepolis_excavation }
+	}
+
+	possible = {
+		has_technology_researched = mechanical_tools	
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = can_build_persepolis_tt
+			set_variable = persepolis_excavation
+		}
+		add_treasury = -30000
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+excavation_of_ctesiphon = {
+	is_shown = {
+		owns_entire_state_region = STATE_BAGHDAD
+		NOT = { has_variable = ctesiphon_excavation }
+	}
+
+	possible = {
+		has_technology_researched = mechanical_tools
+		has_technology_researched = nationalism
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = can_build_ctesiphon_tt
+			set_variable = ctesiphon_excavation
+		}
+		add_treasury = -30000
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+excavation_of_susa = {
+	is_shown = {
+		owns_entire_state_region = STATE_KHUZESTAN
+		NOT = { has_variable = susa_excavation }
+	}
+
+	possible = {
+		has_technology_researched = mechanical_tools
+		has_technology_researched = dialectics
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = can_build_susa_tt
+			set_variable = susa_excavation
+		}
+		add_treasury = -30000
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}
+
+grant_zoroastrian_rights = {
+	is_shown = {
+		country_has_primary_culture = cu:persian
+	}
+
+	possible = {
+		NOT = {
+			has_law = law_type:law_state_religion
+		}
+		NOT = { has_variable = granted_zoroastrian_rights }
+		has_technology_researched = nationalism
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = can_build_fire_temple_tt
+			set_variable = granted_zoroastrian_rights
+		}
+		trigger_event = { id = persian_flavor.1 }
+	}
+
+	ai_chance = {
+		base = 100
+	}
+}

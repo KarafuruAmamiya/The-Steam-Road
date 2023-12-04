@@ -1,0 +1,99 @@
+﻿per_expand_jonubistan = {
+	is_shown = {
+		c:PER ?= this
+		exists = c:JNB
+		c:JNB = {
+			is_subject_of = ROOT
+		}
+	}
+	possible = {
+		OR = { 
+			any_state = {
+				owner = ROOT
+				region = sr:region_oceania
+				is_under_colonization = no
+			}
+			any_subject_or_below = {
+				capital.region = sr:region_oceania
+				NOT = { 
+					THIS = c:JNB
+				}
+			}
+		}
+	}
+	when_taken = {
+		custom_tooltip = expand_jonubistan_tt
+		if = {
+			limit= {
+				any_state = {
+					owner = ROOT
+					region = sr:region_oceania 
+				}
+			}
+			every_scope_state = {
+				limit = {
+					owner = ROOT
+					region = sr:region_oceania
+					is_treaty_port = no
+				}
+				set_state_owner = c:JNB
+				set_state_type = unincorporated
+			}
+		}
+		if = {
+			limit= {
+				any_subject_or_below = {
+					capital.region = sr:region_oceania
+					NOT = { 
+						THIS = c:JNB
+					}
+				}
+			}
+			every_subject_or_below = {
+				if = {
+					limit = { 
+						is_subject_type = subject_type_protectorate
+						capital.region = sr:region_oceania
+						NOT = { 
+							THIS = c:JNB 
+						} 						
+					}
+					save_scope_as = jnb_annex_state_protectorate
+					c:JNB = {
+						annex = scope:jnb_annex_state_protectorate
+					}
+				}
+				if = {
+					limit = { 
+						is_subject_type = subject_type_vassal
+						capital.region = sr:region_oceania
+						NOT = { 
+							THIS = c:JNB
+						} 
+					}
+					save_scope_as = jnb_annex_state_vassal
+					c:JNB = {
+						annex = scope:jnb_annex_state_vassal
+					}
+				}
+				if = {
+					limit = { 
+						is_subject_type = subject_type_puppet
+						capital.region = sr:region_oceania
+						NOT = { 
+							THIS = c:JNB
+						} 
+					}
+					hidden_effect = { make_independent = yes }
+					save_scope_as = jnb_annex_state_puppet
+					c:JNB = {
+						annex = scope:jnb_annex_state_puppet
+					}
+				}
+			}
+		}
+	}
+	ai_chance = {
+		base = 100
+	}
+}

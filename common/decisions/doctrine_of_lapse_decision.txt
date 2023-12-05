@@ -2,10 +2,7 @@
 	is_shown = {
 		c:PER ?= this
 		any_subject_or_below = {
-			country_is_in_india = yes
-			any_primary_culture = {
-				has_discrimination_trait = south_asian_heritage
-			}
+			is_subject_type = subject_type_satrapy
 		}
 		NOT = { has_variable = doctrine_of_lapse_ended }
 	}
@@ -20,7 +17,7 @@
 		any_subject_or_below = {
 			is_player = no
 			country_is_in_india = yes
-			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_satrapy
 			OR = {
 				ruler = {
 					OR = {

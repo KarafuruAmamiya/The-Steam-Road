@@ -42,9 +42,16 @@
 	}
 	
 	accept_effect = {
-		create_incident = {
-			value = 1
-			country = scope:target_country
+		if = {
+			limit = {
+				scope:target_country = {
+					NOT = { is_subject_of = root }
+				}
+			}
+			create_incident = {
+				value = 5
+				country = scope:target_country
+			}
 		}
 
 		scope:target_country = {
@@ -84,9 +91,7 @@
 	}
 	
 	ai = {
-		propose_score = {
-			value = 100
-		}	
+		check_acceptance_for_will_propose = yes	
 	
 		accept_score = {
 			value = 0

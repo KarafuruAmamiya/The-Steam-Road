@@ -78,7 +78,7 @@ mobilization_option_extra_supplies = {
 			limit = {
 				market = {
 					mg:groceries = {
-						market_goods_sell_orders > 300
+						market_goods_sell_orders > 900
 					}
 				}
 			}
@@ -254,22 +254,11 @@ mobilization_option_liquor = {
 			limit = {
 				market = {
 					mg:liquor = {
-						market_goods_sell_orders > 200
+						market_goods_sell_orders > 600
 					}
 				}
 			}
 			add = 1
-		}
-
-		if = {
-			limit = {
-				market = {
-					mg:liquor = {
-						market_goods_sell_orders > 500
-					}
-				}
-			}
-			add = 500
 		}
 	}
 
@@ -493,7 +482,7 @@ mobilization_option_rail_transport = {
 			limit = {
 				market = {
 					mg:engines = {
-						market_goods_sell_orders > 400
+						market_goods_sell_orders > 800
 					}
 				}
 			}
@@ -553,7 +542,7 @@ mobilization_option_machinegunners = {
 			limit = {
 				market = {
 					mg:ammunition = {
-						market_goods_sell_orders > 400
+						market_goods_sell_orders > 600
 					}
 				}
 			}
@@ -662,7 +651,7 @@ mobilization_option_flamethrowers = {
 			limit = {
 				market = {
 					mg:oil = {
-						market_goods_sell_orders > 400
+						market_goods_sell_orders > 600
 					}
 				}
 			}

@@ -347,6 +347,7 @@ enforce_veiling = {
 
 encourage_migration_to_colonies = {
 	is_shown = {
+		NOT = { is_country_type = colonial }
 		institution_investment_level = {
 			institution = institution_colonial_affairs
 			value >= 1
@@ -370,7 +371,7 @@ encourage_migration_to_colonies = {
 	}
 
 	ai_chance = {
-		base = 1
+		base = 0
 		modifier = {
 			trigger = {
 				any_scope_state = {
@@ -379,7 +380,7 @@ encourage_migration_to_colonies = {
 					state_unemployment_rate >= 0.15
 				}
 			}
-			add = 10
+			add = 1
 		}
 	}
 }

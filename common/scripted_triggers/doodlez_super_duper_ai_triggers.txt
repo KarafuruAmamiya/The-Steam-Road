@@ -117,8 +117,8 @@ law_is_important = {
 						has_law = law_type:law_censorship
 					}
 					OR = {
-						scope:law = law_type:law_outlawed_dissent
-						scope:law = law_type:law_censorship
+						scope:law.type = law_type:law_outlawed_dissent
+						scope:law.type = law_type:law_censorship
 					}
 				}	
 			}

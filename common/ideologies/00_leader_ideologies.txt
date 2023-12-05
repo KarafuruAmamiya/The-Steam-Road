@@ -288,6 +288,15 @@ ideology_republican_leader = {
 		law_hereditary_bureaucrats = disapprove
 	}
 	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = approve
+		law_devolved = approve
+		law_federal = strongly_approve
+		law_confederated = neutral
+	}
+	
 	possible = {
 		# Agitators should have an ideology at odds with current laws
 		NAND = {
@@ -382,6 +391,15 @@ ideology_radical = {
 		law_oligarchy = strongly_disapprove
 		law_autocracy = strongly_disapprove
 		law_single_party_state = disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = disapprove
+		law_devolved = approve
+		law_federal = strongly_approve
+		law_confederated = neutral
 	}
 
 	lawgroup_free_speech = {
@@ -1013,15 +1031,6 @@ ideology_pacifist = {
 			}
 			add = 50
 		}
-		# liberal and/or radical leaders have a higher spawn chance if the Dreyfusards won.
-		if = {
-			limit = {
-				scope:interest_group = {
-					has_variable = dreyfusard_victory
-				}
-			}
-			add = 50
-		}
 	}
 }
 
@@ -1113,33 +1122,6 @@ ideology_jingoist_leader = {
 					any_scope_war = {
 						defender_warleader = { this = ROOT.owner }
 					}
-				}
-			}
-			add = 50
-		}
-		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					exists = c:FRA
-					this = c:FRA
-					has_journal_entry = je_divided_monarchists
-				}
-				scope:interest_group = {
-					OR = {
-						is_interest_group_type = ig_landowners
-						is_interest_group_type = ig_petty_bourgeoisie
-						is_interest_group_type = ig_devout
-					}
-				}
-			}
-			add = -100
-		}
-		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
-		if = {
-			limit = {
-				scope:interest_group = {
-					has_variable = anti_dreyfusard_victory
 				}
 			}
 			add = 50
@@ -1865,7 +1847,7 @@ ideology_fascist = {
 	}
 	
 	possible = {
-		owner = { has_technology_researched = mass_propaganda }
+		owner = { has_technology_researched = political_agitation }
 		# Agitator ideologies should disapprove of a current law
 		NAND = {
 			has_role = agitator
@@ -2098,6 +2080,15 @@ ideology_anarchist = {
 		law_parliamentary_republic = disapprove
 		law_theocracy = strongly_disapprove
 		law_council_republic = strongly_approve
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = neutral			
+		law_unitary = strongly_disapprove
+		law_devolved = disapprove
+		law_federal = neutral
+		law_confederated = strongly_approve
 	}
 	
 	lawgroup_colonization = { # VTM
@@ -2766,6 +2757,15 @@ ideology_authoritarian = {
 		law_oligarchy = approve
 		law_autocracy = approve
 		law_single_party_state = approve
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = neutral			
+		law_unitary = strongly_approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
 	}
 
 	lawgroup_free_speech = {

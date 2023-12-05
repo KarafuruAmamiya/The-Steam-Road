@@ -1586,6 +1586,7 @@ arabia_flavor.10 = {
 	}
 
 	immediate = {
+		set_variable = fate_of_akturks
 		random_scope_character = {
 			limit = {
 				is_heir = yes
@@ -1598,7 +1599,6 @@ arabia_flavor.10 = {
 		name = arabia_flavor.10.a
 		default_option = yes
 		
-		set_variable = fate_of_akturks
 		remove_primary_culture = cu:akturk
 		add_radicals = {
 			value = large_radicals
@@ -1658,8 +1658,6 @@ arabia_flavor.10 = {
 	
 	option = {
 		name = arabia_flavor.10.b
-		
-		set_variable = fate_of_akturks
 		add_loyalists = {
 			value = large_radicals
 			culture = cu:akturk

@@ -1,9 +1,9 @@
 ﻿FOW_start_opium_war_play_dec = {
     is_shown = {
-        has_journal_entry = je_opium_wars
+		has_journal_entry = je_opium_wars
 		has_variable = opium_wars_aggressor
         exists = c:PER
-        is_ai  = yes # AI only; player doesn't need help starting the Opium War lol just start the damn diplo play
+        #is_ai  = yes # AI only; player doesn't need help starting the Opium War lol just start the damn diplo play
     }
     
     possible = {
@@ -13,12 +13,12 @@
 		trigger_if = { #Prioritizes France
 			limit = {
 				exists = c:FRA
-				c:FRA = {
-					is_at_war = no
-					is_diplomatic_play_committed_participant = no
-				}
 			}
 			c:FRA = this
+			c:FRA = {
+				is_at_war = no
+				is_diplomatic_play_committed_participant = no
+			}
 		}
 		trigger_else = {
 			is_at_war = no
@@ -47,7 +47,7 @@
     }
     
     ai_chance = {
-        base     = 5 # Small random chance for it to happen early
+        base     = 1 # Small random chance for it to happen early
         modifier = {
             add     = 1000000 # Large modifier in order to meet...
             trigger = {

@@ -141,11 +141,9 @@ opium_events.1 = {
 					goods = g:opium
 				}
 				any_scope_country = {
-					limit = { 
-						country_is_in_europe = yes 
-						any_scope_state = { is_coastal = yes }
-						has_law = law_type:law_no_substances_regulation
-					}
+					country_is_in_europe = yes 
+					any_scope_state = { is_coastal = yes }
+					has_law = law_type:law_no_substances_regulation
 					any_primary_culture = {
 						NOT = {
 							has_cultural_obsession = opium

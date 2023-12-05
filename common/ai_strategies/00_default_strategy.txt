@@ -239,6 +239,27 @@ ai_strategy_default = {
 			add = 1000
 		}
 		
+		# Opium wars participants should both be confident
+		if = {
+			limit = {
+				has_journal_entry = je_opium_wars
+				scope:target_country = {
+					has_variable = opium_wars_exporter
+				}
+			}
+			add = 1000
+		}
+		
+		if = {
+			limit = {
+				has_variable = opium_wars_exporter
+				scope:target_country = {
+					has_journal_entry = je_opium_wars
+				}
+			}
+			add = 1000
+		}	
+		
 		# unite against french aggression
 			if = {
 				limit = {
@@ -809,16 +830,6 @@ ai_strategy_default = {
 					scope:target_state = { is_homeland_of_country_cultures = scope:target_country }
 				}
 				multiply = 0.0
-			}
-
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_exporter
-					}
-				}
-				multiply = 0
 			}
 		}
 		
@@ -1417,7 +1428,7 @@ ai_strategy_default = {
 					has_variable = opium_wars_exporter
 				}
 			}
-			add = 1
+			add = 3
 		}
 		
 		if = {
@@ -1427,7 +1438,7 @@ ai_strategy_default = {
 					has_journal_entry = je_opium_wars
 				}
 			}
-			add = 1
+			add = 3
 		}	
 		
 		# French Natural Borders
@@ -1606,7 +1617,7 @@ ai_strategy_default = {
 			add = 25
 		}
 		
-		# Opium wars aggressor should be very, very aggressive against target if they're banning opium
+		# Opium wars aggressor should be very, very aggressive against exporter
 		if = {
 			limit = {
 				has_journal_entry = je_opium_wars

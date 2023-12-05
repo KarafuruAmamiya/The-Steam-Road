@@ -70,12 +70,13 @@ je_opium_wars = {
 			NOT = { exists = c:PER }
 			AND = {
 				exists = c:PER
-				any_scope_state = {
-					state_region = {
-						is_homeland = cu:persian
-					}
-				}
 				c:PER = {
+					any_scope_state = {
+						state_region = {
+							is_homeland = cu:persian
+						}
+						NOT = { owner = prev }
+					}
 					is_banning_goods = opium
 				}
 			}
@@ -83,9 +84,18 @@ je_opium_wars = {
 	}
 
 	on_complete = {
-		trigger_event = {
-			id = opium_wars.4
-			days = 5
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:persian
+					}
+				}
+			}
+			trigger_event = {
+				id = opium_wars.4
+				days = 5
+			}
 		}
 		hidden_effect = {
 			c:PER = {

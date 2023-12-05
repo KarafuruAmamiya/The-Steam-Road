@@ -25,11 +25,6 @@ opium_wars.1 = {
 			has_cultural_obsession = opium
 		}
 		is_subject = no
-		any_scope_state = {
-			any_scope_building = {
-				is_building_type = building_port
-			}
-		}
 		any_market = {
 			owner = ROOT
 			any_trade_route = {
@@ -94,7 +89,7 @@ opium_wars.1 = {
 		}
 		add_modifier = {
 			name = opium_wars_addiction_modifier
-			months = normal_modifier_time
+			months = 180
 		}
 		ai_chance = {
 			base = 10
@@ -103,7 +98,7 @@ opium_wars.1 = {
 	option = {
 		name = opium_wars.1.b
 		trigger = {
-			country_rank >= rank_value:great_power
+			country_rank >= rank_value:major_power
 		}
 		custom_tooltip = {
 			text = opium_wars_tt
@@ -111,7 +106,7 @@ opium_wars.1 = {
 		}
 		add_modifier = {
 			name = opium_wars_addiction_modifier
-			months = normal_modifier_time
+			months = 180
 		}
 		set_variable = {
 			name = opium_wars_completion_tracker
@@ -120,11 +115,19 @@ opium_wars.1 = {
 		add_journal_entry = {
 			type = je_opium_obsession
 		}
+		add_journal_entry = {
+			type = je_opium_wars
+		}
 		ai_chance = {
 			base = 0
 			modifier = {
 				trigger = {
-					country_rank >= rank_value:great_power
+					country_rank >= rank_value:major_power
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_port
+						}
+					}
 				}
 				add = 10000
 			}
@@ -318,10 +321,6 @@ opium_wars.3 = {
 		every_primary_culture = {
 			remove_cultural_obsession = opium
 		}
-		add_modifier = {
-			name = china_authority
-			months = normal_modifier_time
-		}
 		remove_modifier = opium_wars_addiction_modifier
 	}
 
@@ -329,10 +328,6 @@ opium_wars.3 = {
 		name = opium_wars.3.b
 		every_primary_culture = {
 			remove_cultural_obsession = opium
-		}
-		add_modifier = {
-			name = china_welfare
-			months = normal_modifier_time
 		}
 		remove_modifier = opium_wars_addiction_modifier
 	}
@@ -387,9 +382,7 @@ opium_wars.4 = {
 					has_variable = opium_wars_aggressor
 					any_scope_state = {
 						state_region = {
-							any_scope_state = {
-								owner = c:PER
-							}
+							is_homeland = cu:persian
 						}
 					}
 				}
@@ -402,23 +395,17 @@ opium_wars.4 = {
 				limit = {
 					has_variable = opium_wars_aggressor
 					any_scope_state = {
-						state_region = s:STATE_MOGOSTAN
-						#state_region = {
-						#	any_scope_state = {
-						#		owner = c:PER
-						#	}
-						#}
+						state_region = {
+							is_homeland = cu:persian
+						}
 					}
 				}
 				save_scope_as = opium_wars_treaty_port_winner
 				random_scope_state = {
 					limit = {
-						state_region = s:STATE_MOGOSTAN
-						#state_region = {
-						#	any_scope_state = {
-						#		owner = c:PER
-						#	}
-						#}
+						state_region = {
+							is_homeland = cu:persian
+						}
 					}
 					save_scope_as = treaty_port_state
 				}
@@ -438,6 +425,12 @@ opium_wars.4 = {
 		}
 		add_radicals = {
 			value = very_large_radicals
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_substances_banned }
+			}
+			activate_law = law_type:law_substances_banned
 		}
 		if = {
 			limit = {
@@ -477,6 +470,12 @@ opium_wars.4 = {
 		}
 		hidden_effect = {
 			trigger_event = { id = opium_wars.11 }
+		}
+		every_country = {
+			limit = {
+				has_modifier = opium_wars_modifier
+			}
+			remove_modifier = opium_wars_modifier
 		}
 		remove_variable = opium_wars_aggressor
 	}
@@ -839,13 +838,13 @@ opium_wars.9 = {
 	}
 
 	immediate = {
-		trigger_event = { id = opium_wars.10 days = 90 }
+		trigger_event = { id = opium_wars.10 days = 0 }
 		# max 4 countries beating up Persia
 		random_country = {
 			limit = {
 				has_variable = opium_wars_aggressor
 				NOT = { this = root }
-				country_rank >= rank_value:great_power
+				is_at_war = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_1
@@ -855,7 +854,7 @@ opium_wars.9 = {
 				has_variable = opium_wars_aggressor
 				NOT = { this = root }
 				NOT = { this = scope:opium_war_ally_1 }
-				country_rank >= rank_value:great_power
+				is_at_war = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_2
@@ -866,7 +865,7 @@ opium_wars.9 = {
 				NOT = { this = root }
 				NOT = { this = scope:opium_war_ally_1 }
 				NOT = { this = scope:opium_war_ally_2 }
-				country_rank >= rank_value:great_power
+				is_at_war = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_3
@@ -883,30 +882,16 @@ opium_wars.9 = {
 				primary_demand = yes
 			}
 			add_war_goal = {
+				holder = root
+				type = war_reparations
+				target_country = c:PER
+				primary_demand = yes
+			}
+			add_war_goal = {
 				holder = c:PER
 				type = war_reparations
 				target_country = root
 				primary_demand = yes
-			}
-		}
-		if = {
-			limit = {
-				exists = c:AKN
-				c:AKN = {
-					has_diplomatic_pact = {
-						who = c:PER
-						type = treaty_of_baglar_pact
-					}
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:PER
-				}
-				add_target_backers = {
-					c:AKN
-				}
 			}
 		}
 		if = {
@@ -925,6 +910,12 @@ opium_wars.9 = {
 					holder = scope:opium_war_ally_1
 					type = war_reparations
 					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = war_reparations
+					target_country = scope:opium_war_ally_1
 					primary_demand = yes
 				}
 			}
@@ -947,6 +938,12 @@ opium_wars.9 = {
 					target_country = c:PER
 					primary_demand = yes
 				}
+				add_war_goal = {
+					holder = c:PER
+					type = war_reparations
+					target_country = scope:opium_war_ally_2
+					primary_demand = yes
+				}
 			}
 		}
 		if = {
@@ -965,6 +962,12 @@ opium_wars.9 = {
 					holder = scope:opium_war_ally_3
 					type = war_reparations
 					target_country = c:PER
+					primary_demand = yes
+				}
+				add_war_goal = {
+					holder = c:PER
+					type = war_reparations
+					target_country = scope:opium_war_ally_3
 					primary_demand = yes
 				}
 			}
@@ -1004,7 +1007,7 @@ opium_wars.10 = {
 		default_option = yes
 		add_modifier = {
 			name = opium_wars_modifier
-			months = short_modifier_time
+			months = normal_modifier_time
 		}
 		random_diplomatic_play = {
 			limit = {
@@ -1017,7 +1020,7 @@ opium_wars.10 = {
 				}
 				add_modifier = {
 					name = opium_wars_modifier
-					months = short_modifier_time
+					months = normal_modifier_time
 				}
 			}
 		}
@@ -1059,7 +1062,7 @@ opium_wars.11 = {
 		}
 		create_diplomatic_pact = {
 			country = scope:mogostan_state.owner
-			type = overseas_territory
+			type = dependency
 		}
 	}
 }
@@ -1074,8 +1077,12 @@ opium_wars.12 = {
 			has_modifier = curbed_opium_trade
 			has_modifier = curbed_opium_trade_max
 		}
-		any_overlord_or_above = {
-			NOT = { c:PER = this }
+		trigger_if = {
+			limit = { exists = c:PER }
+			NOT = { is_subject_of = c:PER }
+		}
+		trigger_else = {
+			NOT = { exists = c:PER }
 		}
 	}
 

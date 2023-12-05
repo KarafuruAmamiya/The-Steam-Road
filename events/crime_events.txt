@@ -159,7 +159,10 @@ crime_events.2 = { #Organised crime found in state
 			}
 			save_scope_as = organised_crime_state
 		}
-		set_variable = temperance_organised_crime_var
+		if = {
+			limit = { has_variable = prohibition_laws_var }
+			set_variable = temperance_organised_crime_var
+		}
 	}
 
 	option = {
@@ -176,6 +179,16 @@ crime_events.2 = { #Organised crime found in state
 			custom_tooltip = prohibition_laws_weak_pm.tt
 			change_variable = {
 				name = prohibition_laws_var
+				add = 2
+			}
+		}
+		if = {
+			limit = {
+				has_variable = opium_wars_completion_tracker
+			}
+			custom_tooltip = opium_obsession_weak_pm.tt
+			change_variable = {
+				name = opium_wars_completion_tracker
 				add = 2
 			}
 		}

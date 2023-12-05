@@ -339,12 +339,36 @@ dp_annex_subject = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			is_direct_subject_of = root
-			OR = {
-				has_diplomatic_pact = { who = root type = puppet }
-				has_diplomatic_pact = { who = root type = vassal }
-				has_diplomatic_pact = { who = root type = dependency }
+			custom_tooltip = {
+				text = annex_subject_laws_tt
+				OR = {
+					is_subject_type = subject_type_dependency
+					is_subject_type = subject_type_real_union
+					AND = {
+						is_subject_type = subject_type_puppet
+						owner = {
+							has_law = law_type:law_unitary
+						}
+					}
+					AND = {
+						is_subject_type = subject_type_vassal
+						owner = {
+							has_law = law_type:law_unitary
+						}
+					}
+				}
 			}
-		}			
+		}
+		trigger_if = {
+			limit = {
+				exists = c:AKN
+				c:AKN = this
+			}
+			custom_tooltip = {
+				text = finished_reforms_tt
+				has_variable = akc_reforms_complete
+			}
+		}		
 	}
 	
 	on_weekly_pulse = {}

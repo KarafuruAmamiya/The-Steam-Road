@@ -1,6 +1,7 @@
 ﻿COUNTRIES = {
 	c:ANR = { # Andorra
 		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
 		
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_monarchy
@@ -234,6 +235,7 @@
 	c:CRL = { # Courland
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
+		effect_starting_politics_conservative = yes
 		
 		# Laws 
 		activate_law = law_type:law_presidential_republic
@@ -330,6 +332,7 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
@@ -353,6 +356,7 @@
 	c:EST = { # Estonia
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
+		effect_starting_politics_conservative = yes
 		
 		# Laws 
 		activate_law = law_type:law_presidential_republic
@@ -431,6 +435,7 @@
 		activate_law = law_type:law_dedicated_police
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_charitable_health_system
 		activate_law = law_type:law_censorship
@@ -481,6 +486,7 @@
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
@@ -584,6 +590,7 @@
 	}
 	c:GOS = { # Goslar
 		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
 		# set_next_election_date = ???
 		
 		effect_starting_politics_conservative = yes
@@ -706,6 +713,7 @@
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_local_police
@@ -754,6 +762,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
@@ -797,6 +806,7 @@
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_federal
 		activate_law = law_type:law_per_capita_based_taxation
 		#activate_law = law_type:law_national_militia
 		activate_law = law_type:law_mass_conscription #Needed to spread FREEDOM
@@ -903,6 +913,7 @@
 	c:LVN = { # Livonia
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
+		effect_starting_politics_conservative = yes
 		
 		# Laws 
 		activate_law = law_type:law_presidential_republic
@@ -981,6 +992,7 @@
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_conservative = yes
 		
 		add_technology_researched = dialectics	
 		add_technology_researched = stock_exchange
@@ -1011,6 +1023,7 @@
 		effect_starting_politics_traditional = yes
 		
 		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_devolved
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_tenant_farmers
 		
@@ -1035,7 +1048,8 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_unitary
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_peasant_levies
 		activate_law = law_type:law_censorship
@@ -1285,6 +1299,7 @@
 		activate_law = law_type:law_public_schools
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_federal
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -1393,6 +1408,7 @@
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
 		
 		add_technology_researched = dialectics	
 		
@@ -1600,6 +1616,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_unitary
 		
 		
 		set_institution_investment_level = {
@@ -1707,6 +1724,7 @@
 		activate_law = law_type:law_homesteading
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_confederated
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms		
@@ -1728,7 +1746,6 @@
 		effect_starting_politics_traditional = yes
 		
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_tenant_farmers
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -1857,6 +1874,7 @@
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_devolved
 		
 		set_institution_investment_level = {
 			institution = institution_schools

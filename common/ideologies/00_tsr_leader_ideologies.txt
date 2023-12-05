@@ -2,6 +2,15 @@
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_reformer.dds"
 	
 	character_ideology = yes
+	
+	lawgroup_centralization = {
+		law_feudalism = disapprove
+		law_warlord_state = disapprove			
+		law_unitary = strongly_approve
+		law_devolved = approve
+		law_federal = neutral
+		law_confederated = neutral
+	}
 
 	lawgroup_army_model = {
 		law_professional_army = approve
@@ -148,6 +157,15 @@ ideology_persian_constitutionalist = {
 		law_universal_suffrage = neutral
 		law_anarchy = strongly_disapprove
 		law_technocracy = disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = strongly_approve
+		law_devolved = approve
+		law_federal = neutral
+		law_confederated = neutral
 	}
 
 	lawgroup_church_and_state = {
@@ -353,6 +371,15 @@ ideology_bahai = {
 		law_council_republic = neutral
 	}
 	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = neutral
+		law_devolved = neutral
+		law_federal = approve
+		law_confederated = approve
+	}
+	
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_denominational_exclusion = disapprove
@@ -396,5 +423,98 @@ ideology_bahai = {
 		law_no_home_affairs = neutral
 		law_national_guard = disapprove
 		law_secret_police = disapprove
+	}
+}
+
+ideology_jingoist_warlord = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_jingoist.dds"
+	
+	character_ideology = yes
+	
+	lawgroup_centralization = {
+		law_feudalism = neutral
+		law_warlord_state = strongly_approve			
+		law_unitary = approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
+	}
+	
+	lawgroup_army_model = {
+		law_mass_conscription = strongly_approve
+		law_professional_army = approve
+		law_national_militia = neutral
+		law_peasant_levies = disapprove
+	}
+
+	lawgroup_colonization = {		
+		law_no_colonial_affairs = neutral
+		law_colonial_resettlement = approve
+		law_frontier_colonization = approve
+		law_colonial_exploitation = strongly_approve
+	}
+	
+	possible = {
+		is_general = yes
+		scope:interest_group = {
+			OR = {
+				is_interest_group_type = ig_landowners
+				is_interest_group_type = ig_armed_forces
+				is_interest_group_type = ig_petty_bourgeoisie
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+	
+	leader_weight = {
+		value = 100
+		# More likely for angry IG's outside of council republic
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_law = law_type:law_council_republic }
+				}
+				scope:interest_group = {
+					OR = {
+						ig_approval <= -5
+						is_insurrectionary = yes
+					}
+				}
+			}
+			add = 150 # 100
+		}
+		# more likely if the central government is weak
+		if = {
+			limit = {
+				owner = {
+					authority <= 0
+					OR = {
+						has_any_secessionists_broken_out = yes
+						has_revolution = yes
+					}
+				}
+			}
+			add = 50
+		}
+		# More likely in warlord states
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_warlord_state
+				}
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			add = 75
+		}
 	}
 }

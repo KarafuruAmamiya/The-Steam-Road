@@ -35,6 +35,16 @@ ideology_feminist_ig = {
 ideology_modernizer = {
 	icon = "gfx/interface/icons/ideology_icons/modernizer.dds"
 	priority = 100
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = approve
+		law_devolved = approve
+		law_federal = approve
+		law_confederated = approve
+	}
+	
 	lawgroup_trade_policy = {
 		law_protectionism = approve
 		law_isolationism = strongly_disapprove
@@ -59,6 +69,16 @@ ideology_modernizer = {
 ideology_liberal_modern = {
 	icon = "gfx/interface/icons/ideology_icons/liberal.dds"
 	priority = 100
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = approve
+		law_devolved = approve
+		law_federal = strongly_approve
+		law_confederated = neutral
+	}
+	
 	lawgroup_citizenship = {
 		law_multicultural = disapprove
 		law_ethnostate = disapprove

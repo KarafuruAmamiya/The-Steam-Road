@@ -50,38 +50,24 @@ is_being_incorporated = {
 }
 
 violate_sovereignty_war_check = {
-	save_temporary_scope_as = relevant_war
-
-	scope:target_country = {
-		any_scope_theater = {
-			is_land_theater = yes
-
-			save_temporary_scope_as = target_theater
-
-			scope:relevant_war.attacker_warleader = {
-				any_scope_theater = {
-					is_land_theater = yes
-
-					check_area = {
-						mode = adjacent
-						target = scope:target_theater
-					}
-				}
+	attacker_warleader = {
+		OR = {
+			has_strategic_land_adjacency = scope:target_country
+			any_scope_ally = {				
+				has_strategic_land_adjacency = scope:target_country
 			}
-
-			scope:relevant_war.defender_warleader = {
-				any_scope_theater = {
-					is_land_theater = yes
-
-					check_area = {
-						mode = adjacent
-						target = scope:target_theater
-					}
-				}
+		}
+	}
+	defender_warleader = {
+		OR = {
+			has_strategic_land_adjacency = scope:target_country
+			any_scope_ally = {				
+				has_strategic_land_adjacency = scope:target_country
 			}
 		}
 	}
 }
+
 
 
 has_industrialized_pm = {

@@ -354,13 +354,8 @@ gov_satrapies = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		exists = c:PER 
-		is_subject_of = c:PER
+		is_subject_type = subject_type_satrapy
 		country_is_in_india = no
-		OR = {
-			is_subject_type = subject_type_puppet
-			is_subject_type = subject_type_dependency
-		}
 	}
 	
 	on_government_type_change = {
@@ -383,14 +378,9 @@ gov_indian_satrapies = {
 	possible = {
 		has_law = law_type:law_monarchy
 		country_is_in_india = yes
-		exists = c:PER 
-		is_subject_of = c:PER 
+		is_subject_type = subject_type_satrapy
 		c:PER = {
 			has_law = law_type:law_monarchy
-		}
-		OR = {
-			is_subject_type = subject_type_puppet
-			is_subject_type = subject_type_dependency
 		}
 	}
 	
@@ -706,25 +696,6 @@ gov_peasant_republic = {
 		c:CLD = ROOT
 	}
 	
-	on_government_type_change = {
-		change_to_presidential_elective = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
-	}
-}
-
-gov_overseas_territory = {
-	transfer_of_power = presidential_elective
-	new_leader_on_reform_government = no
-
-	male_ruler = "RULER_TITLE_GOVERNOR"
-	female_ruler = "RULER_TITLE_GOVERNOR"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		is_subject_type = subject_type_overseas_territory
-	}
 	on_government_type_change = {
 		change_to_presidential_elective = yes
 	}

@@ -92,14 +92,14 @@ subject_type_lusitanian_league = {
 	}
 }
 
-subject_type_overseas_territory = {
+subject_type_satrapy = {
 	allow_change_country_flag = yes
 	use_overlord_map_color = yes
 	use_overlord_ruler = no
 	annex_on_country_formation = yes
 	can_start_own_diplomatic_plays = no
 	breaks_if_subject_not_protected = yes
-	join_overlord_wars = yes
+	join_overlord_wars = no
 	overlord_must_be_higher_rank = yes
 	overlord_must_be_same_country_type = no
 	use_for_release_country = no
@@ -108,7 +108,19 @@ subject_type_overseas_territory = {
 	convoy_contribution = 0.75
 	can_target_with_transfer_wargoal = no
 		
-	diplomatic_action = overseas_territory
+	diplomatic_action = satrapy
+	
+	higher_autonomy_subject_type_alternatives = {
+		subject_type_dominion
+	}
+	
+	same_autonomy_subject_type_alternatives = {
+		subject_type_vassal
+	}
+	
+	lower_autonomy_subject_type_alternatives = {
+		subject_type_dependency
+	}
 	
 	valid_overlord_country_types = {
 		recognized

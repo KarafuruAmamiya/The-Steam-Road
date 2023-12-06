@@ -5,18 +5,6 @@
 
 	potential = {
 		scope:target_country = {
-			#if = {
-			#	limit = {
-			#		is_country_type = unrecognized
-			#	}
-			#	country_rank < rank_value:unrecognized_regional_power
-			#}
-			#if = {
-			#	limit = {
-			#		is_country_type = recognized
-			#	}
-			#	country_rank < rank_value:major_power
-			#}
 			is_direct_subject_of = root
 			OR = {
 				is_adjacent_to_country = root
@@ -132,7 +120,7 @@
 
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_BASE"
-				value = -30
+				value = -50
 			}
 			
 			if = {
@@ -298,6 +286,17 @@
 					value = -50
 				}
 			}
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_DISCRIMINATION"
+				if = {
+					limit = {
+						any_primary_culture = {
+							culture_is_discriminated_in = scope:actor
+						}
+					}
+					value = -25
+				}
+			}
 		}
 
 		propose_score = {
@@ -332,7 +331,20 @@
 					}
 				}
 				add = {
-					value = -15
+					value = -25
+				}
+			}
+			
+			if = {
+				limit = {
+					scope:target_country = {
+						any_primary_culture = {
+							culture_is_discriminated_in = root
+						}
+					}
+				}
+				add = {
+					value = -75
 				}
 			}
 		}

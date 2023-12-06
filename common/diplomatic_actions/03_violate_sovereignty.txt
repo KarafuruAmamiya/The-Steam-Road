@@ -319,5 +319,28 @@
 				}	
 			}				
 		}
+		
+		propose_score = {
+			value = 100
+			
+			if = {
+				limit = {
+					any_scope_war = {
+						is_warleader = root
+						violate_sovereignty_war_check = yes
+					}
+					scope:target_country = {
+						is_subject_of = root
+						has_attitude = {
+							who = scope:actor
+							attitude = loyal
+						}
+					}
+				}
+				add = {
+					value = 10000000
+				}
+			}
+		}
 	}
 }

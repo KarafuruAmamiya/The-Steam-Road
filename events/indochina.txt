@@ -34,16 +34,10 @@ indochina.1 = {
 		}
 		has_law = law_type:law_state_religion
 		any_scope_pop = {
-			OR = {
-				religion = rel:catholic
-				religion = rel:shiite
-			}
+			religion = rel:catholic
 		}
 		any_country = { # there must be a Catholic Great Power who can react to all this
-			OR = {
-				religion = rel:catholic
-				religion = rel:shiite
-			}
+			religion = rel:catholic
 			country_rank = rank_value:great_power
 			capital = {
 				NOT = { region = sr:region_indochina }
@@ -54,10 +48,7 @@ indochina.1 = {
 	immediate = {
 		random_country = {
 			limit = {
-				OR = {
-					country_has_state_religion = rel:catholic
-					country_has_state_religion = rel:shiite
-				}
+				country_has_state_religion = rel:catholic
 				country_rank = rank_value:great_power
 				capital = {
 					NOT = { region = sr:region_indochina }
@@ -68,10 +59,7 @@ indochina.1 = {
 		random_scope_state = {
 			limit = {
 				any_scope_pop = {
-					OR = {
-						religion = rel:catholic
-						religion = rel:shiite
-					}
+					religion = rel:catholic
 				}
 			}
 			save_scope_as = catholic_activity_in_state
@@ -86,13 +74,6 @@ indochina.1 = {
 		scope:catholic_activity_in_state ={
 			add_religion_standard_of_living_modifier = {
 				religion = rel:catholic
-				multiplier = -3
-				months = normal_modifier_time
-			}
-		}
-		scope:catholic_activity_in_state ={
-			add_religion_standard_of_living_modifier = {
-				religion = rel:shiite
 				multiplier = -3
 				months = normal_modifier_time
 			}
@@ -171,10 +152,7 @@ indochina.2 = {
 	trigger = {
 		has_dlc_feature = voice_of_the_people_content
 		has_interest_marker_in_region = region_indochina
-		OR = {
-			country_has_state_religion = rel:catholic
-			country_has_state_religion = rel:shiite
-		}
+		country_has_state_religion = rel:catholic
 		country_rank = rank_value:great_power
 		capital = {
 			NOT = { region = sr:region_indochina }
@@ -188,17 +166,11 @@ indochina.2 = {
 				region = sr:region_indochina
 			}
 			NOT = {
-				OR = {
-					country_has_state_religion = rel:catholic
-					country_has_state_religion = rel:shiite
-				}
+				country_has_state_religion = rel:catholic
 			}
 			has_law = law_type:law_state_religion
 			any_scope_pop = {
-				OR = {
-					religion = rel:catholic
-					religion = rel:shiite
-				}
+				religion = rel:catholic
 			}
 		}
 		NOT = {
@@ -213,17 +185,11 @@ indochina.2 = {
 					region = sr:region_indochina
 				}
 				NOT = {
-					OR = {
-						country_has_state_religion = rel:catholic
-						country_has_state_religion = rel:shiite
-					}
+					country_has_state_religion = rel:catholic
 				}
 				has_law = law_type:law_state_religion
 				any_scope_pop = {
-					OR = {
-						religion = rel:catholic
-						religion = rel:shiite
-					}
+					religion = rel:catholic
 				}
 			}
 			save_scope_as = potential_imperialism_target

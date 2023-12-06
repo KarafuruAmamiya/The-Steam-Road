@@ -336,6 +336,7 @@ dp_annex_subject = {
 	
 	possible = {
 		NOT = { is_country_type = decentralized }
+		NOT = { has_law = law_type:law_confederated }
 		aggressive_diplomatic_plays_permitted = yes
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }

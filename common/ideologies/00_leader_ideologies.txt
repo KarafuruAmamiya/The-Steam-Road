@@ -294,7 +294,7 @@ ideology_republican_leader = {
 		law_unitary = approve
 		law_devolved = approve
 		law_federal = strongly_approve
-		law_confederated = neutral
+		law_confederated = approve
 	}
 	
 	possible = {
@@ -399,7 +399,7 @@ ideology_radical = {
 		law_unitary = disapprove
 		law_devolved = approve
 		law_federal = strongly_approve
-		law_confederated = neutral
+		law_confederated = approve
 	}
 
 	lawgroup_free_speech = {
@@ -789,6 +789,15 @@ ideology_abolitionist = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_abolitionist.dds"
 	
 	character_ideology = yes
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = neutral
+		law_devolved = neutral
+		law_federal = neutral
+		law_confederated = neutral
+	}
 	
 	lawgroup_slavery = {
 		law_slavery_banned = strongly_approve
@@ -1403,6 +1412,15 @@ ideology_communist = {
 		law_total_separation = strongly_approve
 		law_state_atheism = approve
 	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = neutral
+		law_devolved = neutral
+		law_federal = neutral
+		law_confederated = neutral
+	}
 
 	lawgroup_land_reform = {
 		law_serfdom = strongly_disapprove
@@ -1570,6 +1588,15 @@ ideology_vanguardist = {
 		law_mercantilism = disapprove		
 		law_isolationism = approve
 		law_free_trade = strongly_disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = strongly_approve
+		law_devolved = approve
+		law_federal = neutral
+		law_confederated = disapprove
 	}
 
 	lawgroup_land_reform = {
@@ -2489,6 +2516,15 @@ ideology_market_liberal = {
 		law_regulatory_bodies = disapprove
 		law_worker_protections = strongly_disapprove
 	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = neutral
+		law_devolved = neutral
+		law_federal = neutral
+		law_confederated = neutral
+	}
 
 	lawgroup_land_reform = {
 		law_collectivized_agriculture = strongly_disapprove
@@ -2760,10 +2796,10 @@ ideology_authoritarian = {
 	}
 	
 	lawgroup_centralization = {
-		law_feudalism = strongly_disapprove
+		law_feudalism = neutral
 		law_warlord_state = neutral			
 		law_unitary = strongly_approve
-		law_devolved = neutral
+		law_devolved = disapprove
 		law_federal = disapprove
 		law_confederated = strongly_disapprove
 	}
@@ -3478,6 +3514,15 @@ ideology_land_reformer = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_land_reformer.dds"
 	
 	character_ideology = yes
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = neutral
+		law_devolved = neutral
+		law_federal = neutral
+		law_confederated = neutral
+	}
 	
 	lawgroup_taxation = {
 		law_land_based_taxation = strongly_disapprove

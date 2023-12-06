@@ -255,7 +255,7 @@ law_federal = {
 	
 	modifier = {
 		state_tax_waste_add = 0.05
-		country_institution_size_change_speed_mult = 0.1
+		country_institution_size_change_speed_mult = -0.1
 		state_pop_pol_str_mult = 0.25
 		state_radicals_from_sol_change_mult = -0.1
 		country_bureaucracy_investment_cost_factor_mult = -0.25
@@ -266,6 +266,7 @@ law_federal = {
 	possible_political_movements = {
 		law_devolved
 		law_unitary
+		law_confederated
 	}
 
 	pop_support = {
@@ -318,15 +319,21 @@ law_confederated = {
 	modifier = {
 		country_authority_add = -50
 		state_tax_waste_add = 0.1
-		country_institution_size_change_speed_mult = 0.25
+		country_institution_size_change_speed_mult = -0.25
 		state_pop_pol_str_mult = 0.5
-		country_legitimacy_ideological_incoherence_mult = -0.25
 		state_radicals_from_sol_change_mult = -0.25
+		country_bureaucracy_investment_cost_factor_mult = -0.25
+		country_legitimacy_ideological_incoherence_mult = -0.25
 	}
 	
 	possible_political_movements = {
 		law_devolved
 		law_unitary
+		law_federal
+	}
+	
+	on_activate = {
+		custom_tooltip = cant_annex_subject_tt
 	}
 
 	pop_support = {

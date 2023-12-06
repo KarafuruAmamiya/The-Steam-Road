@@ -141,11 +141,6 @@ NPolitics = {
 }
 
 NEconomy = {
-	BUILDING_RAISE_WAGES_MIN_RELEVANT_POP_SIZE = 150 #50 # Pops with less workforce than this are ignored when checking whether a profitable building should raise wages because of radicalizing workers
-	BUILDING_RAISE_WAGES_DISCRIMINATION_FACTOR = 0.50 #0.66 # Profitable buildings only care to raise wages for discriminated pops if their wealth to expected SoL ratio is less than this
-	BUILDING_LOWER_WAGES_TARGET_WEALTH_MULT = 1.15 #1.20 # Buildings will consider lowering wages if all significant pops working in them have this * the target wealth to expected SoL ratio
-	BUILDING_PROFIT_TARGET_TO_RAISE_WAGES = 0.40 #0.30	# Required profit margin to consider raising wages for SoL or employment reasons, with BUILDING_WEEKS_BETWEEN_PAY_CHANGES weeks cooldown
-	BUILDING_PROFIT_TARGET_TO_LOWER_WAGES = 0.25 #0.15	# If profit margin is this or below, consider lowering wages for SoL or employment reasons, with BUILDING_WEEKS_BETWEEN_PAY_CHANGES weeks cooldown	
 } 
 
 NMilitary = {
@@ -304,13 +299,8 @@ NPops = {
 ### End Pop Growth Constant defines
 
 NPops = {
-	RADICALS_MONTHLY_FROM_DISCRIMINATION = 0.006 #0.005 # Scales by literacy
-	
-	RADICALS_MAX_FROM_LOW_SOL = 0.149 #0.15				# If pop is already this % radical, don't add more radicals from low SOL (Scales by delta between SoL and expected min SoL)
-	RADICALS_MAX_FROM_DISCRIMINATION = 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
 	ASSIMILATION_RATE = 0.006 #0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	CONVERSION_RATE = 0.001						# Percentage of pops who will Convert into a different Religion each month, if eligible
-	DISCRIMINATION_BASE = 33 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
 	MIN_ASSIMILATION = 100
 	MIN_CONVERSION = 100
 	

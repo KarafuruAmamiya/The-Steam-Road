@@ -1,9 +1,42 @@
 ﻿# This is executed last among all history
 GLOBAL = {
-	every_country = {
-		add_taxed_goods = g:services
+	# State traits
+	every_state = { # We have to do this because "has_state_trait" only works on state scopes, not state regions.
+		if = {
+			limit = {
+				state_region = s:STATE_KHUZESTAN
+			}
+			state_region = { remove_state_trait = state_trait_zagros_mountains }
+		}
+		if = {
+			limit = {
+				state_region = s:STATE_EQUATORIA # South Sudan
+			}
+			state_region = { add_state_trait = state_trait_nile_river }
+		}
+		if = { # to stop MAPI stacking
+			limit = {
+				state_region = s:STATE_DIYARBAKIR
+			}
+			state_region = { remove_state_trait = state_trait_tigris_river }
+		}
+		if = {
+			limit = {
+				OR = {
+					state_region = s:STATE_BAGHDAD
+					state_region = s:STATE_BASRA
+					state_region = s:STATE_NASIRIYA
+				}
+			}
+			state_region = { remove_state_trait = state_trait_euphrates_river }
+		}
+		if = {
+			limit = {
+				state_region = s:STATE_ARMENIA
+			}
+			state_region = { add_state_trait = state_trait_caucasus_mountains }
+		}
 	}
-
 	every_country = {
 		limit = { 
 			NOT = { has_law = law_type:law_slavery_banned }

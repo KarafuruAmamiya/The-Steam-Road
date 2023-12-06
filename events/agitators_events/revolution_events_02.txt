@@ -1071,7 +1071,8 @@ revolution_pulse_events.8 = {
 		default_option = yes
 		add_modifier = {
 			name = modifier_bank_robbery_payments
-			months = short_modifier_time
+			multiplier = money_amount_multiplier_very_small
+			months = 24
 		}
 	}
 
@@ -1083,6 +1084,7 @@ revolution_pulse_events.8 = {
 		add_modifier = {
 			name = modifier_bank_robbery_payments
 			months = 13
+			multiplier = money_amount_multiplier_very_small
 		}
 	}
 

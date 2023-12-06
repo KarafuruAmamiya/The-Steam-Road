@@ -98,7 +98,7 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_man_o_war
 				state_region = s:STATE_GOTALAND
-				count = 15
+				count = 14
 			}
 			
 			combat_unit = {
@@ -114,9 +114,9 @@
 			}
 			
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_GOTLAND
-				count = 4
+				count = 5
 			}
 		}
 
@@ -488,7 +488,7 @@
 			name = "Escadron d'Indiens" # Somewhat anachronistic formation
 		
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_FRENCH_LOW_COUNTRIES
 				count = 6
 			}
@@ -500,7 +500,7 @@
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_NORMANDY
 				count = 1
 			}
@@ -518,7 +518,7 @@
 			name = "Escadron du Japon" # Somewhat anachronistic formation
 		
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
+				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_LANGUEDOC
 				count = 4
 			}
@@ -690,15 +690,9 @@
 			name = "East Indies Station"
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_man_o_war
-				state_region = s:STATE_WEST_COUNTRY
-				count = 1
-			}
-
-			combat_unit = {
 				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_WALES
-				count = 1
+				count = 2
 			}
 		}
 	}
@@ -804,6 +798,7 @@
 		create_character = {
 			is_general = yes
 			hq = region_iberia
+			commander_rank = commander_rank_4
 			traits = {
 				expert_offensive_planner
 				resupply_commander
@@ -1858,24 +1853,6 @@
 				count = 1
 			}
 			save_scope_as = royalarmy_arn
-		}
-		
-		create_character = {
-			is_general = yes
-			age = 66
-			hq = region_south_italy
-			commander_rank = commander_rank_3
-			traits = {
-				plains_commander
-			}
-			save_scope_as = arn_gen1
-			on_created = {
-				set_variable = arn_gen1_var
-			}
-		}
-		
-		scope:arn_gen1 = {
-			transfer_to_formation = scope:royalarmy_arn
 		}
 
 		create_military_formation = {

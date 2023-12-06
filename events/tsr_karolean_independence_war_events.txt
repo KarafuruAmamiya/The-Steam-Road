@@ -375,10 +375,10 @@ krl_independence.7 = {
 		remove_variable = karolean_independence_war
 		remove_modifier = karolean_independence_war
 		
-		c:SWE = {
-			trigger_event = {
-				id = krl_independence.8
-	    	}
+		hidden_effect = {
+			c:SWE = {
+				trigger_event = { id = krl_independence.8 }
+			}
 		}
 	}
 }
@@ -401,14 +401,6 @@ krl_independence.8 = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	duration = 3
-
-	trigger = {
-		has_variable = karolean_independence_war
-		exists = c:SWE
-		this = c:SWE
-		is_at_war = no
-		c:KRL = { is_subject_of = c:SWE }
-	}
 
 	option = {
 		name = krl_independence.8.a #They shall not dare to defy us again!

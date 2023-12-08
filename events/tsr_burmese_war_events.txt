@@ -17,10 +17,11 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	title = burmese_war.1.t
 	desc = burmese_war.1.d
 	flavor = burmese_war.1.f
-
+	
 	trigger = {
 		exists = c:TAU
-		this = c:TAU
+		c:TAU = this
+		is_subject_of = c:PER
 	}
 	
 	immediate = {
@@ -66,14 +67,12 @@ burmese_war.2 = { # End of the Taungoo Empire (for Persia)
 	desc = burmese_war.2.d
 	flavor = burmese_war.2.f
 	
-	trigger = {
-		exists = c:PER
-		this = c:PER
-	}
-	
 	option = { # Another glorious day for the Safavid Empire
 		name = burmese_war.2.a
 		custom_tooltip = { text = burmese_satrapy.tt }
+		c:BUR = {
+			change_subject_type = subject_type_dominion
+		}
 		hidden_effect = {
 			c:LXA = {
 				change_relations = {
@@ -139,11 +138,6 @@ burmese_war.3 = { # End the war on Lan Xang's side
 	title = burmese_war.3.t
 	desc = burmese_war.3.d
 	flavor = burmese_war.3.f
-
-	trigger = {
-		exists = c:LXA
-		this = c:LXA
-	}
 	
 	option = { # A blessing and a curse
 		name = burmese_war.3.a

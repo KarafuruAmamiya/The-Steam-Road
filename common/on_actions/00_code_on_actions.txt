@@ -139,13 +139,6 @@ on_monthly_pulse_country = {
 		5 = 0
 		1 = coup.1
 	}
-	# Al-Afghani
-	random_events = {
-		20 = 0
-		30 = al_afghani_events.1
-		30 = al_afghani_events.2
-		2 = al_afghani_events.3
-	}
 }
 
 on_yearly_pulse_country = { #Krakatoa special pulse
@@ -758,44 +751,6 @@ on_diplomatic_play_started = {
 				}
 				
 				scope:initiator = { annex = prev }
-			}
-		}
-		
-		if = {
-			limit = {
-				is_diplomatic_play_type = dp_independence
-			}
-			random_country = { 
-				limit = {
-					has_journal_entry = je_arab_nationalism_subject
-					has_variable = independence_plot_leader
-					is_subject_of = c:AKN
-				}
-				trigger_event = { id = arab_wars.8 days = 0 } 
-			}
-		}
-		if = {
-			limit = {
-				is_diplomatic_play_type = dp_independence
-			}
-			random_country = { 
-				limit = {
-					has_journal_entry = je_arab_nationalism_subject
-					c:EGY ?= ROOT
-					is_subject_of = c:TUR
-				}
-				trigger_event = { id = arab_wars.17 days = 0 } 
-			}
-		}
-		if = {
-			limit = {
-				is_diplomatic_play_type = dp_opium_wars
-				scope:initiator = {
-					NOT = { has_variable = FOW_decision_taken }
-				}
-			}
-			scope:initiator = {
-				trigger_event = { id = opium_wars.9 days = 0 }
 			}
 		}
 	}
@@ -1463,33 +1418,6 @@ on_capitulation = {
 				end_truce = {
 					country = root
 				}
-			}
-		}
-		if = {
-			limit = {
-				c:TAU ?= this
-				is_subject_type = subject_type_protectorate
-				has_truce_with = c:PER
-				
-			}
-			trigger_event = { id = burmese_war.1 }
-		}
-		if = {
-			limit = {
-				exists = c:PER
-				any_overlord_or_above = {
-					c:PER = this
-				}
-				OR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dominion
-					is_subject_type = subject_type_dependency
-				}
-				NOT = { has_variable = hindustani_subject }
-			}
-			set_variable = hindustani_subject
-			every_scope_state = {
-				set_variable = hindustani_subject_state
 			}
 		}
 	}

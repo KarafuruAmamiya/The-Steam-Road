@@ -15,17 +15,18 @@
 	}
 }
 
-on_yearly_pulse_country = {
+tsr_events_yearly = {
 	events = {
 		arabia_flavor.1
 		arabia_flavor.2
 		arabia_flavor.3
 		arabia_flavor.4
 		opium_events.1
+		persian_flavor.13
 	}
 }
 
-on_monthly_pulse_country = {
+tsr_events_monthly = {
 	events = {
 		krl_independence.2
 		krl_independence.5
@@ -50,6 +51,7 @@ on_monthly_pulse_country = {
 		indian_flavor.1
 		opium_wars.12
 		tsr_test.2
+		burmese_war.1
 	}
 	effect = {
 		if = {
@@ -66,6 +68,56 @@ on_monthly_pulse_country = {
 				}
 				set_character_immortal = no
 				set_variable = mortalize_sadiq
+				owner = { set_strategy = ai_strategy_progressive_agenda }
+			}
+		}
+	}
+	# Al-Afghani
+	random_events = {
+		20 = 0
+		30 = al_afghani_events.1
+		30 = al_afghani_events.2
+		2 = al_afghani_events.3
+	}
+}
+
+tsr_diplomatic_play_started = {
+	effect = {
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_independence
+			}
+			random_country = { 
+				limit = {
+					has_journal_entry = je_arab_nationalism_subject
+					has_variable = independence_plot_leader
+					is_subject_of = c:AKN
+				}
+				trigger_event = { id = arab_wars.8 days = 0 } 
+			}
+		}
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_independence
+			}
+			random_country = { 
+				limit = {
+					has_journal_entry = je_arab_nationalism_subject
+					c:EGY ?= ROOT
+					is_subject_of = c:TUR
+				}
+				trigger_event = { id = arab_wars.17 days = 0 } 
+			}
+		}
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_opium_wars
+				scope:initiator = {
+					NOT = { has_variable = FOW_decision_taken }
+				}
+			}
+			scope:initiator = {
+				trigger_event = { id = opium_wars.9 days = 0 }
 			}
 		}
 	}

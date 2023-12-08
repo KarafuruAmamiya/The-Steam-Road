@@ -229,11 +229,8 @@ ai_strategy_default = {
 		
 		if = { #Likewise for Hindustani Uprising.
 			limit = {
-				OR = {
-					exists = c:GUJ
-					exists = c:TRA
-				}
-				country_is_in_india = yes
+				exists = c:GUJ
+				this = c:GUJ
 				is_diplomatic_play_enemy_of = c:PER
 			}
 			add = 1000
@@ -383,20 +380,6 @@ ai_strategy_default = {
 		}			
 		institution_centralization = {	
 			value = 10	
-			
-			if = {
-				limit = {
-					any_subject_or_below = {
-						OR = {
-							is_subject_type = subject_type_dependency
-							is_subject_type = subject_type_puppet
-							is_subject_type = subject_type_vassal
-						}
-						is_adjacent_to_country = root
-					}
-				}
-				add = 125
-			}
 		}			
 	}	
 	
@@ -776,6 +759,25 @@ ai_strategy_default = {
 				}
 				add = 200
 			}
+			
+			if = {
+				limit = {
+					has_journal_entry = je_reconquer_china
+					scope:target_country = { NOT = { is_subject_of = root } }
+					scope:target_state.state_region = { 
+						OR = {
+							is_homeland = cu:min 
+							is_homeland = cu:yue 
+							is_homeland = cu:shangjiang 
+							is_homeland = cu:uighur 
+							is_homeland = cu:tibetan
+							is_homeland = cu:mongol 
+							is_homeland = cu:manchu
+						}
+					}
+				}
+				add = 200
+			}
 
 			if = {
 				limit = {
@@ -791,6 +793,8 @@ ai_strategy_default = {
 								state_region = s:STATE_PEGU
 								state_region = s:STATE_ASSAM
 								state_region = s:STATE_HIMALAYAS
+								state_region = s:STATE_GARHWAL
+								state_region = s:STATE_KASHMIR
 							}
 						}
 					}
@@ -1480,6 +1484,15 @@ ai_strategy_default = {
 			}
 			add = 3
 		}
+		
+		if = { #Likewise for Hindustani Uprising.
+			limit = {
+				exists = c:GUJ
+				this = c:GUJ
+				is_diplomatic_play_enemy_of = c:PER
+			}
+			add = 3
+		}
 
 		if = { 
 			limit = {
@@ -1626,6 +1639,29 @@ ai_strategy_default = {
 				}
 			}
 			add = 100
+		}
+		
+		if = {
+			limit = {
+				has_journal_entry = je_reconquer_china
+				scope:target_country = { 
+					NOT = { is_subject_of = root } 
+					any_scope_state = {
+						state_region = {
+							OR = {
+								is_homeland = cu:min 
+								is_homeland = cu:yue 
+								is_homeland = cu:shangjiang 
+								is_homeland = cu:uighur 
+								is_homeland = cu:tibetan
+								is_homeland = cu:mongol 
+								is_homeland = cu:manchu
+							}
+						}
+					}
+				}
+			}
+			add = 50
 		}
 		
 		#NGF for SGF
@@ -1993,32 +2029,90 @@ ai_strategy_default = {
 
 		add = {
 			value = investment_pool_income
-			divide = 500 # 1 construction output per this much into the investment pool				
+			divide = 1700 # 1 construction output per this much into the investment pool				
 		}
 		
 		add = {
-			value = income
-					
-			divide = 3000 # 1 construction output per this much income
-
+			value = income		
+			divide = 9500 # 1 construction output per this much income
 			min = 0
-		}		
+		}	
 		
 		add = {
 			value = total_population
-			
-			divide = 1000000 # 1 construction output per this much population
+			divide = 650000 # 1 construction point per 650k pop				
 		}
 		
+		add = {
+			value = gdp
+			divide = 1400000 # 1 construction point per 1.4 million gdp								
+		}			
+		
+		#VTM strats
+		#add = {
+		#	value = investment_pool_income
+		#	divide = 500 # 1 construction output per this much into the investment pool				
+		#}
+		#
+		#add = {
+		#	value = income
+		#			
+		#	divide = 3000 # 1 construction output per this much income
+		#
+		#	min = 0
+		#}
+		#
+		#add = {
+		#	value = total_population
+		#	
+		#	divide = 1000000 # 1 construction output per this much population
+		#}
+		#
 		# If above 1m population, we want to play the construction game
+		#if = {
+		#	limit = {
+		#		total_population >= 2000000
+		#	}
+		#	add = 10
+		#}
+		#
+		# Add a baseline if trying to industrialize
+		#if = {
+		#	limit = { 
+		#		OR = {
+		#			has_strategy = ai_strategy_resource_expansion
+		#			has_strategy = ai_strategy_industrial_expansion				
+		#		}
+		#	}
+		#	
+		#	if = {
+		#		limit = { country_rank >= rank_value:great_power }
+		#		add = 50
+		#	}		
+		#	else_if = {
+		#		limit = { country_rank >= rank_value:major_power }
+		#		add = 30 # 25
+		#	}	
+		#	else = {
+		#		add = 25 # 10
+		#	}				
+		#}				
+
 		if = {
-			limit = {
-				total_population >= 2000000
-			}
-			add = 10
+			limit = { has_law = law_type:law_traditionalism }
+			multiply = 0.85
 		}
 		
-		# Add a baseline if trying to industrialize
+		if = {
+			limit = { 
+				OR = {
+					has_law = law_type:law_land_based_taxation 
+					has_law = law_type:law_consumption_based_taxation
+				}
+			}
+			multiply = 0.85
+		}
+		
 		if = {
 			limit = { 
 				OR = {
@@ -2026,46 +2120,40 @@ ai_strategy_default = {
 					has_strategy = ai_strategy_industrial_expansion				
 				}
 			}
-			
-			if = {
-				limit = { country_rank >= rank_value:great_power }
-				add = 50
-			}		
-			else_if = {
-				limit = { country_rank >= rank_value:major_power }
-				add = 30 # 25
-			}	
-			else = {
-				add = 25 # 10
-			}				
-		}			
+			multiply = 1.15		
+		}
 
 		if = {
-			limit = { has_law = law_type:law_traditionalism }
-			multiply = 0.75
-		}		
-
-		if = {
-			limit = { has_strategy = ai_strategy_placate_population }
-			multiply = 0.5		
-		}	
-		else_if = {
 			limit = { 
-				NOR = {
-					has_strategy = ai_strategy_resource_expansion
-					has_strategy = ai_strategy_industrial_expansion				
+			    game_date > 1860.1.1
+				OR = {
+					has_law = law_type:law_per_capita_based_taxation  #better tax laws = more construction
+					has_law = law_type:law_proportional_taxation
+					has_law = law_type:law_graduated_taxation
 				}
 			}
-			multiply = 0.75	
+			multiply = 1.1
 		}		
 		
 		if = {
+			limit = { 
+				has_law = law_type:law_laissez_faire
+			}
+			multiply = 1.15		
+		}
+
+		if = {
+			limit = { has_strategy = ai_strategy_placate_population }
+			multiply = 0.75	
+		}
+		
+		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
-			multiply = 0.25
+			multiply = 0.35		
 		}		
 
 		min = 1
-		max = 1000
+		max = 700 #VTM 1000
 	}
 	
 	# How many levels of barracks should the AI have
@@ -2145,20 +2233,15 @@ ai_strategy_default = {
 			multiply = 1.5
 		}
 
-		if = {
+		if = { #VFM, national militias are meant to be small and supported by conscripts
 			limit = { has_law = law_type:law_national_militia }
-			multiply = 0.5
+			multiply = 0.05
 		}
 
 		if = {
 			limit = { has_law = law_type:law_mass_conscription }
 			multiply = 0.9
 		}	
-		
-		if = { #VFM, national militias are meant to be small and supported by conscripts
-			limit = { has_law = law_type:law_national_militia }
-			multiply = 0.05
-		}
 
 		min = 1
 		max = 500		
@@ -3172,6 +3255,23 @@ ai_strategy_default = {
 				add = -1000
 			}
 		}
+		region_west_siberia = {
+			if = {
+				limit = {
+					exists = c:SWE
+					this = c:SWE
+				}
+				add = 1000
+			}
+			if = { #Stop New World minors from declaring interest in random places
+				limit = {
+					country_rank <= rank_value:great_power
+					country_is_in_new_word = yes
+					NOT = { this = c:BRL }
+				}
+				add = -1000
+			}
+		}
 		region_manchuria = {
 			if = {
 				limit = {
@@ -3187,6 +3287,13 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+			if = {
+				limit = {
+					exists = c:SWE
+					this = c:SWE
+				}
+				add = 1000
 			}
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
@@ -4782,6 +4889,25 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
+					has_journal_entry = je_reconquer_china
+					scope:target_country = { NOT = { is_subject_of = root } }
+					scope:target_state.state_region = { 
+						OR = {
+							is_homeland = cu:min 
+							is_homeland = cu:yue 
+							is_homeland = cu:shangjiang 
+							is_homeland = cu:uighur 
+							is_homeland = cu:tibetan
+							is_homeland = cu:mongol 
+							is_homeland = cu:manchu
+						}
+					}
+				}
+				add = 750
+			}
+			
+			if = {
+				limit = {
 					has_journal_entry = je_consolidate_colonial_rule
 					scope:target_country = {
 						any_scope_state = {
@@ -4794,6 +4920,8 @@ ai_strategy_default = {
 								state_region = s:STATE_PEGU
 								state_region = s:STATE_ASSAM
 								state_region = s:STATE_HIMALAYAS
+								state_region = s:STATE_GARHWAL
+								state_region = s:STATE_KASHMIR
 							}
 						}
 					}
@@ -5618,6 +5746,29 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			if = {
+				limit = {
+					has_journal_entry = je_reconquer_china
+					scope:target_country = { 
+						NOT = { is_subject_of = root } 
+						any_scope_state = {
+							state_region = {
+								OR = {
+									is_homeland = cu:min 
+									is_homeland = cu:yue 
+									is_homeland = cu:shangjiang 
+									is_homeland = cu:uighur 
+									is_homeland = cu:tibetan
+									is_homeland = cu:mongol 
+									is_homeland = cu:manchu
+								}
+							}
+						}
+					}
+				}
+				add = 1000
+			}
+			
 			if = { # Sweden wants Vinland back
 				limit = {
 					exists = c:KRL
@@ -5822,6 +5973,25 @@ ai_strategy_default = {
 					}
 				}
 				add = 50
+			}
+			
+			if = {
+				limit = {
+					has_journal_entry = je_reconquer_china
+					scope:target_country = { NOT = { is_subject_of = root } }
+					scope:target_state.state_region = { 
+						OR = {
+							is_homeland = cu:min 
+							is_homeland = cu:yue 
+							is_homeland = cu:shangjiang 
+							is_homeland = cu:uighur 
+							is_homeland = cu:tibetan
+							is_homeland = cu:mongol 
+							is_homeland = cu:manchu
+						}
+					}
+				}
+				add = 1000
 			}
 
 			if = {

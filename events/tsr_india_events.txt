@@ -88,22 +88,23 @@ raj.1 = {
 		set_variable = {
 			name = persian_raj_var
 		}
+		create_diplomatic_pact = {
+			country = c:RAJ
+			type = dominion
+		}
 	}
 
 	option = {
 		name = raj.1.a
 		default_option = yes
 		custom_tooltip = activate_british_raj
-		create_diplomatic_pact = {
-			country = c:RAJ
-			type = dominion
-		}
 		every_scope_state = {
 			limit = {
 				OR = {
 					state_is_in_india = yes
 					state_region = s:STATE_KASHMIR
 					state_region = s:STATE_HIMALAYAS
+					state_region = s:STATE_GARHWAL
 				}
 				NOR = {
 					state_region = s:STATE_GUJARAT
@@ -116,10 +117,15 @@ raj.1 = {
 				}
 			}
 			set_state_owner = c:RAJ
+			set_state_type = incorporated
 		}
 		set_variable = doctrine_of_lapse_ended
 		custom_tooltip = doctrine_of_lapse_disabled
 		hidden_effect = {
+			change_relations = {
+				country = c:RAJ
+				value = 100
+			}
 			every_subject_or_below = {
 				if = {
 					limit = {
@@ -127,6 +133,7 @@ raj.1 = {
 							is_subject_type = subject_type_puppet
 							is_subject_type = subject_type_dominion
 							is_subject_type = subject_type_satrapy
+							is_subject_type = subject_type_dependency
 						}
 						country_is_in_india = yes
 					}
@@ -149,6 +156,10 @@ raj.1 = {
 				}
 			}
 		}
+		create_diplomatic_pact = {
+			country = c:RAJ
+			type = dominion
+		}
 	}
 	
 	option = {
@@ -157,10 +168,6 @@ raj.1 = {
 			is_player = yes
 		}
 		custom_tooltip = activate_british_raj
-		create_diplomatic_pact = {
-			country = c:RAJ
-			type = dominion
-		}
 		every_scope_state = {
 			limit = {
 				OR = {
@@ -174,10 +181,15 @@ raj.1 = {
 				}
 			}
 			set_state_owner = c:RAJ
+			set_state_type = incorporated
 		}
 		set_variable = doctrine_of_lapse_ended
 		custom_tooltip = doctrine_of_lapse_disabled
 		hidden_effect = {
+			change_relations = {
+				country = c:RAJ
+				value = 100
+			}
 			every_subject_or_below = {
 				if = {
 					limit = {
@@ -185,6 +197,7 @@ raj.1 = {
 							is_subject_type = subject_type_puppet
 							is_subject_type = subject_type_dominion
 							is_subject_type = subject_type_satrapy
+							is_subject_type = subject_type_dependency
 						}
 						country_is_in_india = yes
 					}
@@ -206,6 +219,10 @@ raj.1 = {
 					}
 				}
 			}
+		}
+		create_diplomatic_pact = {
+			country = c:RAJ
+			type = dominion
 		}
 		
 		play_as = c:RAJ
@@ -635,11 +652,9 @@ raj.5 = {
 
 	trigger = {
 		c:PER ?= this
-		any_scope_state = {
-			state_is_in_india = yes
-		}
 		NOT = { has_variable = suspected_conversions }
 		any_scope_state = {
+			state_is_in_india = yes
 			any_scope_pop = {
 				OR = {
 					religion = rel:hindu
@@ -660,6 +675,7 @@ raj.5 = {
 		}
 		random_scope_state = {
 			limit = {
+				state_is_in_india = yes
 				any_scope_pop = {
 					OR = {
 						religion = rel:hindu
@@ -884,6 +900,10 @@ raj.6 = {
 				save_scope_as = gujarat_state
 			}
 		}
+		
+		hidden_effect = {
+			change_infamy = -100
+		}
 	}
 
 	option = {
@@ -968,10 +988,6 @@ raj.7 = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-	trigger = {
-		c:PER ?= this
-	}
-
 	immediate = {
 		
 	}
@@ -1030,6 +1046,21 @@ raj.8 = {
 				type = independence
 				target_country = c:PER
 				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:PER
+				type = annex_country
+				target_country = root
+				primary_demand = yes
+			}
+		}
+		hidden_effect = {
+			c:PER = { 
+				change_infamy = -20 
+				change_relations = {
+					country = root
+					value = -100
+				}
 			}
 		}
 		add_modifier = {

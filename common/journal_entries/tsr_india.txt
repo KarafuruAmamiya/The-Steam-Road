@@ -1,36 +1,18 @@
 ﻿je_hindustani_uprising = {
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 	group = je_group_tsr_content
-	
-	immediate = {
-		trigger_event = { id = raj.6 days = 0 }
-	}
 
 	complete = {
 		NOT = { exists = c:GUJ }
-		any_scope_state = {
-			count = all
-			state_is_in_india = yes
-			turmoil < 0.3
-		}
-		custom_tooltip = {
-			text = no_independent_indian_subject_tt
-			OR = {
-				any_country = {
-					count = all
-					has_variable = hindustani_subject
-					is_subject_of = root
-				}
-				any_state = {
-					count = all
-					has_variable = hindustani_subject_state
-					owner = root
-				}
+		NOT = {
+			any_scope_state = {
+				state_is_in_india = yes
+				turmoil >= 0.5
 			}
 		}
 		owns_entire_state_region = STATE_GUJARAT
-		owns_entire_state_region = STATE_SAURASHTRA
 		is_at_war = no
+		is_diplomatic_play_committed_participant = no
 	}
 
 	on_complete = {
@@ -42,26 +24,11 @@
 	}
 	
 	fail = {
-		OR = {
-			NAND = {
-				owns_entire_state_region = STATE_GUJARAT
-				owns_entire_state_region = STATE_SAURASHTRA
-			}
-			custom_tooltip = {
-				text = independent_indian_subject_tt
-				OR = {
-					any_country = {
-						has_variable = hindustani_subject
-						NOT = { is_subject_of = root }
-					}
-					any_state = {
-						has_variable = hindustani_subject_state
-						NOT = { owner = root }
-					}
-				}
-			}
+		NOT = {
+			owns_entire_state_region = STATE_GUJARAT
 		}
 		is_at_war = no
+		is_diplomatic_play_committed_participant = no
 	}
 	
 	on_fail = {
@@ -86,14 +53,16 @@ je_surat_riots = {
 		any_scope_state = {
 			state_region = s:STATE_SAURASHTRA
 		}
-		has_technology_researched = nationalism
     }
 	
     possible = {
+		game_date > 1856.1.1 #Technically caused by Persia having free trade post-Opium Wars, but it unfortunately didn't trigger :\
 		any_scope_state = {
-			OR = {
-				state_region = s:STATE_GUJARAT
-				state_region = s:STATE_SAURASHTRA
+			filter = {
+				OR = {
+					state_region = s:STATE_GUJARAT
+					state_region = s:STATE_SAURASHTRA
+				}
 			}
 			average_sol < 10
 		}
@@ -149,11 +118,11 @@ je_surat_riots = {
 				limit = {
 					any_scope_state = {
 						state_region = s:STATE_GUJARAT
-						turmoil < 0.15
+						turmoil < 0.1
 					}
 					any_scope_state = {
 						state_region = s:STATE_SAURASHTRA
-						turmoil < 0.15
+						turmoil < 0.1
 					}
 					cu:gujarati = {
 						culture_secession_progress = {
@@ -180,21 +149,11 @@ je_surat_riots = {
 		OR = {
 			any_scope_state = {
 				state_region = s:STATE_GUJARAT
-				OR = {
-					turmoil >= 0.5
-					radical_fraction = {
-						value >= 0.25
-					}
-				}
+				turmoil >= 0.4
 			}
 			any_scope_state = {
 				state_region = s:STATE_SAURASHTRA
-				OR = {
-					turmoil >= 0.5
-					radical_fraction = {
-						value >= 0.25
-					}
-				}
+				turmoil >= 0.4
 			}
 			cu:gujarati = {
 				culture_secession_progress = {

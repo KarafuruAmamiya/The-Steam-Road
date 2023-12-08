@@ -121,10 +121,12 @@ je_rise_of_bahaism = {
 		
 	on_monthly_pulse = {
 		random_events = {
-			100 = 0
 			10 = persian_flavor.14 # Clergy unrest
-			#10 = Battle of Fort Tabarsi event
+			#1 = Battle of Fort Tabarsi event
 		}
+	}
+	
+	on_weekly_pulse = {
 		effect = {
 			if = {
 				limit = {
@@ -133,7 +135,7 @@ je_rise_of_bahaism = {
 						popularity <= 35
 					}
 				}
-				random_scope_state = {
+				every_scope_state = {
 					limit = {
 						state_region = {
 							is_homeland = cu:persian
@@ -141,7 +143,7 @@ je_rise_of_bahaism = {
 					}
 					convert_population = {
 						target = rel:bahai
-						value = 0.0005
+						value = 0.00005
 					}
 				}
 			}
@@ -153,7 +155,7 @@ je_rise_of_bahaism = {
 						popularity < 50
 					}
 				}
-				random_scope_state = {
+				every_scope_state = {
 					limit = {
 						state_region = {
 							is_homeland = cu:persian
@@ -161,7 +163,7 @@ je_rise_of_bahaism = {
 					}
 					convert_population = {
 						target = rel:bahai
-						value = 0.001
+						value = 0.0001
 					}
 				}
 			}
@@ -173,7 +175,7 @@ je_rise_of_bahaism = {
 						popularity < 75
 					}
 				}
-				random_scope_state = {
+				every_scope_state = {
 					limit = {
 						state_region = {
 							is_homeland = cu:persian
@@ -181,7 +183,7 @@ je_rise_of_bahaism = {
 					}
 					convert_population = {
 						target = rel:bahai
-						value = 0.0015
+						value = 0.00015
 					}
 				}
 			}
@@ -193,7 +195,7 @@ je_rise_of_bahaism = {
 						popularity < 100
 					}
 				}
-				random_scope_state = {
+				every_scope_state = {
 					limit = {
 						state_region = {
 							is_homeland = cu:persian
@@ -201,7 +203,7 @@ je_rise_of_bahaism = {
 					}
 					convert_population = {
 						target = rel:bahai
-						value = 0.002
+						value = 0.0002
 					}
 				}
 			}
@@ -212,7 +214,7 @@ je_rise_of_bahaism = {
 						popularity >= 100
 					}
 				}
-				random_scope_state = {
+				every_scope_state = {
 					limit = {
 						state_region = {
 							is_homeland = cu:persian
@@ -220,9 +222,17 @@ je_rise_of_bahaism = {
 					}
 					convert_population = {
 						target = rel:bahai
-						value = 0.0025
+						value = 0.00025
 					}
 				}
+			}
+		}
+	}
+	
+	invalid = {
+		NOT = {
+			any_scope_character = {
+				has_variable = bab
 			}
 		}
 	}
@@ -246,6 +256,7 @@ je_eclipse_of_persia = {
 
 	possible = {
 		is_at_war = no
+		is_diplomatic_play_committed_participant = no
 		any_state = {
 			state_region = { is_homeland = cu:persian }
 			NOR = { 

@@ -2,33 +2,52 @@
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 	group = je_group_tsr_content
 	
+	should_be_pinned_by_default = yes
+	
 	complete = {
-		owns_entire_state_region = STATE_GUANGDONG
-		owns_entire_state_region = STATE_YUNNAN
-		owns_entire_state_region = STATE_GANSU
-		c:DZU = {
-			is_subject_of = ROOT
+		custom_tooltip = {
+			text = reconquer_china_tt
+			any_state = {
+				filter = {
+					state_region = {
+						OR = {
+							is_homeland = cu:min 
+							is_homeland = cu:yue 
+							is_homeland = cu:shangjiang 
+							is_homeland = cu:uighur 
+							is_homeland = cu:tibetan
+							is_homeland = cu:mongol 
+							is_homeland = cu:manchu
+						}
+					}
+				}
+				OR = {
+					owner = root
+					owner = { is_subject_of = root }
+				}
+				percent >= 0.75
+			}
 		}
-		c:MGL = {
-			is_subject_of = ROOT
-		}
-		c:KHR = {
-			is_subject_of = ROOT
-		}
-		c:ATI = {
-			is_subject_of = ROOT
-		}
-		c:TUV = {
-			is_subject_of = ROOT
-		}
-		c:XIN = {
-			is_subject_of = ROOT
-		}
-		c:HXI = {
-			is_subject_of = ROOT
-		}
-		c:XBO = {
-			is_subject_of = ROOT
+		#Shown again to keep track of the states
+		any_state = {
+			filter = {
+				state_region = {
+					OR = {
+						is_homeland = cu:min 
+						is_homeland = cu:yue 
+						is_homeland = cu:shangjiang 
+						is_homeland = cu:uighur 
+						is_homeland = cu:tibetan
+						is_homeland = cu:mongol 
+						is_homeland = cu:manchu
+					}
+				}
+			}
+			OR = {
+				owner = root
+				owner = { is_subject_of = root }
+			}
+			percent >= 0.75
 		}
 	}
 	status_desc = {

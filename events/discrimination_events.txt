@@ -170,6 +170,13 @@ discrimination_events.1 = {
 				value = small_radicals
 				religion = scope:discriminated_religion_pop.religion
 			}
+			if = {
+				limit = {
+					c:PER ?= this
+					NOT = { has_variable = zandism_tolerated_heathens }
+				}
+				set_variable = zandism_tolerated_heathens
+			}
 		}
 	}
 }

@@ -233,6 +233,12 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 				value = 80
 			}
 		}
+		c:REG = {
+			change_relations = {
+				country = c:PFA
+				value = 80
+			}
+		}
 		c:SAX = {
 			change_relations = {
 				country = c:PFA
@@ -268,6 +274,10 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 				country = c:FRN
 				type = customs_union
 			}
+			create_diplomatic_pact = {
+				country = c:REG
+				type = customs_union
+			}
 			hidden_effect = {
 				set_strategy = ai_strategy_unify_germany
 			}
@@ -282,31 +292,37 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 		c:WUR = {
 			change_relations = {
 				country = c:PFA
-				value = -80
+				value = -20
 			}
 		}
 		c:ULM = {
 			change_relations = {
 				country = c:PFA
-				value = -80
+				value = -20
 			}
 		}
 		c:KNZ = {
 			change_relations = {
 				country = c:PFA
-				value = -80
+				value = -20
 			}
 		}
 		c:MUL = {
 			change_relations = {
 				country = c:PFA
-				value = -80
+				value = -20
 			}
 		}
 		c:FRN = {
 			change_relations = {
 				country = c:PFA
-				value = -80
+				value = -20
+			}
+		}
+		c:REG = {
+			change_relations = {
+				country = c:PFA
+				value = -20
 			}
 		}
 		hidden_effect = {

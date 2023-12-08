@@ -488,7 +488,7 @@
 			female = no
 			dna = dna_karl_iii
 			birth_date = 1803.4.9
-			interest_group = ig_petty_bourgeoisie
+			interest_group = ig_industrialists
 			ideology = ideology_moderate
 			traits = {
 				hedonist
@@ -523,12 +523,67 @@
 			religion = rel:catholic
 			age = 48
 			ig_leader = yes
-			interest_group = ig_petty_bourgeoisie
-			ideology = ideology_moderate
+			interest_group = ig_industrialists
+			ideology = ideology_liberal_leader
 			traits = {
 				tactful
 				ambitious
 				expert_political_operator
+			}
+			on_created = {
+				set_variable = prime_minister_trigger
+				owner = {
+					set_variable = {
+						name = prime_minister
+						value = PREV
+					}
+				}
+			}
+		}
+		
+		create_character = {
+			first_name = Philipp
+			last_name = Hohenfeld
+			historical = yes
+			culture = cu:rhenish
+			religion = rel:reformed
+			age = 41
+			ig_leader = yes
+			interest_group = ig_intelligentsia
+			ideology = ideology_reformer
+			traits = {
+				direct cautious basic_diplomat 
+			}
+		}
+		
+		create_character = {
+			first_name = Markus
+			last_name = Falkenberg
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			age = 50
+			ig_leader = yes
+			is_general = yes
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				experienced_artillery_commander romantic
+			}
+		}
+		
+		create_character = {
+			first_name = Ludwig_Anton
+			last_name = von_Bayern
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			age = 55
+			ig_leader = yes
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				experienced_political_operator cautious
 			}
 		}
 	}

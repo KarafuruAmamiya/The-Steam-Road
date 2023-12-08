@@ -806,6 +806,7 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						c:NGF ?= this
+						c:SAX ?= this
 						c:SGF ?= this
 						c:RHN ?= this
 						c:GER ?= this
@@ -1106,11 +1107,15 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}
 					OR = {
 						c:NGF ?= {
+							is_subject_of = scope:target_country
+						}
+						c:SAX ?= {
 							is_subject_of = scope:target_country
 						}
 						c:RHN ?= {
@@ -1128,12 +1133,14 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}
 					scope:target_country = {
 						OR = {
 							c:NGF ?= this
+							c:SAX ?= this
 							c:RHN ?= this
 							c:SGF ?= this
 						}
@@ -1582,6 +1589,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					c:NGF ?= this
+					c:SAX ?= this
 					c:RHN ?= this
 					c:SGF ?= this
 					c:GER ?= this
@@ -1667,7 +1675,10 @@ ai_strategy_default = {
 		#NGF for SGF
 		if = {
 			limit = {
-				c:NGF ?= this
+				OR = {
+					c:NGF ?= this
+					c:SAX ?= this
+				}
 				scope:target_country = { 
 					c:SGF ?= this
 				}
@@ -1679,7 +1690,10 @@ ai_strategy_default = {
 			limit = {
 				c:SGF ?= this
 				scope:target_country = { 
-					c:NGF ?= this
+					OR = {
+						c:NGF ?= this
+						c:SAX ?= this
+					}
 				}
 			}
 			add = 50
@@ -1688,7 +1702,10 @@ ai_strategy_default = {
 		#NGF for RHN
 		if = {
 			limit = {
-				c:NGF ?= this
+				OR = {
+					c:NGF ?= this
+					c:SAX ?= this
+				}
 				scope:target_country = { 
 					c:RHN ?= this
 				}
@@ -1700,7 +1717,10 @@ ai_strategy_default = {
 			limit = {
 				c:RHN ?= this
 				scope:target_country = { 
-					c:NGF ?= this
+					OR = {
+						c:NGF ?= this
+						c:SAX ?= this
+					}
 				}
 			}
 			add = 50
@@ -4630,6 +4650,7 @@ ai_strategy_default = {
 					limit = {
 						OR = {
 							c:NGF ?= this
+							c:SAX ?= this
 							c:RHN ?= this
 							c:SGF ?= this
 							c:GER ?= this
@@ -5457,11 +5478,13 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}
 					scope:target_country = { 
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}
@@ -5963,11 +5986,13 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}
 					scope:target_country = { 
 						c:NGF ?= this
+						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
 					}

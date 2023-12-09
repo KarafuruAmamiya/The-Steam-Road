@@ -1,4 +1,139 @@
 ﻿MILITARY_FORMATIONS = {
+	c:BUK = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "Khaganate Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_UZBEKIA
+				count = 20
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SYRDARYA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KHIVA
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_UZBEKIA
+				count = 3
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "Uzbek Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_UZBEKIA
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SYRDARYA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KHIVA
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_UZBEKIA
+				count = 3
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "1st Kazakh Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AKMOLINSK
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_URALSK
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SEMIRECHE
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_URALSK
+				count = 2
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "2nd Kazakh Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AKMOLINSK
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_URALSK
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SEMIRECHE
+				count = 15
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "Tatar Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ORENBURG
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_YAIK
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CHELYABINSK
+				count = 3
+			}
+		}
+	}
 	c:CHI = {
 		create_military_formation = {
 			type = army
@@ -311,6 +446,50 @@
 		
 		scope:tau_gen1 = {
 			transfer_to_formation = scope:shanarmy_tau
+		}
+	}
+	
+	c:TSN = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "Samarkand Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SAMARKAND
+				count = 10
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SAMARKAND
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_SAMARKAND
+				count = 2
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = "Tajik Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TAJIKISTAN
+				count = 7
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SAMARKAND
+				count = 3
+			}
 		}
 	}
 	

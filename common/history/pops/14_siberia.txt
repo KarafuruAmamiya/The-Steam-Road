@@ -1,25 +1,25 @@
 ﻿POPS = {
 	s:STATE_URAL = {
-		region_state:BUK = {
-			create_pop = {
-				culture = uzbek
-				size = 7296
-			}
+		region_state:YGR = {
 			create_pop = {
 				culture = tatar
-				size = 15996
+				size = 37296
+			}
+			create_pop = {
+				culture = obugric
+				size = 83996
 			}
 			create_pop = {
 				culture = samoyedic
-				size = 13504
+				size = 5504
 			}
 		}
 	}
 	s:STATE_TOMSK = {
-		region_state:BUK = {
+		region_state:SIB = {
 			create_pop = {
 				culture = tatar
-				size = 170008
+				size = 230008
 			}
 			create_pop = {
 				culture = siberian
@@ -36,25 +36,22 @@
 				size = 10000
 			}
 			create_pop = {
-				culture = uzbek
-				size = 60000
-			}
-			create_pop = {
 				culture = tatar
-				religion = gelugpa
+				religion = tengri
 				size = 32000
 			}
 		}
 	}
 	s:STATE_KRASNOYARSK = {
-		region_state:BUK = {
+		region_state:SIB = {
 			create_pop = {
 				culture = tatar
 				size = 260008
 			}
 			create_pop = {
-				culture = uzbek
-				size = 16070
+				culture = tatar
+				religion = tengri
+				size = 20000
 			}
 			create_pop = {
 				pop_type = slaves
@@ -68,18 +65,10 @@
 		}		
 	}
 	s:STATE_TOBOLSK = {
-		region_state:BUK = {
+		region_state:SIB = {
 			create_pop = {
 				culture = tatar
 				size = 382000
-			}
-			create_pop = {
-				culture = uzbek
-				size = 102000
-			}
-			create_pop = {
-				culture = obugric
-				size = 7380
 			}
 			create_pop = {
 				pop_type = slaves
@@ -93,23 +82,15 @@
 		}
 	}
 	s:STATE_OMSK = {
-		region_state:BUK = {
+		region_state:SIB = {
 			create_pop = {
 				culture = tatar
 				size = 177000
 			}
 			create_pop = {
-				culture = uzbek
-				size = 61200
-			}
-			create_pop = {
 				pop_type = slaves
 				culture = russian
 				size = 5000
-			}
-			create_pop = {
-				culture = obugric
-				size = 7380
 			}
 			create_pop = {
 				culture = siberian
@@ -118,23 +99,15 @@
 		}
 	}
 	s:STATE_NOVOSIBIRSK = {
-		region_state:BUK = {
+		region_state:SIB = {
 			create_pop = {
 				culture = tatar
 				size = 337000
 			}
 			create_pop = {
-				culture = uzbek
-				size = 102300
-			}
-			create_pop = {
 				pop_type = slaves
 				culture = russian
 				size = 5000
-			}
-			create_pop = {
-				culture = obugric
-				size = 7380
 			}
 			create_pop = {
 				culture = siberian
@@ -157,12 +130,8 @@
 				size = 95699
 			}
 			create_pop = {
-				culture = uzbek
-				size = 36000
-			}
-			create_pop = {
 				culture = tatar
-				religion = gelugpa
+				religion = tengri
 				size = 16000
 			}
 			create_pop = {
@@ -182,6 +151,11 @@
 			create_pop = {
 				culture = tuvan
 				size = 30000
+			}
+			create_pop = {
+				culture = tuvan
+				religion = tengri
+				size = 10000
 			}
 		}
 	}
@@ -280,12 +254,7 @@
 		region_state:YAK = {
 			create_pop = {
 				culture = yakut
-				size = 41100
-			}
-			create_pop = {
-				culture = yakut
-				religion = sunni
-				size = 9000
+				size = 50100
 			}
 			create_pop = {
 				culture = yukaghir
@@ -311,7 +280,7 @@
 		region_state:AMU = {
 			create_pop = {
 				culture = siberian
-				size = 210800
+				size = 236800
 			}
 		}
 		region_state:NNI = {
@@ -334,64 +303,46 @@
 				size = 2000
 			}
 		}
-		region_state:BUK = {
-			create_pop = {
-				culture = tatar
-				size = 10996
-			}
-			create_pop = {
-				culture = siberian
-				size = 25940
-			}
-		}
 	}
 	s:STATE_CHITA = {
-		region_state:BUK = {
-			create_pop = {
-				culture = tatar
-				size = 52000
-			}
-			create_pop = {
-				culture = uzbek
-				size = 5600
-			}
+		region_state:BYT = {
 			create_pop = {
 				culture = yakut
 				size = 5992
 			}
 			create_pop = {
+				culture = mongol
+				size = 30000
+			}
+			create_pop = {
 				culture = buryat
-				size = 32996
+				size = 82996
+			}
+			create_pop = {
+				culture = buryat
+				religion = tengri
+				size = 10000
 			}
 			create_pop = {
 				culture = siberian
 				size = 6000
 			}
-			create_pop = {
-				culture = russian
-				pop_type = slaves
-				size = 5000
-			}
 		}
 	}
 	s:STATE_IRKUTSK = {
-		region_state:BUK = {
-			create_pop = {
-				culture = tatar
-				size = 108408
-			}
-			create_pop = {
-				culture = uzbek
-				size = 59399
-			}
+		region_state:BYT = {
 			create_pop = {
 				culture = buryat
 				size = 106004
 			}
 			create_pop = {
-				culture = russian
-				pop_type = slaves
-				size = 5000
+				culture = buryat
+				religion = tengri
+				size = 20000
+			}
+			create_pop = {
+				culture = mongol
+				size = 37800
 			}
 			create_pop = {
 				culture = siberian
@@ -401,23 +352,19 @@
 	}
 	
 	s:STATE_BURYATIA = {
-		region_state:BUK = {
+		region_state:BYT = {
 			create_pop = {
-				culture = tatar
-				size = 70408
+				culture = buryat
+				size = 120004
 			}
 			create_pop = {
 				culture = buryat
-				size = 60004
+				religion = tengri
+				size = 10000
 			}
 			create_pop = {
-				culture = russian
-				pop_type = slaves
-				size = 5000
-			}
-			create_pop = {
-				culture = siberian
-				size = 4996
+				culture = mongol
+				size = 55000
 			}
 		}
 	}

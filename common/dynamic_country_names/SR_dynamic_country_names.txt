@@ -491,6 +491,57 @@ DZU = { # Dzungaria
 	}
 }
 
+YGR = { # Yugra
+	dynamic_country_name = {
+		name = dyn_c_vogul_khanate # Vogul Khanate
+		adjective = YGR_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				coa_def_monarchy_flag_trigger = yes
+			}
+		}
+	}
+}
+
+SIB = { # Sibirstan
+	dynamic_country_name = {
+		name = dyn_c_sib_confederacy
+		adjective = SIB_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				coa_def_monarchy_flag_trigger = yes
+			}
+		}
+	}
+}
+
+BYT = { # Buryatia
+	dynamic_country_name = {
+		name = dyn_c_buryat_khanate
+		adjective = BYT_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { 
+				coa_def_monarchy_flag_trigger = yes
+			}
+		}
+	}
+}
+
 MGL = { # Mongolia
 	dynamic_country_name = {
 		name = dyn_c_mongol_khanate # Mongol Khanate

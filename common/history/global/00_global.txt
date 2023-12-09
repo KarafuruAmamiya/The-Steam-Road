@@ -32,6 +32,15 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
+				OR = {
+					state_region = s:STATE_CIRCARS
+					state_region = s:STATE_HYDERABAD
+				}
+			}
+			state_region = { remove_state_trait = state_trait_krishna_river }
+		}
+		if = {
+			limit = {
 				state_region = s:STATE_ARMENIA
 			}
 			state_region = { add_state_trait = state_trait_caucasus_mountains }

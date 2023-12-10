@@ -4911,16 +4911,20 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_journal_entry = je_reconquer_china
-					scope:target_country = { NOT = { is_subject_of = root } }
-					scope:target_state.state_region = { 
-						OR = {
-							is_homeland = cu:min 
-							is_homeland = cu:yue 
-							is_homeland = cu:shangjiang 
-							is_homeland = cu:uighur 
-							is_homeland = cu:tibetan
-							is_homeland = cu:mongol 
-							is_homeland = cu:manchu
+					scope:target_country = {
+						NOT = { is_subject_of = root }
+						any_scope_state = {
+							state_region = {
+								OR = {
+									is_homeland = cu:min 
+									is_homeland = cu:yue 
+									is_homeland = cu:shangjiang 
+									is_homeland = cu:uighur 
+									is_homeland = cu:tibetan
+									is_homeland = cu:mongol 
+									is_homeland = cu:manchu
+								}
+							}
 						}
 					}
 				}

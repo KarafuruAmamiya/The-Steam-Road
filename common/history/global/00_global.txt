@@ -45,6 +45,12 @@ GLOBAL = {
 			}
 			state_region = { add_state_trait = state_trait_caucasus_mountains }
 		}
+		if = {
+			limit = {
+				state_region = s:STATE_KHIVA
+			}
+			state_region = { remove_state_trait = state_trait_caspian_sea }
+		}
 	}
 	every_country = {
 		add_taxed_goods = g:services

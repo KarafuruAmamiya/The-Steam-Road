@@ -56,6 +56,38 @@ GLOBAL = {
 		add_taxed_goods = g:services
 	}
 	every_country = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_serfdom
+			}
+		}
+		ig:ig_landowners = { 
+			remove_ideology = ideology_stratocratic
+			add_ideology = ideology_modern_stratocratic
+		}
+	}
+	every_country = {
+		limit = {
+			NOR = {
+				has_law = law_type:law_chiefdom
+				has_law = law_type:law_monarchy
+				has_law = law_type:law_theocracy
+			}
+		}
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_constitutionalist
+			add_ideology = ideology_republican
+		}
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
+		ig:ig_petty_bourgeoisie = {
+			remove_ideology = ideology_constitutionalist
+			add_ideology = ideology_republican
+		}
+	}
+	every_country = {
 		limit = { 
 			NOT = { has_law = law_type:law_slavery_banned }
 		}

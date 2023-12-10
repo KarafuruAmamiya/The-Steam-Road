@@ -21,15 +21,6 @@
 		law_technocracy = strongly_disapprove
 	}
 	
-	lawgroup_centralization = {
-		law_feudalism = strongly_approve
-		law_warlord_state = disapprove			
-		law_unitary = approve
-		law_devolved = neutral
-		law_federal = disapprove
-		law_confederated = strongly_disapprove
-	}
-	
 	lawgroup_bureaucracy = {
 		law_hereditary_bureaucrats = approve
 		law_appointed_bureaucrats = neutral
@@ -142,6 +133,15 @@ ideology_individualist = {
 
 ideology_stratocratic = {
 	icon = "gfx/interface/icons/ideology_icons/stratocratic.dds"
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_approve
+		law_warlord_state = disapprove			
+		law_unitary = approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
+	}
 	
 	lawgroup_army_model = {
 		law_peasant_levies = approve
@@ -338,8 +338,8 @@ ideology_moralist = {
 	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 	
 	lawgroup_governance_principles = {
-		law_monarchy = strongly_approve
-		law_theocracy = approve	
+		law_monarchy = neutral
+		law_theocracy = strongly_approve	
 		law_presidential_republic = neutral
 		law_parliamentary_republic = neutral
 		law_council_republic = strongly_disapprove
@@ -347,7 +347,7 @@ ideology_moralist = {
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_approve
-		law_denominational_exclusion = approve
+		law_denominational_exclusion = neutral
 		law_freedom_of_conscience = neutral
 		law_shared_roots = disapprove
 		law_total_separation = strongly_disapprove
@@ -380,18 +380,6 @@ ideology_meritocratic = {
 		law_graduated_taxation = disapprove
 		law_land_based_taxation = disapprove
 	}
-	
-	lawgroup_distribution_of_power = {
-		law_universal_suffrage = strongly_disapprove
-		law_census_voting = strongly_approve
-		law_wealth_voting = approve
-		law_landed_voting = neutral
-		law_single_party_state = strongly_disapprove
-		law_technocracy = strongly_disapprove
-		law_oligarchy = disapprove
-		law_autocracy = disapprove
-		law_anarchy = strongly_disapprove
-	}	
 }
 
 ideology_patriotic = {
@@ -698,14 +686,6 @@ ideology_socialist = {
 
 ideology_reactionary = {
 	icon = "gfx/interface/icons/ideology_icons/reactionary.dds"
-	
-	lawgroup_governance_principles = {
-		law_monarchy = approve
-		law_theocracy = approve		
-		law_presidential_republic = neutral
-		law_parliamentary_republic = neutral
-		law_council_republic = disapprove
-	}
 
 	lawgroup_citizenship = {
 		law_ethnostate = approve
@@ -854,24 +834,5 @@ ideology_corporatist = {
 		law_restricted_substances_use = disapprove
 		law_regulated_substances_use = strongly_disapprove
 		law_no_substances_regulation = disapprove
-	}
-}
-
-ideology_nationalist = {
-	icon = "gfx/interface/icons/ideology_icons/unused/nationalism.dds"
-	
-	lawgroup_citizenship = {
-		law_ethnostate = approve
-		law_national_supremacy = approve
-		law_racial_segregation = neutral
-		law_shared_heritage = neutral
-		law_cultural_exclusion = disapprove
-		law_multicultural = strongly_disapprove
-	}
-
-	lawgroup_migration = {
-		law_closed_borders = neutral
-		law_migration_controls = approve
-		law_no_migration_controls = disapprove
 	}
 }

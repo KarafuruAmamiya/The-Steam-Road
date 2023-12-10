@@ -1,0 +1,130 @@
+﻿
+# Ultra's additions (generic ideologies)
+
+ideology_modern_stratocratic = {
+	icon = "gfx/interface/icons/ideology_icons/stratocratic.dds"
+	
+	lawgroup_centralization = {
+		law_feudalism = neutral
+		law_warlord_state = disapprove			
+		law_unitary = approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
+	}
+	
+	lawgroup_army_model = {
+		law_peasant_levies = neutral
+		law_professional_army = approve
+		law_national_militia = disapprove
+		law_mass_conscription = strongly_disapprove
+	}
+	
+	lawgroup_labor_rights = {
+		law_no_workers_rights = approve
+		law_regulatory_bodies = disapprove
+		law_worker_protections = strongly_disapprove
+	}
+	
+	lawgroup_land_reform = {
+		law_serfdom = neutral
+		law_tenant_farmers = approve
+		law_commercialized_agriculture = neutral
+		law_homesteading = strongly_disapprove
+		law_collectivized_agriculture = strongly_disapprove
+	}	
+	
+	lawgroup_taxation = {
+		law_consumption_based_taxation = approve
+		law_land_based_taxation = approve
+		law_per_capita_based_taxation = neutral
+		law_proportional_taxation = disapprove
+		law_graduated_taxation = strongly_disapprove
+	}
+
+	lawgroup_welfare = {
+		law_poor_laws = neutral
+		law_no_social_security = neutral
+		law_wage_subsidies = disapprove
+		law_old_age_pension = strongly_disapprove
+	}
+
+	lawgroup_education_system = {
+		law_private_schools = neutral
+		law_public_schools = disapprove
+		law_religious_schools = approve
+		law_no_schools = disapprove
+	}
+}
+
+ideology_nationalist = {
+	icon = "gfx/interface/icons/ideology_icons/unused/nationalism.dds"
+	
+	lawgroup_citizenship = {
+		law_ethnostate = approve
+		law_national_supremacy = approve
+		law_racial_segregation = neutral
+		law_shared_heritage = neutral
+		law_cultural_exclusion = disapprove
+		law_multicultural = strongly_disapprove
+	}
+
+	lawgroup_migration = {
+		law_closed_borders = neutral
+		law_migration_controls = approve
+		law_no_migration_controls = disapprove
+	}
+}
+
+ideology_segregationist = {
+	icon = "gfx/interface/icons/ideology_icons/stratocratic.dds"
+	
+	lawgroup_citizenship = {
+		law_ethnostate = neutral
+		law_national_supremacy = approve
+		law_racial_segregation = strongly_approve
+		law_shared_heritage = neutral
+		law_cultural_exclusion = disapprove
+		law_multicultural = strongly_disapprove
+	}
+}
+
+ideology_imperialist = {
+	icon = "gfx/interface/icons/ideology_icons/republican_paternalistic.dds"
+	
+	lawgroup_citizenship = {
+		law_ethnostate = neutral
+		law_national_supremacy = approve
+		law_racial_segregation = strongly_approve
+		law_shared_heritage = neutral
+		law_cultural_exclusion = disapprove
+		law_multicultural = strongly_disapprove
+	}
+	
+	lawgroup_colonization = {
+		law_colonial_exploitation = strongly_approve
+		law_no_colonial_affairs = disapprove
+		law_colonial_resettlement = neutral
+		law_frontier_colonization = neutral
+	}
+	
+}
+
+ideology_cosmopolitan = {
+	icon = "gfx/interface/icons/ideology_icons/egalitarian.dds"
+	
+	lawgroup_citizenship = {
+		law_ethnostate = strongly_disapprove
+		law_national_supremacy = disapprove
+		law_racial_segregation = disapprove
+		law_shared_heritage = neutral
+		law_cultural_exclusion = disapprove
+		law_multicultural = strongly_disapprove
+	}
+	
+	lawgroup_migration = {
+		law_no_migration_controls = approve
+		law_migration_controls = disapprove
+		law_closed_borders = strongly_disapprove
+	}	
+}

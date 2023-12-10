@@ -561,6 +561,8 @@ chinese_court_clothes_trigger = {
 				has_discrimination_trait = mongol_language
 				has_discrimination_trait = tai
 				has_discrimination_trait = hmong_mien_language
+				cu:altai ?= this
+				cu:tuvan ?= this
 			}
 		}
 	}	
@@ -1032,6 +1034,7 @@ circumpolar_clothes_pop_trigger = {
 	exists = scope:pop
 	scope:pop = {
 		NOT = { culture = cu:tuvan }
+		NOT = { culture = cu:altai }
 		OR = {
 			culture = cu:inuit
 			culture = cu:samoyedic

@@ -89,6 +89,21 @@ law_warlord_state = {
 		state_radicals_from_sol_change_mult = 0.25
 	}
 	
+	on_activate = {
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_serfdom }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+	}
+	
 	pop_support = {
 		value = 0
 		add = {
@@ -136,6 +151,21 @@ law_unitary = {
 	}
 	
 	institution = institution_centralization
+	
+	on_activate = {
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_serfdom }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+	}
 	
 	possible_political_movements = {
 		law_devolved
@@ -202,6 +232,21 @@ law_devolved = {
 	
 	institution = institution_centralization
 	
+	on_activate = {
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_serfdom }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+	}
+	
 	possible_political_movements = {
 		law_unitary
 		law_federal
@@ -262,6 +307,21 @@ law_federal = {
 	}
 	
 	institution = institution_centralization
+	
+	on_activate = {
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_serfdom }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+	}
 	
 	possible_political_movements = {
 		law_devolved
@@ -334,6 +394,19 @@ law_confederated = {
 	
 	on_activate = {
 		custom_tooltip = cant_annex_subject_tt
+		if = {
+			limit = {
+				NOT = { is_country_type = decentralized }
+				NOT = { has_law = law_type:law_serfdom }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
 	}
 
 	pop_support = {

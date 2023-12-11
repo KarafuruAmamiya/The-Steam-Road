@@ -133,6 +133,29 @@ law_presidential_republic = {
 	on_activate = {
 		if = {
 			limit = {
+				ig:ig_landowners = {
+					OR = {
+						has_ideology = ideology:ideology_paternalistic
+						has_ideology = ideology:ideology_scholar_paternalistic
+						has_ideology = ideology:ideology_junker_paternalistic
+						has_ideology = ideology:ideology_papal_paternalistic
+						has_ideology = ideology:ideology_safavid_paternalistic
+						has_ideology = ideology:ideology_akkovin_paternalistic
+					}
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_paternalistic
+				remove_ideology = ideology_scholar_paternalistic
+				remove_ideology = ideology_junker_paternalistic
+				remove_ideology = ideology_papal_paternalistic
+				remove_ideology = ideology_safavid_paternalistic
+				remove_ideology = ideology_akkovin_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
+		if = {
+			limit = {
 				any_interest_group = {
 					has_ideology = ideology:ideology_constitutionalist
 				}
@@ -215,6 +238,29 @@ law_parliamentary_republic = {
 	}
 	
 	on_activate = {
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						has_ideology = ideology:ideology_paternalistic
+						has_ideology = ideology:ideology_scholar_paternalistic
+						has_ideology = ideology:ideology_junker_paternalistic
+						has_ideology = ideology:ideology_papal_paternalistic
+						has_ideology = ideology:ideology_safavid_paternalistic
+						has_ideology = ideology:ideology_akkovin_paternalistic
+					}
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_paternalistic
+				remove_ideology = ideology_scholar_paternalistic
+				remove_ideology = ideology_junker_paternalistic
+				remove_ideology = ideology_papal_paternalistic
+				remove_ideology = ideology_safavid_paternalistic
+				remove_ideology = ideology_akkovin_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
 		if = {
 			limit = {
 				any_interest_group = {
@@ -363,6 +409,29 @@ law_council_republic = {
 		custom_tooltip = {
 			text = enact_law_radical_leftist_government_warning_desc
 		}	
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						has_ideology = ideology:ideology_paternalistic
+						has_ideology = ideology:ideology_scholar_paternalistic
+						has_ideology = ideology:ideology_junker_paternalistic
+						has_ideology = ideology:ideology_papal_paternalistic
+						has_ideology = ideology:ideology_safavid_paternalistic
+						has_ideology = ideology:ideology_akkovin_paternalistic
+					}
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_paternalistic
+				remove_ideology = ideology_scholar_paternalistic
+				remove_ideology = ideology_junker_paternalistic
+				remove_ideology = ideology_papal_paternalistic
+				remove_ideology = ideology_safavid_paternalistic
+				remove_ideology = ideology_akkovin_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
 		if = {
 			limit = {
 				any_interest_group = {

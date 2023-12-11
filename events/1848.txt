@@ -134,13 +134,6 @@
 	option = {
 		name = 1848.2.a
 		default_option = yes
-		ig:ig_landowners = {
-			remove_ideology = ideology_paternalistic
-			remove_ideology = ideology_scholar_paternalistic
-			remove_ideology = ideology_junker_paternalistic
-			remove_ideology = ideology_papal_paternalistic
-			add_ideology = ideology_republican_paternalistic
-		}
 		custom_tooltip = {
 			text = no_more_royalists
 			set_variable = monarchy_stamped_out_var
@@ -159,6 +152,45 @@
 	option = {
 		name = 1848.2.b
 		# don't do that, just make landowners lose power
+		ig:ig_landowners = {
+			remove_ideology = ideology_republican_paternalistic
+			if = {
+				limit = {
+					owner ?= c:CHI
+				}
+				add_ideology = ideology_scholar_paternalistic
+			}
+			else_if = {
+				limit = {
+					owner ?= c:SAX
+				}
+				add_ideology = ideology_junker_paternalistic
+			}
+			else_if = {
+				limit = {
+					owner ?= c:PER
+				}
+				add_ideology = ideology_safavid_paternalistic
+			}
+			else_if = {
+				limit = {
+					owner ?= c:AKN
+				}
+				add_ideology = ideology_akkovin_paternalistic
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_theocracy
+						country_has_state_religion = rel:catholic
+					}
+				}
+				add_ideology = ideology_papal_paternalistic
+			}
+			else = {
+				add_ideology = ideology_paternalistic
+			}
+		}
 		ig:ig_landowners = {
 			add_modifier = {
 				name = monarchist_nostalgia

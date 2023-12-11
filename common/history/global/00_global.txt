@@ -57,8 +57,10 @@ GLOBAL = {
 	}
 	every_country = {
 		limit = {
-			NOT = {
+			NOR = {
 				has_law = law_type:law_serfdom
+				has_law = law_type:law_feudalism
+				c:PER ?= this
 			}
 		}
 		ig:ig_landowners = { 

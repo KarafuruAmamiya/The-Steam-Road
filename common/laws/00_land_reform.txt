@@ -164,6 +164,18 @@ law_tenant_farmers = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_feudalism }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
 	}
 
 	pop_support = {
@@ -284,6 +296,18 @@ law_commercialized_agriculture = {
 			months = long_modifier_time
 			is_decaying = yes
 			multiplier = money_amount_multiplier_small
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_feudalism }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
 		}
 		if = {
 			limit = {
@@ -419,6 +443,18 @@ law_homesteading = {
 		}
 		if = {
 			limit = {
+				NOT = { has_law = law_type:law_feudalism }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+		if = {
+			limit = {
 				c:PER ?= this
 				any_scope_state = {
 					has_modifier = landowners_qanat_maintenance
@@ -520,6 +556,18 @@ law_collectivized_agriculture = {
 	}
 	
 	on_activate = {
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_feudalism }
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
 		if = {
 			limit = {
 				c:PER ?= this

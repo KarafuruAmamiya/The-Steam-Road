@@ -68,8 +68,12 @@ tsr_fez_trigger = {
 							}
 						}
 						AND = {
-							exists = c:TTR
-							c:TTR = this
+							exists = c:SAI
+							c:SAI = this
+						}
+						AND = {
+							exists = c:IUS
+							c:IUS = this
 						}
 					}
 				}
@@ -128,8 +132,12 @@ tsr_fez_pop_trigger = {
 						}
 					}
 					AND = {
-						exists = c:TTR
-						c:TTR = this
+						exists = c:SAI
+						c:SAI = this
+					}
+					AND = {
+						exists = c:IUS
+						c:IUS = this
 					}
 				}
 			}

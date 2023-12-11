@@ -646,11 +646,16 @@ gov_hetmanate = {
                 c:ZAP = ROOT
             }
 			AND = {
+                exists = c:DON
+                c:DON = ROOT
+            }
+			AND = {
                 exists = c:UKR
                 c:UKR = ROOT
 				OR = {
 					was_formed_from = ZAP
 					was_formed_from = SLB
+					was_formed_from = DON
 				}
             }
         }

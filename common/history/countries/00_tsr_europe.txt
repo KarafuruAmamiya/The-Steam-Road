@@ -292,6 +292,35 @@
 			level = 1
 		}
 	}
+	c:DON = { # Don Cossack Host
+		effect_starting_technology_tier_3_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		
+		# Laws 
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
 	c:DOR = { # Dortmund
 		effect_starting_technology_tier_2_tech = yes
 		
@@ -835,6 +864,42 @@
 			add_ruling_interest_group = yes
 		}
 		
+	}
+	c:IUS = { # Kazan
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_intelligentsia = { 
+			set_ig_suppression = yes
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		
+		set_variable = adopt_western_uniforms
+		set_variable = adopt_western_clothes
 	}
 	c:KNZ = { # Konstanz
 		effect_starting_technology_tier_2_tech = yes
@@ -1690,6 +1755,42 @@
 			add_ruling_interest_group = yes
 		}
 	}
+	c:SAI = { # Sarai
+		effect_starting_technology_tier_3_tech = yes
+		effect_starting_politics_traditional = yes
+		
+		# Laws 
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_religious_schools
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
+		
+		add_taxed_goods = g:liquor
+		
+		ig:ig_intelligentsia = { 
+			set_ig_suppression = yes
+		}
+
+		add_modifier = {
+			name = cizye_tax
+			months = -1
+		}
+		
+		set_variable = adopt_western_uniforms
+		set_variable = adopt_western_clothes
+	}
 	c:SRB = { # Sorbia / Lusatia
 		effect_starting_technology_tier_3_tech = yes
 		
@@ -1751,42 +1852,6 @@
 			institution = institution_schools
 			level = 1
 		}
-	}
-	c:TTR = { # Tatarstan
-		effect_starting_technology_tier_3_tech = yes
-		effect_starting_politics_traditional = yes
-		
-		# Laws 
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_autocracy 
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_traditionalism
-		activate_law = law_type:law_peasant_levies
-		activate_law = law_type:law_censorship
-		activate_law = law_type:law_religious_schools
-		
-		set_institution_investment_level = {
-			institution = institution_schools
-			level = 1
-		}
-		
-		add_taxed_goods = g:liquor
-		
-		ig:ig_intelligentsia = { 
-			set_ig_suppression = yes
-		}
-
-		add_modifier = {
-			name = cizye_tax
-			months = -1
-		}
-		
-		set_variable = adopt_western_uniforms
-		set_variable = adopt_western_clothes
 	}
 	c:TYR = { # Tyrol
 		# set_next_election_date = ???

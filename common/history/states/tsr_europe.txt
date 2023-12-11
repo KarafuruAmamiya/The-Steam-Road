@@ -1744,7 +1744,7 @@
 			owned_provinces = { x244D15 x31B814 x331CB3 x45FA32 x4C0018 x53EF9C x669560 x6A8F2C x92C7C8 xBCF6EB xBEE23A xCE6B77 xFEFF16 }
 		}
 		create_state = {
-			country = c:TTR
+			country = c:SAI
 			owned_provinces = { xF50161 x21A0A0 xEABB0F xE458EF x8BEB3F }
 		}
 		
@@ -1772,7 +1772,7 @@
 	s:STATE_EKATERINOSLAV = {
 		create_state = {
 			country = c:SLB
-			owned_provinces = { x7141E0 xCFBD13 x0708A3 xC262E0 x71E0E0 xB06935 x5AB195 x637D8D x0EBC1D x76E2A3 x9A1118 }
+			owned_provinces = { x7141E0 xCFBD13 x0708A3 x71E0E0 x637D8D x0EBC1D x76E2A3 }
 		}
 		create_state = {
 			country = c:ZAP
@@ -1780,7 +1780,7 @@
 		}
 		create_state = {
 			country = c:TUR
-			owned_provinces = { x055C67 x580D2A x500F88 x87109C x7020DF xAD4F1C xF0E061 }
+			owned_provinces = { x055C67 x580D2A x500F88 x87109C x7020DF xAD4F1C xF0E061 xC262E0 xB06935 x5AB195 x9A1118 }
 			state_type = unincorporated
 		}
 		
@@ -1895,16 +1895,22 @@
 	}
 	s:STATE_ROSTOV = {
 		create_state = {
-			country = c:TTR
-			owned_provinces = { x00D080 x015080 x1C7933 x25A8D9 x2BC1EA x2C7795 x31FA95 x3B9730 x45A839 x540AA7 x5FF764 x7C8235 x7CE092 x805180 x877DBA x8C259F x92B853 xA34CA7 xAFB12B xAFC5AE xBCA729 xC05180 xC8C540 xCF1287 xD1C0D1 xD9240D xDDE385 xE0A7F7 xE3D4F3 xFEDE19 x7161E0 x386376 }
+			country = c:DON
+			owned_provinces = { x00D080 x015080 x1C7933 x2BC1EA x2C7795 x31FA95 x45A839 x540AA7 x5FF764 x7C8235 x7CE092 x877DBA x8C259F x92B853 xA34CA7 xAFB12B xBCA729 xC05180 xC8C540 xCF1287 xD1C0D1 xDDE385 xE3D4F3 xFEDE19 }
+		}
+		create_state = {
+			country = c:TUR
+			owned_provinces = { x25A8D9 xAFC5AE x3B9730 xD9240D xE0A7F7 x7161E0 x386376 x805180 }
+			state_type = unincorporated
 		}
 		
 		add_homeland = cu:ukrainian
 		add_homeland = cu:russian
+		add_homeland = cu:tatar
 	}
 	s:STATE_VORONEZH = {
 		create_state = {
-			country = c:TTR
+			country = c:SAI
 			owned_provinces = { x030048 x0CA133 x172A98 x1A7021 x1C692E x2121A0 x269530 x607311 x6161A0 x6BEE31 x738BEC x743EA5 x828B91 x91942B x9E14B9 x9E5DCB xA0A0A0 xA6F3BC xA87FC3 xAD54E9 xAE82E6 xBA2909 xC761A3 xCF35AA xF553F9 x6BA92A x4C684C xCAE51A x5469A6 xA71AE3 x05C86D x85FB7E }
 		}
 		
@@ -1912,7 +1918,7 @@
 	}
 	s:STATE_TARTARIA = {
 		create_state = {
-			country = c:TTR
+			country = c:SAI
 			owned_provinces = { x112A5D x1233B6 x184EBD x1C9CEB x214E13 x302B65 x389F61 x53AFD2 x5DC7DF x5DFE91 x60DF21 x610EC7 x69239F x85B325 x8840E2 x8F80BA x904CD8 x944AFB x9633B6 xAA798E xB353F0 xB5D0F6 xB6EB91 xB9D801 xC7340F xCD2E5B xCFBC40 xD6ACAE xD9BEED xE8B3EC xEA1BD5 xEBD048 xF0F779 xFAB9A8 xFBE9D0 }			
 		}
 		
@@ -1921,7 +1927,7 @@
 	}
 	s:STATE_SIMBIRSK = {
 		create_state = {
-			country = c:TTR
+			country = c:IUS
 			owned_provinces = { x108711 x161ACD x16B7FE x2D0CA0 x328BF7 x346C85 x811458 x8BB04E xA0E021 xA121CB xCD3A7F xEBD068 xF26043 xC4B284 xD19BE5 x36696F xC45745 xD4F3FD xD49810 }			
 		}
 		
@@ -1930,7 +1936,7 @@
 	}
 	s:STATE_MORDOVIA = {
 		create_state = {
-			country = c:TTR
+			country = c:IUS
 			owned_provinces = { x006422 x00DA3C x0434D7 x0DCAF1 x193A00 x29EC04 x30B835 x47EA0C x60A0A0 x74730E x7D40C9 x9439A0 xBFA41C xC23BD0 xD13AC6 xDB5DBD }			
 		}
 		
@@ -1939,7 +1945,7 @@
 	}
 	s:STATE_KAZAN = {
 		create_state = {
-			country = c:TTR
+			country = c:IUS
 			owned_provinces = { x0B1757 x0CBEE6 x0CE779 x118263 x175F74 x1FDAE5 x227A38 x307CEB x36D99A x4CC372 x4EC74B x534B98 x5FDE4C x7B0FEF x9DA7C7 xA06020 xAA65A0 xABCA9F xD6E65F xDFA0A0 xE2E1D8 xE89369 xEAF220 xED58E5 xF51C0D }
 		}
 		
@@ -1948,7 +1954,7 @@
 	}
 	s:STATE_PENZA = {
 		create_state = {
-			country = c:TTR
+			country = c:IUS
 			owned_provinces = { x11A456 x21DF21 x341DB2 x54F76C x5F82DE x616020 x75659C x7EB0D3 xB3B6D0 xCC3356 xE66DB2 xDB5E3F x0BAE1A x3BA63A x9672A5 x1889E9 x060F1F }			
 		}
 		
@@ -1956,7 +1962,7 @@
 	}
 	s:STATE_TAMBOV = {
 		create_state = {
-			country = c:TTR
+			country = c:SAI
 			owned_provinces = { x003D07 x0B35A0 x1084B6 x135BEB x1E7643 x248B83 x352ACF x3EAD17 x41D846 x45E723 x61384B x6DC89F x75FC6F x783E80 x79F049 x7A26E0 x7B5279 x857200 x8DE32D xA2AEA2 xB2B5F4 xB80B2E xBFDE90 xC57104 xD7547A xEB7873 xF49A5A xFE56AF x2517B5 x8447C0 x587F59 xF2884A x370996 xE4E080 x66929F }		
 		}
 		
@@ -1964,7 +1970,7 @@
 	}
 	s:STATE_STAVROPOL = {
 		create_state = {
-			country = c:TTR
+			country = c:DON
 			owned_provinces = { x32FEBA x3E954F x565E50 x6F16AA x741AD9 x7685A4 x796017 x9A01E0 x9A43C9 xA4B654 xAA6E62 xAF4F59 xBC214C xC0D001 xD7EDE7 xE0E16A xE2E1EB xEB2EF5 xF7D005 }
 		}
 		create_state = {
@@ -1978,7 +1984,7 @@
 	}
 	s:STATE_TSARITSYN = {
 		create_state = {
-			country = c:TTR
+			country = c:SAI
 			owned_provinces = { x045D1F x047D6D x12A2B2 x12D336 x18458E x1B6544 x1F3466 x282DFB x2BA298 x2D1E10 x3ADF14 x4190C0 x41AA95 x4254FA x5559FD x566420 x693D71 x698B74 x70BC3A x805140 x84BB74 x965A33 x9743F5 xA526B5 xA79C89 xB3584E xCDEA34 xD4CB58 xD559DF xE06020 xE0DD8E xEC3999 xFE531B xFFA259 }
 		}
 		add_homeland = cu:kalmyk

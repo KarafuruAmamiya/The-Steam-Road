@@ -2487,7 +2487,7 @@
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_CHERSON
 				count = 6
 			}
@@ -2515,13 +2515,33 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_KHARKOV
-				count = 13
+				count = 10
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_POLTAVA
-				count = 6
+				count = 9
+			}
+		}
+	}
+	
+	c:DON = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_volga
+			name = "1-y Kozatskyi Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ROSTOV
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_STAVROPOL
+				count = 5
 			}
 		}
 	}
@@ -2848,58 +2868,65 @@
 		}
 	}
 	
-	c:TTR = {
+	c:SAI = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_volga
-			name = "1-nçe Tatar Kórpusy"
+			name = "1-nçe Sarai Kórpusy"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_ROSTOV
 				count = 10
 			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KAZAN
-				count = 20
+				state_region = s:STATE_TAMBOV
+				count = 5
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_TARTARIA
-				count = 8
+				count = 13
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_TARTARIA
+				state_region = s:STATE_TSARITSYN
 				count = 2
 			}
 		}
-		
+	}
+	
+	c:IUS = {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_central_russia
-			name = "2-nçe Tatar Kórpusy"
+			hq_region = sr:region_volga
+			name = "1-nçe Qazan Kórpusy"
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VORONEZH
+				state_region = s:STATE_SIMBIRSK
 				count = 10
 			}
 
 			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KAZAN
+				count = 5
+			}
+
+			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_TAMBOV
-				count = 7
+				state_region = s:STATE_PENZA
+				count = 13
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_TAMBOV
-				count = 1
+				state_region = s:STATE_SAMARA
+				count = 2
 			}
 		}
 	}

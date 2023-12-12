@@ -211,6 +211,8 @@
 			}
 			ig:ig_landowners = {
 				add_ideology = ideology_pious
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_safavid_paternalistic
 			}
 		}
 		# Southern Planters
@@ -223,18 +225,6 @@
 				set_interest_group_name = ig_southern_planters
 				remove_ideology = ideology_paternalistic
 				add_ideology = ideology_republican_paternalistic
-			}
-		}
-		# Persian Aristocracy
-		else_if = {
-			limit = {
-				c:PER ?= this
-			}
-			ig:ig_landowners = {
-				remove_ideology = ideology_paternalistic
-				add_ideology = ideology_safavid_paternalistic
-				remove_ideology = ideology_stratocratic
-				add_ideology = ideology_safavid_stratocratic
 			}
 		}
 		# Akkovin Aristocracy

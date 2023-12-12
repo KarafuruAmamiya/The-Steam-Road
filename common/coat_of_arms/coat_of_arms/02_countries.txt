@@ -10785,31 +10785,6 @@ IMG = {
 	}
 }
 
-IND = { # Indore
-	# Saffron flag hist. before 1924
-	# 1924
-	
-	pattern = "pattern_solid.tga"
-	color1 = "white"
-	
-	colored_emblem = {
-		texture = "ce_bicolor_top.dds"
-		color1 = "red"
-		color2 = "red"
-	}			
-}
-IND_subject = {
-	pattern = "pattern_solid.tga"
-	color1 = "saffron"
-	
-	colored_emblem = {
-		texture = "ce_shield_heater_large_per_fess.dds"
-		color1 = "red"
-		color2 = "white"		
-		instance = { scale = { 0.5 0.5 } position = { 0.75 0.5 } }			
-	}				
-}
-
 ION = { # Ionian Islands
 	# Septinsular Republic
 	
@@ -14812,10 +14787,15 @@ MYS_subject = {
 }
 
 NAG = { # Nagpur
-	# Hist. Saffron flag
-	
 	pattern = "pattern_solid.tga"
-	color1 = "orange"
+	color1 = "red"
+	color2 = "white"
+
+	colored_emblem = {
+		texture = "ce_rhombus.dds"
+		color1 = "white"
+		instance = { position = { 1 0.5 } }
+	}
 }
 
 NAH = {

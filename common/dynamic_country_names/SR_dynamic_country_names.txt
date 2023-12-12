@@ -405,7 +405,6 @@ PER = {
 		trigger = {
 			scope:actor = {
 				has_law = law_type:law_monarchy
-				country_tier = empire
 			}
 		}
 	}
@@ -418,7 +417,20 @@ PER = {
 		
 		trigger = {
 			scope:actor = {
-				has_variable = united_iran
+				coa_def_republic_flag_trigger = yes
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_iran_communist # Iranian Socialist Republic
+		adjective = dyn_c_iran_adj
+		
+		is_main_tag_only = yes
+		priority = 100
+		
+		trigger = {
+			scope:actor = {
+				coa_def_communist_flag_trigger = yes
 			}
 		}
 	}
@@ -435,6 +447,70 @@ HAA = {
 		trigger = {
 			scope:actor = {
 				country_has_voting_franchise = yes
+			}
+		}
+	}
+}
+
+BGL = { 
+	dynamic_country_name = {
+		name = dyn_c_bangladesh # Bangladesh
+		adjective = dyn_c_bangladesh_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				coa_def_republic_flag_trigger = yes
+			}
+		}
+	}
+}
+
+MRT = { 
+	dynamic_country_name = {
+		name = dyn_c_maharashtra # Maharashtra
+		adjective = MRT_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				coa_def_republic_flag_trigger = yes
+			}
+		}
+	}
+}
+
+MDU = { 
+	dynamic_country_name = {
+		name = dyn_c_tamil_nadu
+		adjective = dyn_c_tamil_nadu_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				coa_def_republic_flag_trigger = yes
+			}
+		}
+	}
+}
+
+TRA = { 
+	dynamic_country_name = {
+		name = dyn_c_kerala
+		adjective = dyn_c_kerala_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			scope:actor = {
+				coa_def_republic_flag_trigger = yes
 			}
 		}
 	}
@@ -687,6 +763,21 @@ PFA = { # Pfalz
 					state_region = s:STATE_BAVARIA
 				}
 			}
+		}
+	}
+}
+
+ASM = { # Assam
+	dynamic_country_name = { # Ahom
+		name = dyn_c_ahom
+		adjective = dyn_c_ahom_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = { has_law = law_type:law_monarchy }
 		}
 	}
 }

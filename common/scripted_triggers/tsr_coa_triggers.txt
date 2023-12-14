@@ -1,7 +1,8 @@
 ﻿coa_non_colonial_overlord_trigger = {
 	exists = scope:target
 	scope:target = { 
-		any_overlord_or_above = {
+		is_non_customs_union_subject = yes
+		overlord = {
 			NOT = { is_country_type = colonial }
 		}
 	}

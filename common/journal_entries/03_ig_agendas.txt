@@ -23,28 +23,6 @@
 				save_scope_as = government_petition_law
 			}
 		}
-		else_if = {
-			limit = {
-				has_variable = surat_riots_demands
-			}
-			random_interest_group = {
-				limit = {
-					is_in_government = yes
-					is_marginal = no
-					law_stance = {
-						law = law_type:law_slavery_banned
-						value > neutral
-					}
-				}
-				save_scope_as = government_petition_ig
-			}
-			random_law = {
-				limit = {
-					type = law_type:law_slavery_banned
-				}
-				save_scope_as = government_petition_law
-			}
-		}
 		else = {
 			random_interest_group = {
 				limit = {

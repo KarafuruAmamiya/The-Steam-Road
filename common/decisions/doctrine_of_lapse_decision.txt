@@ -46,7 +46,9 @@
 					is_female = yes
 				}
 				trigger_if = {
-					c:BUN ?= prev
+					limit = {
+						c:BUN ?= prev
+					}
 					custom_tooltip = {
 						text = damodar_rao_tt
 						has_variable = illegitimate_can_annex

@@ -1284,7 +1284,7 @@ indian_flavor.3 = { #Surat Riots
 			}
 			add_radicals_in_state = {
 				culture = cu:gujarati
-				value = very_large_radicals
+				value = large_radicals
 			}
 		}
 		
@@ -1295,7 +1295,7 @@ indian_flavor.3 = { #Surat Riots
 			}
 			add_radicals_in_state = {
 				culture = cu:gujarati
-				value = very_large_radicals
+				value = large_radicals
 			}
 		}
 	}
@@ -1411,7 +1411,7 @@ indian_flavor.5 = { #Peasants Revolt
 		
 		scope:revolt_state_scope = {
 			add_radicals_in_state = {
-				value = large_radicals
+				value = medium_radicals
 				culture = cu:gujarati
 			}
 			add_radicals_in_state = {
@@ -1442,7 +1442,7 @@ indian_flavor.5 = { #Peasants Revolt
 		}
 		scope:revolt_state_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 		}
@@ -1469,7 +1469,7 @@ indian_flavor.5 = { #Peasants Revolt
 		}
 		scope:revolt_state_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 			add_modifier = {
@@ -1574,7 +1574,7 @@ indian_flavor.6 = { #Mobs disrupt ports
 		default_option = yes
 		scope:port_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 		}
@@ -1749,7 +1749,7 @@ indian_flavor.8 = { #Full-Blown Revolt
 		}
 		scope:revolution_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 		}
@@ -1783,7 +1783,7 @@ indian_flavor.8 = { #Full-Blown Revolt
 		name = indian_flavor.8.b #Let the revolt runs it course
 		scope:revolution_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 			add_radicals_in_state = {
@@ -1800,40 +1800,6 @@ indian_flavor.8 = { #Full-Blown Revolt
 					}
 				}
 				50 = {
-				}
-			}
-		}
-	}
-	option = {
-		name = indian_flavor.8.c #We must pass their demands to the parliament
-		trigger = {
-			any_interest_group = {
-				is_in_government = yes
-				is_marginal = no
-				law_stance = {
-					law = law_type:law_slavery_banned
-					value > neutral
-				}
-			}
-			NOT = { has_journal_entry = je_government_petition }
-		}
-		scope:revolution_scope = {
-			add_radicals_in_state = {
-				value = medium_radicals
-				culture = cu:gujarati
-			}
-		}
-		custom_tooltip = indian_flavor.8.tt3 #Your action could de-escalate the situation, but you must fulfill their demands
-		set_variable = surat_riots_demands
-		add_journal_entry = { type = je_government_petition }
-		hidden_effect = { 
-			random_list = {
-				5 = { 
-					trigger_event = { 
-						id = indian_flavor.9 days = 30
-					}
-				}
-				95 = {
 				}
 			}
 		}
@@ -1902,7 +1868,7 @@ indian_flavor.9 = { #Revolts Spread
 		}
 		scope:revolution_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 		}
@@ -1924,7 +1890,7 @@ indian_flavor.9 = { #Revolts Spread
 		name = indian_flavor.8.b #Let the revolt runs it course
 		scope:revolution_scope = {
 			add_radicals_in_state = {
-				value = very_large_radicals
+				value = large_radicals
 				culture = cu:gujarati
 			}
 			add_radicals_in_state = {
@@ -1932,28 +1898,5 @@ indian_flavor.9 = { #Revolts Spread
 				culture = primary_culture_scope
 			}
 		}
-	}
-	option = {
-		name = indian_flavor.8.c #We must pass their demands to the parliament
-		trigger = {
-			NOT = { has_variable = surat_riots_demands }
-			any_interest_group = {
-				is_in_government = yes
-				is_marginal = no
-				law_stance = {
-					law = law_type:law_slavery_banned
-					value > neutral
-				}
-			}
-			NOT = { has_journal_entry = je_government_petition }
-		}
-		scope:revolution_scope = {
-			add_radicals_in_state = {
-				value = medium_radicals
-				culture = cu:gujarati
-			}
-		}
-		set_variable = surat_riots_demands
-		add_journal_entry = { type = je_government_petition }
 	}
 }

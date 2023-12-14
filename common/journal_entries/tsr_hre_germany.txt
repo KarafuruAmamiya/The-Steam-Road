@@ -212,13 +212,24 @@ je_reconquer_germany = {
 	should_be_pinned_by_default = yes
 
 	complete = {
-		owns_entire_state_region = STATE_HANNOVER
-		owns_entire_state_region = STATE_WESTPHALIA
-		owns_entire_state_region = STATE_ELBE
-		owns_entire_state_region = STATE_POMERANIA
-		owns_entire_state_region = STATE_BRANDENBURG
-		owns_entire_state_region = STATE_BAVARIA
-		owns_entire_state_region = STATE_MECKLENBURG
+		any_state = {
+			filter = {
+				OR = {
+					region = sr:region_north_germany
+					region = sr:region_south_germany
+					region = sr:region_rhine
+				}
+				state_region = {
+					OR = {
+						is_homeland = cu:north_german
+						is_homeland = cu:south_german
+						is_homeland = cu:rhenish
+					}
+				}
+			}
+			owner = root
+			percent >= 0.8
+		}
 	}
 	
 	status_desc = {

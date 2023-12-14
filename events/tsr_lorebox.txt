@@ -113,3 +113,30 @@ tsr_test.2 = {
 		}
 	}
 }
+
+tsr_test.3 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		change_infamy = -20
+	}
+}
+
+tsr_test.4 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		create_diplomatic_pact = {
+			country = c:SAX
+			type = protectorate
+		}
+	}
+}
+
+tsr_test.5 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		set_capital = STATE_OBERPFALZ
+	}
+}

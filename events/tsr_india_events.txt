@@ -32,6 +32,7 @@ raj.1 = {
 			state = s:STATE_KONKAN.region_state:PER
 			
 			on_created = {
+				set_immune_to_revolutions = yes
 				if = {
 					limit = {
 						NOT = {
@@ -126,6 +127,18 @@ raj.1 = {
 				country = c:RAJ
 				value = 100
 			}
+			every_state = {
+				limit = {
+					state_is_in_india = yes
+					NOR = { 
+						owner = root 
+						owner = {
+							is_subject_of = root
+						}
+					}
+				}
+				add_claim = c:RAJ
+			}
 			every_subject_or_below = {
 				if = {
 					limit = {
@@ -189,6 +202,18 @@ raj.1 = {
 			change_relations = {
 				country = c:RAJ
 				value = 100
+			}
+			every_state = {
+				limit = {
+					state_is_in_india = yes
+					NOR = { 
+						owner = root 
+						owner = {
+							is_subject_of = root
+						}
+					}
+				}
+				add_claim = c:RAJ
 			}
 			every_subject_or_below = {
 				if = {

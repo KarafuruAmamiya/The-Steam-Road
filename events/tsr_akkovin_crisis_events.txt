@@ -829,19 +829,6 @@ akkovin_crisis.8 = {
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
-	trigger = {
-		NOT = {
-			any_scope_state = {
-				has_modifier = kurdish_autonomy
-			}
-		}
-		OR = {
-			has_law = law_type:law_racial_segregation
-			has_law = law_type:law_national_supremacy
-			has_law = law_type:law_ethnostate
-		}
-	}
-
 	option = {
 		name = akkovin_crisis.8.a
 		default_option = yes

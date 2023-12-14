@@ -450,52 +450,9 @@ arab_wars.4 = {
 
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 
-	trigger = {
-		has_technology_researched = nationalism
-		any_country = {
-			country_rank = rank_value:great_power
-			relations:root >= relations_threshold:neutral
-			relations:root >= 0
-			NOT = { has_war_with = ROOT }
-			OR = {
-				AND = {
-					is_player = yes
-					NOT = { ROOT = this }
-					has_interest_marker_in_region = region_arabic
-				}
-				has_attitude = {
-					who = root.top_overlord
-					attitude = domineering
-				}
-				has_attitude = {
-					who = root.top_overlord
-					attitude = belligerent
-				}
-				has_attitude = {
-					who = root.top_overlord
-					attitude = antagonistic
-				}
-			}
-			NOT = { has_journal_entry = je_arab_nationalism_overlord }
-		}
-		OR = {
-			any_diplomatic_play = {
-				initiator_is = ROOT
-				has_play_goal = independence
-				is_war = no
-			}
-			any_diplomatic_play = {
-				target_is = ROOT
-				initiator_is = scope:overlord_scope
-				has_play_goal = annex_country
-				is_war = no
-			}
-		}
-	}
-
 	immediate = {
 		ROOT = { save_scope_as = arab_country }
-		every_overlord_or_above = {
+		overlord = {
 			save_scope_as = overlord_scope
 		}
 		random_country = {
@@ -528,6 +485,41 @@ arab_wars.4 = {
 				}
 			}
 			save_scope_as = supporter_country
+		}
+	}
+	
+	trigger = {
+		is_subject = yes
+		has_technology_researched = nationalism
+		any_country = {
+			country_rank = rank_value:great_power
+			relations:root >= relations_threshold:neutral
+			relations:root >= 0
+			NOT = { has_war_with = ROOT }
+			OR = {
+				AND = {
+					is_player = yes
+					NOT = { ROOT = this }
+					has_interest_marker_in_region = region_arabic
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = domineering
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = belligerent
+				}
+				has_attitude = {
+					who = root.top_overlord
+					attitude = antagonistic
+				}
+			}
+			NOT = { has_journal_entry = je_arab_nationalism_overlord }
+		}
+		any_diplomatic_play = {
+			initiator_is = ROOT
+			has_play_goal = independence
 		}
 	}
 
@@ -1143,6 +1135,7 @@ arab_wars.11 = {
 				activate_law = law_type:law_mercantilism
 				activate_law = law_type:law_interventionism
 				activate_law = law_type:law_slavery_banned
+				activate_law = law_type:law_no_colonial_affairs
 				call_election = {
 					months = 48
 				}
@@ -1447,6 +1440,7 @@ arab_wars.14 = {
 				activate_law = law_type:law_mercantilism
 				activate_law = law_type:law_interventionism
 				activate_law = law_type:law_legacy_slavery
+				activate_law = law_type:law_no_colonial_affairs
 				set_variable = {
 					name = haasa_var
 					value = yes

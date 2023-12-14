@@ -105,6 +105,40 @@
 			}
 		}
 	}
+	c:BRK = {
+		create_character = {
+			first_name = "Johann_III"
+			last_name = "von_Hohenzollern"
+			historical = yes
+			ruler = yes
+			female = no
+			birth_date = 1770.2.12
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				hedonist cautious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Joachim_III_Friedrich"
+			last_name = "von_Hohenzollern"
+			historical = yes
+			heir = yes
+			female = no
+			birth_date = 1793.4.25
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				romantic basic_diplomat
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+	}
 	c:ENG = {
 		create_character = {
 			first_name = Ernest_II
@@ -193,9 +227,9 @@
 			birth_date = 1793.7.10
     		religion = rel:catholic
 			interest_group = ig_landowners
-			ideology = ideology_moderate
+			ideology = ideology_jingoist_leader
 			traits = {
-				cautious experienced_diplomat
+				ambitious imposing experienced_political_operator
 			}
 			on_created = {
 				set_variable = is_married
@@ -609,6 +643,37 @@
 			}
 		}
 	}
+	c:POL = {
+		create_character = {
+			first_name = "Stanislaw_III"
+			last_name = "Vasa"
+			historical = yes
+			ruler = yes
+			female = no
+			age = 60
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				arrogant ambitious basic_political_operator
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Jan_II_August"
+			last_name = "Vasa"
+			historical = yes
+			heir = yes
+			female = no
+			age = 25
+			interest_group = ig_intelligentsia
+			ideology = ideology_reformer
+			traits = {
+				literary inspirational_orator masterful_diplomat
+			}
+		}
+	}
 	c:RHE = {
 		create_character = {
 			first_name = Louis_II
@@ -634,6 +699,37 @@
 			ideology = ideology_moderate
 			traits = {
 				ambitious
+			}
+		}
+	}
+	c:RPU = {
+		create_character = {
+			first_name = "Franz_Albert"
+			last_name = "von_Pfalz_Neuburg"
+			historical = yes
+			ruler = yes
+			female = no
+			age = 53
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				persistent cautious
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}
+		create_character = {
+			first_name = "Karl_II_Ludwig"
+			last_name = "von_Pfalz_Neuburg"
+			historical = yes
+			heir = yes
+			female = no
+			age = 21
+			interest_group = ig_industrialists
+			ideology = ideology_moderate
+			traits = {
+				literary basic_political_operator
 			}
 		}
 	}

@@ -4,11 +4,12 @@
 
 	complete = {
 		NOT = { exists = c:GUJ }
-		NOT = {
-			any_scope_state = {
+		any_scope_state = {
+			filter = {
 				state_is_in_india = yes
-				turmoil >= 0.5
 			}
+			turmoil < 0.5
+			percent >= 0.9
 		}
 		owns_entire_state_region = STATE_GUJARAT
 		is_at_war = no

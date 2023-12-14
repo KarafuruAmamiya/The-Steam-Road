@@ -24,6 +24,9 @@ law_state_religion = {
 			}
 			remove_modifier = antireligious_policies
 		}
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {
@@ -130,6 +133,9 @@ law_denominational_exclusion = {
 	
 	on_enact = {
 		recalculate_pop_ig_support = yes
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {
@@ -249,6 +255,9 @@ law_freedom_of_conscience = {
 			}
 			remove_modifier = antireligious_policies
 		}
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {
@@ -410,6 +419,9 @@ law_shared_roots = {
 			}
 			remove_modifier = antireligious_policies
 		}
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {
@@ -572,6 +584,9 @@ law_total_separation = {
 			}
 			remove_modifier = antireligious_policies
 		}
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {
@@ -728,6 +743,9 @@ law_state_atheism = {
 				}
 			}
 		}
+	}
+	
+	on_activate = {
 		if = {
 			limit = {
 				any_scope_state = {

@@ -106,6 +106,7 @@ je_rise_of_bahaism = {
 	group = je_group_tsr_content
 	
 	complete = {
+		has_law = law_type:law_state_religion
 		custom_tooltip = {
 			text = bab_popularity_tt
 			any_scope_character = {
@@ -113,10 +114,20 @@ je_rise_of_bahaism = {
 				NOT = { has_modifier = modifier_bab_popularity }
 			}
 		}
+		NOR = {
+			is_enacting_law = law_type:law_freedom_of_conscience
+			is_enacting_law = law_type:law_shared_roots
+			is_enacting_law = law_type:law_total_separation
+			is_enacting_law = law_type:law_state_atheism
+		}
 	}
 	
 	on_complete = {
 		trigger_event = { id = persian_flavor.16 } #The Waning of Babism Movement
+	}
+	
+	fail = {
+		NOT = { has_law = law_type:law_state_religion }
 	}
 		
 	on_monthly_pulse = {

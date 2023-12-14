@@ -644,9 +644,22 @@ je_akkovin_reform_kurdish = {
 					add = 1
 				}
 			}
-		}
-		events = {
-			akkovin_crisis.8 # Kurdish revolts
+			if = {
+				limit = {
+					country_has_primary_culture = cu:kurdish
+					NOT = {
+						any_scope_state = {
+							has_modifier = kurdish_autonomy
+						}
+					}
+					OR = {
+						has_law = law_type:law_racial_segregation
+						has_law = law_type:law_national_supremacy
+						has_law = law_type:law_ethnostate
+					}
+				}
+				trigger_event = { id = akkovin_crisis.8 } # Kurdish revolts
+			}
 		}
 	}
 
@@ -697,7 +710,7 @@ je_akkovin_reform_arabia = {
 		}
 		OR = {
 			AND = {
-				c:SYR = {
+				c:SYR ?= {
 					is_subject_of = ROOT
 					OR = {
 						is_subject_type = subject_type_dependency
@@ -708,7 +721,7 @@ je_akkovin_reform_arabia = {
 						attitude = loyal
 					}
 				}
-				c:HDJ = {
+				c:HDJ ?= {
 					is_subject_of = ROOT
 					OR = {
 						is_subject_type = subject_type_dependency
@@ -719,7 +732,7 @@ je_akkovin_reform_arabia = {
 						attitude = loyal
 					}
 				}
-				c:NEJ = {
+				c:NEJ ?= {
 					is_subject_of = ROOT
 					OR = {
 						is_subject_type = subject_type_dependency
@@ -730,7 +743,7 @@ je_akkovin_reform_arabia = {
 						attitude = loyal
 					}
 				}
-				c:JAB = {
+				c:JAB ?= {
 					is_subject_of = ROOT
 					OR = {
 						is_subject_type = subject_type_dependency

@@ -50,7 +50,16 @@ law_is_important = {
 						scope:law.type = law_type:law_private_schools
 						scope:law.type = law_type:law_religious_schools
 					}
-				}										
+				}
+				# Substances
+				AND = {
+					has_law = law_type:law_no_substances_regulation
+					OR = {
+						has_journal_entry = je_opium_obsession
+						has_journal_entry = je_prohibition
+					}
+					scope:law.type = law_type:law_substances_banned
+				}				
 			}
 		}
 		# Reactionary - this ai strategy sucks so much ass man, the AI is actually locked from ever going back to some of the worst laws in the game for its own sake (which is good) 
@@ -120,7 +129,16 @@ law_is_important = {
 						scope:law.type = law_type:law_outlawed_dissent
 						scope:law.type = law_type:law_censorship
 					}
-				}	
+				}
+				# Substances
+				AND = {
+					has_law = law_type:law_no_substances_regulation
+					OR = {
+						has_journal_entry = je_opium_obsession
+						has_journal_entry = je_prohibition
+					}
+					scope:law.type = law_type:law_substances_banned
+				}				
 			}
 		}
 		# Liberal

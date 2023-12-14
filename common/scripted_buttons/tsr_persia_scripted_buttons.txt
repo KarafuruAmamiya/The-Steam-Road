@@ -118,12 +118,10 @@ persian_renaissance_architecture = {
 		NOT = {
 			has_variable = persian_renaissance_architecture
 		}
-		NOT = {
-			any_scope_building = {
-				is_building_type = building_construction_sector
-				building_has_goods_shortage = yes
-				has_active_production_method = pm_wooden_buildings
-			}
+		any_scope_building = {
+			is_building_type = building_construction_sector
+			building_has_goods_shortage = no
+			NOT = { has_active_production_method = pm_wooden_buildings }
 		}
 		capital = {
 			any_scope_building = {
@@ -161,16 +159,19 @@ persian_renaissance_textile_arts = {
 			occupancy >= 0.9
 			level >= 25
 		}
-		any_market = {
-			count >= 10
-			NOT = { owner = root }
-			any_trade_route = {
-				exporter.owner = root
-				OR = {
-					goods = g:luxury_clothes
-					goods = g:clothes
+		custom_tooltip = {
+			text = persian_textile_tt
+			any_market = {
+				count >= 10
+				NOT = { owner = root }
+				any_trade_route = {
+					exporter.owner = root
+					OR = {
+						goods = g:luxury_clothes
+						goods = g:clothes
+					}
+					is_trade_route_productive = yes
 				}
-				is_trade_route_productive = yes
 			}
 		}
 	}

@@ -30,7 +30,6 @@
 			text = opium_ban_tt
 			is_banning_goods = opium
 		}
-		is_at_war = no
 		NOT = { has_law = law_type:law_no_substances_regulation }
 	}
 
@@ -45,13 +44,24 @@
 	}
 	
 	timeout = 5475
+	
+	on_timeout = {
+		hidden_effect = { remove_modifier = opium_wars_addiction_modifier }
+		add_modifier = {
+			name = opium_wars_addiction_modifier
+			months = long_modifier_time
+		}
+		add_radicals = {
+			value = large_radicals
+		}
+    }
 
 	current_value = {
 		value = root.var:opium_wars_completion_tracker
 	}
 
 	goal_add_value = {
-		add = 60 #5 years
+		add = 120 #10 years
 	}
 
 	progressbar = yes

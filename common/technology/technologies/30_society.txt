@@ -188,6 +188,12 @@ corporate_charters = {
 	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
 	category = society
 	
+	on_researched = {
+		ig:ig_industrialists = {
+			add_ideology = ideology_anti_slavery
+		}
+	}
+	
 	modifier = {
 		country_max_companies_add = 1
 	}	
@@ -1066,6 +1072,15 @@ pan-nationalism = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/pan_nationalism.dds"
 	category = society
+	
+	on_researched = {
+		if = {
+			limit = {
+				c:RAJ ?= this
+			}
+			set_immune_to_revolutions = no
+		}
+	}
 	
 	modifier = {
 		country_authority_mult = 0.1

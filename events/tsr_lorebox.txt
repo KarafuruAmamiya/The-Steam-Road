@@ -140,3 +140,11 @@ tsr_test.5 = {
 		set_capital = STATE_OBERPFALZ
 	}
 }
+
+tsr_test.6 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_journal_entry = { type = je_zandism_main }
+	}
+}

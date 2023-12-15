@@ -813,6 +813,13 @@ on_new_ruler = {
 			}
 			post_notification = new_ruler
 		}
+		if = {
+			limit = {
+				has_variable = is_mohammad_safavid
+			}
+			set_character_immortal = no
+			owner = { set_strategy = ai_strategy_progressive_agenda }
+		}
 	}
 }
 

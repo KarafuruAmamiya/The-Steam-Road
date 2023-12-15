@@ -751,6 +751,30 @@ ai_strategy_default = {
 				}
 				multiply = 0.1
 			}
+			
+			if = {
+				limit = {
+					OR = {
+						c:KRG ?= THIS
+						c:ACH ?= THIS
+						c:BNY ?= THIS
+						c:ANK ?= THIS
+						c:RWD ?= THIS
+						c:BUG ?= THIS
+					}
+					scope:target_state.owner = {
+						OR = {
+							c:KRG ?= THIS
+							c:ACH ?= THIS
+							c:BNY ?= THIS
+							c:ANK ?= THIS
+							c:RWD ?= THIS
+							c:BUG ?= THIS
+						}
+					}
+				}
+				add = 200
+			}
 
 			if = {
 				limit = {
@@ -1452,6 +1476,30 @@ ai_strategy_default = {
 			add = 3
 		}	
 		
+		if = {
+			limit = {
+				OR = {
+					c:KRG ?= THIS
+					c:ACH ?= THIS
+					c:BNY ?= THIS
+					c:ANK ?= THIS
+					c:RWD ?= THIS
+					c:BUG ?= THIS
+				}
+				scope:target_country = {
+					OR = {
+						c:KRG ?= THIS
+						c:ACH ?= THIS
+						c:BNY ?= THIS
+						c:ANK ?= THIS
+						c:RWD ?= THIS
+						c:BUG ?= THIS
+					}
+				}
+			}
+			add = 10
+		}
+		
 		# French Natural Borders
 		if = {
 			limit = {
@@ -1745,6 +1793,32 @@ ai_strategy_default = {
 				}
 			}
 			add = 50
+		}
+		
+		if = { #Ugandan aggression
+			limit = {
+				OR = {
+					c:KRG ?= THIS
+					c:ACH ?= THIS
+					c:BNY ?= THIS
+					c:ANK ?= THIS
+					c:RWD ?= THIS
+					c:BUG ?= THIS
+					c:BRD ?= THIS
+				}
+				scope:target_country = {
+					OR = {
+						c:KRG ?= THIS
+						c:ACH ?= THIS
+						c:BNY ?= THIS
+						c:ANK ?= THIS
+						c:RWD ?= THIS
+						c:BUG ?= THIS
+						c:BRD ?= THIS
+					}
+				}
+			}
+			add = 2
 		}
 
 		if = { #Persia vs India
@@ -2171,7 +2245,12 @@ ai_strategy_default = {
 		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
 			multiply = 0.35		
-		}		
+		}
+		
+		if = {
+			limit = { has_technology_researched = telephone }
+			multiply = 2.0
+		}
 
 		min = 1
 		max = 700 #VTM 1000
@@ -2475,7 +2554,7 @@ ai_strategy_default = {
 	# Which buildings should the AI subsidize
 	# Using a different value in a strategy will override this value
 	subsidies = {
-		building_power_plant = should_have
+		building_power_plant = must_have
 		building_railway = should_have
 		building_trade_center = should_have		
 	}
@@ -4792,6 +4871,30 @@ ai_strategy_default = {
 						}
 					}
 					add = 50
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							c:KRG ?= THIS
+							c:ACH ?= THIS
+							c:BNY ?= THIS
+							c:ANK ?= THIS
+							c:RWD ?= THIS
+							c:BUG ?= THIS
+						}
+						scope:target_country = {
+							OR = {
+								c:KRG ?= THIS
+								c:ACH ?= THIS
+								c:BNY ?= THIS
+								c:ANK ?= THIS
+								c:RWD ?= THIS
+								c:BUG ?= THIS
+							}
+						}
+					}
+					add = 200
 				}
 			
 			if = {

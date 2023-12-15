@@ -53,25 +53,6 @@ tsr_events_monthly = {
 		tsr_test.2
 		burmese_war.1
 	}
-	effect = {
-		if = {
-			limit = {
-				any_scope_character = {
-					has_variable = is_mohammad_safavid
-					is_ruler = yes
-					NOT = { has_variable = mortalize_sadiq }
-				}
-			}
-			random_scope_character = {	
-				limit = {
-					has_variable = is_mohammad_safavid
-				}
-				set_character_immortal = no
-				set_variable = mortalize_sadiq
-				owner = { set_strategy = ai_strategy_progressive_agenda }
-			}
-		}
-	}
 	# Al-Afghani
 	random_events = {
 		20 = 0

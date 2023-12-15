@@ -391,6 +391,20 @@ ai_strategy_territorial_expansion = {
 		if = {
 			limit = { 
 				OR = {
+					c:KRG ?= THIS
+					c:ACH ?= THIS
+					c:BNY ?= THIS
+					c:ANK ?= THIS
+					c:RWD ?= THIS
+					c:BUG ?= THIS
+				}
+			}
+			add = 20
+		}
+		
+		if = {
+			limit = { 
+				OR = {
 					country_is_in_europe = yes 
 					country_is_in_middle_east = yes
 				}

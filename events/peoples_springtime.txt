@@ -50,8 +50,8 @@ peoples_springtime.1 = {
 		random_interest_group = {
 			limit = {
 				OR = {
+					is_powerful = yes
 					is_insurrectionary = yes
-					ig_approval < -10 # ANGERY
 				}
 				OR = {
 					leader = { has_ideology = ideology:ideology_radical }

@@ -763,10 +763,11 @@ mobilization_option_aerial_recon = {
 	texture = "gfx/interface/icons/mobilization_options/aerial_reconaissance.dds"
 
 	possible = {
+		has_technology_researched = military_aviation
 		market ?= {
-			mg:aeroplanes ?= {
-				market_goods_sell_orders > 0
-			}
+			# mg:aeroplanes ?= {
+			# 	market_goods_sell_orders > 0
+			# }
 			mg:oil ?= {
 				market_goods_sell_orders > 0
 			}

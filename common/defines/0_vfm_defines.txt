@@ -91,10 +91,8 @@ NAI = {
 	MOBILIZATION_OPTION_GOODS_SHORTAGE_MULT = 0.1 #0.0			# Multiply value of mobilization option by this if there is a goods shortage of any of its input goods
 
 	HQ_DEFENSE_MIN_THEATER_SCORE = 20								# Theater of local HQ must have at least this importance score to have a minimum garrison
-	FRONT_IMPORTANCE_MIN_SCORE = 20 #50		
-	FRONT_IMPORTANCE_WHEN_IN_DISADVANTAGE_WEIGHT_MULT = 1.5 #1.2
 
-	MIN_GOVERNMENT_LEGITIMACY = 25 #50				# If legitimacy is below this, consider adding IGs we don't really like to the government
+	MIN_GOVERNMENT_LEGITIMACY = 50			# If legitimacy is below this, consider adding IGs we don't really like to the government
 	
 	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #2 # Scales with movement support for movement that wants to enact the law
 	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #6 # Scales with movement radicalism for movement that wants to enact the law
@@ -103,8 +101,6 @@ NAI = {
 	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
 	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
 	
-	PRODUCTION_BUILDING_DESIRED_INFRASTRUCTURE_SURPLUS = 2 #2 # If infrastructure 'surplus' in state is less than this, AI wants to improve it
-	PRODUCTION_BUILDING_FREE_INFRASTRUCTURE_TARGET_WHEN_LACKING_WORKFORCE = 5 #5 # When lacking workforce, the AI will stop building in the state once available infrastructure is this or less
 	PRODUCTION_BUILDING_EXCESSIVE_INFRASTRUCTURE_SURPLUS = 100 #10 # If infra 'surplus' in state is at least this, AI doesn't want to improve it
 }
 
@@ -123,7 +119,7 @@ NPolitics = {
 	SECESSION_COOLDOWN_YEARS = 5
 	
 	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.3 #0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
-	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.0015 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
+	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.001 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
 	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
 	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
@@ -381,6 +377,7 @@ NBattle = {
 NWar = {
 	OCCUPATION_STATE_DEFENSIVE_BATTLE_VICTORY_SCORE = 50 # How many occupation "points" each country receives after winning a defensive battle
 	OCCUPATION_STATE_CLEAR_OCCUPATION_FRACTION = 0.5 # Fraction of occupation score dedicated to clear occupation from your own States (if any).
+	WAR_EXHAUSTION_TURMOIL_FACTOR = 0.5 #2.0 # At 100% turmoil
 }
 
 NText = {

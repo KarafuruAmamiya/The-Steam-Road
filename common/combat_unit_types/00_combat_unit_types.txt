@@ -520,7 +520,7 @@ combat_unit_type_shrapnel_artillery = {
     }
 
     battle_modifier = {
-        unit_offense_add = 45
+        unit_offense_add = 50 #45
         unit_defense_add = 25
         unit_morale_loss_add = 6
         unit_kill_rate_add = 0.35
@@ -588,10 +588,10 @@ combat_unit_type_siege_artillery = {
     }
 
     battle_modifier = {
-        unit_offense_add = 55
+        unit_offense_add = 60 #55
         unit_defense_add = 30
         unit_morale_loss_add = 6
-        unit_kill_rate_add = 0.25
+        unit_kill_rate_add = 0.4 #0.25
         unit_devastation_mult = 0.2
     }
 
@@ -733,6 +733,7 @@ combat_unit_type_hussars = {
         combat_unit_type_dragoons
         combat_unit_type_cuirassiers
         combat_unit_type_lancers
+        combat_unit_type_light_tanks
     }
 }
 
@@ -758,7 +759,7 @@ combat_unit_type_dragoons = {
         #should get modifiers to mobile/surprise battle conditions appearing
     }
 
-	unlocking_technologies = { standing_army }
+	unlocking_technologies = { military_drill }
 
     combat_unit_image = {
         trigger = { 
@@ -796,6 +797,7 @@ combat_unit_type_dragoons = {
     upgrades = {
         combat_unit_type_cuirassiers
         combat_unit_type_lancers
+        combat_unit_type_light_tanks
     }
 }
 
@@ -821,7 +823,7 @@ combat_unit_type_cuirassiers = {
         unit_occupation_mult = 0.3
     }
 
-	unlocking_technologies = { standing_army }
+	unlocking_technologies = { military_drill }
 
     combat_unit_image = {
         trigger = { 
@@ -859,6 +861,7 @@ combat_unit_type_cuirassiers = {
     upgrades = {
         combat_unit_type_dragoons
         combat_unit_type_lancers
+        combat_unit_type_light_tanks
     }
 }
 
@@ -886,7 +889,7 @@ combat_unit_type_lancers = {
         unit_occupation_mult = 0.3
     }
 
-	unlocking_technologies = { standing_army }
+	unlocking_technologies = { napoleonic_warfare }
     
     combat_unit_image = {
         trigger = { 
@@ -924,6 +927,7 @@ combat_unit_type_lancers = {
     upgrades = {
         combat_unit_type_dragoons
         combat_unit_type_cuirassiers
+        combat_unit_type_light_tanks
     }
 }
 
@@ -1018,6 +1022,10 @@ combat_unit_type_monitor = {
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_monitor.dds"
     }
+
+    upgrades = {
+		combat_unit_type_destroyer
+	}
 }
 
 combat_unit_type_destroyer = {
@@ -1132,6 +1140,8 @@ combat_unit_type_man_o_war = {
 	
 	upgrades = {
 		combat_unit_type_ironclad
+        combat_unit_type_dreadnought
+        combat_unit_type_battleship
 	}
 }
 
@@ -1142,13 +1152,13 @@ combat_unit_type_ironclad = {
         goods_input_ironclads_add = 3
         goods_input_artillery_add = 3
         goods_input_ammunition_add = 3
-		unit_convoy_raiding_mult = -0.5
     }
 
     battle_modifier = {
         unit_offense_add = 50
         unit_defense_add = 50
         unit_morale_loss_add = 8
+        unit_convoy_raiding_mult = -0.5
     }
 
     formation_modifier = {
@@ -1160,6 +1170,11 @@ combat_unit_type_ironclad = {
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_ironclad.dds"
     }
+
+    upgrades = {
+		combat_unit_type_dreadnought
+        combat_unit_type_battleship
+	}
 }
 
 combat_unit_type_dreadnought = {
@@ -1170,13 +1185,13 @@ combat_unit_type_dreadnought = {
 		goods_input_artillery_add = 6
         goods_input_ammunition_add = 6
         goods_input_radios_add = 2    
-		unit_convoy_raiding_mult = -0.5
     }
 
     battle_modifier = {
         unit_offense_add = 80
         unit_defense_add = 80
         unit_morale_loss_add = 6
+        unit_convoy_raiding_mult = -0.5
     }
 
     formation_modifier = {
@@ -1188,6 +1203,10 @@ combat_unit_type_dreadnought = {
     combat_unit_image = {
         texture = "gfx/unit_illustrations/capital_ships_dreadnought.dds"
     }
+
+    upgrades = {
+		combat_unit_type_battleship
+	}
 }
 
 combat_unit_type_battleship = {
@@ -1198,13 +1217,13 @@ combat_unit_type_battleship = {
 		goods_input_artillery_add = 8
         goods_input_ammunition_add = 8
         goods_input_radios_add = 3
-		unit_convoy_raiding_mult = -0.5
     }
 
     battle_modifier = {
         unit_offense_add = 100
         unit_defense_add = 100
         unit_morale_loss_add = 4
+        unit_convoy_raiding_mult = -0.5
     }
 
     formation_modifier = {

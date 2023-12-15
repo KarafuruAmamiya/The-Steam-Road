@@ -244,6 +244,7 @@ edict_of_yazd_button = {
 						OR = { 
 							has_ideology = ideology:ideology_reformer
 							has_ideology = ideology:ideology_persian_constitutionalist  
+							has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 						}
 					}
 				}
@@ -275,6 +276,7 @@ edict_of_yazd_button = {
 							NOR = { 
 								has_ideology = ideology:ideology_reformer
 								has_ideology = ideology:ideology_persian_constitutionalist 
+								has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 							}
 						}
 					}
@@ -294,6 +296,7 @@ edict_of_yazd_button = {
 							NOR = { 
 								has_ideology = ideology:ideology_reformer
 								has_ideology = ideology:ideology_persian_constitutionalist 
+								has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 							}
 						}
 					}
@@ -310,6 +313,7 @@ edict_of_yazd_button = {
 							OR = {
 								has_ideology = ideology:ideology_reformer
 								has_ideology = ideology:ideology_persian_constitutionalist
+								has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 							}
 						}
 						law_stance = {
@@ -346,6 +350,43 @@ edict_of_yazd_button = {
 				name = outraged_over_yazd_edict_modifier
 				months = normal_modifier_time
 			}
+		}
+	}
+}
+
+incarcerate_zand_button = {
+	name = "incarcerate_zand_button"
+	desc = "incarcerate_zand_button_desc"
+
+	visible = { 
+		any_scope_character = {
+			has_template = per_mohammad_zand_character_template
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = PER_zandism_15_tt
+			var:zandism_je_var < 15
+		}
+	}
+
+	effect = {
+		trigger_event = { id = zandism_events.7 }
+		add_radicals = {
+			religion = rel:shiite
+			interest_group = ig:ig_devout
+			value = large_radicals
+		}
+		add_radicals = {
+			religion = rel:shiite
+			interest_group = ig:ig_petty_bourgeoisie
+			value = large_radicals
+		}
+		add_radicals = {
+			religion = rel:shiite
+			interest_group = ig:ig_rural_folk
+			value = large_radicals
 		}
 	}
 }

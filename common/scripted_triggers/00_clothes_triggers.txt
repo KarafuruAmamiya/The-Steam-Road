@@ -358,6 +358,8 @@ muslim_clothes_pop_trigger = {
   	scope:pop = {
 		religion = {
 			has_discrimination_trait = muslim
+			NOT = { has_discrimination_trait = christian }
+			NOT = { has_discrimination_trait = eastern }
 		}
 	}
 }
@@ -698,6 +700,8 @@ arabic_clothes_trigger = {
 				}
 				religion = {
 					has_discrimination_trait = muslim
+					NOT = { has_discrimination_trait = christian }
+					NOT = { has_discrimination_trait = eastern }
 				}
 			}
 			culture = cu:circassian

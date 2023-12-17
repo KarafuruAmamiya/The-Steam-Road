@@ -353,6 +353,7 @@
                             this = cu:korean
                             this = cu:japanese
                             this = cu:ainu
+                            this = cu:ryukyan
                         }
                         has_discrimination_trait = east_asian_heritage
                     }
@@ -392,7 +393,7 @@
                     culture = {
                         OR = {
                             this = cu:japanese
-                            this = cu:ainu
+                            this = cu:ryukyan
                         }
                     }
                 }
@@ -1597,6 +1598,7 @@
                             this = cu:korean
                             this = cu:japanese
                             this = cu:ainu
+                            this = cu:ryukyan
                         }
                         has_discrimination_trait = east_asian_heritage
                     }
@@ -4019,7 +4021,7 @@
                                 has_culture = cu:japanese
                                 monarchy_clothes_trigger = no
                             }
-                            has_culture = cu:ainu
+                            has_culture = cu:ryukyan
                         }
                     }
                 }
@@ -4481,6 +4483,7 @@ indian_royal_clothes = {
                     OR = {
                         culture = cu:inuit
                         culture = cu:siberian
+                        culture = cu:ainu
                         culture = cu:yakut
 						culture = cu:kamchatkan
 						culture = cu:yupik
@@ -5213,7 +5216,6 @@ chinese_upper_clothes = {
 						religion = rel:sunni
 						religion = rel:shiite
 						religion = rel:ibadi
-						religion = rel:zandism
 					}
 					is_ruler = no
                 }
@@ -6298,6 +6300,7 @@ buddhist_religious_clothes = {
                     military_clothes_trigger = yes
                     officers_clothes_pop_trigger = yes
                     soldier_clothes_pop_trigger = yes
+                    monarchy_clothes_trigger = yes
                     AND = {
                         armed_forces_clothes_trigger = yes
                         politician_clothes_trigger = yes
@@ -6309,54 +6312,14 @@ buddhist_religious_clothes = {
 							tsr_ottoman_leader_trigger = yes
 							tsr_persia_leader_trigger = yes
 						}
-                        exists = scope:character
-                        scope:character = {
-                            exists = home_country
-							home_country = {
-                                has_variable = adopt_western_uniforms
-                                any_primary_culture = {
-                                    OR = {
-                                        has_discrimination_trait = east_asian_heritage
-										has_discrimination_trait = south_asian_heritage
-										has_discrimination_trait = southeast_asian_heritage
-										has_discrimination_trait = malay_heritage
-										has_discrimination_trait = north_asian_heritage
-										has_discrimination_trait = mongol_heritage
-										has_discrimination_trait = arabic_heritage
-										has_discrimination_trait = iranian_heritage
-										has_discrimination_trait = turkic_heritage
-										has_discrimination_trait = aramaic_heritage
-                                    }
-                                }
-                            }
-                        }
+                        western_uniforms_trigger = yes
                     }
                     AND = {
 						NOR = {
 							tsr_ottoman_military_trigger = yes
 							tsr_persia_military_trigger = yes
 						}
-                        exists = scope:pop
-                        scope:pop = {
-                            exists = home_country
-							home_country = {
-                                has_variable = adopt_western_uniforms
-                                any_primary_culture = {
-                                    OR = {
-                                        has_discrimination_trait = east_asian_heritage
-										has_discrimination_trait = south_asian_heritage
-										has_discrimination_trait = southeast_asian_heritage
-										has_discrimination_trait = malay_heritage
-										has_discrimination_trait = north_asian_heritage
-										has_discrimination_trait = mongol_heritage
-										has_discrimination_trait = arabic_heritage
-										has_discrimination_trait = iranian_heritage
-										has_discrimination_trait = turkic_heritage
-										has_discrimination_trait = aramaic_heritage
-                                    }
-                                }
-                            }
-                        }
+                        western_uniforms_trigger = yes
                     }
                 }
             }

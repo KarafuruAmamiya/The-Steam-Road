@@ -71,22 +71,17 @@ zandism_events.1 = {
 	option = {
 		name = zandism_events.1.a
 		scope:zandism_state = {
-			# Already added when the Journal Entry activated, but we're going to remove it and add it again to make it visible to the player
-			hidden_effect = {
-				remove_modifier = zandism_spreading
-			}
 			add_modifier = {
 				name = zandism_spreading
 				months = short_modifier_time
 			}
-			convert_population = {
-				target = rel:zandism
-				value = 0.1
-			}
 			add_radicals_in_state = {
-				religion = rel:zandism
-				value = 1
+				religion = rel:shiite
+				value = large_radicals
 			}
+		}
+		add_journal_entry = {
+			type = je_rise_of_zandism
 		}
 	}
 }
@@ -171,13 +166,9 @@ zandism_events.2 = {
 				name = zandism_spreading
 				months = normal_modifier_time
 			}
-			convert_population = {
-				target = rel:zandism
-				value = 0.1
-			}
 			add_radicals_in_state = {
-				religion = rel:zandism
-				value = 1
+				religion = rel:shiite
+				value = large_radicals
 			}
 		}
 	}
@@ -250,18 +241,12 @@ zandism_events.3 = {
 		else_if = {
 			limit = {
 				any_scope_state = {
-					any_scope_pop = {
-						religion = rel:zandism
-					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
 				}
 			}
 			random_scope_state = {
 				limit = {
-					any_scope_pop = {
-						religion = rel:zandism
-					}
 					has_variable = zandism_center
 					radical_fraction = { value >= 0.15 }
 				}
@@ -275,6 +260,9 @@ zandism_events.3 = {
 			on_created = {
 				ig:ig_petty_bourgeoisie = {
 					set_interest_group_name = ig_bazaari
+					remove_ideology = ideology_patriotic
+					add_ideology = ideology_bazaari_patriotic
+					add_ideology = ideology_pious
 				}
 				ig:ig_devout = {
 					set_interest_group_name = ig_zandism_madrasahs
@@ -561,14 +549,6 @@ zandism_events.4 = {
 			set_state_owner = c:PER #Just in case.
 			set_state_type = incorporated
 		}
-		random_scope_pop = {
-			limit = {
-				religion = rel:zandism
-			}
-			religion = {
-				save_scope_as = zandism_scope
-			}
-		}
 		root = {
 			save_scope_as = persia_scope
 		}
@@ -584,47 +564,15 @@ zandism_events.4 = {
 			name = zandi_rebellion_aftermath
 			months = long_modifier_time
 		}
-		custom_tooltip = {
-			text = mass_reconversion_tt
-			every_scope_state = {
-				limit = {
-					any_scope_pop = {
-						religion = rel:zandism
-					}
-				}
-				add_religion_standard_of_living_modifier = {
-					religion = rel:zandism
-					multiplier = -3
-				}
-				every_scope_pop = {
-					limit = {
-						religion = rel:zandism
-					}
-					change_pop_religion = {
-						target = rel:shiite value = 0.5
-					}
-				}
-				every_scope_pop = {
-					limit = {
-						NOR = { 
-							religion = rel:zandism 
-							religion = rel:shiite 
-						}
-					}
-					change_pop_religion = {
-						target = rel:shiite value = 0.1
-					}
-				}
-				state_region = {
-					add_devastation = {
-						value = 0.2
-					}
-				}
-			}
+		add_radicals = {
+			value = large_radicals
+			religion = rel:shiite
 		}
-		create_incident = {
-			country = root
-			value = 20
+		every_scope_state = {
+			add_modifier = {
+				name = police_crackdown
+				months = normal_modifier_time
+			}
 		}
 	}
 	option = { # Limit the purge to religious institutions
@@ -634,7 +582,7 @@ zandism_events.4 = {
 			months = long_modifier_time
 		}
 		add_radicals = {
-			value = 0.2
+			value = large_radicals
 			religion = rel:shiite
 		}
 		scope:devout_scope = {
@@ -760,6 +708,167 @@ zandism_events.5 = {
 		add_modifier = {
 			name = modifier_second_jihad
 			months = long_modifier_time
+		}
+	}
+}
+
+# Zand's Sermons
+zandism_events.6 = {
+	type = country_event
+	placement = scope:khuzestan_scope
+
+	title = zandism_events.6.t
+	desc = zandism_events.6.d
+	flavor = zandism_events.6.f
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	immediate = {
+		set_variable = { name = zandism_je_var value = 15 }
+		set_variable = je_zandism_start
+		random_scope_character = {
+			limit = { has_variable = mohammad_zand }
+			save_scope_as = zand_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KHUZESTAN
+			}
+			save_scope_as = khuzestan_scope
+		}
+	}
+	option = {
+		name = zandism_events.6.a
+		scope:khuzestan_scope = {
+			add_radicals_in_state = {
+				value = medium_radicals
+				religion = rel:shiite
+			}
+		}
+	}
+}
+
+# Persecuting Mohammad Zand
+zandism_events.7 = {
+	type = country_event
+	placement = scope:isfahan_scope
+
+	title = zandism_events.7.t
+	desc = zandism_events.7.d
+	flavor = zandism_events.7.f
+
+	event_image = {
+		video = "votp_hostile_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	immediate = {
+		random_scope_character = {
+			limit = { has_variable = mohammad_zand }
+			save_scope_as = zand_scope
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ISFAHAN
+			}
+			save_scope_as = isfahan_scope
+		}
+	}
+	option = {
+		name = zandism_events.7.a #Execute him
+		scope:zand_scope = {
+			kill_character = yes
+		}
+		add_radicals = {
+			interest_group = ig:ig_devout
+			religion = rel:shiite
+			value = very_large_radicals
+		}
+		add_radicals = {
+			interest_group = ig:ig_petty_bourgeoisie
+			religion = rel:shiite
+			value = large_radicals
+		}
+		add_radicals = {
+			interest_group = ig:ig_rural_folk
+			religion = rel:shiite
+			value = large_radicals
+		}
+	}
+	option = {
+		name = zandism_events.7.b #Exile him, and never allow him to return to Persia
+		scope:zand_scope = {
+			exile_character_with_martyrdom = yes
+		}
+		custom_tooltip = {
+			text = theocrat_agitators_tt
+			set_variable = exiled_zand
+		}
+	}
+}
+
+# Zandism movement defeated
+zandism_events.8 = {
+	type = country_event
+	placement = ROOT
+	
+	title = zandism_events.8.t
+	desc = zandism_events.8.d
+	flavor = zandism_events.8.f
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	duration = 3
+
+	#dlc = dlc008
+	
+	trigger = {
+
+	}
+
+	immediate = {
+		ig:ig_devout = {
+			save_scope_as = devout_ig
+		}
+	}
+
+	option = {
+		name = zandism_events.8.a
+		default_option = yes
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_landowners
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+	}
+
+	option = {
+		name = zandism_events.8.b
+		add_modifier = {
+			name = squashed_zandism
+			months = normal_modifier_time
 		}
 	}
 }

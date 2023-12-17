@@ -14,16 +14,28 @@
  persia_abolished_monarchy_tt: "Successfully concluded the #BOLD Stamp Out Monarchism#! Journal Entry"
  
  #Zandi Rebellion
+ je_zandism_main: "Shadow of the Imam"
+ je_zandism_main_reason: "[ROOT.GetCountry.GetName]'s rapid modernization and radical reforms has alienated many former loyalists of the country. Among them is #BOLD Sheikh Mohammad Hussain Zand#!, a Shiite cleric who was excommunicated after declaring himself a representative of the Imam. Yet, Zand's appeal and promises to 'fight for the suppressed ummah' has won over the heart of the common, impoverished people. If we do not address the underlying issues, we may face an upheaval.\n\n#bold Zandism#! unrest is expected to progress by #tooltippable;tooltip:[Country.GetTooltipTag],je_zandism_main_special_tooltip [Country.MakeScope.Var('zandism_progress_var_next').GetValue|-=]#! next month"
+ je_zandism_main_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('zandism_progress_from_radicals').GetValue|-=]#! from [Concept('concept_state', '$concept_states$')] in [concept_turmoil]\n#variable [Country.MakeScope.Var('zandism_progress_from_unemployment').GetValue|-=]#! from [Concept('concept_state', '$concept_states$')] with [Concept('concept_unemployed','$concept_unemployment$')]\n#variable [Country.MakeScope.Var('zandism_progress_from_poverty').GetValue|-=]#! from states with [concept_sol] under expected\n#variable [Country.MakeScope.Var('zandism_progress_from_loyalists').GetValue|-=]#! from [Concept('concept_state', '$concept_states$')] with [Concept('concept_loyalist','$concept_loyalists$')]\n#variable [Country.MakeScope.Var('zandism_progress_from_laws').GetValue|-=]#! from #bold Home Affairs#! and #bold Policing#! [Concept('concept_law','$concept_laws$')] and [Concept('concept_institution', '$concept_institutions$')]\n#variable [Country.MakeScope.Var('zandism_progress_from_devout').GetValue|-=]#! from [concept_clout] of the #bold Devout#!\n#variable [Country.MakeScope.Var('zandism_progress_from_characters').GetValue|-=]#! from popularity of #bold Mohammad Hussain Zand#! and other #bold Traditionalist#! or #bold Theocrat#! [Concept('concept_character', '$concept_characters$')]\n#variable [Country.MakeScope.Var('zandism_progress_var_add').GetValue|-=]#! from other effects"
+ 
+ PER_zandism_100_tt: "The #variable Zandism Unrest#! progress bar has reached #variable 100%#!"
+ PER_zandism_0_tt: "The #variable Zandism Unrest#! progress bar has reached #variable 0%#!"
+ no_zand_tt: "Mohammad Hussain Zand is either dead or exiled."
+ incarcerate_zand_button: "Incarcerate Mohammad Zand"
+ incarcerate_zand_button_desc: "With the Zandism movement waning, this is our chance to bring Mohammad Zand into trial and put this case into rest."
+ PER_zandism_15_tt: "The #variable Zandism Unrest#! progress bar is less than #variable 15%#!"
+ theocrat_agitators_tt: "As long as Mohammad Zand is still alive overseas, we will receive more Theocrat and Traditionalist agitators or leaders."
+ 
  je_rise_of_zandism: "Rise of Zandism"
  je_rise_of_zandism_reason: "Dangerous radical heretics are inspiring dissent across the nation. They pose an extreme threat; if they can rally enough people to their beliefs, they will attempt to overthrow our rightful government. These madmen must be stopped at all costs."
- rejected_zand_tt: "Mohammad Hussain Zand has appeared and we have rejected him."
  zand_appears_tt: "Mohammad Hussain Zand has appeared."
  zandism_spreading: "Spread of Zandism"
+ zandism_spread_begin_tt: "The Zandism movement will begin spreading."
  
- zandism_events.1.t: "Rise of Zandism Movement"
- zandism_events.1.d: "A reactionary movement to the recent upheavals in our country, #BOLD Sheikh Mohammad Hussain Zand#!'s strange dogma in [SCOPE.sState('zandism_state').GetName] has recently gained popular traction. After declaring himself a representative of the Imam, Zand was excommunicated by the [SCOPE.gsInterestGroup('devout_scope').GetName], yet his number of followers continue to grow with each passing days."
- zandism_events.1.f: ""O faithful brethren. Our motherland, Iran, has been tainted by the influences of the #italic kuffaar#! for far too long. They seek to weaken our spirit and faith by distorting our beliefs through the allure of heretical ideals and superstitions. Let us cast off the shackles of decadence and once again shine as a beacon of righteousness in the world!""
- zandism_events.1.a: "Curious, and concerning."
+ zandism_events.1.t: "The Zandism Movement"
+ zandism_events.1.d: "The movement started by #BOLD Sheikh Mohammad Zand#! has begun spiraling out of control. Transcending mere ideological discourse, it has transformed into a volatile crucible of unrest, with whispers of discontent echoing through the bazaars and the shaded alleys. Radicalizing messages, disseminated through pamphlets, newspapers, and clandestine networks, found resonance among the disenchanted population."
+ zandism_events.1.f: ""O faithful brethren. Our motherland, Iran, has been tainted by the influences of the #italic kuffaar#! for far too long. They seek to weaken our spirit and faith by distorting our beliefs through the allure of heretical ideals and superstitions. We must cast off the shackles of decadence and once again shine as a beacon of righteousness in the world!""
+ zandism_events.1.a: "This cannot continue!"
  
  zandism_events.2.t: "Spread of Zandism Movement in [SCOPE.sState('zandism_growth_state').GetName]"
  zandism_events.2.d: "The teachings of #BOLD Sheikh Mohammad Zand#! has managed to attract a sizable following in [SCOPE.sState('zandism_growth_state').GetName], filled with people eager to return to the "true" principles of Islam as they saw it."
@@ -31,7 +43,7 @@
  zandism_events.2.a: "This cannot be a good thing."
  
  zandism_events.3.t: "Zandism Followers Declares a Jihad!"
- zandism_events.3.d: "Zandism fanatics have risen up against us in response to our suppression policies, declaring a 'defensive jihad' authorized by their so-called Imam. They have established [SCOPE.sState('islamic_state_spawn').GetName] as their base of operations and will shortly seize other states where their followers has a presence."
+ zandism_events.3.d: "Zandism fanatics have risen up against us in response to our suppression policies, declaring a 'defensive jihad' authorized by their so-called representative of the Imam. They have established [SCOPE.sState('islamic_state_spawn').GetName] as their base of operations and will shortly seize other states where their followers has a presence."
  zandism_events.3.f: ""May Allah bless our righteous cause, may He guide our steps, and may He grant us victory in our struggle. Stand with me, my brethren, as we march towards a new future for our beloved motherland, a future where our land is free from the chains of oppression!""
  zandism_events.3.a: "We will crush them utterly!"
  zandism_events.3.b: "Allahu Akbar!"
@@ -39,8 +51,7 @@
  zandism_events.4.t: "Aftermath of Zandi Rebellion"
  zandism_events.4.d: "The Islamic State and the Zandism cult has been defeated. We must decide how to handle the aftermath of the rebellion; supporters of the beliefs are still active any may still cause trouble for us in the future."
  zandism_events.4.f: ""The fake Imam has been beheaded and burned. His ashes have been fired from a cannon. He will find no eternal rest, for he has disgraced Allah and our nation. He has been destroyed utterly, as will be the fate of all who oppose us.""
- zandism_events.4.a: "Massacre the remaining heretics."
- mass_reconversion_tt: "#variable Launch a purge and mass-conversions of [SCOPE.sReligion('zandism_scope').GetName] [Concept('concept_pop', '$concept_pops$')] in [SCOPE.sCountry('persia_scope').GetName]. This may inadvertedly affect non-Shiites!"
+ zandism_events.4.a: "Crack down on the heretics."
  zandism_events.4.b: "[SCOPE.gsInterestGroup('devout_scope').GetName] must take the blame."
  
  zandism_events.5.t: "Birth of a New Iran"
@@ -50,6 +61,24 @@
  zandism_events.5.a: "Prioritize spreading the words of Sheikh Mohammad Zand to the people."
  zandism_events.5.b: "We shall prepare to wage jihads anew against all infidels."
  
+ zandism_events.6.t: "The Sermons of Sheikh Mohammad Zand"
+ zandism_events.6.d: "[SCOPE.sCharacter('zand_scope').GetFullName]'s banishment by the mullahs has not stopped him from continuing his preachings, starting in his home region of [SCOPE.sState('khuzestan_scope').GetName]. His ideas were readily accepted, and to make a move against such a popular figure would only cause more unrest. Our only chance is to suppress Zand's growing movement and dispose of him when the opportunity arise."
+ zandism_events.6.f: ""Our rulers, blinded by the allure of liberalism, have betrayed our heritage. The reforms were meant to bring prosperity, but look at us now. Our people are struggling amidst their decadence, and our pride has been sunk to the bottom of the sea!" Zand declared, his eyes sweeping across the faces in the crowd. "But we, the common people, we hold the power to reclaim our glory! Iran can only rise again if we rediscover the values that once made us great.""
+ zandism_events.6.a: "We cannot let this heretic do whatever he wants!"
+ 
+ zandism_events.7.t: "The Incarceration of Mohammad Zand"
+ zandism_events.7.d: "With the waning of [SCOPE.sCharacter('zand_scope').GetFullName]'s influence, the Majlis has taken this opportunity to end [SCOPE.sCharacter('zand_scope').GetLastName]'s insurrectionary thoughts for once and all."
+ zandism_events.7.f: "On [TimeKeeper.GetCurrentDate.GetString], [SCOPE.sCharacter('zand_scope').GetFullName]'s trial became a spectacle that drew attention from both the court and the general population. His eloquence and passionate defense of the principles he believed in resonated with those present, sparking sympathy and admiration among onlookers. Despite the fervor surrounding Zand's defense, the court, determined to suppress dissent, handed down a harsh sentence:"
+ zandism_events.7.a: "Execute him!"
+ zandism_events.7.b: "Never shall he set foot in Iran again."
+ 
+ zandism_events.8.t: "End of the Zandism Movement"
+ zandism_events.8.d: "With the combination of social institutions, responsive governance, and the removal of Mohammad Zand from Iranian soil, the Zandism movement has largely waned. Although some radicals may still exists and the influences of Zand's teaching would continue to be felt, we have at least averted the worst insurrectionary scenario."
+ zandism_events.8.f: ""The Zandism movement, born from the crucible of discontent and pushback against enroaching foreign values, has revealed deep fault lines within our society. It is a call to action, a reminder that the pursuit of enlightenment must not come at the cost of our cultural identity, and that progress must have tangible benefits to even the lowest of commoners.""
+ zandism_events.8.a: "Reason has once again prevailed."
+ zandism_events.8.b: "Focus on calming down the masses."
+ squashed_zandism: "Zandism Movement Squashed"
+ 
  je_zandi_rebellion: "Zandi Rebellion"
  je_zandi_rebellion_status: "Defeat the rebellion of the Islamic State."
  je_zandi_rebellion_reason: "Fanatics have risen up against our god-ordained rule! Their rebellion must be utterly crushed."
@@ -57,8 +86,8 @@
  safavids_destroyed: "[SCOPE.sCountry('islamic_state_scope').GetName] does not exist"
  dp_zandi_rebellion: "Zandi Rebellion"
  dp_zandi_rebellion_tooltip: "Start a $dp_zandi_rebellion$ [concept_diplomatic_play]"
- zandi_rebellion_criteria_1: "At least three of the following is true:\n- Increasing #BOLD secularization#! of the country\n- Increasing tolerance of #BOLD heathens and heretics#!\n- Increasing tolerance of #BOLD minority groups#!\n- Increasing incidents of #BOLD religious conflicts#!\n- We are supporting the #BOLD Constitutional Reformation#!\n- We are currently suppressing the [SCOPE.gsInterestGroup('ig_devout').GetName]\n- The approval of the [SCOPE.gsInterestGroup('ig_devout').GetName] is at or below #red 10#!"
- zandi_rebellion_criteria_2: "At least three of the following is true:\n- We have the #BOLD Eclipse of Persia#! [concept_journal_entry]\n- Over #BOLD 15%#! of our Persian pops are radicals\n- We are in #BOLD default#!\n- Our [concept_legitimacy] is below #30#!\n- We are in a [concept_customs_union] under another country\n- Rampant #BOLD poverty#! in our country\n- Rampant #BOLD turmoil#! in our country\n- We have enacted [GetLawType('law_freedom_of_conscience').GetName], [GetLawType('law_shared roots').GetName], [GetLawType('law_total_separation').GetName], or [GetLawType('law_multicultural').GetName]"
+ zandi_rebellion_criteria_1: "At least three of the following is true:\n- Increasing #BOLD secularization#! of the country\n- Increasing tolerance of #BOLD heathens and heretics#!\n- We are currently suppressing the [SCOPE.gsInterestGroup('ig_devout').GetName]\n- The approval of the [SCOPE.gsInterestGroup('ig_devout').GetName] is at or below #red 10#!\n- The leader of the [SCOPE.gsInterestGroup('ig_devout').GetName] has the #BOLD Persian Constitutionalist#! or #BOLD Reformer#! ideology"
+ zandism_tolerated_heathens_tt: "We have taken a more tolerant stance towards heathens"
  
  zandi_rebellion_modifier: "Zandi Revolution"
  zandi_revolution_modifier: "Jihad Through Revolution"
@@ -83,7 +112,7 @@
  je_constitutional_reformation: "Constitutional Reformation"
  je_constitutional_reformation_reason: "Inspired by the ideals of the 1780 Revolution and driven by a coalition of intellectuals, clergy, merchants, and ordinary citizens, the Constitutionalist movement has risen to demand a new constitution with a representative government and greater political freedoms."
  je_constitutional_reformation_goal: "The following reforms has been enacted for 10 years without any revolts:"
- zandi_rebellion_begins_tt: "We failed to prevent the #bold Zandi Rebellion#!"
+ lost_zandi_rebellion_tt: "We failed to quell the #bold Zandi Rebellion#!"
  clerical_conflict_tt: "The clergy will no longer support the Reformation!"
  reformed_constitution: "Reformed Constitution"
  constitutional_reformation: "Constitutional Reformation"
@@ -93,16 +122,16 @@
  je_constitutional_reformation_fail: "The #bold Progress Bar#! has reached #bold 0#!"
  
  edict_of_yazd_button: "Issue the Edict of Yazd"
- edict_of_yazd_button_desc: "The championing of the rights of various religious groups has been a part of reformist agenda in Iran ever since the 1750 Revolution.\n\nShould [ROOT.GetCountry.GetName] find itself with an #bold Persian Constitutionalist#! or #bold Reformer#! [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] leader, or should the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] be under sufficient control, the enactment of religious rights could be expedited greatly, although at a cost."
+ edict_of_yazd_button_desc: "Championing of the rights of various religious groups has been a part of reformist agenda in Iran ever since the 1750 Revolution.\n\nShould [ROOT.GetCountry.GetName] find itself with an #bold Persian Constitutionalist#! or #bold Reformer#! [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] leader, or should the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] be under sufficient control, the enactment of religious rights could be expedited greatly, although at a cost."
  edict_of_yazd_button_tt: "Instantly passes the law [GetLawType('law_freedom_of_conscience').GetName] at the cost of infuriating any traditionalist [Concept('concept_interest_group', '$concept_interest_groups$')]."
  edict_of_yazd_button_tt_2: "[concept_enactment_phase] is greater or equal to #bold 1#!"
- suppressed_devout_tt: "The [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] is not part of the government, is being suppressed, and has less clout than #bold 20%#!"
  outraged_over_yazd_edict_modifier: "Outraged Over Edict of Yazd"
  
  refused_reforms: "Refused to Reform"
  
- persian_flavor.7.t: "Rise of Constitutionalist Movements"
- persian_flavor.7.d: "Beginning in the mid-19th century, the rise of the reform-minded and modernization-oriented [ROOT.GetCountry.GetRuler.GetFullName] to the Sun Throne has opened opportunities for reformists to gain prominence in the politics of [ROOT.GetCountry.GetName]. Viewing many of the remaining 'backwards' institutions in Iran as a 'national disgrace', various groups has lobbied for a full-on reformation of the constitution, including those promised in the 1750 Revolution but hasn't been enacted."
+ persian_flavor.7.t: "Path to Constitutionalism"
+ persian_flavor.7.d1: "Beginning in the mid-19th century, the rule of the reform-minded and modernization-oriented [ROOT.GetCountry.GetRuler.GetFullName] has opened opportunities for reformists to gain prominence in the politics of [ROOT.GetCountry.GetName]. Viewing many of the remaining 'backwards' institutions in Iran as a 'national disgrace', various groups has lobbied for a full-on reformation of the constitution, including those promised in the 1750 Revolution but hasn't been enacted."
+ persian_flavor.7.d2: "Beginning in the mid-19th century, various groups has lobbied for a full-on reformation of the constitution, including those promised in the 1750 Revolution but hasn't been enacted. Despite various pushback, the movement is poised to play a major role in our politics, and it is up to us to support it or not."
  persian_flavor.7.f: "Iran may have been considered 'civilized' and recognized by Western countries, but the lack of women's rights, limited democratic reforms, remaining vestigial institutions such as slavery and harem, along with the lack of regulations amidst rapid industrialization has led to an outcry among various academic, clerical, and mercantile classes. They believe it is not enough to be a recognized world power; [ROOT.GetCountry.GetName] must stand as an equal among the Western powers of the world politically and socially."
  persian_flavor.7.a: "It's time for a radical change."
  
@@ -116,7 +145,7 @@
  
  persian_flavor.27.t: "The Role of Islam in the New Constitution"
  persian_flavor.27.d: "The drafting of the new constitution has been met with concern from certain members of the [SCOPE.gsInterestGroup('devout_scope').GetName] who demands that its content should not go against Islam. In particular, they proposed the establishment of a council of 5 high ranking Twelver Shia clerics tasked to make sure the laws passed by the parliament are not against religious codes, and that the constitution must explicitly state that Islam is the official religion of [ROOT.GetCountry.GetName]."
- persian_flavor.27.f: ""It is concerning that the new laws proposed by the Majlis and the Shah must be borrowed from Western countries whose code and teachings are completely different from ours. To preserve the dignity of the Shi'ite state, it is necessary that the new constitution preserves the ordinances of Islam and for our mullahs to oversee the Majlis.""
+ persian_flavor.27.f: ""It is concerning that the new laws proposed by the Majlis and the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] must be borrowed from Western countries whose code and teachings are completely different from ours. To preserve the dignity of the Shi'ite state, it is necessary that the new constitution preserves the ordinances of Islam and for our mullahs to oversee the Majlis.""
  persian_flavor.27.a: "Our constitution must not deviate from the teachings of Quran."
  persian_flavor.27.b: "Secularization is the key to modernization."
  shia_clerics_committee: "Committee of Shia Clerics"
@@ -124,8 +153,9 @@
  
  persian_flavor.31.t: "The New Tyranny"
  persian_flavor.31.d: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état against [ROOT.GetCountry.GetRuler.GetFullName]. Supported mainly by the disgruntled [SCOPE.gsInterestGroup('landowners_scope').GetName], the contender to the throne, Jafar I, has toppled [ROOT.GetCountry.GetRuler.GetFirstName] and planted himself on the Sun Throne, before declaring an absolutist martial law and disbanding the parliament."
- persian_flavor.31.d2: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état by the disgruntled [SCOPE.gsInterestGroup('landowners_scope').GetName]. [ROOT.GetCountry.GetRuler.GetFullName] was deposed from rule, while a representative from the [SCOPE.gsInterestGroup('landowners_scope').GetName] has installed a martial law promising to return absolutist rule to Iran."
- persian_flavor.31.d3: "The failure of the reforms, the severe antagonism towards the Reformation from traditionalist clerics and landed elites, and the Zandi Rebellion has led to widespread dissatisfaction against [ROOT.GetCountry.GetRuler.GetFullName]. In the midst of the chaos, [ROOT.GetCountry.GetRuler.GetFullName] was deposed and the [SCOPE.gsInterestGroup('landowners_scope').GetName] has declared martial law, justifying it as a 'temporary measure' to crush the Zandism revolt."
+ persian_flavor.31.d2: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état by the disgruntled [SCOPE.gsInterestGroup('devout_scope').GetName]. [ROOT.GetCountry.GetRuler.GetFullName] was deposed from rule, while a representative from the [SCOPE.gsInterestGroup('devout_scope').GetName] has installed a martial law promising to return theocratic rule to Iran."
+ persian_flavor.31.d3: "The failure of the reforms, the severe antagonism towards the Reformation from traditionalist clerics and landed elites, and the fragmentation caused by the Zandi Rebellion has led to widespread dissatisfaction against [ROOT.GetCountry.GetRuler.GetFullName]. In the midst of the chaos, [ROOT.GetCountry.GetRuler.GetFullName] was deposed and a martial law has been declared, justifying it as a 'temporary measure' to crush the Zandism revolt."
+ persian_flavor.31.d4: "The failure of the reforms, along with severe antagonism towards the Reformation from traditionalist clerics and landed elites has led to a coup d'état by the disgruntled [SCOPE.gsInterestGroup('devout_scope').GetName]. [ROOT.GetCountry.GetRuler.GetFullName] was deposed from rule, while a representative from the [SCOPE.gsInterestGroup('devout_scope').GetName] has installed a martial law which sealed Iran's fate in dictactorship."
  persian_flavor.31.f: ""The people have thrown out the law of the Prophet and have set up their own law instead. What is currently happening to Iran can be summed as divine punishment for our neglect and ruin of the Shiʿite state.""
  persian_flavor.31.a: "Long live Shah Jafar!"
  persian_flavor.31.b: "These measures will return us to the right path!"
@@ -158,7 +188,8 @@
  persian_renaissance_architecture_button: "Urbanization and Architecture"
  persian_renaissance_architecture_button_desc: "In the 19th century, cultural exchange with the West and the rise of larger cities has led to a new a new architectural movement combining European neoclassical styles with traditional Iranian styles."
  persian_renaissance_textile_arts_button: "Textile Arts"
- persian_renaissance_textile_arts_button_desc: "Although Western clothing influences became more and more prevalent, it is still our duty to exude the pride and ancient glory of the Persian Empire through elements of traditional dress and carpetry. Let us expand our textile industries and show the majesty of Persian textile to the world."
+ persian_renaissance_textile_arts_button_desc: "Although Western clothing influences became more and more prevalent, it is still our duty to exude the pride and ancient glory of the Persian Empire through elements of traditional dress and carpetry. Let us expand our textile industries and show the majesty of Iran's textiles to the world."
+ persian_textile_tt: "We are exporting Clothes or Luxury Clothes to at least 10 [concept_market]."
  persian_renaissance_romantic_nationalism_button: "Romantic Nationalism"
  persian_renaissance_romantic_nationalism_button_desc: "As nationalism continue to develop, the idea of an Iranian nation state became more and more widespread. Several modernists chose a narrative where the pre-Islamic era was glorified, while others prefer a nation that adheres to Islamic laws. No matter which narrative we adopt, we shall be more united than ever before."
  adopted_blasphemous_ideals: "Blasphemous Ideals Adopted"
@@ -314,8 +345,8 @@
  persian_flavor.23.a: "They calmly stepped forward and..."
  
  persian_flavor.24.t: "Death of the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]"
- persian_flavor.24.d: "The [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] has been assassinated by the Bábís! As [SCOPE.sCharacter('new_ruler_scope').GetFullName] rose to the throne, outrage spread among the government and clergy demanding comeuppance for the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s death. However, [SCOPE.sCharacter('new_ruler_scope').GetFirstName] seems reluctant to collectively punish the Bábís."
- persian_flavor.24.f: ""I am well aware of the sentiments that pervade the court and the public. The Bábis are viewed with suspicion and fear. But I question the wisdom of punishing an entire community of people for the actions of a few, even if said action led to the demise of my father. Are we not to be a nation that upholds justice and fairness?""
+ persian_flavor.24.d: "The [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] has been assassinated by the Bábís! As [SCOPE.sCharacter('new_ruler_scope').GetFullName] rose to power, outrage spread among the government and clergy demanding comeuppance for the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle]'s death. However, [SCOPE.sCharacter('new_ruler_scope').GetFirstName] seems reluctant to collectively punish the Bábís."
+ persian_flavor.24.f: ""I am well aware of the sentiments that pervade the government and the public. The Bábis are viewed with suspicion and fear. But I question the wisdom of punishing an entire community of people for the actions of a few, even if said action led to the demise of my father. Are we not to be a nation that upholds justice and fairness?""
  persian_flavor.24.a: "We will teach those Bábís a lesson anyway!"
  persian_flavor.24.b: "[SCOPE.sCharacter('new_ruler_scope').GetFirstName] has a point."
  babi_massacre_tt: "This will lead to a massacre of the Bábís!"
@@ -372,8 +403,12 @@
  
  opium_wars.10.t: "Popular Support for the Opium War"
  opium_wars.10.d: "Blaming the increasing issue of addictions, drug trafficking, and rising turmoil in [ROOT.GetCountry.GetName] on the Persian opium smuggling, [ROOT.GetCountry.GetAdjectiveNoFormatting] citizens rose in support over the so-called 'Opium Crusade'."
- opium_wars.10.f: ""Today, I stand before you to shed a light on a threat that concerns not only our great [ROOT.GetCountry.GetName] but the entire civilized world. The wicked Persians has ruthlessly inundated us with their treacherous poison, bringing devastation and ruin upon our people. This menace, bought from the distant shores, has ensnared the innocent, corrupted the pure, and shattered families with its nefarious grip. Thus, we, with God's blessing, embark on this mission not only to save our people, but to guide the [SCOPE.sCountry('opium_wars_target_country').GetAdjective] back to the path of virtue and progress within our benevolent light.""
- opium_wars.10.a: "May our actions bring enlightenment to [SCOPE.sCountry('opium_wars_target_country').GetAdjective]."
+ opium_wars.10.f: ""Today, I stand before you to shed a light on a threat that concerns not only our great [ROOT.GetCountry.GetName] but the entire civilized world. The wicked Persians has ruthlessly inundated us with their treacherous poison, bringing devastation and ruin upon our people. This menace, bought from the distant shores, has ensnared the innocent, corrupted the pure, and shattered families with its nefarious grip. Thus, we, with God's blessing, embark on this mission not only to save our people, but to guide the [SCOPE.sCountry('opium_wars_target_country').GetAdjectiveNoFormatting] back to the path of virtue and progress within our benevolent light.""
+ opium_wars.10.a: "May our actions bring enlightenment to [SCOPE.sCountry('opium_wars_target_country').GetAdjectiveNoFormatting]."
+ 
+ opium_obsession_pm.tt: "This will greatly increase the progress in the Opium Obsession Journal Entry."
+ opium_obsession_weak_pm.tt: "This will increase the progress in the Opium Obsession Journal Entry."
+ opium_obsession_bad_pm.tt: "This will decrease the progress in the Opium Obsession Journal Entry."
  
  # Miscellanous
  je_trans_iranian_railway: "The Trans-Iranian Railway"

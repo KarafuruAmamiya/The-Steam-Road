@@ -1,72 +1,155 @@
-﻿je_rise_of_zandism = {
-	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+﻿je_zandism_main = {
+	icon = "gfx/interface/icons/religion_icons/zandism.dds"
+
 	group = je_group_tsr_content
+	
+	scripted_button = incarcerate_zand_button
 
 	is_shown_when_inactive = {
 		c:PER ?= this
-		NOT = { has_law = law_type:law_state_religion }
+		NOR = { 
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_state_atheism			
+			has_law = law_type:law_theocracy		
+		}
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = zand_appears_tt
-			has_global_variable = mohammad_zand_var
-		}
-		custom_tooltip = {
-			text = zandi_rebellion_criteria_1
-			calc_true_if = {
-				amount >= 3
-				has_variable = zandism_secularization
-				has_variable = zandism_minorities
-				has_variable = zandism_tolerated_heathens
-				has_variable = zandism_religious_conflicts
-				ig:ig_devout = {
-					is_being_suppressed = yes
-				}
-				ig:ig_devout = {
-					ig_approval <= -10
-				}
-				ig:ig_devout = {
-					leader = {
+		OR = {
+			has_journal_entry = je_constitutional_reformation
+			any_scope_character = {
+				AND = {
+					OR = {
+						is_ruler = yes
+						interest_group = {
+							is_in_government = yes
+						}
+					}
+					OR = {
 						has_ideology = ideology:ideology_persian_constitutionalist
+						has_ideology = ideology:ideology_reformer
+						has_ideology = ideology:ideology_humanitarian_royalist
+						has_ideology = ideology:ideology_liberal_leader
 					}
 				}
 			}
 		}
 		custom_tooltip = {
-			text = zandi_rebellion_criteria_2
-			OR = {
-				has_journal_entry = je_eclipse_of_persia
-				in_default = yes
-				government_legitimacy <= 30
-				any_scope_state = {
-					count >= 2
-					is_incorporated = yes
-					state_region = { 
-						is_homeland = cu:persian
-					}
+			text = zand_appears_tt
+			any_scope_character = {
+				has_variable = mohammad_zand
+			}
+		}
+		OR = {
+			ig:ig_devout = {
+				ig_approval <= -10
+				is_marginal = no
+				is_in_government = no
+			}
+			ig:ig_devout = {
+				is_in_government = yes
+				leader = {
 					OR = {
-						average_sol <= 9
-						turmoil > 0.15
+						has_ideology = ideology:ideology_persian_constitutionalist
+						has_ideology = ideology:ideology_reformer
+						has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 					}
 				}
-				NOT = { has_law = law_type:law_state_religion }
-				has_law = law_type:law_census_suffrage
-				has_law = law_type:law_universal_suffrage
-				has_law = law_type:law_shared_heritage
-				has_law = law_type:law_cultural_exclusion
-				has_law = law_type:law_multicultural
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			population >= 1000000
+			state_region = { 
+				is_homeland = cu:persian
+			}
+			OR = {
+				average_sol <= 10
+				turmoil > 0.15
 			}
 		}
 		is_subject = no
-		has_technology_researched = nationalism
 	}
 
 	immediate = {
-		trigger_event = {
-			id = zandism_events.1
+		set_zandism_vars = yes
+		set_variable = { name = zandism_je_var value = 0 }
+		trigger_event = { id = zandism_events.6 days = 1 popup = yes }
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			calculate_zandism_progress = yes
 		}
 	}
+
+	on_monthly_pulse = {
+		effect = {
+			add_zandism_progress = yes
+		}
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = PER_zandism_0_tt
+			var:zandism_je_var <= 0
+			has_variable = je_zandism_start
+		}
+		custom_tooltip = {
+			text = no_zand_tt #Mohammad Zand is either exiled or dead
+			NOT = {
+				any_scope_character = {
+					has_variable = mohammad_zand
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		clear_zandism_vars = yes
+		trigger_event = { id = BRZ_populism.3 popup = yes }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = PER_zandism_100_tt
+			var:zandism_je_var >= 100
+			has_variable = je_zandism_start
+		}
+	}
+
+	on_fail = {
+		clear_zandism_vars = yes
+		trigger_event = { id = zandism_events.1 popup = yes }
+		show_as_tooltip = {
+			add_journal_entry = {
+				type = je_rise_of_zandism
+			}
+		}
+	}
+
+	current_value = {
+		value = root.var:zandism_je_var
+	}
+
+	goal_add_value = {
+		add = 100
+	}
+	
+	invalid = {
+		has_law = law_type:law_state_atheism
+	}
+
+	weight = 100
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+je_rise_of_zandism = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+	group = je_group_tsr_content
 	
 	on_monthly_pulse = {
 		random_events = {

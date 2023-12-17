@@ -1659,10 +1659,6 @@ assign_zandi_states = {
 					months = long_modifier_time
 					multiplier = -5
 				}
-				convert_population = {
-					target = rel:zandism
-					value = 0.1
-				}
 			}
 		}
 		every_scope_state = {
@@ -1710,10 +1706,6 @@ assign_zandi_states = {
 						months = long_modifier_time
 						multiplier = -5
 					}
-					convert_population = {
-						target = rel:zandism
-						value = 0.1
-					}
 				}
 				
 			}
@@ -1748,13 +1740,9 @@ assign_zandi_states = {
 						}
 					}
 					50 = {
-						convert_population = {
-							target = rel:zandism
-							value = 0.1
-						}
 						add_radicals_in_state = {
-							value = 1
-							religion = rel:zandism
+							value = large_radicals
+							religion = rel:shiite
 						}
 						this.state_region = {
 							add_claim = c:ZNI
@@ -1795,7 +1783,6 @@ create_zandi_characters = {
 			first_name = Mohammad_Hussain
 			last_name = Zand
 			culture = cu:persian
-			religion = rel:zandism
 			historical = yes
 			ruler = yes
 			female = no
@@ -1819,7 +1806,6 @@ create_zandi_characters = {
 	}
 	else = { #Fallback chars if Zand is unavailable.
 		create_character = {
-			religion = rel:zandism
 			interest_group = ig_devout
 			ideology = ideology_theocrat
 			ruler = yes

@@ -128,6 +128,14 @@ ideology_traditionalist = {
 			}
 			add = -100
 		}
+		# More likely with Zand's influence
+		if = {
+			limit = {
+				owner = { has_variable = exiled_zand }
+				any_character_in_exile_pool = { has_template = per_mohammad_zand_character_template }
+			}
+			add = 100
+		}
 	}
 }
 
@@ -2480,6 +2488,14 @@ ideology_theocrat = {
 				}
 			}
 			add = -100
+		}
+		# More likely with Zand's influence
+		if = {
+			limit = {
+				owner = { has_variable = exiled_zand }
+				any_character_in_exile_pool = { has_template = per_mohammad_zand_character_template }
+			}
+			add = 100
 		}
 	}
 }

@@ -138,6 +138,8 @@ religious_party = {
 				trigger = {
 					root.religion = {
 						has_discrimination_trait = muslim
+						NOT = { has_discrimination_trait = christian }
+						NOT = { has_discrimination_trait = eastern }
 					}
 				}
 			}

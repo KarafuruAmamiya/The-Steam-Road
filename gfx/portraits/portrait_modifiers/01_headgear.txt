@@ -1159,7 +1159,6 @@
 						religion = rel:sunni
 						religion = rel:shiite
 						religion = rel:ibadi
-						religion = rel:zandism
 					}
 					is_ruler = no
                 }
@@ -1172,7 +1171,6 @@
 						religion = rel:sunni
 						religion = rel:shiite
 						religion = rel:ibadi
-						religion = rel:zandism
 					}
                     is_pop_type = clergymen
                 }
@@ -1426,6 +1424,8 @@
 						scope:pop ?= {
 							religion = {
 								has_discrimination_trait = muslim
+								NOT = { has_discrimination_trait = christian }
+								NOT = { has_discrimination_trait = eastern }
 							}
 							owner = {
 								NOT = { has_variable = kashf_e_hijab_var }
@@ -1437,6 +1437,8 @@
 						scope:character ?= {
 							religion = {
 								has_discrimination_trait = muslim
+								NOT = { has_discrimination_trait = christian }
+								NOT = { has_discrimination_trait = eastern }
 							}
 							home_country = {
 								NOT = { has_variable = kashf_e_hijab_var }
@@ -1451,6 +1453,8 @@
 				scope:pop ?= {
 					religion = {
 						has_discrimination_trait = muslim
+						NOT = { has_discrimination_trait = christian }
+						NOT = { has_discrimination_trait = eastern }
 					}
 					OR = {
 						is_pop_type = peasants
@@ -1485,6 +1489,8 @@
 						scope:pop ?= {
 							religion = {
 								has_discrimination_trait = muslim
+								NOT = { has_discrimination_trait = christian }
+								NOT = { has_discrimination_trait = eastern }
 							}
 							OR = {
 								culture = cu:bedouin
@@ -1502,6 +1508,8 @@
 						scope:character ?= {
 							religion = {
 								has_discrimination_trait = muslim
+								NOT = { has_discrimination_trait = christian }
+								NOT = { has_discrimination_trait = eastern }
 							}
 							OR = {
 								culture = cu:bedouin
@@ -1522,6 +1530,8 @@
 				scope:pop ?= {
 					religion = {
 						has_discrimination_trait = muslim
+						NOT = { has_discrimination_trait = christian }
+						NOT = { has_discrimination_trait = eastern }
 					}
 					OR = {
 						culture = cu:bedouin

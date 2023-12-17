@@ -57,14 +57,6 @@ persian_flavor.1 = { #The Rights of Zoroastrians
 				months = long_modifier_time
 			}
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { has_variable = zandism_tolerated_heathens }
-				}
-				set_variable = zandism_tolerated_heathens
-			}
-		}
 		
 		ai_chance = {
 			base = 25
@@ -120,14 +112,6 @@ persian_flavor.2 = { #Fire Temple vandalized!
 				religion = rel:shiite
 			}
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { has_variable = zandism_religious_conflicts }
-				}
-				set_variable = zandism_religious_conflicts
-			}
-		}
 	}
 }
 
@@ -153,8 +137,7 @@ persian_flavor.3 = {
 
 	trigger = {
 		ig:ig_devout = {
-			is_marginal = no
-			ig_approval <= 0	
+			is_marginal = no	
 		}
 		game_date >= 1865.1.1
 		game_date < 1900.1.1
@@ -195,13 +178,9 @@ persian_flavor.3 = {
 			}
 		}
 		scope:arabestan_state = {
-			convert_population = {
-				target = rel:zandism
-				value = 0.05
-			}
 			add_radicals_in_state = {
-				religion = rel:zandism
-				value = 1
+				religion = rel:shiite
+				value = large_radicals
 			}
 		}
 		
@@ -218,13 +197,6 @@ persian_flavor.3 = {
 		}
 		scope:mohammad_zand_scope = {
 			set_as_interest_group_leader = yes
-		}
-		
-		scope:arabestan_state = {
-			convert_population = {
-				target = rel:zandism
-				value = 0.1
-			}
 		}
 		
 		ai_chance = {
@@ -609,7 +581,28 @@ persian_flavor.7 = {
 	type = country_event
 	placement = root
 	title = persian_flavor.7.t
-	desc = persian_flavor.7.d
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = persian_flavor.7.d1
+				trigger = {
+					ruler = {
+						has_ideology = ideology:ideology_persian_constitutionalist
+					}
+				}
+			}
+			triggered_desc = {
+				desc = persian_flavor.7.d2
+				trigger = {
+					NOT = {
+						ruler = {
+							has_ideology = ideology:ideology_persian_constitutionalist
+						}
+					}
+				}
+			}
+		}
+	}
 	flavor = persian_flavor.7.f
 
 	duration = 3
@@ -622,49 +615,21 @@ persian_flavor.7 = {
 
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 	
-	trigger = {
-		c:PER ?= this
-		AND = {
-			has_law = law_type:law_state_religion
-			OR = {
-				has_law = law_type:law_autocracy
-				has_law = law_type:law_oligarchy
-				has_law = law_type:law_landed_voting
-			}
-			OR = {
-				has_law = law_type:law_legacy_slavery
-				has_law = law_type:law_debt_slavery
-				has_law = law_type:law_slave_trade
-				has_law = law_type:law_no_womens_rights
-				has_law = law_type:law_no_workers_rights
-			}
-		}
-		has_technology_researched = nationalism
-		has_technology_researched = egalitarianism
-		ruler = {
-			has_ideology = ideology:ideology_persian_constitutionalist
-		}
-		NOT = { has_variable = constitutionalism_var }
-	}
-
-	immediate = {
-		set_variable = constitutionalism_var
-	}
-	
 	option = {
 		name = persian_flavor.7.a
 		default_option = yes
-		add_journal_entry = { type = je_constitutional_reformation }
-		
-		ai_chance = {
-			base = 0
-			modifier = {
-				trigger = {
-					ruler = {
-						has_ideology = ideology:ideology_persian_constitutionalist
-					}
-				}
-				add = 100
+		if = {
+			limit = {
+				ruler = { has_variable = is_mohammad_safavid }
+			}
+			ruler = {
+				set_character_immortal = no
+			}
+			set_strategy = ai_strategy_progressive_agenda
+		}
+		show_as_tooltip = {
+			add_journal_entry = {
+				type = je_constitutional_reformation
 			}
 		}
 	}
@@ -1015,7 +980,7 @@ persian_flavor.10 = {
 	}
 }
 
-# Constitutional Reformation Succeeds (Creation of the Majlis)
+# Constitutional Reformation Succeeds (Creation of a New Majlis)
 persian_flavor.11 = {
 	type = country_event
 	placement = root
@@ -1053,15 +1018,11 @@ persian_flavor.11 = {
 					value < neutral
 				}
 				law_stance = {
-					law = law_type:law_legacy_slavery
-					value < neutral
+					law = law_type:law_slavery_banned
+					value > neutral
 				}
 				law_stance = {
-					law = law_type:law_debt_slavery
-					value < neutral
-				}
-				law_stance = {
-					law = law_type:law_slave_trade
+					law = law_type:law_no_workers_rights
 					value < neutral
 				}
 				law_stance = {
@@ -1090,7 +1051,10 @@ persian_flavor.11 = {
 	option = {
 		name = persian_flavor.11.b
 		trigger = {
-			has_law = law_type:law_freedom_of_conscience
+			OR = {
+				has_law = law_type:law_freedom_of_conscience
+				has_law = law_type:law_shared_roots
+			}
 		}
 		add_modifier = {
 			name = constitutional_reformation_religion
@@ -1110,22 +1074,6 @@ persian_flavor.11 = {
 		}
 		add_modifier = {
 			name = constitutional_reformation_suffrage
-			months = normal_modifier_time
-		}
-		scope:reformer_ig = {
-			add_modifier = {
-				name = reformed_constitution
-				months = normal_modifier_time
-			}
-		}
-	}
-	option = {
-		name = persian_flavor.11.d
-		trigger = {
-			has_law = law_type:law_compulsory_primary_school
-		}
-		add_modifier = {
-			name = constitutional_reformation_education
 			months = normal_modifier_time
 		}
 		scope:reformer_ig = {
@@ -1376,7 +1324,7 @@ persian_flavor.13 = {
 	
 	minor_left_icon = scope:bab_scope
 	
-	immediate = {
+	trigger = {
 		c:PER ?= this
 		game_date >= 1844.1.1
 		NOT = { has_global_variable = bab_var }
@@ -1468,7 +1416,7 @@ persian_flavor.14 = {
 			}
 			religion_percent_state = {
 			   target = rel:bahai
-			   value > 0.01
+			   value >= 0.003
 			}
 		}
 		NOT = { has_variable = bahai_persecution_start }
@@ -1646,21 +1594,13 @@ persian_flavor.16 = {
 		scope:prime_minister_ig_scope = {
 			add_modifier = {
 				name = tolerated_heathens
-				months = 12
+				months = normal_modifier_time
 			}
 		}
 		ig:ig_devout = {
 			add_modifier = {
 				name = tolerated_heathens
-				months = 12
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { has_variable = zandism_tolerated_heathens }
-				}
-				set_variable = zandism_tolerated_heathens
+				months = normal_modifier_time
 			}
 		}
 	}
@@ -2609,74 +2549,38 @@ persian_flavor.25 = {
 }
 
 # Constitutional Reformation JE
-# Jafar Riles Up Nobles and Ulemmas
-persian_flavor.26 = {
-	type = country_event
-	placement = root
-	title = persian_flavor.26.t
-	desc = persian_flavor.26.d
-	flavor = persian_flavor.26.f
-
-	duration = 3
-
-	event_image = {
-		video = "middleeast_courtroom_upheaval"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
-	
-	trigger = {
-		has_law = law_type:law_monarchy
-		ruler = {
-			has_ideology = ideology:ideology_persian_constitutionalist
-		}
-		ig:ig_devout = {
-			leader = {
-				NOR = { 
-					has_ideology = ideology:ideology_persian_constitutionalist
-					has_ideology = ideology:ideology_reformer
-				}
-			}
-		}
-		NOT = {
-			has_variable = jafar_ambitions
-		}
-	}
-	
-	immediate = {
-		set_variable = jafar_ambitions
-		ruler = {
-			save_scope_as = ruler_scope
-		}
-	}
-	
-	option = {
-		name = persian_flavor.26.a
-		default_option = yes
-		add_radicals = {
-			pop_type = aristocrats
-			value = medium_radicals
-		}
-		add_radicals = {
-			pop_type = clergymen
-			value = medium_radicals
-		}
-		scope:ruler_scope = {
-			add_modifier = {
-				name = ruler_slandered
-				months = normal_modifier_time
-			}
-			interest_group = {
-				add_modifier = {
-					name = ruler_slandered_ig
-					months = normal_modifier_time
-				}
-			}
-		}
-	}
-}
+# 
+#persian_flavor.26 = {
+#	type = country_event
+#	placement = root
+#	title = persian_flavor.26.t
+#	desc = persian_flavor.26.d
+#	flavor = persian_flavor.26.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "middleeast_courtroom_upheaval"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+#	
+#	trigger = {
+#
+#	}
+#	
+#	immediate = {
+#
+#	}
+#	
+#	option = {
+#		name = persian_flavor.26.a
+#		default_option = yes
+#
+#	}
+#}
 
 # Role of Islam in Constitution Questioned
 persian_flavor.27 = {
@@ -2707,6 +2611,7 @@ persian_flavor.27 = {
 					has_ideology = ideology:ideology_authoritarian
 					has_ideology = ideology:ideology_persian_constitutionalist
 					has_ideology = ideology:ideology_reformer
+					has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 				}
 			}
 		}
@@ -2779,127 +2684,128 @@ persian_flavor.27 = {
 }
 
 # Pro-Democracy Ulemmas Issues Fatwas Against Protests
-persian_flavor.28 = {
-	type = country_event
-	placement = root
-	title = persian_flavor.28.t
-	desc = persian_flavor.28.d
-	flavor = persian_flavor.28.f
-
-	duration = 3
-
-	event_image = {
-		video = "unspecific_ruler_speaking_to_people"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
-	trigger = {
-		ig:ig_devout = {
-			is_in_government = yes
-			leader = {
-				OR = {
-					has_ideology = ideology:ideology_persian_constitutionalist
-					has_ideology = ideology:ideology_reformer
-				}
-			}
-		}
-		NOT = { has_variable = pro_democracy_fatwa }
-	}
-	
-	immediate = {
-		set_variable = pro_democracy_fatwa
-	}
-	
-	option = {
-		name = persian_flavor.28.a
-		default_option = yes
-		
-	}
-	option = {
-		name = persian_flavor.28.b
-		
-	}
-}
+#persian_flavor.28 = {
+#	type = country_event
+#	placement = root
+#	title = persian_flavor.28.t
+#	desc = persian_flavor.28.d
+#	flavor = persian_flavor.28.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "unspecific_ruler_speaking_to_people"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+#	
+#	trigger = {
+#		ig:ig_devout = {
+#			is_in_government = yes
+#			leader = {
+#				OR = {
+#					has_ideology = ideology:ideology_persian_constitutionalist
+#					has_ideology = ideology:ideology_reformer
+#					has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
+#				}
+#			}
+#		}
+#		NOT = { has_variable = pro_democracy_fatwa }
+#	}
+#	
+#	immediate = {
+#		set_variable = pro_democracy_fatwa
+#	}
+#	
+#	option = {
+#		name = persian_flavor.28.a
+#		default_option = yes
+#		
+#	}
+#	option = {
+#		name = persian_flavor.28.b
+#		
+#	}
+#}
 
 # Anti-Democracy Ulemmas Issues Fatwas Against Reforms
-persian_flavor.29 = {
-	type = country_event
-	placement = root
-	title = persian_flavor.29.t
-	desc = persian_flavor.29.d
-	flavor = persian_flavor.29.f
-
-	duration = 3
-
-	event_image = {
-		video = "unspecific_ruler_speaking_to_people"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
-	trigger = {
-		ig:ig_devout = {
-			is_in_government = yes
-			leader = {
-				OR = {
-					has_ideology = ideology:ideology_theocrat
-					has_ideology = ideology:ideology_traditionalist
-					has_ideology = ideology:ideology_fascist
-					has_ideology = ideology:ideology_authoritarian
-				}
-			}
-		}
-		NOT = { has_variable = anti_democracy_fatwa }
-	}
-	
-	immediate = {
-		set_variable = anti_democracy_fatwa
-	}
-	
-	option = {
-		name = persian_flavor.29.a
-		default_option = yes
-		
-	}
-	option = {
-		name = persian_flavor.29.b
-		
-	}
-}
+#persian_flavor.29 = {
+#	type = country_event
+#	placement = root
+#	title = persian_flavor.29.t
+#	desc = persian_flavor.29.d
+#	flavor = persian_flavor.29.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "unspecific_ruler_speaking_to_people"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+#	
+#	trigger = {
+#		ig:ig_devout = {
+#			is_in_government = yes
+#			leader = {
+#				OR = {
+#					has_ideology = ideology:ideology_theocrat
+#					has_ideology = ideology:ideology_traditionalist
+#					has_ideology = ideology:ideology_fascist
+#					has_ideology = ideology:ideology_authoritarian
+#				}
+#			}
+#		}
+#		NOT = { has_variable = anti_democracy_fatwa }
+#	}
+#	
+#	immediate = {
+#		set_variable = anti_democracy_fatwa
+#	}
+#	
+#	option = {
+#		name = persian_flavor.29.a
+#		default_option = yes
+#		
+#	}
+#	option = {
+#		name = persian_flavor.29.b
+#		
+#	}
+#}
 
 # Anti-Constitutionalist Revolt
-persian_flavor.30 = {
-	type = country_event
-	placement = root
-	title = persian_flavor.30.t
-	desc = persian_flavor.30.d
-	flavor = persian_flavor.30.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_springtime_of_nations"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	
-	option = {
-		name = persian_flavor.30.a
-		default_option = yes
-		
-	}
-	option = {
-		name = persian_flavor.30.b
-		
-	}
-}
+#persian_flavor.30 = {
+#	type = country_event
+#	placement = root
+#	title = persian_flavor.30.t
+#	desc = persian_flavor.30.d
+#	flavor = persian_flavor.30.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "europenorthamerica_springtime_of_nations"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+#	
+#	option = {
+#		name = persian_flavor.30.a
+#		default_option = yes
+#		
+#	}
+#	option = {
+#		name = persian_flavor.30.b
+#		
+#	}
+#}
 
 # Constitutional Reformation Fail Event (The New Tyranny)
 persian_flavor.31 = {
@@ -2912,26 +2818,32 @@ persian_flavor.31 = {
 				desc = persian_flavor.31.d
 				trigger = {
 					has_law = law_type:law_monarchy
-					ruler = {
-						has_ideology = ideology:ideology_persian_constitutionalist
+					OR = {
+						has_law = law_type:law_autocracy
+						has_law = law_type:law_oligarchy
 					}
 				}
 			}
 			triggered_desc = {
 				desc = persian_flavor.31.d2
 				trigger = {
-					NOT = {
-						ruler = {
-							has_ideology = ideology:ideology_persian_constitutionalist
-						}
-					}
+					has_law = law_type:law_theocracy
 				}
 			}
 			triggered_desc = {
 				desc = persian_flavor.31.d3
 				trigger = {
 					exists = c:ZNI
-					has_variable = zandi_rebellion_start
+				}
+			}
+			triggered_desc = {
+				desc = persian_flavor.31.d4
+				trigger = {
+					NOR = {
+						has_law = law_type:law_monarchy
+						has_law = law_type:law_theocracy
+						exists = c:ZNI
+					}
 				}
 			}
 		}
@@ -2965,9 +2877,6 @@ persian_flavor.31 = {
 		default_option = yes
 		trigger = {
 			has_law = law_type:law_monarchy
-			ruler = {
-				has_ideology = ideology:ideology_persian_constitutionalist
-			}
 		}
 		
 		ruler = {
@@ -2992,6 +2901,7 @@ persian_flavor.31 = {
 						OR = {
 							has_ideology = ideology:ideology_persian_constitutionalist
 							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 						}
 					}
 				}
@@ -3009,7 +2919,7 @@ persian_flavor.31 = {
 			historical = yes
 			ruler = yes
 			female = no
-			birth_date = 1830.1.6
+			birth_date = 1820.1.6
     		culture = cu:persian
 			interest_group = ig_landowners
 			ideology = ideology_traditionalist
@@ -3088,11 +2998,7 @@ persian_flavor.31 = {
 	option = {
 		name = persian_flavor.31.b
 		trigger = {
-			NOT = {
-				ruler = {
-					has_ideology = ideology:ideology_persian_constitutionalist
-				}
-			}
+			NOT = { has_law = law_type:law_monarchy }
 		}
 		
 		ruler = {
@@ -3117,6 +3023,7 @@ persian_flavor.31 = {
 						OR = {
 							has_ideology = ideology:ideology_persian_constitutionalist
 							has_ideology = ideology:ideology_reformer
+							has_ideology = ideology:ideology_bahai #in case you somehow made Bab ig leader
 						}
 					}
 				}
@@ -3132,8 +3039,8 @@ persian_flavor.31 = {
 			ruler = yes
 			female = no
     		culture = cu:persian
-			interest_group = ig_landowners
-			ideology = ideology_traditionalist
+			interest_group = ig_devout
+			ideology = ideology_theocrat
 		}
 		
 		if = {

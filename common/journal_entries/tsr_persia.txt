@@ -534,7 +534,36 @@ je_constitutional_reformation = {
 	
 	scripted_button = edict_of_yazd_button
 	
+	is_shown_when_inactive = {
+		c:PER ?= this
+		has_technology_researched = egalitarianism
+	}
+	
+	trigger = {
+		AND = {
+			OR = {
+				has_law = law_type:law_landed_voting
+				has_law = law_type:law_state_religion
+			}
+			OR = {
+				NOT = { has_law = law_type:law_slavery_banned }
+				has_law = law_type:law_no_womens_rights
+				has_law = law_type:law_no_workers_rights
+			}
+		}
+		any_scope_character = {
+			OR = {
+				is_ruler = yes
+				interest_group = {
+					is_in_government = yes
+				}
+			}
+			has_ideology = ideology:ideology_persian_constitutionalist
+		}
+	}
+	
 	immediate = {
+		trigger_event = { id = persian_flavor.7 popup = yes }
 		set_variable = {
 			name = constitutional_reformation_var
 			value = 0
@@ -550,12 +579,10 @@ je_constitutional_reformation = {
 			has_law = law_type:law_oligarchy
 			has_law = law_type:law_landed_voting
 			has_law = law_type:law_state_religion
-			has_law = law_type:law_legacy_slavery
-			has_law = law_type:law_debt_slavery
-			has_law = law_type:law_slave_trade
 			has_law = law_type:law_no_womens_rights
 			has_law = law_type:law_no_workers_rights
 		}
+		has_law = law_type:law_slavery_banned
 		ig:ig_intelligentsia = {
 			is_marginal = no
 			is_in_government = yes
@@ -595,11 +622,13 @@ je_constitutional_reformation = {
 
 	fail = {
 		OR = {
-			highest_secession_progress > 0.9
+			has_law = law_type:law_autocracy
+			has_law = law_type:law_oligarchy
+			has_law = law_type:law_theocracy
 			custom_tooltip = {
-				text = zandi_rebellion_begins_tt
+				text = lost_zandi_rebellion_tt
 				exists = c:ZNI
-				has_variable = zandi_rebellion_start
+				has_truce_with = c:ZNI
 			}
 		}
 	}
@@ -707,12 +736,10 @@ je_constitutional_reformation = {
 						has_law = law_type:law_oligarchy
 						has_law = law_type:law_landed_voting
 						has_law = law_type:law_state_religion
-						has_law = law_type:law_legacy_slavery
-						has_law = law_type:law_debt_slavery
-						has_law = law_type:law_slave_trade
 						has_law = law_type:law_no_womens_rights
 						has_law = law_type:law_no_workers_rights
 					}
+					has_law = law_type:law_slavery_banned
 					ig:ig_intelligentsia = {
 						is_marginal = no
 						is_in_government = yes
@@ -744,13 +771,13 @@ je_constitutional_reformation = {
 				}
             }
 		}
-		random_events = {
+		random_events = { #WIP
             100 = 0
-            10 = persian_flavor.26
+            #10 = persian_flavor.26
             10 = persian_flavor.27
-            10 = persian_flavor.28
-            10 = persian_flavor.29
-            10 = persian_flavor.30
+            #10 = persian_flavor.28
+            #10 = persian_flavor.29
+            #10 = persian_flavor.30
         }
 	}
 	
@@ -763,6 +790,7 @@ je_constitutional_reformation = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 	weight = 10000
 	should_be_pinned_by_default = yes
 }

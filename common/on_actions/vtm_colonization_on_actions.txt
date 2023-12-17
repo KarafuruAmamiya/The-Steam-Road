@@ -6,7 +6,6 @@ on_monthly_pulse_state = {
 	}
 }
 
-# Root = Colony state
 colonial_progress_claim_check_on_action = {
 	effect = {
 		if = {
@@ -66,7 +65,14 @@ colonial_isolation_check_on_action = {
 		if = {
 			limit = {
 				state_is_colony = yes
-				is_isolated_from_market = yes
+				AND = {
+					is_isolated_from_market = yes
+					NOT = { # States also count as isolated if they are only based in impassable territory even if they are connected to the rest of the empire, hence the double-check
+						any_neighbouring_state = {
+							owner = root.owner
+						}
+					}
+				}
 				NOT = { has_modifier = isolated_colony_modifier }
 			}
 			add_modifier = {

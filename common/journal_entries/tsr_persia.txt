@@ -323,8 +323,17 @@ je_eclipse_of_persia = {
 				has_variable = persia_eclipse_abolished_monarchy
 			}
 			AND = {
-				has_law = law_type:law_multicultural
+				OR = {
+					has_law = law_type:law_shared_heritage
+					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_multicultural
+				}
+				OR = {
+					has_law = law_type:law_census_voting
+					has_law = law_type:law_universal_suffrage
+				}
 				NOT = { has_law = law_type:law_state_religion }
+				has_law = law_type:law_slavery_banned
 			}
 		}
 		any_scope_state = {

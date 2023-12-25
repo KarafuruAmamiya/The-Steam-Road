@@ -5,6 +5,9 @@
  je_eclipse_of_persia_reason: "The Persian Empire under the Safavid dynasty has been the dominant power in the Iranian Plateau and one of Asia's major powers for centuries. However, hints of decline has surfaced, and it remains to be seen whether the empire can make it through the turn of the century."
  je_eclipse_of_persia_goal: "A number of factors risk accelerating the decline of [SCOPE.GetRootScope.GetCountry.GetName]"
  persia_eclipse_criteria: "Each of the following will contribute #red 20%#! to the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Losing control over #BOLD India#!\n- Losing control over #BOLD Arabia#!\n- Failing the #BOLD Constitutional Reformation#!\n- Failing to stop #BOLD European#! enroachment into the Iranian homelands\n- Going into debt and taking any [concept_loans]\n- Having a [concept_civil_war]\n- Becoming a [concept_subject] under another country\n- Abolishing the [SCOPE.sLaw('monarchy_scope').GetName]\n\nEach of the following will detract #green -20%#! from the decline of [SCOPE.GetRootScope.GetCountry.GetName]:\n- Retaking lost #BOLD Persian#! homelands\n- Successfully concluded the #BOLD Constitutional Reformation#!\n- Finishing the #BOLD Stamp Out Monarchism#! [concept_journal_entry]\n- No #BOLD European#! country borders the Iranian homelands"
+ eclipse_modifier: "Eclipsing Empire"
+ authority_restored: "Authority Restored"
+ dead_man_tt: "We have become the Dead Man of Asia"
  persia_eclipse_point_add_name: "Eclipse Accelerated"
  persia_eclipse_point_add_desc: "The decline of [SCOPE.GetRootScope.GetCountry.GetName] has progressed further."
  persia_eclipse_point_add_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
@@ -12,6 +15,22 @@
  persia_eclipse_point_remove_desc: "The decline of [SCOPE.GetRootScope.GetCountry.GetName] has been temporarily halted."
  persia_eclipse_point_remove_tooltip: "#header $persia_eclipse_point_name$#!\n$TOOLTIP_DELIMITER$\n$persia_eclipse_point_desc$"
  persia_abolished_monarchy_tt: "Successfully concluded the #BOLD Stamp Out Monarchism#! Journal Entry"
+ 
+ persian_eclipse.1.t: "The Decline of [ROOT.GetCountry.GetName]"
+ persian_eclipse.1.d: "The [ROOT.GetCountry.GetAdjectiveNoFormatting] Dynasty had seen both turmoil and growth throughout its centuries-long rule, but recent times had seen [ROOT.GetCountry.GetName] embarking upon a steady slide towards decline at the hands of foreign powers, internal strifes, and mismanagement. If the central authority is sufficiently eroded, [ROOT.GetCountry.GetName]'s decline may reach a point of no return."
+ persian_eclipse.1.f: ""While more successful and efficient governments proved to last longer than others, even they have eventually succumbed to corroding touch of time. A country can be subjugated and forced to serve, but one that crumbles from within - rarely, if ever, finds united strength and conviction for rebirth."" #Borrowed from Plati's Eclipse mod in EU4
+ persian_eclipse.1.a: "We must preserve."
+ 
+ persian_eclipse.2.t: "Dead Man of Asia"
+ persian_eclipse.2.d: "[ROOT.GetCountry.GetName] has fallen into disrepair. Its former prestige as a great civilization capable of standing toe-to-toe with the West is no longer acknowledged, its subjects no longer respects its rule, and the days of the [ROOT.GetCountry.GetAdjectiveNoFormatting] Dynasty seems numbered."
+ persian_eclipse.2.f: ""Empires, like dreams, are made of an intangible material, so fragile they can end at any given time, no previous warning. They hold, however, the same insane appeal. Even if the thread that holds together their seams is invisible, and every suture hides a wound.\n\nHundreds of years of prestige and opulence, ended in just a moment.""
+ persian_eclipse.2.a: "We belong to Allah, and to Him do we return."
+ 
+ persian_eclipse.3.t: "A New Dawn"
+ persian_eclipse.3.d1: "Against all odds, the [ROOT.GetCountry.GetAdjectiveNoFormatting] Dynasty has managed to survive and even reverse what seems to be an irreversible decline. Although scarred, the empire has proven its might to the onlooking vultures and will once again face another dawn."
+ persian_eclipse.3.d2: "With the toppling of the Safavid Dynasty, [ROOT.GetCountry.GetName] is finally able to break free from thousands of years of dynastic shackles, ready to face a new and uncertain dawn."
+ persian_eclipse.3.f: ""For years [ROOT.GetCountry.GetName] have struggled to maintain their power and former glory. For years [ROOT.GetCountry.GetName] have been engulfed in conflict, strife and devastation. For years [ROOT.GetCountry.GetName] was on the verge of collapse. Our proud state still stands and we remember well those that would want to see otherwise. We remember what once was and what could be. And now, our people look up to the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] in hopes that they will one day restore the might of [ROOT.GetCountry.GetName]."" #Borrowed from Plati's Eclipse mod in EU4
+ persian_eclipse.3.a: "Pâyandeh bâd xâke Irâne mâ!"
  
  #Zandi Rebellion
  je_zandism_main: "Shadow of the Imam"
@@ -89,7 +108,6 @@
  zandi_rebellion_criteria_1: "At least three of the following is true:\n- Increasing #BOLD secularization#! of the country\n- Increasing tolerance of #BOLD heathens and heretics#!\n- We are currently suppressing the [SCOPE.gsInterestGroup('ig_devout').GetName]\n- The approval of the [SCOPE.gsInterestGroup('ig_devout').GetName] is at or below #red 10#!\n- The leader of the [SCOPE.gsInterestGroup('ig_devout').GetName] has the #BOLD Persian Constitutionalist#! or #BOLD Reformer#! ideology"
  zandism_tolerated_heathens_tt: "We have taken a more tolerant stance towards heathens"
  
- zandi_rebellion_modifier: "Zandi Revolution"
  zandi_revolution_modifier: "Jihad Through Revolution"
  zandi_theocratic_socialism: "Land Socialization"
  zandi_army_modifier: "Jihad Conscription"
@@ -140,8 +158,7 @@
  persian_flavor.11.f: ""The currents of changes may be swift, and the waves of the old may crash against us, but let it be known that we embark on this journey not as adversaries to our glorious past, but as architects of a future where the tapestry of Iran is woven with threads of enlightenment and civilization. Let the pages of history mark this moment, where the brilliance of our nation illuminates the way forward for the world to see.""
  persian_flavor.11.a: "A new era is here."
  persian_flavor.11.b: "Equality and freedom for all Iranians of all religions."
- persian_flavor.11.b: "The people shall lead the way forward."
- persian_flavor.11.b: "Our future depends on the new educated generation."
+ persian_flavor.11.c: "The people shall lead the way forward."
  
  persian_flavor.27.t: "The Role of Islam in the New Constitution"
  persian_flavor.27.d: "The drafting of the new constitution has been met with concern from certain members of the [SCOPE.gsInterestGroup('devout_scope').GetName] who demands that its content should not go against Islam. In particular, they proposed the establishment of a council of 5 high ranking Twelver Shia clerics tasked to make sure the laws passed by the parliament are not against religious codes, and that the constitution must explicitly state that Islam is the official religion of [ROOT.GetCountry.GetName]."
@@ -227,7 +244,6 @@
  persian_renaissance.6.f: ""
  persian_renaissance.6.a: "Wonderful."
  
- 
  persian_renaissance.8.t: "The Remodeling of Isfahan"
  persian_renaissance.8.d: "With new elements and styles of European architecture and building techniques introduced to the country, new projects has begun to remodel [SCOPE.sState('isfahan_state').GetName] into a 'modern' city, demolishing the dense urban fabric in parts of the old city and replacing them with boulevards and open squares inspired by what the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] saw in his visits to Europe. The new layout of the city is planned to include wide streets and avenues in the vein of European capitals."
  persian_renaissance.8.f: ""You remember the old bazaars? Those bustling, narrow streets where we traded and met friends and neighbors for generations? They're tearin' 'em down, bit by bit, just to build these wide open gardens that the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] fancied over yonder in the West. Now, I ain't no scholar, but it feels more like they're tryin' to make Esfahan into some foreign place.""
@@ -235,6 +251,22 @@
  modifier_isfahan_renewal: "Remodeling of Isfahan"
  modifier_isfahan_positive: "Remodeling of Isfahan"
  modifier_isfahan_negative: "Against the Remodeling of Isfahan"
+ 
+ persian_renaissance.9.t: "The University of Isfahan"
+ persian_renaissance.9.d: "Our educational reforms and the growing number of academics has necessiated the expansion of the major academies in our country. Thus, the University of Isfahan was established by absorbing many departments from the major academies in our country, including the Dār ul-Funun and the Isfahan School of Political Sciences."
+ persian_renaissance.9.f: "Tavānā bovad har keh dānā bovad\n\nZe dānesh del-e pīr bornā bovad."
+ persian_renaissance.9.a: "Focus on the polytechnic departments."
+ persian_renaissance.9.b: "Focus on the political science departments."
+ university_of_isfahan_technics: "University of Isfahan: Polytechnics"
+ university_of_isfahan_social: "University of Isfahan: Political Sciences"
+ 
+ persian_renaissance.10.t: "The Silk Markets of Persia"
+ persian_renaissance.10.d: "Thanks to our efforts to increase our textile production and exports, Persian textile has become renowned worldwide. From China to the West, Persian carpets, silks, garments, and other luxurious fabrics becomes fashionable among the upper-class, thus contributing to the growing popularity of Persian textiles as status symbols."
+ persian_renaissance.10.f: "Royal patronage played a crucial role in fostering the development of Persian textile industries. Artisans and business-owners received support and encouragement from the government, leading to the establishment of workshops and factories dedicated to the production of exquisite textiles. In addition, the increasing interest in our ancient history allows artisans to draw inspiration from ancient Persian motifs and incorporated these elements into their creations. This revival of classical aesthetics appealed to European tastes, further enhancing the popularity of Persian textiles in the European market."
+ persian_renaissance.10.a: "Focus on increasing textile production."
+ persian_renaissance.10.b: "Our silk is the finest in the world."
+ leading_textile_exporter: "Leading Textile Exporter"
+ high_quality_silk: "High-Quality Silk"
  
  #Persian flavor events
  persian_flavor.1.t: "The Rights of Zoroastrians"
@@ -299,7 +331,51 @@
  kermani_scot_free: "Did Not Pursue Kermani"
  executed_kermani: "Executed Kermani"
  
- persian_flavor.12.t: "[SCOPE.sCountry('exporter_country').GetName]"
+ persian_flavor.12.t: "Bazaari Complains About Western Goods"
+ persian_flavor.12.d: "The influx of certain goods from Western markets has caused smaller businesses in our bazaars to be outcompeted, and the [SCOPE.gsInterestGroup('bazaari_ig').GetName] has approached the Shah to plead for their case. However the [SCOPE.gsInterestGroup('industrialists_ig').GetName] believe that limiting the influx of Western goods is not the solution, and that we should let the market run its course."
+ persian_flavor.12.f: ""Your Highness, the influx of Western products undermines our local craftsmanship. Our traditional goods cannot compete with the mass-produced items from the West. Our artisans are losing their patrons, and soon, our bazaars will be empty."\n\n"Your Excellency, the world is changing. Industry is the future, and we must embrace it. Instead of restricting imports, let us invest in our own factories, improve our technology, and create goods that can compete on the global stage. This way, we will elevate our nation.""
+ persian_flavor.12.a: "Side with [SCOPE.gsInterestGroup('industrialists_ig').GetName]"
+ persian_flavor.12.b: "Side with [SCOPE.gsInterestGroup('bazaari_ig').GetName]"
+ persian_flavor.12.c: "A compromise it is!"
+ domestic_merchants_scorned: "Domestic Merchants Outcompeted"
+ respected_market_freedom: "Respected Market Freedom"
+ modifier_protectionism_support: "Support for Protectionism"
+ bazaari_aid: "Aid and Training Programs"
+ establishing_new_industries: "Establishing New Industries"
+ 
+ persian_flavor.17.t: "Helmand River Irrigation Project"
+ persian_flavor.17.d: "The growth of agricultural industry around [SCOPE.sState('conflict_state').GetName] has led to proposals for new irrigation projects in [SCOPE.sState('conflict_state').GetName] and surrounding areas. However, the building of new dams and irrigation networks using the water from Helmand River have led to protests from nearby communities who have been using the river as a lifeline for centuries."
+ persian_flavor.17.f: "The prospect of transforming arid landscapes into fertile fields ignited the imaginations of our policymakers, landowners, and industrialists alike. However, farmers, fishermen, and pastoralists feared displacement, loss of livelihoods, and the erosion of a way of life that had endured for generations. In addition, we risk deteriorating relations with nearby countries who also rely on the Helmand River."
+ persian_flavor.17.a: "The irrigation project will continue."
+ persian_flavor.17.b: "We cannot use the river for our own benefits."
+ helmand_river_irrigation: "Helmand River Irrigation"
+ river_water_diverted: "River Water Diverted"
+ refused_irrigation_project: "Refused Irrigation Project"
+ river_diverted: "Against Irrigation Project"
+ 
+ persian_flavor.18.t: "Amu Darya Irrigation Project"
+ persian_flavor.18.d: "The growth of agricultural industry around [SCOPE.sState('conflict_state').GetName] has led to proposals for new irrigation projects in [SCOPE.sState('conflict_state').GetName] and surrounding areas. However, the building of new dams and irrigation networks using the water from Amu Darya have led to protests from nearby communities who have been using the river as a lifeline for centuries."
+ persian_flavor.18.f: "The prospect of transforming arid landscapes into fertile fields ignited the imaginations of our policymakers, landowners, and industrialists alike. However, farmers, fishermen, and pastoralists feared displacement, loss of livelihoods, and the erosion of a way of life that had endured for generations. In addition, we risk deteriorating relations with nearby countries who also rely on the Amu Darya."
+ persian_flavor.18.a: "The irrigation project will continue."
+ persian_flavor.18.b: "We cannot use the river for our own benefits."
+ amu_darya_irrigation: "Amu Darya Irrigation"
+ 
+ persian_flavor.19.t: "The Growing Industries of Isfahan"
+ persian_flavor.19.d: "As Isfahan continue to grow and industrialize, more and more resources are needed to keep it afloat. One of the crucial resource needed for heavy industries is water, and the [SCOPE.gsInterestGroup('industrialists_scope').GetName] has petitioned to divert more water from the Zayanderud River to keep up with the increasing demand needed by factories."
+ persian_flavor.19.f: "For centuries Isfahan city had been an oasis settlement, noted for its surrounding fertile lands and prosperity, and this was thanks to the livelihood provided by the Zayanderud River.  The #italic Tomar#!, based on a document dated from the 16th century, divided the flow of the river into 33 parts which were then specifically allotted to the eight major districts within the region. However, with the growing population and living standards within the basin, the pressure on water resources steadily increased until the #italic Tomar#! was no longer feasible."
+ persian_flavor.19.a: "Our industries take priority."
+ persian_flavor.19.b: "We must find another way."
+ increased_water_supply: "Increased Water Supply"
+ reduced_water_resources: "Water Resources Diverted"
+ extra_water_resources: "Accepted Petition"
+ refused_water_resources: "Refused Petition"
+ insufficient_water_supply: "Insufficient Water Supply"
+ 
+ persian_flavor.20.t: "River Water Diverted!"
+ persian_flavor.20.d1: "[SCOPE.sCountry('helmand_river_conflict_country').GetName] actions has caused the flow of the Helmand River in our own country to dimnish. This will certainly affect our agriculture and water supply."
+ persian_flavor.20.d2: "[SCOPE.sCountry('amu_darya_conflict_country').GetName] actions has caused the flow of the Amu Darya in our own country to dimnish. This will certainly affect our agriculture and water supply."
+ persian_flavor.20.f: ""I've cast my nets in these waters since my grandfather's time. If the river changes course, what will become of our livelihoods?""
+ persian_flavor.20.a: "Damn them!"
  
  #Baháʼí events (Persia)
  je_rise_of_bahaism: "Rise of Bábism"
@@ -307,9 +383,9 @@
  bab_popularity_tt: "The Bábism Movement has waned."
  
  persian_flavor.13.t: "Rise of Bábism Movement"
- persian_flavor.13.d: "Uproars arise as news of a heretical movement founded by a man who proclaimed himself as the 'Báb' has taken roots in [SCOPE.sState('tehran_state').GetName]. Following the heretical teachings of Shaykh Ahmad, the Báb claimed to be the Kazim Rashti, the Promised One, recruiting 'disciples' who was given the task of spreading the new faith. Many governors and members of the clergy has begun agitating for us to take action, and it is clear we cannot let this last."
+ persian_flavor.13.d: "Concerns arise as news of a heretical movement founded by a man who proclaimed himself as the 'Báb' has taken roots in [SCOPE.sState('tehran_state').GetName]. Following the heretical teachings of Shaykh Ahmad, the Báb claimed to be the Kazim Rashti, the Promised One, recruiting 'disciples' who was given the task of spreading the new faith. Many governors and members of the clergy has begun agitating for us to take action, and it is clear we cannot let this last."
  persian_flavor.13.f: "The Báb's ideas had roots in Shaykhism and his writings were characterized by their extensive use of symbolism and numerical calculations. His teachings emphasized the oneness of God, the renewal of spiritual and moral values, and the need for humanity to prepare for the coming of a promised one or Manifestation of God; featuring elements related to promoting interreligious peace, social equality between the sexes and revolutionary anti-monarchism."
- persian_flavor.13.a: "Concerning."
+ persian_flavor.13.a: "We must stop this madness!"
  modifier_bab_popularity: "Bábism Movement"
  
  persian_flavor.14.t: "The Suppression of Bábis"
@@ -398,13 +474,6 @@
  burmese_war.3.d: "With the fall of their last stronghold in Mandalay, the Taungoo Empire has finally fallen."
  burmese_war.3.f: "As the Taungoo Empire fell, our soldiers marched and reclaimed Luang Prabang. Although our country rejoices with the fall of our sworn rival and the return of Lan Xang's lost territories, another threat has risen right on our borders. There is no doubt that the Safavids see us as one of their next targets, and we must be prepared for what might happen."
  burmese_war.3.a: "A blessing and a curse."
- 
- # New Opium Events
- 
- opium_wars.10.t: "Popular Support for the Opium War"
- opium_wars.10.d: "Blaming the increasing issue of addictions, drug trafficking, and rising turmoil in [ROOT.GetCountry.GetName] on the Persian opium smuggling, [ROOT.GetCountry.GetAdjectiveNoFormatting] citizens rose in support over the so-called 'Opium Crusade'."
- opium_wars.10.f: ""Today, I stand before you to shed a light on a threat that concerns not only our great [ROOT.GetCountry.GetName] but the entire civilized world. The wicked Persians has ruthlessly inundated us with their treacherous poison, bringing devastation and ruin upon our people. This menace, bought from the distant shores, has ensnared the innocent, corrupted the pure, and shattered families with its nefarious grip. Thus, we, with God's blessing, embark on this mission not only to save our people, but to guide the [SCOPE.sCountry('opium_wars_target_country').GetAdjectiveNoFormatting] back to the path of virtue and progress within our benevolent light.""
- opium_wars.10.a: "May our actions bring enlightenment to [SCOPE.sCountry('opium_wars_target_country').GetAdjectiveNoFormatting]."
  
  opium_obsession_pm.tt: "This will greatly increase the progress in the Opium Obsession Journal Entry."
  opium_obsession_weak_pm.tt: "This will increase the progress in the Opium Obsession Journal Entry."

@@ -1,1 +1,134 @@
 ﻿namespace = german_events
+
+german_events.1 = { # The German Dual Monarchy (Placeholder)
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	duration = 3
+
+	title = german_events.1.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = german_events.1.d
+				trigger = {
+					OR = {
+						c:PFA ?= this
+						c:RHN ?= this
+					}
+				}
+			}
+			triggered_desc = {
+				desc = german_events.1.d2
+				trigger = {
+					c:SAX ?= this
+				}
+			}
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				desc = german_events.1.f
+				trigger = {
+					OR = {
+						c:PFA ?= this
+						c:RHN ?= this
+					}
+				}
+			}
+			triggered_desc = {
+				desc = german_events.1.f2
+				trigger = {
+					c:SAX ?= this
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		set_variable = dual_monarchy_formed
+		c:SAX = { 
+			ruler = {
+				culture = {
+					save_scope_as = primary_sax
+				}
+			}
+			save_scope_as = sax_scope 
+		}
+		if = {
+			limit = {
+				exists = c:PFA
+			}
+			c:PFA = { 
+				ruler = {
+					culture = {
+						save_scope_as = primary_rhn
+					}
+				}
+				save_scope_as = rhn_scope 
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:RHN
+			}
+			c:RHN = { 
+				ruler = {
+					culture = {
+						save_scope_as = primary_rhn
+					}
+				}
+				save_scope_as = rhn_scope 
+			}
+		}
+	}
+	
+	minor_left_icon = scope:sax_scope
+	minor_right_icon = scope:rhn_scope
+	
+	option = {
+		name = german_events.1.a
+		trigger = { 
+			OR = {
+				c:PFA ?= this 
+				c:RHN ?= this 
+			}
+		}
+		default_option = yes
+		
+		create_diplomatic_pact = {
+			country = c:SAX
+			type = real_union
+		}
+	}
+	option = {
+		name = german_events.1.b
+		trigger = { c:SAX ?= this }
+		
+		if = {
+			limit = { exists = c:PFA }
+			create_diplomatic_pact = {
+				country = c:PFA
+				type = real_union
+			}
+		}
+		
+		else_if = {
+			limit = { exists = c:RHN }
+			create_diplomatic_pact = {
+				country = c:RHN
+				type = real_union
+			}
+		}
+	}
+}
+#In the future this will require German nationalists to revolt in Saxony/Pfalz

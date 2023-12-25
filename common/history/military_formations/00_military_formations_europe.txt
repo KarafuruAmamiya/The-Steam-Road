@@ -912,7 +912,7 @@
 		
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_new_england
+			hq_region = sr:region_dixie
 			name = "Flota de Laurentia"
 		
 			combat_unit = {
@@ -1853,6 +1853,24 @@
 				count = 1
 			}
 			save_scope_as = royalarmy_arn
+		}
+		
+		create_character = {
+			is_general = yes
+			hq = region_iberia
+			commander_rank = commander_rank_4
+			age = 45
+			traits = {
+				ambitious basic_artillery_commander
+			}
+			save_scope_as = arn_gen1
+			on_created = {
+				set_variable = arn_gen1_var
+			}
+		}
+		
+		scope:arn_gen1 = {
+			transfer_to_formation = scope:royalarmy_arn
 		}
 
 		create_military_formation = {

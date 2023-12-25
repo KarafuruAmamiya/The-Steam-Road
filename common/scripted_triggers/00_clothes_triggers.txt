@@ -30,6 +30,10 @@ western_clothes_trigger = {
 				home_country = {
 					has_variable = adopt_western_clothes	
 				}
+				NOR = { 
+					has_ideology = ideology:ideology_traditionalist 
+					has_ideology = ideology:ideology_theocrat
+				}
 			}
 		}
 		AND = {
@@ -229,7 +233,7 @@ gaucho_clothes_pop_trigger = {
 			OR = {
 				AND = {
 					c:AUR = this
-					is_subject = no # preventing uniform conflicts if GBR becomes a subject of another country with puppet uniforms
+					is_subject = no # preventing uniform conflicts if AUR becomes a subject of another country with puppet uniforms
 				}
 				is_subject_of = c:AUR
 			}		
@@ -786,9 +790,21 @@ siamese_clothes_trigger = { #Pretty sure this is actual burmese
 	scope:character = {
 		culture = {
 			OR = {
-				has_discrimination_trait = southeast_asian_heritage
+				AND = {
+					has_discrimination_trait = southeast_asian_heritage
+					NOT = { has_discrimination_trait = sinosphere }
+				}
 				has_discrimination_trait = malay_heritage
 			}
+		}
+	}
+}
+
+malay_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+			has_discrimination_trait = malay_heritage
 		}
 	}
 }
@@ -959,6 +975,7 @@ east_asian_clothes_pop_trigger = {
 					has_discrimination_trait = east_asian_heritage
 					has_discrimination_trait = north_asian_heritage
 					has_discrimination_trait = mongol_heritage
+					has_discrimination_trait = sinosphere
 				}
 			}
 		}   
@@ -1091,7 +1108,10 @@ south_east_asia_clothes_pop_trigger = {
 	scope:pop = {
 		culture = {
 			OR = {
-				has_discrimination_trait = southeast_asian_heritage
+				AND = {
+					has_discrimination_trait = southeast_asian_heritage
+					NOT = { has_discrimination_trait = sinosphere }
+				}
 				has_discrimination_trait = malay_heritage
 			}
 		}   

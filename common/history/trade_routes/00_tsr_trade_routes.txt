@@ -700,6 +700,28 @@
 		}
 	}
 	
+	# Karolia
+	c:KRL = {
+		create_trade_route = {
+			goods = sugar
+			level = 3
+			direction = import
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = coal
+			level = 1
+			direction = import
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = fabric
+			level = 2
+			direction = import
+			target = c:FRA.market
+		}
+	}
+	
 	# Columbia
 	c:USC = {
 		create_trade_route = {
@@ -882,22 +904,6 @@
 		}
 	}
 	
-	# Transpratina
-	c:TPR = {
-		create_trade_route = {
-			goods = sugar
-			level = 3
-			direction = import
-			target = c:IBE.market
-		}
-		create_trade_route = {
-			goods = iron
-			level = 2
-			direction = import
-			target = c:ENG.market
-		}
-	}
-	
 	# America
 	c:AMR = {
 		create_trade_route = {
@@ -910,7 +916,7 @@
 			goods = small_arms
 			level = 1
 			direction = import
-			target = c:TPR.market
+			target = c:ENG.market
 		}
 		create_trade_route = {
 			goods = coffee

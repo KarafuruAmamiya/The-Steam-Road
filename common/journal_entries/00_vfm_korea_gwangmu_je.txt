@@ -1,5 +1,6 @@
 ﻿je_gwangmu_main = { #gwangmu reforms
 	icon = "gfx/interface/icons/event_icons/event_taeguk.dds"
+	group = je_group_historical_content
 	immediate = {
 		set_variable = {
 			name = gwangmu_reforms_var
@@ -53,6 +54,7 @@
 
 je_gwangmu_nationalism = { #be independent
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	group = je_group_historical_content
 	complete = {
 		has_technology_researched = nationalism
 		is_subject = no
@@ -68,6 +70,7 @@ je_gwangmu_nationalism = { #be independent
 
 je_gwangmu_army = { #have strong barracks
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_historical_content
 	immediate = {
 		c:CHI = { save_scope_as = chi_scope }
 	}
@@ -96,6 +99,7 @@ je_gwangmu_army = { #have strong barracks
 
 je_gwangmu_navy = { #get some navy
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_historical_content
 	complete = {
 		navy_size >= 50
 		has_technology_researched = power_of_the_purse
@@ -124,6 +128,7 @@ je_gwangmu_navy = { #get some navy
 
 je_gwangmu_taxes = {
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	group = je_group_historical_content
 	immediate = {
 		ig:ig_rural_folk = { save_scope_as = nongmin_scope }
 	}
@@ -149,6 +154,7 @@ je_gwangmu_taxes = {
 
 je_gwangmu_democracy = {
 	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	group = je_group_historical_content
 	complete = {
 		NOT = { has_law = law_type:law_autocracy }
 		NOT = { has_law = law_type:law_oligarchy }

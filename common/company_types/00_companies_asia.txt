@@ -29,12 +29,10 @@ company_east_india_company = {
 				owner = { is_subject_of = root }
 			}
 			any_scope_building = {
-				filter = {
-					OR = {
-						is_building_type = building_tea_plantation
-						is_building_type = building_tobacco_plantation
-						is_building_type = building_opium_plantation
-					}
+				OR = {
+					is_building_type = building_tea_plantation
+					is_building_type = building_tobacco_plantation
+					is_building_type = building_opium_plantation
 				}
 				level >= 10
 			}

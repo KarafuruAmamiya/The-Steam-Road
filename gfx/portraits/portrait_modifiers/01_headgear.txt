@@ -83,7 +83,7 @@
             accessory = {
                 mode = add
                 gene = headgear
-                template = male_headgear_gaucho_
+                template = male_headgear_gaucho
                 range = { 0 1 } # For the randomness to work correctly
             }
         }
@@ -129,6 +129,43 @@
                     }
                 }
                 agitator_character_trigger = yes
+            }
+        }
+    }
+	
+	turkish_agitator_headgear = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = arabic_fez_no_hijab
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+				scope:character ?= {
+					OR = {
+						culture = cu:turkish
+						culture = cu:akturk
+						culture = cu:maghrebi
+					}
+				}
+                agitator_character_trigger = yes
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = syr_bustani_character_template
+                }
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
+                    has_template = egy_shidyaq_character_template
+                }
             }
         }
     }
@@ -285,6 +322,60 @@
             }
         }
     }
+	
+	gaucho_headgear = {
+		dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = male_prop_straw_hat
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				OR = {
+					AND = {
+						OR = {
+							gaucho_clothes_trigger = yes
+							soalleiran_clothes_trigger = yes
+						}
+						scope:character ?= {
+							has_role = politician
+							OR = {
+								is_interest_group_type = ig_rural_folk
+								is_interest_group_type = ig_trade_unions
+							}
+							OR = {
+								is_ruler = no
+								AND = {
+									is_ruler = yes
+									owner ?= {
+										NOT = { has_law = law_type:law_monarchy }
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						OR = {
+							gaucho_clothes_pop_trigger = yes
+							soalleiran_clothes_pop_trigger = yes
+						}
+						scope:pop ?= {
+							OR = {
+								is_pop_type = farmers
+								is_pop_type = laborers
+								is_pop_type = peasants
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
     chinese_imperial_headgear = {
         dna_modifiers = {
@@ -1193,6 +1284,12 @@
                     has_template = egy_abduh_character_template
                 }
             }
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_template = al_afghani_character_template
+				}
+			}
         }
     }
 	ottoman_military_fez = {
@@ -1219,18 +1316,6 @@
 						NOT = { has_variable = kashf_e_hijab_var }
 					}
 				}
-            }
-			modifier = {
-                add = 90000
-                scope:character ?= {
-                    has_template = syr_bustani_character_template
-                }
-            }
-			modifier = {
-                add = 90000
-                scope:character ?= {
-                    has_template = egy_shidyaq_character_template
-                }
             }
         }
 	}
@@ -1289,18 +1374,6 @@
 						has_variable = kashf_e_hijab_var
 					}
 				}
-            }
-			modifier = {
-                add = 90000
-                scope:character ?= {
-                    has_template = syr_bustani_character_template
-                }
-            }
-			modifier = {
-                add = 90000
-                scope:character ?= {
-                    has_template = egy_shidyaq_character_template
-                }
             }
         }
 	}

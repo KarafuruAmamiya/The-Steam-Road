@@ -198,12 +198,10 @@ ai_strategy_default = {
 					is_diplomatic_play_initiator = yes
 				}
 				any_country = {
-					limit = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-							country_has_primary_culture = cu:rhenish
-						}
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:rhenish
 					}
 					is_diplomatic_play_enemy_of = c:FRA
 				}
@@ -782,6 +780,20 @@ ai_strategy_default = {
 					scope:target_state.state_region = { is_homeland = cu:greek }
 				}
 				add = 200
+			}
+			
+			# GP should go for Bandar Lengeh when starting Opium Wars play against Persia
+			if = {
+				limit = {
+					has_journal_entry = je_opium_wars
+					scope:target_country = {
+						has_variable = opium_wars_exporter
+					}
+					scope:target_state = {
+						state_region = s:STATE_MOGOSTAN
+					}					
+				}
+				add = 1000
 			}
 			
 			if = {
@@ -1694,7 +1706,7 @@ ai_strategy_default = {
 					has_variable = opium_wars_exporter
 				}
 			}
-			add = 100
+			add = 1000
 		}
 		
 		if = {
@@ -1729,6 +1741,7 @@ ai_strategy_default = {
 				}
 				scope:target_country = { 
 					c:SGF ?= this
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1742,6 +1755,7 @@ ai_strategy_default = {
 						c:NGF ?= this
 						c:SAX ?= this
 					}
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1756,6 +1770,7 @@ ai_strategy_default = {
 				}
 				scope:target_country = { 
 					c:RHN ?= this
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1769,6 +1784,7 @@ ai_strategy_default = {
 						c:NGF ?= this
 						c:SAX ?= this
 					}
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1780,6 +1796,7 @@ ai_strategy_default = {
 				c:SGF ?= this
 				scope:target_country = { 
 					c:RHN ?= this
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1790,6 +1807,7 @@ ai_strategy_default = {
 				c:RHN ?= this
 				scope:target_country = { 
 					c:SGF ?= this
+					NOT = { is_subject_of = root }
 				}
 			}
 			add = 50
@@ -1815,6 +1833,19 @@ ai_strategy_default = {
 						c:RWD ?= THIS
 						c:BUG ?= THIS
 						c:BRD ?= THIS
+					}
+				}
+			}
+			add = 2
+		}
+		
+		if = { #Cispratine reconquest
+			limit = {
+				c:CSR ?= this
+				scope:target_country = {
+					OR = {
+						c:TPR ?= THIS
+						c:JUL ?= THIS
 					}
 				}
 			}
@@ -3682,22 +3713,6 @@ ai_strategy_default = {
 				add = -1000
 			}
 		}
-		region_new_england = {
-			# Persia and Ottomans have no business interfering in the New World
-			if = {
-				limit = {
-					country_is_in_europe = no
-					country_is_in_new_word = no
-				}
-				add = -1000
-			}
-			if = {
-				limit = {
-					gunpowder_empire_trigger = yes
-				}
-				add = -1000
-			}
-		}
 		region_midwest = {
 			# Persia and Ottomans have no business interfering in the New World
 			if = {
@@ -4456,6 +4471,16 @@ ai_strategy_default = {
 				add = 500
 			}
 			
+			if = {
+				limit = {
+					has_journal_entry = je_opium_wars
+					scope:target_country = {
+						has_variable = opium_wars_exporter
+					}
+				}
+				add = 1000
+			}
+			
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = -0.05
@@ -4846,7 +4871,7 @@ ai_strategy_default = {
 						has_variable = opium_wars_exporter
 					}
 				}
-				add = 200
+				add = 1000
 			}
 			
 			if = { # acting against France
@@ -5157,6 +5182,19 @@ ai_strategy_default = {
 						is_country_type = unrecognized
 						any_scope_state = {
 							state_region = s:STATE_UGANDA
+						}
+					}
+				}
+				add = 100
+			}
+			
+			if = { #Cispratine reconquest
+				limit = {
+					c:CSR ?= this
+					scope:target_country = {
+						OR = {
+							c:TPR ?= THIS
+							c:JUL ?= THIS
 						}
 					}
 				}
@@ -5525,6 +5563,19 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			if = { #Cispratine reconquest
+				limit = {
+					c:CSR ?= this
+					scope:target_country = {
+						OR = {
+							c:TPR ?= THIS
+							c:JUL ?= THIS
+						}
+					}
+				}
+				add = 2
+			}
+			
 			multiply = {
 				value = "ai_ideological_opinion(scope:target_country)"
 				multiply = -0.05
@@ -5596,6 +5647,7 @@ ai_strategy_default = {
 						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
+						NOT = { is_subject_of = root }
 					}
 				}
 				add = 50
@@ -5764,7 +5816,6 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					has_journal_entry = je_opium_wars
-					NOT = { is_diplomatic_play_enemy_of = scope:target_country }
 					scope:target_country = {
 						has_variable = opium_wars_exporter
 					}
@@ -5877,6 +5928,19 @@ ai_strategy_default = {
 					}
 				}
 				add = 1000
+			}
+			
+			if = { #Cispratine reconquest
+				limit = {
+					c:CSR ?= this
+					scope:target_country = {
+						OR = {
+							c:TPR ?= THIS
+							c:JUL ?= THIS
+						}
+					}
+				}
+				add = 2
 			}
 			
 			if = {
@@ -6105,6 +6169,7 @@ ai_strategy_default = {
 						c:SAX ?= this
 						c:RHN ?= this
 						c:SGF ?= this
+						NOT = { is_subject_of = root }
 					}
 				}
 				add = 50
@@ -6311,7 +6376,7 @@ ai_strategy_default = {
 						has_variable = opium_wars_exporter
 					}
 				}
-				add = 75
+				add = 1000
 			}
 
 			if = {

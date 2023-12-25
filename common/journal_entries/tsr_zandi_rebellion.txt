@@ -59,7 +59,7 @@
 		}
 		any_scope_state = {
 			is_incorporated = yes
-			population >= 1000000
+			state_population >= 1000000
 			state_region = { 
 				is_homeland = cu:persian
 			}
@@ -107,7 +107,7 @@
 
 	on_complete = {
 		clear_zandism_vars = yes
-		trigger_event = { id = BRZ_populism.3 popup = yes }
+		trigger_event = { id = zandism_events.8 popup = yes }
 	}
 
 	fail = {

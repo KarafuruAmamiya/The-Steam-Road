@@ -161,25 +161,6 @@ liberal_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_whig_party
-				trigger = {
-					OR = {
-						AND = {
-							country_has_primary_culture = cu:dixie
-							NOT = {
-								exists = c:USC
-								THIS = c:USC
-							}
-						}
-						AND = {
-							exists = c:USC
-							THIS = c:USC
-							NOT = { has_global_variable = american_civil_war }
-						}
-					}
-				}
-			}
-			triggered_desc = {
 				desc = party_progress_party
 				trigger = {
 					OR = {
@@ -265,10 +246,7 @@ liberal_party = {
 			limit = {
 				owner = {
 					country_is_in_north_america = yes
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
+					country_has_primary_culture = cu:yankee
 					has_law = law_type:law_presidential_republic
 				}
 				leader = {
@@ -282,46 +260,6 @@ liberal_party = {
 			add = {
 				value = 3
 				desc = "usa_two_party_system"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					NOT = {
-						has_law = law_type:law_slavery_banned
-					}
-				}
-				leader = {
-					culture = cu:yankee
-				}
-			}
-			add = {
-				value = 3
-				desc = "from_northern_interests"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					NOT = {
-						has_law = law_type:law_slavery_banned
-					}
-				}
-				leader = {
-					culture = cu:dixie
-				}
-			}
-			add = {
-				value = -5
-				desc = "from_southern_interests"
 			}
 		}
 		if = { # liberals love liberalism
@@ -733,52 +671,6 @@ liberal_party = {
 			add = {
 				value = 10
 				desc = "south_america_two_party_system"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					country_is_in_north_america = yes
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					has_law = law_type:law_presidential_republic
-				}
-				leader = {
-					NOR = {
-						has_reactionary_ideology = yes
-						has_conservative_ideology = yes
-						has_socialist_ideology = yes
-					}
-				}
-			}
-			add = {
-				value = 3
-				desc = "usa_two_party_system"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						country_has_primary_culture = cu:yankee
-						country_has_primary_culture = cu:dixie
-					}
-					OR = {
-						NOT = {
-							has_law = law_type:law_slavery_banned
-						}
-						has_modifier = missouri_compromise
-					}
-				}
-				leader = {
-					culture = cu:yankee
-				}
-			}
-			add = {
-				value = 3
-				desc = "from_northern_interests"
 			}
 		}
 		if = {

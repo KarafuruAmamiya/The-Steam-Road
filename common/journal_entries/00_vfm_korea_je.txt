@@ -1,5 +1,7 @@
 ﻿je_hanja_issue = {
 	icon = "gfx/interface/icons/event_icons/event_academia.dds"
+	
+	group = je_group_historical_content
 
 	complete = {
 		AND = {
@@ -24,6 +26,8 @@
 
 je_sadae = {
 	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	group = je_group_historical_content
 	immediate = {
 		c:CHI = {
 			save_scope_as = chi_scope
@@ -99,6 +103,8 @@ je_sadae = {
 
 je_silhak = {
 	icon = "gfx/interface/icons/event_icons/event_religion.dds"
+	
+	group = je_group_historical_content
 	immediate = {
 		ig:ig_intelligentsia = { save_scope_as = ig_intelligentsia }
 	}
@@ -145,6 +151,8 @@ je_silhak = {
 
 je_silhak_return = {
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+	
+	group = je_group_historical_content
 	immediate = {
 		ig:ig_intelligentsia = { save_scope_as = ig_intelligentsia }
 		c:IBE = { save_scope_as = iberia_scope }
@@ -206,6 +214,8 @@ je_silhak_return = {
 
 je_silhak_reform = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	group = je_group_historical_content
 	complete = {
 		OR = {
 			NOT = { has_law = law_type:law_serfdom }
@@ -282,6 +292,8 @@ je_silhak_reform = {
 
 je_sojunghwa = {
 	icon = "gfx/interface/icons/event_icons/event_chi.dds"
+	
+	group = je_group_historical_content
     immediate = {
     	c:CHI = {
       		save_scope_as = chi_scope
@@ -348,6 +360,8 @@ je_sojunghwa = {
 
 je_donghak = { #spread of the donghak religion
 	icon = "gfx/interface/icons/religion_icons/cheondoist.dds"
+	
+	group = je_group_historical_content
 	on_weekly_pulse = {
 		random_events = {
 			30 = donghak.2
@@ -380,6 +394,8 @@ je_donghak = { #spread of the donghak religion
 
 je_donghak_rebelling = {
 	icon = "gfx/interface/icons/religion_icons/cheondoist.dds"
+	
+	group = je_group_historical_content
 	complete = {
 		AND = {
 			is_at_war = no

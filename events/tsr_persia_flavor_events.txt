@@ -1109,6 +1109,7 @@ persian_flavor.12 = {
 		c:PER ?= this
 		has_technology_researched = stock_exchange
 		NOT = { has_law = law_type:law_protectionism }
+		enacting_any_law = no
 		NOT = { has_variable = protect_bazaars }
 		any_market = {
 			owner = root
@@ -1218,44 +1219,17 @@ persian_flavor.12 = {
 					is_trade_route_productive = yes
 				}
 				exporter.owner = {
-					limit = {
-						country_is_in_europe = yes
-						gunpowder_empire_trigger = no
-					}
 					save_scope_as = exporter_country
 				}
 			}
 		}
 	}
-	
-	option = { # They should deal with it!
+	option = { # If they can complain, they can improve their products!
 		name = persian_flavor.12.a
 		default_option = yes
-		
 		scope:bazaari_ig = {
 			add_modifier = {
 				name = domestic_merchants_scorned
-				months = normal_modifier_time
-			}
-		}
-		every_scope_state = {
-			limit = {
-				ig_state_pol_strength_share = {
-					target = scope:bazaari_ig
-					value > 0.1
-				}
-			}
-			add_modifier = {
-				name = modifier_protectionism_support
-				months = long_modifier_time
-			}
-		}
-	}
-	option = { # If they can complain, they can improve their products!
-		name = persian_flavor.12.b
-		scope:bazaari_ig = {
-			add_modifier = {
-				name = domestic_merchants_scorned_max
 				months = normal_modifier_time
 			}
 		}
@@ -1279,7 +1253,7 @@ persian_flavor.12 = {
 		}
 	}
 	option = { # We need to protect our bazaars
-		name = persian_flavor.12.c
+		name = persian_flavor.12.b
 		trigger = {
 			scope:bazaari_ig = {
 				is_in_government = yes
@@ -1300,6 +1274,17 @@ persian_flavor.12 = {
 				name = modifier_protectionism_support
 				months = long_modifier_time
 			}
+		}
+	}
+	option = { # Have a compromise
+		name = persian_flavor.12.c
+		add_modifier = {
+			name = bazaari_aid
+			months = normal_modifier_time
+		}
+		add_modifier = {
+			name = establishing_new_industries
+			months = normal_modifier_time
 		}
 	}
 }
@@ -1625,19 +1610,18 @@ persian_flavor.17 = {
 	icon = "gfx/interface/icons/event_icons/event_agriculture.dds"
 	
 	trigger = {
-		has_technology_researched = mechanical_tools
+		has_technology_researched = dynamite
 		NOT = {
 			has_variable = helmand_river_conflict
 		}
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				count >= 3
 				OR = {
 					is_building_group = bg_agriculture
 					is_building_group = bg_plantations
 				}
-				level >= 10
+				level >= 20
 			}
 			OR = {
 				has_state_trait = state_trait_helmand_river
@@ -1670,12 +1654,11 @@ persian_flavor.17 = {
 			limit = {
 				is_incorporated = yes
 				any_scope_building = {
-					count >= 3
 					OR = {
 						is_building_group = bg_agriculture
 						is_building_group = bg_plantations
 					}
-					level >= 10
+					level >= 20
 				}
 				OR = {
 					has_state_trait = state_trait_helmand_river
@@ -1691,17 +1674,21 @@ persian_flavor.17 = {
 	option = {
 		name = persian_flavor.17.a #Prioritize the water for irrigation
 		default_option = yes
-		
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = river_diverted
+				months = normal_modifier_time
+			}
+		}
 		every_scope_state = {
 			limit = {
 				is_incorporated = yes
 				any_scope_building = {
-					count >= 3
 					OR = {
 						is_building_group = bg_agriculture
 						is_building_group = bg_plantations
 					}
-					level >= 10
+					level >= 20
 				}
 				OR = {
 					has_state_trait = state_trait_helmand_river
@@ -1762,6 +1749,7 @@ persian_flavor.17 = {
 						is_incorporated = yes
 					}
 				}
+				set_variable = helmand_country
 				change_relations = {
 					country = root
 					value = -30
@@ -1774,12 +1762,6 @@ persian_flavor.17 = {
 	}
 	option = {
 		name = persian_flavor.17.b #Water rights must remain equal
-		ig:ig_rural_folk = {
-			add_modifier = {
-				name = refused_irrigation_project
-				months = 12
-			}
-		}
 		if = {
 			limit = {
 				OR = {
@@ -1838,17 +1820,16 @@ persian_flavor.18 = {
 	icon = "gfx/interface/icons/event_icons/event_agriculture.dds"
 	
 	trigger = {
-		has_technology_researched = mechanical_tools
+		has_technology_researched = dynamite
 		NOT = { has_variable = amu_darya_conflict }
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
-				count >= 3
 				OR = {
 					is_building_group = bg_agriculture
 					is_building_group = bg_plantations
 				}
-				level >= 10
+				level >= 20
 			}
 			OR = {
 				has_state_trait = state_trait_oxus_river
@@ -1881,12 +1862,11 @@ persian_flavor.18 = {
 			limit = {
 				is_incorporated = yes
 				any_scope_building = {
-					count >= 3
 					OR = {
 						is_building_group = bg_agriculture
 						is_building_group = bg_plantations
 					}
-					level >= 10
+					level >= 20
 				}
 				OR = {
 					has_state_trait = state_trait_oxus_river
@@ -1902,16 +1882,21 @@ persian_flavor.18 = {
 	option = {
 		name = persian_flavor.18.a #Demand more water
 		default_option = yes
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = river_diverted
+				months = normal_modifier_time
+			}
+		}
 		every_scope_state = {
 			limit = {
 				is_incorporated = yes
 				any_scope_building = {
-					count >= 3
 					OR = {
 						is_building_group = bg_agriculture
 						is_building_group = bg_plantations
 					}
-					level >= 10
+					level >= 20
 				}
 				OR = {
 					has_state_trait = state_trait_oxus_river
@@ -1972,6 +1957,7 @@ persian_flavor.18 = {
 						is_incorporated = yes
 					}
 				}
+				set_variable = amu_darya_country
 				change_relations = {
 					country = root
 					value = -30
@@ -1984,12 +1970,6 @@ persian_flavor.18 = {
 	}
 	option = {
 		name = persian_flavor.18.b #Water rights must remain equal
-		ig:ig_rural_folk = {
-			add_modifier = {
-				name = refused_irrigation_project
-				months = 12
-			}
-		}
 		if = {
 			limit = {
 				OR = {
@@ -2061,7 +2041,7 @@ persian_flavor.19 = {
 					is_building_group = bg_power
 					is_building_group = bg_oil_extraction
 				}
-				level >= 10
+				level >= 15
 			}
 		}
 		NOT = { has_variable = zayanderud_water_event }
@@ -2092,7 +2072,7 @@ persian_flavor.19 = {
 						is_building_group = bg_power
 						is_building_group = bg_oil_extraction
 					}
-					level >= 10
+					level >= 15
 				}
 				add_modifier = {
 					name = increased_water_supply
@@ -2128,6 +2108,20 @@ persian_flavor.19 = {
 				months = 12
 			}
 		}
+		every_scope_building = {
+			limit = {
+				OR = {
+					is_building_group = bg_heavy_industry
+					is_building_group = bg_power
+					is_building_group = bg_oil_extraction
+				}
+				level >= 15
+			}
+			add_modifier = {
+				name = insufficient_water_supply
+				months = long_modifier_time
+			}
+		}
 	}
 }
 
@@ -2136,7 +2130,22 @@ persian_flavor.20 = {
 	type = country_event
 	placement = root
 	title = persian_flavor.20.t
-	desc = persian_flavor.20.d
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = persian_flavor.20.d1
+				trigger = {
+					has_variable = helmand_country
+				}
+			}
+			triggered_desc = {
+				desc = persian_flavor.20.d2
+				trigger = {
+					has_variable = amu_darya_country
+				}
+			}
+		}
+	}
 	flavor = persian_flavor.20.f
 
 	duration = 3
@@ -2152,6 +2161,7 @@ persian_flavor.20 = {
 	immediate = {
 		if = {
 			limit = {
+				has_variable = helmand_country
 				any_scope_state = {
 					has_state_trait = state_trait_helmand_river
 				}
@@ -2167,6 +2177,7 @@ persian_flavor.20 = {
 		}
 		else_if = {
 			limit = {
+				has_variable = amu_darya_country
 				any_scope_state = {
 					has_state_trait = state_trait_oxus_river
 				}
@@ -2188,6 +2199,7 @@ persian_flavor.20 = {
 		
 		if = {
 			limit = {
+				has_variable = helmand_country
 				any_scope_state = {
 					has_state_trait = state_trait_helmand_river
 				}
@@ -2204,6 +2216,7 @@ persian_flavor.20 = {
 		}
 		else_if = {
 			limit = {
+				has_variable = amu_darya_country
 				any_scope_state = {
 					has_state_trait = state_trait_oxus_river
 				}
@@ -2221,81 +2234,81 @@ persian_flavor.20 = {
 	}
 }
 
-# End the Harem Institution?
-persian_flavor.21 = {
-	type = country_event
-	placement = root
-	title = persian_flavor.21.t
-	desc = persian_flavor.21.d
-	flavor = persian_flavor.21.f
-
-	duration = 3
-
-	gui_window = event_window_1char_tabloid
-
-	left_icon = scope:mohammad_safavid_scope
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-	
-	trigger = {
-		any_scope_character = {
-			has_variable = is_mohammad_safavid
-			is_heir = yes
-			age >= 15
-			NOT = { has_variable = is_married }
-		}
-		NOT = { has_variable = harem_scandal }
-	}
-	
-	immediate = {
-		set_variable = harem_scandal
-		ig:ig_landowners = {
-			save_scope_as = landowners_scope
-		}
-		random_scope_character = {
-			limit = {
-				has_variable = is_mohammad_safavid
-				is_heir = yes
-				age >= 15
-				NOT = { has_variable = is_married }
-			}
-			save_scope_as = mohammad_safavid_scope
-		}
-	}
-	
-	option = {
-		name = persian_flavor.21.a #Let the Crown Prince do as he pleases
-		default_option = yes
-		
-		scope:landowners_scope = {
-			add_modifier = {
-				name = tolerated_the_prince
-				months = normal_modifier_time
-			}
-		}
-		add_modifier = {
-			name = harem_institution_questioned
-			months = long_modifier_time
-		}
-		scope:mohammad_safavid_scope = {
-			add_modifier = {
-				name = the_prince_radical_thoughts
-				months = -1
-			}
-		}
-	}
-	option = {
-		name = persian_flavor.21.b #What is he thinking? Get back to studying!
-		scope:mohammad_safavid_scope = {
-			add_modifier = {
-				name = the_prince_radical_thoughts
-				months = -1
-			}
-		}
-	}
-}
+## End the Harem Institution?
+#persian_flavor.21 = {
+#	type = country_event
+#	placement = root
+#	title = persian_flavor.21.t
+#	desc = persian_flavor.21.d
+#	flavor = persian_flavor.21.f
+#
+#	duration = 3
+#
+#	gui_window = event_window_1char_tabloid
+#
+#	left_icon = scope:mohammad_safavid_scope
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+#	
+#	trigger = {
+#		any_scope_character = {
+#			has_variable = is_mohammad_safavid
+#			is_heir = yes
+#			age >= 15
+#			NOT = { has_variable = is_married }
+#		}
+#		NOT = { has_variable = harem_scandal }
+#	}
+#	
+#	immediate = {
+#		set_variable = harem_scandal
+#		ig:ig_landowners = {
+#			save_scope_as = landowners_scope
+#		}
+#		random_scope_character = {
+#			limit = {
+#				has_variable = is_mohammad_safavid
+#				is_heir = yes
+#				age >= 15
+#				NOT = { has_variable = is_married }
+#			}
+#			save_scope_as = mohammad_safavid_scope
+#		}
+#	}
+#	
+#	option = {
+#		name = persian_flavor.21.a #Let the Crown Prince do as he pleases
+#		default_option = yes
+#		
+#		scope:landowners_scope = {
+#			add_modifier = {
+#				name = tolerated_the_prince
+#				months = normal_modifier_time
+#			}
+#		}
+#		add_modifier = {
+#			name = harem_institution_questioned
+#			months = long_modifier_time
+#		}
+#		scope:mohammad_safavid_scope = {
+#			add_modifier = {
+#				name = the_prince_radical_thoughts
+#				months = -1
+#			}
+#		}
+#	}
+#	option = {
+#		name = persian_flavor.21.b #What is he thinking? Get back to studying!
+#		scope:mohammad_safavid_scope = {
+#			add_modifier = {
+#				name = the_prince_radical_thoughts
+#				months = -1
+#			}
+#		}
+#	}
+#}
 
 # The Báb's Execution
 persian_flavor.22 = {
@@ -2461,8 +2474,10 @@ persian_flavor.24 = {
 			}
 		}
 		scope:new_ruler_scope = {
-			add_modifier = weak_ruler
-			months = -1
+			add_modifier = {
+				name = weak_ruler
+				months = normal_modifier_time
+			}
 		}
 	}
 }
@@ -2650,7 +2665,7 @@ persian_flavor.27 = {
 	option = {
 		name = persian_flavor.27.b #None of our constitution is against Islam!
 		custom_tooltip = {
-			name = clerical_conflict_tt
+			text = clerical_conflict_tt
 			set_variable = clerical_conflict
 		}
 		ig:ig_devout = {
@@ -2862,10 +2877,14 @@ persian_flavor.31 = {
 	
 	immediate = {
 		if = {
-			ruler = {
-				has_ideology = ideology:ideology_persian_constitutionalist
+			limit = {
+				ruler = {
+					has_ideology = ideology:ideology_persian_constitutionalist
+				}
 			}
-			save_scope_as = ruler_scope
+			ruler = {
+				save_scope_as = ruler_scope
+			}
 		}
 		ig:ig_landowners = {
 			save_scope_as = landowners_scope
@@ -2888,9 +2907,9 @@ persian_flavor.31 = {
 				any_scope_character = {
 					is_heir = yes
 				}
-				heir = {
-					kill_character = yes
-				}
+			}
+			heir = {
+				kill_character = yes
 			}
 		}
 		
@@ -2930,24 +2949,16 @@ persian_flavor.31 = {
 		
 		if = {
 			limit = {
-				ig:ig_devout = {
-					is_in_government = no
+				OR = {
+					ig:ig_devout = {
+						is_in_government = no
+					}
+					ig:ig_landowners = {
+						is_in_government = no
+					}
 				}
 			}
-			ig:ig_devout = {
-				set_ruling_interest_group = yes
-			}
-		}
-		
-		if = {
-			limit = {
-				ig:ig_landowners = {
-					is_in_government = no
-				}
-			}
-			ig:ig_landowners = {
-				set_ruling_interest_group = yes
-			}
+			set_ruling_interest_groups = { ig_devout ig_landowners }
 		}
 		
 		if = {
@@ -3010,9 +3021,9 @@ persian_flavor.31 = {
 				any_scope_character = {
 					is_heir = yes
 				}
-				heir = {
-					kill_character = yes
-				}
+			}
+			heir = {
+				kill_character = yes
 			}
 		}
 		
@@ -3045,24 +3056,16 @@ persian_flavor.31 = {
 		
 		if = {
 			limit = {
-				ig:ig_devout = {
-					is_in_government = no
+				OR = {
+					ig:ig_devout = {
+						is_in_government = no
+					}
+					ig:ig_landowners = {
+						is_in_government = no
+					}
 				}
 			}
-			ig:ig_devout = {
-				set_ruling_interest_group = yes
-			}
-		}
-		
-		if = {
-			limit = {
-				ig:ig_landowners = {
-					is_in_government = no
-				}
-			}
-			ig:ig_landowners = {
-				set_ruling_interest_group = yes
-			}
+			set_ruling_interest_groups = { ig_devout ig_landowners }
 		}
 		
 		if = {
@@ -3206,6 +3209,133 @@ persian_flavor.32 = {
 	}
 }
 
+# Eclipse events
+persian_eclipse.1 = { #Decline of Persia start event
+	type = country_event
+	title = persian_eclipse.1.t
+	desc = persian_eclipse.1.d
+	flavor =  persian_eclipse.1.f
+	duration = 3
+	event_image = {
+		video = "unspecific_factory_closed"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_eclipse.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	option = {
+		name = persian_eclipse.1.a
+		default_option = yes
+		add_modifier = {
+			name = eclipse_modifier
+			months = -1
+		}
+	}
+}
+
+persian_eclipse.2 = { #Dead Man of Asia (WIP)
+	type = country_event
+	title = persian_eclipse.2.t
+	desc = persian_eclipse.2.d
+	flavor =  persian_eclipse.2.f
+	duration = 3
+	event_image = {
+		video = "unspecific_factory_closed"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_eclipse.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	option = {
+		name = persian_eclipse.2.a
+		default_option = yes
+		set_variable = dead_man_of_asia
+		remove_modifier = eclipse_modifier
+		set_country_type = unrecognized
+		every_subject_or_below = {
+			limit = {
+				NOT = { any_overlord_or_above = { NOT = { ROOT = this } } }
+			}
+			make_independent = yes
+		}
+		if = {
+			limit = {
+				has_state_in_state_region = STATE_WESTERN_AUSTRALIA
+				exists = c:TIE
+			}
+			s:STATE_WESTERN_AUSTRALIA.region_state:PER = {
+				set_state_owner = c:TIE
+			}
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:azerbaijani
+			}
+			remove_primary_culture = cu:azerbaijani
+		}
+		every_scope_state = {
+			add_radicals_in_state = {
+				value = very_large_radicals
+			}
+		}
+	}
+}
+
+persian_eclipse.3 = { #A New Dawn
+	type = country_event
+	title = persian_eclipse.3.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = persian_eclipse.3.d1
+				trigger = {
+					has_law = law_type:law_monarchy
+				}
+			}
+			triggered_desc = {
+				desc = persian_eclipse.3.d2
+				trigger = {
+					NOT = {
+						has_law = law_type:law_monarchy
+					}
+				}
+			}
+		}
+	}
+	flavor =  persian_eclipse.3.f
+	duration = 3
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_eclipse.dds"
+	
+	trigger = {
+		#triggered by JE
+	}
+	option = {
+		name = persian_eclipse.3.a
+		default_option = yes
+		add_modifier = {
+			name = authority_restored
+			months = long_modifier_time
+		}
+		remove_modifier = eclipse_modifier
+		every_scope_state = {
+			add_loyalists_in_state = {
+				value = large_radicals
+			}
+		}
+	}
+}
+
 # Persian Renaissance
 persian_renaissance.1 = { #Founding of the Academy of Iran
 	type = country_event
@@ -3226,6 +3356,12 @@ persian_renaissance.1 = { #Founding of the Academy of Iran
 	option = { #
 		name = persian_renaissance.1.a
 		default_option = yes
+		if = {
+			limit = {
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_progress = { progress = 2500 technology = nationalism }
+		}
 		ig:ig_intelligentsia = {
 			add_modifier = {
 				name = academy_of_iran_modifier
@@ -3448,37 +3584,13 @@ persian_renaissance.8 = { #The Remodeling of Isfahan
 		scope:isfahan_state = {
 			add_modifier = {
 				name = modifier_isfahan_renewal
-				months = 12
-			}
-		}
-		ig:ig_landowners = {
-			add_modifier = {
-				name = modifier_isfahan_positive
-				months = 12
-			}
-		}
-		ig:ig_intelligentsia = {
-			add_modifier = {
-				name = modifier_isfahan_positive
-				months = 12
-			}
-		}
-		ig:ig_rural_folk = {
-			add_modifier = {
-				name = modifier_isfahan_negative
-				months = 12
-			}
-		}
-		ig:ig_petty_bourgeoisie = {
-			add_modifier = {
-				name = modifier_isfahan_negative
-				months = 12
+				months = normal_modifier_time
 			}
 		}
 	}
 }
 
-persian_renaissance.9 = { #A New Schooling System/Dar ul-Funun
+persian_renaissance.9 = { #University of Isfahan
 	type = country_event
 	placement = root
 	title = persian_renaissance.9.t
@@ -3492,25 +3604,28 @@ persian_renaissance.9 = { #A New Schooling System/Dar ul-Funun
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
-	immediate = {
-		
-	}
-	
-	option = { #
+	option = { # Technical knowledge
 		name = persian_renaissance.9.a
 		default_option = yes
-		
+		add_modifier = {
+			name = university_of_isfahan_technics
+			months = normal_modifier_time
+		}
 	}
 	
-	option = { #
-		name = persian_renaissance.9.b
-		
+	option = { # Social knowledge
+		name = persian_renaissance.9.a
+		default_option = yes
+		add_modifier = {
+			name = university_of_isfahan_social
+			months = normal_modifier_time
+		}
 	}
 }
 
 persian_renaissance.10 = { #The Silk Markets of Persia
 	type = country_event
-	placement = root
+	placement = scope:silk_market_state
 	title = persian_renaissance.10.t
 	desc = persian_renaissance.10.d
 	flavor =  persian_renaissance.10.f
@@ -3523,20 +3638,51 @@ persian_renaissance.10 = { #The Silk Markets of Persia
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	
 	immediate = {
-		
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					count >= 3
+					is_building_type = building_textile_mills
+					OR = {
+						has_active_production_method = pm_craftsman_sewing
+						has_active_production_method = pm_elastics
+					}
+					building_has_goods_shortage = no
+					occupancy >= 0.9
+					level >= 25
+				}
+			}
+			save_scope_as = silk_market_state
+		}
 	}
 	
 	option = { #
 		name = persian_renaissance.10.a
 		default_option = yes
-		
+		scope:silk_market_state = {	
+			state_region = {
+				add_state_trait = state_trait_silk_market
+			}
+		}
+		add_modifier = {
+			name = leading_textile_exporter
+			months = long_modifier_time
+		}
 	}
 	
 	option = { #
 		name = persian_renaissance.10.b
-		
+		scope:silk_market_state = {	
+			state_region = {
+				add_state_trait = state_trait_silk_market
+			}
+		}
+		add_modifier = {
+			name = high_quality_silk
+			months = long_modifier_time
+		}
 	}
 }
 
 #Karakum Frontier events
-#The ancient city of Merv, previously fading into obscurity ever since its sacking by the Mongols, has experienced some revitalization as a developing industrial center in [ROOT.GetCountry.GetName]. However, it is lacking in manpower if we wish to turn it into an industrial city, and local governors suggest incorporating the Turkmen nomads into farms and factories.
+#The ancient city of Merv, previously fading into obscurity ever since its sacking by the Mongols, has experienced some revitalization as a #developing industrial center in [ROOT.GetCountry.GetName]. However, it is lacking in manpower if we wish to turn it into an industrial city, and #local governors suggest incorporating the Turkmen nomads into farms and factories.

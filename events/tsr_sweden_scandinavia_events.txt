@@ -1,0 +1,189 @@
+﻿namespace = scandinavian_events
+
+scandinavian_events.1 = { # The Coronation of Gustav III
+	type = country_event
+	placement = ROOT
+
+	gui_window = event_window_1char_tabloid
+	
+	left_icon = scope:gustav_iii_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	title = scandinavian_events.1.t
+	desc = scandinavian_events.1.d
+	flavor = scandinavian_events.1.f
+	
+	immediate = {
+		c:DEN ?= { save_scope_as = den_scope }
+		c:NOR ?= { save_scope_as = nor_scope }
+		c:SWE ?= { save_scope_as = swe_scope }
+		heir = {
+			save_scope_as = gustav_iii_scope
+		}
+	}
+	
+	minor_left_icon = scope:den_scope
+	minor_right_icon = scope:nor_scope
+	
+	option = {
+		name = scandinavian_events.1.a
+		trigger = { 
+			c:SWE ?= this
+		}
+		default_option = yes
+		
+		custom_tooltip = gustav_iii_coronation_tt
+		hidden_effect = {
+			ruler = {
+				kill_character = { hidden = yes }
+			}
+		}
+		remove_modifier = swe_regency
+	}
+	option = {
+		name = scandinavian_events.1.b
+		trigger = { 
+			NOT = { c:SWE ?= this }
+		}
+		
+		custom_tooltip = gustav_iii_coronation_tt
+		remove_modifier = swe_regency
+	}
+}
+
+scandinavian_events.2 = { # The Death of Gustav III
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	title = scandinavian_events.2.t
+	desc = scandinavian_events.2.d
+	flavor = scandinavian_events.2.f
+	
+	minor_left_icon = scope:karl_ix_scope
+	
+	trigger = {
+		NOT = {
+			any_scope_character = {
+				has_variable = is_gustav_iii
+			}
+		}
+		NOT = { has_variable = new_heir_event }
+	}
+	
+	immediate = {
+		set_variable = new_heir_event
+		create_character = {
+			first_name = Karl_IX
+			last_name = Vasa
+			culture = cu:swedish
+			historical = yes
+			birth_date = 1799.4.27
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				ambitious expert_political_operator
+			}
+			on_created = {
+				set_variable = is_married
+			}
+			save_scope_as = karl_ix_scope
+		}
+		if = {
+			limit = {
+				any_scope_character = { is_heir = yes }
+			}
+			heir = { kill_character = { hidden = yes } }
+		}
+	}
+	
+	option = { #Karl IX become king
+		name = scandinavian_events.2.a
+		default_option = yes
+		
+		scope:karl_ix_scope = {
+			set_character_as_ruler = yes
+		}
+		
+		every_country = {
+			limit = { has_modifier = swe_regency }
+			remove_modifier = swe_regency
+		}
+	}
+}
+
+scandinavian_events.3 = { # Norway and Denmark want Gustav III now
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	title = scandinavian_events.3.t
+	desc = scandinavian_events.3.d
+	flavor = scandinavian_events.3.f
+	
+	trigger = {
+		NOT = { has_variable = regency_questioned }
+		any_scope_character = {
+			has_variable = is_gustav_iii
+			age <= 14
+		}
+	}
+	
+	immediate = {
+		set_variable = regency_questioned
+		c:DEN ?= { save_scope_as = den_scope }
+		c:NOR ?= { save_scope_as = nor_scope }
+		c:SWE ?= { save_scope_as = swe_scope }
+		random_scope_character = {
+			limit = {
+				has_variable = is_gustav_iii
+			}
+			save_scope_as = gustav_iii_scope
+		}
+	}
+	
+	option = { #Lower Gustav's coming to age
+		name = scandinavian_events.3.a
+		default_option = yes
+		
+		custom_tooltip = {
+			text = faster_regency_tt
+			set_variable = faster_regency
+		}
+	}
+	
+	option = { #He is not ready yet
+		name = scandinavian_events.3.b
+		change_relations = {
+			country = c:DEN
+			value = -10
+		}
+		change_relations = {
+			country = c:NOR
+			value = -10
+		}
+	}
+}

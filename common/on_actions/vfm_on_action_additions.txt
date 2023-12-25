@@ -1,14 +1,16 @@
 # Root = Country
 on_monthly_pulse_country = {
 	on_actions = {
-		vfm_events_hidden
 		vfm_events_korea
+		vfm_vice_presidents
+		vfm_prime_ministers
 	}
 }
 
 on_yearly_pulse_country = {
     on_actions = {
 		vfm_events_yearly_greece
+		vfm_disasters_yearly_country
 	}
 }
 
@@ -56,14 +58,12 @@ on_country_released_as_independent = {
 # Root = State
 on_state_incorporation = {
 	on_actions = {
-		vfm_frontier_colonization_clearance
 	}
 }
 
 # Root = Colony state
 on_colony_created = {
 	on_actions = {
-		vfm_frontier_colonization_colony_created
 		vfm_barracks_colony_created
 	}
 }

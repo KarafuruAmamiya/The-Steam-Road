@@ -157,7 +157,8 @@
 			on_created = {
 				set_variable = {
 					name = is_billy
-				}				
+				}	
+				set_variable = is_married
 			}
 		}	
 	
@@ -180,6 +181,104 @@
 				set_variable = {
 					name = is_victoria
 				}				
+			}
+		}
+		
+		create_character = { # Sea
+			is_admiral = yes
+			first_name = Sir_Edward
+			last_name = Codrington
+			historical = yes
+			age = 66
+			hq = region_england
+			commander_rank = commander_rank_5
+			traits = {
+				direct
+				experienced_naval_commander	
+			}
+			#Not known for diplomacy
+		}
+
+		create_character = {
+			is_general = yes
+			first_name = Hugh
+			last_name = Gough
+			historical = yes
+			age = 57
+			hq = region_england
+			commander_rank = commander_rank_3
+			traits = {
+				direct
+				reckless
+			}
+			#Favoured infantry over artillery
+			on_created = {
+				set_variable = eng_gen1_var
+			}
+		}
+
+		create_character = {
+			# John Colborne, 1st Baron Seaton
+			is_general = yes
+			first_name = John
+			last_name = Colborne
+			historical = yes
+			birth_date = 1778.2.16
+			hq = region_england
+			commander_rank = commander_rank_2
+			traits = {
+				basic_colonial_administrator
+				direct
+				tactful
+			}
+		}
+		
+		create_character = { # ENG, Admiral
+			is_admiral = yes
+			first_name = Sir_Thomas_Byam
+			last_name = Martin
+			historical = yes
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			birth_date = 1773.7.25
+			hq = region_england
+			commander_rank = commander_rank_2
+			traits = {
+				dockyard_master
+				basic_naval_commander
+				innovative
+			}
+		}
+	}
+	c:FLA = {
+		create_character = {
+			first_name = "Johan_II"
+			last_name = "Askanier"
+			historical = yes
+			ruler = yes
+			female = no
+			age = 58
+    		religion = rel:protestant
+			interest_group = ig_landowners
+			ideology = ideology_moderate
+			traits = {
+				meticulous
+			}
+			on_created = {
+				set_variable = is_married
+			}
+		}	
+
+		create_character = {
+			first_name = "Albert_II"
+			last_name = "Askanier"
+			historical = yes
+			female = no
+			heir = yes
+			age = 30
+    		religion = rel:protestant
+			traits = {
+				charismatic
 			}
 		}
 	}
@@ -550,6 +649,9 @@
 				persistent
 				innovative
 			}
+			on_created = {
+				set_variable = is_married
+			}
 		}
 		
 		create_character = {
@@ -687,6 +789,9 @@
 			traits = {
 				cautious
 			}
+			on_created = {
+				set_variable = is_married
+			}
 		}
 		create_character = {
 			first_name = Philip
@@ -761,6 +866,9 @@
 			traits = {
 				meticulous ambitious basic_political_operator
 			}
+			on_created = {
+				set_variable = is_married
+			}
 		}
 	}
 	c:SWE = {
@@ -781,6 +889,7 @@
 			}
 			on_created = {
 				set_variable = is_married
+				set_variable = is_eleonora
 			}
 		}	
 
@@ -790,13 +899,16 @@
 			historical = yes
 			female = no
 			heir = yes
-			birth_date=1824.7.15
+			birth_date=1826.7.15
     		religion = rel:catholic
 			culture = cu:swedish
 			interest_group = ig_landowners
 			ideology = ideology_jingoist_leader
 			traits = {
 				persistent
+			}
+			on_created = {
+				set_variable = is_gustav_iii
 			}
 		}
 	}

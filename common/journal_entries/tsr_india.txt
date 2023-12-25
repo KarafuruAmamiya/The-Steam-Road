@@ -28,6 +28,16 @@
 		NOT = {
 			owns_entire_state_region = STATE_GUJARAT
 		}
+		custom_tooltip = {
+			text = any_indian_state_breaksaway
+			any_state = {
+				has_variable = hindustani_subject_state
+				NOR = {
+					owner = root
+					owner = { is_subject_of = root }
+				}
+			}
+		}
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 	}
@@ -66,11 +76,11 @@ je_surat_riots = {
 				}
 			}
 			average_sol < 10
+			count = all
 		}
 		OR = {
 			has_law = law_type:law_commercialized_agriculture
 			has_law = law_type:law_free_trade
-			tax_level = high
 			any_subject_or_below = {
 				country_is_in_india = yes
 				any_primary_culture = {

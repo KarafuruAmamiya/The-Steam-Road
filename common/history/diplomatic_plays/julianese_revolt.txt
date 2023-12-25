@@ -1,0 +1,52 @@
+﻿DIPLOMATIC_PLAYS = {
+	c:NWX = {
+		create_diplomatic_play = {
+			name = julianese_revolt
+		
+			target_state = s:STATE_PENZANCE.region_state:JUL
+
+			war = yes
+			
+			type = dp_return_state
+			
+			add_initiator_backers = {
+				c:ENG
+				c:TPR
+			}
+			
+			add_target_backers = {
+				c:CSR
+			}
+			
+			add_war_goal = {
+				holder = c:JUL
+				type = war_reparations
+				target_country = c:TPR
+			}
+			add_war_goal = {
+				holder = c:TPR
+				type = return_state
+				target_state = s:STATE_JULIANA.region_state:JUL
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:NWX
+				type = return_state
+				target_state = s:STATE_CURITYBA.region_state:JUL
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:NWX
+				type = return_state
+				target_state = s:STATE_JACUY.region_state:JUL
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:NWX
+				type = return_state
+				target_state = s:STATE_BAJO_PARAGUAY.region_state:JUL
+				primary_demand = yes
+			}
+		}		
+	}
+}

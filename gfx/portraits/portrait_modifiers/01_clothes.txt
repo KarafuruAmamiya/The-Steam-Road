@@ -225,6 +225,12 @@
                     }
                 }
             }
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_template = al_afghani_character_template
+				}
+			}
         }
     }
 
@@ -2351,7 +2357,10 @@
 				add = 10000
 				OR = {
 					AND = {
-						gaucho_clothes_trigger = yes
+						OR = {
+							gaucho_clothes_trigger = yes
+							soalleiran_clothes_trigger = yes
+						}
 						scope:character ?= {
 							has_role = politician
 							OR = {
@@ -2370,7 +2379,10 @@
 						}
 					}
 					AND = {
-						gaucho_clothes_pop_trigger = yes
+						OR = {
+							gaucho_clothes_pop_trigger = yes
+							soalleiran_clothes_pop_trigger = yes
+						}
 						scope:pop ?= {
 							OR = {
 								is_pop_type = farmers
@@ -3619,15 +3631,6 @@
                                 }
                             }
                         }
-						AND = {
-                            exists = scope:character
-                            scope:character = {
-								exists = home_country
-                                home_country = {
-									has_variable = adopt_western_clothes
-								}
-                            }
-                        }
                         african_diaspora_clothes_trigger = yes
                     }
                     politician_clothes_trigger = yes
@@ -3641,17 +3644,7 @@
                AND = {
                    OR = {
 						european_clothes_trigger = yes
-						tsr_persia_leader_trigger = yes
-						tsr_ottoman_leader_trigger = yes
-						AND = {
-                            exists = scope:character
-                            scope:character = {
-								exists = home_country
-                                home_country = {
-									has_variable = adopt_western_uniforms
-								}
-                            }
-                        }
+						western_clothes_trigger = yes
 					}
                    ruler_clothes_trigger = yes
                    monarchy_clothes_trigger = no
@@ -4360,6 +4353,32 @@ indian_royal_clothes = {
            }
         }
     }
+	
+	malay_royal_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = outfits
+                template = indian_high_outfits
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = legwear
+                template = european_legwear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+
+        weight = {
+            base = 0
+            modifier = {
+                add = 5000
+                malay_clothes_trigger = yes
+                monarchy_clothes_trigger = yes
+           }
+        }
+    }
 
     christian_character_clothes = {
         dna_modifiers = {
@@ -4733,7 +4752,7 @@ indigenous_oceanic_high_clothes_recognized = {
             accessory = {
                 mode = add
                 gene = outfits
-                template = indian_high_outfits
+                template = siamese_outfits
                 range = { 0 1 } # For the randomness to work correctly
             }
         }

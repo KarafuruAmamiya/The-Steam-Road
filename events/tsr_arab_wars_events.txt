@@ -99,53 +99,6 @@ arab_wars.2 = {
 	trigger = {
 	}
 
-	immediate = {
-		random_scope_state = {
-			limit = {
-                any_scope_pop = {
-					culture = {
-						has_discrimination_trait = arabic_heritage
-					}
-					pop_is_discriminated = yes
-				}
-				OR = {
-					state_region = { 
-						is_homeland = cu:levantine 
-					}
-					state_region = { 
-						is_homeland = cu:mashriqi 
-					}
-					state_region = { 
-						is_homeland = cu:iraqi 
-					}
-					state_region = { 
-						is_homeland = cu:misri 
-					}
-					state_region = { 
-						is_homeland = cu:maghrebi 
-					}
-					state_region = { 
-						is_homeland = cu:khaleeji 
-					}
-					state_region = { 
-						is_homeland = cu:omani 
-					}
-					state_region = { 
-						is_homeland = cu:yemenite 
-					}
-					state_region = { 
-						is_homeland = cu:bedouin 
-					}
-				}
-				OR = {
-					state_is_in_middle_east = yes
-					state_is_in_north_africa = yes
-				}
-            }
-			save_scope_as = arab_state
-		}
-	}
-
 	option = {
 		name = arab_wars.2.a
 		if = {
@@ -256,10 +209,53 @@ arab_wars.2 = {
 				value = medium_radicals
 			}
 		}
-		scope:arab_state ?= {
-			add_modifier = {
-				name = arab_revolt
-				years = 10
+		hidden_effect = {
+			every_scope_state = {
+				limit = {
+					any_scope_pop = {
+						culture = {
+							has_discrimination_trait = arabic_heritage
+						}
+						pop_is_discriminated = yes
+					}
+					OR = {
+						state_region = { 
+							is_homeland = cu:levantine 
+						}
+						state_region = { 
+							is_homeland = cu:mashriqi 
+						}
+						state_region = { 
+							is_homeland = cu:iraqi 
+						}
+						state_region = { 
+							is_homeland = cu:misri 
+						}
+						state_region = { 
+							is_homeland = cu:maghrebi 
+						}
+						state_region = { 
+							is_homeland = cu:khaleeji 
+						}
+						state_region = { 
+							is_homeland = cu:omani 
+						}
+						state_region = { 
+							is_homeland = cu:yemenite 
+						}
+						state_region = { 
+							is_homeland = cu:bedouin 
+						}
+					}
+					OR = {
+						state_is_in_middle_east = yes
+						state_is_in_north_africa = yes
+					}
+				}
+				add_modifier = {
+					name = arab_revolt
+					years = 10
+				}
 			}
 		}
 	}

@@ -157,6 +157,87 @@ DPR = { # Dnieperia
 	}
 }
 
+# Indian formables
+
+KND = { # Karunadu
+	states = {
+		STATE_MYSORE
+		STATE_GULBARGA
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		is_subject = no
+	}
+}
+
+GON = { # Gondwana
+	states = {
+		STATE_NAGPUR
+		STATE_BASTAR
+		STATE_SURGUJA
+		STATE_GONDWANA
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		is_subject = no
+		country_has_primary_culture = cu:gondi
+	}
+}
+
+RJS = { # Rajasthan
+	states = {
+		STATE_MEWAR
+		STATE_MALWA
+		STATE_JANGLADESH
+		STATE_MARWAR
+		STATE_DHUNDAR
+	}
+
+	required_states_fraction = 1
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		is_subject = no
+		country_has_primary_culture = cu:gondi
+	}
+}
+
+VIJ = { # Vijayanagar
+	states = {
+		STATE_CHOLA_NADU
+		STATE_PANDYA_NADU
+		STATE_KONGU_NADU
+		STATE_CEYLON
+		STATE_MYSORE
+		STATE_RAYALASEEMA
+		STATE_CIRCARS
+		STATE_GULBARGA
+		STATE_HYDERABAD
+		STATE_TRAVANCORE
+		STATE_BASTAR
+		STATE_ORISSA
+	}
+
+	required_states_fraction = 0.9
+	
+	ai_will_do = { always = yes }
+
+	possible = {
+		is_subject = no
+		has_law = law_type:law_monarchy
+		NOT = { has_game_rule = plausible_formable_nations }
+	}
+}
+
 # Major Formables
 
 BHT = { # India

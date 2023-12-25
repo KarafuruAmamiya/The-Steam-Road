@@ -157,8 +157,8 @@ zandi_rebellion_aftermath = {
 
 post_zandi_purge = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	interest_group_pol_str_mult = -0.5
-	interest_group_pop_attraction_mult = -0.5
+	interest_group_pol_str_mult = -0.25
+	interest_group_pop_attraction_mult = -0.25
 	interest_group_approval_add = -10
 }
 
@@ -250,8 +250,8 @@ constitutional_reformation_education = {
 
 modifier_isfahan_renewal = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_urban_center_throughput_add = -0.25
-	building_construction_sector_throughput_add = 0.25
+	building_urban_center_throughput_add = 0.15
+	building_construction_sector_throughput_add = 0.15
 }
 
 modifier_isfahan_positive = {
@@ -269,11 +269,6 @@ domestic_merchants_scorned = {
 	interest_group_approval_add = -3
 }
 
-domestic_merchants_scorned_max = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	interest_group_approval_add = -5
-}
-
 respected_market_freedom = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	interest_group_approval_add = 5
@@ -282,6 +277,19 @@ respected_market_freedom = {
 modifier_protectionism_support = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_pop_support_law_protectionism_add = 0.25
+}
+
+bazaari_aid = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_welfare_payments_add = 1
+	state_pop_qualifications_mult = 0.1
+	interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.1
+}
+
+establishing_new_industries = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_capitalists_investment_pool_efficiency_mult = 0.1
+	interest_group_ig_industrialists_pop_attraction_mult = 0.1
 }
 
 police_crackdown = {
@@ -293,12 +301,19 @@ helmand_river_irrigation = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	building_group_bg_agriculture_throughput_add = 0.05
 	building_group_bg_plantations_throughput_add = 0.05
+	state_infrastructure_add = 5
 }
 
 amu_darya_irrigation = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
 	building_group_bg_agriculture_throughput_add = 0.05
 	building_group_bg_plantations_throughput_add = 0.05
+	state_infrastructure_add = 5
+}
+
+river_diverted = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -5
 }
 
 refused_irrigation_project = {
@@ -310,11 +325,17 @@ river_water_diverted = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	building_group_bg_agriculture_throughput_add = -0.05
 	building_group_bg_plantations_throughput_add = -0.05
+	state_infrastructure_add = -5
 }
 
 increased_water_supply = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_throughput_add = 0.1
+}
+
+insufficient_water_supply = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_throughput_add = -0.1
 }
 
 reduced_water_resources = {
@@ -388,7 +409,7 @@ harsh_suppression = {
 	state_turmoil_effects_mult = -0.35
 }
 
-ignored_turmoil_in_gujarat = {
+ignored_turmoil = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	interest_group_approval_add = -2
 }
@@ -504,4 +525,46 @@ squashed_zandism = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	state_turmoil_effects_mult = -0.25
 	country_authority_mult = 0.1
+}
+
+eclipse_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_authority_mult = -0.25
+	country_prestige_mult = -0.33
+	country_legitimacy_base_add = -20
+	state_tax_collection_mult = -0.1
+	unit_army_offense_mult = -0.25
+	unit_army_defense_mult = -0.25
+	state_radicals_from_sol_change_mult = 0.25
+	state_radicals_from_discrimination_mult = 0.5
+}
+
+authority_restored = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_authority_mult = 0.25
+	country_legitimacy_base_add = 10
+	state_loyalists_from_sol_change_mult = 0.25
+	state_turmoil_effects_mult = -0.5
+}
+
+leading_textile_exporter = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mills_throughput_add = 0.25
+	country_trade_route_competitiveness_mult = 0.1
+}
+
+high_quality_silk = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	building_silk_plantation_throughput_add = 0.25
+	country_trade_route_competitiveness_mult = 0.1
+}
+
+university_of_isfahan_technics = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_production_tech_research_speed_mult = 0.15
+}
+
+university_of_isfahan_social = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_society_tech_research_speed_mult = 0.15
 }

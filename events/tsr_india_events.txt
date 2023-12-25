@@ -137,7 +137,9 @@ raj.1 = {
 						}
 					}
 				}
-				add_claim = c:RAJ
+				state_region = {
+					add_claim = c:RAJ
+				}
 			}
 			every_subject_or_below = {
 				if = {
@@ -213,7 +215,9 @@ raj.1 = {
 						}
 					}
 				}
-				add_claim = c:RAJ
+				state_region = {
+					add_claim = c:RAJ
+				}
 			}
 			every_subject_or_below = {
 				if = {
@@ -1164,9 +1168,9 @@ indian_flavor.1 = { #Bundelkhand Succession Crisis
 				any_scope_character = {
 					is_heir = yes
 				}
-				heir = {
-					kill_character = yes
-				}
+			}
+			heir = {
+				kill_character = yes
 			}
 		}
 	}
@@ -1500,13 +1504,13 @@ indian_flavor.5 = { #Peasants Revolt
 		}
 	}
 	option = {
-		name = indian_flavor.5.d #Try to listen to what they have to say
+		name = indian_flavor.5.e #Try to listen to what they have to say
 		trigger = {
 			has_law = law_type:law_guaranteed_liberties
 		}
 		scope:revolt_state_scope = {
 			add_radicals_in_state = {
-				value = medium_radicals
+				value = small_radicals
 				culture = cu:gujarati
 			}
 		}
@@ -1540,7 +1544,7 @@ indian_flavor.6 = { #Mobs disrupt ports
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
 	
-	cooldown = 12
+	cooldown = { months = 12 }
 	
 	immediate = {
 		random_scope_state = {
@@ -1703,7 +1707,9 @@ indian_flavor.8 = { #Full-Blown Revolt
 				has_variable = peasant_riots_var
 			}
 			save_scope_as = revolution_scope
-			add_devastation = 15
+			state_region = {
+				add_devastation = 15
+			}
 		}
 		random_scope_state = {
 			limit = {
@@ -1752,17 +1758,18 @@ indian_flavor.8 = { #Full-Blown Revolt
 				value = large_radicals
 				culture = cu:gujarati
 			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				culture = cu:gujarati
+				pop_type = peasants
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				culture = cu:gujarati
+				pop_type = farmers
+			}
 		}
-		kill_population_percent_in_state = {
-			percent = 0.02
-			culture = cu:gujarati
-			pop_type = peasants
-		}
-		kill_population_percent_in_state = {
-			percent = 0.02
-			culture = cu:gujarati
-			pop_type = farmers
-		}
+		
 		custom_tooltip = indian_flavor.8.tt1 #Your actions will most likely cause the revolt to spread!
 		hidden_effect = { 
 			random_list = {
@@ -1788,7 +1795,7 @@ indian_flavor.8 = { #Full-Blown Revolt
 			}
 			add_radicals_in_state = {
 				value = medium_radicals
-				culture = primary_culture_scope
+				culture = scope:primary_culture_scope
 			}
 		}
 		custom_tooltip = indian_flavor.8.tt2 #Your lack of response could cause the revolt to spread!
@@ -1830,7 +1837,9 @@ indian_flavor.9 = { #Revolts Spread
 				}
 				NOT = { has_variable = peasant_riots_var }
 			}
-			add_devastation = 15
+			state_region = {
+				add_devastation = 15
+			}
 			set_variable = peasant_riots_var
 			save_scope_as = spreading_revolt_state
 		}
@@ -1850,7 +1859,7 @@ indian_flavor.9 = { #Revolts Spread
 		}
 	}
 	option = {
-		name = indian_flavor.8.a #Gun them down!
+		name = indian_flavor.9.a #Gun them down!
 		default_option = yes
 		trigger = {
 			OR = {
@@ -1871,23 +1880,23 @@ indian_flavor.9 = { #Revolts Spread
 				value = large_radicals
 				culture = cu:gujarati
 			}
-		}
-		kill_population_percent_in_state = {
-			percent = 0.02
-			culture = cu:gujarati
-			pop_type = peasants
-		}
-		kill_population_percent_in_state = {
-			percent = 0.02
-			culture = cu:gujarati
-			pop_type = farmers
+			kill_population_percent_in_state = {
+				percent = 0.02
+				culture = cu:gujarati
+				pop_type = peasants
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				culture = cu:gujarati
+				pop_type = farmers
+			}
 		}
 		ai_chance = {
 			base = 50
 		}
 	}
 	option = {
-		name = indian_flavor.8.b #Let the revolt runs it course
+		name = indian_flavor.9.b #Let the revolt runs it course
 		scope:revolution_scope = {
 			add_radicals_in_state = {
 				value = large_radicals
@@ -1895,7 +1904,7 @@ indian_flavor.9 = { #Revolts Spread
 			}
 			add_radicals_in_state = {
 				value = medium_radicals
-				culture = primary_culture_scope
+				culture = scope:primary_culture_scope
 			}
 		}
 	}

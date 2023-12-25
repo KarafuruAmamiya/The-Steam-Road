@@ -188,6 +188,8 @@ al_afghani_events.1 = {
 	dlc = dlc004
 
 	duration = 3
+	
+	minor_left_icon = scope:al_afghani_scope
 
 	trigger = {
 		has_dlc_feature = voice_of_the_people_content
@@ -211,9 +213,14 @@ al_afghani_events.1 = {
 		}
 		any_scope_state = {
 			OR = {
-				state_is_in_subsaharan_africa = no
+				AND = {
+					state_is_in_africa = yes
+					state_is_in_north_africa = yes
+				}
 				state_is_in_americas = no
 				state_is_in_oceania = no
+				state_is_in_east_asia = no
+				state_is_in_southeast_asia = no
 			}
 			any_scope_pop = {
 				OR = {
@@ -491,9 +498,14 @@ al_afghani_events.3 = {
 		}
 		any_scope_state = {
 			OR = {
-				state_is_in_subsaharan_africa = no
+				AND = {
+					state_is_in_africa = yes
+					state_is_in_north_africa = yes
+				}
 				state_is_in_americas = no
 				state_is_in_oceania = no
+				state_is_in_east_asia = no
+				state_is_in_southeast_asia = no
 			}
 			any_scope_pop = {
 				OR = {
@@ -557,7 +569,7 @@ al_afghani_events.3 = {
 
 	option = {
 		name = al_afghani_events.3.b
-		highlighted_option = yes
+		default_option = yes
 		scope:al_afghani_scope = {
 			exile_character = yes
 			clean_up_exile_character_roles = yes

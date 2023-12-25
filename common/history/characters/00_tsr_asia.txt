@@ -246,6 +246,9 @@
 			traits = {
 				ambitious
 			}
+			on_created = {
+				set_variable = is_married
+			}
 		}	
 
 		create_character = {
@@ -293,6 +296,9 @@
 			ideology = ideology_traditionalist
 			traits = {
 				ambitious
+			}
+			on_created = {
+				set_variable = is_married
 			}
 		}	
 
@@ -346,9 +352,7 @@
 				direct innovative
 			}
 			on_created = {
-				set_variable = {
-					name = is_mohammad_safavid
-				}
+				set_variable = is_mohammad_safavid
 				set_character_immortal = yes
 			}
 		}
@@ -663,6 +667,7 @@
 			}
 			on_created = {
 				set_variable = king_haymar
+				set_variable = is_married
 			}
 		}
 		create_character = {

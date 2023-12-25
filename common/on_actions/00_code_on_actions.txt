@@ -3,12 +3,6 @@
 # Root = Country
 on_monthly_pulse_country = {
 	events = {
-		character_roles_hidden.1
-		character_roles_hidden.2
-		character_roles_hidden.3
-		character_roles_hidden.4
-		character_roles_hidden.5
-		character_roles_hidden.6
 		communism.8 # Red Army
 		peoples_springtime.1
 		opium_wars.1
@@ -1535,6 +1529,29 @@ on_diplo_play_war_start = {
 	effect = {
 		post_notification = diplo_play_war_start_notification
 		post_notification = diplo_play_war_start_third_party_notification
+		if = {
+			limit = { 
+				exists = c:BGL
+				exists = c:PER
+				any_scope_play_involved = { 
+					country_is_in_india = yes 
+					NOT = { c:GUJ ?= this }
+					NOT = { is_subject_of = c:PER }
+				} 
+				initiator_is = c:PER
+			}
+			every_diplomatic_play = {
+				limit = {
+					any_scope_play_involved = { 
+						country_is_in_india = yes 
+						NOT = { c:GUJ ?= this }
+						NOT = { is_subject_of = c:PER }
+					} 
+					initiator_is = c:PER
+				}
+				add_initiator_backers = { c:BGL }
+			}
+		}
 	}
 }
 

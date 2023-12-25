@@ -366,6 +366,10 @@ zandism_events.3 = {
 					name = zandi_army_modifier
 					months = normal_modifier_time
 				}
+				add_modifier = {
+					name = modifier_zandi_hiring_bonus
+					months = normal_modifier_time
+				}
 			}
 		}
 		c:ZNI = { 
@@ -810,6 +814,7 @@ zandism_events.7 = {
 	}
 	option = {
 		name = zandism_events.7.b #Exile him, and never allow him to return to Persia
+		default_option = yes
 		scope:zand_scope = {
 			exile_character_with_martyrdom = yes
 		}

@@ -24,7 +24,11 @@ opium_wars.1 = {
 		any_primary_culture = {
 			has_cultural_obsession = opium
 		}
-		is_subject = no
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_port
+			}
+		}
 		any_market = {
 			owner = ROOT
 			any_trade_route = {
@@ -108,15 +112,8 @@ opium_wars.1 = {
 			name = opium_wars_addiction_modifier
 			months = 180
 		}
-		set_variable = {
-			name = opium_wars_completion_tracker
-			value = 0
-		}
 		add_journal_entry = {
 			type = je_opium_obsession
-		}
-		add_journal_entry = {
-			type = je_opium_wars
 		}
 		ai_chance = {
 			base = 0
@@ -157,6 +154,7 @@ opium_wars.2 = {
 	trigger = {
 		c:PER ?= this
 		has_variable = opium_war_prelude
+		NOT = { has_variable = opium_wars_response }
 		any_country = {
 			has_variable = opium_wars_aggressor
 			country_rank >= rank_value:major_power
@@ -210,14 +208,26 @@ opium_wars.2 = {
 				}
 				post_notification = opium_wars_british_response_angry
 			}		
-			scope:opium_wars_aggressor_country = {
+			every_country = {
+				limit = {
+					has_variable = opium_wars_aggressor
+					country_rank >= rank_value:major_power
+					OR = {
+						is_player = yes
+						country_rank >= rank_value:great_power
+					}
+				}
 				set_secret_goal = {
 					country = root
 					secret_goal = conquer			
 				}
 				add_journal_entry = {
 					type = je_opium_wars
-				}				
+				}
+				set_variable = {
+					name = opium_wars_completion_tracker
+					value = 0
+				}
 			}
 			set_secret_goal = {
 				country = scope:opium_wars_aggressor_country
@@ -838,7 +848,6 @@ opium_wars.9 = {
 	}
 
 	immediate = {
-		trigger_event = { id = opium_wars.10 days = 0 }
 		# max 4 countries beating up Persia
 		random_country = {
 			limit = {
@@ -972,39 +981,6 @@ opium_wars.9 = {
 				}
 			}
 		}
-	}
-}
-
-# Opium Wars Support
-opium_wars.10 = {
-	type = country_event
-	title = opium_wars.10.t
-	desc = opium_wars.10.d
-	flavor = opium_wars.10.f
-
-	duration = 3
-
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	trigger = {
-	}
-
-	immediate = {
-		random_country = {
-			limit = { has_variable = opium_wars_exporter }
-			save_scope_as = opium_wars_target_country
-		}
-	}
-
-	option = {
-		name = opium_wars.8.a
-		default_option = yes
 		add_modifier = {
 			name = opium_wars_modifier
 			months = normal_modifier_time
@@ -1026,6 +1002,40 @@ opium_wars.10 = {
 		}
 	}
 }
+
+## Opium Wars Support
+#opium_wars.10 = {
+#	type = country_event
+#	title = opium_wars.10.t
+#	desc = opium_wars.10.d
+#	flavor = opium_wars.10.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "unspecific_military_parade"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#
+#	trigger = {
+#	}
+#
+#	immediate = {
+#		random_country = {
+#			limit = { has_variable = opium_wars_exporter }
+#			save_scope_as = opium_wars_target_country
+#		}
+#	}
+#
+#	option = {
+#		name = opium_wars.10.a
+#		default_option = yes
+#		
+#	}
+#}
 
 # Hormuz Subject
 opium_wars.11 = {

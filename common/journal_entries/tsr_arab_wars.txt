@@ -234,9 +234,17 @@ je_arab_nationalism_overlord = {
 	}
 
 	on_fail = {
+		every_scope_state = {
+			limit = { has_modifier = arab_revolt }
+			remove_modifier = arab_revolt
+		}
 	}
-
-	on_monthly_pulse = {
+	
+	on_timeout = {
+		every_scope_state = {
+			limit = { has_modifier = arab_revolt }
+			remove_modifier = arab_revolt
+		}
 	}
 
 	on_monthly_pulse = {

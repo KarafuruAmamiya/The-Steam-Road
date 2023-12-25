@@ -291,6 +291,40 @@ BRL = { # Borealia
 	}
 }
 
+NWX = { # New Wessex
+	dynamic_country_name = { # Phindorea
+		name = dyn_c_phindorea
+		adjective = dyn_c_phindorean_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				NOT = { is_subject_of = c:ENG }
+			}
+		}
+	}
+}
+
+TPR = { # Transprateada
+	dynamic_country_name = { # Victoria
+		name = dyn_c_victoria
+		adjective = dyn_c_victoria_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				is_subject_of = c:ENG
+			}
+		}
+	}
+}
+
 KRL = { # Karolia
 	dynamic_country_name = { # Vinland
 		name = dyn_c_krlcolonial

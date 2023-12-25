@@ -468,7 +468,15 @@ je_german_unification = {
 		custom_tooltip = {
 			c:GER ?= this
 			text = je_german_unification_complete_trigger_desc
-		}	
+		}
+		custom_tooltip = {
+			text = dual_monarchy_integrated_tt
+			NOT = {
+				any_subject_or_below = {
+					is_subject_type = subject_type_real_union
+				}
+			}
+		}
 	}
 
 	on_complete = {
@@ -494,6 +502,45 @@ je_german_unification = {
 				add_claim = ROOT
 			}
 		}	
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						OR = {
+							c:RHN ?= this
+							c:PFA ?= this
+							c:SAX ?= this
+						}
+						OR = {
+							c:RHN ?= {
+								NOT = { this = root }
+								has_variable = recently_lost_war
+							}
+							c:PFA ?= {
+								NOT = { this = root }
+								has_variable = recently_lost_war
+							}
+							c:SAX ?= {
+								NOT = { this = root }
+								has_variable = recently_lost_war
+							}
+						}
+					}
+					is_unification_candidate = GER
+					NOT = {
+						any_country = {
+							NOT = { this = root }				
+							is_unification_candidate = GER
+						}
+					}
+					NOT = { has_variable = dual_monarchy_formed }
+				}
+				trigger_event = { id = german_events.1 }
+			}
+		}
 	}
 
 	status_desc = {

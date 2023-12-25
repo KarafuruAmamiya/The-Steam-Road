@@ -9,7 +9,7 @@
 			has_variable = persian_renaissance_science_philosophy
 		}
 		ig:ig_intelligentsia = {
-			is_marginalized = no
+			is_marginal = no
 		}
 		has_technology_researched = realism
 		any_scope_building = {
@@ -154,7 +154,10 @@ persian_renaissance_textile_arts = {
 		any_scope_building = {
 			count >= 3
 			is_building_type = building_textile_mills
-			has_active_production_method = pm_craftsman_sewing
+			OR = {
+				has_active_production_method = pm_craftsman_sewing
+				has_active_production_method = pm_elastics
+			}
 			building_has_goods_shortage = no
 			occupancy >= 0.9
 			level >= 25
@@ -174,6 +177,7 @@ persian_renaissance_textile_arts = {
 				}
 			}
 		}
+		leading_producer_of = g:luxury_clothes
 	}
 
 	effect = {

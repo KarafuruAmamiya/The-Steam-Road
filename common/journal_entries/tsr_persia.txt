@@ -92,6 +92,13 @@
 	goal_add_value = {
 		add = 6
 	}
+	
+	invalid = {
+		custom_tooltip = {
+			text = dead_man_tt
+			has_variable = dead_man_of_asia
+		}
+	}
 
 	progressbar = yes
 
@@ -277,19 +284,15 @@ je_eclipse_of_persia = {
 				}
 			}
 		}
-		calc_true_if = {
-			amount >= 2
-			any_scope_state = {
-				count >= 3
-				is_incorporated = yes
-				OR = {
-					turmoil >= 0.2
-					devastation >= 0.2
-				}
+		any_scope_state = {
+			state_region = { is_homeland = cu:persian }
+			is_incorporated = yes
+			OR = {
+				turmoil >= 0.2
+				devastation >= 0.2
 			}
-			is_losing_power_rank = yes
-			has_technology_researched = political_agitation
 		}
+		has_technology_researched = pan-nationalism
 	}
 
 	immediate = {
@@ -301,6 +304,7 @@ je_eclipse_of_persia = {
 			limit = { type = law_type:law_monarchy }
 			save_scope_as = monarchy_scope
 		}
+		trigger_event = { id = persian_eclipse.1 }
 	}
 
 	complete = {
@@ -313,9 +317,15 @@ je_eclipse_of_persia = {
 	}
 
 	fail = {
-		custom_tooltip = {
-			text = persia_abolished_monarchy_tt
-			has_variable = persia_eclipse_abolished_monarchy
+		OR = {
+			custom_tooltip = {
+				text = persia_abolished_monarchy_tt
+				has_variable = persia_eclipse_abolished_monarchy
+			}
+			AND = {
+				has_law = law_type:law_multicultural
+				NOT = { has_law = law_type:law_state_religion }
+			}
 		}
 		any_scope_state = {
 			count = all
@@ -324,7 +334,11 @@ je_eclipse_of_persia = {
 	}
 
 	on_complete = {
-		#trigger_event = { id =  } Dead Man of Asia
+		trigger_event = { id = persian_eclipse.2 } # Dead Man of Asia
+	}
+	
+	on_fail = {
+		trigger_event = { id = persian_eclipse.3 } # A New Dawn
 	}
 
 	current_value = {
@@ -539,7 +553,7 @@ je_constitutional_reformation = {
 		has_technology_researched = egalitarianism
 	}
 	
-	trigger = {
+	possible = {
 		AND = {
 			OR = {
 				has_law = law_type:law_landed_voting
@@ -779,6 +793,13 @@ je_constitutional_reformation = {
             #10 = persian_flavor.29
             #10 = persian_flavor.30
         }
+	}
+	
+	invalid = {
+		custom_tooltip = {
+			text = dead_man_tt
+			has_variable = dead_man_of_asia
+		}
 	}
 	
 	current_value = {

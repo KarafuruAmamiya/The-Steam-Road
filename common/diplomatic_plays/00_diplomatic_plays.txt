@@ -340,6 +340,7 @@ dp_annex_subject = {
 		aggressive_diplomatic_plays_permitted = yes
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
+			NOT = { is_country_type = colonial }
 			is_direct_subject_of = root
 			custom_tooltip = {
 				text = annex_subject_laws_tt
@@ -371,6 +372,16 @@ dp_annex_subject = {
 				has_variable = akc_reforms_complete
 			}
 		}		
+		trigger_if = {
+			limit = {
+				exists = c:SWE
+				c:SWE = this
+			}
+			custom_tooltip = {
+				text = no_regency_tt
+				NOT = { has_journal_entry = je_swe_regency }
+			}
+		}
 	}
 	
 	on_weekly_pulse = {}
@@ -620,7 +631,8 @@ dp_unify_germany = {
 	
 	on_war_begins = {}
 
-	on_war_end = {}
+	on_war_end = {
+	}
 }
 
 dp_unify_italy = {

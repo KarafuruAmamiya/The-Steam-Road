@@ -286,10 +286,10 @@
 			institution = institution_police
 			level = 1
 		}
-
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
+		
+		add_modifier = {
+			name = swe_regency
+			months = -1
 		}
 	}
 	c:DON = { # Don Cossack Host
@@ -1282,10 +1282,10 @@
 			institution = institution_police
 			level = 1
 		}
-
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
+		
+		add_modifier = {
+			name = swe_regency
+			months = -1
 		}
 	}
 	c:PAP = { # Pope
@@ -1650,6 +1650,12 @@
 		add_company = company_type:company_gotaverken
 		company:company_gotaverken = {
 			set_company_establishment_date = 1831.1.1
+		}
+		
+		add_journal_entry = { type = je_swe_regency }
+		add_modifier = {
+			name = swe_regency
+			months = -1
 		}
 	}
 	c:SCO = { # Scotland

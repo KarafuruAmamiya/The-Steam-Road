@@ -57,7 +57,7 @@
 	}
 	
 	modifier = {
-		interest_group_ig_landowners_pol_str_mult = 0.5
+		interest_group_ig_landowners_pol_str_mult = 0.25
 		state_infrastructure_from_population_max_mult = -0.2
 	}
 
@@ -555,6 +555,17 @@ law_collectivized_agriculture = {
 		}
 	}
 	
+	unlocking_laws = {
+		law_command_economy
+		law_cooperative_ownership
+	}
+
+	possible_political_movements = {
+		law_tenant_farmers
+		law_homesteading
+		law_commercialized_agriculture
+	}
+
 	on_activate = {
 		if = {
 			limit = {
@@ -583,20 +594,6 @@ law_collectivized_agriculture = {
 				}
 			}
 		}
-	}
-
-	unlocking_laws = {
-		law_command_economy
-		law_cooperative_ownership
-	}
-
-	possible_political_movements = {
-		law_tenant_farmers
-		law_homesteading
-		law_commercialized_agriculture
-	}
-
-	on_activate = {
 		add_modifier = {
 			name = land_redistribution_modifier
 			months = long_modifier_time

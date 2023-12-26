@@ -1,0 +1,144 @@
+﻿fractured_porte_caliphatist_button = {
+	name = "caliphatist_button"
+	desc = "caliphatist_button_desc"
+
+	visible = {
+		owner = { 
+			NOT = { has_variable = tur_fractured_porte_freeze } 
+		}
+	}
+
+	possible = {
+		trigger_if = {
+			limit = {
+				has_variable = has_selected_caliphatist_once_var
+			}
+			custom_tooltip = {
+				text = cannot_choose_caliphatist_twice_tt
+				always = no
+			}
+		}
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_ideology = ideology:ideology_caliphatist
+			}
+		}
+		custom_tooltip = {
+			text = not_already_supporting_caliphatist
+			NOT = { has_variable = supporting_caliphatist_var }
+		}
+	}
+	
+	selected = {
+		has_variable = supporting_caliphatist_var
+	}
+
+	effect = {
+		set_variable = supporting_caliphatist_var
+		set_variable = has_selected_caliphatist_once_var
+		remove_variable = supporting_rumelist_var
+		remove_variable = supporting_metropolitan_var
+		custom_tooltip = {
+			text = caliphatist_progress_increase_10_tt
+			change_variable = { name = caliphatist_progress add = 10 }
+		}
+	}
+}
+
+fractured_porte_rumelist_button = {
+	name = "rumelist_button"
+	desc = "rumelist_button_desc"
+
+	visible = {
+		owner = { 
+			NOT = { has_variable = tur_fractured_porte_freeze } 
+		}
+	}
+
+	possible = {
+		trigger_if = {
+			limit = {
+				has_variable = has_selected_rumelist_once_var
+			}
+			custom_tooltip = {
+				text = cannot_choose_rumelist_twice_tt
+				always = no
+			}
+		}
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_ideology = ideology:ideology_rumelist
+			}
+		}
+		custom_tooltip = {
+			text = not_already_supporting_rumelist
+			NOT = { has_variable = supporting_rumelist_var }
+		}
+	}
+	
+	selected = {
+		has_variable = supporting_rumelist_var
+	}
+
+	effect = {
+		# Only one of these variables can be active at a time
+		set_variable = supporting_rumelist_var
+		set_variable = has_selected_rumelist_once_var
+		remove_variable = supporting_caliphatist_var
+		remove_variable = supporting_metropolitan_var
+		custom_tooltip = {
+			text = rumelist_progress_increase_10_tt
+			change_variable = { name = rumelist_progress add = 10 }
+		}
+	}
+}
+
+fractured_porte_metropolitan_button = {
+	name = "metropolitan_button"
+	desc = "metropolitan_button_desc"
+
+	visible = {
+		owner = { 
+			NOT = { has_variable = tur_fractured_porte_freeze } 
+		}
+	}
+
+	possible = {
+		trigger_if = {
+			limit = {
+				has_variable = has_selected_metropolitan_once_var
+			}
+			custom_tooltip = {
+				text = cannot_choose_metropolitan_twice_tt
+				always = no
+			}
+		}
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_ideology = ideology:ideology_metropolitan
+			}
+		}
+		custom_tooltip = {
+			text = not_already_supporting_metropolitan
+			NOT = { has_variable = supporting_metropolitan_var }
+		}
+	}
+	
+	selected = {
+		has_variable = supporting_metropolitan_var
+	}
+
+	effect = {
+		set_variable = supporting_metropolitan_var
+		set_variable = has_selected_metropolitan_once_var
+		remove_variable = supporting_rumelist_var
+		remove_variable = supporting_caliphatist_var
+		custom_tooltip = {
+			text = metropolitan_progress_increase_10_tt
+			change_variable = { name = metropolitan_progress add = 10 }
+		}
+	}
+}

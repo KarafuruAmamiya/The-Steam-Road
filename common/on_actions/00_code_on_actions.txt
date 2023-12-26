@@ -791,6 +791,50 @@ on_character_death = {
 			}
 			remove_global_variable = al_afghani_is_alive_global_var
 		}
+		
+		### Force-generating Ottoman monarchs of the correct faction if something goes wrong
+		if = {
+			limit = {
+				is_ruler = yes
+				owner = {
+					NOT = {
+						any_scope_character = {
+							is_heir = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = { 
+					has_variable = caliphatist_leader 
+				}
+				owner = {
+					create_character = {
+						template = dynamic_caliphatist_ruler_template
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					has_variable = rumelist_leader 
+				}
+				owner = {
+					create_character = {
+						template = dynamic_rumelist_ruler_template
+					}
+				}				
+			}
+			else_if = {
+				limit = { 
+					has_variable = metropolitan_leader 
+				}
+				owner = {
+					create_character = {
+						template = dynamic_metropolitan_ruler_template
+					}
+				}				
+			}
+		}
 	}
 }
 

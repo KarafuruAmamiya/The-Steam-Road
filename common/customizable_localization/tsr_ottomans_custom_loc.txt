@@ -1,0 +1,48 @@
+﻿ottoman_faction = {
+	type = character
+	
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_caliphatist
+		}
+		localization_key = ideology_caliphatist
+	}
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_rumelist
+		}
+		localization_key = ideology_rumelist
+	}
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_metropolitan
+		}
+		localization_key = ideology_metropolitan
+	}
+}
+
+ottoman_leading_faction = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:rumelist_progress > var:caliphatist_progress
+			var:rumelist_progress > var:metropolitan_progress
+		}
+		localization_key = ideology_rumelist
+	}
+	text = {
+		trigger = {
+			var:caliphatist_progress > var:rumelist_progress
+			var:caliphatist_progress > var:metropolitan_progress
+		}
+		localization_key = ideology_caliphatist
+	}
+	text = {
+		trigger = {
+			var:metropolitan_progress > var:caliphatist_progress
+			var:metropolitan_progress > var:rumelist_progress
+		}
+		localization_key = ideology_metropolitan
+	}
+}

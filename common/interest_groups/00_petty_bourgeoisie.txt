@@ -90,7 +90,9 @@
 		# Bazaari
 		if = {
 			limit = {
-				country_has_primary_culture = cu:persian
+				owner = {
+					country_has_primary_culture = cu:persian
+				}
 			}
 			ig:ig_petty_bourgeoisie = {
 				set_interest_group_name = ig_bazaari
@@ -99,13 +101,44 @@
 				add_ideology = ideology_pious
 			}
 		}
+		
+		# Ottoman and Akkovins PB
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:turkish
+						country_has_primary_culture = cu:akturk
+					}
+				}
+			}
+			ig:ig_petty_bourgeoisie = {
+				remove_ideology = ideology_nationalist
+				add_ideology = ideology_pluralist
+			}
+		}
 	}
 
 	on_disable = {}
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		pop_has_primary_culture = yes
+		trigger_if = {
+			limit = {
+				owner = {
+					ig:ig_petty_bourgeoisie = {
+						has_ideology = ideology:ideology_pluralist
+					}
+				}
+			}
+			OR = {
+				pop_has_primary_culture = yes
+				pop_is_discriminated = yes
+			}
+		}
+		trigger_else = {
+			pop_has_primary_culture = yes
+		}
 		NOR = {
 			is_pop_type = aristocrats
 			is_pop_type = capitalists
@@ -170,6 +203,21 @@
 					is_pop_type = engineers
 				}
 				value = 50
+			}
+		}
+		
+		add = {
+			desc = "PRIMARY_CULTURE" #Less likely for accepted cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_has_primary_culture = yes
+				}
+				value = -50
 			}
 		}
 

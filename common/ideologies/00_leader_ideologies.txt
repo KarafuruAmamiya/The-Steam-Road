@@ -136,6 +136,24 @@ ideology_traditionalist = {
 			}
 			add = 100
 		}
+		# less likely for conservative Ottoman IG's
+		if = {
+			limit = {
+				owner = {
+					exists = c:TUR
+					this = c:TUR
+					has_journal_entry = je_fractured_porte
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_petty_bourgeoisie
+						is_interest_group_type = ig_devout
+					}
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -1143,6 +1161,24 @@ ideology_jingoist_leader = {
 			}
 			add = 50
 		}
+		# less likely for conservative Ottoman IG's
+		if = {
+			limit = {
+				owner = {
+					exists = c:TUR
+					this = c:TUR
+					has_journal_entry = je_fractured_porte
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_petty_bourgeoisie
+						is_interest_group_type = ig_devout
+					}
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -1229,6 +1265,13 @@ ideology_royalist = {
 				}
 			}
 			add = 50
+		}
+		# no generic monarchists in Ottoman Empire
+		owner = {
+			NOR = {
+				exists = c:TUR
+				c:TUR = this
+			}
 		}
 	}
 }
@@ -2497,6 +2540,13 @@ ideology_theocrat = {
 			}
 			add = 100
 		}
+		# no generic theocrat in Ottoman Empire
+		owner = {
+			NOR = {
+				exists = c:TUR
+				c:TUR = this
+			}
+		}
 	}
 }
 
@@ -2703,6 +2753,23 @@ ideology_market_liberal = {
 				}
 			}
 			add = -75
+		}
+		# less likely for conservative Ottoman IG's
+		if = {
+			limit = {
+				owner = {
+					exists = c:TUR
+					this = c:TUR
+					has_journal_entry = je_fractured_porte
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_industrialists
+						is_interest_group_type = ig_petty_bourgeoisie
+					}
+				}
+			}
+			add = -100
 		}
 	}
 }
@@ -2950,6 +3017,24 @@ ideology_authoritarian = {
 			}
 			add = -50
 		}
+		# less likely for conservative Ottoman IG's
+		if = {
+			limit = {
+				owner = {
+					exists = c:TUR
+					this = c:TUR
+					has_journal_entry = je_fractured_porte
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_petty_bourgeoisie
+						is_interest_group_type = ig_devout
+					}
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -3086,6 +3171,23 @@ ideology_protectionist = {
 				}
 			}
 			add = -75
+		}
+		# less likely for conservative Ottoman IG's
+		if = {
+			limit = {
+				owner = {
+					exists = c:TUR
+					this = c:TUR
+					has_journal_entry = je_fractured_porte
+				}
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_industrialists
+						is_interest_group_type = ig_petty_bourgeoisie
+					}
+				}
+			}
+			add = -100
 		}
 	}
 }

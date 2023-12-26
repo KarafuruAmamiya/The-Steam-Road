@@ -1,0 +1,251 @@
+﻿je_fractured_porte = {
+	icon = "gfx/interface/icons/event_icons/event_ottomans.dds"
+
+	group = je_group_tsr_content
+
+	immediate = {
+		set_variable = { name = tur_dominant_faction_progress value = 0 }
+		tur_set_fractured_porte_variables = yes
+		random_law = {
+			limit = { type = law_type:law_monarchy }
+			save_scope_as = monarchy_scope
+		}
+	}
+
+	#complete = {
+	#	has_law = law_type:law_monarchy
+	#	custom_tooltip = {
+	#		text = je_divided_monarchists_02_tt
+	#		has_variable = one_true_french_dynasty #Can only ever complete upon finishing the Cement the Rightful Dynasty journal entry.
+	#	}
+	#}
+
+	#on_complete = {
+	#	custom_tooltip = {
+	#		text = je_divided_monarchists_03_tt
+	#		fra_clear_divided_monarchist_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
+	#	}
+	#}
+	
+	scripted_button = fractured_porte_caliphatist_button
+	scripted_button = fractured_porte_rumelist_button
+	scripted_button = fractured_porte_metropolitan_button
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { # In the lead and on the throne
+				desc = status_in_lead_and_on_throne_tur
+				trigger = {
+					OR = {
+						AND = {
+							ruler_is_rumelist = yes
+							var:rumelist_progress > var:caliphatist_progress
+							var:rumelist_progress > var:metropolitan_progress
+						}
+						AND = {
+							ruler_is_caliphatist = yes
+							var:caliphatist_progress > var:rumelist_progress
+							var:caliphatist_progress > var:metropolitan_progress
+						}
+						AND = {
+							ruler_is_metropolitan = yes
+							var:metropolitan_progress > var:rumelist_progress
+							var:metropolitan_progress > var:caliphatist_progress
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = status_throne_challenged_tur
+				trigger = {
+					OR = {
+						AND = {
+							var:rumelist_progress > var:caliphatist_progress
+							var:rumelist_progress > var:metropolitan_progress
+						}
+						AND = {
+							var:caliphatist_progress > var:rumelist_progress
+							var:caliphatist_progress > var:metropolitan_progress
+						}
+						AND = {
+							var:metropolitan_progress > var:rumelist_progress
+							var:metropolitan_progress > var:caliphatist_progress
+						}
+					}
+				}
+			}
+			triggered_desc = { # Bar not moving, either no supported or not in government
+				desc = status_no_dynasty_tur
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	#modifiers_while_active = {
+	#	fra_republican_unrest
+	#}
+	
+	on_weekly_pulse = {
+		#events = {
+		#	french_pretenders.5
+		#}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = tur_fractured_porte_freeze #This variable stops iteration, and is granted by reaching 360 with one dynasty. It's reset when this JE is completed, or when je_cement_the_rightful_dynasty fails.
+					}
+				}
+				tur_weekly_pulse_rumelist_progress = yes #Calculates how much the Legitimists will get next month. Updates weekly, but is not added until the monthly.
+				tur_weekly_pulse_caliphatist_progress = yes  #Calculates how much the Orleanists will get next month. Updates weekly, but is not added until the monthly.
+				tur_weekly_pulse_metropolitan_progress = yes  #Calculates how much the Bonapartists will get next month. Updates weekly, but is not added until the monthly.
+			}
+			tur_define_dominant_faction = yes 	#The progress bar in this JE is always equivalent to the progress of the dynasty that's currently doing best. This scripted effect determines which dynasty that is, and sets fra_leading_dynasty_progress to be equal to that dynasty's progress variable.
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = tur_fractured_porte_freeze
+					}
+				}
+				change_variable = { name = rumelist_progress add = var:rumelist_progress_next }
+				change_variable = { name = caliphatist_progress add = var:caliphatist_progress_next }
+				change_variable = { name = metropolitan_progress add = var:metropolitan_progress_next }
+				tur_define_dominant_faction = yes	#See above - this ensures that the monthly tick will not momentarily send the status loc out of sync with what the bar is representing.
+			}
+		}
+		#random_events = {
+		#	400 = 0
+		#	10 = french_pretenders_pulse.2
+		#	10 = french_pretenders_pulse.3
+		#	50 = french_pretenders_pulse.10
+		#	10 = french_pretenders_pulse.11
+		#	10 = french_pretenders_pulse.12
+		#	10 = french_pretenders_pulse.13
+		#	10 = french_pretenders_pulse.14
+		#	10 = french_pretenders_pulse.15
+		#	10 = french_pretenders_pulse.16
+		#	10 = french_pretenders_pulse.17
+		#	10 = french_pretenders_pulse.18
+		#}
+	}
+	on_yearly_pulse = {
+		random_events = {
+			
+		}
+	}
+
+	fail = {
+		capital = {
+			turmoil >= 0.25
+		}
+		OR = {
+			has_journal_entry = je_springtime_of_the_peoples
+			radical_fraction = {
+				value >= 0.25
+			}
+			any_civil_war = {
+				civil_war_progress > 0.75
+			}
+		}
+	}
+
+	on_fail = {
+		#trigger_event = { id = french_pretenders.6 popup = yes }
+		if = {
+			limit = {
+				has_variable = tur_fractured_porte_freeze
+			}
+			remove_variable = tur_fractured_porte_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
+		}
+		tur_clear_fractured_porte_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
+	}
+
+	invalid = { 
+		NOT = { #Previous "Stamp Out Monarchism" requirement is deprecated - this can now come back from the dead properly upon restoring the monarchy.
+			has_law = law_type:law_monarchy
+		}
+	}
+
+	on_invalid = {
+		if = {
+			limit = {
+				has_variable = tur_fractured_porte_freeze
+			}
+			remove_variable = tur_fractured_porte_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
+		}
+		tur_clear_fractured_porte_variables = yes #It should not be possible for this JE to somehow be deleted without these variables being cleared.
+	}
+
+	weight = 100
+	
+	current_value = {
+		value = root.var:tur_dominant_faction_progress #Set to always be equal to the leading dynasty's progress by the fra_define_leading_dynasty effect.
+	}
+
+	goal_add_value = {
+		value = 360
+	}
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+je_the_holy_cities = {
+	icon = "gfx/interface/icons/religion_icons/sunni.dds"
+	group = je_group_tsr_content
+	
+	can_deactivate = yes
+	should_be_pinned_by_default = yes
+
+	is_shown_when_inactive = {
+		c:TUR ?= this
+		has_law = law_type:law_monarchy
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = dominant_caliphatist_tt
+			AND = {
+				ruler_is_caliphatist = yes
+				var:caliphatist_progress > var:rumelist_progress
+				var:caliphatist_progress > var:metropolitan_progress
+			}
+		}
+	}
+
+	complete = {
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+		country_or_subject_owns_entire_state_region = STATE_MEDINA
+	}
+
+	on_complete = {
+		#trigger_event = { id = ottoman_flavor.1 }
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			#100 = 0
+			#10 = arabia_flavor.6
+		}
+	}
+	
+	invalid = {
+		NOT = {
+			AND = {
+				ruler_is_caliphatist = yes
+				var:caliphatist_progress > var:rumelist_progress
+				var:caliphatist_progress > var:metropolitan_progress
+			}
+		}
+	}
+
+	weight = 20
+}

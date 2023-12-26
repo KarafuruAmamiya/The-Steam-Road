@@ -726,12 +726,134 @@
     		religion = rel:sunni
 			interest_group = ig_landowners
 			dna = dna_suleyman_ii_osmanoglu
-			ideology = ideology_traditionalist
+			ideology = ideology_caliphatist
 			traits = {
 				brave expert_offensive_planner
 			}
 			on_created = {
 				set_variable = is_married
+				set_variable = caliphatist_leader
+			}
+		}
+		
+		create_character = {
+			first_name = "Ibrahim_III"
+			last_name = "Osmanoglu"
+			historical = yes
+			heir = yes
+			female = no
+			birth_date = 1834.5.7
+    		religion = rel:sunni
+			interest_group = ig_landowners
+			ideology = ideology_caliphatist
+			traits = {
+				wrathful hedonist
+			}
+			on_created = {
+				set_variable = caliphatist_leader
+			}
+		}
+		
+		create_character = {
+			first_name = "Hamid"
+			last_name = "Hekimoglu"
+			historical = yes
+			birth_date = 1785.11.28
+			ig_leader = yes
+			interest_group = ig_landowners
+			ideology = ideology_caliphatist
+			traits = {
+				experienced_political_operator
+				tactful
+			}
+		}
+		
+		create_character = {
+			first_name = "Abdulmecid"
+			last_name = "Pasha"
+			historical = yes
+			birth_date = 1797.4.15
+			ig_leader = yes
+			interest_group = ig_intelligentsia
+			ideology = ideology_reformer
+			traits = {
+				experienced_political_operator
+				charismatic
+			}
+		}
+		
+		create_character = {
+			first_name = "Ishak_Celaleddin"
+			last_name = "Pasha"
+			historical = yes
+			birth_date = 1767.10.24
+			ig_leader = yes
+			interest_group = ig_industrialists
+			ideology = ideology_rumelist
+			traits = {
+				basic_political_operator
+				reckless
+			}
+		}
+		
+		create_character = {
+			first_name = "Ismail"
+			last_name = "Toptani"
+			historical = yes
+			birth_date = 1791.11.11
+			culture = cu:albanian
+			religion = rel:sunni
+			ig_leader = yes
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_metropolitan
+			traits = {
+				experienced_diplomat
+				meticulous
+			}
+		}
+		
+		create_character = {
+			first_name = "Mehmet_Halil"
+			last_name = "Efendi"
+			historical = yes
+			birth_date = 1768.9.4
+			ig_leader = yes
+			interest_group = ig_devout
+			ideology = ideology_caliphatist
+			traits = {
+				romantic
+				inspirational_orator
+				pious
+			}
+		}
+		
+		create_character = {
+			first_name = "Orhan"
+			last_name = "Pasha"
+			is_general = yes
+			historical = yes
+			birth_date = 1769.3.29
+			ig_leader = yes
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				experienced_defensive_strategist
+				reckless
+				pillager
+			}
+		}
+		
+		create_character = {
+			first_name = "Abdurrahman"
+			last_name = "Karamanli"
+			historical = yes
+			birth_date = 1808.6.4
+			ig_leader = yes
+			interest_group = ig_rural_folk
+			ideology = ideology_abolitionist
+			traits = {
+				basic_political_operator
+				literary
 			}
 		}
 	}

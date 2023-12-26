@@ -1,0 +1,547 @@
+﻿ideology_caliphatist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_theocrat.dds"
+
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = disapprove
+		law_theocracy = strongly_approve
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_autocracy = strongly_approve
+		law_oligarchy = neutral
+		law_single_party_state = disapprove
+		law_landed_voting = strongly_disapprove	
+		law_wealth_voting = strongly_disapprove	
+		law_census_voting = strongly_disapprove		
+		law_universal_suffrage = strongly_disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_approve
+		law_freedom_of_conscience = disapprove
+		law_shared_roots = strongly_disapprove
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
+	}
+	
+	lawgroup_rights_of_women = {
+		law_no_womens_rights = approve
+		law_women_own_property = neutral
+		law_women_in_the_workplace = disapprove
+		law_womens_suffrage = strongly_disapprove
+	}
+
+	lawgroup_citizenship = {
+		law_ethnostate = disapprove
+		law_national_supremacy = neutral
+		law_racial_segregation = approve
+		law_shared_heritage = strongly_approve
+		law_cultural_exclusion = neutral
+		law_multicultural = strongly_disapprove	
+	}
+	
+	lawgroup_education_system = {
+		law_public_schools = disapprove
+		law_private_schools = disapprove
+		law_religious_schools = approve	
+		law_no_schools = disapprove	
+	}
+
+	possible = {
+		NOT = { has_role = agitator }
+		# no monarchists in countries with strong republican tradition
+		owner = {
+			AND = {
+				exists = c:TUR
+				OR = {
+					c:TUR = this
+					civil_war_origin_country = c:TUR
+				}
+			}
+			NOR = {
+				any_interest_group = {
+					has_ideology = ideology:ideology_republican_paternalistic
+				}
+				has_variable = monarchy_stamped_out_var
+				#AND = {
+				#	OR = {
+				#		has_variable = chose_turkish_nationalism
+				#		has_variable = chose_federalism
+				#	}
+				#}
+			}
+		}
+		scope:interest_group = { 
+			OR = {
+				is_interest_group_type = ig_devout
+				is_interest_group_type = ig_rural_folk
+				is_interest_group_type = ig_armed_forces
+				is_interest_group_type = ig_landowners
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+
+	leader_weight = {
+		value = 200
+		# less likely if IG is happy in a republic
+		if = {
+			limit = {
+				owner = {
+					NOR = { 
+						has_law = law_type:law_monarchy
+						has_law = law_type:law_theocracy
+					}
+				}
+				scope:interest_group = {
+					ig_approval > 0
+				}
+			}
+			add = -100
+		}
+
+		# more likely for LO and Devout
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_landowners
+					is_interest_group_type = ig_devout
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+ideology_rumelist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_atheist.dds"
+
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_presidential_republic = neutral
+		law_parliamentary_republic = disapprove
+		law_theocracy = disapprove
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_autocracy = neutral
+		law_oligarchy = approve
+		law_landed_voting = approve	
+		law_wealth_voting = strongly_approve	
+		law_census_voting = disapprove		
+		law_universal_suffrage = disapprove
+		law_anarchy = strongly_disapprove
+		law_single_party_state = disapprove
+		law_technocracy = strongly_disapprove
+	}
+
+	lawgroup_economic_system = {	
+		law_command_economy = neutral
+		law_cooperative_ownership = neutral
+		law_interventionism = strongly_approve
+		law_agrarianism = disapprove
+		law_industry_banned = strongly_disapprove
+		law_traditionalism = strongly_disapprove		
+		law_laissez_faire = approve		
+	}
+
+	lawgroup_bureaucracy = {
+		law_appointed_bureaucrats = approve
+		law_elected_bureaucrats = neutral	
+		law_hereditary_bureaucrats = disapprove
+	}
+	
+	lawgroup_education_system = {
+		law_public_schools = approve
+		law_private_schools = neutral
+		law_no_schools = strongly_disapprove
+		law_religious_schools = disapprove		
+	}
+	
+	lawgroup_slavery = {
+		law_slavery_banned = approve
+		law_legacy_slavery = disapprove
+		law_debt_slavery = strongly_disapprove
+		law_slave_trade = strongly_disapprove
+	}
+
+	possible = {
+		NOT = { has_role = agitator }
+		# no monarchists in countries with strong republican tradition
+		owner = {
+			AND = {
+				exists = c:TUR
+				OR = {
+					c:TUR = this
+					civil_war_origin_country = c:TUR
+				}
+			}
+			NOR = {
+				any_interest_group = {
+					has_ideology = ideology:ideology_republican_paternalistic
+				}
+				has_variable = monarchy_stamped_out_var
+				#AND = {
+				#	OR = {
+				#		has_variable = chose_turkish_nationalism
+				#		has_variable = chose_federalism
+				#	}
+				#}
+			}
+		}
+		scope:interest_group = { 
+			OR = {
+				is_interest_group_type = ig_industrialists
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_intelligentsia
+				is_interest_group_type = ig_armed_forces
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+
+	leader_weight = {
+		value = 200
+		# less likely in a theocracy
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			add = -75
+		}
+		# less likely if IG is happy in a republic
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_law = law_type:law_monarchy }
+				}
+				scope:interest_group = {
+					ig_approval > 0
+				}
+			}
+			add = -100
+		}
+
+		# more likely for intelligentsia, industrialists, and PB with traditional economic laws
+		if = {
+			limit = {
+				scope:interest_group = {
+					OR = {
+						is_interest_group_type = ig_petty_bourgeoisie
+						is_interest_group_type = ig_intelligentsia
+						is_interest_group_type = ig_industrialists
+					}
+				}
+				owner = {
+					OR = {
+						has_law = law_type:law_agrarianism
+						has_law = law_type:law_traditionalism
+						has_law = law_type:law_isolationism
+						has_law = law_type:law_mercantilism
+					}
+				}
+			}
+			add = 75
+		}
+	}
+}
+
+ideology_metropolitan = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_egalitarian.dds"
+
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = approve
+		law_presidential_republic = approve
+		law_parliamentary_republic = approve
+		law_theocracy = strongly_disapprove
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_autocracy = strongly_disapprove
+		law_oligarchy = disapprove
+		law_landed_voting = neutral	
+		law_wealth_voting = approve	
+		law_single_party_state = neutral
+		law_census_voting = strongly_approve		
+		law_universal_suffrage = approve
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+	
+	lawgroup_citizenship = {
+		law_ethnostate = strongly_disapprove
+		law_national_supremacy = disapprove
+		law_racial_segregation = neutral
+		law_shared_heritage = approve
+		law_cultural_exclusion = strongly_approve
+		law_multicultural = neutral	
+	}
+	
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_disapprove
+		law_freedom_of_conscience = neutral
+		law_shared_roots = approve
+		law_total_separation = strongly_approve
+		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_economic_system = {	
+		law_laissez_faire = neutral
+		law_interventionism = strongly_approve
+		law_agrarianism = disapprove
+		law_traditionalism = strongly_disapprove	
+		law_cooperative_ownership = disapprove	
+		law_command_economy = disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = disapprove
+		law_devolved = neutral
+		law_federal = strongly_approve
+		law_confederated = approve
+	}
+	
+	lawgroup_slavery = {
+		law_slavery_banned = approve
+		law_legacy_slavery = disapprove
+		law_debt_slavery = strongly_disapprove
+		law_slave_trade = strongly_disapprove
+	}
+
+	possible = {
+		owner = {
+			AND = {
+				exists = c:TUR
+				OR = {
+					c:TUR = this
+					civil_war_origin_country = c:TUR
+				}
+			}
+		}
+		scope:interest_group = { 
+			OR = {
+				is_interest_group_type = ig_intelligentsia
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_industrialists
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+
+	leader_weight = {
+		value = 200
+		# less likely in a theocracy
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			add = -75
+		}
+		# less likely if IG is happy in a republic
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_law = law_type:law_monarchy }
+				}
+				scope:interest_group = {
+					ig_approval > 0
+				}
+			}
+			add = -100
+		}
+
+		# more likely for PB and Intelligentsia
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_intelligentsia
+				}
+			}
+			add = 50
+		}
+		
+		# more likely once egalitarianism is researched
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_intelligentsia
+				}
+				owner = { has_technology_researched = egalitarianism }
+			}
+			add = 50
+		}
+	}
+}
+
+ideology_turkish_nationalist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_patriotic.dds"
+
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_disapprove
+		law_presidential_republic = strongly_approve
+		law_parliamentary_republic = approve
+		law_theocracy = strongly_disapprove
+		law_council_republic = disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_autocracy = strongly_disapprove
+		law_oligarchy = disapprove
+		law_landed_voting = neutral	
+		law_wealth_voting = approve	
+		law_single_party_state = neutral
+		law_census_voting = approve		
+		law_universal_suffrage = strongly_approve
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+	
+	lawgroup_citizenship = {
+		law_ethnostate = approve
+		law_national_supremacy = strongly_approve
+		law_racial_segregation = neutral
+		law_shared_heritage = disapprove
+		law_cultural_exclusion = strongly_disapprove
+		law_multicultural = strongly_disapprove	
+	}
+	
+	lawgroup_education_system = {
+		law_public_schools = strongly_approve
+		law_private_schools = approve
+		law_religious_schools = disapprove	
+		law_no_schools = strongly_disapprove	
+	}
+
+	lawgroup_migration = {
+		law_migration_controls = approve		
+		law_closed_borders = neutral
+		law_no_migration_controls = disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = strongly_disapprove			
+		law_unitary = strongly_approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
+	}
+	
+	lawgroup_slavery = {
+		law_slavery_banned = approve
+		law_legacy_slavery = disapprove
+		law_debt_slavery = strongly_disapprove
+		law_slave_trade = strongly_disapprove
+	}
+
+	possible = {
+		owner = {
+			AND = {
+				exists = c:TUR
+				OR = {
+					c:TUR = this
+					civil_war_origin_country = c:TUR
+				}
+				has_technology_researched = nationalism
+			}
+		}
+		scope:interest_group = { 
+			OR = {
+				is_interest_group_type = ig_intelligentsia
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_industrialists
+				is_interest_group_type = ig_armed_forces
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+
+	leader_weight = {
+		value = 200
+		# less likely in a theocracy
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			add = -75
+		}
+		
+		# more likely for Turkish intelligentsia
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_intelligentsia
+				}
+			}
+			add = 75
+		}
+		
+		# more likely once nationalism is researched
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_interest_group_type = ig_intelligentsia
+				}
+				owner = { has_technology_researched = nationalism }
+			}
+			add = 50
+		}
+	}
+}

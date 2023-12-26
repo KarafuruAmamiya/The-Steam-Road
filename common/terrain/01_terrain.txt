@@ -1113,7 +1113,10 @@ urban = {
 				if = {
 					limit = {
 						scope:region = {
-							state_is_in_africa = yes
+							OR = {
+								state_is_in_africa = yes
+								region = sr:region_arabic
+							}
 						}
 					}
 					add = 1
@@ -1128,10 +1131,9 @@ urban = {
 				if = {
 					limit = {
 						scope:region = {
-							or = {
-								state_is_in_middle_east = yes
-								state_is_in_central_asia = yes
+							OR = {
 								state_is_in_india = yes
+								region = sr:region_mongolia
 							}
 						}
 					}
@@ -1147,9 +1149,31 @@ urban = {
 				if = {
 					limit = {
 						scope:region = {
+							OR = {
+								region = sr:region_persia
+								region = sr:region_central_asia
+								region = sr:region_caucasus
+								region = sr:region_west_siberia
+								region = sr:region_kurdistan
+							}
+						}
+					}
+					add = 1
+				}			
+			}
+			path = "gfx/state_pictures/urban_persian.dds"
+			effect = "vfx_entity_ui_state_urban_arabic"
+		}
+		{
+			weight = {
+				value = 0
+				if = {
+					limit = {
+						scope:region = {
 							or = {
 								state_is_in_east_asia = yes
 								state_is_in_southeast_asia = yes
+								region = sr:region_east_siberia
 							}
 						}
 					}
@@ -1188,13 +1212,20 @@ urban = {
 								region = sr:region_mexico
 								region = sr:region_central_america
 								region = sr:region_caribbean
+								region = sr:region_north_italy
+								region = sr:region_south_italy
+								region = sr:region_iberia
+								region = sr:region_west_balkans
+								region = sr:region_east_balkans
+								region = sr:region_anatolia
+								region = sr:region_greece
 							}
 						}
 					}
 					add = 1
 				}
 			}
-			path = "gfx/state_pictures/urban_north_american.dds"
+			path = "gfx/state_pictures/urban_mediterranean.dds"
 			effect = "vfx_entity_ui_state_urban_latin_american"
 		}
 		{
@@ -1204,6 +1235,14 @@ urban = {
 					limit = {
 						scope:region = {
 							state_is_in_europe = yes
+							NOR = {
+								region = sr:region_north_italy
+								region = sr:region_south_italy
+								region = sr:region_iberia
+								region = sr:region_west_balkans
+								region = sr:region_east_balkans
+								region = sr:region_anatolia
+							}
 						}
 					}
 					add = 1
@@ -1228,15 +1267,6 @@ urban = {
 								state_is_in_central_asia = no
 								state_is_in_india = no
 								state_is_in_africa = no
-								NOR = {
-									region = sr:region_borealia
-									region = sr:region_soalleiro
-									region = sr:region_pacific_coast
-									region = sr:region_great_plains
-									region = sr:region_mexico
-									region = sr:region_central_america
-									region = sr:region_caribbean
-								}
 							}
 						}
 					}

@@ -3053,6 +3053,15 @@ ai_strategy_default = {
 				add = -1000
 			}
 		}
+		region_kurdistan = {
+			if = { #Stop New World minors from declaring interest in random places
+				limit = {
+					country_rank <= rank_value:great_power
+					country_is_in_new_word = yes
+				}
+				add = -1000
+			}
+		}
 		region_persia = {
 			if = {
 				limit = {

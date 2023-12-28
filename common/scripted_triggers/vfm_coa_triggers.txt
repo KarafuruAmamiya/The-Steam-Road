@@ -20,8 +20,9 @@ coa_def_luso_american_trigger = {
 			has_discrimination_trait = hispanophone
 		}
     	has_discrimination_trait = south_european_heritage
-	    NOT = {
-	    	has_discrimination_trait = iberian_culture_group
-	    }
+	    OR = {
+			has_discrimination_trait = american
+			has_discrimination_trait = laurentian
+		}
     }
 }

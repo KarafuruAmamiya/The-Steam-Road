@@ -3617,7 +3617,7 @@
         weight = {
             base = 0
             modifier = {
-                add = 150
+                add = 1500
                 AND = {
                     OR = {
                         european_clothes_trigger = yes
@@ -3640,7 +3640,7 @@
            }
 
            modifier = { #If we want rulers to dress like politicians later.
-               add = 100
+               add = 1000
                AND = {
                    OR = {
 						european_clothes_trigger = yes
@@ -5209,7 +5209,10 @@ chinese_upper_clothes = {
                 add = 1000
                 AND = {
 					western_clothes_trigger = yes
-                    arabic_clothes_pop_trigger = yes
+                    OR = {
+						arabic_clothes_pop_trigger = yes
+						indian_clothes_pop_trigger = yes
+					}
                     upper_clothes_pop_trigger = yes
                 }
            }
@@ -5316,7 +5319,7 @@ chinese_upper_clothes = {
         weight = {
             base = 0
             modifier = {
-                add = 500
+                add = 5000
                 OR = {
                     AND = {
                         OR = {
@@ -5324,6 +5327,7 @@ chinese_upper_clothes = {
                             african_diaspora_pop_clothes_trigger = yes
 							AND = {
 								arabic_clothes_pop_trigger = no
+								indian_clothes_pop_trigger = no
 								western_clothes_trigger = yes
 							}
                         }
@@ -5373,17 +5377,15 @@ chinese_upper_clothes = {
         weight = {
             base = 0
             modifier = {
-                add = 500
+                add = 5000
                 AND = {
                     OR = {
                         european_clothes_pop_trigger = yes
                         african_diaspora_pop_clothes_trigger = yes
 						AND = {
 							arabic_clothes_pop_trigger = no
+							indian_clothes_pop_trigger = no
 							western_clothes_trigger = yes
-							scope:pop ?= {
-								NOT = { is_pop_type = aristocrats }
-							}
 						}
                     }
                     upper_clothes_pop_trigger = yes
@@ -5411,12 +5413,17 @@ chinese_upper_clothes = {
         weight = {
             base = 0
             modifier = {
-                add = 1100
+                add = 11000
+				tsr_ottoman_leader_trigger = no
+				tsr_persia_leader_trigger = no
+				tsr_ottoman_military_trigger = no
+				tsr_persia_military_trigger = no
                 AND = {
                     OR = {
                         integrated_south_american_natives_pop_trigger = yes
                         european_clothes_pop_trigger = yes
                         african_diaspora_pop_clothes_trigger = yes
+						western_uniforms_trigger = yes
                     }
                     OR = {
                         soldier_clothes_pop_trigger = yes
@@ -5424,7 +5431,7 @@ chinese_upper_clothes = {
                     }
                     
                 }
-           }
+			}
         }
     }
 
@@ -6315,30 +6322,18 @@ buddhist_religious_clothes = {
             base = 0
             modifier = {
                 add = 3000
+				tsr_ottoman_leader_trigger = no
+				tsr_persia_leader_trigger = no
+				tsr_ottoman_military_trigger = no
+				tsr_persia_military_trigger = no
+				western_uniforms_trigger = yes
                 OR = {
                     military_clothes_trigger = yes
                     officers_clothes_pop_trigger = yes
-                    soldier_clothes_pop_trigger = yes
                     monarchy_clothes_trigger = yes
                     AND = {
                         armed_forces_clothes_trigger = yes
                         politician_clothes_trigger = yes
-                    }
-                }
-                OR = {
-                    AND = {
-						NOR = {
-							tsr_ottoman_leader_trigger = yes
-							tsr_persia_leader_trigger = yes
-						}
-                        western_uniforms_trigger = yes
-                    }
-                    AND = {
-						NOR = {
-							tsr_ottoman_military_trigger = yes
-							tsr_persia_military_trigger = yes
-						}
-                        western_uniforms_trigger = yes
                     }
                 }
             }

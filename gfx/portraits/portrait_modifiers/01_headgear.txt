@@ -1173,18 +1173,6 @@
         }
         weight = {
             base = 0
-            modifier = {
-                add = 100
-                scope:pop ?= {
-                    culture = {
-                        has_discrimination_trait = arabic_heritage
-                    }
-					NOT = {
-						religion = rel:jewish
-					}
-					strata = poor
-                }
-            }
 			modifier = {
                 add = 6000
                 scope:pop ?= {

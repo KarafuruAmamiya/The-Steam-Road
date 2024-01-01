@@ -1,0 +1,379 @@
+﻿namespace = poland_lithuania_events
+
+# Owned by Polish Radicals
+poland_lithuania_events.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.1.t
+	desc = poland_lithuania_events.1.d
+	flavor = poland_lithuania_events.1.f
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	immediate = {
+		capital = {
+			save_scope_as = capital_scope
+		}
+		set_variable = polish_revolter_var
+		save_scope_as = polish_revolt_country
+		c:POL = { 
+			save_scope_as = poland_scope
+			ruler = {
+				save_scope_as = poland_ruler_scope 
+			}
+		}
+	}
+
+	option = {
+		name = poland_lithuania_events.1.a
+		default_option = yes
+		c:POL = {
+			trigger_event = { id = poland_lithuania_events.2 popup = yes }
+		}
+	}
+}
+
+# Country gets taken over by Polish nationalists and wants to join us
+poland_lithuania_events.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.2.t
+	desc = poland_lithuania_events.2.d
+	flavor = poland_lithuania_events.2.f
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	trigger = {
+		#Part of event chain
+	}
+
+	immediate = {
+		ruler = {
+			save_scope_as = poland_ruler_scope
+		}
+		random_country = {
+			limit = {
+				has_variable = polish_revolter_var
+			}
+			save_scope_as = polish_revolter
+			capital = {
+				save_scope_as = capital_scope
+				set_variable = poland_steal_capital
+			}
+		}
+		if = {
+			limit = {
+				scope:polish_revolter = { is_subject = yes }
+			}
+			scope:polish_revolter = { 
+				overlord = { save_scope_as = polish_overlord_scope }
+			}
+		}
+	}
+
+	option = {
+		name = poland_lithuania_events.2.a
+		trigger = {
+			scope:polish_revolter = {
+				is_subject = no
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+		default_option = yes
+		create_incident = {
+			country = root
+			value = 5
+		}
+		annex_with_incorporation = scope:polish_revolter
+	}
+	option = {
+		name = poland_lithuania_events.2.b
+		trigger = {
+			scope:polish_revolter = {
+				is_subject = no
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+		create_diplomatic_pact = {
+			country = scope:polish_revolter
+			type = puppet
+		}
+		scope:polish_revolter = {
+			remove_variable = polish_revolter_var
+		}
+	}
+	option = {
+		name = poland_lithuania_events.2.c1
+		trigger = {
+			scope:polish_revolter = {
+				is_subject = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+		scope:polish_revolter = {
+			every_scope_state = {
+				state_region = {
+					add_claim = scope:polish_overlord_scope
+				}
+			}
+		}
+		annex_with_incorporation = scope:polish_revolter
+		create_incident = {
+			country = root
+			value = 5
+		}
+		
+		scope:polish_overlord_scope = {
+			trigger_event = { id = poland_lithuania_events.3 popup = yes }
+		}
+	}
+	option = {
+		name = poland_lithuania_events.2.d1
+		trigger = {
+			scope:polish_revolter = {
+				is_subject = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+		scope:polish_revolter = {
+			every_scope_state = {
+				state_region = {
+					add_claim = scope:polish_overlord_scope
+				}
+			}
+		}
+		create_diplomatic_pact = {
+			country = scope:polish_revolter
+			type = puppet
+		}
+		scope:polish_revolter = {
+			remove_variable = polish_revolter_var
+		}
+		
+		scope:polish_overlord_scope = {
+			trigger_event = { id = poland_lithuania_events.3 popup = yes }
+			change_relations = { country = scope:polish_revolter value = -100 }
+			hidden_effect = {
+				set_secret_goal = {
+					country = scope:polish_revolter
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = poland_lithuania_events.2.e
+		ai_chance = {
+			base = 0
+		}
+		change_relations = { country = scope:polish_revolter value = -10 }
+		scope:polish_revolter = {
+			remove_variable = polish_revolter_var
+		}
+	}
+}
+
+# Polish nationalists takes over subject
+poland_lithuania_events.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.3.t
+	desc = poland_lithuania_events.3.d
+	flavor = poland_lithuania_events.3.f
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	trigger = {
+		Part of event chain
+	}
+
+	immediate = {
+		random_state = {
+			limit = { has_variable = poland_steal_capital }
+			save_scope_as = capital_scope
+		}
+	}
+
+	option = {
+		name = poland_lithuania_events.3.a
+		ai_chance = {
+			base = 100
+		}
+		default_option = yes
+		
+		change_relations = { country = c:POL value = -100 }
+		hidden_effect = {
+			set_secret_goal = {
+				country = c:POL
+				secret_goal = conquer
+			}
+		}
+	}
+}
+
+# Odrodzenie Startup
+poland_lithuania_events.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.4.t
+	desc = poland_lithuania_events.4.d
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				desc = poland_lithuania_events.4.f1
+				trigger = {
+					c:POL ?= this
+				}
+			}
+			triggered_desc = {
+				desc = poland_lithuania_events.4.f2
+				trigger = {
+					NOT = { c:POL ?= this }
+				}
+			}
+		}
+	}
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	trigger = {
+		# Fired by JE startup
+	}
+	
+	immediate = {
+		c:POL = {
+			ruler = {
+				save_scope_as = poland_ruler_scope
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+			}
+			overlord = { save_scope_as = polish_overlord_scope }
+		}
+	}
+
+	option = {
+		name = poland_lithuania_events.4.a
+		default_option = yes
+		trigger = {
+			c:POL ?= this
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_patriotic
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_liberal_modern
+					leader = {
+						OR = {						
+							has_ideology = ideology:ideology_radical
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_ethno_nationalist
+						}
+					}
+				}
+			}
+			root = {
+				add_loyalists = {
+					value = medium_radicals
+					culture = cu:polish
+					interest_group = prev
+				}
+			}
+			add_modifier = {
+				name = modifier_odrodzenie_supporters
+				months = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_odrodzenie_support
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		every_state = {
+			limit = {
+				OR = {
+					region = sr:region_poland
+					state_region = {
+						is_homeland = cu:polish
+					}
+				}
+			}
+			state_region = {
+				add_claim = root
+			}
+		}
+		every_country = {
+			limit = {
+				has_interest_marker_in_region = region_poland
+				NOT = {
+					THIS = ROOT
+				}
+			}
+			post_notification = pol_odrodzenie_intent
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			set_strategy = ai_strategy_pol_odrodzenie
+		}
+	}
+	option = {
+		name = poland_lithuania_events.4.b
+		default_option = yes
+		trigger = {
+			NOT = { c:POL ?= this }
+		}
+	}
+}

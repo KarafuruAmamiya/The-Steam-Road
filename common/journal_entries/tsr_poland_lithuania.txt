@@ -1,0 +1,125 @@
+﻿je_odrodzenie = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_tsr_content
+
+	is_shown_when_inactive = {
+		c:POL ?= this
+		NOR = {
+			is_revolutionary = yes
+			is_secessionist = yes
+			is_subject = yes
+		}
+	}	
+	
+	scripted_button = je_odrodzenie_polish_radicals_subject_button
+	scripted_button = je_odrodzenie_polish_radicals_overlord_button
+
+	immediate = {
+		trigger_event = { id = poland_lithuania_events.4 popup = yes }
+	}
+		
+	possible = {
+		has_technology_researched = nationalism
+	}
+
+	complete = {
+		every_state = {
+			limit = {
+				state_region = { is_homeland = cu:polish }
+				count >= 0.9
+			}
+			OR = {
+				owner = root
+				owner = { is_subject_of = root }
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = poland_events.4 popup = yes }
+	}
+	
+	fail = {
+		is_subject = yes
+	}
+	
+	invalid = {
+		NOT = { exists = c:POL }
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}
+
+je_odrodzenie_victim = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_tsr_content
+
+	is_shown_when_inactive = {
+		exists = c:POL
+		NOR = { c:POL = this is_subject_of = c:POL }
+		country_has_primary_culture = cu:polish
+	}	
+
+	immediate = {
+		capital = {
+			save_scope_as = capital_scope
+		}
+		c:POL = { save_scope_as = poland_scope }
+		trigger_event = { id = poland_lithuania_events.4 popup = yes }
+		do_odrodzenie_math = yes
+	}
+		
+	possible = {
+		any_country = {
+			country_has_primary_culture = cu:polish
+			has_technology_researched = nationalism
+		}
+	}
+
+	complete = {
+		OR = {
+			NOT = { exists = c:POL }
+			c:POL = { is_subject = yes }
+		}
+	}
+	
+	fail = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = poland_lithuania_events.1 popup = yes }
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			do_odrodzenie_math = yes
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			do_odrodzenie_math = yes
+		}
+	}
+
+	current_value = {
+		value = root.var:polish_states_radicals_total_bar
+	}
+
+	goal_add_value = {
+		add = 25
+	}
+
+	progressbar = yes
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}

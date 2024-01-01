@@ -1,0 +1,158 @@
+﻿je_odrodzenie_polish_radicals_overlord_button = {
+	name = "je_odrodzenie_polish_radicals_overlord_button"
+	desc = "je_odrodzenie_polish_radicals_overlord_button_desc"
+
+	visible = { 
+		NOT = {
+			is_subject = yes
+		}
+	}
+
+	possible = {
+		country_rank >= rank_value:minor_power
+		any_country = {
+			NOR = {
+				country_has_primary_culture = cu:polish
+				is_subject_of = root
+			}
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:polish
+				}
+			}
+			relations:root <= 20
+		}
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = polish_radicals_overlord_cooldown_tt
+					has_variable = polish_radicals_overlord_cooldown_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 50
+		modifier = {
+			trigger = {
+				has_law = law_type:law_theocracy
+			}
+			add = -50
+		}
+		modifier = {
+			trigger = {
+				any_country = {
+					NOR = {
+						country_has_primary_culture = cu:polish
+						is_subject_of = root
+					}
+					any_scope_state = {
+						state_region = {
+							is_homeland = cu:polish
+						}
+					}
+					relations:root <= 20
+				}
+			}
+			add = 25
+		}
+	}
+
+	effect = {
+		ROOT = {
+			save_scope_as = saboteur_country
+		}
+		trigger_event = { id = poland_events.1 days = 0 popup = yes }
+		post_notification = nationalism_decision_agitation_occurred
+		show_as_tooltip = {
+			add_modifier = {
+				name = funding_polish_radicals
+				years = 3
+			}
+		}
+		scope:journal_entry = {
+			custom_tooltip = polish_radicals_overlord_cooldown_year_tt
+			set_variable = { name = polish_radicals_overlord_cooldown_var years = 3 }
+		}
+	}
+}
+
+je_odrodzenie_polish_radicals_subject_button = {
+	name = "je_odrodzenie_polish_radicals_subject_button"
+	desc = "je_odrodzenie_polish_radicals_subject_button_desc"
+
+	visible = { 
+		NOT = {
+			is_subject = yes
+		}
+	}
+
+	possible = {
+		country_rank >= rank_value:minor_power
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = polish_radicals_subject_cooldown_tt
+					has_variable = polish_radicals_subject_cooldown_var
+				}
+			}
+		}
+		any_country = {
+			country_has_primary_culture = cu:polish
+			NOT = { is_subject_of = root }
+			relations:root <= 20
+		}
+	}
+
+	ai_chance = {
+		base = 50
+		modifier = {
+			trigger = {
+				has_law = law_type:law_theocracy
+			}
+			add = -50
+		}
+		modifier = {
+			trigger = {
+				any_country = {
+					country_has_primary_culture = cu:polish
+					NOT = { is_subject_of = root }
+					relations:root <= 20
+				}
+			}
+			add = 25
+		}
+	}
+
+	effect = {
+		ROOT = {
+			save_scope_as = saboteur_country
+		}
+		THIS = {
+			save_scope_as = victim_country
+		}
+		random_country = {
+			limit = {
+				country_has_primary_culture = cu:polish
+				NOT = { is_subject_of = root }
+			}
+			every_scope_state = {
+				limit = {
+					state_region = { 
+						is_homeland = cu:polish
+					}
+				}
+				add_radicals_in_state = {
+					value = 0.05
+					culture = cu:polish
+				}
+			}
+			post_notification = sabotage_decision_agitation_occurred
+		}
+		scope:journal_entry = {
+			custom_tooltip = polish_radicals_subject_cooldown_year_tt
+			set_variable = { name = polish_radicals_subject_cooldown_var years = 3 }
+		}
+	}
+}

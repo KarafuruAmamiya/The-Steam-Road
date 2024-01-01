@@ -35,6 +35,7 @@ poland_events.1 = {
 				NOT = {
 					country_has_primary_culture = cu:polish
 				}
+				NOT = { is_subject_of = root }
 				any_scope_state = {
 					state_region = {
 						is_homeland = cu:polish
@@ -51,6 +52,7 @@ poland_events.1 = {
 						country_has_primary_culture = cu:polish
 						has_variable = polish_agitation_target_1_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -64,6 +66,7 @@ poland_events.1 = {
 						country_has_primary_culture = cu:polish
 						has_variable = polish_agitation_target_1_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -82,6 +85,7 @@ poland_events.1 = {
 						has_variable = polish_agitation_target_1_var
 						has_variable = polish_agitation_target_2_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -96,6 +100,7 @@ poland_events.1 = {
 						has_variable = polish_agitation_target_1_var
 						has_variable = polish_agitation_target_2_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -115,6 +120,7 @@ poland_events.1 = {
 						has_variable = polish_agitation_target_2_var
 						has_variable = polish_agitation_target_3_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -130,6 +136,7 @@ poland_events.1 = {
 						has_variable = polish_agitation_target_2_var
 						has_variable = polish_agitation_target_3_var
 					}
+					NOT = { is_subject_of = root }
 					any_scope_state = {
 						state_region = {
 							is_homeland = cu:polish
@@ -154,8 +161,8 @@ poland_events.1 = {
 						}
 					}
 					add_radicals_in_state = {
+						value = 0.15
 						culture = cu:polish
-						value = medium_radicals
 					}
 				}
 				change_relations = { country = root value = -30 }
@@ -183,8 +190,8 @@ poland_events.1 = {
 						}
 					}
 					add_radicals_in_state = {
+						value = 0.15
 						culture = cu:polish
-						value = medium_radicals
 					}
 				}
 				change_relations = { country = root value = -30 }
@@ -212,8 +219,8 @@ poland_events.1 = {
 						}
 					}
 					add_radicals_in_state = {
+						value = 0.15
 						culture = cu:polish
-						value = medium_radicals
 					}
 				}
 				change_relations = { country = root value = -30 }
@@ -241,8 +248,8 @@ poland_events.1 = {
 						}
 					}
 					add_radicals_in_state = {
+						value = 0.15
 						culture = cu:polish
-						value = medium_radicals
 					}
 				}
 				change_relations = { country = root value = -30 }
@@ -523,7 +530,44 @@ poland_events.4 = {
 	}
 
 	immediate = {
-
+		if = {
+			limit = {
+				any_interest_group = {
+					OR = {
+						has_ideology = ideology:ideology_patriotic
+						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_liberal_modern
+						leader = {
+							OR = {						
+								has_ideology = ideology:ideology_radical
+								has_ideology = ideology:ideology_jingoist_leader
+								has_ideology = ideology:ideology_ethno_nationalist
+							}
+						}
+					}
+				}
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_patriotic
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_liberal_modern
+					leader = {
+						OR = {						
+							has_ideology = ideology:ideology_radical
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_ethno_nationalist
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = pollit_odrodzenie_achieved
+				months = long_modifier_time
+			}
+		}
 	}
 
 	option = {
@@ -537,11 +581,15 @@ poland_events.4 = {
 			name = piast_poland_modifier
 			months = very_long_modifier_time
 		}
+		add_modifier = {
+			name = pollit_assimilation
+			months = very_long_modifier_time
+		}
 		every_interest_group = {
 			limit = {
 				law_stance = {
 					law = law_type:law_national_supremacy
-					value < neutral
+					value > neutral
 				}
 			}
 			add_modifier = {
@@ -574,14 +622,24 @@ poland_events.4 = {
 			value = small_radicals
 		}
 		add_loyalists = {
-			culture = cu:north_german
+			culture = cu:silesian
+			value = small_radicals
+		}
+		add_loyalists = {
+			culture = cu:baltic_german
 			value = small_radicals
 		}
 		every_interest_group = {
 			limit = {
-				law_stance = {
-					law = law_type:law_national_supremacy
-					value > neutral
+				OR = {
+					law_stance = {
+						law = law_type:law_racial_segregation
+						value > neutral
+					}
+					law_stance = {
+						law = law_type:law_shared_heritage
+						value > neutral
+					}
 				}
 			}
 			add_modifier = {

@@ -608,3 +608,166 @@ ai_strategy_unify_india = {
 		}		
 	}
 }
+
+ai_strategy_pol_odrodzenie = {
+	icon = "gfx/interface/icons/ai_strategy_icons/protect_region.dds"
+	
+	type = diplomatic
+	
+	undesirable_infamy_level = {
+		value = 50
+	}
+	
+	unacceptable_infamy_level = {
+		value = 100
+	}
+	
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+	
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}		
+	
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+	
+	diplomatic_play_boldness = {
+		value = 25
+	}
+	
+	recklessness = {
+		value = 0.25
+	}
+	
+	aggression = {
+		value = 1
+
+		if = {
+			limit = { 
+				scope:target_country = { 
+					any_scope_state = {
+						OR = {
+							region = sr:region_poland
+							state_region = {
+								is_homeland = cu:polish
+							}
+						}
+					}
+				} 
+			}
+			add = 3
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}					
+			}
+			multiply = 0.75
+		}	
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		if = {
+			limit = {
+				"ai_ideological_opinion(scope:target_country)" < 0
+			}
+			
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.2
+				add = 1
+				max = 4.0
+			}				
+		}	
+		else = {
+			multiply = {
+				value = "ai_ideological_opinion(scope:target_country)"
+				multiply = -0.05
+				add = 1
+				min = 0.5
+			}			
+		}			
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+	
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		conquer_state = 1.5
+		return_state = 1.5
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			if = {
+				limit = {
+					can_reach_target_country = yes
+					has_strategic_land_adjacency = scope:target_country
+					scope:target_country.country_rank <= root.country_rank
+				}
+			}
+			if = {
+				limit = { 
+					scope:target_country = { 
+						any_scope_state = {
+							OR = {
+								region = sr:region_poland
+								state_region = {
+									is_homeland = cu:polish
+								}
+							}
+						}
+					} 
+				}
+				add = 75
+			}
+		}
+	}
+		
+	possible = {
+		always = yes
+	}
+
+	weight = {
+		value = 10
+
+		if = {
+			limit = { 
+				c:POL ?= THIS
+				has_journal_entry = je_odrodzenie
+			}
+			add = 25
+		}
+			
+		if = {
+			limit = { ig:ig_armed_forces = { is_powerful = yes } }
+			multiply = 1.5
+		}			
+		
+		if = {
+			limit = { 
+				NOT = {
+					c:POL ?= THIS
+				}
+			}
+			multiply = 0
+		}	
+		
+		if = {
+			limit = { has_law = law_type:law_council_republic }
+			multiply = 0.5
+		}
+	}
+}

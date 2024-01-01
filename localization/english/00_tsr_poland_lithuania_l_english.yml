@@ -1,0 +1,39 @@
+﻿l_english:
+  #Odrodzenie
+  je_odrodzenie: "Odrodzenie"
+  je_odrodzenie_reason: "Torn apart between neighbors and passed between one empire's sphere to another, the current [ROOT.GetCountry.GetName] is nothing but a shadow of its former self. Yet, as the winds of nationalism sweeping Europe begun to pass through [ROOT.GetCountry.GetName], figures both within our government and without are now inspired to look towards the restoration of the Polish state to its former glory.\n\nShould we encourage Polish rebels to seize a subjugated Polish state, we will be able to join their state to ours, provided [SCOPE.GetRootScope.GetCountry.GetName] is itself independent."
+  polish_radicals_overlord_cooldown_tt: "Has not used the #bold Encourage Polish Nationalism#! decision in the past #bold three years#!"
+  polish_radicals_subject_cooldown_year_tt: "Has not used the #bold Sponsor Pro-Poland Sentiment#! decision in the past #bold three years#!"
+  je_odrodzenie_polish_radicals_overlord_button: "Encourage Polish Nationalism"
+  je_odrodzenie_polish_radicals_overlord_button_desc: "Across the domains of the old Commonwealth, countless groups, cells, and committees can be found working to raise arms against their own oppressors. By acting as a safehaven for Polish patriots, and through the funding and support of their efforts, [SCOPE.GetRootScope.GetCountry.GetName] can prepare the Polish lands outside our direct control for future liberation."
+  je_odrodzenie_polish_radicals_subject_button: "Spur Pro-Poland Sentiment"
+  je_odrodzenie_polish_radicals_subject_button_desc: "Throughout the Polish homelands, the masses are slowly awakening and turning towards the idea of reunifying with Poland. If their rulers are not inclined to follow the call, perhaps their people will be."
+  polish_radicals_overlord_cooldown_tt: "This decision will become available again in #bold three years#!"
+  polish_radicals_subject_cooldown_tt: "This decision will become available again in #bold three years#!"
+  
+  je_odrodzenie_victim: "Odrodzenie"
+  je_odrodzenie_victim_reason: "Torn apart between neighbors and passed between one empire's sphere to another, the current [SCOPE.sCountry('poland_scope').GetName] is nothing but a shadow of its former self. Yet, as the winds of nationalism sweeping Europe begun to pass through [SCOPE.sCountry('poland_scope').GetName], figures both within our government and without are now inspired to look towards the restoration of the Polish state to its former glory.\n\nWithin our states, we have [Country.MakeScope.Var('polish_states_radicals_total').GetValue|D] radicals out of a total population of [Country.MakeScope.Var('polish_states_pop_total').GetValue|D], representing [Country.MakeScope.Var('polish_states_radicals_total_bar').GetValue|R]#red %#! of our Polish population.\n\nReaching #red;bold;shadow 25%#! will lead to the seizure of the [ROOT.GetCountry.GetAdjective] government by Polish revolutionaries and our annexation into [SCOPE.sCountry('poland_scope').GetName]."
+  je_odrodzenie_victim_goal: "#red;bold;shadow 25%#! of our Polish population has become radicalized."
+  
+  poland_lithuania_events.1.t: "White-and-Reds Over [SCOPE.sState('capital_scope').GetCityHubName]"
+  poland_lithuania_events.1.d: "Inspired by calls for the reunification of Poland, nationalist rebels have seized control of [SCOPE.sState('capital_scope').GetCityHubName] and have sworn themselves to [SCOPE.sCharacter('poland_ruler_scope').GetPrimaryRoleTitle] [SCOPE.sCharacter('poland_ruler_scope').GetFullName] of [SCOPE.sCountry('poland_scope').GetName]."
+  poland_lithuania_events.1.f: ""Traitors! Traitors in the midst! Sound the alarm, call for the guards at once!"\n\n"Do you mean the suited men beside me, sir? I should hope so, since you were foolish enough to announce your presence. Now, I shall make this plain, as your raving ineptitude forced our hand in the first place: Poland will return. It demands a place on the world stage, and it won't be cared for by men of your ill-fitting ilk.""
+  poland_lithuania_events.1.a: "We will rise again, as part of a whole."
+
+  poland_lithuania_events.2.t: "Polish Nationalists Seize [SCOPE.sState('capital_scope').GetCityHubName]"
+  poland_lithuania_events.2.d: "Inspired by calls for the reunification of the Polish nation, nationalist rebels have seized [SCOPE.sCountry('polish_revolter').GetName] and pledged themselves under the banner of Polish [SCOPE.sCharacter('poland_ruler_scope').GetPrimaryRoleTitle] [SCOPE.sCharacter('poland_ruler_scope').GetFullName]."
+  poland_lithuania_events.2.f: "The return of a united Poland has never been far from the lips of the mad and the ambitious alike. Indeed, a splendid reawakening of the empire would give even the single God pause. Such attempts have been folly in the past. Yet in furtive whispers, there is a belief that there may be hope that the Crimson Phoenix will rise again."
+  poland_lithuania_events.2.a: "We welcome our brothers and sisters into Poland."
+  poland_lithuania_events.2.b: "[SCOPE.sCountry('polish_revolter').GetName] is free to join our state."
+  poland_lithuania_events.2.c1: "We welcome our brothers and sisters into Poland."
+  poland_lithuania_events.2.d1: "[SCOPE.sCountry('polish_revolter').GetName] is free to join our state."
+  poland_lithuania_events.2.e: "We cannot risk the ire of our neighbors."
+  
+  poland_lithuania_events.3.t: "Polish Nationalists Seize [SCOPE.sState('capital_scope').GetCityHubName]"
+  
+  poland_lithuania_events.4.t: "The Odrodzenie"
+  poland_lithuania_events.4.d: "Under [SCOPE.sCharacter('poland_ruler_scope').GetPrimaryRoleTitle] [SCOPE.sCharacter('poland_ruler_scope').GetFullName], Poland has handled its internal crises and reformed into a modern nation-state. Now, [SCOPE.sCharacter('poland_ruler_scope').GetFirstNameNoFormatting] wishes to look outwards and announces his grand ambition: igniting a single Polish identity and reunifying every parts of Poland that has been unlawfully subjugated centuries prior."
+  poland_lithuania_events.4.f1: ""From now on, we do not know any difference between us. We are now brothers, sons of one Motherland, with one father, God in heaven! Let us call upon Him for help, and He will bless our weapons and give us victory!""
+  poland_lithuania_events.4.f2: ""No, sir. I am not a foreigner, nor am I an [SCOPE.sCountry('polish_overlord_scope').GetAdjectiveNoFormatting]. I am a Pole, and a Pole in Poland is never a foreigner.""
+  poland_lithuania_events.4.a: "Poland shall be reclaimed!"
+  poland_lithuania_events.4.b: "We will not succumb to this!"

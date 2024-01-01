@@ -308,3 +308,51 @@ tur_define_dominant_faction = { #This scripted effect determines which dynasty i
 	}
 	clamp_variable = { name = tur_dominant_faction_progress max = 360 min = 0 }  #These variables cannot exceed 360 or 0, to prevent bad and ugly displays.
 }
+
+generate_ottoman_monarch = {
+	hidden_effect = {
+		if = {
+			limit = {
+				any_scope_character = {
+					is_heir = yes
+				}
+			}
+			random_scope_character = {
+				limit = {
+					is_heir = yes
+				}
+				kill_character = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_variable = rumelist_coup
+		}
+		create_character = {
+			template = dynamic_rumelist_ruler_template
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = caliphatist_coup
+		}
+		create_character = {
+			template = dynamic_caliphatist_ruler_template
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = metropolitan_coup
+		}
+		create_character = {
+			template = dynamic_metropolitan_ruler_template
+		}
+	}
+	random_scope_character = {
+		limit = {
+			is_ruler = yes
+		}
+		save_scope_as = new_sultan_scope
+	}
+}

@@ -1,0 +1,482 @@
+﻿namespace = ottoman_flavor
+
+# Deposition of the Sultan - Coup
+ottoman_flavor.1 = {
+	type = country_event
+	placement = ROOT
+	title = ottoman_flavor.1.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = ottoman_flavor.1.d_1
+				trigger = {
+					var:rumelist_progress > var:caliphatist_progress
+					var:rumelist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.1.d_2
+				trigger = {
+					var:caliphatist_progress > var:rumelist_progress
+					var:caliphatist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.1.d_3
+				trigger = {
+					var:metropolitan_progress > var:caliphatist_progress
+					var:metropolitan_progress > var:rumelist_progress
+				}
+			}
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				desc = ottoman_flavor.1.f_1
+				trigger = {
+					var:rumelist_progress > var:caliphatist_progress
+					var:rumelist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.1.f_2
+				trigger = {
+					var:caliphatist_progress > var:rumelist_progress
+					var:caliphatist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.1.f_3
+				trigger = {
+					var:metropolitan_progress > var:caliphatist_progress
+					var:metropolitan_progress > var:rumelist_progress
+				}
+			}
+		}
+	}
+
+	duration = 3
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:new_sultan_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	immediate = {
+		if = {
+			limit = {
+				var:rumelist_progress > var:caliphatist_progress
+				var:rumelist_progress > var:metropolitan_progress
+			}
+			set_variable = {
+				name = rumelist_coup
+			}
+		}
+		if = {
+			limit = {
+				var:caliphatist_progress > var:rumelist_progress
+				var:caliphatist_progress > var:metropolitan_progress
+			}
+			set_variable = {
+				name = caliphatist_coup
+			}
+		}
+		if = {
+			limit = {
+				var:metropolitan_progress > var:caliphatist_progress
+				var:metropolitan_progress > var:rumelist_progress
+			}
+			set_variable = {
+				name = metropolitan_coup
+			}
+		}
+		root = {
+			save_scope_as = reflexive_reference_ottomans
+		}
+		ruler = {
+			exile_character_with_martyrdom = yes
+			save_scope_as = old_ruler_scope
+		}
+		generate_ottoman_monarch = yes
+	}
+	option = {
+		name = ottoman_flavor.1.a
+		default_option = yes
+		trigger = {
+			has_variable = rumelist_coup
+		}
+		custom_tooltip = {
+			text = exile_old_ruler_tt
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_variable = tur_fractured_porte_freeze
+				}
+				remove_variable = tur_fractured_porte_freeze
+			}
+			if = {
+				limit = {
+					has_variable = rumelist_coup
+				}
+				remove_variable = rumelist_coup
+			}
+			if = {
+				limit = {
+					has_variable = caliphatist_coup
+				}
+				remove_variable = caliphatist_coup
+			}
+			if = {
+				limit = {
+					has_variable = metropolitan_coup
+				}
+				remove_variable = metropolitan_coup
+			}
+			change_variable = { name = rumelist_progress subtract = 300 }
+			change_variable = { name = caliphatist_progress subtract = 300 }
+			change_variable = { name = metropolitan_progress subtract = 300 }
+			clamp_variable = { name = rumelist_progress max = 360 min = 0 }
+			clamp_variable = { name = caliphatist_progress max = 360 min = 0 }
+			clamp_variable = { name = metropolitan_progress max = 360 min = 0 }
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_caliphatist
+						has_ideology = ideology:ideology_metropolitan
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = very_large_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+	option = {
+		name = ottoman_flavor.1.b
+		default_option = yes
+		trigger = {
+			has_variable = caliphatist_coup
+		}
+		custom_tooltip = {
+			text = exile_old_ruler_tt
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_variable = tur_fractured_porte_freeze
+				}
+				remove_variable = tur_fractured_porte_freeze
+			}
+			if = {
+				limit = {
+					has_variable = rumelist_coup
+				}
+				remove_variable = rumelist_coup
+			}
+			if = {
+				limit = {
+					has_variable = caliphatist_coup
+				}
+				remove_variable = caliphatist_coup
+			}
+			if = {
+				limit = {
+					has_variable = metropolitan_coup
+				}
+				remove_variable = metropolitan_coup
+			}
+			change_variable = { name = rumelist_progress subtract = 300 }
+			change_variable = { name = caliphatist_progress subtract = 300 }
+			change_variable = { name = metropolitan_progress subtract = 300 }
+			clamp_variable = { name = rumelist_progress max = 360 min = 0 }
+			clamp_variable = { name = caliphatist_progress max = 360 min = 0 }
+			clamp_variable = { name = metropolitan_progress max = 360 min = 0 }
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_rumelist
+						has_ideology = ideology:ideology_metropolitan
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = very_large_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+	option = {
+		name = ottoman_flavor.1.c
+		default_option = yes
+		trigger = {
+			has_variable = metropolitan_coup
+		}
+		custom_tooltip = {
+			text = exile_old_ruler_tt
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_variable = tur_fractured_porte_freeze
+				}
+				remove_variable = tur_fractured_porte_freeze
+			}
+			if = {
+				limit = {
+					has_variable = rumelist_coup
+				}
+				remove_variable = rumelist_coup
+			}
+			if = {
+				limit = {
+					has_variable = caliphatist_coup
+				}
+				remove_variable = caliphatist_coup
+			}
+			if = {
+				limit = {
+					has_variable = metropolitan_coup
+				}
+				remove_variable = metropolitan_coup
+			}
+			change_variable = { name = rumelist_progress subtract = 300 }
+			change_variable = { name = caliphatist_progress subtract = 300 }
+			change_variable = { name = metropolitan_progress subtract = 300 }
+			clamp_variable = { name = rumelist_progress max = 360 min = 0 }
+			clamp_variable = { name = caliphatist_progress max = 360 min = 0 }
+			clamp_variable = { name = metropolitan_progress max = 360 min = 0 }
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_rumelist
+						has_ideology = ideology:ideology_caliphatist
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = very_large_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+}
+
+# Cementing the Sultan's Rule - Non-Coup
+ottoman_flavor.2 = {
+	type = country_event
+	placement = ROOT
+	title = ottoman_flavor.2.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = ottoman_flavor.2.d_1
+				trigger = {
+					var:rumelist_progress > var:caliphatist_progress
+					var:rumelist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.2.d_2
+				trigger = {
+					var:caliphatist_progress > var:rumelist_progress
+					var:caliphatist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.2.d_3
+				trigger = {
+					var:metropolitan_progress > var:caliphatist_progress
+					var:metropolitan_progress > var:rumelist_progress
+				}
+			}
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				desc = ottoman_flavor.2.f_1
+				trigger = {
+					var:rumelist_progress > var:caliphatist_progress
+					var:rumelist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.2.f_2
+				trigger = {
+					var:caliphatist_progress > var:rumelist_progress
+					var:caliphatist_progress > var:metropolitan_progress
+				}
+			}
+			triggered_desc = {
+				desc = ottoman_flavor.2.f_3
+				trigger = {
+					var:metropolitan_progress > var:caliphatist_progress
+					var:metropolitan_progress > var:rumelist_progress
+				}
+			}
+		}
+	}
+
+	duration = 3
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:new_sultan_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	immediate = {
+		if = {
+			limit = {
+				var:rumelist_progress > var:caliphatist_progress
+				var:rumelist_progress > var:metropolitan_progress
+			}
+			set_variable = {
+				name = rumelist_victory
+			}
+		}
+		if = {
+			limit = {
+				var:caliphatist_progress > var:rumelist_progress
+				var:caliphatist_progress > var:metropolitan_progress
+			}
+			set_variable = {
+				name = caliphatist_victory
+			}
+		}
+		if = {
+			limit = {
+				var:metropolitan_progress > var:caliphatist_progress
+				var:metropolitan_progress > var:rumelist_progress
+			}
+			set_variable = {
+				name = metropolitan_victory
+			}
+		}
+		root = {
+			save_scope_as = reflexive_reference_ottomans
+		}
+		ruler = {
+			save_scope_as = new_sultan_scope
+		}
+	}
+	option = {
+		name = ottoman_flavor.2.a
+		default_option = yes
+		trigger = {
+			has_variable = rumelist_victory
+		}
+		add_journal_entry = {
+			type = je_scourge_of_europe
+		}
+		
+		scope:new_sultan_scope = {
+			add_modifier = the_restorer_modifier
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_caliphatist
+						has_ideology = ideology:ideology_metropolitan
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = small_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+	option = {
+		name = ottoman_flavor.2.b
+		default_option = yes
+		trigger = {
+			has_variable = caliphatist_victory
+		}
+		add_journal_entry = {
+			type = je_ottoman_caliphate
+		}
+		
+		scope:new_sultan_scope = {
+			add_modifier = the_restorer_modifier
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_rumelist
+						has_ideology = ideology:ideology_metropolitan
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = small_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+	option = {
+		name = ottoman_flavor.2.c
+		default_option = yes
+		trigger = {
+			has_variable = metropolitan_victory
+		}
+		add_journal_entry = {
+			type = je_federation_of_rum
+		}
+		
+		scope:new_sultan_scope = {
+			add_modifier = the_restorer_modifier
+		}
+		
+		every_interest_group = {
+			limit = {
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_caliphatist
+						has_ideology = ideology:ideology_rumelist
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = small_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+}

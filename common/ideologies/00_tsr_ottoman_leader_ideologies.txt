@@ -119,8 +119,10 @@
 		if = {
 			limit = {
 				scope:interest_group = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_devout
+					OR = {
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_devout
+					}
 				}
 			}
 			add = 50
@@ -281,8 +283,8 @@ ideology_metropolitan = {
 
 	lawgroup_governance_principles = {
 		law_monarchy = approve
-		law_presidential_republic = approve
-		law_parliamentary_republic = approve
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
 		law_theocracy = strongly_disapprove
 		law_council_republic = strongly_disapprove
 	}
@@ -309,20 +311,11 @@ ideology_metropolitan = {
 	}
 	
 	lawgroup_church_and_state = {
-		law_state_religion = strongly_disapprove
-		law_freedom_of_conscience = neutral
-		law_shared_roots = approve
-		law_total_separation = strongly_approve
+		law_state_religion = neutral
+		law_freedom_of_conscience = approve
+		law_shared_roots = strongly_approve
+		law_total_separation = disapprove
 		law_state_atheism = strongly_disapprove
-	}
-
-	lawgroup_economic_system = {	
-		law_laissez_faire = neutral
-		law_interventionism = strongly_approve
-		law_agrarianism = disapprove
-		law_traditionalism = strongly_disapprove	
-		law_cooperative_ownership = disapprove	
-		law_command_economy = disapprove
 	}
 	
 	lawgroup_centralization = {
@@ -425,7 +418,7 @@ ideology_turkish_nationalist = {
 
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_disapprove
-		law_presidential_republic = strongly_approve
+		law_presidential_republic = approve
 		law_parliamentary_republic = approve
 		law_theocracy = strongly_disapprove
 		law_council_republic = disapprove

@@ -119,6 +119,63 @@
 				change_variable = { name = metropolitan_progress add = var:metropolitan_progress_next }
 				tur_define_dominant_faction = yes	#See above - this ensures that the monthly tick will not momentarily send the status loc out of sync with what the bar is representing.
 			}
+			if = {
+				limit = {
+					has_law = law_type:law_monarchy
+					scope:journal_entry = {
+						is_goal_complete = yes
+					}
+					NOT = {
+						has_variable = tur_fractured_porte_freeze
+					}
+				}
+				if = { #Fires the event to enthrone the pretender - 1 if contextualised as coup, 10 if contextualised as reinforcement.
+					limit = {
+						var:rumelist_progress > var:caliphatist_progress
+						var:rumelist_progress > var:metropolitan_progress
+					} 
+					if = {
+						limit = {
+							ruler_is_rumelist = yes
+						}
+						trigger_event = { id = ottoman_flavor.2 popup = yes} #Reinforcement event - fires if the leading dynasty is the one in power.
+					}
+					else = {
+						trigger_event = { id = ottoman_flavor.1 popup = yes} #Coup event - fires if the leading dynasty is not the one in power.
+					}
+				}
+				else_if = {
+					limit = {
+						var:caliphatist_progress > var:rumelist_progress
+						var:caliphatist_progress > var:metropolitan_progress
+					}
+					if = {
+						limit = {
+							ruler_is_caliphatist = yes
+						}
+						trigger_event = { id = ottoman_flavor.2 popup = yes}
+					}
+					else = {
+						trigger_event = { id = ottoman_flavor.1 popup = yes}
+					}
+				}
+				else_if = {
+					limit = {
+						var:metropolitan_progress > var:rumelist_progress
+						var:metropolitan_progress > var:caliphatist_progress
+					}
+					if = {
+						limit = {
+							ruler_is_metropolitan = yes
+						}
+						trigger_event = { id = ottoman_flavor.2 popup = yes}
+					}
+					else = {
+						trigger_event = { id = ottoman_flavor.1 popup = yes}
+					}
+				}
+				tur_freeze_fractured_porte_progress = yes #Freezes the bars so that they no longer accumulate progress on the monthly tick, and stay as they are. In the case that a coup succeeds, the bars will be set back.
+			}
 		}
 		#random_events = {
 		#	400 = 0
@@ -198,54 +255,87 @@
 	should_be_pinned_by_default = yes
 }
 
-je_the_holy_cities = {
+je_ottoman_caliphate = {
 	icon = "gfx/interface/icons/religion_icons/sunni.dds"
+
 	group = je_group_tsr_content
 	
-	can_deactivate = yes
-	should_be_pinned_by_default = yes
-
-	is_shown_when_inactive = {
-		c:TUR ?= this
-		has_law = law_type:law_monarchy
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = dominant_caliphatist_tt
-			AND = {
-				ruler_is_caliphatist = yes
-				var:caliphatist_progress > var:rumelist_progress
-				var:caliphatist_progress > var:metropolitan_progress
-			}
-		}
-	}
+	#scripted_button = claim_caliphal_authority_button
 
 	complete = {
 		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
 		country_or_subject_owns_entire_state_region = STATE_MEDINA
+		custom_tooltip = {
+			text = claimed_caliphal_authority_tt
+			has_variable = claimed_caliphal_authority
+		}
 	}
 
 	on_complete = {
-		#trigger_event = { id = ottoman_flavor.1 }
-	}
-
-	on_monthly_pulse = {
-		random_events = {
-			#100 = 0
-			#10 = arabia_flavor.6
-		}
+		
 	}
 	
-	invalid = {
-		NOT = {
-			AND = {
-				ruler_is_caliphatist = yes
-				var:caliphatist_progress > var:rumelist_progress
-				var:caliphatist_progress > var:metropolitan_progress
-			}
-		}
+	on_monthly_pulse = {
+		
+	}
+	
+	fail = {
+		
 	}
 
-	weight = 20
+	weight = 10
+
+	should_be_pinned_by_default = yes
+}
+
+je_scourge_of_europe = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_tsr_content
+
+	complete = {
+		
+	}
+
+	on_complete = {
+		
+	}
+	
+	on_monthly_pulse = {
+		
+	}
+	
+	fail = {
+		
+	}
+
+	weight = 10
+
+	should_be_pinned_by_default = yes
+}
+
+je_federation_of_rum = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_tsr_content
+
+	complete = {
+		
+	}
+
+	on_complete = {
+		
+	}
+	
+	on_monthly_pulse = {
+		
+	}
+	
+	fail = {
+		
+	}
+
+	weight = 10
+
+	should_be_pinned_by_default = yes
 }

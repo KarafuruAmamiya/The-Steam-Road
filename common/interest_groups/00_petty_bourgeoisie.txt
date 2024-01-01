@@ -217,7 +217,22 @@
 					}
 					pop_has_primary_culture = yes
 				}
-				value = -50
+				value = -100
+			}
+		}
+		
+		add = {
+			desc = "PRIMARY_CULTURE" #More likely for other cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_has_primary_culture = no
+				}
+				value = 100
 			}
 		}
 

@@ -61,6 +61,8 @@
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_no_police
 		activate_law = law_type:law_unitary
+		activate_law = law_type:law_slavery_banned
+		activate_law = law_type:law_national_militia
 		
 		set_tariffs_import_priority = g:artillery
 		set_tariffs_import_priority = g:small_arms	
@@ -144,7 +146,7 @@
 		activate_law = law_type:law_interventionism
 		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_slavery_banned
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_national_militia
@@ -214,6 +216,7 @@
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_secret_police
 		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_slavery_banned
 		
 		set_institution_investment_level = {
 			institution = institution_home_affairs
@@ -223,10 +226,6 @@
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 2
-		}
-		
-		add_modifier = {
-			name = lusitanian_league
 		}
 	}
 	c:NBR = { # New Brabant Company
@@ -262,8 +261,8 @@
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_peasant_levies
 		activate_law = law_type:law_no_police
-		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_devolved
 		
 		set_institution_investment_level = {

@@ -1,18 +1,20 @@
 ﻿DIPLOMACY = {
 	c:MRZ = {
 		create_diplomatic_pact = {
-			country = c:ATL
-			type = lusitanian_league
-		}
-		create_diplomatic_pact = {
 			country = c:AUR
-			type = lusitanian_league
+			type = customs_union
 		}
 	}
-	c:ATL = {
+	c:MRZ = {
 		create_diplomatic_pact = {
 			country = c:AUR
-			type = defensive_pact_lusitanian_league
+			type = defensive_pact
+		}
+	}
+	c:SLR = {
+		create_diplomatic_pact = {
+			country = c:ATL
+			type = customs_union
 		}
 	}
 }

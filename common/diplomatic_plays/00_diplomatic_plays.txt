@@ -340,7 +340,10 @@ dp_annex_subject = {
 		aggressive_diplomatic_plays_permitted = yes
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
-			NOT = { is_country_type = colonial }
+			NAND = { 
+				is_country_type = colonial 
+				root = { NOT = { is_country_type = colonial } }
+			}
 			is_direct_subject_of = root
 			custom_tooltip = {
 				text = annex_subject_laws_tt

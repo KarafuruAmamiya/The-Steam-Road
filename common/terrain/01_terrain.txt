@@ -1113,10 +1113,7 @@ urban = {
 				if = {
 					limit = {
 						scope:region = {
-							OR = {
-								state_is_in_africa = yes
-								region = sr:region_arabic
-							}
+							state_is_in_africa = yes
 						}
 					}
 					add = 1
@@ -1134,6 +1131,7 @@ urban = {
 							OR = {
 								state_is_in_india = yes
 								region = sr:region_mongolia
+								region = sr:region_himalayas
 							}
 						}
 					}
@@ -1155,6 +1153,7 @@ urban = {
 								region = sr:region_caucasus
 								region = sr:region_west_siberia
 								region = sr:region_kurdistan
+								region = sr:region_arabic
 							}
 						}
 					}

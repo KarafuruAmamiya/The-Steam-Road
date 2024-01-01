@@ -132,9 +132,11 @@
 		}
 		# no generic reformers in Ottoman Empire
 		owner = {
-			NOR = {
-				exists = c:TUR
-				c:TUR = this
+			NOT = {
+				AND = {
+					exists = c:TUR
+					c:TUR = this
+				}
 			}
 		}
 	}

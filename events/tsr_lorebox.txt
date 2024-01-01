@@ -145,6 +145,14 @@ tsr_test.6 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		add_journal_entry = { type = je_zandism_main }
+		if = {
+			limit = {
+				NOT = { has_variable = opium_wars_completion_tracker }
+			}
+		}
+		set_variable = {
+			name = opium_wars_completion_tracker
+			value = 0
+		}
 	}
 }

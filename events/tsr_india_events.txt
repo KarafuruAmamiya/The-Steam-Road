@@ -81,6 +81,14 @@ raj.1 = {
 					}
 					activate_law = law_type:law_industry_banned
 				}
+				if = {
+					limit = {
+						NOT = {
+							has_law = law_type:law_migration_controls
+						}
+					}
+					activate_law = law_type:law_migration_controls
+				}
 			}
 		}
 		c:PER = {

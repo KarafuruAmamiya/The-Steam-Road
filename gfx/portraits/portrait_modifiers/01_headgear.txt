@@ -1393,6 +1393,12 @@
 					}
 				}
             }
+			modifier = {
+                add = 5000
+				tsr_fez_pop_trigger = yes
+				european_clothes_pop_trigger = no
+				academics_clothes_pop_trigger = yes
+            }
         }
     }
 	
@@ -2122,21 +2128,38 @@
         }
     }
 
-    #academic_clothes = {
-    #    dna_modifiers = {
-    #        accessory = {
-    #            mode = add
-    #            gene = props
-    #            template = academic_cap_01
-    #            range = { 0 1 } # For the randomness to work correctly
-    #        } 
-    #    }
-    #    weight = {
-    #        base = 0
-    #        modifier = {
-    #            add = 200
-    #            academics_clothes_pop_trigger = yes
-    #        }
-    #    }
-    #}
+    academic_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = academic_cap
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 200
+                academics_clothes_pop_trigger = yes
+				AND = {
+                    OR = {
+                        european_clothes_pop_trigger = yes
+						western_clothes_trigger = yes
+                        AND = {
+                            exists = scope:pop
+                            scope:pop = {
+                                OR = {
+                                    culture = cu:cherokee
+                                    culture = cu:muskogean
+                                }
+                            }
+                        }
+                        african_diaspora_pop_clothes_trigger = yes
+                    }
+				}
+				tsr_fez_pop_trigger = no
+            }
+        }
+    }
 }

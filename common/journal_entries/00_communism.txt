@@ -13,25 +13,30 @@
 
 	possible = {
 		any_interest_group = {
-			is_marginal = no
-			OR = {
-				law_stance = {
-					law = law_type:law_council_republic
-					value > neutral
-			}
-			any_scope_character = {
+			AND = {
 				OR = {
-					has_role = politician
-					has_role = agitator
+					is_powerful = yes
+					is_insurrectionary = yes
 				}
 				OR = {
-					has_ideology = ideology:ideology_communist
-					has_ideology = ideology:ideology_vanguardist
-					has_ideology = ideology:ideology_anarchist
+					law_stance = {
+						law = law_type:law_council_republic
+						value > neutral
+					}
+					any_scope_character = {
+						OR = {
+							has_role = politician
+							has_role = agitator
+						}
+						OR = {
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_anarchist
+						}
+					}
 				}
 			}
 		}
-	}
 	}
 
 	immediate = {

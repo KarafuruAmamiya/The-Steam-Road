@@ -707,13 +707,13 @@
 			}
 			create_building={
 				building="building_arms_industry"
-				level=1
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_muskets" "pm_merchant_guilds_building_arms_industry" }
 			}
 			create_building={
 				building="building_artillery_foundries"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_cannons" "pm_automation_disabled" "pm_merchant_guilds_building_artillery_foundries" }
 			}
@@ -1053,7 +1053,7 @@
 			}
 			create_building={
 				building="building_textile_mills"
-				level=2
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_dye_workshops" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
 			}
@@ -1079,6 +1079,18 @@
 	}
 	s:STATE_EAST_ANGLIA={
 		region_state:ENG={
+			create_building={
+				building="building_paper_mills"
+				level=3
+				reserves=1
+				activate_production_methods={ "pm_sulfite_pulping" "pm_automation_disabled" "pm_privately_owned_building_paper_mills" }
+			}
+			create_building={
+				building="building_tooling_workshops"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
+			}			
 			create_building={
 				building="building_food_industry"
 				level=2
@@ -1175,7 +1187,7 @@
 			}
 			create_building={
 				building="building_tooling_workshops"
-				level=2
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
 			}	
@@ -4040,6 +4052,12 @@
 				activate_production_methods={ "pm_iron_frame_buildings" }
 			}
 			create_building={
+				building="building_logging_camp"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
+			}
+			create_building={
 				building="building_university"
 				level=5
 				reserves=1
@@ -4053,13 +4071,13 @@
 			}
 			create_building={
 				building="building_steel_mills"
-				level=5
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_blister_steel_process" "pm_automation_disabled" "pm_privately_owned_industry" }
 			}
 			create_building={
 				building="building_chemical_plants"
-				level=2
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_artificial_fertilizers" "pm_privately_owned_industry" }
 			}

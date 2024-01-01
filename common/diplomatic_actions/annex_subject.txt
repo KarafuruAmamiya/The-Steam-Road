@@ -26,10 +26,11 @@
 				is_subject_type = subject_type_dependency
 				is_subject_type = subject_type_real_union
 			}
-			NOT = { 
-				is_country_type = colonial
+			NAND = { 
+				is_country_type = colonial 
+				root = { NOT = { is_country_type = colonial } }
 			}
-			overlord = { NOT = { is_subject_type = subject_type_customs_union } }
+			#overlord = { NOT = { is_subject_type = subject_type_customs_union } }
 			#NOT = { overlord = { has_diplomatic_pact = { who = overlord type = customs_union } } 
 		}
 	}
@@ -155,8 +156,8 @@
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_GDP"
 				value = "scope:actor.ai_gdp_comparison(root)"
-				min = -10
-				max = 10
+				min = -30
+				max = 30
 			}
 		
 			if = {
@@ -200,7 +201,7 @@
 							}							
 						}
 					}
-					value = 40
+					value = 20
 				}
 				if = {
 					limit = {
@@ -209,7 +210,7 @@
 							attitude = genial
 						}
 					}
-					value = 30
+					value = 10
 				}				
 				if = {
 					limit = {
@@ -224,7 +225,7 @@
 							}							
 						}
 					}
-					value = 20
+					value = 5
 				}
 				if = {
 					limit = {

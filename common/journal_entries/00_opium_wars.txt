@@ -2,6 +2,18 @@
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_variable = opium_wars_completion_tracker }
+			}
+		}
+		set_variable = {
+			name = opium_wars_completion_tracker
+			value = 0
+		}
+	}
 
 	on_monthly_pulse = {
 		random_events = {
@@ -80,15 +92,13 @@ je_opium_wars = {
 			NOT = { exists = c:PER }
 			AND = {
 				exists = c:PER
-				c:PER = {
-					any_scope_state = {
-						state_region = {
-							is_homeland = cu:persian
-						}
-						NOT = { owner = prev }
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:persian
 					}
-					is_banning_goods = opium
+					NOT = { owner = c:PER }
 				}
+				is_banning_goods = opium
 			}
 		}
 	}

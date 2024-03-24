@@ -1,0 +1,401 @@
+﻿namespace = russian_events
+
+# Moscow Uprising
+russian_events.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = russian_events.1.t
+	desc = russian_events.1.d
+	flavor = russian_events.1.f
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	immediate = {
+		overlord = {
+			save_scope_as = overlord_scope
+		}
+		create_character = { #WIP
+			culture = cu:russian
+			interest_group = ig_intelligentsia
+			ideology = ideology_radical
+			traits = {
+				ambitious expert_political_operator
+			}
+			save_scope_as = russian_president_scope
+		}
+	}
+
+	option = {
+		name = russian_events.1.a
+		default_option = yes
+		
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_census_voting
+		if = {
+			limit = {
+				has_law = law_type:law_hereditary_bureaucrats
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		
+		remove_primary_culture = cu:swedish
+		add_primary_culture = cu:russian
+		every_scope_character = {
+			limit = {
+				NOT = { culture = cu:russian }
+			}
+			kill_character = yes
+		}
+		
+		scope:russian_president_scope = {
+			set_character_as_ruler = yes
+		}
+		
+		scope:overlord_scope = {
+			trigger_event = { id = russian_events.2 popup = yes }
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:russian
+					}
+				}
+				add_claim = root
+			}
+			change_relations = {
+				country = root
+				value = -100
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = root
+					secret_goal = conquer
+				}
+			}
+		}
+		
+		hidden_effect = {
+			set_immune_to_revolutions = yes
+		}
+	}
+}
+
+# Moscow Declares Independence!
+russian_events.2 = {
+	type = country_event
+	placement = scope:moscow_state
+
+	title = russian_events.2.t
+	desc = russian_events.2.d
+	flavor = russian_events.2.f
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		c:MSC = {
+			capital = {
+				save_scope_as = moscow_state
+			}
+			save_scope_as = moscow_scope
+			every_scope_state = {
+				state_region = {
+					add_claim = root
+				}
+			}
+		}
+	}
+
+	option = {
+		name = russian_events.2.a
+		default_option = yes
+		ai_chance = {
+			base = 100
+		}
+		set_variable = russian_oppressor
+		create_diplomatic_play = {
+			name = russian_independence_war
+			type = dp_annex_war
+			target_country = c:MSC
+		}
+		if = {
+			limit = {
+				c:SWE ?= this
+			}
+			random_diplomatic_play = {
+				limit = {
+					target_is = c:MSC
+				}
+				if = {
+					limit = {
+						exists = s:STATE_NOVGOROD.region_state:SWE 
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_NOVGOROD.region_state:SWE
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_INGRIA.region_state:SWE
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_INGRIA.region_state:SWE
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_PSKOV.region_state:SWE
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_PSKOV.region_state:SWE
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_PETROZAVODSK.region_state:SWE
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_PSKOV.region_state:SWE
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_ARKHANGELSK.region_state:SWE
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_ARKHANGELSK.region_state:SWE
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				c:SCA ?= this
+			}
+			random_diplomatic_play = {
+				limit = {
+					target_is = c:MSC
+				}
+				if = {
+					limit = {
+						exists = s:STATE_NOVGOROD.region_state:SCA 
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_NOVGOROD.region_state:SCA
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_INGRIA.region_state:SCA
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_INGRIA.region_state:SCA
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_PSKOV.region_state:SCA
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_PSKOV.region_state:SCA
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_PETROZAVODSK.region_state:SCA
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_PSKOV.region_state:SCA
+					}
+				}
+				if = {
+					limit = {
+						exists = s:STATE_ARKHANGELSK.region_state:SCA
+					}
+					add_war_goal = {
+						holder = c:MSC
+						type = return_state
+						target_state = s:STATE_ARKHANGELSK.region_state:SCA
+					}
+				}
+			}
+		}
+		add_journal_entry = {
+			type = je_moscow_uprising
+		}
+		every_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:russian
+			}
+		}
+	}
+	
+	option = {
+		name = russian_events.2.b
+		ai_chance = {
+			base = 0
+		}
+		every_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:russian
+			}
+		}
+		
+		c:MSC = {
+			make_independent = yes
+			hidden_effect = {
+				set_immune_to_revolutions = no
+			}
+		}
+	}
+}
+
+# Manifesto for the Russian Nation
+russian_events.3 = {
+	type = country_event
+	placement = scope:moscow_state
+
+	title = russian_events.2.t
+	desc = russian_events.2.d
+	flavor = russian_events.2.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_researched = nationalism
+		}
+		capital = {
+			save_scope_as = moscow_state
+		}
+		random_country = {
+			limit = { has_variable = russian_oppressor }
+			save_scope_as = oppressor_scope
+		}
+	}
+
+	option = {
+		name = russian_events.3.a
+		default_option = yes
+		
+	}
+	
+	option = {
+		name = russian_events.3.b
+		ai_chance = {
+			base = 0
+		}
+		
+	}
+}
+
+# End of the Moscow Governorate
+russian_events.4 = {
+	type = country_event
+	placement = scope:moscow_state
+
+	title = russian_events.4.t
+	desc = russian_events.4.d
+	flavor = russian_events.4.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_MOSCOW
+			}
+			save_scope_as = moscow_state
+		}
+	}
+
+	option = {
+		name = russian_events.4.a
+		default_option = yes
+		
+	}
+	
+	option = {
+		name = russian_events.4.b
+		ai_chance = {
+			base = 0
+		}
+		
+	}
+}

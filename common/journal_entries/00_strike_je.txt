@@ -4,13 +4,9 @@
 	group = je_group_crises
 
 	is_shown_when_inactive = {
-		has_technology_researched = political_agitation
+		has_technology_researched = labor_movement
 		has_technology_researched = human_rights
 		NOT = { has_law = law_type:law_council_republic }
-		ig:ig_trade_unions = {
-			is_marginal = no
-			ig_clout >= 0.1
-		}
 		ig:ig_industrialists = {
 			is_marginal = no
 		}

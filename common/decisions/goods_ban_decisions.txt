@@ -58,7 +58,10 @@ remove_opium_ban = {
 
 	when_taken = {
 		remove_banned_goods = g:opium
-		remove_modifier = opium_ban_authority
+		if = {
+			limit = { has_modifier = opium_ban_authority }
+			remove_modifier = opium_ban_authority
+		}
 	}
 	
    ai_chance = {
@@ -132,7 +135,10 @@ remove_liquor_ban = {
 
 	when_taken = {
 		remove_banned_goods = g:liquor
-		remove_modifier = liqour_ban_authority
+		if = {
+			limit = { has_modifier = liqour_ban_authority }
+			remove_modifier = liqour_ban_authority
+		}
 	}
 	
    ai_chance = {

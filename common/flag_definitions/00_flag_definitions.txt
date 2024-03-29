@@ -1898,7 +1898,7 @@ GBR = { # Great Britain / United Kingdom
 		priority = 22
 		trigger = { 
 			exists = scope:actor
-			scope:actor = { capital ?= { state_region = s:STATE_LANCASHIRE } }
+			scope:actor ?= { capital ?= { state_region = s:STATE_LANCASHIRE } }
 		}
 	}
 	flag_definition = {
@@ -1906,7 +1906,7 @@ GBR = { # Great Britain / United Kingdom
 		priority = 23
 		trigger = {
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { capital ?= { state_region = s:STATE_LANCASHIRE } }
+			scope:actor ?= { capital ?= { state_region = s:STATE_LANCASHIRE } }
 		}
 	}
 	flag_definition = {
@@ -1914,7 +1914,7 @@ GBR = { # Great Britain / United Kingdom
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { NOT = { capital ?= { state_region = s:STATE_LANCASHIRE } } }
+			scope:actor ?= { NOT = { capital ?= { state_region = s:STATE_LANCASHIRE } } }
 		}
 	}	
 	flag_definition = {
@@ -2278,7 +2278,7 @@ HDJ = { # Hedjaz
 		priority = 1
 		trigger = { 
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject = yes
 			}
 		}
@@ -2289,7 +2289,7 @@ HDJ = { # Hedjaz
 		priority = 10
 		trigger = { 
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject = no
 			}
 		}
@@ -2730,7 +2730,7 @@ ITA = { # Italy
 		priority = 15
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_monarchy
 			}
 		}
@@ -4735,7 +4735,7 @@ RUS = { # Russia
 		priority = 1750 # need to override the DEFAULT
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_technocracy
 			}
 		}
@@ -5402,7 +5402,7 @@ TIS = { # Turtle Island
 		priority = 100
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				was_formed_from = IRO
 			}
 		}
@@ -5671,7 +5671,7 @@ UKR = { # Ukraine
 		priority = 1600
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_council_republic
 				has_law = law_type:law_anarchy
 			}
@@ -5816,7 +5816,7 @@ WAL = { # Wallachia
 		coa = ROM_united_principalities
 		priority = 100
 		trigger = { 
-			scope:actor = {
+			scope:actor ?= {
 				has_variable = ROM_united_principality
 			}
 		}

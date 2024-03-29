@@ -123,7 +123,7 @@ ARA = { # Arabia
 		subject_canton = ARA_EGY
 		priority = 2
 		trigger = { 
-			scope:actor = { was_formed_from = EGY }
+			scope:actor ?= { was_formed_from = EGY }
 		}
 	}
 	flag_definition = {
@@ -131,7 +131,7 @@ ARA = { # Arabia
 		subject_canton = ARA_EGY_absolute_monarchy
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = EGY }
+			scope:actor ?= { was_formed_from = EGY }
 			coa_def_absolute_monarchy_flag_trigger = yes
 		}
 	}
@@ -140,7 +140,7 @@ ARA = { # Arabia
 		subject_canton = ARA_EGY_republic
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = EGY }
+			scope:actor ?= { was_formed_from = EGY }
 			coa_def_republic_flag_trigger = yes
 		}
 	}
@@ -149,7 +149,7 @@ ARA = { # Arabia
 		subject_canton = ARA_EGY_dictatorship
 		priority = 150
 		trigger = { 
-			scope:actor = { was_formed_from = EGY }
+			scope:actor ?= { was_formed_from = EGY }
 			coa_def_dictatorship_flag_trigger = yes
 		}
 	}
@@ -158,7 +158,7 @@ ARA = { # Arabia
 		subject_canton = ARA_SYR
 		priority = 2
 		trigger = { 
-			scope:actor = { was_formed_from = SYR }
+			scope:actor ?= { was_formed_from = SYR }
 		}
 	}
 	flag_definition = {
@@ -166,7 +166,7 @@ ARA = { # Arabia
 		subject_canton = ARA_SYR_absolute_monarchy
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = SYR }
+			scope:actor ?= { was_formed_from = SYR }
 			coa_def_absolute_monarchy_flag_trigger = yes
 		}
 	}
@@ -175,7 +175,7 @@ ARA = { # Arabia
 		subject_canton = ARA_SYR_republic
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = SYR }
+			scope:actor ?= { was_formed_from = SYR }
 			coa_def_republic_flag_trigger = yes
 		}
 	}
@@ -184,7 +184,7 @@ ARA = { # Arabia
 		subject_canton = ARA_SYR_dictatorship
 		priority = 150
 		trigger = { 
-			scope:actor = { was_formed_from = SYR }
+			scope:actor ?= { was_formed_from = SYR }
 			coa_def_dictatorship_flag_trigger = yes
 		}
 	}
@@ -193,7 +193,7 @@ ARA = { # Arabia
 		subject_canton = ARA_HDJ
 		priority = 2
 		trigger = { 
-			scope:actor = { was_formed_from = HDJ }
+			scope:actor ?= { was_formed_from = HDJ }
 		}
 	}
 	flag_definition = {
@@ -201,7 +201,7 @@ ARA = { # Arabia
 		subject_canton = ARA_HDJ_absolute_monarchy
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = HDJ }
+			scope:actor ?= { was_formed_from = HDJ }
 			coa_def_absolute_monarchy_flag_trigger = yes
 		}
 	}
@@ -210,7 +210,7 @@ ARA = { # Arabia
 		subject_canton = ARA_HDJ_republic
 		priority = 100
 		trigger = { 
-			scope:actor = { was_formed_from = HDJ }
+			scope:actor ?= { was_formed_from = HDJ }
 			coa_def_republic_flag_trigger = yes
 		}
 	}
@@ -219,7 +219,7 @@ ARA = { # Arabia
 		subject_canton = ARA_HDJ_dictatorship
 		priority = 150
 		trigger = { 
-			scope:actor = { was_formed_from = HDJ }
+			scope:actor ?= { was_formed_from = HDJ }
 			coa_def_dictatorship_flag_trigger = yes
 		}
 	}
@@ -228,7 +228,7 @@ ARA = { # Arabia
 		subject_canton = ARA_NEJ
 		priority = 1000
 		trigger = { 
-			scope:actor = { was_formed_from = NEJ }
+			scope:actor ?= { was_formed_from = NEJ }
 		}
 	}
 }
@@ -250,7 +250,7 @@ SYR = { # Syria
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				ruler = { has_culture = cu:akturk }
 			}
 		}
@@ -607,7 +607,7 @@ CHI = { # China
 		coa_with_overlord_canton = CHI
 		priority = 1
 		trigger = { 
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { country_has_primary_culture = cu:manchu }
 				has_law = law_type:law_monarchy
 			}
@@ -617,7 +617,7 @@ CHI = { # China
 		coa = CHI_kor_monarchy
 		priority = 50
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				was_formed_from = KOR
 			}
 		}

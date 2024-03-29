@@ -30,8 +30,12 @@
 			is_diplomatic_play_committed_participant = no
 		}		
 
-		break_effect = {
-			create_truce = { country = scope:target_country months = 12 }
+		manual_break_effect = {
+			create_truce = { country = scope:target_country months = 60 }
+		}
+		
+		auto_break_effect = {
+			create_truce = { country = scope:target_country months = 60 }
 		}
 	}
 	
@@ -315,12 +319,12 @@
 				desc = "DIPLOMATIC_ACCEPTANCE_RANK"
 	
 				if = {
-					limit = { scope:actor = { country_rank > root.country_rank } }
+					limit = { scope:actor ?= { country_rank > root.country_rank } }
 					value = 10
 				}
 				
 				if = {
-					limit = { scope:actor = { country_rank < root.country_rank } }
+					limit = { scope:actor ?= { country_rank < root.country_rank } }
 					value = -10
 				}				
 			}	
@@ -468,12 +472,12 @@
 				desc = "DIPLOMATIC_ACCEPTANCE_RANK"
 	
 				if = {
-					limit = { scope:actor = { country_rank > root.country_rank } }
+					limit = { scope:actor ?= { country_rank > root.country_rank } }
 					value = 10
 				}
 				
 				if = {
-					limit = { scope:actor = { country_rank < root.country_rank } }
+					limit = { scope:actor ?= { country_rank < root.country_rank } }
 					value = -10
 				}				
 			}	

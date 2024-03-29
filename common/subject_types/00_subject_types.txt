@@ -12,7 +12,7 @@
 	use_for_release_country = no
 	gives_prestige_to_overlord = yes
 	subservient_to_overlord = yes
-	can_be_used_in_sway_offers = yes
+	can_offer_to_become_in_sway_offers = yes
 	convoy_contribution = 0.5
 		
 	diplomatic_action = protectorate
@@ -178,7 +178,7 @@ subject_type_tributary = {
 	use_for_release_country = no
 	gives_prestige_to_overlord = yes
 	subservient_to_overlord = yes
-	can_be_used_in_sway_offers = yes
+	can_offer_to_become_in_sway_offers = yes
 	convoy_contribution = 0.5
 	
 	diplomatic_action = tributary
@@ -414,6 +414,7 @@ subject_type_personal_union = {
 	gives_prestige_to_overlord = yes
 	subservient_to_overlord = yes
 	can_target_with_transfer_wargoal = no
+	can_be_used_in_sway_offers = no
 	convoy_contribution = 0.5
 	
 	diplomatic_action = personal_union
@@ -483,6 +484,7 @@ subject_type_real_union = {
 	gives_prestige_to_overlord = yes
 	subservient_to_overlord = yes
 	can_target_with_transfer_wargoal = no
+	can_be_used_in_sway_offers = no
 	convoy_contribution = 0.5
 	
 	diplomatic_action = real_union
@@ -534,6 +536,7 @@ subject_type_dependency = {
 	subservient_to_overlord = yes
 	convoy_contribution = 0.75
 	can_target_with_transfer_wargoal = no
+	can_be_used_in_sway_offers = no
 	
 	diplomatic_action = dependency
 	
@@ -584,6 +587,7 @@ subject_type_customs_union = {
 	gives_prestige_to_overlord = no
 	subservient_to_overlord = no # A customs union is not an actual subject and is excluded from is_subject triggers, etc
 	can_target_with_transfer_wargoal = no
+	can_be_used_in_sway_offers = no
 	convoy_contribution = 0.5
 		
 	diplomatic_action = customs_union

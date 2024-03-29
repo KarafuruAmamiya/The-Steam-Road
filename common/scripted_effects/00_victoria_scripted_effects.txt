@@ -1357,6 +1357,9 @@ free_trade_agitator_election_scope_effect = {
 }
 
 gen_ruler_party = {
+	ruler.interest_group = {
+		save_scope_as = ruler_ig
+	}
 	if = {
 		limit = {
 			has_technology_researched = socialism
@@ -1374,6 +1377,7 @@ gen_ruler_party = {
 				is_party_type = communist_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1402,6 +1406,7 @@ gen_ruler_party = {
 				is_party_type = fascist_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1422,6 +1427,7 @@ gen_ruler_party = {
 				is_party_type = anarchist_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1455,6 +1461,7 @@ gen_ruler_party = {
 				is_party_type = social_democrat_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1475,6 +1482,7 @@ gen_ruler_party = {
 				is_party_type = radical_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1498,6 +1506,7 @@ gen_ruler_party = {
 				is_party_type = liberal_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1520,6 +1529,7 @@ gen_ruler_party = {
 				is_party_type = military_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1543,6 +1553,7 @@ gen_ruler_party = {
 				is_party_type = free_trade_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1565,6 +1576,7 @@ gen_ruler_party = {
 				is_party_type = agrarian_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1574,6 +1586,7 @@ gen_ruler_party = {
 				is_party_type = conservative_party
 			}
 			save_scope_as = only_legit_party_scope
+			add_ig_to_party = scope:ruler_ig
 		}
 		set_variable = { name = only_valid_party value = scope:only_legit_party_scope }
 	}
@@ -1804,7 +1817,7 @@ enact_preferred_governance_principle = {
 	}
 	if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_council_republic
 					value = strongly_approve
@@ -1815,7 +1828,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_monarchy
 					value = strongly_approve
@@ -1826,7 +1839,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_parliamentary_republic
 					value = strongly_approve
@@ -1837,7 +1850,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_presidential_republic
 					value = strongly_approve
@@ -1848,7 +1861,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_theocracy
 					value = strongly_approve
@@ -1859,7 +1872,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_council_republic
 					value = approve
@@ -1870,7 +1883,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_monarchy
 					value = approve
@@ -1881,7 +1894,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_parliamentary_republic
 					value = approve
@@ -1892,7 +1905,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_presidential_republic
 					value = approve
@@ -1903,7 +1916,7 @@ enact_preferred_governance_principle = {
 	}
 	else_if = {
 		limit = {
-			scope:ruling_ig = {
+			scope:ruling_ig ?= {
 				law_stance = {
 					law = law_type:law_theocracy
 					value = approve
@@ -1916,7 +1929,7 @@ enact_preferred_governance_principle = {
 		activate_law = law_type:law_presidential_republic
 		if = {
 			limit = {
-				civil_war_origin_country = {
+				civil_war_origin_country ?= {
 					has_law = law_type:law_monarchy
 				}
 			}
@@ -1924,7 +1937,7 @@ enact_preferred_governance_principle = {
 		}
 		else_if = {
 			limit = {
-				civil_war_origin_country = {
+				civil_war_origin_country ?= {
 					has_law = law_type:law_theocracy
 				}
 			}
@@ -1932,7 +1945,7 @@ enact_preferred_governance_principle = {
 		}
 		else_if = {
 			limit = {
-				civil_war_origin_country = {
+				civil_war_origin_country ?= {
 					has_law = law_type:law_council_republic
 				}
 			}
@@ -2168,10 +2181,20 @@ calculate_communism_progress = {
 		}
 		change_variable = { name = temp_ha_var_contribution multiply = -0.5 }
 	}
+	if = {
+		limit = {
+			has_variable = temp_policing_var_contribution
+		}
 	change_variable = { name = communism_progress_from_laws add = var:temp_policing_var_contribution }
-	change_variable = { name = communism_progress_from_laws add = var:temp_ha_var_contribution }
 	remove_variable = temp_policing_var_contribution
+	}
+	if = {
+		limit = {
+			has_variable = temp_ha_var_contribution
+		}
+		change_variable = { name = communism_progress_from_laws add = var:temp_ha_var_contribution }
 	remove_variable = temp_ha_var_contribution
+	}
 
 	# Compilation
 	change_variable = { name = communism_progress_var_next add = var:communism_progress_from_radicals }
@@ -2256,5 +2279,311 @@ paris_commune_update_tick = {
 	change_global_variable = {
 		name = paris_commune_drift_final_var
 		add = var:PRC_recognition_level
+	}
+}
+
+capitulate_to_revolution = {
+	scope:ongoing_revolution_movement = { #Can't trigger if they want governance reforms anyway.
+		this.desired_law = {
+			save_scope_as = revolutionaries_law
+		}
+	}
+	every_interest_group = {
+		limit = {
+			is_insurrectionary = yes
+		}
+		set_variable = { name = revolutionary_ig days = 7 }
+	}
+	ordered_interest_group = {
+		limit = {
+			is_insurrectionary = yes
+		}
+		order_by = ig_clout
+		save_scope_as = revolution_leader_ig
+	}
+	if = { # Never activate Governance Principles twice.
+		limit = {
+			NOR = {
+				scope:revolutionaries_law = law_type:law_presidential_republic
+				scope:revolutionaries_law = law_type:law_parliamentary_republic
+				scope:revolutionaries_law = law_type:law_monarchy
+				scope:revolutionaries_law = law_type:law_council_republic
+				scope:revolutionaries_law = law_type:law_theocracy
+			}
+		}
+		if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_council_republic
+						value = strongly_approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_council_republic
+				}
+			}
+			activate_law = law_type:law_council_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_monarchy
+						value = strongly_approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_monarchy
+				}
+			}
+			activate_law = law_type:law_monarchy
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_parliamentary_republic
+						value = strongly_approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_parliamentary_republic
+				}
+			}
+			activate_law = law_type:law_parliamentary_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_presidential_republic
+						value = strongly_approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_presidential_republic
+				}
+			}
+			activate_law = law_type:law_presidential_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_theocracy
+						value = strongly_approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			activate_law = law_type:law_theocracy
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_council_republic
+						value = approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_council_republic
+				}
+			}
+			activate_law = law_type:law_council_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_monarchy
+						value = approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_monarchy
+				}
+			}
+			activate_law = law_type:law_monarchy
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_parliamentary_republic
+						value = approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_parliamentary_republic
+				}
+			}
+			activate_law = law_type:law_parliamentary_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_presidential_republic
+						value = approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_presidential_republic
+				}
+			}
+			activate_law = law_type:law_presidential_republic
+		}
+		else_if = {
+			limit = {
+				scope:revolution_leader_ig = {
+					law_stance = {
+						law = law_type:law_theocracy
+						value = approve
+					}
+				}
+				NOT = {
+					has_law = law_type:law_theocracy
+				}
+			}
+			activate_law = law_type:law_theocracy
+		}
+	}
+
+	if = {
+		limit = {
+			scope:ongoing_revolution_movement = {
+				is_political_movement_type = movement_to_preserve
+			}
+		}
+		cancel_enactment = yes
+	}
+	else = {
+		activate_law = scope:revolutionaries_law
+	}
+
+	add_loyalists = {
+		value = 0.25
+	}
+	
+	every_interest_group = {
+		limit = {
+			has_variable = revolutionary_ig
+		}
+		owner = {
+			add_loyalists = {
+				value = 0.8
+				interest_group = PREV
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			country_has_voting_franchise = yes
+		}
+		call_election = {
+			months = 6
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_monarchy
+			}
+		}
+		hidden_effect = {
+			scope:revolution_leader_ig = {
+				leader = {
+					set_character_as_ruler = yes
+				}
+			}
+		}
+	}
+	
+	every_interest_group = {
+		limit = {
+			is_in_government = yes
+		}
+		remove_ruling_interest_group = yes
+		add_modifier = {
+			name = modifier_revolution_defeated_light
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	every_interest_group = {
+		limit = {
+			has_variable = revolutionary_ig
+		}
+		hidden_effect = {
+			abandon_revolution = yes
+		}
+		add_modifier = {
+			name = modifier_revolution_victorious_light
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+		add_ruling_interest_group = yes
+	}
+}
+
+handle_revolutionary_sps = {
+	hidden_effect = {
+		random_active_party = {
+			disband_party = yes
+		}
+		scripted_effect_parties_disappearence = yes
+		clear_legal_single_party = yes
+		if = {
+			limit = {
+				ROOT = {
+					ruler.interest_group = {
+						has_party = yes
+					}
+				}
+			}
+			ROOT = {
+				set_variable = { name = only_valid_party value = ruler.interest_group.party }
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					any_active_party = {
+						exists = this
+					}
+				}
+			}
+			root = { gen_ruler_party = yes }
+		}
+	}
+	hidden_effect = { #Clears all currently active parties
+		deactivate_parties = yes
+	}
+	update_party_support = yes #Reactivates precisely one legal party
+	
+	custom_tooltip = {
+		text = sps_government_reshuffle_tt
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+				NOT = { #Removes all IGs from government that aren't in your party
+					has_party = yes
+				}
+			}
+			remove_ruling_interest_group = yes
+		}
+		every_interest_group = {
+			limit = { #Adds all IGs that are in your party to the government
+				is_in_government = no
+				has_party = yes
+			}
+			add_ruling_interest_group = yes
+		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:ASM = { # Assam/Ahom
+	c:ASM ?= { # Assam/Ahom
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -13,7 +13,7 @@
 
 		
 	}
-	c:BAS = { # Bastar
+	c:BAS ?= { # Bastar
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -22,7 +22,7 @@
 
 		
 	}
-	c:BIK = { # Bastar
+	c:BIK ?= { # Bastar
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -31,7 +31,7 @@
 
 		
 	}
-	c:BHW = { # Bahawalpur
+	c:BHW ?= { # Bahawalpur
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -40,7 +40,7 @@
 
 		
 	}
-	c:BGL = { # Bengal
+	c:BGL ?= { # Bengal
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -53,7 +53,7 @@
 			months = -1
 		}
 	}
-	c:BHU = { # Bhutan
+	c:BHU ?= { # Bhutan
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 
@@ -74,7 +74,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:BUN = { # Bundelkhand
+	c:BUN ?= { # Bundelkhand
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -84,7 +84,7 @@
 
 		
 	}
-	c:DEC = { # Deccan
+	c:DEC ?= { # Deccan
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -97,7 +97,7 @@
 			months = -1
 		}
 	}
-	c:DLH = { # Delhi
+	c:DLH ?= { # Delhi
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -115,7 +115,7 @@
 			months = -1
 		}
 	}
-	c:DNG = { # Dang
+	c:DNG ?= { # Dang
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -129,7 +129,7 @@
 
 		
 	}
-	c:GRK = { # Gorkha
+	c:GRK ?= { # Gorkha
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -143,7 +143,7 @@
 
 		
 	}
-	c:GWA = { # Gwalior
+	c:GWA ?= { # Gwalior
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -152,7 +152,7 @@
 
 		
 	}
-	c:GWL = { # Garhwal
+	c:GWL ?= { # Garhwal
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -166,7 +166,7 @@
 
 		
 	}
-	c:JNT = { # Jaintia
+	c:JNT ?= { # Jaintia
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -178,21 +178,7 @@
 			add_ruling_interest_group = yes
 		}	
 	}
-	c:KCH = { # Koch
-		effect_starting_technology_tier_4_asia_tech = yes
-		
-		effect_starting_politics_traditional = yes
-		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_debt_slavery
-		
-		ig:ig_landowners = {
-			add_ruling_interest_group = yes
-		}	
-
-		
-	}
-	c:KMN = { # Kumaon
+	c:KCH ?= { # Koch
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -206,7 +192,21 @@
 
 		
 	}
-	c:LAD = { # Ladakh
+	c:KMN ?= { # Kumaon
+		effect_starting_technology_tier_4_asia_tech = yes
+		
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_debt_slavery
+		
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}	
+
+		
+	}
+	c:LAD ?= { # Ladakh
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -218,7 +218,7 @@
 			add_ruling_interest_group = yes
 		}	
 	}
-	c:MLW = { # Malwa
+	c:MLW ?= { # Malwa
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -232,7 +232,7 @@
 			months = -1
 		}
 	}
-	c:MNP = { # Manipur
+	c:MNP ?= { # Manipur
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -246,7 +246,7 @@
 
 		
 	}
-	c:MQP = { # Maqpon
+	c:MQP ?= { # Maqpon
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -258,7 +258,7 @@
 			add_ruling_interest_group = yes
 		}	
 	}
-	c:MRT = { # Marathas
+	c:MRT ?= { # Marathas
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -267,7 +267,7 @@
 
 		
 	}
-	c:MDU = { # Madurai
+	c:MDU ?= { # Madurai
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -276,7 +276,7 @@
 
 		
 	}
-	c:MEW = { # Mewar
+	c:MEW ?= { # Mewar
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_debt_slavery
 
@@ -284,7 +284,7 @@
 
 		
 	}
-	c:MUG = { # Mughals
+	c:MUG ?= { # Mughals
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -301,7 +301,7 @@
 			months = -1
 		}
 	}
-	c:MYS = { # Mysore
+	c:MYS ?= { # Mysore
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -314,7 +314,7 @@
 
 		
 	}
-	c:NAG = { # Nagpur
+	c:NAG ?= { # Nagpur
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_debt_slavery
 		activate_law = law_type:law_serfdom
@@ -322,7 +322,7 @@
 
 		
 	}
-	c:ORI = { # Orissa
+	c:ORI ?= { # Orissa
 		effect_starting_technology_tier_4_asia_tech = yes
 		
 		activate_law = law_type:law_serfdom
@@ -332,7 +332,7 @@
 
 		
 	}
-	c:SIN = { # Sindh
+	c:SIN ?= { # Sindh
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = urban_planning
@@ -368,7 +368,7 @@
 			months = -1
 		}
 	}
-	c:SRG = { # Surguja
+	c:SRG ?= { # Surguja
 		effect_starting_technology_tier_4_asia_tech = yes
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_debt_slavery
@@ -377,7 +377,7 @@
 
 		
 	}
-	c:TRR = { # Tripura
+	c:TRR ?= { # Tripura
 		effect_starting_technology_tier_5_tech = yes
 		
 		effect_starting_politics_traditional = yes

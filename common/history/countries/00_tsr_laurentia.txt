@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:ATL = { # The Antilles
+	c:ATL ?= { # The Antilles
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -26,7 +26,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:AUR = { # Aurelian Republic
+	c:AUR ?= { # Aurelian Republic
 		set_next_election_date = 1838.12.7
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -73,7 +73,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:BAH = { # The Bahamas
+	c:BAH ?= { # The Bahamas
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = empiricism
 		activate_law = law_type:law_presidential_republic
@@ -91,7 +91,7 @@
 
 		
 	}
-	c:BRL = { # Borealia
+	c:BRL ?= { # Borealia
 		effect_starting_technology_tier_2_tech = yes
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_autocracy 
@@ -115,7 +115,7 @@
 		
 		add_taxed_goods = g:grain
 	}
-	c:CHE = { # Cherokee
+	c:CHE ?= { # Cherokee
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -132,7 +132,7 @@
 			months = -1
 		}
 	}
-	c:CHH = { # Chihuahua
+	c:CHH ?= { # Chihuahua
 		set_next_election_date = 1838.12.7
 		
 		effect_starting_technology_tier_3_tech = yes
@@ -167,7 +167,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:CIK = { # Chickasaw
+	c:CIK ?= { # Chickasaw
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -184,7 +184,7 @@
 			months = -1
 		}
 	}
-	c:CRK = { # Creek
+	c:CRK ?= { # Creek
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -201,7 +201,7 @@
 			months = -1
 		}
 	}
-	c:HON = { # Honduras / New Castile
+	c:HON ?= { # Honduras / New Castile
 		set_next_election_date = 1839.4.9
 		
 		effect_starting_technology_tier_3_tech = yes
@@ -224,7 +224,7 @@
 
 		
 	}
-	c:WAS = { # Huastec
+	c:WAS ?= { # Huastec
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -236,7 +236,7 @@
 
 			
 	}
-	c:KRL = { # Karolean Federation
+	c:KRL ?= { # Karolean Federation
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = atmospheric_engine
 		
@@ -291,7 +291,7 @@
 			id = krl_independence.4
 		}
 	}
-	c:MAY = { # Maya
+	c:MAY ?= { # Maya
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_conservative = yes
 
@@ -311,7 +311,7 @@
 
 			
 	}
-	c:MEX = { # Mexico
+	c:MEX ?= { # Mexico
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -341,7 +341,7 @@
 
 		
 	}
-	c:MYP = { # Mayapan / New Holland
+	c:MYP ?= { # Mayapan / New Holland
 		set_next_election_date = 1838.10.12
 		
 		effect_starting_technology_tier_3_tech = yes
@@ -363,7 +363,7 @@
 		}
 		
 	}
-	c:NAR = { # New Aragon
+	c:NAR ?= { # New Aragon
 		set_next_election_date = 1838.12.7
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -403,7 +403,7 @@
 
 		
 	}
-	c:SLR = { # Soalleiro
+	c:SLR ?= { # Soalleiro
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -450,7 +450,7 @@
 			set_ig_suppression = yes
 		}
 	}
-	c:SML = { # Seminole
+	c:SML ?= { # Seminole
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -467,7 +467,7 @@
 			months = -1
 		}
 	}
-	c:TLP = { # Tlapanec
+	c:TLP ?= { # Tlapanec
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_racial_segregation
@@ -479,7 +479,7 @@
 
 			
 	}
-	c:USC = { # United States of Columbia
+	c:USC ?= { # United States of Columbia
 		set_next_election_date = 1838.12.7
 
 		set_tax_level = medium
@@ -538,12 +538,12 @@
 	}
 
 	# Decentralized Tribes
-	c:ABS = { # Absaroka
+	c:ABS ?= { # Absaroka
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes	
 	}
-	c:APC = { # Apache
+	c:APC ?= { # Apache
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_12 = yes
 		activate_law = law_type:law_elder_council
@@ -553,7 +553,7 @@
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_peasant_levies
 	}
-	c:ARP = { # Arapaho
+	c:ARP ?= { # Arapaho
 		effect_starting_technology_tier_6_tech = yes
 		activate_law = law_type:law_elder_council
 		activate_law = law_type:law_national_supremacy
@@ -563,72 +563,72 @@
 		activate_law = law_type:law_right_of_assembly
 		effect_native_conscription_12 = yes
 	}
-	c:ATB = { # Athabaska
+	c:ATB ?= { # Athabaska
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_12 = yes	
 	}
-	c:BCK = { # Bannock
+	c:BCK ?= { # Bannock
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:BLF = { # Blackfoot
+	c:BLF ?= { # Blackfoot
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_11 = yes
 	}
-	c:CEE = { # Cree
+	c:CEE ?= { # Cree
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes	
 	}
-	c:COM = { # Comanche
+	c:COM ?= { # Comanche
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_11 = yes
 	}
-	c:CYU = { # Cayuse
+	c:CYU ?= { # Cayuse
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:IRC = { # Iron Confederacy
+	c:IRC ?= { # Iron Confederacy
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:INU = { # Innu
+	c:INU ?= { # Innu
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_7 = yes
 	}
-	c:INM = { # Eastern Cree
+	c:INM ?= { # Eastern Cree
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes	
 	}
-	c:INQ = { # Inupiaq
+	c:INQ ?= { # Inupiaq
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes	
 	}
-	c:LKT = { # Lakota
+	c:LKT ?= { # Lakota
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:KTN = { # Kutenai
+	c:KTN ?= { # Kutenai
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:NNV = { # Nunavut
+	c:NNV ?= { # Nunavut
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_7 = yes
 	}
-	c:NVJ = { # Navajo
+	c:NVJ ?= { # Navajo
 		effect_starting_technology_tier_6_tech = yes
 		
 		
@@ -641,17 +641,17 @@
 
 		effect_native_conscription_11 = yes
 	}
-	c:NVK = { # Nunavik
+	c:NVK ?= { # Nunavik
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_7 = yes
 	}
-	c:NWV = { # Nuwuvi
+	c:NWV ?= { # Nuwuvi
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:NZP = { # Nez Perce
+	c:NZP ?= { # Nez Perce
 		effect_starting_technology_tier_6_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -662,52 +662,52 @@
 
 		effect_native_conscription_10 = yes
 	}
-	c:CTF = { # Council of Three Fires
+	c:CTF ?= { # Council of Three Fires
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:PAI = { # Paiute
+	c:PAI ?= { # Paiute
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:PWN = { # Pawnee
+	c:PWN ?= { # Pawnee
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_10 = yes	
 		effect_starting_politics_traditional = yes
 	}
-	c:SHS = { # Shoshone
+	c:SHS ?= { # Shoshone
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_12 = yes
 	}
-	c:SLH = { # Salish
+	c:SLH ?= { # Salish
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:UMA = { # Umatilla
+	c:UMA ?= { # Umatilla
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:UNG = { # Unangan
+	c:UNG ?= { # Unangan
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes	
 	}
-	c:UTE = { # Ute
+	c:UTE ?= { # Ute
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_12 = yes
 	}
-	c:YUP = { # Yupik
+	c:YUP ?= { # Yupik
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes	
 	}
-	c:YVP = { # Yavapai
+	c:YVP ?= { # Yavapai
 		effect_starting_technology_tier_6_tech = yes		
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes

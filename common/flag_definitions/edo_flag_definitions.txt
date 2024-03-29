@@ -25,7 +25,7 @@
 		subject_canton = SGF_BAV
 		priority = 2
 		trigger = {
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -34,7 +34,7 @@
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -43,7 +43,7 @@
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 }
@@ -75,7 +75,7 @@ NGF = { # North Germany
 		subject_canton = NGF_SAX
 		priority = 2
 		trigger = { 
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -83,7 +83,7 @@ NGF = { # North Germany
 		priority = 20
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -92,7 +92,7 @@ NGF = { # North Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 }
@@ -142,7 +142,7 @@ GER = { # Germany
 		priority = 100
 		trigger = {
 			exists = scope:actor
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -151,7 +151,7 @@ GER = { # Germany
 		priority = 25
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -159,7 +159,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -168,7 +168,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = PFA }
+			scope:actor ?= { was_formed_from = PFA }
 		}
 	}
 	flag_definition = {
@@ -176,7 +176,7 @@ GER = { # Germany
 		subject_canton = GER_SAX
 		priority = 2
 		trigger = { 
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -184,7 +184,7 @@ GER = { # Germany
 		priority = 100
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_monarchy
 				was_formed_from = SAX
 			}
@@ -196,7 +196,7 @@ GER = { # Germany
 		priority = 20
 		trigger = { 
 			coa_def_republic_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -205,7 +205,7 @@ GER = { # Germany
 		priority = 25
 		trigger = { 
 			coa_def_dictatorship_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -213,7 +213,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	flag_definition = {
@@ -222,7 +222,7 @@ GER = { # Germany
 		priority = 2500
 		trigger = { 
 			coa_def_fascist_flag_trigger = yes
-			scope:actor = { was_formed_from = SAX }
+			scope:actor ?= { was_formed_from = SAX }
 		}
 	}
 	# Black-White-Red tricolor is reserved for a Prussian monarchy
@@ -231,7 +231,7 @@ GER = { # Germany
 		priority = 100
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_monarchy
 				ruler = {
 					has_culture = cu:north_german

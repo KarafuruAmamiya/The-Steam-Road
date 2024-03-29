@@ -204,7 +204,7 @@ PER = { # Persia
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOR = { 
 					has_law = law_type:law_autocracy 
 					has_law = law_type:law_oligarchy
@@ -605,7 +605,7 @@ KOR = { # Korea
 		coa = KOR_tributary
 		priority = 30
 		trigger = { 
-			scope:actor = { 
+			scope:actor ?= { 
 				is_subject_type = subject_type_tributary
 				has_law = law_type:law_monarchy
 			}
@@ -615,7 +615,7 @@ KOR = { # Korea
 		coa = KOR_empire
 		priority = 20
 		trigger = { 
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { is_subject_type = subject_type_tributary }
 				has_law = law_type:law_monarchy
 			}
@@ -625,7 +625,7 @@ KOR = { # Korea
 		coa = KOR_fascist
 		priority = 1500
 		trigger = { 
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { 
 					is_subject_type = subject_type_tributary 
 					has_law = law_type:law_council_republic
@@ -646,7 +646,7 @@ KOR = { # Korea
 		coa = KOR_republic
 		priority = 100
 		trigger = { 
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { 
 					is_subject_type = subject_type_tributary 
 					has_law = law_type:law_council_republic
@@ -662,7 +662,7 @@ KOR = { # Korea
 		coa = KOR_communist
 		priority = 1500
 		trigger = { 
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { is_subject_type = subject_type_tributary }
 				has_law = law_type:law_council_republic
 			}

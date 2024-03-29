@@ -117,6 +117,14 @@ natural_borders.1 = {
 		}
 		if = {
 			limit = {
+				NOT = { owns_entire_state_region = STATE_FRANCHE_COMTE }
+			}
+			s:STATE_FRANCHE_COMTE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
 				NOT = { owns_entire_state_region = STATE_ELSASS }
 			}
 			s:STATE_ELSASS = {
@@ -163,6 +171,7 @@ natural_borders.1 = {
 						state_region = s:STATE_RHINELAND
 						state_region = s:STATE_NORTH_RHINE
 						state_region = s:STATE_LORRAINE
+						state_region = s:STATE_FRANCHE_COMTE
 						state_region = s:STATE_ELSASS
 						state_region = s:STATE_PFALZ
 						state_region = s:STATE_LIGURIA
@@ -370,6 +379,7 @@ natural_borders.4 = {
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_LORRAINE
+					state_region = s:STATE_FRANCHE_COMTE
 					state_region = s:STATE_ELSASS
 					state_region = s:STATE_PFALZ
 					state_region = s:STATE_LIGURIA
@@ -392,6 +402,7 @@ natural_borders.4 = {
 					state_region = s:STATE_RHINELAND
 					state_region = s:STATE_NORTH_RHINE
 					state_region = s:STATE_LORRAINE
+					state_region = s:STATE_FRANCHE_COMTE
 					state_region = s:STATE_ELSASS
 					state_region = s:STATE_PFALZ
 					state_region = s:STATE_LIGURIA

@@ -8,7 +8,7 @@
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { NOT = { has_technology_researched = nationalism } }
+			scope:actor ?= { NOT = { has_technology_researched = nationalism } }
 		}
 	}
 }
@@ -23,7 +23,7 @@ SLO = { # Slovenia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { NOT = { has_technology_researched = nationalism } }
+			scope:actor ?= { NOT = { has_technology_researched = nationalism } }
 		}
 	}
 }
@@ -38,7 +38,7 @@ TUN = { # Tunisia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				has_law = law_type:law_monarchy
 			}
 		}
@@ -53,7 +53,7 @@ TUN = { # Tunisia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_technology_researched = nationalism 
 				owns_entire_state_region = STATE_TUNISIA
 			}
@@ -71,7 +71,7 @@ BYE = { # Belarus
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { has_technology_researched = nationalism }
 				is_subject_of = c:TUR
 			}
@@ -89,7 +89,7 @@ UKR = { # Ukraine
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				is_subject_of = c:TUR
 			}
 		}
@@ -103,7 +103,7 @@ UKR = { # Ukraine
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_council_republic
 				has_law = law_type:law_anarchy
 			}
@@ -121,7 +121,7 @@ LVN = { # Livonia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { has_technology_researched = nationalism }
 				is_subject_of = c:SWE
 			}
@@ -139,7 +139,7 @@ EST = { # Estonia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { has_technology_researched = nationalism }
 				is_subject_of = c:SWE
 			}
@@ -157,7 +157,7 @@ ING = { # Ingria
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { has_technology_researched = nationalism }
 				is_subject_of = c:SWE
 			}
@@ -175,7 +175,7 @@ SRB = { # Sorbia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				NOT = { has_technology_researched = nationalism }
 			}
 		}
@@ -192,7 +192,7 @@ AUR = { # Aurelia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				OR = {
 					has_law = law_type:law_parliamentary_republic
 					has_law = law_type:law_presidential_republic
@@ -284,7 +284,7 @@ BRL = { # Borealia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:FRA
 			}
 		}
@@ -301,7 +301,7 @@ NWX = { # New Wessex
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { is_subject_of = c:ENG }
 			}
 		}
@@ -318,7 +318,7 @@ TPR = { # Transprateada
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:ENG
 			}
 		}
@@ -335,7 +335,7 @@ KRL = { # Karolia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:SWE
 			}
 		}
@@ -349,7 +349,7 @@ KRL = { # Karolia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				OR = {
 					has_law = law_type:law_parliamentary_republic
 					has_law = law_type:law_presidential_republic
@@ -370,7 +370,7 @@ MYP = { # Mayapan
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:NET
 			}
 		}
@@ -387,7 +387,7 @@ ORC = { # Orenoco
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:FRA
 			}
 		}
@@ -404,7 +404,7 @@ HON = { # Honduras
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:IBE
 			}
 		}
@@ -421,7 +421,7 @@ DAI = { # Dai Viet
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = {
+			scope:actor ?= {
 				is_subject_of = c:CHI
 			}
 		}
@@ -437,7 +437,7 @@ PER = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_monarchy
 			}
 		}
@@ -450,7 +450,7 @@ PER = {
 		priority = 100
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_republic_flag_trigger = yes
 			}
 		}
@@ -463,7 +463,7 @@ PER = {
 		priority = 100
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_communist_flag_trigger = yes
 			}
 		}
@@ -479,7 +479,7 @@ HAA = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				country_has_voting_franchise = yes
 			}
 		}
@@ -495,7 +495,7 @@ BGL = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_republic_flag_trigger = yes
 			}
 		}
@@ -511,7 +511,7 @@ MRT = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_republic_flag_trigger = yes
 			}
 		}
@@ -527,7 +527,7 @@ MDU = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_republic_flag_trigger = yes
 			}
 		}
@@ -543,7 +543,7 @@ TRA = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				coa_def_republic_flag_trigger = yes
 			}
 		}
@@ -559,7 +559,7 @@ BUK = {
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				has_law = law_type:law_monarchy
 				country_tier = empire
 			}
@@ -577,7 +577,7 @@ XIN = { # Uyghuristan
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -594,7 +594,7 @@ DZU = { # Dzungaria
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -611,7 +611,7 @@ YGR = { # Yugra
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -628,7 +628,7 @@ SIB = { # Sibirstan
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -645,7 +645,7 @@ BYT = { # Buryatia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -662,7 +662,7 @@ MGL = { # Mongolia
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				coa_def_monarchy_flag_trigger = yes
 			}
 		}
@@ -689,7 +689,7 @@ CHI = { # China
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			scope:actor = {
+			scope:actor ?= {
 				country_has_primary_culture = cu:manchu
 			}
 		}
@@ -702,7 +702,7 @@ CHI = { # China
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { country_has_primary_culture = cu:manchu }
 				coa_def_monarchy_flag_trigger = yes
 			}
@@ -716,7 +716,7 @@ CHI = { # China
 		priority = 1
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				was_formed_from = KOR
 				has_law = law_type:law_monarchy
 			}
@@ -742,7 +742,7 @@ CHI = { # China
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			scope:actor = {
+			scope:actor ?= {
 				is_country_type = recognized
 			}
 		}
@@ -776,7 +776,7 @@ AKN = { # Akturkistan
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			scope:actor = {
+			scope:actor ?= {
 				has_variable = akkovin_fail
 			}
 		}
@@ -792,7 +792,7 @@ PFA = { # Pfalz
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				any_scope_state = {
 					state_region = s:STATE_BAVARIA
 				}
@@ -811,7 +811,7 @@ ASM = { # Assam
 		
 		trigger = {
 			exists = scope:actor
-			scope:actor = { has_law = law_type:law_monarchy }
+			scope:actor ?= { has_law = law_type:law_monarchy }
 		}
 	}
 }

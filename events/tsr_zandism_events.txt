@@ -112,6 +112,7 @@ zandism_events.2 = {
 			has_variable = zandism_center
 			any_neighbouring_state = {
 				owner = ROOT
+				turmoil >= 0.10
 				NOT = {
 					has_variable = zandism_center
 				}
@@ -129,6 +130,7 @@ zandism_events.2 = {
 				has_variable = zandism_center
 				any_neighbouring_state = {
 					owner = ROOT
+					turmoil >= 0.10
 					NOT = {
 						has_variable = zandism_center
 					}
@@ -143,6 +145,7 @@ zandism_events.2 = {
 			random_neighbouring_state = {
 				limit = {
 					owner = ROOT
+					turmoil >= 0.10
 					NOT = {
 						has_variable = zandism_center
 					}
@@ -365,6 +368,7 @@ zandism_events.3 = {
 				add_modifier = {
 					name = zandi_army_modifier
 					months = normal_modifier_time
+					is_decaying = yes
 				}
 				add_modifier = {
 					name = modifier_zandi_hiring_bonus

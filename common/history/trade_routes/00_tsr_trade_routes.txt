@@ -1,7 +1,7 @@
 ﻿TRADE_ROUTES = {
 
 	# Sweden
-	c:SWE = {		
+	c:SWE ?= {		
 		create_trade_route = {
 			goods = dye
 			level = 8
@@ -161,7 +161,7 @@
 	}	
 
 	# England
-	c:ENG = {
+	c:ENG ?= {
 		create_trade_route = {
 			goods = coffee
 			level = 10
@@ -241,25 +241,8 @@
 			target = c:SWE.market
 		}
 	}
-	
-	# Flanders
-	c:FLA = {			
-		create_trade_route = {
-			goods = clippers
-			level = 3
-			direction = import
-			target = c:FRA.market
-		}
-		create_trade_route = {
-			goods = sugar
-			level = 2
-			direction = import
-			target = c:IBE.market
-		}
-	}
-	
 	# France
-	c:FRA = {
+	c:FRA ?= {
 		create_trade_route = {
 			goods = tea
 			level = 6
@@ -329,7 +312,7 @@
 	}
 	
 	# Netherlands
-	c:NET = {
+	c:NET ?= {
 		create_trade_route = {
 			goods = silk
 			level = 7
@@ -408,10 +391,22 @@
 			direction = import
 			target = c:CHI.market
 		}
+		create_trade_route = {
+			goods = clippers
+			level = 3
+			direction = import
+			target = c:FRA.market
+		}
+		create_trade_route = {
+			goods = sugar
+			level = 2
+			direction = import
+			target = c:IBE.market
+		}
 	}
 	
 	# Saxony
-	c:SAX = {	
+	c:SAX ?= {	
 		create_trade_route = {
 			goods = glass
 			level = 3
@@ -433,7 +428,7 @@
 	}
 	
 	# Palatinate
-	c:PFA = {
+	c:PFA ?= {
 		create_trade_route = {
 			goods = engines
 			level = 5
@@ -449,7 +444,7 @@
 	}
 	
 	# Italy
-	c:ITA = {
+	c:ITA ?= {
 		create_trade_route = {
 			goods = dye
 			level = 5
@@ -561,7 +556,7 @@
 	}
 	
 	# Iberia
-	c:IBE = {
+	c:IBE ?= {
 		create_trade_route = {
 			goods = silk
 			level = 8
@@ -625,7 +620,7 @@
 	}
 	
 	# Aragon
-	c:ARN = {
+	c:ARN ?= {
 		create_trade_route = {
 			goods = iron
 			level = 4
@@ -695,7 +690,7 @@
 	}
 	
 	# Karolia
-	c:KRL = {
+	c:KRL ?= {
 		create_trade_route = {
 			goods = sugar
 			level = 3
@@ -717,7 +712,7 @@
 	}
 	
 	# Columbia
-	c:USC = {
+	c:USC ?= {
 		create_trade_route = {
 			goods = iron
 			level = 3
@@ -769,7 +764,7 @@
 	}
 	
 	# Soalleiro
-	c:SLR = {
+	c:SLR ?= {
 		create_trade_route = {
 			goods = fabric
 			level = 6
@@ -827,7 +822,7 @@
 	}
 	
 	# The Antilles
-	c:ATL = {
+	c:ATL ?= {
 		create_trade_route = {
 			goods = sugar
 			level = 4
@@ -843,7 +838,7 @@
 	}
 	
 	# The Bahamas
-	c:BAH = {
+	c:BAH ?= {
 		create_trade_route = {
 			goods = clippers
 			level = 1
@@ -853,7 +848,7 @@
 	}
 	
 	# Aurelia
-	c:AUR = {
+	c:AUR ?= {
 		create_trade_route = {
 			goods = silk
 			level = 1
@@ -887,7 +882,7 @@
 	}
 	
 	# America
-	c:AMR = {
+	c:AMR ?= {
 		create_trade_route = {
 			goods = small_arms
 			level = 3
@@ -927,7 +922,7 @@
 	}
 	
 	# Chiquitania
-	c:CHQ = {
+	c:CHQ ?= {
 		create_trade_route = {
 			goods = iron
 			level = 1
@@ -943,7 +938,7 @@
 	}
 	
 	# Poland
-	c:POL = {
+	c:POL ?= {
 		create_trade_route = {
 			goods = clothes
 			level = 5
@@ -1001,7 +996,7 @@
 	}
 	
 	# Lithuania
-	c:LIT = {
+	c:LIT ?= {
 		create_trade_route = {
 			goods = manowars
 			level = 1
@@ -1029,7 +1024,7 @@
 	}
 	
 	# Persia
-	c:PER = {
+	c:PER ?= {
 		create_trade_route = {
 			goods = clothes
 			level = 20
@@ -1141,7 +1136,7 @@
 	}
 	
 	# Ottomans
-	c:TUR = {
+	c:TUR ?= {
 		create_trade_route = {
 			goods = dye
 			level = 10
@@ -1217,7 +1212,7 @@
 	}
 	
 	# Akkovin
-	c:AKN = {
+	c:AKN ?= {
 		create_trade_route = {
 			goods = clothes
 			level = 10
@@ -1299,7 +1294,7 @@
 	}
 	
 	# Bukhara
-	c:BUK = {
+	c:BUK ?= {
 		create_trade_route = {
 			goods = iron
 			level = 6
@@ -1363,7 +1358,7 @@
 	}
 	
 	# Tunis
-	c:TUN = {
+	c:TUN ?= {
 		create_trade_route = {
 			goods = clippers
 			level = 2
@@ -1373,7 +1368,7 @@
 	}
 	
 	# Ternate
-	c:TER = {
+	c:TER ?= {
 		create_trade_route = {
 			goods = clippers
 			level = 1
@@ -1407,7 +1402,7 @@
 	}
 	
 	# Kedah
-	c:KED = {	
+	c:KED ?= {	
 		create_trade_route = {
 			goods = tea
 			level = 5
@@ -1447,7 +1442,7 @@
 	}
 	
 	# Yue
-	c:YUE = {
+	c:YUE ?= {
 		create_trade_route = {
 			goods = clippers
 			level = 2

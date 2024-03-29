@@ -122,6 +122,14 @@ vtm_je_french_natural_borders_button_b = {
 		}
 		if = {
 			limit = {
+				NOT = { owns_entire_state_region = STATE_FRANCHE_COMTE }
+			}
+			s:STATE_FRANCHE_COMTE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
 				NOT = { owns_entire_state_region = STATE_ELSASS }
 			}
 			s:STATE_ELSASS = {

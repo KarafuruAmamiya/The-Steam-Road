@@ -83,9 +83,8 @@ gov_electorate = {
 		has_law = law_type:law_monarchy
 		or = {
 			AND = { exists = c:RHE c:RHE = ROOT }
-			AND = { exists = c:MAI c:MAI = ROOT }
+			AND = { exists = c:NET c:NET = ROOT }
 			AND = { exists = c:BRK c:BRK = ROOT }
-			AND = { exists = c:KNZ c:KNZ = ROOT }
 		}
 		NOT = { has_global_variable = hre_end }
 	}
@@ -122,30 +121,6 @@ gov_electorate_boh = {
 	}
 }
 
-gov_grand_duchy_net = {
-	transfer_of_power = hereditary
-	
-	male_ruler = "RULER_TITLE_GRAND_DUKE"
-	female_ruler = "RULER_TITLE_GRAND_DUCHESS" 
-
-	male_heir = "" # Empty on purpose
-	female_heir = "" # Empty on purpose
-	
-	possible = {
-		has_law = law_type:law_monarchy
-		exists = c:NET
-		c:NET = ROOT
-		NOT = { has_global_variable = hre_end }
-	}
-	
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 gov_electorate_theocracy = {
 	transfer_of_power = dictatorial
 	
@@ -158,10 +133,8 @@ gov_electorate_theocracy = {
 	possible = {
 		has_law = law_type:law_theocracy
 		country_tier = principality
-		or = {
-			AND = { exists = c:KNZ c:KNZ = ROOT }
-			AND = { exists = c:MAI c:MAI = ROOT }
-		}
+		exists = c:MAI 
+		c:MAI = ROOT
 		NOT = { has_global_variable = hre_end }
 	}
 	

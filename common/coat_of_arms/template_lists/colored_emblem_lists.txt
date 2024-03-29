@@ -164,7 +164,7 @@ colored_emblem_texture_lists = {
 		special_selection = {
 			trigger = {
 			 	exists = scope:actor
-				scope:actor = {
+				scope:actor ?= {
 					country_has_state_religion = rel:sikh
 				}
 			}
@@ -807,7 +807,7 @@ colored_emblem_texture_lists = {
 		special_selection = {
 			trigger = {
 			 	exists = scope:actor
-				scope:actor = {
+				scope:actor ?= {
 					country_has_state_religion = rel:sikh
 				}
 			}

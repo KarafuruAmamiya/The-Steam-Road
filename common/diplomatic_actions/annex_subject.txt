@@ -31,7 +31,7 @@
 				root = { NOT = { is_country_type = colonial } }
 			}
 			#overlord = { NOT = { is_subject_type = subject_type_customs_union } }
-			#NOT = { overlord = { has_diplomatic_pact = { who = overlord type = customs_union } } 
+			#NOT = { overlord = { has_diplomatic_pact = { who = overlord type = customs_union } } }
 		}
 	}
 
@@ -142,7 +142,7 @@
 								is_adjacent_to_country = root
 							}
 						}
-						scope:actor = {
+						scope:actor ?= {
 							has_diplomatic_pact = { who = root type = customs_union }
 						}
 					}
@@ -319,13 +319,13 @@
 						is_adjacent_to_country = root
 						is_adjacent_to_country = scope:actor
 					}
-					scope:actor = {
+					scope:actor ?= {
 						any_scope_state = {
 							is_coastal = yes
 						}
 					}
 					NOT = {
-						scope:actor = {
+						scope:actor ?= {
 							NOT = { is_adjacent_to_country = root }
 						}
 					}
@@ -337,7 +337,7 @@
 			
 			if = {
 				limit = {
-					scope:actor = {
+					scope:actor ?= {
 						is_subject_type = subject_type_real_union
 					}
 				}

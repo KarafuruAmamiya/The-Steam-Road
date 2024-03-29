@@ -21,24 +21,46 @@
 		target_can_break = {
 			always = no
 		}
-
-		should_invalidate = {
-			OR = {
-				has_war_with = scope:target_country				
-				AND = {
-					scope:target_country = { is_non_customs_union_subject = yes }
-					scope:target_country = { is_subject_of = root }
-				}
-				AND = {
-					is_non_customs_union_subject = yes
-					is_subject_of = scope:target_country
-				}
-				NOT = { exists = c:PER }
-				NOT = { exists = c:AKN }
+		
+		requirement_to_maintain = {
+			trigger = {
+				NOT = { has_war_with = scope:target_country	}
 			}
 		}
 
-		break_effect = {
+		requirement_to_maintain = {
+			trigger = {
+				NOR = { 
+					scope:target_country = { is_non_customs_union_subject = yes }
+					scope:target_country = { is_subject_of = root }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				NOR = { 
+					is_non_customs_union_subject = yes
+					is_subject_of = scope:target_country
+				}
+			}
+		}	
+
+		requirement_to_maintain = {
+			trigger = {
+				OR = {
+					c:AKN ?= this
+					c:PER ?= this
+				}
+			}
+		}		
+
+		manual_break_effect = {
+			change_relations = { country = scope:target_country value = -30 }
+			create_truce = { country = scope:target_country months = 12 }
+		}
+		
+		auto_break_effect = {
 			change_relations = { country = scope:target_country value = -30 }
 			create_truce = { country = scope:target_country months = 12 }
 		}

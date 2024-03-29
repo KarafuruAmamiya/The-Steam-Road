@@ -146,12 +146,12 @@ coa_secessionist_or_revolutionary_trigger = {
 
 coa_def_independent_trigger = {
 	exists = scope:actor
-	scope:actor = { is_subject = no }
+	scope:actor ?= { is_subject = no }
 }
 
 coa_def_subject_trigger = {
 	exists = scope:actor
-	scope:actor = { is_subject = yes }
+	scope:actor ?= { is_subject = yes }
 }
 
 coa_def_lesser_subject_trigger = {
@@ -159,7 +159,7 @@ coa_def_lesser_subject_trigger = {
 		NOT = { exists = scope:actor }
 		AND = {
 			exists = scope:actor
-			scope:actor = { 
+			scope:actor ?= { 
 				OR = {
 					is_subject_type = subject_type_puppet
 					is_subject_type = subject_type_vassal
@@ -173,82 +173,82 @@ coa_def_lesser_subject_trigger = {
 
 coa_def_monarchy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_monarchy_trigger = yes }
+	scope:actor ?= { coa_monarchy_trigger = yes }
 }
 
 coa_def_absolute_monarchy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_absolute_monarchy_trigger = yes }
+	scope:actor ?= { coa_absolute_monarchy_trigger = yes }
 }
 
 coa_def_undemocratic_monarchy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_undemocratic_monarchy_trigger = yes }
+	scope:actor ?= { coa_undemocratic_monarchy_trigger = yes }
 }
 
 coa_def_republic_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_republic_trigger = yes }
+	scope:actor ?= { coa_republic_trigger = yes }
 }
 
 coa_def_theocracy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_theocracy_trigger = yes }
+	scope:actor ?= { coa_theocracy_trigger = yes }
 }
 
 coa_def_multicultural_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_multicultural_trigger = yes }
+	scope:actor ?= { coa_multicultural_trigger = yes }
 }
 
 coa_def_autocracy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_autocracy_trigger = yes }
+	scope:actor ?= { coa_autocracy_trigger = yes }
 }
 
 coa_def_communist_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_communist_trigger = yes }
+	scope:actor ?= { coa_communist_trigger = yes }
 }
 
 coa_def_anarchy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_anarchy_trigger = yes }
+	scope:actor ?= { coa_anarchy_trigger = yes }
 }
 
 coa_def_dictatorship_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_dictatorship_trigger = yes }
+	scope:actor ?= { coa_dictatorship_trigger = yes }
 }
 
 coa_def_oligarchy_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_oligarchy_trigger = yes }
+	scope:actor ?= { coa_oligarchy_trigger = yes }
 }
 
 coa_def_state_religion_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { has_law = law_type:law_state_religion }
+	scope:actor ?= { has_law = law_type:law_state_religion }
 }
 
 coa_def_egalitarian_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { has_law = law_type:law_multicultural }
+	scope:actor ?= { has_law = law_type:law_multicultural }
 }
 
 coa_def_military_junta_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_military_trigger = yes }
+	scope:actor ?= { coa_military_trigger = yes }
 }
 
 coa_def_fascist_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_fascist_trigger = yes }
+	scope:actor ?= { coa_fascist_trigger = yes }
 }
 
 coa_def_nihilist_flag_trigger = {
 	exists = scope:actor
-	scope:actor = { coa_nihilist_trigger = yes }
+	scope:actor ?= { coa_nihilist_trigger = yes }
 }
 
 # Overlord
@@ -494,7 +494,7 @@ coa_def_hispanic_american_trigger = {
 
 coa_def_controls_part_of_ireland = {
 	exists = scope:actor
-	scope:actor = {
+	scope:actor ?= {
 		OR = {
 			coa_controls_part_of_ireland = yes
 			any_subject_or_below = {
@@ -506,7 +506,7 @@ coa_def_controls_part_of_ireland = {
 
 coa_def_controls_part_of_france = {
 	exists = scope:actor
-	scope:actor = {
+	scope:actor ?= {
 		OR = {
 			coa_controls_part_of_france = yes
 			any_subject_or_below = {
@@ -518,7 +518,7 @@ coa_def_controls_part_of_france = {
 
 coa_def_war_trigger = {
 	exists = scope:actor
-	scope:actor = {
+	scope:actor ?= {
 		is_at_war = yes
 	}
 }
@@ -545,7 +545,7 @@ coa_def_catholic_trigger = {
 
 coa_def_kalmar_flag_trigger = {
 	exists = scope:actor
-	scope:actor = {
+	scope:actor ?= {
 		has_law = law_type:law_monarchy
 		was_formed_from = DEN
 	}

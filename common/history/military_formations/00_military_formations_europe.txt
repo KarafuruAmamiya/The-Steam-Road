@@ -387,7 +387,7 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_mobile_artillery
-				state_region = s:STATE_FRANCHE_COMTE
+				state_region = s:STATE_BURGUNDY
 				count = 10
 			}
 		}
@@ -1435,32 +1435,6 @@
 		}
 	}
 
-	c:FLA = {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_low_countries
-			name = "Vlaamse Garde"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_FLANDERS
-				count = 1
-			}
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_low_countries
-			name = "Vlaamse Marine"
-
-			combat_unit = { # Nothing the size of a frigate at this point in history
-				type = unit_type:combat_unit_type_frigate
-				state_region = s:STATE_FLANDERS
-				count = 1
-			}
-		}
-	}
-
 	c:GRE = {
 		create_military_formation = { # Greeks
 			type = army
@@ -1709,6 +1683,32 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_LORRAINE
+				count = 1
+			}
+		}
+	}
+	
+	c:FRC = {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_france
+			name = "Armée de Bourgogne"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FRANCHE_COMTE
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_FRANCHE_COMTE
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_FRANCHE_COMTE
 				count = 1
 			}
 		}
@@ -2313,6 +2313,12 @@
 				state_region = s:STATE_HOLLAND
 				count = 10
 			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_FLANDERS
+				count = 5
+			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_dragoons
@@ -2348,6 +2354,12 @@
 				type = unit_type:combat_unit_type_frigate
 				state_region = s:STATE_FRIESLAND
 				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_FLANDERS
+				count = 3
 			}
 		}
 		

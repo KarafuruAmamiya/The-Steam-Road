@@ -989,19 +989,20 @@
 		}
 	}
 	s:STATE_FRANCHE_COMTE = {
-		region_state:FRA = {
+		region_state:FRC = {
 			create_pop = {
 				culture = french
-				size = 770731
+				size = 600731
 			}
 			create_pop = {
 				culture = french
-				religion = protestant
-				size = 40722
+				religion = reformed
+				size = 110722
 			}
 			create_pop = {
 				culture = francoprovencal
-				size = 121924
+				religion = reformed
+				size = 101924
 			}
 			create_pop = {
 				culture = ashkenazi
@@ -1009,7 +1010,23 @@
 			}
 			create_pop = {
 				culture = south_german
+				religion = reformed
 				size = 28004
+			}
+		}
+		region_state:FRA = {
+			create_pop = {
+				culture = french
+				size = 80200
+			}
+			create_pop = {
+				culture = french
+				religion = reformed
+				size = 20000
+			}
+			create_pop = {
+				culture = francoprovencal
+				size = 21924
 			}
 		}
 	}
@@ -1110,53 +1127,26 @@
 		region_state:NET = {
 			create_pop = {
 				culture = dutch
-				size = 482000
+				size = 192091
 			}
 			create_pop = {
 				culture = dutch
-				size = 8900
+				religion = protestant
+				size = 673889
+			}
+			create_pop = {
+				culture = french # French or Walloon Reformed
+				religion = protestant
+				size = 774
 			}
 			create_pop = {
 				culture = ashkenazi
-				size = 2000
-			}
-			create_pop = {
-				culture = dutch
-				religion = protestant
-				size = 10200
-			}
-			create_pop = {
-				culture = frisian
-				size = 6000
+				size = 6705
 			}
 			create_pop = {
 				culture = rhenish
-				size = 4000
-			}
-			create_pop = {
-				culture = dutch
-				religion = protestant
-				size = 241950
-			}
-		}
-		region_state:FLA = {
-			create_pop = {
-				culture = dutch
-				religion = protestant
-				size = 241950
-			}
-			create_pop = {
-				culture = dutch
-				religion = protestant
-				size = 2000
-			}
-			create_pop = {
-				culture = ashkenazi
-				size = 6000
-			}
-			create_pop = {
-				culture = rhenish
-				size = 4000
+				religion = catholic
+				size = 19201
 			}
 		}
 	}
@@ -1206,7 +1196,7 @@
 		}
 	}
 	s:STATE_FLANDERS = {
-		region_state:FLA = {
+		region_state:NET = {
 			create_pop = {
 				culture = dutch
 				religion = protestant

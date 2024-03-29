@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:AMR = { # America
+	c:AMR ?= { # America
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -28,7 +28,7 @@
 			level = 2
 		}
 	}
-	c:BTC = { # Batavian Company
+	c:BTC ?= { # Batavian Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -43,7 +43,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 
 	}
-	c:CHL = { # Chile
+	c:CHL ?= { # Chile
 		# presidential election did occur around this date but only uncomment if giving Chile a voting franchise
 		# set_next_election_date = 1836.3.15
 		
@@ -76,7 +76,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:CHQ = { # Chiquitania
+	c:CHQ ?= { # Chiquitania
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -102,7 +102,7 @@
 			set_interest_group_name = ig_catholic_church
 		}
 	}
-	c:CLD = { # New Caledonia
+	c:CLD ?= { # New Caledonia
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = egalitarianism
 		# set_next_election_date = ???
@@ -133,7 +133,7 @@
 		}
 
 	}
-	c:CSR = { # Cispratina
+	c:CSR ?= { # Cispratina
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -163,7 +163,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:JUL = { # Juliana
+	c:JUL ?= { # Juliana
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_liberal = yes
 		add_technology_researched = empiricism
@@ -183,7 +183,7 @@
 		activate_law = law_type:law_no_schools
 		activate_law = law_type:law_no_police
 	}
-	c:KNM = { # Kuntermark Company
+	c:KNM ?= { # Kuntermark Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -197,7 +197,7 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
 	}
-	c:MRZ = { # Marizia
+	c:MRZ ?= { # Marizia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = mass_communication
@@ -228,7 +228,7 @@
 			level = 2
 		}
 	}
-	c:NBR = { # New Brabant Company
+	c:NBR ?= { # New Brabant Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -242,7 +242,7 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_per_capita_based_taxation
 	}
-	c:NWX = { # New Wessex
+	c:NWX ?= { # New Wessex
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -276,7 +276,7 @@
 		
 		add_taxed_goods = g:grain
 	}
-	c:ORC = { # Orenoco / New Provence
+	c:ORC ?= { # Orenoco / New Provence
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -306,7 +306,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:PEU = { # Peru
+	c:PEU ?= { # Peru
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -334,7 +334,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:TPR = { # Transpratina
+	c:TPR ?= { # Transpratina
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		add_technology_researched = empiricism
@@ -354,7 +354,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:VML = { # Vlaamsland Company
+	c:VML ?= { # Vlaamsland Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -369,7 +369,7 @@
 		activate_law = law_type:law_per_capita_based_taxation
 
 	}
-	c:WLM = { # Willemsland Company
+	c:WLM ?= { # Willemsland Company
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -386,7 +386,7 @@
 	}
 	
 	# Natives
-	c:MXS = { # Moxos
+	c:MXS ?= { # Moxos
 		effect_starting_technology_tier_4_tech = yes
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_shared_heritage # Opens up the territory to potential migration and settlement by non-indigenous people
@@ -396,162 +396,162 @@
 		activate_law = law_type:law_closed_borders
 		activate_law = law_type:law_tenant_farmers
 	}
-	c:APN = { # Apurina
+	c:APN ?= { # Apurina
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_5 = yes
 	}
-	c:AWK = { # Arawakos
+	c:AWK ?= { # Arawakos
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_5 = yes
 	}
-	c:BNW = { # Baniwa
+	c:BNW ?= { # Baniwa
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:BSN = { # Barasana
+	c:BSN ?= { # Barasana
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:BRR = { # Bororo
+	c:BRR ?= { # Bororo
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:BOA = { # Bora
+	c:BOA ?= { # Bora
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:DNI = { # Deni
+	c:DNI ?= { # Deni
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:GHB = { # Guahibo
+	c:GHB ?= { # Guahibo
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:GNI = { # Guarani
+	c:GNI ?= { # Guarani
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:KGJ = { # Koreguaje
+	c:KGJ ?= { # Koreguaje
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:KRJ = { # Karaja
+	c:KRJ ?= { # Karaja
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:KYB = { # Kayabi
+	c:KYB ?= { # Kayabi
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:KYP = { # Kayapo
+	c:KYP ?= { # Kayapo
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:MKR = { # Munduruku
+	c:MKR ?= { # Munduruku
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:MRA = { # Mura
+	c:MRA ?= { # Mura
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:MWE = { # Mawe
+	c:MWE ?= { # Mawe
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:NMK = { # Nambikwara
+	c:NMK ?= { # Nambikwara
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:PAT = { # Wallmapu
+	c:PAT ?= { # Wallmapu
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_10 = yes
 		effect_starting_politics_traditional = yes
 	}
-	c:PKN = { # Parkana
+	c:PKN ?= { # Parkana
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_8 = yes
 	}
-	c:PNR = { # Panare
+	c:PNR ?= { # Panare
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:PNV = { # Punaive
+	c:PNV ?= { # Punaive
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:SCY = { # Secoya
+	c:SCY ?= { # Secoya
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:SLK = { # Selk'nam
+	c:SLK ?= { # Selk'nam
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_10 = yes
 		effect_starting_politics_traditional = yes
 	}
-	c:TCN = { # Ticuna
+	c:TCN ?= { # Ticuna
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:TGU = { # Tiatinagua
+	c:TGU ?= { # Tiatinagua
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:THL = { # Tehuelche
+	c:THL ?= { # Tehuelche
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_10 = yes
 		effect_starting_politics_traditional = yes
 	}
-	c:TMK = { # Tanimuka
+	c:TMK ?= { # Tanimuka
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_6 = yes
 	}
-	c:TNA = { # Terena
+	c:TNA ?= { # Terena
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:WWI = { # Waiwai
+	c:WWI ?= { # Waiwai
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:YKN = { # Yekuana
+	c:YKN ?= { # Yekuana
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:YMM = { # Yanomami
+	c:YMM ?= { # Yanomami
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes
 	}
-	c:YNW = { # Pano
+	c:YNW ?= { # Pano
 		effect_starting_technology_tier_6_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_10 = yes

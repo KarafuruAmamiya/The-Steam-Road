@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:AKN = { # Akkovin Empire
+	c:AKN ?= { # Akkovin Empire
 		effect_starting_technology_tier_4_tech = yes
 		
 		add_technology_researched = academia
@@ -24,39 +24,39 @@
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_devolved
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 		
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
 
 		
 		
-		add_modifier = {
+		add_modifier ?= {
 			name = akkovin_crisis
 			months = -1
 		}
-		add_modifier = {
+		add_modifier ?= {
 			name = outmoded_bureaucracy
 			months = -1
 		}
-		add_modifier = {
+		add_modifier ?= {
 			name = tribal_structures
 			months = -1
 		}
-		add_modifier = {
+		add_modifier ?= {
 			name = cizye_tax
 			months = -1
 		}
 		
-		trigger_event = {
+		trigger_event ?= {
 			id = akkovin_crisis.1
 		}
 	}
-	c:ARD = { # Ardalan
+	c:ARD ?= { # Ardalan
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -84,7 +84,7 @@
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
 	}
-	c:HDJ = { # Hedjaz
+	c:HDJ ?= { # Hedjaz
 		effect_starting_technology_tier_4_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -110,13 +110,13 @@
 		activate_law = law_type:law_no_migration_controls
 		activate_law = law_type:law_unitary
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 		
 	}
-	c:JAB = { # Jabal Shammar
+	c:JAB ?= { # Jabal Shammar
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = academia
@@ -128,9 +128,9 @@
 		activate_law = law_type:law_unitary
 
 		
-		add_journal_entry = { type = je_arabian_desert }
+		add_journal_entry ?= { type = je_arabian_desert }
 	}
-	c:KAT = { # Kathiri
+	c:KAT ?= { # Kathiri
 		effect_starting_technology_tier_4_tech = yes
 		
 		add_technology_researched = academia
@@ -154,24 +154,24 @@
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_unitary
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_colonial_affairs
 			level = 1
 		}
 
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			add_ruling_interest_group = yes
 		}
 	}
-	c:NEJ = { # Najd
+	c:NEJ ?= { # Najd
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		add_technology_researched = academia
@@ -182,15 +182,15 @@
 		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_unitary
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 
 		
-		add_journal_entry = { type = je_arabian_desert }
+		add_journal_entry ?= { type = je_arabian_desert }
 	}
-	c:OMA = { # Oman
+	c:OMA ?= { # Oman
 		effect_starting_technology_tier_4_asia_tech = yes
 		add_technology_researched = academia
 		
@@ -198,7 +198,7 @@
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_unitary
 	}
-	c:PER = { # Persia
+	c:PER ?= { # Persia
 		set_next_election_date = 1838.10.3
 	
 		effect_starting_technology_tier_3_tech = yes
@@ -233,52 +233,52 @@
 		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_devolved
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 2
 		}
 
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_police
 			level = 2
 		}
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_colonial_affairs
 			level = 1
 		}
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_home_affairs
 			level = 1
 		}
 		
 		
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_armed_forces = {
+		ig:ig_armed_forces ?= {
 			add_ruling_interest_group = yes
 		}
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_ruling_interest_group = yes
 		}
 		
-		set_variable = {
+		set_variable ?= {
 			name = india_revolt_var
 			value = 0
 		}
 		
-		set_variable = {
+		set_variable ?= {
 			name = persian_renaissance_var
 			value = 0
 		}
 		
-		add_journal_entry = {
+		add_journal_entry ?= {
 			type = je_consolidate_colonial_rule
 		}
 		
-		add_journal_entry = {
+		add_journal_entry ?= {
 			type = je_persian_renaissance
 		}
 		
@@ -286,11 +286,11 @@
 		set_variable = adopt_western_clothes
 		
 		add_company = company_type:company_east_india_company
-		company:company_east_india_company = {
+		company:company_east_india_company ?= {
 			set_company_establishment_date = 1680.12.31
 		}
 	}
-	c:SRV = { # Shirvan
+	c:SRV ?= { # Shirvan
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = empiricism
@@ -312,7 +312,7 @@
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_unitary
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
@@ -320,17 +320,17 @@
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
 		
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_ruling_interest_group = yes
 		}
 
 		set_tax_level = medium
 	}
-	c:SYR = { # Syria
+	c:SYR ?= { # Syria
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -351,14 +351,14 @@
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_unitary
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 
 		
 	}
-	c:TUR = { # Ottoman Empire
+	c:TUR ?= { # Ottoman Empire
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = empiricism
@@ -384,30 +384,30 @@
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_devolved
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_schools
 			level = 1
 		}
 		
-		set_institution_investment_level = {
+		set_institution_investment_level ?= {
 			institution = institution_police
 			level = 2
 		}
 
-		ig:ig_landowners = {
+		ig:ig_landowners ?= {
 			add_ruling_interest_group = yes
 		}
 		
-		ig:ig_devout = {
+		ig:ig_devout ?= {
 			add_ruling_interest_group = yes
 		}
 		
-		add_journal_entry = {
+		add_journal_entry ?= {
 			type = je_fractured_porte
 		}
 
 		add_company = company_type:company_suez_company
-		company:company_suez_company = {
+		company:company_suez_company ?= {
 			set_company_establishment_date = 1823.1.1
 		}
 		
@@ -416,13 +416,13 @@
 	}
 	
 	# Decentralized
-	c:ANZ	= { # An Nafud
+	c:ANZ	?= { # An Nafud
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_8 = yes
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 	}
-	c:RAK	= { # Rub' al Khali
+	c:RAK	?= { # Rub' al Khali
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_8 = yes
 		effect_starting_politics_traditional = yes

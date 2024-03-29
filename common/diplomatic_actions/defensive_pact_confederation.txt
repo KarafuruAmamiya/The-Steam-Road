@@ -26,26 +26,51 @@
 				always = no
 			}
 		}
-
-		should_invalidate = {
-			OR = {
-				has_war_with = scope:target_country				
-				NOT = { is_subject_type = subject_type_confederation }
+		
+		requirement_to_maintain = {
+			trigger = { 
+				NOT = { has_war_with = scope:target_country	}
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = { 
+				is_subject_type = subject_type_confederation
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = { 
 				scope:target_country = { 
-					NOT = { is_subject_type = subject_type_confederation }
+					is_subject_type = subject_type_confederation
 				}
-				AND = {
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = { 
+				NOR = {
 					scope:target_country = { is_non_customs_union_subject = yes }
 					scope:target_country = { is_subject_of = root }
 				}
-				AND = {
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = { 
+				NOR = {
 					is_non_customs_union_subject = yes
 					is_subject_of = scope:target_country
 				}
 			}
 		}
 
-		break_effect = {
+		manual_break_effect = {
+			change_relations = { country = scope:target_country value = -30 }
+			create_truce = { country = scope:target_country months = 12 }
+		}
+		
+		auto_break_effect = {
 			change_relations = { country = scope:target_country value = -30 }
 			create_truce = { country = scope:target_country months = 12 }
 		}

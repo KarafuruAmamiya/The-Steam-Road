@@ -7,7 +7,7 @@
 		priority = 0
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				is_country_type = unrecognized
 			}
 		}
@@ -52,7 +52,7 @@ KOR = { # Korea
 		
 		trigger = {
 			
-			scope:actor = {
+			scope:actor ?= {
 				is_subject = yes
 				has_law = law_type:law_monarchy
 			}
@@ -67,7 +67,7 @@ KOR = { # Korea
 	
 	trigger = {
 		
-		scope:actor = {
+		scope:actor ?= {
 			 is_subject = no
 			 has_law = law_type:law_monarchy
 		}
@@ -107,7 +107,7 @@ KOR = { # Korea
 		priority = 1500
 		
 		trigger = {
-			scope:actor = { 
+			scope:actor ?= { 
 				is_subject = no
 				has_law = law_type:law_monarchy
 			}
@@ -123,7 +123,7 @@ KOR = { # Korea
 		priority = 1500
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { 
 					is_subject_type = subject_type_tributary 
 					has_law = law_type:law_council_republic
@@ -149,7 +149,7 @@ KOR = { # Korea
 		priority = 1550
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { 
 					is_subject_type = subject_type_tributary 
 					has_law = law_type:law_council_republic
@@ -170,7 +170,7 @@ KOR = { # Korea
 		priority = 1500
 		
 		trigger = {
-			scope:actor = {
+			scope:actor ?= {
 				NOT = { is_subject_type = subject_type_tributary
 						has_law = law_type:law_single_party_state }
 				has_law = law_type:law_council_republic

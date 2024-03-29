@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:BST = { # Basuto
+	c:BST ?= { # Basuto
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -8,17 +8,7 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_monarchy
 	}
-	c:GZA = { # Gaza Empire
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:MTB = { # Mthwakazi
+	c:GZA ?= { # Gaza Empire
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -28,7 +18,7 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_monarchy
 	}
-	c:RZW = { # Rozwi Empire
+	c:MTB ?= { # Mthwakazi
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -38,7 +28,7 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_monarchy
 	}
-	c:SWZ = { # Swazi
+	c:RZW ?= { # Rozwi Empire
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -48,7 +38,17 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_monarchy
 	}
-	c:ZUL = { # Zulu
+	c:SWZ ?= { # Swazi
+		effect_starting_technology_tier_6_tech = yes
+		effect_native_conscription_7 = yes
+		effect_starting_politics_traditional = yes
+
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_monarchy
+	}
+	c:ZUL ?= { # Zulu
 		effect_starting_technology_tier_6_tech = yes
 		add_technology_researched = international_trade
 
@@ -64,19 +64,19 @@
 	}
 	
 	# Decentralized Tribes
-	c:TSW = { # Botswana
+	c:TSW ?= { # Botswana
 		effect_starting_technology_tier_7_tech = yes	
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_3 = yes
 		activate_law = law_type:law_debt_slavery
 	}
-	c:HRO	= {
+	c:HRO	?= {
 		effect_starting_technology_tier_7_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_3 = yes
 		activate_law = law_type:law_debt_slavery
 	}
-	c:NAM	= {
+	c:NAM	?= {
 		effect_starting_technology_tier_7_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_3 = yes

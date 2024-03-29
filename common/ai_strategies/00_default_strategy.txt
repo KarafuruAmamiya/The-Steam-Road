@@ -326,6 +326,7 @@ ai_strategy_default = {
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_NORTH_RHINE
 							state_region = s:STATE_LORRAINE
+							state_region = s:STATE_FRANCHE_COMTE
 							state_region = s:STATE_ELSASS
 							state_region = s:STATE_PFALZ
 							state_region = s:STATE_LIGURIA
@@ -1092,22 +1093,66 @@ ai_strategy_default = {
 			}
 			
 			if = {
-				limit = {
-					has_secret_goal = {
-							who = scope:target_country
-						secret_goal = protect
+					limit = { 
+						scope:target_country = { is_subject_of = root }
+					}
+				
+					# AI values subjects it already has higher than subjects it might have, and will basically never give away large subjects with a lot of prestige
+					if = {
+						limit = { 
+							scope:target_country = { 
+								prestige >= 100			
+							} 					
+						}
+						multiply = 5.0
+					}
+					else_if = {
+						limit = { 
+							scope:target_country = { 
+								prestige >= 75			
+							} 					
+						}
+						multiply = 4.0
+					}					
+					else_if = {
+						limit = { 
+							scope:target_country = { 
+								prestige >= 50			
+							} 					
+						}
+						multiply = 3.0
+					}
+					else_if = {
+						limit = { 
+							scope:target_country = { 
+								prestige >= 25			
+							} 					
+						}
+						multiply = 2.0
+					}				
+					else = {
+						multiply = 1.5	
+					}			
+				}
+				else = {				
+					if = {
+						limit = {
+							has_secret_goal = {
+								who = scope:target_country
+								secret_goal = protect
+							}							
+						}
+						
+						multiply = 0.5
+					}
+					
+					if = {
+						limit = {
+							NOT = {	has_strategic_adjacency = scope:target_country }
+						}
+						multiply = 0.5
 					}						
 				}
-				
-				multiply = 0.5
-			}
-			
-			if = {
-				limit = {
-						NOT = { has_strategic_adjacency = scope:target_country }
-				}
-				multiply = 0.5
-			}
 		}
 
 			# Special logic for very important subjects like East India Company
@@ -1247,7 +1292,13 @@ ai_strategy_default = {
 		}
 
 		min = 0
-		max = 200
+		if = {
+			limit = { scope:target_country = { is_subject_of = root } }
+			max = 1000			
+		}
+		else = {
+			max = 200		
+		}
 	}
 
 	# How much does the AI desire becoming another country's subject
@@ -1529,6 +1580,7 @@ ai_strategy_default = {
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_NORTH_RHINE
 							state_region = s:STATE_LORRAINE
+							state_region = s:STATE_FRANCHE_COMTE
 							state_region = s:STATE_ELSASS
 							state_region = s:STATE_PFALZ
 							state_region = s:STATE_LIGURIA
@@ -2113,6 +2165,7 @@ ai_strategy_default = {
 							state_region = s:STATE_RHINELAND
 							state_region = s:STATE_NORTH_RHINE
 							state_region = s:STATE_LORRAINE
+							state_region = s:STATE_FRANCHE_COMTE
 							state_region = s:STATE_ELSASS
 							state_region = s:STATE_PFALZ
 							state_region = s:STATE_LIGURIA

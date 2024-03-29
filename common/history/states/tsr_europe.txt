@@ -1067,11 +1067,17 @@
 	}
 	s:STATE_FRANCHE_COMTE = {
 		create_state = {
+			country = c:FRC
+			owned_provinces = { "x3D8EF9" "x700060" "xA9D961" "xCF46D1" "xF00060" }
+		}
+		create_state = {
 			country = c:FRA
-			owned_provinces = { "x3D8EF9" "x700060" "x708060" "xA9D961" "xCF46D1" "xF00060" }
+			owned_provinces = { "x708060" }
 		}
 		
 		add_homeland = cu:french
+		add_claim = c:FRA
+		add_claim = c:FRC
 	}
 	s:STATE_AUVERGNE = {
 		create_state = {
@@ -1624,12 +1630,11 @@
 	}
 	s:STATE_FLANDERS = {
 		create_state = {
-			country = c:FLA
+			country = c:NET
 			owned_provinces = { x93FB2E x018061 x0141A0 x8041A0 x800060 x808061 }
 		}
 
 		add_homeland = cu:dutch
-		add_claim = c:NET
 	}
 	s:STATE_FRIESLAND = {
 		create_state = {
@@ -1643,13 +1648,8 @@
 	s:STATE_GELRE = {
 		create_state = {
 			country = c:NET
-			owned_provinces = { xC0C0A0 x4C4894 xAF3A54 x41C0A0 }
+			owned_provinces = { xC0C0A0 x4C4894 xAF3A54 x41C0A0 x0000DF }
 		}
-		create_state = {
-			country = c:FLA
-			owned_provinces = { x0000DF }
-		}
-		add_claim = c:NET
 		add_homeland = cu:dutch
 	}
 	s:STATE_HOLLAND = {

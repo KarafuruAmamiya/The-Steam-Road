@@ -1,5 +1,5 @@
 ﻿COUNTRIES = {
-	c:ANR = { # Andorra
+	c:ANR ?= { # Andorra
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -13,7 +13,7 @@
 		activate_law = law_type:law_peasant_levies
 
 	}
-	c:ARN = { # Aragon
+	c:ARN ?= { # Aragon
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -52,7 +52,7 @@
 
 		
 	}
-	c:AUS = { # Austria
+	c:AUS ?= { # Austria
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -82,7 +82,7 @@
 		
 		
 	}
-	c:BOH = { # Bohemia
+	c:BOH ?= { # Bohemia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -109,7 +109,7 @@
 		}	
 		
 	}
-	c:BLN = { # Bayern-Landshut
+	c:BLN ?= { # Bayern-Landshut
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 
@@ -136,7 +136,7 @@
 		
 		
 	}
-	c:BRA = { # Brunswick
+	c:BRA ?= { # Brunswick
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -147,7 +147,7 @@
 
 		
 	}
-	c:BRK = { # Brandenburg-Kustrin
+	c:BRK ?= { # Brandenburg-Kustrin
 		effect_starting_technology_tier_2_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -161,7 +161,7 @@
 			set_interest_group_name = ig_evangelical_church 
 		}			
 	}
-	c:BYE = { # Belarus / Polack
+	c:BYE ?= { # Belarus / Polack
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -188,7 +188,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:CHR = { # Chernigov
+	c:CHR ?= { # Chernigov
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -215,7 +215,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:COB = { # Coburg
+	c:COB ?= { # Coburg
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -232,7 +232,7 @@
 		}
 
 	}
-	c:CRL = { # Courland
+	c:CRL ?= { # Courland
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		effect_starting_politics_conservative = yes
@@ -256,7 +256,7 @@
 		}
 
 	}
-	c:DEN = { # Denmark
+	c:DEN ?= { # Denmark
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -292,7 +292,7 @@
 			months = -1
 		}
 	}
-	c:DON = { # Don Cossack Host
+	c:DON ?= { # Don Cossack Host
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -321,7 +321,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:DOR = { # Dortmund
+	c:DOR ?= { # Dortmund
 		effect_starting_technology_tier_2_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -334,7 +334,7 @@
 
 		
 	}
-	c:ENG = { # England
+	c:ENG ?= { # England
 		set_next_election_date = 1838.2.1
 		
 		ig:ig_intelligentsia = {
@@ -382,7 +382,7 @@
 		}
 	
 	}
-	c:EST = { # Estonia
+	c:EST ?= { # Estonia
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		effect_starting_politics_conservative = yes
@@ -406,36 +406,7 @@
 		}
 
 	}
-	c:FLA = { # Flanders
-		effect_starting_technology_tier_1_tech = yes
-		effect_starting_politics_conservative = yes
-
-		activate_law = law_type:law_monarchy
-		activate_law = law_type:law_state_religion
-		activate_law = law_type:law_per_capita_based_taxation
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_right_of_assembly
-		
-		set_tax_level = medium
-		
-		set_institution_investment_level = {
-			institution = institution_schools
-			level = 2
-		}	
-
-		ig:ig_devout = {
-			add_ruling_interest_group = yes
-		}
-
-		ig:ig_petty_bourgeoisie = {
-			add_ruling_interest_group = yes
-		}
-	}
-	c:FRA = { # France
+	c:FRA ?= { # France
 		set_next_election_date = 1837.11.4
 		
 		effect_starting_technology_tier_1_tech = yes
@@ -507,7 +478,35 @@
 			set_company_establishment_date = 1825.1.1
 		}
 	}
-	c:FRM = { # Frankfurt
+	c:FRC ?= { # Burgundy
+		effect_starting_technology_tier_2_tech = yes
+		effect_starting_politics_conservative = yes
+
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_racial_segregation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_interventionism
+		
+		set_tax_level = medium
+		
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}	
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+	}
+	c:FRM ?= { # Frankfurt
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_liberal = yes
 
@@ -534,7 +533,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:FRN = { # Franconia
+	c:FRN ?= { # Franconia
 		effect_starting_technology_tier_2_tech = yes		
 		effect_starting_politics_conservative = yes
 		
@@ -547,7 +546,7 @@
 		}	
 		
 	}
-	c:GAL = { # Ruthenia
+	c:GAL ?= { # Ruthenia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 
@@ -590,7 +589,7 @@
 		
 
 	}
-	c:GLG = { # Glogow
+	c:GLG ?= { # Glogow
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -617,7 +616,7 @@
 		}	
 		
 	}
-	c:GOS = { # Goslar
+	c:GOS ?= { # Goslar
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		# set_next_election_date = ???
@@ -629,7 +628,7 @@
 		activate_law = law_type:law_right_of_assembly
 
 	}
-	c:GRE = { # Greece
+	c:GRE ?= { # Greece
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = empiricism
 		add_technology_researched = urban_planning
@@ -666,7 +665,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:HES = { # Hesse
+	c:HES ?= { # Hesse
 		effect_starting_technology_tier_2_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -678,7 +677,7 @@
 			level = 2
 		}			
 	}
-	c:HSA = { # Hanseatic Provinces
+	c:HSA ?= { # Hanseatic Provinces
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -695,7 +694,7 @@
 		}
 
 	}
-	c:HUN = { # Hungary
+	c:HUN ?= { # Hungary
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 
@@ -723,7 +722,7 @@
 		
 		
 	}
-	c:IBE = { # Iberia
+	c:IBE ?= { # Iberia
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = central_archives
 
@@ -778,7 +777,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:IRE = { # Ireland
+	c:IRE ?= { # Ireland
 		effect_starting_technology_tier_2_tech = yes
 		
 		add_taxed_goods = g:liquor
@@ -811,7 +810,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:ITA = { # Italy
+	c:ITA ?= { # Italy
 		set_next_election_date = 1838.12.7
 
 		set_tax_level = medium
@@ -865,7 +864,7 @@
 		}
 		
 	}
-	c:IUS = { # Kazan
+	c:IUS ?= { # Kazan
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -901,7 +900,7 @@
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
 	}
-	c:KNZ = { # Konstanz
+	c:KNZ ?= { # Konstanz
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -927,7 +926,7 @@
 			set_ig_bolstering = yes
 		}
 	}
-	c:LGE = { # Liege
+	c:LGE ?= { # Liege
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -941,7 +940,7 @@
 			level = 1
 		}
 	}
-	c:LIT = { # Lithuania
+	c:LIT ?= { # Lithuania
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -969,13 +968,13 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:LUX = { # Luxembourg
+	c:LUX ?= { # Luxembourg
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_reactionary = yes	
 		
 		activate_law = law_type:law_racial_segregation
 	}
-	c:LVN = { # Livonia
+	c:LVN ?= { # Livonia
 		effect_starting_technology_tier_3_tech = yes
 		add_technology_researched = napoleonic_warfare
 		effect_starting_politics_conservative = yes
@@ -998,7 +997,7 @@
 			level = 1
 		}
 	}
-	c:LOR = { # Lorraine
+	c:LOR ?= { # Lorraine
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 
@@ -1026,7 +1025,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:MAI = { # Mainz
+	c:MAI ?= { # Mainz
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1053,7 +1052,7 @@
 			set_ig_bolstering = yes
 		}
 	}
-	c:MML = { # Memel
+	c:MML ?= { # Memel
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_3_tech = yes
@@ -1083,7 +1082,7 @@
 		}	
 		
 	}
-	c:MOL = { # Moldavia
+	c:MOL ?= { # Moldavia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -1097,7 +1096,7 @@
 			level = 1
 		}
 	}
-	c:MSC = { # Muscovy
+	c:MSC ?= { # Muscovy
 		effect_starting_technology_tier_3_tech = yes
 		
 		add_technology_researched = napoleonic_warfare
@@ -1131,7 +1130,7 @@
 		
 		
 	}
-	c:MUN = { # Muenster
+	c:MUN ?= { # Muenster
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1158,7 +1157,7 @@
 			set_ig_bolstering = yes
 		}
 	}
-	c:MUL = { # Mulhouse
+	c:MUL ?= { # Mulhouse
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -1168,7 +1167,7 @@
 		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_right_of_assembly
 	}
-	c:MVA = { # Moravia
+	c:MVA ?= { # Moravia
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1195,7 +1194,7 @@
 			set_ig_bolstering = yes
 		}
 	}
-	c:NAS = { # Nassau
+	c:NAS ?= { # Nassau
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_reactionary = yes
@@ -1207,7 +1206,7 @@
 		}	
 		
 	}
-	c:NET = { # Netherlands
+	c:NET ?= { # Netherlands
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1253,7 +1252,7 @@
 
 		
 	}
-	c:NOR = { # Norway
+	c:NOR ?= { # Norway
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1288,7 +1287,7 @@
 			months = -1
 		}
 	}
-	c:PAP = { # Pope
+	c:PAP ?= { # Pope
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1318,7 +1317,7 @@
 			set_ig_bolstering = yes
 		}
 	}
-	c:SLB = { # Sloboda Host
+	c:SLB ?= { # Sloboda Host
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -1348,7 +1347,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:PFA = { # The Palatinate
+	c:PFA ?= { # The Palatinate
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1386,7 +1385,7 @@
 			set_company_establishment_date = 1822.1.1
 		}
 	}
-	c:POL = { # Poland
+	c:POL ?= { # Poland
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -1415,7 +1414,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:PRM = { # Perm
+	c:PRM ?= { # Perm
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -1427,7 +1426,7 @@
 			level = 1
 		}
 	}
-	c:REG = { # Regensburg
+	c:REG ?= { # Regensburg
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -1437,7 +1436,7 @@
 		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_right_of_assembly
 	}
-	c:RHE = { # Rhineland
+	c:RHE ?= { # Rhineland
 		set_next_election_date = 1838.10.02
 
 		effect_starting_technology_tier_1_tech = yes
@@ -1469,7 +1468,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:RIG = { # Riga
+	c:RIG ?= { # Riga
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -1498,7 +1497,7 @@
 		}	
 		
 	}
-	c:RPU = { # Royal Prussia
+	c:RPU ?= { # Royal Prussia
 		effect_starting_technology_tier_2_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -1512,7 +1511,7 @@
 			level = 1
 		}
 	}
-	c:RYA = { # Ryazan
+	c:RYA ?= { # Ryazan
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -1539,7 +1538,7 @@
 			set_ig_suppression = yes
 		}
 	}
-	c:SAX = { # Saxony
+	c:SAX ?= { # Saxony
 		effect_starting_technology_tier_2_tech = yes
 		effect_starting_politics_reactionary = yes
 		
@@ -1589,7 +1588,7 @@
 		
 		add_journal_entry = { type = je_hre_falls_apart }
 	}
-	c:SWE = { # Sweden
+	c:SWE ?= { # Sweden
 		effect_starting_technology_tier_1_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1658,7 +1657,7 @@
 			months = -1
 		}
 	}
-	c:SCO = { # Scotland
+	c:SCO ?= { # Scotland
 		set_next_election_date = 1838.2.1
 
 		ig:ig_landowners = {
@@ -1696,7 +1695,7 @@
 		}
 		
 	}
-	c:SLO = { # Slovenia / Cilli
+	c:SLO ?= { # Slovenia / Cilli
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_reactionary = yes
@@ -1713,7 +1712,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:SLV = { # Slovakia / Nitra
+	c:SLV ?= { # Slovakia / Nitra
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
 		
@@ -1734,7 +1733,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:SMO = { # Smolensk
+	c:SMO ?= { # Smolensk
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -1761,7 +1760,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:SAI = { # Sarai
+	c:SAI ?= { # Sarai
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -1797,7 +1796,7 @@
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
 	}
-	c:SRB = { # Sorbia / Lusatia
+	c:SRB ?= { # Sorbia / Lusatia
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_conservative = yes
@@ -1811,7 +1810,7 @@
 
 		
 	}
-	c:SWI = { # Switzerland
+	c:SWI ?= { # Switzerland
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -1847,7 +1846,7 @@
 
 		
 	}
-	c:TRS = { # Transylvania
+	c:TRS ?= { # Transylvania
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -1859,7 +1858,7 @@
 			level = 1
 		}
 	}
-	c:TYR = { # Tyrol
+	c:TYR ?= { # Tyrol
 		# set_next_election_date = ???
 		
 		effect_starting_technology_tier_2_tech = yes
@@ -1891,7 +1890,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:ZAP = { # Zaporizhian Host
+	c:ZAP ?= { # Zaporizhian Host
 		effect_starting_technology_tier_3_tech = yes
 		
 		effect_starting_politics_traditional = yes
@@ -1920,7 +1919,7 @@
 			add_ruling_interest_group = yes
 		}
 	}
-	c:ULM = { # Ulm
+	c:ULM ?= { # Ulm
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
 		
@@ -1936,7 +1935,7 @@
 			level = 2
 		}	
 	}
-	c:WAL = { # Wallachia
+	c:WAL ?= { # Wallachia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_traditional = yes
 		
@@ -1952,7 +1951,7 @@
 			level = 1
 		}
 	}
-	c:WUR = { # Wurttemberg
+	c:WUR ?= { # Wurttemberg
 		effect_starting_technology_tier_2_tech = yes		
 		effect_starting_politics_conservative = yes
 		activate_law = law_type:law_autocracy 

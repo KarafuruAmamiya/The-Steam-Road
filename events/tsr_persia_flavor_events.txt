@@ -1266,7 +1266,7 @@ persian_flavor.12 = {
 			NOT = { has_journal_entry = je_government_petition }
 		}
 		set_variable = protect_bazaars
-		add_journal_entry = { type = je_government_petition }
+		trigger_event = { id = government_petition_events.1 popup = yes }
 		every_scope_state = {
 			limit = {
 				ig_state_pol_strength_share = {

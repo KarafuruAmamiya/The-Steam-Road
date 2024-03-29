@@ -9,10 +9,6 @@ je_hre_falls_apart = {
 	complete = {
 		custom_tooltip = {
 			text = hre_complete_tt
-			c:FLA = { 
-				is_direct_subject_of = c:SAX 
-				NOT = { is_subject_type = subject_type_hre }
-			}
 			c:PFA = { 
 				is_direct_subject_of = c:SAX 
 				NOT = { is_subject_type = subject_type_hre }
@@ -50,6 +46,10 @@ je_hre_falls_apart = {
 				NOT = { is_subject_type = subject_type_hre }
 			}
 			c:LOR = { 
+				is_direct_subject_of = c:SAX 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			c:FRC = { 
 				is_direct_subject_of = c:SAX 
 				NOT = { is_subject_type = subject_type_hre }
 			}
@@ -132,7 +132,6 @@ je_hre_falls_apart = {
 		custom_tooltip = {
 			text = hre_fail_tt
 			OR = {
-				c:FLA = { NOT = { is_subject_of = c:SAX } }
 				c:PFA = { NOT = { is_subject_of = c:SAX } }
 				c:RHE = { NOT = { is_subject_of = c:SAX } }
 				c:NAS = { NOT = { is_subject_of = c:SAX } }
@@ -143,6 +142,7 @@ je_hre_falls_apart = {
 				c:GOS = { NOT = { is_subject_of = c:SAX } }
 				c:BRK = { NOT = { is_subject_of = c:SAX } }
 				c:LOR = { NOT = { is_subject_of = c:SAX } }
+				c:FRC = { NOT = { is_subject_of = c:SAX } }
 				c:MUL = { NOT = { is_subject_of = c:SAX } }
 				c:KNZ = { NOT = { is_subject_of = c:SAX } }
 				c:WUR = { NOT = { is_subject_of = c:SAX } }

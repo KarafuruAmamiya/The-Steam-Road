@@ -73,17 +73,7 @@ mobilization_option_extra_supplies = {
 		unit_defense_mult = 0.1
 	}
 	ai_weight = {
-		value = 0
-		if = {
-			limit = {
-				market = {
-					mg:groceries = {
-						market_goods_sell_orders > 900
-					}
-				}
-			}
-			add = 1
-		}
+		value = 1
 	}
 
 	group = supplies
@@ -124,26 +114,22 @@ mobilization_option_luxurious_supplies = {
 		goods_input_meat_add = 1
 		goods_input_wine_add = 1
 	}
+	upkeep_modifier_unscaled = {
+        goods_input_small_arms_mult = 0.25
+        goods_input_artillery_mult = 0.25
+		goods_input_ammunition_mult = 0.25
+        goods_input_oil_mult = 0.25
+        goods_input_radios_mult = 0.25
+        goods_input_tanks_mult = 0.25
+	}	
+	
 	unit_modifier = {
 		unit_morale_loss_mult = -0.05
 		unit_offense_mult = 0.1
 		unit_defense_mult = 0.1
 	}
 	ai_weight = {
-		value = 0
-		if = {
-			limit = {
-				market = {
-					mg:meat = {
-						market_goods_sell_orders > 300
-					}
-					mg:wine = {
-						market_goods_sell_orders > 300
-					}
-				}
-			}
-			add = 1
-		}
+		value = 1
 	}
 
 	group = supplies
@@ -270,7 +256,7 @@ mobilization_option_liquor = {
 				}
 			}
 			add = 1
-		}
+}
 	}
 
 	group = supplements
@@ -424,7 +410,7 @@ mobilization_option_truck_transport = {
 		military_formation_mobilization_speed_mult = 0.4
 	}
 	ai_weight = {
-		value = 0
+		value = 1
 
 		if = {
 			limit = {
@@ -488,7 +474,7 @@ mobilization_option_rail_transport = {
 		military_formation_movement_speed_mult = 0.2
 	}
 	ai_weight = {
-		value = 0
+		value = 1
 		if = {
 			limit = {
 				market = {
@@ -498,7 +484,7 @@ mobilization_option_rail_transport = {
 				}
 			}
 			add = 1
-		}
+}
 	}
 
     group = transport
@@ -547,7 +533,7 @@ mobilization_option_machinegunners = {
 		unit_defense_add = 10
 	}
 	ai_weight = {
-		value = 0
+		value = 1
 
 		if = {
 			limit = {
@@ -656,7 +642,7 @@ mobilization_option_flamethrowers = {
 		unit_morale_damage_mult = 0.1
 	}
 	ai_weight = {
-		value = 0
+		value = 1
 
 		if = {
 			limit = {
@@ -739,21 +725,6 @@ mobilization_option_motorized_recon = {
 	}
 	ai_weight = {
 		value = 1
-
-		if = {
-			limit = {
-				market = {
-					mg:automobiles = {
-						market_goods_sell_orders > 800
-					}
-					mg:oil = {
-						market_goods_sell_orders > 400
-					}
-				}
-			}
-			add = 2
-		}
-
 	}
 
     group = reconnaissance
@@ -763,11 +734,10 @@ mobilization_option_aerial_recon = {
 	texture = "gfx/interface/icons/mobilization_options/aerial_reconaissance.dds"
 
 	possible = {
-		has_technology_researched = military_aviation
 		market ?= {
-			# mg:aeroplanes ?= {
-			# 	market_goods_sell_orders > 0
-			# }
+			mg:aeroplanes ?= {
+				market_goods_sell_orders > 0
+			}
 			mg:oil ?= {
 				market_goods_sell_orders > 0
 			}

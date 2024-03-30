@@ -92,12 +92,11 @@ NAI = {
 
 	HQ_DEFENSE_MIN_THEATER_SCORE = 20								# Theater of local HQ must have at least this importance score to have a minimum garrison
 
-	MIN_GOVERNMENT_LEGITIMACY = 50			# If legitimacy is below this, consider adding IGs we don't really like to the government
+	MIN_GOVERNMENT_LEGITIMACY = 25			# If legitimacy is below this, consider adding IGs we don't really like to the government
 	
 	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #2 # Scales with movement support for movement that wants to enact the law
 	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #6 # Scales with movement radicalism for movement that wants to enact the law
 
-	DIPLO_PLAY_REVERSE_SWAY_BECOME_SUBJECT_VALUE_FACTOR = -1.0 #1.0 # Multiplied by how much the AI wants to become a subject of the sway target
 	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
 	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
 	
@@ -119,7 +118,7 @@ NPolitics = {
 	SECESSION_COOLDOWN_YEARS = 5
 	
 	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.3 #0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
-	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.001 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
+	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.0015 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
 	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
 	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
@@ -149,8 +148,8 @@ NMilitary = {
 	MANPOWER_LOST_DUE_TO_ATTRITION_PER_WEEK_MAX = 0.1 	# The maximum percentage of manpower a unit can lose each week due to attrition
 
 
-	BATTLE_LETHALITY_MIN = 0.00025 # 0.001
-	BATTLE_LETHALITY_MAX = 0.00250 # 0.005
+	BATTLE_LETHALITY_MIN = 0.0005 #0.00025 # 0.001
+	BATTLE_LETHALITY_MAX = 0.003 #0.00250 # 0.005
 	BATTLE_RAW_MANPOWER_INFLICTED_CASUALTY_RATIO = 0.25 # 0.5		# applied to the number of casualties caused by raw number of troops, ie without considering Offense/Defense - increasing this makes CE less important and battles more lethal
 	BATTLE_COMBAT_EFFICIENCY_INFLICTED_CASUALTY_RATIO = 1.75 # 1.5	# applied to the number of casualties caused by troops with Offense/Defense also factored in - increasing this makes CE more important and battles more lethal
 

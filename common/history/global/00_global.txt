@@ -51,6 +51,12 @@ GLOBAL = {
 			}
 			state_region = { remove_state_trait = state_trait_caspian_sea }
 		}
+		if = {
+			limit = {
+				state_region = s:STATE_CORRIENTES
+			}
+			state_region = { remove_state_trait = state_trait_paraguay_river }
+		}
 	}
 	every_country = {
 		add_taxed_goods = g:services
@@ -96,6 +102,14 @@ GLOBAL = {
 			remove_ideology = ideology_constitutionalist
 			add_ideology = ideology_republican
 		}
+	}
+	# Revolution Safety Check
+	every_country = {
+		limit = {
+			total_population <= 100000
+		}
+		set_variable = revolution_safety_check_var
+		set_immune_to_revolutions = yes
 	}
 	every_country = {
 		limit = { 
@@ -193,7 +207,7 @@ GLOBAL = {
         }
     }
 	
-	c:PER = {
+	c:PER ?= {
 		every_scope_state = {
             limit = {
 				is_incorporated = yes
@@ -211,7 +225,7 @@ GLOBAL = {
 		}
 	}
 	
-	c:IBE = {
+	c:IBE ?= {
 		every_scope_state = {
             limit = {
                 OR = {
@@ -235,7 +249,7 @@ GLOBAL = {
         }
 	}
 	
-	c:AKN = {
+	c:AKN ?= {
 		every_scope_state = {
             limit = {
 				is_capital = no

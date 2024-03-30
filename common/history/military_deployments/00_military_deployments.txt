@@ -1,5 +1,5 @@
 ﻿MILITARY_DEPLOYMENTS = {
-	c:IBE = {
+	c:IBE ?= {
 		random_scope_general = {
 			limit = {
 				has_variable = ibe_gen1_var
@@ -12,7 +12,7 @@
 		}
 	}
 
-	c:ARN = {
+	c:ARN ?= {
 		random_scope_general = {
 			limit = {
 				has_variable = arn_gen1_var
@@ -36,7 +36,7 @@
 		}
 	}
 
-	c:KRL = {
+	c:KRL ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -44,7 +44,7 @@
 		}
 	}
 
-	c:USC = {
+	c:USC ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -52,7 +52,7 @@
 		}
 	}
 	
-	c:NWX = {
+	c:NWX ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -60,7 +60,7 @@
 		}
 	}
 	
-	c:JUL = {
+	c:JUL ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -68,7 +68,7 @@
 		}
 	}
 	
-	c:TPR = {
+	c:TPR ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -76,7 +76,7 @@
 		}
 	}
 	
-	c:CSR = {
+	c:CSR ?= {
 		every_military_formation = {
 			limit = { is_army = yes }
 			fully_mobilize_army = yes
@@ -84,7 +84,7 @@
 		}
 	}
 	
-	c:PER = {
+	c:PER ?= {
 		random_scope_general = {
 			limit = {
 				has_variable = per_gen1_var
@@ -97,7 +97,7 @@
 		}
 	}
 	
-	c:TAU = {
+	c:TAU ?= {
 		random_scope_general = {
 			limit = {
 				has_variable = king_haymar
@@ -120,7 +120,7 @@
 		}
 	}
 	
-	c:LXA = {
+	c:LXA ?= {
 		every_military_formation = {
 			fully_mobilize_army = yes
 			teleport_to_front = p:x1E6D3C.front

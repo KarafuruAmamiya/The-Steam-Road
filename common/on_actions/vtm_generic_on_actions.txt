@@ -51,3 +51,30 @@ secession_homelands_claims_on_action = {
 		}
 	}
 }
+
+on_yearly_pulse_country = {
+	on_actions = {
+		revolution_safety_check_on_action
+	}
+}
+
+revolution_safety_check_on_action = {
+	effect = {
+		if = {
+			limit = {
+				total_population <= 100000
+				NOT = { has_variable = revolution_safety_check_var }
+			}
+			set_variable = revolution_safety_check_var
+			set_immune_to_revolutions = yes
+		}
+		else_if = {
+			limit = {
+				total_population >= 150000
+				has_variable = revolution_safety_check_var
+			}
+			remove_variable = revolution_safety_check_var
+			set_immune_to_revolutions = no
+		}
+	}
+}

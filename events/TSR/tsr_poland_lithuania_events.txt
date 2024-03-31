@@ -23,6 +23,12 @@ poland_lithuania_events.1 = {
 		capital = {
 			save_scope_as = capital_scope
 		}
+		if = {
+			limit = {
+				NOT = { country_has_primary_culture = cu:polish }
+			}
+			add_primary_culture = cu:polish
+		}
 		set_variable = polish_revolter_var
 		save_scope_as = polish_revolt_country
 		c:POL = { 
@@ -348,6 +354,9 @@ poland_lithuania_events.4 = {
 						is_homeland = cu:polish
 					}
 				}
+				NOT = { has_claim_by = root }
+				NOT = { owner = root }
+				NOT = { owner = { is_subject_of = root } }
 			}
 			state_region = {
 				add_claim = root

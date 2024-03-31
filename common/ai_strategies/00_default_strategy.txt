@@ -234,6 +234,22 @@ ai_strategy_default = {
 			add = 1000
 		}
 		
+		if = { #Likewise for Moscow Uprising.
+			limit = {
+				exists = c:MSC
+				this = c:MSC
+				trigger_if = {
+					limit = { exists = c:SCA is_subject_of = c:SCA }
+					is_diplomatic_play_enemy_of = c:SCA
+				}
+				trigger_else_if = {
+					limit = { exists = c:SWE is_subject_of = c:SWE }
+					is_diplomatic_play_enemy_of = c:SWE
+				}
+			}
+			add = 1000
+		}
+		
 		# Opium wars participants should both be confident
 		if = {
 			limit = {
@@ -773,6 +789,34 @@ ai_strategy_default = {
 					}
 				}
 				add = 200
+			}
+			
+			#Polish Nightmare
+			if = {
+				limit = {
+					has_journal_entry = je_odrodzenie
+					scope:target_country = {
+						has_journal_entry = je_odrodzenie_victim
+					}
+				}
+				add = 0.5
+			}
+
+			# Eastern Europe Thunderdome
+			if = {
+				limit = {
+					is_subject = no
+					has_technology_researched = nationalism
+					any_primary_culture = {
+						has_discrimination_trait = eastern_european_heritage
+					}
+					scope:target_country = {
+						any_scope_state = {
+							has_claim_by = root
+						}
+					}
+				}
+				add = 0.5
 			}
 
 			if = {
@@ -1612,6 +1656,22 @@ ai_strategy_default = {
 			}
 			add = 3
 		}
+		
+		if = { #Likewise for Moscow Uprising.
+			limit = {
+				exists = c:MSC
+				this = c:MSC
+				trigger_if = {
+					limit = { exists = c:SCA is_subject_of = c:SCA }
+					is_diplomatic_play_enemy_of = c:SCA
+				}
+				trigger_else_if = {
+					limit = { exists = c:SWE is_subject_of = c:SWE }
+					is_diplomatic_play_enemy_of = c:SWE
+				}
+			}
+			add = 3
+		}
 
 		if = { 
 			limit = {
@@ -2001,7 +2061,24 @@ ai_strategy_default = {
 				}				
 			}
 			add = 5
-		}		
+		}
+
+			# Eastern Europe Thunderdome
+			if = {
+				limit = {
+					is_subject = no
+					has_technology_researched = nationalism
+					any_primary_culture = {
+						has_discrimination_trait = eastern_european_heritage
+					}
+					scope:target_country = {
+						any_scope_state = {
+							has_claim_by = root
+						}
+					}
+				}
+				add = 50
+			}		
 		
 		if = {
 			limit = {
@@ -4643,6 +4720,22 @@ ai_strategy_default = {
 					}
 				}
 				add = 200
+			}
+			
+			if = {
+				limit = {
+					THIS = {
+						has_journal_entry = je_odrodzenie
+					}
+					scope:target_country = {
+						any_scope_state = {
+							state_region = {
+								is_homeland = cu:polish
+							}
+						}
+					}
+				}
+				add = 50
 			}
 			
 			if = {

@@ -20,17 +20,35 @@ russian_events.1 = {
 	duration = 3
 
 	immediate = {
+		if = {
+			limit = {
+				NOT = { has_technology_researched = nationalism }
+			}
+			add_technology_researched = nationalism
+		}
 		overlord = {
 			save_scope_as = overlord_scope
+			set_variable = russian_oppressor
+		}
+		remove_primary_culture = cu:swedish
+		add_primary_culture = cu:russian
+		set_state_religion = rel:orthodox
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_wealth_voting
+		if = {
+			limit = {
+				has_law = law_type:law_hereditary_bureaucrats
+			}
+			activate_law = law_type:law_appointed_bureaucrats
 		}
 		create_character = { #WIP
 			culture = cu:russian
 			interest_group = ig_intelligentsia
 			ideology = ideology_radical
+			ruler = yes
 			traits = {
 				ambitious expert_political_operator
 			}
-			save_scope_as = russian_president_scope
 		}
 	}
 
@@ -38,52 +56,55 @@ russian_events.1 = {
 		name = russian_events.1.a
 		default_option = yes
 		
-		activate_law = law_type:law_parliamentary_republic
-		activate_law = law_type:law_census_voting
-		if = {
-			limit = {
-				has_law = law_type:law_hereditary_bureaucrats
+		show_as_tooltip = {
+			remove_primary_culture = cu:swedish
+			add_primary_culture = cu:russian
+			set_state_religion = rel:orthodox
+		}
+		
+		custom_tooltip = {
+			text = kill_swedes_tt
+			every_scope_character = {
+				limit = {
+					NOT = { culture = cu:russian }
+				}
+				kill_character = yes
 			}
-			activate_law = law_type:law_appointed_bureaucrats
 		}
 		
-		remove_primary_culture = cu:swedish
-		add_primary_culture = cu:russian
-		every_scope_character = {
-			limit = {
-				NOT = { culture = cu:russian }
-			}
-			kill_character = yes
-		}
+		add_journal_entry = { type = je_russian_independence_war }
 		
-		scope:russian_president_scope = {
-			set_character_as_ruler = yes
-		}
-		
-		scope:overlord_scope = {
-			trigger_event = { id = russian_events.2 popup = yes }
-			every_scope_state = {
+		hidden_effect = {
+			every_state = {
 				limit = {
 					state_region = {
 						is_homeland = cu:russian
 					}
 				}
-				add_claim = root
+				state_region = { add_claim = root }
 			}
-			change_relations = {
-				country = root
-				value = -100
-			}
-			hidden_effect = {
-				set_secret_goal = {
+			set_immune_to_revolutions = yes
+			scope:overlord_scope = {
+				trigger_event = { id = russian_events.2 popup = yes }
+				change_relations = {
 					country = root
-					secret_goal = conquer
+					value = -100
+				}
+				hidden_effect = {
+					set_secret_goal = {
+						country = root
+						secret_goal = conquer
+					}
 				}
 			}
-		}
-		
-		hidden_effect = {
-			set_immune_to_revolutions = yes
+			every_country = {
+				limit = {
+					any_primary_culture = {
+						has_discrimination_trait = eastern_european_heritage
+					}
+				}
+				trigger_event = { id = russian_events.3 }
+			}
 		}
 	}
 }
@@ -131,7 +152,6 @@ russian_events.2 = {
 		ai_chance = {
 			base = 100
 		}
-		set_variable = russian_oppressor
 		create_diplomatic_play = {
 			name = russian_independence_war
 			type = dp_annex_war
@@ -144,6 +164,11 @@ russian_events.2 = {
 			random_diplomatic_play = {
 				limit = {
 					target_is = c:MSC
+				}
+				add_war_goal = {
+					holder = c:MSC
+					type = independence
+					target_country = c:SWE
 				}
 				if = {
 					limit = {
@@ -182,7 +207,7 @@ russian_events.2 = {
 					add_war_goal = {
 						holder = c:MSC
 						type = return_state
-						target_state = s:STATE_PSKOV.region_state:SWE
+						target_state = s:STATE_PETROZAVODSK.region_state:SWE
 					}
 				}
 				if = {
@@ -204,6 +229,11 @@ russian_events.2 = {
 			random_diplomatic_play = {
 				limit = {
 					target_is = c:MSC
+				}
+				add_war_goal = {
+					holder = c:MSC
+					type = independence
+					target_country = c:SCA
 				}
 				if = {
 					limit = {
@@ -242,7 +272,7 @@ russian_events.2 = {
 					add_war_goal = {
 						holder = c:MSC
 						type = return_state
-						target_state = s:STATE_PSKOV.region_state:SCA
+						target_state = s:STATE_PETROZAVODSK.region_state:SCA
 					}
 				}
 				if = {
@@ -269,6 +299,23 @@ russian_events.2 = {
 			add_radicals_in_state = {
 				value = large_radicals
 				culture = cu:russian
+			}
+		}
+		hidden_effect = {
+			change_infamy = -70
+			c:MSC = {
+				add_modifier = {
+					name = russian_independence_war
+					months = normal_modifier_time
+				}
+				add_modifier = {
+					name = russian_army_modifier
+					months = normal_modifier_time
+				}
+				add_modifier = {
+					name = modifier_russian_hiring_bonus
+					months = normal_modifier_time
+				}
 			}
 		}
 	}
@@ -304,9 +351,9 @@ russian_events.3 = {
 	type = country_event
 	placement = scope:moscow_state
 
-	title = russian_events.2.t
-	desc = russian_events.2.d
-	flavor = russian_events.2.f
+	title = russian_events.3.t
+	desc = russian_events.3.d
+	flavor = russian_events.3.f
 
 	event_image = {
 		video = "unspecific_military_parade"
@@ -329,37 +376,153 @@ russian_events.3 = {
 			}
 			add_technology_researched = nationalism
 		}
-		capital = {
-			save_scope_as = moscow_state
+		c:MSC = {
+			capital = {
+				save_scope_as = moscow_state
+			}
 		}
 		random_country = {
 			limit = { has_variable = russian_oppressor }
 			save_scope_as = oppressor_scope
 		}
+		random_primary_culture = {
+			save_scope_as = primary_culture_scope
+		}
 	}
 
 	option = {
-		name = russian_events.3.a
+		name = russian_events.3.a #We must fight for our freedom
 		default_option = yes
-		
+		trigger = {
+			is_subject = yes
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_homeland_of_country_cultures = root
+					NOT = { has_claim_by = root }
+				}
+			}
+			custom_tooltip = {
+				text = gain_claim_on_homeland_tt
+				every_state = {
+					limit = {
+						is_homeland_of_country_cultures = root
+						NOT = { has_claim_by = root }
+						owner = { NOT = { is_subject_of = root } }
+						owner = { NOT = { root = this } }
+					}
+					state_region = {
+						add_claim = root
+					}
+				}
+			}
+		}
+		overlord = {
+			change_relations = {
+				country = root
+				value = -100
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = { root = this }
+				NOT = { overlord = this }
+				NOT = { is_subject_of = root }
+				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
+				any_scope_state = {
+					is_homeland_of_country_cultures = root
+					NOT = { has_claim_by = root }
+				}
+			}
+			change_relations = {
+				country = root
+				value = -100
+			}
+		}
 	}
 	
 	option = {
-		name = russian_events.3.b
+		name = russian_events.3.b #We must reclaim our homeland
+		trigger = {
+			is_subject = no
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_homeland_of_country_cultures = root
+					NOT = { has_claim_by = root }
+				}
+			}
+			custom_tooltip = {
+				text = gain_claim_on_homeland_tt
+				every_state = {
+					limit = {
+						is_homeland_of_country_cultures = root
+						NOT = { has_claim_by = root }
+						owner = { NOT = { is_subject_of = root } }
+						owner = { NOT = { root = this } }
+					}
+					state_region = {
+						add_claim = root
+					}
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = { root = this }
+				NOT = { is_subject_of = root }
+				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
+				any_scope_state = {
+					is_homeland_of_country_cultures = root
+					NOT = { has_claim_by = root }
+				}
+			}
+			change_relations = {
+				country = root
+				value = -100
+			}
+		}
+	}
+	
+	option = {
+		name = russian_events.3.b #We cannot alienate our neighbors/overlord
+		add_radicals = {
+			value = medium_radicals
+			culture = scope:primary_culture_scope
+		}
 		ai_chance = {
 			base = 0
 		}
-		
 	}
 }
 
-# End of the Moscow Governorate
+# End of the Moscow Governorate (victory)
 russian_events.4 = {
 	type = country_event
 	placement = scope:moscow_state
 
 	title = russian_events.4.t
-	desc = russian_events.4.d
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = russian_events.4.d
+				trigger = {
+					c:MSC ?= this
+				}
+			}
+			triggered_desc = {
+				desc = russian_events.4.d2
+				trigger = { 
+					OR = {
+						c:SWE ?= this 
+						c:SCA ?= this 
+					}
+				}
+			}
+		}
+	}
 	flavor = russian_events.4.f
 
 	event_image = {
@@ -377,7 +540,7 @@ russian_events.4 = {
 	}
 
 	immediate = {
-		random_scope_state = {
+		random_state = {
 			limit = {
 				state_region = s:STATE_MOSCOW
 			}
@@ -388,14 +551,250 @@ russian_events.4 = {
 	option = {
 		name = russian_events.4.a
 		default_option = yes
-		
+		trigger = { c:MSC ?= this }
+		add_modifier = {
+			name = won_russian_independence_war
+			months = normal_modifier_time
+		}
+		every_state = {
+			limit = {
+				OR = {
+					region = sr:region_central_russia
+					region = sr:region_volga
+					region = sr:region_barents
+					state_region = {
+						is_homeland = cu:russian
+					}
+				}
+				NOT = { has_claim_by = root }
+				NOT = { owner = root }
+				NOT = { owner = { is_subject_of = root } }
+			}
+			state_region = {
+				add_claim = root
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_modifier = russian_independence_war }
+				remove_modifier = russian_independence_war
+			}
+			if = {
+				limit = { has_modifier = russian_army_modifier }
+				remove_modifier = russian_army_modifier
+			}
+			if = {
+				limit = { has_modifier = modifier_russian_hiring_bonus }
+				remove_modifier = modifier_russian_hiring_bonus
+			}
+		}
 	}
 	
 	option = {
 		name = russian_events.4.b
-		ai_chance = {
-			base = 0
+		trigger = { 
+			OR = {
+				c:SWE ?= this 
+				c:SCA ?= this 
+			}
 		}
-		
+		add_modifier = {
+			name = lost_russian_independence_war
+			months = normal_modifier_time
+		}
+	}
+}
+
+# End of the Moscow Governorate (defeat)
+russian_events.5 = {
+	type = country_event
+	placement = scope:moscow_state
+
+	title = russian_events.5.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = russian_events.5.d
+				trigger = {
+					c:MSC ?= this
+				}
+			}
+			triggered_desc = {
+				desc = russian_events.5.d2
+				trigger = { 
+					OR = {
+						c:SWE ?= this 
+						c:SCA ?= this 
+					}
+				}
+			}
+		}
+	}
+	flavor = russian_events.5.f
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				state_region = s:STATE_MOSCOW
+			}
+			save_scope_as = moscow_state
+		}
+	}
+
+	option = {
+		name = russian_events.5.a
+		default_option = yes
+		trigger = { c:MSC ?= this }
+		show_as_tooltip = {
+			if = {
+				limit = { has_modifier = russian_independence_war }
+				remove_modifier = russian_independence_war
+			}
+			if = {
+				limit = { has_modifier = russian_army_modifier }
+				remove_modifier = russian_army_modifier
+			}
+			if = {
+				limit = { has_modifier = modifier_russian_hiring_bonus }
+				remove_modifier = modifier_russian_hiring_bonus
+			}
+			remove_primary_culture = cu:russian
+			add_primary_culture = cu:swedish
+			set_state_religion = rel:catholic
+			custom_tooltip = {
+				text = kill_russians_tt
+				every_scope_character = {
+					limit = {
+						culture = cu:russian
+					}
+					kill_character = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_presidential_republic }
+				}
+				activate_law = law_type:law_presidential_republic
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_hereditary_bureaucrats }
+				}
+				activate_law = law_type:law_hereditary_bureaucrats
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_racial_segregation }
+				}
+				activate_law = law_type:law_racial_segregation
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_state_religion }
+				}
+				activate_law = law_type:law_state_religion
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_religious_schools }
+				}
+				activate_law = law_type:law_religious_schools
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_unitary }
+				}
+				activate_law = law_type:law_unitary
+			}
+		}
+	}
+	
+	option = {
+		name = russian_events.5.b
+		trigger = { 
+			OR = {
+				c:SWE ?= this 
+				c:SCA ?= this 
+			}
+		}
+		if = {
+			limit = { exists = c:MSC }
+			c:MSC = {
+				if = {
+					limit = { has_modifier = russian_independence_war }
+					remove_modifier = russian_independence_war
+				}
+				if = {
+					limit = { has_modifier = russian_army_modifier }
+					remove_modifier = russian_army_modifier
+				}
+				if = {
+					limit = { has_modifier = modifier_russian_hiring_bonus }
+					remove_modifier = modifier_russian_hiring_bonus
+				}
+				remove_primary_culture = cu:russian
+				add_primary_culture = cu:swedish
+				set_state_religion = rel:catholic
+				custom_tooltip = {
+					text = kill_russians_tt
+					every_scope_character = {
+						limit = {
+							culture = cu:russian
+						}
+						kill_character = yes
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_presidential_republic }
+					}
+					activate_law = law_type:law_presidential_republic
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_hereditary_bureaucrats }
+					}
+					activate_law = law_type:law_hereditary_bureaucrats
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_racial_segregation }
+					}
+					activate_law = law_type:law_racial_segregation
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_state_religion }
+					}
+					activate_law = law_type:law_state_religion
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_religious_schools }
+					}
+					activate_law = law_type:law_religious_schools
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_unitary }
+					}
+					activate_law = law_type:law_unitary
+				}
+			}
+		}
 	}
 }

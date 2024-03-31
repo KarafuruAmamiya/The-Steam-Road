@@ -34,15 +34,65 @@
     }
 	
     on_complete = {
-        trigger_event = { id = russian_events.1 }
-    }
-	
-    fail = {
-        
+        trigger_event = { id = russian_events.1 popup = yes }
     }
 
 	current_value = {
 		value = root.var:russian_unrest_je_var
+	}
+	
+	fail = {
+		root.average_sol > 10
+		AND = {
+			OR = {
+				has_law = law_type:law_shared_heritage
+				has_law = law_type:law_cultural_exclusion
+				has_law = law_type:law_multicultural
+			}
+			OR = {
+				has_law = law_type:law_freedom_of_conscience
+				has_law = law_type:law_total_separation
+				has_law = law_type:law_state_atheism
+			}
+			OR = {
+				has_law = law_type:law_devolved
+				has_law = law_type:law_federal
+				has_law = law_type:law_confederated
+			}
+		}
+		every_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+			turmoil < 0.10
+		}
+		OR = {
+			overlord = {
+				AND = {
+					OR = {
+						has_law = law_type:law_shared_heritage
+						has_law = law_type:law_cultural_exclusion
+						has_law = law_type:law_multicultural
+					}
+					OR = {
+						has_law = law_type:law_freedom_of_conscience
+						has_law = law_type:law_total_separation
+						has_law = law_type:law_state_atheism
+					}
+					OR = {
+						has_law = law_type:law_devolved
+						has_law = law_type:law_federal
+						has_law = law_type:law_confederated
+					}
+				}
+			}
+			NOR = {
+				is_subject_type = subject_type_dependency
+				is_subject_type = subject_type_puppet
+			}
+		}
 	}
 
 	goal_add_value = {
@@ -83,19 +133,20 @@ je_russian_independence_war = {
 		hidden_effect = {
 			set_immune_to_revolutions = no
 		}
-        trigger_event = { id = russian_events.3 }
+        trigger_event = { id = russian_events.4 popup = yes }
     }
     fail = {
         is_at_war = no
-		is_subject = yes
+		OR = {
+			is_subject = yes
+			is_country_alive = no
+		}
     }
 	on_fail = {
 		hidden_effect = {
 			set_immune_to_revolutions = no
 		}
-	}
-	invalid = {
-		NOT = { exists = c:MSC }
+		trigger_event = { id = russian_events.5 popup = yes }
 	}
 
     weight = 1000
@@ -109,11 +160,11 @@ je_moscow_uprising = {
 
     complete = {
 		is_at_war = no
-        OR = {
-			NOT = { exists = c:MSC }
-			c:MSC = {
-                is_subject_of = root 
-            }
+        c:MSC = {
+			OR = {
+				is_subject_of = root 
+				is_country_alive = no
+			}
         }
     }
     on_complete = {
@@ -127,7 +178,7 @@ je_moscow_uprising = {
 				}
 			}
 		}
-        trigger_event = { id = russian_events.4 }
+        trigger_event = { id = russian_events.5 popup = yes }
     }
     fail = {
 		is_at_war = no
@@ -156,6 +207,7 @@ je_moscow_uprising = {
 				}
 			}
 		}
+		trigger_event = { id = russian_events.4 popup = yes }
 	}
 
     weight = 1000

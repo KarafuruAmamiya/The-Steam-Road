@@ -1,3 +1,38 @@
 ﻿l_english:
  # Moscow Uprising
+ moscow_uprising_tt: "The Moscow Governorate has successfully handled Russian nationalism"
+ je_russian_nationalism: "The Russian Nation"
+ je_russian_nationalism_reason: "The Russian Empire was once a vast and powerful entity in Europe. By the late 18th century, however, various internal strife and external pressures has resulted in its collapse into various semi-independent duchies, made into tributaries by the nearby #bold Ottoman#! and #bold Akkovin#! empires, while its former crownlands around Moscow has been subjugated by the #bold Swedish Empire#! and reorganized into the #bold Moscow Governorate#!.\n\nDuring the subsequent decades, the Russian people under Swedish rule endured oppression, cultural suppression, and political marginalization, while the breakaway states either chafed under their overlords or too busy feuding among their own to even dream of reuniting the empire. Yet, despite this subjugation, the flame of Russian nationalism began to burn, nurtured by memories of past glory and a longing for independence.\n\nOnce unrest has fully taken hold of our Russian populace, [ROOT.GetCountry.GetName] will face a violent takeover by Russian nationalists, pitting us against our overlord.\n\n#bold Russian Nationalism#! is expected to progress by #tooltippable;tooltip:[Country.GetTooltipTag],je_russian_nationalism_special_tooltip [Country.MakeScope.Var('russian_unrest_var_next').GetValue|-=]#! next month"
+ je_russian_nationalism_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('russian_unrest_from_radicals').GetValue|-=]#! from Russian [Concept('concept_state', '$concept_states$')] in [concept_turmoil]\n#variable [Country.MakeScope.Var('russian_unrest_from_literacy').GetValue|-=]#! from the literacy rate of Russian [Concept('concept_state', '$concept_states$')]\n#variable [Country.MakeScope.Var('russian_unrest_from_nationalism').GetValue|-=]#! from researching the #v $nationalism$#! [concept_technology]\n#variable [Country.MakeScope.Var('russian_unrest_from_pannationalism').GetValue|-=]#! from researching the #v $pan-nationalism$#! [concept_technology]\n#variable [Country.MakeScope.Var('russian_unrest_from_universities').GetValue|-=]#! from $building_arts_academy$ and $building_university$ [Concept('concept_building_level', '$concept_building_levels$')]\n#variable [Country.MakeScope.Var('russian_unrest_from_loyalists').GetValue|-=]#! from Russian [Concept('concept_state', '$concept_states$')] with [Concept('concept_loyalist','$concept_loyalists$')]\n#variable [Country.MakeScope.Var('russian_unrest_from_laws').GetValue|-=]#! from #bold Education System#!, #bold Home Affairs#!, and #bold Policing#! [Concept('concept_law','$concept_laws$')] and [Concept('concept_institution', '$concept_institutions$')]\n#variable [Country.MakeScope.Var('russian_unrest_var_add').GetValue|-=]#! from other effects"
+ russian_unrest_variable_at_full_tt: "The #bold Progress Bar#! has reached #variable 100%#!"
  
+ russian_events.1.t: "The Moscow Uprising"
+ russian_events.1.d: ""
+ russian_events.1.f: ""
+ russian_events.1.a: ""
+ 
+ russian_events.2.t: "Moscow Declares Independence!"
+ russian_events.2.d: ""
+ russian_events.2.f: ""
+ russian_events.2.a: ""
+ 
+ russian_events.3.t: "Manifesto of the Russian Nation"
+ russian_events.3.d: ""
+ russian_events.3.f: ""
+ russian_events.3.a: ""
+ russian_events.3.b: ""
+ russian_events.3.c: ""
+ 
+ russian_events.4.t: "The Phoenix Nation"
+ russian_events.4.d: ""
+ russian_events.4.d2: ""
+ russian_events.4.f: ""
+ russian_events.4.a: ""
+ russian_events.4.b: ""
+ 
+ russian_events.5.t: "End of the Moscow Uprising"
+ russian_events.5.d: ""
+ russian_events.5.d2: ""
+ russian_events.5.f: ""
+ russian_events.5.a: ""
+ russian_events.5.b: ""

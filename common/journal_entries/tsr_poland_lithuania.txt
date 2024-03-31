@@ -61,7 +61,12 @@ je_odrodzenie_victim = {
 	is_shown_when_inactive = {
 		exists = c:POL
 		NOR = { c:POL = this is_subject_of = c:POL }
-		country_has_primary_culture = cu:polish
+		capital = {
+			state_region = {
+				is_homeland = cu:polish
+			}
+			region = sr:region_poland
+		}
 	}	
 
 	immediate = {
@@ -74,16 +79,17 @@ je_odrodzenie_victim = {
 	}
 		
 	possible = {
-		any_country = {
-			country_has_primary_culture = cu:polish
+		c:POL ?= {
 			has_technology_researched = nationalism
 		}
 	}
 
 	complete = {
-		OR = {
-			NOT = { exists = c:POL }
-			c:POL = { is_subject = yes }
+		c:POL = { 
+			OR = {
+				is_subject = yes 
+				is_country_alive = no
+			}
 		}
 	}
 	

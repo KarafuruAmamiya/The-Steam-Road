@@ -105,6 +105,18 @@
 				NOT = { has_journal_entry = je_swe_regency }
 			}
 		}
+		
+		trigger_if = {
+			limit = {
+				exists = c:SWE
+				c:SWE = this
+				scope:target_country = { c:MSC ?= this }
+			}
+			custom_tooltip = {
+				text = moscow_uprising_tt
+				c:MSC ?= { NOT = { has_journal_entry = je_russian_nationalism } }
+			}
+		}
 	}
 	
 	accept_effect = {

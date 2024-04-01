@@ -30,6 +30,10 @@
 				is_country_type = colonial 
 				root = { NOT = { is_country_type = colonial } }
 			}
+			trigger_if = { #PLACEHOLDER
+				limit = { c:ITA ?= this }
+				coa_republic_trigger = no
+			}
 			#overlord = { NOT = { is_subject_type = subject_type_customs_union } }
 			#NOT = { overlord = { has_diplomatic_pact = { who = overlord type = customs_union } } }
 		}

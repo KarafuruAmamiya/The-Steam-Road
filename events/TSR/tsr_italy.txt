@@ -1,0 +1,682 @@
+﻿namespace = latin_republic
+
+# start event
+latin_republic.1 = {
+	type = country_event
+	placement = root
+	title = latin_republic.1.t
+	desc = latin_republic.1.d
+	flavor = latin_republic.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_garibaldi"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		# triggered by je
+	}
+
+	immediate = {
+		c:ITA = {
+			save_scope_as = ita_scope
+		}
+		random_interest_group = {
+			limit = {
+				is_marginal = no
+				is_in_government = yes
+				OR = {
+					is_interest_group_type = ig_armed_forces
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_imperialist
+						}
+					}
+				}
+			}
+			save_scope_as = latin_rep_leader
+		}
+	}
+
+	option = {
+		name = latin_republic.1.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+		}
+		every_state = {
+			limit = {
+				region = sr:region_greece
+				NOR = { owner = root owner = { is_subject_of = root } }
+			}
+			state_region = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { country_or_subject_owns_entire_state_region = STATE_HUDAVENDIGAR }
+			}
+			s:STATE_HUDAVENDIGAR = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_EASTERN_THRACE }
+			}
+			s:STATE_EASTERN_THRACE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_AYDIN }
+			}
+			s:STATE_AYDIN = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_KARASI }
+			}
+			s:STATE_KARASI = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_EAST_AEGEAN_ISLANDS }
+			}
+			s:STATE_EAST_AEGEAN_ISLANDS = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_NORTHERN_THRACE }
+			}
+			s:STATE_NORTHERN_THRACE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_SKOPIA }
+			}
+			s:STATE_SKOPIA = {
+				add_claim = ROOT
+			}
+		}
+		add_modifier = {
+			name = ita_latin_republic_pursuit
+			months = very_long_modifier_time
+			# country_infamy_decay_mult
+		}
+		every_country = {
+			limit = {
+				NOR = { THIS = ROOT is_subject_of = ROOT }
+				any_scope_state = {
+					OR = {
+						region = sr:region_greece
+						state_region = s:STATE_HUDAVENDIGAR
+						state_region = s:STATE_EASTERN_THRACE
+						state_region = s:STATE_AYDIN
+						state_region = s:STATE_KARASI
+						state_region = s:STATE_EAST_AEGEAN_ISLANDS
+						state_region = s:STATE_NORTHERN_THRACE
+						state_region = s:STATE_SKOPIA
+					}
+				}
+			}
+			trigger_event = { id = latin_republic.3 }
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_diplomatic_relevance = c:ITA
+					NOT = { THIS = ROOT }
+				}
+				post_notification = ita_latin_republic_notification
+			}
+		}
+	}
+	option = { # imperialist IG's unhappy
+		name = latin_republic.1.b
+		ai_chance = {
+			base = 0
+		}
+		custom_tooltip = {
+			text = dismiss_latin_republic_tt
+			set_variable = reject_latin_republic
+		}
+		every_interest_group = {
+			limit = {
+				is_marginal = no
+				is_in_government = yes
+				OR = {
+					is_interest_group_type = ig_armed_forces
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_imperialist
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = no_latin_republic
+				months = long_modifier_time
+				is_decaying = yes
+				# interest_group_approval_add
+			}
+		}
+	}
+}
+
+# reward event
+latin_republic.2 = {
+	type = country_event
+	placement = root
+	title = latin_republic.2.t
+	desc = latin_republic.2.d
+	flavor = latin_republic.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_garibaldi"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	trigger = {
+		# triggered by je
+	}
+
+	option = { # assimilate the new states
+		name = latin_republic.2.a
+		default_option = yes
+		if = {
+			limit = {
+				exists = c:LAE
+				c:LAE ?= {
+					is_subject_of = ROOT
+				}
+			}
+			c:LAE = {
+				add_modifier = {
+					name = latin_republic_assimilation
+					months = very_long_modifier_time
+					# state_assimilation_mult
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:GRE
+				c:GRE ?= {
+					is_subject_of = ROOT
+				}
+			}
+			c:GRE = {
+				add_modifier = {
+					name = latin_republic_assimilation
+					months = very_long_modifier_time
+					# state_assimilation_mult
+				}
+			}
+		}
+		else = {
+			every_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_greece
+						region = sr:region_anatolia
+						region = sr:region_west_balkans
+					}
+				}
+				add_modifier = {
+					name = latin_republic_assimilation
+					months = very_long_modifier_time
+					# state_assimilation_mult
+				}
+			}
+		}
+	}
+
+	option = { # empower imperialist IG's
+		name = latin_republic.2.b
+		trigger = {
+			any_interest_group = {
+				is_marginal = no
+				is_in_government = yes
+				OR = {
+					is_interest_group_type = ig_armed_forces
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_imperialist
+						}
+					}
+				}
+			}
+		}
+		every_interest_group = {
+			limit = {
+				is_marginal = no
+				is_in_government = yes
+				OR = {
+					is_interest_group_type = ig_armed_forces
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_imperialist
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = latin_republic_achieved
+				months = long_modifier_time
+				# interest_group_approval_add
+				# interest_group_pol_str_mult
+			}
+		}
+	}
+}
+
+# Notification event
+latin_republic.3 = {
+	type = country_event
+	placement = scope:italy_claim_state
+	title = latin_republic.3.t
+	desc = latin_republic.3.d
+	flavor = latin_republic.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	trigger = {
+		# triggered by je
+	}
+
+	immediate = {
+		c:ITA = {
+			save_scope_as = italy_scope
+		}
+		random_scope_state = {
+			limit = {
+				OR = {
+					region = sr:region_greece
+					state_region = s:STATE_HUDAVENDIGAR
+					state_region = s:STATE_EASTERN_THRACE
+					state_region = s:STATE_AYDIN
+					state_region = s:STATE_KARASI
+					state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					state_region = s:STATE_NORTHERN_THRACE
+					state_region = s:STATE_SKOPIA
+				}
+			}
+			save_scope_as = italy_claim_state
+		}
+	}
+
+	option = { # Prepare for war
+		name = latin_republic.3.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				OR = {
+					region = sr:region_greece
+					state_region = s:STATE_HUDAVENDIGAR
+					state_region = s:STATE_EASTERN_THRACE
+					state_region = s:STATE_AYDIN
+					state_region = s:STATE_KARASI
+					state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					state_region = s:STATE_NORTHERN_THRACE
+					state_region = s:STATE_SKOPIA
+				}
+			}
+			add_modifier = {
+				name = rally_against_italy
+				months = long_modifier_time
+				# state_conscription_rate_mult
+			}
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	option = { # Try to appease Italy
+		name = latin_republic.3.b
+		change_relations = {
+			country = c:ITA
+			value = 20
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Latin Republic Formation
+latin_republic.4 = {
+	type = country_event
+	placement = scope:latin_rep_capital
+	title = latin_republic.4.t
+	desc = latin_republic.4.d
+	flavor = latin_republic.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_garibaldi"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	trigger = {
+		# triggered by je
+	}
+
+	immediate = {
+		c:ITA = {
+			save_scope_as = italy_scope
+		}
+		random_subject_or_below = {
+			limit = {
+				NOT = {
+					any_state = {
+						region = sr:region_greece
+						NOT = { owner = { is_subject_of = root } }
+					}
+				}
+				calc_true_if = {
+					amount >= 4
+					any_scope_state = {
+						state_region = s:STATE_HUDAVENDIGAR
+					}
+					any_scope_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_AYDIN
+					}
+					any_scope_state = {
+						state_region = s:STATE_KARASI
+					}
+					any_scope_state = {
+						state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					}
+					any_scope_state = {
+						state_region = s:STATE_NORTHERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_SKOPIA
+					}
+				}
+			}
+			save_scope_as = latin_rep_scope
+			capital = { save_scope_as = latin_rep_capital }
+		}
+	}
+
+	option = { # Form the Latin Republic
+		name = latin_republic.4.a
+		default_option = yes
+		
+		scope:latin_rep_scope = {
+			change_tag = LAE
+			add_radicals = {
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_radicals = {
+				culture = cu:turkish
+				value = large_radicals
+			}
+		}
+		
+		every_state = {
+			limit = {
+				OR = {
+					state_region = {
+						is_homeland = cu:greek
+					}
+					region = sr:region_west_balkans
+				}
+				NOT = { has_claim_by = root }
+				NOT = { owner = root }
+				NOT = { owner = { is_subject_of = root } }
+			}
+			state_region = {
+				add_claim = root
+			}
+		}
+		
+		create_incident = {
+			country = root
+			value = 10
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					c:LAE ?= { NOT = { country_has_primary_culture = cu:north_italian } }
+				}
+				c:LAE ?= { add_primary_culture = cu:north_italian }
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Greece shall remain Greece
+		name = latin_republic.4.b
+		trigger = {
+			exists = c:GRE
+			scope:latin_rep_scope = {
+				c:GRE ?= this
+			}
+		}
+		
+		custom_tooltip = greece_still_counts
+		change_relations = {
+			country = c:GRE
+			value = 30
+		}
+		c:GRE ?= {
+			add_radicals = {
+				culture = cu:turkish
+				value = large_radicals
+			}
+		}
+		
+		every_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:greek
+				}
+				NOT = { has_claim_by = root }
+				NOT = { owner = root }
+				NOT = { owner = { is_subject_of = root } }
+			}
+			state_region = {
+				add_claim = root
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+# Latin Republic Formation (no subject)
+latin_republic.5 = {
+	type = country_event
+	placement = scope:latin_rep_capital
+	title = latin_republic.5.t
+	desc = latin_republic.5.d
+	flavor = latin_republic.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_garibaldi"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	trigger = {
+		# triggered by je
+	}
+
+	immediate = {
+		c:ITA = {
+			save_scope_as = italy_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_EASTERN_THRACE
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_EASTERN_THRACE
+				}
+				save_scope_as = latin_rep_capital
+			}
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_ATTICA
+				}
+			}
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_ATTICA
+				}
+				save_scope_as = latin_rep_capital
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_greece
+						state_region = s:STATE_HUDAVENDIGAR
+						state_region = s:STATE_AYDIN
+						state_region = s:STATE_KARASI
+						state_region = s:STATE_EAST_AEGEAN_ISLANDS
+						state_region = s:STATE_NORTHERN_THRACE
+						state_region = s:STATE_SKOPIA
+					}
+				}
+				save_scope_as = latin_rep_capital
+			}
+		}
+		create_country = {
+			tag = LAE
+			origin = THIS
+			state = scope:latin_rep_capital
+		}
+		create_diplomatic_pact = {
+			country = c:LAE
+			type = puppet
+		}
+		c:LAE = {
+			save_scope_as = latin_rep_scope
+		}
+	}
+
+	option = { # Form the Latin Republic
+		name = latin_republic.5.a
+		default_option = yes
+		
+		show_as_tooltip = {
+			create_diplomatic_pact = {
+				country = c:LAE
+				type = puppet
+			}
+		}
+		
+		every_scope_state = {
+			limit = {
+				OR = {
+					region = sr:region_greece
+					state_region = s:STATE_HUDAVENDIGAR
+					state_region = s:STATE_AYDIN
+					state_region = s:STATE_KARASI
+					state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					state_region = s:STATE_NORTHERN_THRACE
+					state_region = s:STATE_SKOPIA
+				}
+			}
+			set_state_owner = c:LAE
+		}
+		
+		scope:latin_rep_scope = {
+			add_radicals = {
+				culture = cu:greek
+				value = medium_radicals
+			}
+			add_radicals = {
+				culture = cu:turkish
+				value = large_radicals
+			}
+		}
+		
+		every_state = {
+			limit = {
+				OR = {
+					state_region = {
+						is_homeland = cu:greek
+					}
+					region = sr:region_west_balkans
+				}
+				NOT = { has_claim_by = root }
+				NOT = { owner = root }
+				NOT = { owner = { is_subject_of = root } }
+			}
+			state_region = {
+				add_claim = root
+			}
+		}
+		
+		create_incident = {
+			country = root
+			value = 10
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}

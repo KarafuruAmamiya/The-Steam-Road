@@ -41,7 +41,10 @@
 	}
 	
 	fail = {
-		is_subject = yes
+		OR = {
+			is_subject = yes
+			country_rank <= rank_value:minor_power
+		}
 	}
 	
 	invalid = {
@@ -89,6 +92,7 @@ je_odrodzenie_victim = {
 			OR = {
 				is_subject = yes 
 				is_country_alive = no
+				country_rank <= rank_value:minor_power
 			}
 		}
 	}

@@ -352,7 +352,31 @@ ai_strategy_default = {
 				}
 			}
 			add = 0.15
-		}	
+		}
+
+		# Latin Republic
+		if = {
+			limit = {
+				has_journal_entry = je_latin_republic
+				has_strategy = ai_strategy_territorial_expansion
+				scope:enemy_country = {
+					NOT = { is_subject_of = root }
+					any_scope_state = {
+						OR = {
+							region = sr:region_greece
+							state_region = s:STATE_HUDAVENDIGAR
+							state_region = s:STATE_EASTERN_THRACE
+							state_region = s:STATE_AYDIN
+							state_region = s:STATE_KARASI
+							state_region = s:STATE_EAST_AEGEAN_ISLANDS
+							state_region = s:STATE_NORTHERN_THRACE
+							state_region = s:STATE_SKOPIA
+						}
+					}
+				}
+			}
+			add = 0.15
+		}		
 	}
 	
 	# Chance each update that the AI is willing to start changing a law (1 = 1%)
@@ -1636,6 +1660,30 @@ ai_strategy_default = {
 			add = 0.5
 		}
 		
+		# Latin Republic
+		if = {
+			limit = {
+				has_journal_entry = je_latin_republic
+				has_strategy = ai_strategy_territorial_expansion
+				scope:enemy_country = {
+					NOT = { is_subject_of = root }
+					any_scope_state = {
+						OR = {
+							region = sr:region_greece
+							state_region = s:STATE_HUDAVENDIGAR
+							state_region = s:STATE_EASTERN_THRACE
+							state_region = s:STATE_AYDIN
+							state_region = s:STATE_KARASI
+							state_region = s:STATE_EAST_AEGEAN_ISLANDS
+							state_region = s:STATE_NORTHERN_THRACE
+							state_region = s:STATE_SKOPIA
+						}
+					}
+				}
+			}
+			add = 0.5
+		}
+		
 		#Zandi Rebellion
 		if = { 
 			limit = {
@@ -2247,6 +2295,30 @@ ai_strategy_default = {
 							state_region = s:STATE_PFALZ
 							state_region = s:STATE_LIGURIA
 							state_region = s:STATE_WEST_SWITZERLAND
+						}
+					}
+				}
+			}
+			add = 25
+		}
+		
+		# Latin Republic
+		if = {
+			limit = {
+				has_journal_entry = je_latin_republic
+				has_strategy = ai_strategy_territorial_expansion
+				scope:enemy_country = {
+					NOT = { is_subject_of = root }
+					any_scope_state = {
+						OR = {
+							region = sr:region_greece
+							state_region = s:STATE_HUDAVENDIGAR
+							state_region = s:STATE_EASTERN_THRACE
+							state_region = s:STATE_AYDIN
+							state_region = s:STATE_KARASI
+							state_region = s:STATE_EAST_AEGEAN_ISLANDS
+							state_region = s:STATE_NORTHERN_THRACE
+							state_region = s:STATE_SKOPIA
 						}
 					}
 				}

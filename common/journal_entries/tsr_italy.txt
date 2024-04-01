@@ -1,0 +1,124 @@
+﻿je_latin_republic = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_tsr_content
+	
+	scripted_button = je_latin_republic_transfer_state_button
+	scripted_button = je_latin_republic_form_latin_rep_button
+
+	is_shown_when_inactive = {
+		exists = c:ITA
+		this = c:ITA
+		coa_republic_trigger = yes
+		OR = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_greece
+					region = sr:region_west_balkans
+				}
+			}
+			any_subject_or_below = {
+				OR = {
+					capital.region = sr:region_greece
+					capital.region = sr:region_west_balkans
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		trigger_event = { id = latin_republic.1 popup = yes }
+	}
+
+	possible = {
+		has_technology_researched = nationalism
+		any_interest_group = {
+			is_marginal = no
+			is_in_government = yes
+			OR = {
+				is_interest_group_type = ig_armed_forces
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_jingoist_leader
+						has_ideology = ideology:ideology_imperialist
+					}
+				}
+			}
+		}
+	}
+
+	complete = {
+		is_at_war = no
+		custom_tooltip = {
+			text = formed_latin_republic
+			has_variable = formed_latin_republic
+		}
+		c:TUR ?= {
+			OR = {
+				is_country_alive = no
+				country_rank < rank_value:great_power
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = latin_republic.2 popup = yes }
+	}
+	
+	fail = {
+		trigger_if = {
+			limit = { exists = c:LAE }
+			c:LAE ?= {
+				NOT = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { exists = c:GRE }
+			c:GRE ?= {
+				NOT = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		trigger_else = {
+			NOR = {
+				any_scope_state = {
+					OR = {
+						region = sr:region_greece
+						region = sr:region_west_balkans
+					}
+				}
+				any_subject_or_below = {
+					OR = {
+						capital.region = sr:region_greece
+						capital.region = sr:region_west_balkans
+					}
+				}
+			}
+		}
+	}
+	
+	on_fail = {
+		add_modifier = {
+			name = modifier_latin_republic_fail
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+	
+	invalid = {
+		OR = {
+			custom_tooltip = {
+				text = rejected_latin_republic_tt
+				has_variable = reject_latin_republic
+			}
+			coa_republic_trigger = no
+		}
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 100
+}

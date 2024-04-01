@@ -1,0 +1,224 @@
+﻿je_latin_republic_transfer_state_button = {
+	name = "je_latin_republic_transfer_state_button"
+	desc = "je_latin_republic_transfer_state_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		any_state = {
+			owner = ROOT
+			OR = {
+				region = sr:region_greece
+				region = sr:region_west_balkans
+				region = sr:region_anatolia
+				state_region = s:STATE_HUDAVENDIGAR
+				state_region = s:STATE_EASTERN_THRACE
+				state_region = s:STATE_AYDIN
+				state_region = s:STATE_KARASI
+				state_region = s:STATE_EAST_AEGEAN_ISLANDS
+				state_region = s:STATE_NORTHERN_THRACE
+				state_region = s:STATE_SKOPIA
+			}
+		}
+		trigger_if = {
+			limit = { exists = c:LAE }
+			c:LAE ?= { is_subject_of = root }
+		}
+		trigger_else_if = {
+			limit = { exists = c:GRE }
+			c:GRE ?= { is_subject_of = root }
+		}
+		trigger_else = {
+			any_subject_or_below = {
+				OR = {
+					capital.region = sr:region_greece
+					capital.region = sr:region_west_balkans
+					capital.region = sr:region_anatolia
+				}
+			}
+		}
+	}
+
+	effect = {
+		every_scope_state = {
+			limit = {
+				owner = ROOT
+				OR = {
+					region = sr:region_greece
+					region = sr:region_west_balkans
+					region = sr:region_anatolia
+					state_region = s:STATE_HUDAVENDIGAR
+					state_region = s:STATE_EASTERN_THRACE
+					state_region = s:STATE_AYDIN
+					state_region = s:STATE_KARASI
+					state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					state_region = s:STATE_NORTHERN_THRACE
+					state_region = s:STATE_SKOPIA
+				}
+			}
+			if = {
+				limit = { 
+					exists = c:LAE 
+					c:LAE ?= { is_subject_of = root }
+				}
+				set_state_owner = c:LAE
+				set_state_type = unincorporated
+			}
+			else_if = {
+				limit = { 
+					exists = c:GRE 
+					c:GRE ?= { is_subject_of = root }
+				}
+				set_state_owner = c:GRE
+				set_state_type = unincorporated
+			}
+			else = {
+				random_subject_or_below = {
+					limit = {
+						OR = {
+							capital.region = sr:region_greece
+							capital.region = sr:region_west_balkans
+							capital.region = sr:region_anatolia
+						}
+					}
+					save_temporary_scope_as = balkan_subject_scope
+				}
+				set_state_owner = scope:balkan_subject_scope
+				set_state_type = unincorporated
+			}
+		}
+	}
+}
+
+je_latin_republic_form_latin_rep_button = {
+	name = "je_latin_republic_form_latin_rep_button"
+	desc = "je_latin_republic_form_latin_rep_button_desc"
+
+	visible = { NOT = { has_variable = formed_latin_republic } }
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		OR = {
+			AND = {
+				custom_tooltip = {
+					text = own_all_greece_states
+					NOT = {
+						any_state = {
+							region = sr:region_greece
+							NOT = { owner = ROOT }
+						}
+					}
+				}
+				calc_true_if = {
+					amount >= 4
+					any_scope_state = {
+						state_region = s:STATE_HUDAVENDIGAR
+					}
+					any_scope_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_AYDIN
+					}
+					any_scope_state = {
+						state_region = s:STATE_KARASI
+					}
+					any_scope_state = {
+						state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					}
+					any_scope_state = {
+						state_region = s:STATE_NORTHERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_SKOPIA
+					}
+				}
+			}
+			any_subject_or_below = {
+				custom_tooltip = {
+					text = own_all_greece_states
+					NOT = {
+						any_state = {
+							region = sr:region_greece
+							NOT = { owner = { is_subject_of = root } }
+						}
+					}
+				}
+				calc_true_if = {
+					amount >= 4
+					any_scope_state = {
+						state_region = s:STATE_HUDAVENDIGAR
+					}
+					any_scope_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_AYDIN
+					}
+					any_scope_state = {
+						state_region = s:STATE_KARASI
+					}
+					any_scope_state = {
+						state_region = s:STATE_EAST_AEGEAN_ISLANDS
+					}
+					any_scope_state = {
+						state_region = s:STATE_NORTHERN_THRACE
+					}
+					any_scope_state = {
+						state_region = s:STATE_SKOPIA
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = formed_latin_republic
+		if = {
+			limit = {
+				any_subject_or_below = {
+					custom_tooltip = {
+						text = own_all_greece_states
+						NOT = {
+							any_state = {
+								region = sr:region_greece
+								NOT = { owner = { is_subject_of = root } }
+							}
+						}
+					}
+					calc_true_if = {
+						amount >= 4
+						any_scope_state = {
+							state_region = s:STATE_HUDAVENDIGAR
+						}
+						any_scope_state = {
+							state_region = s:STATE_EASTERN_THRACE
+						}
+						any_scope_state = {
+							state_region = s:STATE_AYDIN
+						}
+						any_scope_state = {
+							state_region = s:STATE_KARASI
+						}
+						any_scope_state = {
+							state_region = s:STATE_EAST_AEGEAN_ISLANDS
+						}
+						any_scope_state = {
+							state_region = s:STATE_NORTHERN_THRACE
+						}
+						any_scope_state = {
+							state_region = s:STATE_SKOPIA
+						}
+					}
+				}
+			}
+			trigger_event = { id = latin_republic.4 popup = yes }
+		}
+		else = {
+			trigger_event = { id = latin_republic.5 popup = yes }
+		}
+	}
+}

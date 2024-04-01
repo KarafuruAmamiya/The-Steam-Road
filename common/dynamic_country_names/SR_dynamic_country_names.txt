@@ -815,3 +815,51 @@ ASM = { # Assam
 		}
 	}
 }
+
+LAE = { # Constantinople
+	dynamic_country_name = { # Latin Empire
+		name = dyn_c_latin_empire
+		adjective = dyn_c_latin_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { has_law = law_type:law_monarchy }
+		}
+	}
+	
+	dynamic_country_name = { # Latin Republic
+		name = dyn_c_latin_rep
+		adjective = dyn_c_latin_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				OR = {
+					has_law = law_type:law_parliamentary_republic
+					has_law = law_type:law_presidential_republic
+				}
+			}
+		}
+	}
+	
+	dynamic_country_name = { # Latin Commune
+		name = dyn_c_latin_com
+		adjective = dyn_c_latin_adj
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				has_law = law_type:law_council_republic
+			}
+		}
+	}
+}

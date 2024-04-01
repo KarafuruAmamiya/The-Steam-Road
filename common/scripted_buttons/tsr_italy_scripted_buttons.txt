@@ -3,6 +3,10 @@
 	desc = "je_latin_republic_transfer_state_button_desc"
 
 	visible = { always = yes }
+	
+	ai_chance = {
+		base = 100
+	}
 
 	possible = {
 		is_at_war = no
@@ -97,6 +101,10 @@ je_latin_republic_form_latin_rep_button = {
 	desc = "je_latin_republic_form_latin_rep_button_desc"
 
 	visible = { NOT = { has_variable = formed_latin_republic } }
+	
+	ai_chance = {
+		base = 100
+	}
 
 	possible = {
 		is_at_war = no

@@ -1,0 +1,407 @@
+﻿namespace = usc_events
+
+# Decolonizing the Treasury - JE completion event - USC
+usc_events.1 = {
+	type = country_event
+	placement = root
+	
+	title = usc_events.1.t
+	desc = usc_events.1.d
+	flavor = usc_events.1.f
+	
+	event_image = {
+		video = "europenorthamerica_london_center"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# JE completion event
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE = {
+				save_scope_as = swe_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA = {
+				save_scope_as = swe_scope
+			}
+		}
+	}
+
+	option = {
+		name = usc_events.1.b
+		default_option = yes
+		add_modifier = {
+			name = pearl_of_the_antilles_modifier
+			months = very_long_modifier_time
+		}
+		change_relations = {
+			country = scope:swe_scope
+			value = 20
+		}
+	}
+
+	option = {
+		name = usc_events.1.a
+		add_modifier = {
+			name = the_country_of_our_ancestors_modifier
+			months = very_long_modifier_time
+		}
+		change_relations = {
+			country = scope:swe_scope
+			value = 20
+		}
+	}
+}
+
+# The Columbian Miracle - JE completion event - SWE
+usc_events.2 = {
+	type = country_event
+	placement = root
+	
+	title = usc_events.2.t
+	desc = usc_events.2.d
+	flavor = usc_events.2.f
+	
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# JE completion event
+	}
+
+	immediate = {
+		c:USC = {
+			save_scope_as = usc_scope
+		}
+		ig:ig_industrialists = {
+			save_scope_as = industrialists_scope
+		}
+	}
+
+	option = {
+		name = usc_events.2.a
+		default_option = yes
+		if = {
+			limit = {
+				has_modifier = modifier_haitian_independence_payments_1
+			}
+			remove_modifier = modifier_haitian_independence_payments_1
+		}
+		change_relations = {
+			country = c:USC
+			value = 20
+		}
+		ig:ig_industrialists = {
+			add_modifier = {
+				name = end_of_haitian_payments_modifier
+				months = normal_modifier_time
+			}
+		}
+	}
+}
+# USC Requests Debt Renegotiation
+usc_events.3 = {
+	type = country_event
+	placement = root
+	
+	title = usc_events.3.t
+	desc = usc_events.3.d
+	flavor = usc_events.3.f
+	
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+	
+	trigger = {
+	}
+
+	immediate = {
+		c:USC = {
+			save_scope_as = usc_scope
+			set_variable = usc_debt_renegotiated_var
+		}
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE = {
+				save_scope_as = swe_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA = {
+				save_scope_as = swe_scope
+			}
+		}
+	}
+
+	option = {
+		name = usc_events.3.a
+		default_option = yes
+		c:USC = { 
+			trigger_event = { id = usc_events.4 popup = yes }
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					scope:swe_scope = {
+						owes_obligation_to = c:USC
+					}
+				}
+				scope:swe_scope = {
+					set_owes_obligation_to = {
+						country = c:USC
+						setting = no
+					}
+				}
+			}
+			else = {
+				c:USC = {
+					set_owes_obligation_to = {
+						country = scope:swe_scope
+						setting = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_haitian_independence_payments_4
+			}
+			remove_modifier = modifier_haitian_independence_payments_4
+			add_modifier = {
+				name = modifier_haitian_independence_payments_3
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_haitian_independence_payments_3
+			}
+			remove_modifier = modifier_haitian_independence_payments_3
+			add_modifier = {
+				name = modifier_haitian_independence_payments_2
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_haitian_independence_payments_2
+			}
+			remove_modifier = modifier_haitian_independence_payments_2
+			add_modifier = {
+				name = modifier_haitian_independence_payments_1
+				months = -1
+			}
+		}
+		change_relations = {
+			country = c:USC
+			value = 20
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	option = {
+		name = usc_events.3.b
+		c:USC = { trigger_event = { id = usc_events.5 popup = yes } }
+		change_relations = {
+			country = c:USC
+			value = -20
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+# Sweden Accepts Event
+usc_events.4 = {
+	type = country_event
+	placement = root
+	
+	title = usc_events.4.t
+	desc = usc_events.4.d
+	flavor = usc_events.4.f
+	
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by usc_events.3
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE = {
+				save_scope_as = swe_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA = {
+				save_scope_as = swe_scope
+			}
+		}
+	}
+
+	option = {
+		name = usc_events.4.a
+		default_option = yes
+		if = {
+			limit = {
+				scope:swe_scope = {
+					owes_obligation_to = c:USC
+				}
+			}
+			scope:swe_scope = {
+				set_owes_obligation_to = {
+					country = c:USC
+					setting = no
+				}
+			}
+		}
+		else = {
+			c:USC = {
+				set_owes_obligation_to = {
+					country = scope:swe_scope
+					setting = yes
+				}
+			}
+		}
+		change_relations = {
+			country = scope:swe_scope
+			value = 20
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_4
+			}
+			remove_modifier = modifier_french_independence_payments_4
+			add_modifier = {
+				name = modifier_french_independence_payments_3
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_3
+			}
+			remove_modifier = modifier_french_independence_payments_3
+			add_modifier = { 
+				name = modifier_french_independence_payments_2
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_2
+			}
+			remove_modifier = modifier_french_independence_payments_2
+			add_modifier = { 
+				name = modifier_french_independence_payments_1
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_1
+			}
+			remove_modifier = modifier_french_independence_payments_1
+		}
+	}
+}
+
+# Sweden Declines Event
+usc_events.5 = {
+	type = country_event
+	placement = root
+	
+	title = usc_events.5.t
+	desc = usc_events.5.d
+	flavor = usc_events.5.f
+	
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by usc_events.3
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE = {
+				save_scope_as = swe_scope
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA = {
+				save_scope_as = swe_scope
+			}
+		}
+	}
+
+	option = {
+		name = usc_events.5.a
+		default_option = yes
+		change_relations = {
+			country = scope:swe_scope
+			value = -20
+		}
+	}
+}

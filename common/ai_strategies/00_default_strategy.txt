@@ -2087,6 +2087,20 @@ ai_strategy_default = {
 			}
 			add = 5
 		}
+		
+		# Extra swedish aggression for US renouncing debt payments
+		if = {
+			limit = {
+				has_variable = us_stops_paying_sweden_aggressor				
+				scope:target_country = {
+					has_variable = us_stops_paying_sweden_target
+					any_state = {
+						has_claim_by = root
+					}
+				}				
+			}
+			add = 5
+		}
 
 		# Aggression against radical leftists
 		if = {
@@ -3840,6 +3854,15 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+			if = {
+				limit = {
+					OR = {
+						c:SWE ?= this
+						c:SCA ?= this
+					}
+				}
+				add = 100
+			}
 			# Persia and Ottomans have no business interfering in the New World
 			if = {
 				limit = {
@@ -4472,6 +4495,25 @@ ai_strategy_default = {
 						OR = {
 							has_modifier = treaty_of_baglar
 							has_modifier = treaty_of_baglar_2
+						}
+					}
+				}
+				add = 1000
+			}
+			
+			# Same for Sweden and USC
+			if = {
+				limit = { 
+					OR = {
+						c:SWE ?= this
+						c:SCA ?= this
+					}
+					scope:target_country = {
+						OR = {
+							has_modifier = modifier_french_independence_payments_4
+							has_modifier = modifier_french_independence_payments_3
+							has_modifier = modifier_french_independence_payments_2
+							has_modifier = modifier_french_independence_payments_1
 						}
 					}
 				}

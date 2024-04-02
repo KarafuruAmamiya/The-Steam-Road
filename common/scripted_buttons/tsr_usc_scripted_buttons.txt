@@ -1,0 +1,445 @@
+﻿je_usc_debt_negotiation_button = {
+	name = "je_usc_debt_negotiation_button"
+	desc = "je_usc_debt_negotiation_button_desc"
+
+	visible = { NOT = { has_variable = us_debt_renegotiated_var } }
+
+	ai_chance = {
+		base = 10
+	}
+
+	possible = {
+		trigger_if = {
+			limit = { exists = c:SWE }
+			NOT = { 
+				has_war_with = c:SWE
+				owes_obligation_to = c:SWE 
+			}
+			OR = {
+				c:SWE = {
+					relations:root >= relations_threshold:friendly
+				}
+				is_subject_of = c:SWE
+				has_diplomatic_pact = {
+					type = alliance
+					who = c:SWE
+				}
+			}
+		}
+		
+		trigger_else_if = {
+			limit = { exists = c:SCA }
+			NOT = { 
+				has_war_with = c:SCA
+				owes_obligation_to = c:SCA 
+			}
+			OR = {
+				c:SCA = {
+					relations:root >= relations_threshold:friendly
+				}
+				is_subject_of = c:SCA
+				has_diplomatic_pact = {
+					type = alliance
+					who = c:SCA
+				}
+			}
+		}
+		
+		OR = {
+			has_modifier = modifier_french_independence_payments_1
+			has_modifier = modifier_french_independence_payments_2
+			has_modifier = modifier_french_independence_payments_3
+			has_modifier = modifier_french_independence_payments_4
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { exists = c:SWE }
+			c:SWE = { trigger_event = { id = usc_events.3 popup = yes } }
+		}
+		else_if = {
+			limit = { exists = c:SCA }
+			c:SCA = { trigger_event = { id = usc_events.3 popup = yes } }
+		}
+	}
+}
+
+je_usc_debt_payment_button = {
+	name = "je_usc_debt_payment_button"
+	desc = "je_usc_debt_payment_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		trigger_if = {
+			limit = { exists = c:SWE }
+			NOT = { has_war_with = c:SWE }
+		}
+		
+		trigger_else_if = {
+			limit = { exists = c:SCA }
+			NOT = { has_war_with = c:SCA }
+		}
+		gold_reserves >= 1200000
+		OR = {
+			has_modifier = modifier_french_independence_payments_1
+			has_modifier = modifier_french_independence_payments_2
+			has_modifier = modifier_french_independence_payments_3
+			has_modifier = modifier_french_independence_payments_4
+		}
+	}
+
+	ai_chance = {
+		base = 50
+	}
+
+	effect = {
+		add_treasury = -1200000
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_4
+			}
+			remove_modifier = modifier_french_independence_payments_4
+			add_modifier = { 
+				name = modifier_french_independence_payments_3
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_3
+			}
+			remove_modifier = modifier_french_independence_payments_3
+			add_modifier = { 
+				name = modifier_french_independence_payments_2
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_2
+			}
+			remove_modifier = modifier_french_independence_payments_2
+			add_modifier = { 
+				name = modifier_french_independence_payments_1
+				months = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_1
+			}
+			remove_modifier = modifier_french_independence_payments_1
+		}
+		if = {
+			limit = { exists = c:SWE }
+			c:SWE = {
+				post_notification = haiti_pays_off_debt
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_4
+					}
+					remove_modifier = modifier_haitian_independence_payments_4
+					add_modifier = {
+						name = modifier_haitian_independence_payments_3
+						months = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_3
+					}
+					remove_modifier = modifier_haitian_independence_payments_3
+					add_modifier = {
+						name = modifier_haitian_independence_payments_2
+						months = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_2
+					}
+					remove_modifier = modifier_haitian_independence_payments_2
+					add_modifier = {
+						name = modifier_haitian_independence_payments_1
+						months = -1
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { exists = c:SCA }
+			c:SCA = {
+				post_notification = haiti_pays_off_debt
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_4
+					}
+					remove_modifier = modifier_haitian_independence_payments_4
+					add_modifier = {
+						name = modifier_haitian_independence_payments_3
+						months = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_3
+					}
+					remove_modifier = modifier_haitian_independence_payments_3
+					add_modifier = {
+						name = modifier_haitian_independence_payments_2
+						months = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_2
+					}
+					remove_modifier = modifier_haitian_independence_payments_2
+					add_modifier = {
+						name = modifier_haitian_independence_payments_1
+						months = -1
+					}
+				}
+			}
+		}
+	}
+}
+
+je_usc_cancel_debt_button = {
+	name = "je_usc_cancel_debt_button"
+	desc = "je_usc_cancel_debt_button_desc"
+
+	visible = { always = yes }
+
+	possible = {
+		OR = {
+			has_modifier = modifier_french_independence_payments_1
+			has_modifier = modifier_french_independence_payments_2
+			has_modifier = modifier_french_independence_payments_3
+			has_modifier = modifier_french_independence_payments_4
+		}
+	}
+
+	effect = {
+		custom_tooltip = je_usc_cancel_debt_button_tt
+		add_modifier = {
+			name = modifier_cancelled_haiti_debt
+			months = very_long_modifier_time
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_1
+			}
+			remove_modifier = modifier_french_independence_payments_1
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_2
+			}
+			remove_modifier = modifier_french_independence_payments_2
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_3
+			}
+			remove_modifier = modifier_french_independence_payments_3
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_french_independence_payments_4
+			}
+			remove_modifier = modifier_french_independence_payments_4
+		}
+		if = {
+			limit = { exists = c:SWE }
+			c:SWE = {
+				post_notification = haiti_stops_paying_france
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_1
+					}
+					remove_modifier = modifier_haitian_independence_payments_1
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_2
+					}
+					remove_modifier = modifier_haitian_independence_payments_2
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_3
+					}
+					remove_modifier = modifier_haitian_independence_payments_3
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_4
+					}
+					remove_modifier = modifier_haitian_independence_payments_4
+				}
+				change_relations = { 
+					country = c:USC 
+					value = -70 
+				}
+				hidden_effect = {
+					set_secret_goal = {
+						country = c:USC
+						secret_goal = conquer
+					}
+					set_variable = us_stops_paying_france_aggressor
+					c:USC = { set_variable = us_stops_paying_france_target }
+				}
+			}
+			s:STATE_MASSACHUSETTS = {
+				add_claim = c:SWE
+			}
+			s:STATE_NEW_JERSEY = {
+				add_claim = c:SWE
+			}
+			s:STATE_MARYLAND = {
+				add_claim = c:SWE
+			}
+			s:STATE_NEW_YORK = {
+				add_claim = c:SWE
+			}
+			s:STATE_PENNSYLVANIA = {
+				add_claim = c:SWE
+			}
+		}
+		else_if = {
+			limit = { exists = c:SCA }
+			c:SCA = {
+				post_notification = haiti_stops_paying_france
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_1
+					}
+					remove_modifier = modifier_haitian_independence_payments_1
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_2
+					}
+					remove_modifier = modifier_haitian_independence_payments_2
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_3
+					}
+					remove_modifier = modifier_haitian_independence_payments_3
+				}
+				if = {
+					limit = {
+						has_modifier = modifier_haitian_independence_payments_4
+					}
+					remove_modifier = modifier_haitian_independence_payments_4
+				}
+				change_relations = { 
+					country = c:USC 
+					value = -70 
+				}
+				hidden_effect = {
+					set_secret_goal = {
+						country = c:USC
+						secret_goal = conquer
+					}
+					set_variable = us_stops_paying_france_aggressor
+					c:USC = { set_variable = us_stops_paying_france_target }
+				}
+			}
+			s:STATE_MASSACHUSETTS = {
+				add_claim = c:SCA
+			}
+			s:STATE_NEW_JERSEY = {
+				add_claim = c:SCA
+			}
+			s:STATE_MARYLAND = {
+				add_claim = c:SCA
+			}
+			s:STATE_NEW_YORK = {
+				add_claim = c:SCA
+			}
+			s:STATE_PENNSYLVANIA = {
+				add_claim = c:SCA
+			}
+		}
+		
+		change_infamy = 10
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				trigger_if = {
+					limit = { exists = c:SWE }
+					c:SWE = {
+						OR = {
+							in_default = yes
+							has_revolution = yes
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = { exists = c:SCA }
+					c:SCA = {
+						OR = {
+							in_default = yes
+							has_revolution = yes
+						}
+					}
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				trigger_if = {
+					limit = { exists = c:SWE }
+					OR = {
+						AND = {
+							army_size > c:SWE.army_size
+							navy_size > c:SWE.navy_size
+						}
+						any_scope_ally = {
+							army_size > c:SWE.army_size
+							navy_size > c:SWE.navy_size
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = { exists = c:SCA }
+					OR = {
+						AND = {
+							army_size > c:SCA.army_size
+							navy_size > c:SCA.navy_size
+						}
+						any_scope_ally = {
+							army_size > c:SCA.army_size
+							navy_size > c:SCA.navy_size
+						}
+					}
+				}
+			}
+			add = 10
+		}
+		
+		modifier = {
+			trigger = {
+				country_rank >= rank_value:great_power
+			}
+			add = 2
+		}
+		
+		modifier = {
+			OR = {
+				is_diplomatic_play_committed_participant = yes
+				is_at_war = yes
+			}
+			add = -1000
+		}	
+	}
+}

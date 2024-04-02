@@ -1,0 +1,44 @@
+﻿l_english:
+ # USC Debt
+ je_usc_debt: "An Odious Debt"
+ je_usc_debt_reason: "Declared in 1784, the #bold Columbian Revolutionary War#! against #bold England#! would not only be hard-fought, but also hard-bought. Diplomatically isolated and fearing English retribution, the country has signed the Boston Pact with their sole ally the #bold Swedish Empire#!. In exchange for Swedish protection, the United States must also swear allegiance militarily to defend the empire's overseas colonies.\n\nIn 1825, #bold Sweden#! has expanded the scope of the pact to compensation for its lost property, human souls included, for their aid during the #bold Columbian Revolutionary War#!. In return, the United States would continue receiving diplomatic recognition and protection from the empire. The massive indemnity the country was saddled with necessitated the taking out of high interest loans with Swedish private banks, and ever since the United States has found itself in a downward spiral of increasing indemnity, debt, and interest payments.\n\nIf the United States is to once again be known as the #bold Land of the Free#!, our financial obligations must be dealt with, one way or another."
+ je_usc_debt_status_4: "Our current debt level is: #bold Massive#!"
+ je_usc_debt_status_3: "Our current debt level is: #bold Large#!"
+ je_usc_debt_status_2: "Our current debt level is: #bold Significant#!"
+ je_usc_debt_status_1: "Our current debt level is: #bold Small#!"
+ je_usc_debt_negotiation_button: "Negotiate Indemnity Reduction"
+ je_usc_debt_negotiation_button_desc: "Should diplomatic conditions be right, we could initiate talks with Sweden to lower the indemnity owed their creditors. This can only be requested #bold once#!, and, should Sweden accept, will come at the cost of owing an [concept_obligation|l]."
+ je_usc_debt_payment_button: "Pay Off Debt Portion"
+ je_usc_debt_payment_button_desc: "Authorise a large payment to the Swedish #italic Riksgälden#!."
+ je_usc_cancel_debt_button: "Unilaterally Cancel Debt"
+ je_usc_cancel_debt_button_desc: "Enough is enough. We would rather pay for our independence in blood than bleed our coffers dry for the damned Swedes."
+ je_usc_cancel_debt_button_tt: "This decision will not be well-received in Sweden, and their willingness to wage war against us can be expected to rise drastically."
+ 
+ usc_events.1.t: "Decolonizing the Treasury"
+ usc_events.1.d: "The last indemnity owed to [SCOPE.sCountry('swe_scope').GetName] for our independence is paid. Revelry grips the streets."
+ usc_events.1.f: "#bold To The Last Penny!#!\nThe financial fetters that chained us to the old colonial masters have been broken at last, as the final installment to our [SCOPE.sCountry('swe_scope').GetAdjectiveNoFormatting] creditors, with great fanfare, was deposited with the #italic Riksgälden#! earlier this afternoon, marking the end of decades of financial humiliation."
+ usc_events.1.a: "For the Founding Fathers, for the Land of the Free."
+ usc_events.1.b: "Let us be the only masters of the soil."
+ 
+ usc_events.2.t: "The Columbian Miracle"
+ usc_events.2.d: "[SCOPE.sCountry('usc_scope').GetName] has paid its indemnity and debts in full. Per the terms of its agreement with us, it is now free of its obligations."
+ usc_events.2.f: "When the [SCOPE.sCountry('usc_scope').GetAdjectiveNoFormatting] indemnity was imposed in 1825, in truth, few of us expected it to ever be paid off in full. But against all odds, the United States has achieved just that, making the final payment at the #italic Riksgälden#! in [ROOT.GetCountry.GetCapital.GetCityHubName] earlier this afternoon."
+ usc_events.2.a: "Issue an official congratulation to the Columbian government."
+ 
+ usc_events.3.t: "The United States Requests Indemnity Renegotiation"
+ usc_events.3.d: "The country of [SCOPE.sCountry('usc_scope').GetName], suffering under a massive indemnity owed us for the exchange of their freedom, has requested a renegotiation of the terms."
+ usc_events.3.f: ""As a humble servant of the United States Congress, and the treasury of this nation, it is my duty to inform you that the indemnity we are bound to is beyond our means. The means to remove the iron manacles has only seen it become paper bindings instead. Surely you must understand having your wings crushed by debt. I beg of you, as [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] of [ROOT.GetCountry.GetNameNoFormatting], ease our people's suffering.""
+ usc_events.3.a: "Granted. Influence is a currecy of its own."
+ usc_events.3.b: "Denied. The Columbians will pay their due."
+ 
+ usc_events.4.t: "[SCOPE.sCountry('swe_scope').GetName] Agrees to Indemnity Reduction"
+ usc_events.4.d: "Our negotiations with [SCOPE.sCountry('swe_scope').GetName] have borne fruit. In an official communiqué signed by [SCOPE.sCountry('swe_scope').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('swe_scope').GetRuler.GetFullName] [SCOPE.sCountry('swe_scope').GetRuler.GetHerselfHimself], one quarter of the owed indemnity is written off, though with certain diplomatic strings attached."
+ usc_events.4.f: "Your letter arrived to me in good faith, and I must say that I am dismayed. We had received full assurances your nation was able to remunerate our lost costs. But rest assured that I, [SCOPE.sCountry('swe_scope').GetRuler.GetPrimaryRoleTitle] [SCOPE.sCountry('swe_scope').GetRuler.GetFullNameNoFormatting], have seen to it personally. The Riksdag has come to terms with a new deal for your people."
+ usc_events.4.a: "God bless Columbia!"
+ 
+ usc_events.5.t: "[SCOPE.sCountry('swe_scope').GetName] Refuses Indemnity Reduction"
+ usc_events.5.d: "In yet another display of arrogance, [SCOPE.sCountry('swe_scope').GetName] has refused any and all suggestions to reduce the indemnity — the [SCOPE.sCountry('swe_scope').GetAdjectiveNoFormatting] representative instead launched into a tirade about financial obligations and the lost souls of brave Nordic fighters in our war against England."
+ usc_events.5.f: ""So what will we tell the people now? That we bleed them as badly as the Swedes and Englishmen?"\n\n"No... no, we cannot. They've suffered enough."\n\n"We cannot default this payment, or we will invite them back. Whoever we beg may put us in irons faster than them, too.""
+ usc_events.5.a: "Dang it!"
+ 
+ BOSTON_PACT: "Boston Pact"

@@ -1,0 +1,74 @@
+﻿je_usc_debt = {
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_tsr_content
+
+    scripted_button = je_usc_debt_negotiation_button
+    scripted_button = je_usc_debt_payment_button
+    scripted_button = je_usc_cancel_debt_button
+
+    complete = {
+        NOR = {
+            has_modifier = modifier_french_independence_payments_4
+            has_modifier = modifier_french_independence_payments_3
+            has_modifier = modifier_french_independence_payments_2
+            has_modifier = modifier_french_independence_payments_1
+            has_modifier = modifier_cancelled_haiti_debt
+        }
+    }
+
+    on_complete = {
+        trigger_event = { id = usc_events.1 popup = yes }
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE = {
+				trigger_event = { id = usc_events.2 popup = yes }
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA = {
+				trigger_event = { id = usc_events.2 popup = yes }
+			}
+		}
+    }
+
+    invalid = {
+        NOR = {
+            exists = c:SWE
+            exists = c:SCA
+        }
+    }
+
+    fail = {
+       has_modifier = modifier_cancelled_haiti_debt
+    }
+
+    status_desc = {
+        first_valid = {
+            triggered_desc = {
+                desc = je_usc_debt_status_4
+                trigger = { has_modifier = modifier_french_independence_payments_4 }
+            }
+            triggered_desc = {
+                desc = je_usc_debt_status_3
+                trigger = { has_modifier = modifier_french_independence_payments_3 }
+            }
+            triggered_desc = {
+                desc = je_usc_debt_status_2
+                trigger = { has_modifier = modifier_french_independence_payments_2 }
+            }
+            triggered_desc = {
+                desc = je_usc_debt_status_1
+                trigger = { has_modifier = modifier_french_independence_payments_1 }
+            }
+        }
+    }
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

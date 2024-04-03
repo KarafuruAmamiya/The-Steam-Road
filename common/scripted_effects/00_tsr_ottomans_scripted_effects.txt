@@ -356,3 +356,18 @@ generate_ottoman_monarch = {
 		save_scope_as = new_sultan_scope
 	}
 }
+
+turkish_revolution_update_tick = {
+	set_variable = {
+		name = turkish_revolution_drift_final_var
+		value = 0
+	}
+	change_variable = {
+		name = turkish_revolution_drift_final_var
+		add = var:turkish_revolution_progress_drift
+	}
+	change_variable = {
+		name = turkish_revolution_drift_final_var
+		add = var:nationalist_support_level
+	}
+}

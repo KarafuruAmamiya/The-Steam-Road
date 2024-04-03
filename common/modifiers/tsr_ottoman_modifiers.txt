@@ -5,3 +5,76 @@
 	state_loyalists_from_sol_change_accepted_religion_mult = 0.25
 	interest_group_ig_devout_approval_add = 5
 }
+
+modifier_tur_nationalism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_radicals_from_sol_change_mult = 0.25
+	state_radicals_from_discrimination_mult = 0.25
+}
+
+popular_nationalist = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_popularity_add = 50
+}
+
+less_popular_nationalist_red = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	character_popularity_add = -25
+}
+
+spreading_nationalist_sentiments = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	interest_group_pol_str_mult = 0.2
+	interest_group_pop_attraction_mult = 0.1
+}
+
+nationalists_suppressed = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -5
+}
+
+modifier_a_turkish_empire = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	interest_group_approval_add = 3
+	interest_group_pol_str_mult = 0.15
+}
+
+modifier_a_turkish_empire_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_authority_mult = 0.15
+	state_loyalists_from_sol_change_accepted_culture_mult = 0.25
+}
+
+modifier_end_of_nationalist_movements = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	interest_group_pol_str_mult = -0.15
+}
+
+modifier_end_of_nationalist_movements_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_authority_mult = 0.15
+	state_turmoil_effects_mult = -0.25
+}
+
+modifier_repression_of_nationalists = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_ig_armed_forces_pol_str_mult = -0.40
+	interest_group_ig_armed_forces_approval_add = -5
+	interest_group_ig_armed_forces_pol_str_mult = -0.40
+	interest_group_ig_armed_forces_approval_add = -5
+	country_academics_pol_str_mult = -0.10
+}
+
+nationalist_takeover_positive = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_pol_str_mult = 0.50
+	interest_group_pop_attraction_mult = 0.25
+	interest_group_approval_add = 5
+}
+
+nationalist_takeover_negative = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	interest_group_pol_str_mult = -0.50
+	interest_group_pop_attraction_mult = -0.25
+	interest_group_approval_add = -5
+}

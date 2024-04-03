@@ -76,3 +76,53 @@
   status_in_lead_and_on_throne_tur: "The [ROOT.GetCountry.GetRuler.GetCustom('ottoman_faction')] Faction dominates the government."
   status_throne_challenged_tur: "The [ROOT.GetCountry.GetRuler.GetCustom('ottoman_faction')] Faction is being challenged by [ROOT.GetCountry.GetCustom('ottoman_leading_faction')] Faction"
   status_no_dynasty_tur: "No faction is ahead of anyone else"
+  
+  #Turkish Nationalism
+  je_turkish_nationalism_main: "The Nationalist Movement"
+  je_turkish_nationalism_main_goal: "We have either completed the Nationalist factions' agenda or suppress them for more than 5 years."
+  je_turkish_nationalism_trigger_tt_1: "Each of the following has been true for more than 5 years:\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_presidential_republic').GetName], [GetLawType('law_parliamentary_republic').GetName], or [GetLawType('law_monarchy').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_ethnostate').GetName] or [GetLawType('law_national_supremacy').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_public_schools').GetName] or [GetLawType('law_private_schools').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_freedom_of_conscience').GetName], [GetLawType('law_shared_roots').GetName], or [GetLawType('law_total_separation').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_census_voting').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_unitary').GetName]\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_slavery_banned').GetName]\n- Any interest group in government has $ideology_turkish_nationalist$ leader or agitator"
+  je_turkish_nationalism_trigger_tt_2: "Each of the following has been true for more than 5 years:\n- [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_outlawed_dissent').GetName] or [GetLawType('law_censorship').GetName]\n- Every interest group with $ideology_turkish_nationalist$ leader or agitator has been marginalized"
+  je_turkish_nationalism_main_reason: "The winds of change has began sweeping through the [SCOPE.GetRootScope.GetCountry.GetName]. The disbandment of the Janissaries centuries earlier in the #bold Civil War of 1689#! had already eroded a central pillar of the empire's traditional power structure, opening the path to a period of great upheaval within our empire.\n\nThe spread of liberal ideas and movements across Europe resonated with certain segments of the Ottoman population, particularly among Turkish intellectuals and reformists. Disillusioned with the monarchy and advocating for the establishment of a Turkish nation-state, the movement attracted a growing number of followers who were increasingly frustrated with the perceived ineffectiveness and corruption of the imperial government.\n\n#bold Should we fail to comply with the Nationalists' demands or marginalize them, the Nationalist factions may attempt to instigate a revolution against the current regime.#!"
+  
+  je_turkish_revolution: "Turkish Revolution"
+  je_turkish_revolution_reason: "The #bold National Union#!, a diverse group of intellectuals, military officers, and bureaucrats disillusioned with the ruling regime, has risen to bring about change within [SCOPE.GetRootScope.GetCountry.GetName]. With every passing day, they gather more and more support from the Muslim and Turkish populace, spreading words of dissent all over the empire. If we do not suppress them, we may risk a takeover of our government, or worse, a full-blown civil war.\n\nIf the progress of the Revolution reaches #bold 0#!, our forces will be able to repress it, but if its progress reaches #bold 100#! the revolutionaries shall seize control of the Sublime Porte. The progress of the #bold Turkish Revolution#! is changing by #tooltippable;tooltip:[Country.GetTooltipTag],je_turkish_revolution_drift_special_tooltip [Country.MakeScope.Var( 'turkish_revolution_drift_final_var' ).GetValue]#! every month."
+  je_turkish_revolution_drift_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('nationalist_support_level').GetValue]#! from foreign support of the #bold National Union#!\n#variable [Country.MakeScope.Var('turkish_revolution_progress_drift').GetValue]#! from events and other effects"\
+  je_turkish_revolution_zero_var: "The progress of the #bold Turkish Revolution#! has been reduced to #bold 0#!, allowing for the suppression of the uprising"
+  je_turkish_revolution_full_var: "The progress of the #bold Turkish Revolution#! has reached #bold 100#!, causing a revolutionary takeover of the #bold Sublime Porte#!"
+  
+  je_turkish_revolution_button_a: "Repress the Revolutionaries"
+  je_turkish_revolution_button_a_desc: "Escalate repressions of those who may sympathize with the National Union, in the name of averting further revolt."
+  je_turkish_revolution_button_b: "Offer Concessions"
+  je_turkish_revolution_button_b_desc: "Offer concessions to potential Nationalist sympathizers, to placate the masses."
+  cooldown_tur_three_months_tt: "The #bold Turkish Revolution#! decisions will become available again in #bold three months#!"
+  
+  turkish_nationalism.1.t: "The Spread of Turkish Nationalism"
+  turkish_nationalism.1.d: "Initially appearing as a fringe group with radical ideals, the [SCOPE.GetRootScope.GetCountry.GetName]'s efforts to modernize and westernize stirred nationalist sentiments among Turkish intellectuals and elites who perceived a threat to their cultural identity and autonomy. Influenced by the principles of liberalism and nationalism, [SCOPE.sCharacter('nationalist_scope').GetFullName] called for the creation of a constitutional and secular Turkish nation-state."
+  turkish_nationalism.1.f: ""No longer shall we bow before the whims of distant rulers who care naught for our aspirations and dreams. No longer shall we we languish under the shadow of a decaying empire. Long live Turkey! Long live the Turkish nation! Long live freedom and democracy!""
+  turkish_nationalism.1.a: "Perhaps they have a point."
+  turkish_nationalism.1.b: "Ridiculous! Root them out at once."
+  spreading_nationalist_sentiments: "Spreading Nationalist Sentiments"
+  popular_nationalist: "Popular Nationalist Figure"
+  nationalists_suppressed: "Suppressed Nationalist Sentiments"
+  less_popular_nationalist_red: "Nationalist Figure Suppressed"
+  modifier_tur_nationalism: "Turkish Nationalism Movement"
+  
+  turkish_nationalism.2.t: "A Turkish Empire"
+  
+  turkish_nationalism.3.t: "Nationalists Suppressed, For Now"
+  
+  turkish_nationalism.4.t: "The National Union"
+  turkish_nationalism.4.d: "Disappointed by the slow pace of reforms and autocratic rule within the [SCOPE.GetRootScope.GetCountry.GetName], radical nationalists and disgruntled members of the military have begun taking matter into their own hands. Their rapid organization into revolutionary groups under the banner of #bold National Union#! has caused alarm within our ranks. Unless we deal with them swiftly, they will pose a major threat to our grip of the empire."
+  turkish_nationalism.4.f: ""O brethren of the motherland! The time for complacency and submission has passed! No longer shall we bow before foreign masters or kowtow to the whims of despotic rulers! Let the fires of revolution burn bright in every corner of our land! Let the cry of liberty echo through the streets of [SCOPE.GetRootScope.GetCountry.GetCapital.GetCityHubName], Ankara, and every village and town from east to west! Özgürlük, Eşitlik, Kardeşlik!""
+  turkish_nationalism.4.a: "This madness must end!"
+  revolution_progress_add_monthly_1: "The progress of the #bold Turkish Revolution#! will #bold increase#! by #bold 1%#! each month"
+  
+  turkish_nationalism.5.t: "End of the National Union"
+  
+  turkish_nationalism.6.t: "Triumph of [SCOPE.GetRootScope.GetCountry.GetCapital.GetCityHubName]"
+  turkish_nationalism.6.d: "Revolutionary forces across the empire have marched and joined together near [SCOPE.GetRootScope.GetCountry.GetCapital.GetCityHubName]. Under pressure of being deposed, [ROOT.GetCountry.GetRuler.GetFirstName] issued the #italic İrade-i Hürriyet#!, giving in to the Revolutionaries' demands and calling an election to great jubilation.\n\nThus, today mark the day when the centuries-long absolute rule of the Ottoman Sultanate and the court ceased to be."
+  turkish_nationalism.6.f: ""Long live the motherland!\nLong live liberty, equality, and fraternity!\nLong live the Turkish nation!""
+  turkish_nationalism.6.a: "Yaşasın devrim!"
+  nationalists_seize_power_tt: "The Nationalists will seize control over the #bold Sublime Porte#!, upheaving our government and laws."
+  
+  turkish_nationalism.7.t: "Crisis in the Ottoman Empire"

@@ -142,3 +142,138 @@ fractured_porte_metropolitan_button = {
 		}
 	}
 }
+
+je_turkish_revolution_button_a = {
+	name = "je_turkish_revolution_button_a"
+	desc = "je_turkish_revolution_button_a_desc"
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		scope:journal_entry = {
+				not = {
+				custom_tooltip = {
+					text = turkish_revolution_on_cooldown_tt
+					has_variable = je_turkish_revolution_decision_cooldown
+				}
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = nationalist_ig_low_clout
+				any_interest_group = {
+					filter = {
+						OR = {
+							has_ideology = ideology:ideology_nationalist
+							leader = {
+								OR = {
+									has_ideology = ideology:ideology_turkish_nationalist
+									has_ideology = ideology:ideology_radical
+								}
+							}
+						}
+					}
+					count = all
+					ig_clout <= 0.1
+				}
+			}
+			custom_tooltip = {
+				text = no_nationalist_ig
+				NOT = {
+					any_interest_group = {
+						OR = {
+							has_ideology = ideology:ideology_nationalist
+							leader = {
+								OR = {
+									has_ideology = ideology:ideology_turkish_nationalist
+									has_ideology = ideology:ideology_radical
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+        custom_tooltip = cooldown_tur_three_months_tt
+		scope:journal_entry = {
+			set_variable = { name = je_turkish_revolution_decision_cooldown months = 3 }
+		}	
+        add_radicals = {
+            value = small_radicals
+            culture = cu:turkish
+        }
+        custom_tooltip = revolution_progress_subtract_10
+        change_variable = {
+            name = turkish_revolution_progress_var
+            add = -10
+        }
+	}
+}
+
+je_turkish_revolution_button_b = {
+	name = "je_turkish_revolution_button_b"
+	desc = "je_turkish_revolution_button_b_desc"
+	
+	ai_chance = {
+		base = 0
+	}
+
+	possible = {
+		scope:journal_entry = {
+			not = {
+				custom_tooltip = {
+					text = turkish_revolution_on_cooldown_tt
+					has_variable = je_turkish_revolution_decision_cooldown
+				}
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = reactionary_ig_low_clout
+				any_interest_group = {
+					filter = {
+						OR = {
+							is_interest_group_type = ig_landowners
+							is_interest_group_type = ig_devout
+						}
+					}
+					count = all
+					ig_clout <= 0.1
+				}
+			}
+			custom_tooltip = {
+				text = no_reactionary_ig
+				NOT = {
+					any_interest_group = {
+						OR = {
+							is_interest_group_type = ig_landowners
+							is_interest_group_type = ig_devout
+						}
+						is_in_government = yes
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		scope:journal_entry = {
+			custom_tooltip = cooldown_tur_three_months_tt
+			set_variable = { name = je_turkish_revolution_decision_cooldown months = 3 }
+		}	
+		add_radicals = {
+            value = small_radicals
+            culture = cu:turkish
+        }
+        custom_tooltip = revolution_progress_add_10
+        change_variable = {
+            name = turkish_revolution_progress_var
+            add = 10
+        }
+	}
+}

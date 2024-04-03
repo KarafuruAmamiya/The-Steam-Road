@@ -137,7 +137,16 @@ tsr_test.5 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		remove_variable = formed_latin_republic
+		ig:ig_intelligentsia = {
+			leader = {
+				set_ideology = ideology:ideology_turkish_nationalist
+			}
+		}
+		ig:ig_armed_forces = {
+			leader = {
+				set_ideology = ideology:ideology_turkish_nationalist
+			}
+		}
 	}
 }
 

@@ -1,0 +1,440 @@
+﻿je_turkish_nationalism_main = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_tsr_content
+	
+	can_revolution_inherit = no
+
+	is_shown_when_inactive = {
+		c:TUR ?= this
+		has_technology_researched = nationalism
+	}
+
+	possible = {
+		any_interest_group = {
+			is_marginal = no
+			OR = {
+				is_powerful = yes
+				ig_approval <= -5
+			}
+			any_scope_character = {
+				AND = {
+					OR = {
+						has_role = politician
+						has_role = agitator
+					}
+					OR = {
+						has_ideology = ideology:ideology_turkish_nationalist
+						has_ideology = ideology:ideology_radical
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = tur_nationalism_progress_var
+			value = 1
+		}
+		random_interest_group = {
+			limit = {
+				is_marginal = no
+				any_scope_character = {
+					OR = {
+						has_role = politician
+						has_role = agitator
+					}
+					OR = {
+						has_ideology = ideology:ideology_turkish_nationalist
+						has_ideology = ideology:ideology_radical
+					}
+				}
+			}
+			save_scope_as = nationalist_ig
+		}
+		trigger_event = { id = turkish_nationalism.1 popup = yes }
+	}
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = je_turkish_nationalism_trigger_tt_1
+				scope:journal_entry = {
+					is_goal_complete = yes
+				}
+				AND = {
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_monarchy
+					}
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+					OR = {
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy
+					}
+					OR = {
+						has_law = law_type:law_public_schools
+						has_law = law_type:law_private_schools
+					}
+					OR = {
+						has_law = law_type:law_freedom_of_conscience
+						has_law = law_type:law_shared_roots
+						has_law = law_type:law_total_separation
+					}
+					has_law = law_type:law_unitary
+					has_law = law_type:law_slavery_banned
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_in_government = yes
+					} 
+				}
+			}
+			custom_tooltip = {
+				text = je_turkish_nationalism_trigger_tt_2
+				scope:journal_entry = {
+					is_goal_complete = yes
+				}
+				AND = {
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_marginal = yes
+						count = all
+					} 
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_monarchy
+					}
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+					OR = {
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy
+					}
+					OR = {
+						has_law = law_type:law_public_schools
+						has_law = law_type:law_private_schools
+					}
+					OR = {
+						has_law = law_type:law_freedom_of_conscience
+						has_law = law_type:law_shared_roots
+						has_law = law_type:law_total_separation
+					}
+					has_law = law_type:law_unitary
+					has_law = law_type:law_slavery_banned
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_in_government = yes
+					} 
+				}
+			}
+			trigger_event = { id = turkish_nationalism.2 popup = yes }
+			set_variable = turkish_empire
+		}
+		else_if = {
+			limit = {
+				AND = {
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_marginal = yes
+						count = all
+					} 
+				}
+			}
+			trigger_event = { id = turkish_nationalism.3 popup = yes }
+		}
+	}
+
+	fail = {
+		OR = {
+        	socialist_revolution_ongoing = yes
+        	liberal_revolution_ongoing = yes
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+				turmoil >= 0.2
+			}
+        }
+	}
+
+	on_fail = {
+		if = {
+			limit = { 
+				NOT = { socialist_revolution_ongoing = yes }
+				has_law = law_type:law_monarchy
+			}
+			trigger_event = { id = turkish_nationalism.4 popup = yes }
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							OR = {
+								has_law = law_type:law_presidential_republic
+								has_law = law_type:law_parliamentary_republic
+								has_law = law_type:law_monarchy
+							}
+							OR = {
+								has_law = law_type:law_ethnostate
+								has_law = law_type:law_national_supremacy
+							}
+							OR = {
+								has_law = law_type:law_public_schools
+								has_law = law_type:law_private_schools
+							}
+							OR = {
+								has_law = law_type:law_freedom_of_conscience
+								has_law = law_type:law_shared_roots
+								has_law = law_type:law_total_separation
+							}
+							has_law = law_type:law_census_voting
+							has_law = law_type:law_unitary
+							has_law = law_type:law_slavery_banned
+							any_interest_group = {
+								filter = {
+									OR = {
+										leader = {
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+										any_scope_character = {
+											has_role = agitator
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+									}
+								}
+								is_in_government = yes
+							} 
+						}
+						AND = {
+							OR = {
+								has_law = law_type:law_outlawed_dissent
+								has_law = law_type:law_censorship
+							}
+							any_interest_group = {
+								filter = {
+									OR = {
+										leader = {
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+										any_scope_character = {
+											has_role = agitator
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+									}
+								}
+								is_marginal = yes
+								count = all
+							} 
+						}
+					}
+				}
+				change_variable = {
+					name = tur_nationalism_progress_var
+					add = 1
+				}
+			}
+		}
+	}
+
+	modifiers_while_active = {
+		modifier_tur_nationalism
+	}
+
+	current_value = {
+		value = root.var:tur_nationalism_progress_var
+	}
+
+	goal_add_value = {
+		add = 60
+	}
+
+	weight = 100
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+je_turkish_revolution = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	group = je_group_tsr_content
+	
+	can_revolution_inherit = no
+	
+	modifiers_while_active = {
+		modifier_tur_nationalism
+	}
+
+	scripted_button = je_turkish_revolution_button_a
+	scripted_button = je_turkish_revolution_button_b
+
+	immediate = {
+		set_variable = {
+			name = turkish_revolution_drift_final_var
+			value = 0
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_turkish_revolution_zero_var
+			var:turkish_revolution_progress_var <= 0
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = turkish_nationalism.5 popup = yes }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_turkish_revolution_full_var
+			var:turkish_revolution_progress_var >= 100
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = turkish_nationalism.6 popup = yes }
+	}
+
+	invalid = {
+		OR = {
+			has_variable = turkish_revolution_invalid
+			NOT = { has_law = law_type:law_monarchy }
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			turkish_revolution_update_tick = yes
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {			
+			turkish_revolution_update_tick = yes
+			change_variable = {
+				name = turkish_revolution_progress_var
+				add = var:turkish_revolution_drift_final_var
+			}
+		}
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 8000
+
+	current_value = {
+		value = var:turkish_revolution_progress_var
+	}
+
+	goal_add_value = {
+		add = 100
+	}
+
+	progressbar = yes
+}

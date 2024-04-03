@@ -1,4 +1,5 @@
 ﻿namespace = ottoman_flavor
+namespace = turkish_nationalism
 
 # Deposition of the Sultan - Coup
 ottoman_flavor.1 = {
@@ -477,6 +478,720 @@ ottoman_flavor.2 = {
 					interest_group = prev
 				}
 			}
+		}
+	}
+}
+
+##Turkish Nationalism
+
+turkish_nationalism.1 = {
+	type = country_event
+
+	title = turkish_nationalism.1.t
+	desc = turkish_nationalism.1.d
+	flavor = turkish_nationalism.1.f
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+	 	#Triggered by journal entry
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				AND = {
+					OR = {
+						has_role = agitator
+						has_role = politician
+					}
+					OR = {
+						has_ideology = ideology:ideology_turkish_nationalist
+						has_ideology = ideology:ideology_radical
+					}
+				}
+			}
+			save_scope_as = nationalist_scope
+			interest_group = {
+				save_scope_as = nationalist_ig
+			}
+			set_variable = { name = memento_mori_immunity years = 20 }
+		}
+	}
+
+	option = { 
+		name = turkish_nationalism.1.a
+		# nationalist movements will become entrenched
+		scope:nationalist_ig = {
+			add_modifier = {
+				name = spreading_nationalist_sentiments
+				months = long_modifier_time
+			}
+		}
+		scope:nationalist_scope = {
+			add_modifier = {
+				name = popular_nationalist
+			}
+		}
+	}
+	option = { 
+		name = turkish_nationalism.1.b
+		default_option = yes
+		trigger = {
+			OR = {
+				has_law = law_type:law_outlawed_dissent
+				has_law = law_type:law_censorship
+			}
+		}
+		scope:nationalist_ig = {
+			add_modifier = {
+				name = nationalists_suppressed
+				months = long_modifier_time
+			}
+		}
+		add_radicals = {
+			value = medium_radicals
+			interest_group = scope:nationalist_ig
+		}
+		scope:nationalist_scope = {
+			add_modifier = {
+				name = less_popular_nationalist_red
+			}
+		}
+	}
+}
+
+#Success Event - the nationalist movement is placated.
+
+turkish_nationalism.2 = {
+	type = country_event
+
+	title = turkish_nationalism.2.t
+	desc = turkish_nationalism.2.d
+	flavor = turkish_nationalism.2.f
+
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_interest_group = {
+			limit = {
+				OR = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_turkish_nationalist
+							has_ideology = ideology:ideology_radical
+						}
+					}
+					any_scope_character = {
+						has_role = agitator
+						OR = {
+							has_ideology = ideology:ideology_turkish_nationalist
+							has_ideology = ideology:ideology_radical
+						}
+					}
+				}
+				
+			}
+			save_scope_as = nationalist_ig
+		}
+	}
+
+	option = { 
+		name = turkish_nationalism.2.a
+		default_option = yes
+		set_variable = fractured_porte_invalid
+		set_variable = turkish_empire
+		scope:nationalist_ig = {
+			add_modifier = {
+				name = modifier_a_turkish_empire
+				months = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = { has_ideology = ideology:ideology_pluralist }
+			remove_ideology = ideology_pluralist
+			add_ideology = ideology_nationalist
+		}
+		add_modifier = {
+			name = modifier_a_turkish_empire_country
+			months = normal_modifier_time
+		}
+		add_loyalists = {
+			culture = cu:turkish
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:greek
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:armenian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:bulgarian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:serb
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:croat
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:levantine
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:misri
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:kurdish
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:ukrainian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:hungarian
+			value = large_radicals
+		}
+	}
+}
+
+#Success Event - the nationalist movement is successfully repressed.
+
+turkish_nationalism.3 = {
+	type = country_event
+
+	title = turkish_nationalism.3.t
+	desc = turkish_nationalism.3.d
+	flavor = turkish_nationalism.3.f
+
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_interest_group = {
+			limit = {
+				OR = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_turkish_nationalist
+							has_ideology = ideology:ideology_radical
+						}
+					}
+					any_scope_character = {
+						has_role = agitator
+						OR = {
+							has_ideology = ideology:ideology_turkish_nationalist
+							has_ideology = ideology:ideology_radical
+						}
+					}
+				}
+				
+			}
+			save_scope_as = nationalist_ig
+		}
+	}
+
+	option = { 
+		name = turkish_nationalism.3.a
+		default_option = yes
+		scope:nationalist_ig = {
+			add_modifier = {
+				name = modifier_end_of_nationalist_movements
+				months = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				scope:nationalist_ig = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_turkish_nationalist
+							has_ideology = ideology:ideology_radical
+						}
+					}
+				}
+			}
+			create_character = {
+				ig_leader = yes
+				interest_group = scope:nationalist_ig
+				ideology = ideology_moderate
+			}
+		}
+		add_modifier = {
+			name = modifier_end_of_nationalist_movements_country
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			culture = cu:turkish
+			value = large_radicals
+		}
+	}
+}
+
+#Turkish Revolution start event
+turkish_nationalism.4 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	title = turkish_nationalism.4.t
+	desc = turkish_nationalism.4.d
+	flavor = turkish_nationalism.4.f
+
+	duration = 3
+
+	trigger = {
+		#Triggered by JE
+	}
+
+	immediate = {
+		set_variable = { name = nationalist_support_level value = 0 }
+		ruler = {
+			save_scope_as = ruler_scope
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_diplomatic_relevance = c:TUR
+					NOT = { THIS = ROOT }
+				}
+				post_notification = tur_turkish_revolution_start_notification
+				if = {
+					limit = { country_rank >= rank_value:major_power }
+					trigger_event = { id = turkish_nationalism.7 days = 14 }
+				}
+			}
+		}
+		ROOT = {
+			save_scope_as = tur_scope
+		}
+	}
+
+	option = {
+		name = turkish_nationalism.4.a
+		default_option = yes
+		add_journal_entry = {
+			type = je_turkish_revolution
+		}
+		hidden_effect = {
+			set_variable = { name = turkish_revolution_progress_var value = 40 } 
+			set_variable = { name = turkish_revolution_progress_drift value = 1 } 
+		}
+		custom_tooltip = revolution_progress_add_monthly_1
+	}
+}
+
+turkish_nationalism.5 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = turkish_nationalism.5.t
+	desc = turkish_nationalism.5.d
+	flavor = turkish_nationalism.5.f
+
+	duration = 3
+
+	trigger = {
+		
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = turkish_nationalism.5.a
+		default_option = yes
+		every_scope_state = {
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:turkish
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 15 
+			}
+		}
+		change_infamy = 10
+		add_modifier = {
+			name = modifier_repression_of_nationalists
+			months = long_modifier_time
+			is_decaying = yes
+		}
+	}
+	option = {
+		name = turkish_nationalism.5.b
+		every_scope_state = {
+			kill_population_percent_in_state = {
+				percent = 0.01
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.01
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 10
+			}
+		}
+	}
+}
+
+turkish_nationalism.6 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = turkish_nationalism.6.t
+	desc = turkish_nationalism.6.d
+	flavor = turkish_nationalism.6.f
+
+	duration = 3
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = turkish_nationalism.6.a
+		default_option = yes
+		set_variable = fractured_porte_invalid
+		custom_tooltip = {
+			text = nationalists_seize_power_tt
+			set_variable = turkish_empire
+			every_interest_group = {
+				limit = { has_ideology = ideology:ideology_pluralist }
+				remove_ideology = ideology_pluralist
+				add_ideology = ideology_nationalist
+			}
+			every_scope_character = {
+				limit = {
+					this.interest_group = {
+						is_in_government = yes
+					}
+					is_ruler = no
+				}
+				kill_character = {
+					hidden = yes
+				}
+			}
+			every_interest_group = {
+				limit = {
+					is_in_government = yes
+					NOR = {
+						has_ideology = ideology:ideology_nationalist
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+				}
+				remove_ruling_interest_group = yes
+			}
+			every_interest_group = {
+				limit = {
+					OR = {
+						has_ideology = ideology:ideology_nationalist
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+				}
+				add_ruling_interest_group = yes
+				add_modifier = {
+					name = nationalist_takeover_positive
+					months = long_modifier_time
+				}
+			}
+			ig:ig_landowners = {
+				add_modifier = {
+					name = nationalist_takeover_negative
+					months = long_modifier_time
+				}
+			}
+			ig:ig_devout = {
+				add_modifier = {
+					name = nationalist_takeover_negative
+					months = long_modifier_time
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_national_supremacy }
+				}
+				activate_law = law_type:law_national_supremacy
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_public_schools }
+				}
+				activate_law = law_type:law_public_schools
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_freedom_of_conscience }
+				}
+				activate_law = law_type:law_freedom_of_conscience
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_census_voting }
+				}
+				activate_law = law_type:law_census_voting
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_unitary }
+				}
+				activate_law = law_type:law_unitary
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_slavery_banned }
+				}
+				activate_law = law_type:law_slavery_banned
+			}
+		}
+		add_loyalists = {
+			culture = cu:turkish
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:greek
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:armenian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:bulgarian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:serb
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:croat
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:levantine
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:misri
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:kurdish
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:ukrainian
+			value = large_radicals
+		}
+		add_radicals = {
+			culture = cu:hungarian
+			value = large_radicals
+		}
+	}
+}
+
+turkish_nationalism.7 = {
+	type = country_event
+	placement = root
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = turkish_nationalism.7.t
+	desc = turkish_nationalism.7.d
+	flavor = turkish_nationalism.7.f
+
+	duration = 3
+
+	trigger = {
+		#Triggered by JE
+	}
+
+	immediate = {
+		c:TUR = {
+			save_scope_as = tur_scope
+		}
+		ROOT = {
+			save_scope_as = supporter_scope
+		}
+	}
+
+	option = {
+		name = turkish_nationalism.7.a
+		default_option = yes
+		ai_chance = {
+			base = 100
+			modifier = {
+				trigger = {
+					scope:tur_scope.relations:root >= relations_threshold:cordial
+				}
+				add = 50
+			}
+		}
+		change_relations = {
+			country = scope:tur_scope
+			value = 10
+		}
+	}
+	option = {
+		name = turkish_nationalism.7.b
+		ai_chance = {
+			base = 15
+			modifier = {
+				trigger = {
+					scope:tur_scope.relations:root <= relations_threshold:poor
+				}
+				add = 30
+			}
+			modifier = {
+				trigger = {
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+				}
+				add = 250
+			}
+			modifier = {
+				trigger = {
+					scope:tur_scope = {
+						has_law = law_type:law_monarchy
+						NOR = {
+							has_law = law_type:law_universal_suffrage
+							has_law = law_type:law_census_suffrage
+						}
+					}
+					NOR = {
+						has_law = law_type:law_monarchy
+						has_law = law_type:law_theocracy
+					}
+					OR = {
+						has_law = law_type:law_universal_suffrage
+						has_law = law_type:law_census_suffrage
+					}
+				}
+				add = 10
+			}
+		}
+		change_relations = {
+			country = scope:tur_scope
+			value = -25
+		}
+		if = {
+			limit = {
+				ROOT = {
+					country_rank >= rank_value:great_power
+				}
+			}
+			c:TUR = {
+				change_variable = { name = nationalist_support_level add = 1 }  # Variable exists only for display purposes
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = {
+					country_rank >= rank_value:major_power
+				}
+			}
+			c:TUR = {
+				change_variable = { name = nationalist_support_level add = 0.5 } # Variable exists only for display purposes
+			}
+		}
+		scope:tur_scope = {
+			post_notification = foreign_country_supports_revolution
+		}
+		custom_tooltip = will_improve_revolution_progress_tt
+	}
+	option = {
+		name = turkish_nationalism.7.c
+		ai_chance = {
+			base = 75
+		}
+		change_relations = {
+			country = scope:tur_scope
+			value = -5
 		}
 	}
 }

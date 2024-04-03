@@ -417,10 +417,10 @@ ideology_turkish_nationalist = {
 	character_ideology = yes
 
 	lawgroup_governance_principles = {
-		law_monarchy = strongly_disapprove
+		law_monarchy = neutral
 		law_presidential_republic = approve
 		law_parliamentary_republic = approve
-		law_theocracy = strongly_disapprove
+		law_theocracy = disapprove
 		law_council_republic = disapprove
 	}
 
@@ -430,8 +430,8 @@ ideology_turkish_nationalist = {
 		law_landed_voting = neutral	
 		law_wealth_voting = approve	
 		law_single_party_state = neutral
-		law_census_voting = approve		
-		law_universal_suffrage = strongly_approve
+		law_census_voting = strongly_approve		
+		law_universal_suffrage = neutral
 		law_anarchy = strongly_disapprove
 		law_technocracy = strongly_disapprove
 	}
@@ -445,17 +445,19 @@ ideology_turkish_nationalist = {
 		law_multicultural = strongly_disapprove	
 	}
 	
+	lawgroup_church_and_state = {
+		law_state_religion = neutral
+		law_freedom_of_conscience = approve
+		law_shared_roots = approve
+		law_total_separation = strongly_approve
+		law_state_atheism = strongly_disapprove
+	}
+	
 	lawgroup_education_system = {
 		law_public_schools = strongly_approve
 		law_private_schools = approve
 		law_religious_schools = disapprove	
 		law_no_schools = strongly_disapprove	
-	}
-
-	lawgroup_migration = {
-		law_migration_controls = approve		
-		law_closed_borders = neutral
-		law_no_migration_controls = disapprove
 	}
 	
 	lawgroup_centralization = {
@@ -516,14 +518,17 @@ ideology_turkish_nationalist = {
 			add = -75
 		}
 		
-		# more likely for Turkish intelligentsia
+		# more likely for Turkish intelligentsia and army
 		if = {
 			limit = {
 				scope:interest_group = {
-					is_interest_group_type = ig_intelligentsia
+					OR = {
+						is_interest_group_type = ig_intelligentsia
+						is_interest_group_type = ig_armed_forces
+					}
 				}
 			}
-			add = 75
+			add = 50
 		}
 		
 		# more likely once nationalism is researched

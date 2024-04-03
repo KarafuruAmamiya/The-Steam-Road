@@ -394,15 +394,17 @@ persian_flavor.5 = {
 		}
 		any_country = {
 			NOT = { root = this }
-			OR = {
-				country_is_in_europe = yes
-				gunpowder_empire_trigger = yes
-			}
-			OR = {
-				has_interest_marker_in_region = region_arabic
-				has_interest_marker_in_region = region_anatolia
-				has_interest_marker_in_region = region_kurdistan
-				has_interest_marker_in_region = region_persia
+			AND = {
+				OR = {
+					country_is_in_europe = yes
+					gunpowder_empire_trigger = yes
+				}
+				OR = {
+					has_interest_marker_in_region = region_arabic
+					has_interest_marker_in_region = region_anatolia
+					has_interest_marker_in_region = region_kurdistan
+					has_interest_marker_in_region = region_persia
+				}
 			}
 		}
 	}
@@ -451,7 +453,7 @@ persian_flavor.5 = {
 		name = persian_flavor.5.a
 		default_option = yes
 		ai_chance = {
-			base = 0
+			base = 10
 			modifier = {
 				trigger = {
 					NOR = {
@@ -478,15 +480,17 @@ persian_flavor.5 = {
 			random_country = {
 				limit = {
 					NOT = { root = this }
-					OR = {
-						country_is_in_europe = yes
-						gunpowder_empire_trigger = yes
-					}
-					OR = {
-						has_interest_marker_in_region = region_arabic
-						has_interest_marker_in_region = region_anatolia
-						has_interest_marker_in_region = region_kurdistan
-						has_interest_marker_in_region = region_persia
+					AND = {
+						OR = {
+							country_is_in_europe = yes
+							gunpowder_empire_trigger = yes
+						}
+						OR = {
+							has_interest_marker_in_region = region_arabic
+							has_interest_marker_in_region = region_anatolia
+							has_interest_marker_in_region = region_kurdistan
+							has_interest_marker_in_region = region_persia
+						}
 					}
 				}
 				trigger_event = { id = persian_flavor.6 days = 3 }

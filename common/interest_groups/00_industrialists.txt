@@ -63,13 +63,34 @@
 		OR = {
 			is_pop_type = capitalists
 			is_pop_type = engineers
+			is_pop_type = machinists
+			is_pop_type = laborers
 			is_pop_type = shopkeepers
+			is_pop_type = aristocrats
 		}
 	}
 
 	pop_weight = {
 		value = 0
 
+		add = {
+			desc = "WEALTH"
+			if = {
+				limit = { 
+					wealth > 30
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = farmers }
+				}
+
+				value = wealth
+				subtract = 20
+				multiply = 4
+				max = 250
+
+			}
+			
+		}
+	
 		add = {
 			desc = "POP_CAPITALISTS"
 			if = {
@@ -103,6 +124,266 @@
 			}
 		}
 
+		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+				}
+				value = 25
+			}
+		}
+
+		add = { #Some workers supports the capitalists
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = { 
+					is_pop_type = machinists
+				}
+				value = 10
+			}
+		}	
+
+		add = { #Some workers supports the capitalists
+			desc = "POP_LABORERS"
+			if = {
+				limit = { 
+					is_pop_type = laborers
+				}
+				value = 5
+			}
+		}
+		
+		multiply = { # Boost to Facism to make it relevant
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_industrialists = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+						}					
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = { # extra boost to fascism for wealthy classes if powerful
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_industrialists = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+							is_powerful = yes
+						}					
+					}
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
+				}
+				value = 2.0
+			}
+		}
+
+		add = {
+			desc = "SOL_25_30"
+			if = {
+				limit = {
+					standard_of_living >= 25
+					standard_of_living < 30
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 10
+			}
+		}
+
+		add = {
+			desc = "SOL_30_35"
+			if = {
+				limit = {
+					standard_of_living >= 30
+					standard_of_living < 35
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 20
+			}
+		}	
+
+		add = {
+			desc = "SOL_35_40"
+			if = {
+				limit = {
+					standard_of_living >= 35
+					standard_of_living < 40
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 30
+			}
+		}
+
+		add = {
+			desc = "SOL_40_45"
+			if = {
+				limit = {
+					standard_of_living >= 40
+					standard_of_living < 45
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 40
+			}
+		}
+
+		add = {
+			desc = "SOL_45_50"
+			if = {
+				limit = {
+					standard_of_living >= 45
+					standard_of_living < 50
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "SOL_50_100"
+			if = {
+				limit = {
+					standard_of_living >= 50
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = capitalists }
+					NOT = { is_pop_type = farmers }
+				}
+				value = 75
+			}
+		}
+
+		multiply = {
+			desc = "law_graduated_taxation"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_graduated_taxation
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_traditionalism"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_traditionalism
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_command_economy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_command_economy
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_isolationism"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_isolationism
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			value = 1.0
+			desc = "IG_EMPLOYED_MIC"
+
+			if = {
+				limit = {
+					employed_in_military_industry = yes
+				}
+				value = 0.5
+			}
+		}	
+
+		multiply = {
+			desc = "IG_COUNCIL_REPUBLIC"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_council_republic
+					}
+					NOT = {
+						is_pop_type = capitalists
+					}
+				}
+				value = 0
+			}
+		}
+
+		add = {
+			desc = "GERMAN_CATHOLIC"
+			if = {
+				limit = {
+					owner = { ig:ig_landowners = { has_ideology = ideology:ideology_junker_paternalistic }}
+					is_pop_type = aristocrats
+					has_state_religion = no
+					religion = rel:catholic
+				}
+				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "WOMENVOTE"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_womens_suffrage
+					}
+				}
+				value = 0.9
+			}
+		}
+		
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
@@ -167,6 +448,20 @@
 				value = pop_radical_fraction
 				divide = 4
 				add = 1
+			}
+		}
+		
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
 			}
 		}
 	}

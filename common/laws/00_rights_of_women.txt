@@ -13,7 +13,7 @@ law_no_womens_rights = {
 	}
 
 	modifier = {
-		state_birth_rate_mult = 0.10 #0.08
+		state_birth_rate_mult = 0.05
 	}
 	
 	possible_political_movements = {
@@ -65,8 +65,13 @@ law_women_own_property = {
 
 	modifier = {
 		state_working_adult_ratio_add = 0.05
-		state_birth_rate_mult = 0.05 #0.04
 	}
+	
+    institution = institution_schools
+	institution_modifier = {
+    	state_education_access_add = 0.005
+	}
+
 	
 	possible_political_movements = {
 		law_no_womens_rights
@@ -105,6 +110,7 @@ law_women_own_property = {
 				value = 0.1
 			}
 		}
+		multiply = literacy_rate
 	}
 
 	ai_will_do = {
@@ -166,6 +172,11 @@ law_women_in_the_workplace = {
 		state_birth_rate_mult = -0.05
 	}
 	
+    institution = institution_schools
+	institution_modifier = {
+        state_education_access_add = 0.01
+	}
+	
 	possible_political_movements = {
 		law_women_own_property
 		law_womens_suffrage
@@ -212,6 +223,7 @@ law_women_in_the_workplace = {
 				value = 0.1
 			}
 		}
+		multiply = literacy_rate
 	}
 
 	ai_will_do = {
@@ -277,6 +289,11 @@ law_womens_suffrage = {
 		state_dependent_political_participation_add = 0.33
 	}
 	
+    institution = institution_schools
+	institution_modifier = {
+		state_education_access_add = 0.02
+	}
+	
 	possible_political_movements = {
 		law_women_own_property
 	}
@@ -303,6 +320,7 @@ law_womens_suffrage = {
 				value = 0.1
 			}
 		}
+		multiply = literacy_rate
 	}
 
 	ai_enact_weight_modifier = { #Petitions

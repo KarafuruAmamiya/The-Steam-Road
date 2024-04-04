@@ -101,7 +101,7 @@
 				limit = {
 					pop_is_discriminated = no
 				}
-				value = 25
+				value = 50
 				if = { # Militarisation of colonial settlers
 					limit = {
 						owner = {
@@ -125,6 +125,35 @@
 					}
 					divide = 2
 				}
+			}
+		}
+
+		add = {
+			desc = "nationalism"
+			if = {
+				limit = {
+					pop_is_discriminated = no
+					owner = {
+						has_technology_researched = nationalism
+						NOT = {
+							has_technology_researched = pan-nationalism
+						}
+					}
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "nationalism"
+			if = {
+				limit = {
+					pop_is_discriminated = no
+					owner = {
+						has_technology_researched = pan-nationalism
+					}
+				}
+				value = 25
 			}
 		}
 
@@ -192,7 +221,7 @@
 				limit = {
 					is_pop_type = aristocrats
 				}
-				value = 50
+				value = 25
 				if = {
 					limit = {
 						owner = {
@@ -243,6 +272,297 @@
 			}
 		}
 
+		add = {
+			desc = "IG_HAS_RIVAL"
+			if = {
+				limit = {
+					owner = {
+						any_rival_country = {
+							count = 0
+						}
+					}
+				}
+				value = 0
+			}
+			else_if = {
+				limit = {
+					owner = {
+						any_rival_country = {
+							count = 1
+						}
+					}
+				}
+				value = 5
+			}
+			else_if ={
+				limit = {
+					owner = {
+						any_rival_country = {
+							count = 2
+						}
+					}
+				}
+				value = 10
+			}
+			else_if ={
+				limit = {
+					owner = {
+						any_rival_country = {
+							count = 3
+						}
+					}
+				}
+				value = 15
+			}
+			else_if ={
+				limit = {
+					owner = {
+						any_rival_country = {
+							count >= 4
+						}
+					}
+				}
+				value = 20
+			}
+		}
+
+		multiply = {
+            desc = "concept_war"    
+            value = 1.0
+
+            if = {
+                limit = {
+                    pop_is_discriminated = no
+                    owner = {
+                        is_at_war = yes
+                    }
+                }
+                value = 1.5
+            }        
+        }
+		
+		add = {
+			desc = "IG_EMPLOYED_MIC"
+			if = {
+				limit = {
+					employed_in_military_industry = yes
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "MIC_OWNER"
+			if = {
+				limit ={	
+					employed_in_military_industry = yes
+					building_owner = yes
+					owner = {
+						NOT = {
+							has_law = law_type:law_cooperative_ownership
+						}
+					}
+				}
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "MIC_OWNER"
+			if = {
+				limit ={	
+					employed_in_military_industry = yes
+					building_owner = yes
+					owner = {
+						has_law = law_type:law_cooperative_ownership
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = { #Policemens
+			desc = "POP_CLERKS"
+			if = {
+				limit = { 
+					is_pop_type = clerks
+				}
+				value = 25
+			}
+		}
+
+		add = { #Policemens
+			desc = "POP_BUREAUCRATS"
+			if = {
+				limit = { 
+					is_pop_type = bureaucrats
+				}
+				value = 10
+			}
+		}
+
+		add = {
+			desc = "ideology_junker_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					has_state_religion = yes
+					culture = cu:north_german
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_junker_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "ideology_rumelist"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						ig:ig_armed_forces = {
+							leader = {
+								has_ideology = ideology:ideology_rumelist
+							}
+						}
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		add = { #Persian Aristocracy
+			desc = "ideology_safavid_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					has_state_religion = yes
+					culture = cu:persian
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_safavid_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = { #Szlachta
+			desc = "ideology_szlachta_stratocratic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					OR = {
+						culture = cu:polish
+						culture = cu:lithuanian
+					}
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_szlachta_stratocratic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		multiply = { # Boost to Facism to make it relevant
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_armed_forces = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+						}					
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = { # extra boost to fascism for wealthy classes if powerful
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_armed_forces = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+							is_powerful = yes
+						}					
+					}
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
+				}
+				value = 2.0
+			}
+		}
+
+		multiply = {
+			desc = "law_national_guard"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_national_guard
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "LEFTISTARMY"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						any_interest_group = { 
+							is_interest_group_type = ig_armed_forces 
+							leader = {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_vanguardist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_republican_leader
+								}
+							}
+						}
+					}
+					is_pop_type = aristocrats
+				}
+				value = 0.1
+			}
+		}	
+
+		multiply = {
+			desc = "WOMENVOTE"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_womens_suffrage
+					}
+				}
+				value = 0.75
+			}
+		}
+					
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
@@ -292,6 +612,20 @@
 				value = pop_radical_fraction
 				divide = 4
 				add = 1
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
 			}
 		}
 	}

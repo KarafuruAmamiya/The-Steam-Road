@@ -137,6 +137,7 @@ law_debt_slavery = {
 	
 	disallowing_laws = {
 		law_multicultural
+		law_protected_speech
 	}
 
 	on_activate = {
@@ -152,6 +153,8 @@ law_debt_slavery = {
 	}
 	
 	modifier = {
+		#country_authority_add = 200
+		interest_group_ig_landowners_pol_str_mult = 1
 	}
 	
 	pop_support = {
@@ -272,7 +275,7 @@ law_slave_trade = {
 	}
 	
 	possible_political_movements = {
-		law_slavery_banned
+		#law_slavery_banned
 		law_legacy_slavery
 	}
 
@@ -340,6 +343,12 @@ law_legacy_slavery = {
 	
 	unlocking_laws = {
 		law_slave_trade
+		law_debt_slavery
+	}
+	
+	disallowing_laws = {
+		law_cultural_exclusion
+		law_multicultural
 	}
 	
 	on_activate = {

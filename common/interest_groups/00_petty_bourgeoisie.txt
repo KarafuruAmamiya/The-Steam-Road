@@ -112,9 +112,37 @@
 					}
 				}
 			}
-			ig:ig_petty_bourgeoisie = {
-				remove_ideology = ideology_nationalist
-				add_ideology = ideology_pluralist
+			owner = {
+				ig:ig_petty_bourgeoisie = {
+					remove_ideology = ideology_nationalist
+					add_ideology = ideology_pluralist
+				}
+			}
+		}
+		
+		# Republican PB
+		else_if = {
+			limit = {
+				coa_republic_trigger = yes
+			}
+			ig:ig_petty_bourgeoisie = { 
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
+			}
+		}
+		# Revolutionary Republican PB
+		else_if = {
+			limit = {
+				coa_republic_trigger = yes
+				OR = {
+					c:ITA ?= this
+					is_subject_of = c:ITA
+				}
+			}
+			ig:ig_petty_bourgeoisie = { 
+				remove_ideology = ideology_constitutionalist
+				remove_ideology = ideology_republican
+				add_ideology = ideology_revolutionary_republican
 			}
 		}
 	}
@@ -152,20 +180,18 @@
 				}
 			}
 		}
-		NOR = {
-			is_pop_type = aristocrats
-			is_pop_type = capitalists
-		}
 		OR = {
 			pop_employment_building_group = bg_manufacturing
 			pop_employment_building_group = bg_service
 			pop_employment_building_group = bg_urban_facilities
 			pop_employment_building_group = bg_government
+			pop_employment_building_group = bg_military
 			pop_employment_building_group = bg_logging
 			pop_employment_building_group = bg_mining
 			pop_employment_building_group = bg_fishing
 			pop_employment_building_group = bg_whaling
 			pop_employment_building_group = bg_oil_extraction
+			is_pop_type = peasants
 			AND = {
 				custom_tooltip = {
 					text = owner_has_homesteading_tt
@@ -187,7 +213,7 @@
 	}
 
 	pop_weight = {
-		value = 50
+		value = 10
 
 		add = {
 			desc = "POP_SHOPKEEPERS"
@@ -210,10 +236,40 @@
 		}
 
 		add = {
+			desc = "POP_BUREAUCRATS"
+			if = {
+				limit = { 
+					is_pop_type = bureaucrats
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "POP_SOLDIERS"
+			if = {
+				limit = { 
+					is_pop_type = soldiers
+				}
+				value = 75
+			}
+		}
+
+		add = {
 			desc = "POP_ENGINEERS"
 			if = {
 				limit = {
 					is_pop_type = engineers
+				}
+				value = 75
+			}
+		}
+		
+		add = {
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = { 
+					is_pop_type = machinists
 				}
 				value = 50
 			}
@@ -249,6 +305,413 @@
 			}
 		}
 
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = { 
+					is_pop_type = farmers
+				}
+				value = 75
+			}
+		}
+
+		add = { #Some upper class support PB
+			desc = "POP_CAPITALISTS"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+				}
+				value = 25
+			}
+		}
+
+		add = { #Some upper class support PB
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+				}
+				value = 10
+			}
+		}
+
+		add = {
+			desc = "POP_PEASANTS" #represent artisans etc
+			if = {
+				limit = {
+					is_pop_type = peasants
+				}
+				value = 75
+			}
+		}
+		
+		multiply = {
+			desc = "RURAL_POP"
+			value = 1.0
+			if = {
+				limit = { 
+					rural_employment = yes
+				}
+				value = 0.75
+			}
+		}
+		
+		multiply = { # Boost to Facism to make it relevant
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}					
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = { # extra boost to fascism for wealthy classes if powerful
+			desc = "ideology_fascist"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+							is_powerful = yes
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}					
+					}
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
+				}
+				value = 2.0
+			}
+		}
+
+		multiply = {
+			desc = "TRADE_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = clerks
+						is_pop_type = bureaucrats
+					}
+					pop_employment_building = building_trade_center
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "URBAN_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = clerks
+						is_pop_type = bureaucrats
+					}
+					pop_employment_building = building_urban_center
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "NOT_GOV"
+			value = 1.0
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = clerks
+						is_pop_type = bureaucrats
+					}
+					NOT = { pop_employment_building_group = bg_government}
+				}
+				value = 1.25
+			}
+		}
+		
+		multiply = { 
+			desc = "COUNTERREVOLUTION"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						ig:ig_trade_unions = {
+							is_powerful = yes
+						}
+					}
+				}
+				value = 1.5
+			}
+		}
+		
+		add = {
+			desc = "INFAMY" 
+			if = {
+				limit = {
+					owner = { 
+						NOT = { has_law = law_type:law_council_republic }
+						infamy >= 25
+						infamy < 50
+					}
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "INFAMY" 
+			if = {
+				limit = {
+					owner = { 
+						NOT = { has_law = law_type:law_council_republic }
+						infamy >= 50
+						infamy < 100
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "INFAMY"
+			if = {
+				limit = {
+					owner = { 
+						NOT = { has_law = law_type:law_council_republic }
+						infamy >= 100
+					}
+				}
+				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "law_cultural_exclusion" #they took our jobs!
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_cultural_exclusion
+						ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+					literacy_rate < 0.80
+				}
+				value = 1.1
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_cultural_exclusion
+							ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+				}
+				value = 1.05
+			}
+		}	
+
+		multiply = {
+			desc = "law_multicultural" #they took our jobs!
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_multicultural
+						ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+					literacy_rate < 0.90
+				}
+				value = 1.25
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_multicultural
+						ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_national_guard"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_national_guard
+						ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_no_police"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_police
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_no_migration_controls"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_migration_controls
+						ig:ig_petty_bourgeoisie = {
+							NOT = { has_ideology = ideology:ideology_pluralist }
+						}
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		add = {
+			desc = "law_graduated_taxation" 
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_graduated_taxation
+					}
+					OR = {
+						strata = middle
+						is_pop_type = clerks
+						is_pop_type = machinists
+					}
+				}
+				value = 25
+			}
+		}
+
+		multiply = {
+			desc = "IG_COUNCIL_REPUBLIC"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_council_republic
+					}
+				}
+				value = 0.1
+			}
+		}
+
+		multiply = {
+			desc = "AFROAMERICAN"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						c:USC = THIS
+					}
+					culture = cu:afro_american
+				}
+				value = 0.1
+			}
+		}
+
+		add = { #rural pops love metropolitans
+			desc = "ideology_metropolitan"
+			if = {
+				limit = { 
+					rural_employment = yes
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_metropolitan
+							}
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		multiply = {
+			desc = "ideology_metropolitan"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_law = law_type:law_monarchy }
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_metropolitan
+							}
+						}
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "ideology_jacksonian_democrat"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								has_ideology = ideology:ideology_jacksonian_democrat
+							}
+						}
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
+			}
+		}
+		
 		if = {
 			limit = {
 				owner = {
@@ -292,11 +755,7 @@
 			desc = "URBAN_POP"
 			if = {
 				limit = {
-					NOR = {
-						pop_employment_building_group = bg_agriculture
-						pop_employment_building_group = bg_ranching
-						pop_employment_building_group = bg_plantations
-					}
+					rural_employment = no
 				}
 				value = 25
 				add = this.standard_of_living

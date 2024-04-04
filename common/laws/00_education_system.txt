@@ -57,9 +57,12 @@ law_religious_schools = {
 
 	institution = institution_schools
 	institution_modifier = {
-		state_conversion_mult = 0.2
-		state_education_access_add = 0.075 # 0.1
+		#state_education_access_wealth_add = 0 # + base 0.02  = 0 + 0.02 = 0.02 => 75% education (missing) at ~37.5 SoL. Should be bad by design
+		state_assimilation_mult = 0.05 #was none
+		state_conversion_mult = 0.075
+		state_education_access_add = 0.05 #was 0.1
 		interest_group_ig_devout_pol_str_mult = 0.1
+		interest_group_ig_intelligentsia_pol_str_mult = 0.05 #was none
 	}
 	
 	possible_political_movements = {
@@ -99,10 +102,18 @@ law_religious_schools = {
 				value = 15
 				subtract = standard_of_living
 				multiply = 0.1
+				multiply = literacy_rate
 				min = 0
-				max = 1
+				max = 0.5
 			}
 		}
+	}
+
+	ai_will_do = { #AI does not go back to religious schools
+		NOR = {
+			has_law = law_type:law_public_schools
+			has_law = law_type:law_private_schools
+		}	
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -137,10 +148,23 @@ law_private_schools = {
 		academia
 	}
 	
+	disallowing_laws = {
+		law_state_religion
+	}
+    
+    modifier = {
+        country_institution_schools_max_investment_add = 1
+    }
+	
 	institution = institution_schools
 	institution_modifier = {
-		state_education_access_wealth_add = 0.0075 #0.005
-		interest_group_ig_intelligentsia_pol_str_mult = 0.1
+		state_assimilation_mult = 0.075 #was none
+        state_education_access_add = 0.02 #was none
+		state_education_access_wealth_add = 0.003 # + base 0.02 = 0.02+0.015 = 0.035 => 100% education at ~29% SoL #Only freaking rich people gets education
+        interest_group_ig_devout_pol_str_mult = 0.05 #was none
+		interest_group_ig_intelligentsia_pol_str_mult = 0.05 #was 0.1
+		interest_group_ig_landowners_pol_str_mult = 0.05 #was none
+		interest_group_ig_industrialists_pol_str_mult = 0.05 #was none
 	}
 	
 	possible_political_movements = {
@@ -152,13 +176,20 @@ law_private_schools = {
 		value = 0
 		add = {
 			desc = "POP_WEALTH"			
-			# Wealth 20 gives 0.1 pop support, 22 -> 0.2, 24 -> 0.3, ..., 30 -> 0.6
+			# Wealth 30 gives 0.1 pop support, 31 -> 0.2, 36 -> 0.3, ..., 45 -> 1.5
 			value = wealth
-			subtract = 18
-			divide = 2
+			subtract = 33
 			multiply = 0.1
+			multiply = literacy_rate
 			min = 0
-			max = 0.6
+			max = 0.75
+		}
+	}
+
+	# AI don't take it over public schools #changed to prefer private schools over religious
+	ai_will_do = {
+		NOT = {
+			has_law = law_type:law_public_schools
 		}
 	}
 
@@ -199,10 +230,17 @@ law_public_schools = {
 		law_serfdom
 	}
 	
+     modifier = {
+        country_institution_schools_max_investment_add = 1
+    }
+    
 	institution = institution_schools
 	institution_modifier = {
-		state_assimilation_mult = 0.1
-		state_education_access_add = 0.15
+		state_assimilation_mult = 0.125
+		state_education_access_wealth_add = 0.001 # + base 0.02  = 0.02 + 0.005 = 0.025 => 50% education (missing) at 20 SoL. Best by design
+		state_education_access_add = 0.08
+		interest_group_ig_intelligentsia_pol_str_mult = 0.1 #was none
+		country_bureaucracy_investment_cost_factor_mult = 0.02 #was none
 	}
 	
 	possible_political_movements = {
@@ -218,26 +256,17 @@ law_public_schools = {
 				limit = {
 					is_pop_type = academics
 				}
-				value = 0.25
-			}
-		}
-		add = {
-			desc = "POP_ACADEMICS"			
-			if = {
-				limit = {
-					is_pop_type = academics
-				}
-				value = 0.25
+				value = 0.5
 			}
 		}
 
 		add = {
 			desc = "POP_POVERTY"			
-			
-			# SoL 14 gives 0.1 pop support, 13 -> 0.2, 12 -> 0.3, ... 5 -> 1.0
-			value = 15
+			# SoL 20 gives 0.1 pop support, 19 -> 0.2, 18 -> 0.3, ... 5 -> 1.5
+			value = 21
 			subtract = standard_of_living
 			multiply = 0.1
+			multiply = literacy_rate
 			min = 0
 			max = 1
 		}

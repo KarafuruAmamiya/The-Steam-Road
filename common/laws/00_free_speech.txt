@@ -10,9 +10,11 @@ law_outlawed_dissent = {
 	
 	modifier = {
 		country_authority_add = 200
-		country_promotion_ig_attraction_mult = 0.5
-		country_suppression_ig_attraction_mult = -0.5
-		country_tech_spread_mult = -0.15
+		country_promotion_ig_attraction_mult = 0.25
+		country_suppression_ig_attraction_mult = -0.25
+		country_tech_spread_mult = -0.30
+		state_political_strength_from_wealth_mult = 0.5
+		country_institution_home_affairs_max_investment_add = 2
 	}
 	
 	possible_political_movements = {
@@ -56,9 +58,11 @@ law_censorship = {
 	
 	modifier = {
 		country_authority_add = 100
-		country_promotion_ig_attraction_mult = 0.4
-		country_suppression_ig_attraction_mult = -0.4
-		country_tech_spread_mult = -0.10
+		country_promotion_ig_attraction_mult = 0.2
+		country_suppression_ig_attraction_mult = -0.2
+		country_tech_spread_mult = -0.15
+		state_political_strength_from_wealth_mult = 0.25
+		country_institution_home_affairs_max_investment_add = 1
 	}
 	
 	possible_political_movements = {
@@ -103,8 +107,10 @@ law_right_of_assembly = {
 	
 	modifier = {
 		country_authority_add = 50
-		country_promotion_ig_attraction_mult = 0.3
-		country_suppression_ig_attraction_mult = -0.3
+		country_promotion_ig_attraction_mult = 0.15
+		country_suppression_ig_attraction_mult = -0.15
+		state_political_strength_from_wealth_mult = 0.1
+		state_migration_pull_mult = 0.1
 	}
 	
 	possible_political_movements = {
@@ -126,6 +132,7 @@ law_right_of_assembly = {
 					is_pop_type = academics
 				}
 				value = 0.5
+				multiply = literacy_rate
 			}
 		}
 		# People don't like censorship
@@ -140,6 +147,7 @@ law_right_of_assembly = {
 					}
 				}
 				value = 0.01
+				multiply = literacy_rate
 			}
 		}
 	}
@@ -176,7 +184,8 @@ law_protected_speech = {
 	}
 	
 	modifier = {
-		country_tech_spread_mult = 0.25
+		country_tech_spread_mult = 0.1
+		state_migration_pull_mult = 0.25
 	}
 	
 	possible_political_movements = {
@@ -191,12 +200,14 @@ law_protected_speech = {
 				limit = {
 					is_pop_type = academics
 				}
-				value = 0.33
+				value = 0.5
+				multiply = literacy_rate
 			}
 		}
 		add = {
 			desc = "ALL_POPS"			
 			value = 0.01
+			multiply = literacy_rate
 		}
 	}
 

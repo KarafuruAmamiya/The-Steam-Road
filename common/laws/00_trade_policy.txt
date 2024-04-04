@@ -14,12 +14,12 @@ law_mercantilism = {
 	}
 	
 	tariff_modifier_no_priority = {
-		tariff_import_add = 0.15
+		tariff_import_add = 0.20
 		tariff_export_add = 0.05
 	}	
 	
 	tariff_modifier_export_priority = {
-		tariff_import_add = 0.45
+		tariff_import_add = 0.40
 	}
 	
 	tariff_modifier_import_priority = {
@@ -76,16 +76,16 @@ law_protectionism = {
 	}
 	
 	tariff_modifier_no_priority = {
-		tariff_export_add = 0.10
-		tariff_import_add = 0.10
+		tariff_export_add = 0.25
+		tariff_import_add = 0.25
 	}	
 	
 	tariff_modifier_export_priority = {
-		tariff_import_add = 0.30
+		tariff_import_add = 0.50
 	}
 	
 	tariff_modifier_import_priority = {
-		tariff_export_add = 0.30
+		tariff_export_add = 0.50
 	}	
 	
 	possible_political_movements = {
@@ -146,7 +146,9 @@ law_free_trade = {
 	modifier = {
 		country_trade_route_competitiveness_mult = 0.5
 		country_trade_route_quantity_mult = 0.5
-		country_trade_route_cost_mult = -0.5
+		country_trade_route_cost_mult = -0.75
+		country_influence_mult = 0.2
+		country_tech_spread_mult = 0.05
 	}
 	
 	possible_political_movements = {
@@ -192,7 +194,7 @@ law_isolationism = {
 	modifier = {
 		country_authority_mult = 0.5
 		state_tax_capacity_mult = 0.25
-		country_tech_spread_mult = -0.15
+		country_tech_spread_mult = -0.4 #was -0.15
 		
 		country_max_declared_interests_mult = -0.5
 		

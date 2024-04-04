@@ -52,8 +52,10 @@ law_national_guard = {
 
 	institution = institution_home_affairs
 	institution_modifier = {
+		interest_group_ig_armed_forces_pol_str_mult = 0.05
 		state_conscription_rate_add = 0.005
 		political_movement_radicalism_mult = -0.05
+		state_turmoil_effects_mult = -0.05 #was none
 	}
 	
 	possible_political_movements = {
@@ -72,6 +74,19 @@ law_national_guard = {
 				value = 0.33
 			}
 		}	
+	}
+
+	pop_support = {
+		value = 0
+		add = {
+			desc = "POP_OFFICERS"
+			if = {
+				limit = { 
+					is_pop_type = officers
+				}
+				value = 0.33
+			}
+		}
 	}
 
 	# Don't return to national guard we have something more advanced
@@ -119,20 +134,21 @@ law_secret_police = {
 	
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_suppression_ig_attraction_mult = -0.05
+		country_suppression_ig_attraction_mult = -0.1 #was -0.05
 		political_movement_radicalism_mult = -0.1
+		state_radicals_from_discrimination_mult = -0.1 #was none
 	}
 	
 	possible_political_movements = {
 		law_guaranteed_liberties
 	}
 
-	pop_support = {
-		value = 0
-	}
-	
 	on_enact = {
 		custom_tooltip = unlock_arrange_accident_tt
+	}
+
+	pop_support = {
+		value = 0
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -175,6 +191,7 @@ law_guaranteed_liberties = {
 	institution_modifier = {
 		state_radicals_from_sol_change_mult = -0.05
 		state_loyalists_from_sol_change_mult = 0.05
+		state_migration_pull_mult = 0.05
 	}
 	
 	possible_political_movements = {
@@ -187,6 +204,7 @@ law_guaranteed_liberties = {
 			desc = "ALL_POPS"
 			value = 0.01
 		}
+		multiply = literacy_rate
 	}
 
 	ai_enact_weight_modifier = { #Petitions

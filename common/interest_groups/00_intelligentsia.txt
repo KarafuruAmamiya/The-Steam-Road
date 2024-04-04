@@ -92,7 +92,21 @@
 				add_ideology = ideology_republican
 			}
 		}
-		
+		# Revolutionary Republican Intelligentsia
+		else_if = {
+			limit = {
+				coa_republic_trigger = yes
+				OR = {
+					c:ITA ?= this
+					is_subject_of = c:ITA
+				}
+			}
+			ig:ig_intelligentsia = { 
+				remove_ideology = ideology_constitutionalist
+				remove_ideology = ideology_republican
+				add_ideology = ideology_revolutionary_republican
+			}
+		}
 		if = {
 			limit = {
 				has_technology_researched = feminism
@@ -132,7 +146,7 @@
 				limit = {
 					is_pop_type = academics
 				}
-				value = 250
+				value = 200
 			}
 		}
 
@@ -142,7 +156,7 @@
 				limit = {
 					is_pop_type = bureaucrats
 				}
-				value = 150
+				value = 100
 			}
 		}
 
@@ -152,7 +166,17 @@
 				limit = {
 					is_pop_type = clerks
 				}
-				value = 50
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "POP_CAPITALISTS"
+			if = {
+				limit = {
+					is_pop_type = capitalists
+				}
+				value = 75
 			}
 		}
 
@@ -171,9 +195,23 @@
 					value = 75
 				}
 				else = {
-					value = 25
+					value = 50
 				}
 			}
+		}
+		
+		add = {
+			desc = "POP_UNRECOGNIZED"
+				if = {
+					limit = {
+						is_pop_type = aristocrats
+						owner = {
+							is_country_type = unrecognized
+						}
+
+					}
+					value = 30
+				}
 		}
 		
 		add = {
@@ -198,6 +236,11 @@
 		if = {
 			limit = {
 				literacy_rate >= 0.50
+				NOR = { 
+					is_pop_type = clergymen
+					is_pop_type = aristocrats
+					is_pop_type = capitalists
+				}
 			}
 			add = {
 				desc = "POP_LITERACY"
@@ -206,6 +249,465 @@
 			}
 		}
 
+		multiply = {
+			desc = "POP_LITERACY"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					literacy_rate < 0.5
+					literacy_rate > 0.25
+				}
+				value = literacy_rate
+				multiply = 2
+			}
+		}
+
+		multiply = {
+			desc = "POP_LITERACY"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					literacy_rate < 0.25
+				}
+				value = literacy_rate
+			}
+		}
+
+		multiply = {
+			desc = "RURAL_POP"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					rural_employment = yes
+				}
+				value = 0.75
+			}
+		}
+		
+		add = {
+			desc = "POP_ENGINEERS"
+			if = {
+				limit = { 
+					is_pop_type = engineers
+				}
+				value = 75
+			}
+		}
+
+		add = {
+			desc = "POP_OFFICERS"
+			if = {
+				limit = { 
+					is_pop_type = officers
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_CLERGYMEN"
+			if = {
+				limit = { 
+					is_pop_type = clergymen
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = { 
+					is_pop_type = machinists
+				}
+				value = 25
+			}
+		}
+		
+		add = {
+			desc = "ideology_junker_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					has_state_religion = yes
+					religion = rel:protestant
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_junker_paternalistic
+						}
+					}
+				}
+				value = -25
+			}
+		}
+		
+
+		multiply = { #Pops are less attracted to radical ideologies if they're not poor
+			desc = "RADICAL_LEADER"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_intelligentsia = {
+							leader = {
+								has_ideology = ideology:ideology_vanguardist
+							}
+						}						
+					}
+					NOT = {
+						standard_of_living <= 20
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = { #Pops are less attracted to radical ideologies if they're not poor
+			desc = "RADICAL_LEADER"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_intelligentsia = {
+							leader = {
+								has_ideology = ideology:ideology_anarchist
+							}
+						}						
+					}
+					NOT = {
+						standard_of_living <= 20
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = { #Pops are less attracted to radical ideologies if they're not poor
+			desc = "RADICAL_LEADER"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_intelligentsia = {
+							leader = {
+								has_ideology = ideology:ideology_communist
+							}
+						}						
+					}
+					NOT = {
+						standard_of_living <= 20
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = {
+			desc = "law_autocracy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_autocracy
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_oligarchy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_oligarchy
+					}
+				}
+				value = 1.3
+			}
+		}
+
+		multiply = {
+			desc = "law_landed_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_landed_voting
+					}
+				}
+				value = 1.25
+			}
+		}
+		multiply = {
+			desc = "law_wealth_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_wealth_voting
+					}
+				}
+				value = 1.15
+			}
+		}
+
+		multiply = {
+			desc = "law_census_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_census_voting
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_anarchy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_anarchy
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_outlawed_dissent"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_censorship"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_censorship
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_state_religion"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_state_religion
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_no_schools"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_schools
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_debt_slavery"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_debt_slavery
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_slave_trade"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_slave_trade
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_legacy_slavery"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_legacy_slavery
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		add = { #Some Pops that would support TU supports Intelligentsia instead
+			desc = "NO_LABOR_MOVEMENT"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = laborers
+						is_pop_type = machinists
+					}
+					owner = {
+						NOT = { has_technology_researched = labor_movement }
+					}
+				}
+				value = 50
+			}
+		}
+		
+		add = { #Some Pops that would support TU supports Intelligentsia instead
+			desc = "NO_EGALITARIANISM"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = laborers
+						is_pop_type = machinists
+					}
+					owner = {
+						NOT = { has_technology_researched = egalitarianism }
+					}
+				}
+				value = 25
+			}
+		}
+
+		add = { #Some Pops that would support TU supports Intelligentsia instead
+			desc = "NO_SOCIALISM"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = laborers
+						is_pop_type = machinists
+					}
+					owner = {
+						NOT = { has_technology_researched = socialism }
+					}
+				}
+				value = 50
+			}
+		}
+
+		multiply = {
+			desc = "AFROAMERICAN"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						c:USC = THIS
+					}
+					culture = cu:afro_american
+				}
+				value = 2
+			}
+		}
+
+		multiply = {
+			desc = "LEFTISTINTELLIGENTSIA"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						any_interest_group = { 
+							is_interest_group_type = ig_intelligentsia 
+							leader = {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_vanguardist
+									has_ideology = ideology:ideology_anarchist
+								}
+							}
+						}
+					}
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = capitalists
+					}
+				}
+				value = 0.1
+			}
+		}
+
+		multiply = {
+			desc = "ideology_jacksonian_democrat"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								has_ideology = ideology:ideology_jacksonian_democrat
+							}
+						}
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = {
+			desc = "ideology_revolutionary_republican"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						ig:ig_intelligentsia = {
+							has_ideology = ideology:ideology_revolutionary_republican
+						}
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
+			}
+		}
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {

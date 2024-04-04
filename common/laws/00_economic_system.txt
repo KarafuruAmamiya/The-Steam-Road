@@ -20,18 +20,21 @@ law_traditionalism = {
 	}
 	
 	modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = -0.5
-		state_capitalists_investment_pool_efficiency_mult = -0.5
-		state_aristocrats_investment_pool_efficiency_mult = -0.25	
+		state_shopkeepers_investment_pool_efficiency_mult = -0.625
+		state_capitalists_investment_pool_efficiency_mult = -0.625
+		state_engineers_investment_pool_efficiency_mult = -0.625
+		state_aristocrats_investment_pool_efficiency_mult = -0.5
+		state_farmers_investment_pool_efficiency_mult = -0.5
 		state_bureaucracy_population_base_cost_factor_mult = -0.25
 		state_tax_capacity_mult = -0.25
-		country_private_construction_allocation_mult = 0.25
+		country_private_construction_allocation_mult = 0.75
 
-		#state_market_access_price_impact = -0.15
+		state_market_access_price_impact = -0.15
 		
 		country_subsidies_bg_infrastructure = yes
 		country_subsidies_bg_power = yes
 		country_subsidies_bg_trade = yes
+		country_private_buildings_protected = yes
 	}
 	
 	possible_political_movements = {
@@ -101,7 +104,12 @@ law_interventionism = {
 	
 	modifier = {
 		country_subsidies_all = yes
-		country_private_construction_allocation_mult = 0.5
+		country_private_construction_allocation_mult = 0.66
+		state_aristocrats_investment_pool_efficiency_mult = -0.25
+		state_shopkeepers_investment_pool_efficiency_mult = -0.25	
+		state_capitalists_investment_pool_efficiency_mult = -0.25
+		state_engineers_investment_pool_efficiency_mult = -0.25
+		state_farmers_investment_pool_efficiency_mult = -0.25
 	}
 
 	build_from_investment_pool = {
@@ -142,6 +150,27 @@ law_interventionism = {
 					is_pop_type = capitalists
 				}
 				value = 0.33
+				multiply = literacy_rate
+			}
+		}
+	} 
+
+	pop_support = {
+		value = 0
+		add = {
+			desc = "POP_CAPITALISTS"			
+			if = {
+				limit = {
+					owner = {
+						OR = { 
+							has_law = law_type:law_agrarianism 
+							has_law = law_type:law_traditionalism 
+						}
+					}
+					is_pop_type = capitalists
+				}
+				value = 0.33
+				multiply = literacy_rate
 			}
 		}
 	}
@@ -186,17 +215,18 @@ law_agrarianism = {
 	}
 	
 	modifier = {
-		state_aristocrats_investment_pool_efficiency_mult = 0.5
-		state_farmers_investment_pool_efficiency_mult = 0.5
-		state_capitalists_investment_pool_efficiency_mult = -0.25
-		country_private_construction_allocation_mult = 0.5
-		
+		state_shopkeepers_investment_pool_efficiency_mult = -0.25	
+		state_capitalists_investment_pool_efficiency_mult = -0.50
+		state_engineers_investment_pool_efficiency_mult = -0.50
+		country_private_construction_allocation_mult = 0.75
+		state_bureaucracy_population_base_cost_factor_mult = -0.1
 		country_subsidies_bg_agriculture = yes
 		country_subsidies_bg_ranching = yes
 		country_subsidies_bg_plantations = yes
 		country_subsidies_bg_infrastructure = yes
 		country_subsidies_bg_power = yes
 		country_subsidies_bg_trade = yes
+		country_private_buildings_protected = yes
 	}
 
 	build_from_investment_pool = {
@@ -232,7 +262,8 @@ law_agrarianism = {
 					}
 					is_pop_type = farmers
 				}
-				value = 0.33
+				value = 0.1
+				multiply = literacy_rate
 			}
 		}
 		add = {
@@ -248,6 +279,7 @@ law_agrarianism = {
 					is_pop_type = aristocrats
 				}
 				value = 0.33
+				multiply = literacy_rate
 			}
 		}
 	}
@@ -349,12 +381,12 @@ law_industry_banned = {
 
 	modifier = {
 		building_group_bg_agriculture_throughput_add = 0.1
-		building_group_bg_plantations_throughput_add = 0.1
 		state_expected_sol_mult = -0.1
 		interest_group_ig_rural_folk_pol_str_mult = 0.5
-		state_aristocrats_investment_pool_contribution_add = 0.25
-		country_private_construction_allocation_mult = 0.5
-		country_production_tech_research_speed_mult = -0.25
+		state_shopkeepers_investment_pool_efficiency_mult = -0.50	
+		state_capitalists_investment_pool_efficiency_mult = -0.75
+		state_engineers_investment_pool_efficiency_mult = -0.75
+		country_private_construction_allocation_mult = 0.75
 		country_production_tech_spread_mult = -0.25
 		country_subsidies_bg_agriculture = yes
 		country_subsidies_bg_ranching = yes
@@ -445,9 +477,8 @@ law_laissez_faire = {
 	
 	modifier = {
 		country_loan_interest_rate_mult = -0.25
-		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
-		state_capitalists_investment_pool_efficiency_mult = 0.25
-		country_private_construction_allocation_mult = 0.75
+		country_private_construction_allocation_mult = 0.9
+		state_bureaucracy_population_base_cost_factor_mult = -0.25
 		country_max_companies_add = 1
 		
 		country_subsidies_bg_infrastructure = yes
@@ -491,6 +522,7 @@ law_laissez_faire = {
 					is_pop_type = capitalists
 				}
 				value = 0.5
+				multiply = literacy_rate
 			}
 		}
 	}
@@ -532,6 +564,10 @@ law_cooperative_ownership = {
 		law_council_republic			
 	}
 	
+	unlocking_technologies = {
+		socialism
+	}
+	
 	on_activate = {		
 		custom_tooltip = {
 			text = enact_law_radical_leftist_economy_warning_desc
@@ -539,10 +575,10 @@ law_cooperative_ownership = {
 	}
 	
 	modifier = {
-		state_shopkeepers_investment_pool_efficiency_mult = 0.25	
-		state_farmers_investment_pool_efficiency_mult = 0.25
-		country_private_construction_allocation_mult = 0.35
-
+		state_aristocrats_investment_pool_efficiency_mult = -0.33	
+		state_capitalists_investment_pool_efficiency_mult = -0.33
+		country_private_construction_allocation_mult = 0.5
+		country_minting_mult = 0.25
 		country_subsidies_all = yes
 	}
 	
@@ -578,7 +614,7 @@ law_cooperative_ownership = {
 					}
 					is_pop_type = capitalists
 				}
-				value = 0.5
+				value = 0.25
 			}
 		}
 	}
@@ -645,9 +681,10 @@ law_command_economy = {
 	modifier = {
 		country_subsidies_all = yes
 		country_disable_investment_pool = yes
-		
+		country_minting_mult = 0.25
 		country_authority_mult = 0.25
 		country_bureaucrats_pol_str_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = 0.25
 	}
 	
 	possible_political_movements = {
@@ -666,7 +703,8 @@ law_command_economy = {
 				limit = {
 					is_pop_type = bureaucrats
 				}
-				value = 0.2
+				value = 0.5
+				multiply = literacy_rate
 			}
 		}
 	}

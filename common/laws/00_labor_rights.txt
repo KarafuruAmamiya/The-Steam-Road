@@ -49,6 +49,12 @@ law_regulatory_bodies = {
 	}
 
 	institution = institution_workplace_safety
+	institution_modifier = {
+		state_loyalists_from_sol_change_mult = 0.05
+		interest_group_ig_trade_unions_pol_str_mult = 0.05
+		country_bureaucracy_investment_cost_factor_mult = 0.005
+		state_poor_standard_of_living_add = 0.25
+	}
 	
 	possible_political_movements = {
 		law_worker_protections
@@ -75,6 +81,22 @@ law_regulatory_bodies = {
 					divide = 2
 				}
 			}			
+		}
+		add = {
+			desc = "POP_POVERTY"			
+			if = {
+				limit = { 
+					owner = { NOT = { has_law = law_type:law_worker_protections } }
+				}
+				
+				# SoL 19 gives 0.1 pop support, 18 -> 0.2, 17 -> 0.3, ... 5 -> 1.5
+				value = 20
+				subtract = standard_of_living
+				multiply = 0.1
+				multiply = literacy_rate
+				min = 0
+				max = 0.75
+			}
 		}
 	}
 
@@ -113,6 +135,10 @@ law_worker_protections = {
 	institution = institution_workplace_safety
 	institution_modifier = {
 		building_minimum_wage_mult = 0.15
+		interest_group_ig_trade_unions_pol_str_mult = 0.05
+		state_loyalists_from_sol_change_mult = 0.05
+		country_bureaucracy_investment_cost_factor_mult = 0.01
+		state_poor_standard_of_living_add = 0.25
 	}
 
 	
@@ -134,6 +160,16 @@ law_worker_protections = {
 					divide = 2
 				}
 			}			
+		}
+		add = {
+			desc = "POP_POVERTY"			
+			# SoL 19 gives 0.1 pop support, 18 -> 0.2, 17 -> 0.3, ... 5 -> 1.5
+			value = 20
+			subtract = standard_of_living
+			multiply = 0.1
+			multiply = literacy_rate
+			min = 0
+			max = 1.0
 		}
 	}
 

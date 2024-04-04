@@ -68,8 +68,6 @@ NAI = {
 	NAVAL_INVASION_MAX_LOCAL_FRONT_SCORE = 200						# Don't launch a naval invasion if there is a local front of at least this total score for the general
 	
 	MAX_INSTITUTION_SPENDING = 0.025 #0.02 AI will not spend more BUR than this on institutions (scaled by weekly GDP)
-	INSTITUTION_SPENDING_INCREASE_SPENDING_RATIO = 1.0 # If current + additional institution spending is equal or less than max spending * this, try to improve some institutions
-	INSTITUTION_SPENDING_DECREASE_SPENDING_RATIO = 2.1 # 2.0 If current institution spending is at least max spending * this, try to degrade some institutions 
 	
 	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
 	
@@ -83,19 +81,33 @@ NAI = {
 	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # For each wargoal we have that's being pressed, apply wargoal value * this
 	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
 	
-	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 #5 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
-	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
-	
 	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
 	
 	MOBILIZATION_OPTION_GOODS_SHORTAGE_MULT = 0.1 #0.0			# Multiply value of mobilization option by this if there is a goods shortage of any of its input goods
 
 	HQ_DEFENSE_MIN_THEATER_SCORE = 20								# Theater of local HQ must have at least this importance score to have a minimum garrison
+	
+	REFORM_GOVERNMENT_MONTHS_BETWEEN_CHANGES = 6 #was 30 		# If the AI doesn't have elections, it won't consider changing government composition more often than this to avoid lots of radicals
+	
+	# Below data is used to determine how the AI invests into institution
+	INSTITUTION_INVESTMENT_RANDOM_FACTOR = 2.0 #was 1.0 # The higher this is, the more random AI institution selection will be 
+	INSTITUTION_CURRENT_INVESTMENT_DIVISOR = 0 #was 0.25 # Score for institution is divided by 1 + ( current levels after the first * this )
+	MAX_INSTITUTION_SPENDING = 0.05 #was 0.02 # AI will not spend more BUR than this on institutions (scaled by weekly GDP)
+	INSTITUTION_SPENDING_INCREASE_SPENDING_RATIO = 1.5 #was 1.0 # If current + additional institution spending is equal or less than max spending * this, try to improve some institutions
+	INSTITUTION_SPENDING_DECREASE_SPENDING_RATIO = 3.0 #was 2.0 # If current institution spending is at least max spending * this, try to degrade some institutions 
 
 	MIN_GOVERNMENT_LEGITIMACY = 25			# If legitimacy is below this, consider adding IGs we don't really like to the government
 	
-	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #2 # Scales with movement support for movement that wants to enact the law
-	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #6 # Scales with movement radicalism for movement that wants to enact the law
+	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
+	CHANGE_LAW_RANDOM_FACTOR = 2.5 #was 1.0 # The higher this is, the more random AI law enactment will be
+	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 #was 100 # For enacting laws, per ideology match for IGs we approve of
+	CHANGE_LAW_ANTI_IG_IDEOLOGIES_FACTOR = -25 # For enacting laws, per ideology match for IGs we disapprove of
+	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #was 2 # Scales with movement support for movement that wants to enact the law
+	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #was 6 # Scales with movement radicalism for movement that wants to enact the law
+	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 75 #was 75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
+	CHANGE_LAW_POTENTIAL_CIVIL_WAR_ENACT_CHANCE = 20 #was 10 # Chance that the AI will proceed with a law change that could cause a civil war (1 = 1%)
+	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 #was 20 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
+	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #was 10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
 
 	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
 	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
@@ -115,19 +127,69 @@ NPolitics = {
 	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 10			# Excess turmoil is divided by this and used to increase chance for secession movements
 	MIN_POP_SIZE_TO_SECEDE = 50000						# Num pops (including dependents) needed for a secession movement to start
 	SECESSION_STATE_CUTOFF_PERCENT = 0.33				# Required pop percentage in State to be egligble (oi) for secession
-	SECESSION_COOLDOWN_YEARS = 5
 	
-	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.3 #0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
-	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.0015 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
-	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
+	MAX_IG_APPROVAL_FROM_LAWS = 5 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
 	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
-	IG_APPROVAL_FROM_EXTREME_LAW_CHANGE = 15 #20 		# IG approval/disapproval for changing to another law, if the change is extreme
-	IG_APPROVAL_FROM_LOYALISTS = 5 #15		# If 100% of the political strength of the IG is loyalist, change approval by this amount
-	IG_APPROVAL_FROM_RADICALS = -5 #-15		# If 100% of the political strength of the IG is radical, change approval by this amount
-	IG_APPROVAL_FROM_LAW = 1 		# IG approval/disapproval for laws that are for/against their ideologies
-	IG_APPROVAL_FROM_LAW_STRONG_STANCE = 3 #2 		# IG approval/disapproval for laws that are strongly for/against their ideologies
-	SECESSION_COOLDOWN_YEARS = 10 #5
+	IG_APPROVAL_FROM_EXTREME_LAW_CHANGE = 15 #20 		# IG approval/disapproval for changing to another law, if the change is extrem
+	IG_APPROVAL_FROM_LAW = 2 		# IG approval/disapproval for laws that are for/against their ideologies
+	IG_APPROVAL_FROM_LAW_STRONG_STANCE = 5 #2 		# IG approval/disapproval for laws that are strongly for/against their ideologies
+	IG_LAW_DESIRE_RADICAL_CHANGE_THRESHOLD = 2 #was 2 # A difference in positions this or higher is considered radical
+	IG_LAW_DESIRE_EXTREME_CHANGE_THRESHOLD = 3 #was 3 # A difference in positions this or higher is considered extreme
+	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 10 #was 10 		# IG approval/disapproval for changing to another law, if the change is a major one
+	IG_APPROVAL_FROM_EXTREME_LAW_CHANGE = 15 #was 20 		# IG approval/disapproval for changing to another law, if the change is extreme
+	IG_IN_GOVERNMENT_APPROVAL = 2 #was 0		# Added if IG is in government
+	IG_IN_OPPOSITION_APPROVAL = -1 #was 0		# Added if IG is in opposition (and not powerful)
+	IG_POWERFUL_IN_OPPOSITION_APPROVAL = -2 #was -1 # Added if powerful IG in opposition
+	
+	APPROVAL_THRESHOLD_ANGRY = -15	#was -10	# At this or below approval, IG is considered angry
+
+	CHANGED_LAW_APPROVAL_MONTHS = 72 #was 60 # How many months does the approval/disapproval for a law change linger after said law chain
+	
+	MAX_NUM_POLITICAL_MOVEMENTS = 2 #was 3
+	POLITICAL_MOVEMENT_TO_ENACT_CHECK_TO_START_CHANCE = 0.1 # was 0.1 # Chance that a political movement is checked at all on a daily basis if it's a movement to enact (for performance reasons)
+	POLITICAL_MOVEMENT_MIN_DURATION = 18 #was 12
+	POLITICAL_MOVEMENT_DISBAND_CHANCE = 0.02 #was 0.02 # Chance of a political movement that has lasted longer than POLITICAL_MOVEMENT_MIN_DURATION disbanding each day if radicalism for it is below REVOLUTIONARY_PROGRESSION_FROM_RADICALISM - scales with number of months that have passed (1 = 1%)
+	POLITICAL_MOVEMENT_START_CHANCE_NUM_MOVEMENTS_DIVISOR = 2 #was 2 # If we already have movements, divide start chance of a new movement by ( 1 + this * cur num movements )
+	POLITICAL_MOVEMENT_MIN_SUPPORT_TO_START = 20 #was 10 # If a political movement would have less support than this, it can't start
+	POLITICAL_MOVEMENT_MIN_SUPPORT_TO_REMAIN = 10 #was 5 # If a political movement falls to less support than this, disband it
+	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.002 #was 0.002 # This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
+	POLITICAL_MOVEMENT_TO_PRESERVE_MONTHLY_RADICALS = 0.001 #was 0.01 		# This fraction of pops backing a non-placated political movement to preserve become more radical each month
+	POLITICAL_MOVEMENT_APATHY_MULTIPLIER = 0.5 #was 0.5 # This % of politically apathetic pops also won't join movements even if it's in their interest to do so
+	POLITICAL_MOVEMENT_DISBAND_CHANCE_SUPPORT_DIVISOR = 0.02 #was 0.01 # Political movement's chance to randomly disband is divided by ( 1 + support * this )
+	POLITICAL_MOVEMENT_LAW_APPROVAL_POP_SUPPORT_BASE_FACTOR = 0.5 #was 0.5 # How many pops belonging to an IG that approves of enacting a law supports the movement to enact the law (base)
+	POLITICAL_MOVEMENT_LAW_APPROVAL_POP_SUPPORT_SCALED_FACTOR = 0.25 #was 0.25 # How many pops belonging to an IG that approves of enacting a law supports the movement to enact the law (for each approval after 1)
+	POLITICAL_MOVEMENT_LAW_APPROVAL_POP_SUPPORT_RESTORE_FACTOR = 0.25 #was 0.25 # How many (extra) pops belonging to an IG that approves of enacting a law supports a movement to restore a law
+	POLITICAL_MOVEMENT_RADICALISM_TARGET_FROM_ANGRY_IG_CLOUT = 300 #was 300 # At 100% clout of angry IGs supporting this, increase radicalism by this much
+	POLITICAL_MOVEMENT_RADICALISM_TARGET_FROM_RADICALS = 300 #was 500 # At 100% of total population as supporting radicals, increase radicalism by this much
+
+	MIN_RADICALISM_FOR_REVOLUTION_PROGRESSION = 50 #was 50	# A political movement must have this much radicalism for a revolution to start organizing
+	NUM_REVOLUTIONARY_LAW_CHANGES = 4 #was 2				# In addition to the main reason for the revolution, a revolutionary constitution will contain this many additional law changes
+	REVOLUTION_SUPPORT_STATE_MULTIPLIER = 0.01 #was 0.015		# A revolution will have the backing of ( support * this fraction of states )
+	REVOLUTION_MAX_STATE_FRACTION = 0.67 #was 0.75			# A revolution cannot be supported by more than this fraction of the states in the country
+	REVOLUTION_MAX_PROGRESS_AT_CHECKPOINT = 0.20 #was 0.25	# A revolution can advance at most this amount per checkpoint, regardless of radicalism
+
+	IG_APPROVAL_FROM_LOYALISTS = 10	#was 15	# If 100% of the political strength of the IG is loyalist, change approval by this amount
+	IG_APPROVAL_FROM_RADICALS = -20	#was -15	# If 100% of the political strength of the IG is radical, change approval by this amount
+
+	IG_SUPPRESSION_COST = 100						# The amount of AUT it costs to Suppress an IG
+	IG_BOLSTER_COST = 100							# The amount of AUT it costs to Bolster an IG
+
+	POWERFUL_IG_THRESHOLD = 0.18 #was 0.20		# Interest groups with more Clout than this are considered to be influential
+	POWERFUL_IG_CUTOFF = 0.15 #was 0.18		# Powerful interest groups with less Clout than this will stop being influential
+	POWERFUL_IG_TRAIT_BONUS = 0.5 #was 1		# The effects of all trait modifiers from influential IGs are increased by this, 1 = +100%
+	MARGINAL_IG_THRESHOLD = 0.05		# Interest Groups with Clout above this value are considered relevant while those below are marginal (if not also In Government)
+	MARGINAL_IG_CUTOFF = 0.02 #was 0.04			# Interest Groups who are already relevant will only become marginal again if they drop below this value.
+
+	INITIAL_MOMENTUM_VARIANCE = 0.25 #was 0.5						# How much Momentum should vary at the start of the election period
+
+	INCOHERENCE_FROM_SECONDARY_PARTY_MEMBERS = 0.5 #was 0.5		# The amount to multiply the approval value with if the interest group is in a party but is not the party whip
+
+	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.25 #was 0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
+
+	SECESSION_COOLDOWN_YEARS = 20 #was 5
+
+	REFORM_GOVERNMENT_RADICALIZATION_RATE = 0.1 #was 0.25 		# How many percent of a IG's supporters that will get radicalized when removed from government.
 
 	STATE_BUREAUCRACY_BASE_COST = 10		# The base cost per incorporated state
 	STATE_BUREAUCRACY_POP_BASE_COST = 4		# The base BUR multiplier per population multiple
@@ -297,6 +359,12 @@ NPops = {
 ### End Pop Growth Constant defines
 
 NPops = {
+	CONVERSION_RATE = 0.0005 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
+	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
+	DISCRIMINATION_BASE = 33 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
+	RADICALS_MAX_FROM_DISCRIMINATION = 0.5 #was 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
+	RADICALS_MONTHLY_FROM_LOW_SOL = 0.0025	#was 0.002	# Scales by delta between SoL and expected min SoL
+	
 	LOW_POP_THRESHOLD = 7500 #was 5000					# If a state has less than this amount of pops per arable land, apply the low pop modifier
 	HIGH_POP_THRESHOLD = 500000 #was 100000					# If a state has more than this amount of pops per arable land, apply the high pop modifier
 }

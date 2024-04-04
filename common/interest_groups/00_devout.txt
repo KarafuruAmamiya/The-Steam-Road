@@ -347,6 +347,100 @@
 		value = 25
 
 		add = {
+			desc = "RURAL_POP"
+			if = {
+				limit = { 
+					rural_employment = yes
+					NOT = { is_pop_type = aristocrats }
+					NOT = {
+						owner = {
+							ig:ig_devout = {
+								leader = {
+									has_ideology = ideology:ideology_caliphatist
+								}
+							}
+						}
+					}
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
+							}
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "RURAL_POP"
+			if = {
+				limit = { 
+					rural_employment = yes
+					NOT = { is_pop_type = aristocrats }
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								has_ideology = ideology:ideology_jacksonian_democrat
+							}
+						}
+					}
+				}
+				value = 25
+			}
+		}
+
+		multiply = {
+			desc = "SMALL_URBAN_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					NOT = { is_pop_type = aristocrats }
+					state = {
+						any_scope_building = {
+							is_building_type = building_urban_center
+							level < 5
+						}
+					}
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
+							}
+						}
+					}
+				}
+				value = 1.25
+			}
+		}	
+
+		multiply = {
+			desc = "NO_URBAN_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					NOT = { is_pop_type = aristocrats }
+					state = {
+						NOT = {
+							any_scope_building = {
+								is_building_type = building_urban_center
+							}
+						}
+					}
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
+							}
+						}
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		add = {
 			desc = "POP_CLERGYMEN"
 			if = {
 				limit = {
@@ -357,15 +451,81 @@
 		}
 
 		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				value = 50
+			}
+		}
+
+		add = {
 			desc = "POP_PEASANTS"
 			if = {
 				limit = {
 					is_pop_type = peasants
 				}
-				value = 100
+				value = 75
 			}
 		}
+
+		multiply = {
+			desc = "ideology_metropolitan"
+			value = 1.0
+
+			if = {
+				limit = {
+					rural_employment = yes
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = clergymen }
+					owner = {
+						has_law = law_type:law_monarchy
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_metropolitan
+							}
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0.50
+			}
+		}		
 		
+		multiply = {
+			desc = "ideology_metropolitan"
+			value = 1.0
+
+			if = {
+				limit = {
+					rural_employment = yes
+					NOT = { is_pop_type = aristocrats }
+					NOT = { is_pop_type = clergymen }
+					owner = {
+						NOT = { has_law = law_type:law_monarchy }
+						ig:ig_petty_bourgeoisie = {
+							leader = {
+								has_ideology = ideology:ideology_metropolitan
+							}
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0.25
+			}
+		}
+
 		if = {
 			limit = {
 				owner = {
@@ -378,77 +538,176 @@
 			}
 		}
 		
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_state_religion
-				}
-			}
-			multiply = {
-				desc = "STATE_RELIGION_LAW"
-				value = 1.5
-			}
-		}
-		
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_freedom_of_conscience
-				}
-			}
-			multiply = {
-				desc = "FREEDOM_OF_CONSCIENCE_LAW"
-				value = 1.25
-			}
-		}
-		
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_shared_roots
-				}
-			}
-			multiply = {
-				desc = "law_shared_roots"
-				value = 1
-			}
-		}
-
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_religious_schools
-				}
-			}
-			multiply = {
-				desc = "RELIGIOUS_SCHOOLS_LAW"
-				value = owner.institution:institution_schools.investment
-				divide = 5
-				add = 1
-			}
-		}
-		
-		if = {
-			limit = {
-				owner = {
-					has_technology_researched = corporatism
-					NOT = {
-						has_law = law_type:law_total_separation
-						has_law = law_type:law_state_atheism
+		add = {
+			desc = "ideology_caliphatist"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = peasants
+						is_pop_type = farmers
+					}
+					owner = {
+						ig:ig_devout = {
+							leader = {
+								has_ideology = ideology:ideology_caliphatist
+							}
+						}
 					}
 				}
-			}
-			multiply = {
-				desc = "CORPORATISM_TECH"
-				value = 1.25
+				value = -50
 			}
 		}
 
 		add = {
-			desc = "POP_LITERACY"
-			this = {
-				value = literacy_rate
-				multiply = -20
+			desc = "ideology_caliphatist"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+					}
+					owner = {
+						ig:ig_devout = {
+							leader = {
+								has_ideology = ideology:ideology_caliphatist
+							}
+						}
+					}
+				}
+				value = 50
+			}
+		}
+		
+		add = {
+			desc = "ideology_confucian"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_confucian
+						}
+					}
+				}
+				value = 50
+			}
+		}
+		
+		add = {
+			desc = "ideology_russian_patriarch"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_russian_patriarch
+						}
+					}
+				}
+				value = 50
+			}
+		}
+		
+		add = {
+			desc = "ideology_orthodox_patriarch"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_orthodox_patriarch
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ideology_hindu_moralist"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_hindu_moralist
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ideology_sikh_moralist"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_sikh_moralist
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ideology_oriental_orthodox_patriarch"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_oriental_orthodox_patriarch
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ideology_zandism_theocratic"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					owner = {
+						ig:ig_devout = {
+							has_ideology = ideology:ideology_zandism_theocratic
+						}
+					}
+				}
+				value = 100
 			}
 		}
 		
@@ -489,6 +748,189 @@
 					}
 				}
 				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "NOT_PRIMARY_RELIGION"
+			value = 1.0
+			if = {
+				limit = {
+					has_state_religion = no
+					religion_accepted = yes
+					owner = {
+						NOR = {
+							has_law = law_type:law_state_atheism
+							has_law = law_type:law_total_separation
+						}	
+					}
+				}
+				value = 0.25
+			}
+		}
+
+		multiply = {
+			desc = "NOT_PRIMARY_RELIGION"
+			value = 1.0
+			if = {
+				limit = {
+					religion_accepted = no
+					owner = {
+						NOR = {
+							has_law = law_type:law_state_atheism
+							has_law = law_type:law_total_separation
+						}	
+					}
+				}
+				value = 0.05
+			}
+		}
+
+		add = {
+			desc = "ideology_abolitionist"
+			if = {
+				limit = {
+					state = { 
+						is_slave_state = yes
+					}
+					is_pop_type = aristocrats
+					owner = {
+						ig:ig_devout = {
+							leader = {
+								has_ideology = ideology:ideology_abolitionist
+							}
+						}
+					}
+				}
+				value = -75
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_state_religion
+				}
+			}
+			multiply = {
+				desc = "STATE_RELIGION_LAW"
+				value = 1.25
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_freedom_of_conscience
+				}
+			}
+			multiply = {
+				desc = "FREEDOM_OF_CONSCIENCE_LAW"
+				value = 1.1
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_shared_roots
+				}
+			}
+			multiply = {
+				desc = "law_shared_roots"
+				value = 0.9
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_religious_schools
+				}
+			}
+			multiply = {
+				desc = "RELIGIOUS_SCHOOLS_LAW"
+				value = owner.institution:institution_schools.investment
+				divide = 5
+				add = 1
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_technology_researched = corporatism
+					NOT = {
+						has_law = law_type:law_total_separation
+						has_law = law_type:law_state_atheism
+					}
+				}
+			}
+			multiply = {
+				desc = "CORPORATISM_TECH"
+				value = 1.125
+			}
+		}
+
+		add = {
+			desc = "POP_LITERACY"
+			
+			if = {
+				limit = { 
+					literacy_rate >= 0.50
+					NOR = { 
+						is_pop_type = clergymen
+						rural_employment = yes
+					}
+				}
+				value = literacy_rate
+				subtract = 0.5
+				multiply = -100
+				min = -50
+			}
+		}
+		
+
+		add = {
+			desc = "POP_LITERACY"
+			
+			if = {
+				limit = { 
+					rural_employment = yes
+					NOT = {
+						is_pop_type = clergymen
+					}
+				}
+				this = {
+					value = literacy_rate
+					multiply = -80
+				}
+			}
+		}
+
+		multiply = {
+			desc = "law_womens_suffrage"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_womens_suffrage
+					}
+				}
+				value = 1.1
+			}
+		}		
+
+		multiply = {
+			desc = "law_total_separation"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_total_separation
+					}
+				}
+				value = 1.1
 			}
 		}
 
@@ -545,6 +987,21 @@
 				add = 1
 			}
 		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
+			}
+		}
+		
 		# VTM
 		if = {
 			limit = {

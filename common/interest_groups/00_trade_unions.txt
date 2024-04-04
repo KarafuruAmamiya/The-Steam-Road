@@ -1,0 +1,912 @@
+﻿ig_trade_unions = {
+	color = hsv{ 0 0.56 0.58 }
+	texture = "gfx/interface/icons/ig_icons/trade_unions.dds"
+	layer = "revolution_dynamic_trade_unions"
+	index = 7
+
+	ideologies = {
+		ideology_proletarian
+		ideology_egalitarian
+		ideology_populist
+		ideology_anti_slavery
+	}
+
+	enable = {
+		always = yes
+	}
+
+	# Deprecated; use on_enable effect to assign traits instead
+	traits = {
+		ig_trait_solidarity
+		ig_trait_industrial_organizers
+		ig_trait_work_to_rule
+	}
+	
+	on_enable = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					has_dlc_feature = voice_of_the_people_content
+					owner = { c:FRA ?= this }
+				}
+				set_ig_trait = ig_trait:ig_trait_work_to_rule
+				set_ig_trait = ig_trait:ig_trait_industrial_organizers
+				set_ig_trait = ig_trait:ig_trait_bourse_du_travail
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_work_to_rule
+				set_ig_trait = ig_trait:ig_trait_industrial_organizers
+				set_ig_trait = ig_trait:ig_trait_solidarity
+			}
+		}
+		
+		### Socialism
+		if = {
+			limit = {
+				has_technology_researched = socialism
+			}
+			ig:ig_trade_unions = {
+				add_ideology = ideology_socialist
+			}
+		}
+
+		### Feminism
+		if = {
+			limit = {
+				has_technology_researched = feminism
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_egalitarian
+				}
+				remove_ideology = ideology_egalitarian
+				add_ideology = ideology_egalitarian_modern
+			}
+		}
+	}
+
+	on_disable = {}
+	on_character_ig_membership = {}
+
+	pop_potential = {
+		NOR = {
+			is_pop_type = aristocrats
+			is_pop_type = capitalists
+			#is_pop_type = shopkeepers
+			is_pop_type = officers
+		}
+		OR = {
+			AND = {
+				custom_tooltip = {
+					text = owner_has_modern_agriculture_tt
+					owner = {
+						OR = {
+							has_law = law_type:law_commercialized_agriculture
+							has_law = law_type:law_collectivized_agriculture
+						}
+					}
+				}
+				strata = poor
+				NOR = {
+					pop_employment_building_group = bg_subsistence_agriculture
+					pop_employment_building_group = bg_subsistence_ranching
+				}
+			}
+			NOR = {
+				pop_employment_building_group = bg_agriculture
+				pop_employment_building_group = bg_ranching
+				pop_employment_building_group = bg_plantations
+			}
+		}
+		#NOT = {
+		#	rural_employment = yes
+		#}
+	}
+
+	pop_weight = {
+		value = 0
+
+		add = {
+			desc = "URBAN_POP"
+			if = {
+				limit = {
+					NOT = {
+						rural_employment = yes
+					}
+				}
+				value = 50
+				if = {
+					limit = {
+						strata = middle
+					}
+					divide = 2
+				}
+			}
+		}
+		
+		add = {
+			desc = "POP_ENGINEERS"
+			if = {
+				limit = {
+					is_pop_type = engineers
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_CLERKS"
+			if = {
+				limit = {
+					is_pop_type = clerks
+				}
+				value = 75
+			}
+		}
+
+		add = {
+			desc = "POP_ACADEMICS"
+			if = {
+				limit = {
+					is_pop_type = academics
+				}
+				value = 25
+			}
+		}
+		
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_PEASANTS"
+			if = {
+				limit = {
+					is_pop_type = peasants
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = {
+					is_pop_type = machinists
+				}
+				value = 250
+			}
+		}
+
+		add = {
+			desc = "POP_LABORERS"
+			if = {
+				limit = {
+					is_pop_type = laborers
+				}
+				value = 250
+			}
+		}
+
+		multiply = {
+			desc = "RURAL_POP"
+			value = 1.0
+			if = {
+				limit = { 
+					rural_employment = yes
+				}
+				value = 0.50
+			}
+		}
+
+		add = {
+			desc = "HEAVY_INDUSTRY"
+			if = {
+				limit = { 
+					OR = {
+						pop_employment_building_group = bg_mining
+						pop_employment_building_group = bg_heavy_industry
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "CONSCRIPTED"
+			if = {
+				limit = {
+					pop_employment_building = building_conscription_center
+					owner = {
+						NOT = { has_law = law_type:law_council_republic }
+					}						
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "INFAMY" 
+			if = {
+				limit = {
+					owner = { 
+						has_law = law_type:law_council_republic
+						infamy >= 25
+						infamy < 50
+					}
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "INFAMY" 
+			if = {
+				limit = {
+					owner = { 
+						has_law = law_type:law_council_republic
+						infamy >= 50
+						infamy < 100
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "INFAMY"
+			if = {
+				limit = {
+					owner = { 
+						has_law = law_type:law_council_republic
+						infamy >= 100
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "WEALTH"
+			if = {
+				limit = { 	
+					strata = poor
+					rural_employment = no
+				}
+				value = wealth
+				subtract = 20
+				multiply = -5
+				max = 75
+				min = -75
+			}	
+		}
+		
+		add = {
+			desc = "law_command_economy"
+			if = {
+				limit = {
+					is_pop_type = bureaucrats
+					owner = {					
+						has_law = law_type:law_command_economy
+						has_law = law_type:law_council_republic
+						ig:ig_trade_unions = {
+							leader = {
+								has_ideology = ideology:ideology_vanguardist
+							}
+						}						
+					}
+				}
+				value = 200
+			}
+		}	
+
+		multiply = { #Pops are less attracted to radical ideologies if they're not poor
+			desc = "Radical Leader Ideology"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_trade_unions = {
+							leader = {
+								OR = {
+									has_ideology = ideology:ideology_vanguardist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_communist
+								}
+							}
+						}
+						NAND = {
+							OR = {
+								has_law = law_type:law_council_republic
+								has_law = law_type:law_autocracy
+							}
+							ig:ig_trade_unions = {
+								is_in_government = yes
+							}
+						}						
+					}
+					NOT = {
+						standard_of_living <= 20
+					}
+				}
+				value = 0.75
+			}
+		}
+		
+		multiply = {
+			desc = "law_command_economy"
+			value = 1.0
+			if = {
+				limit = {
+					is_pop_type = laborers
+					is_pop_type = machinists
+					is_pop_type = soldiers
+					is_pop_type = farmers
+					is_pop_type = peasants 
+					owner = {					
+						has_law = law_type:law_command_economy
+						has_law = law_type:law_council_republic
+						ig:ig_trade_unions = {
+							leader = {
+								has_ideology = ideology:ideology_vanguardist
+							}
+						}	
+					}
+				}
+				value = 0.75
+			}
+		}		
+		
+		multiply = {
+			desc = "law_command_economy"
+			value = 1.0
+			if = {
+				limit = {
+					is_pop_type = clerks
+					is_pop_type = shopkeepers
+					is_pop_type = engineers
+					owner = {					
+						has_law = law_type:law_command_economy
+						has_law = law_type:law_council_republic
+						ig:ig_trade_unions = {
+							leader = {
+								has_ideology = ideology:ideology_vanguardist
+							}
+						}					
+					}
+				}
+				value = 0.9
+			}
+		}		
+
+		multiply = {
+			desc = "law_outlawed_dissent"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_outlawed_dissent
+						NOT = { has_law = law_type:law_council_republic }
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		multiply = {
+			desc = "law_censorship"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_censorship
+						NOT = { has_law = law_type:law_council_republic }
+					}
+				}
+				value = 0.9
+			}
+		}
+
+
+		multiply = {
+			desc = "law_no_health_system"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_health_system
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_public_health_insurance"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_public_health_insurance
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_serfdom"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_serfdom
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.25
+			}
+		}
+		
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
+
+		multiply = {
+			desc = "NO_LABOR_MOVEMENT"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_technology_researched = labor_movement }
+					}
+				}
+				value = 0.5
+			}
+		}
+
+		multiply = {
+			desc = "NO_EGALITARIANISM"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_technology_researched = egalitarianism }
+					}
+				}
+				value = 0.5
+			}
+		}
+		
+		multiply = {
+			desc = "NO_SOCIALISM"	
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = socialism }
+					}
+				}
+				value = 0.5
+			}		
+		}
+
+		multiply = {
+			desc = "decentralized_power"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				value = 0.0
+			}
+		}
+
+		multiply = {
+			desc = "law_no_workers_rights"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_workers_rights
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_worker_protections"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_worker_protections
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_child_labor_allowed"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_child_labor_allowed
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_no_social_security"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_social_security
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_wage_subsidies"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_wage_subsidies
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_old_age_pension"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_old_age_pension
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.1
+			}
+		}
+
+		multiply = {
+			desc = "law_autocracy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_autocracy
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_oligarchy"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_oligarchy
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_landed_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_landed_voting
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		multiply = {
+			desc = "law_wealth_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_wealth_voting
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.25
+			}
+		}
+
+		multiply = {
+			desc = "law_census_voting"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_census_voting
+						has_technology_researched = socialism
+					}
+				}
+				value = 1.2
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = {
+				desc = "IN_GOVERNMENT_ATTRACTION"
+				value = 1
+				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
+				min = 0
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		
+		multiply = {
+			desc = "AFROAMERICAN"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						c:USC = THIS
+					}
+					culture = cu:afro_american
+				}
+				value = 2
+			}
+		}
+
+		add = {
+			desc = "concept_literacy"
+			
+			if = {
+				limit = { 
+					strata = poor
+					rural_employment = no
+				}
+				value = literacy_rate
+				subtract = 0.5
+				multiply = 100
+				min = -50
+				max = 50
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
+			}
+		}
+	}
+
+	monarch_weight = {
+		value = 0.1 # this is just inherently unlikely
+		# Monarch is not likely to adopt a marginal IG
+		if = {
+			limit = {
+				is_marginal = yes
+			}
+			multiply = {
+				value = 0.1
+			}
+		}
+		# Monarch is more likely to adopt a Powerful IG
+		if = {
+			limit = {
+				is_powerful = yes
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# More likely with Worker's Protections
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_worker_protections
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# Impossible with No Workers Rights
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_workers_rights
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	agitator_weight = {
+		# Agitators more likely to come from populist IG's rather than elitist
+		value = 1.0
+		# Agitators will never be part of a marginalized IG
+		if = {
+			limit = {
+				owner.ig:ig_trade_unions = {
+					is_marginal = yes
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	commander_weight = {
+		value = 0.5
+	}
+
+	noble_chance = {
+		value = 0.1
+	}
+
+	female_commander_chance = {
+		value = 0.0
+	}
+
+	female_politician_chance = {
+		value = 0.0
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_womens_suffrage
+				}
+
+			}
+			add = {
+				value = 0.05
+			}
+		}
+	}
+
+	female_agitator_chance = {
+		value = 0.05
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_own_property
+				}
+
+			}
+			add = {
+				value = 0.05
+			}
+		}	
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_in_the_workplace
+				}
+
+			}
+			add = {
+				value = 0.05
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_womens_suffrage
+				}
+
+			}
+			add = {
+				value = 0.05
+			}
+		}		
+	}
+
+	# The chance that a commander belonging to this IG takes over leadership when it changes
+	# scope:character is the most popular commander in the IG
+	commander_leader_chance = {
+		value = 0.25
+		if = {
+			limit = {
+				exists = scope:character
+			}
+			multiply = {
+				value = 1
+				add = scope:character.popularity
+				min = 0
+			}
+		}
+	}
+}

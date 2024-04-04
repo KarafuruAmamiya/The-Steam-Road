@@ -210,6 +210,8 @@
 				add_ideology = ideology_pious
 				remove_ideology = ideology_paternalistic
 				add_ideology = ideology_safavid_paternalistic
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_safavid_stratocratic
 			}
 		}
 		# Southern Planters
@@ -234,6 +236,19 @@
 				add_ideology = ideology_akkovin_paternalistic
 			}
 		}
+		# Polish-Lithuanian Szlachta
+		else_if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:polish
+					country_has_primary_culture = cu:lithuanian
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_szlachta_stratocratic
+			}
+		}
 		# VTM - this does not work on start up unfortunately and must be handled in history global for the initial setup
 		else_if = {
 			limit = {
@@ -249,12 +264,15 @@
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		OR = {
-			is_pop_type = aristocrats
-			is_pop_type = clergymen
-			is_pop_type = officers
-			is_pop_type = farmers
-		}
+		#OR = {
+		#	is_pop_type = aristocrats
+		#	is_pop_type = clergymen
+		#	is_pop_type = officers
+		#	is_pop_type = farmers
+		#	is_pop_type = capitalists
+		#}
+		#culture_accepted = yes
+		#religion_accepted = yes
 	}
 
 	pop_weight = {
@@ -265,8 +283,32 @@
 			if = {
 				limit = {
 					is_pop_type = aristocrats
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
+							}
+						}
+					}
 				}
-				value = 250
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								has_ideology = ideology:ideology_jacksonian_democrat
+							}
+						}
+					}
+				}
+				value = 100
 			}
 		}
 
@@ -275,6 +317,7 @@
 			if = {
 				limit = {
 					is_pop_type = clergymen
+					rural_employment = yes
 				}
 				value = 50
 			}
@@ -286,7 +329,7 @@
 				limit = {
 					is_pop_type = officers
 				}
-				value = 50
+				value = 100
 			}
 		}
 
@@ -295,6 +338,13 @@
 			if = {
 				limit = {
 					is_pop_type = farmers
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
+							}
+						}
+					}
 				}
 				value = 25
 				add = this.standard_of_living
@@ -315,6 +365,528 @@
 			}
 		}
 
+		add = {
+			desc = "POP_CAPITALISTS"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+				}
+				value = 25
+			}
+		}
+		
+
+
+		multiply = { #Pops are less attracted to radical ideologies if they're not poor
+			desc = "RADICAL_LEADER"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {					
+						ig:ig_landowners = {
+							leader = {
+								has_ideology = ideology:ideology_fascist
+							}
+						}
+						NAND = {
+							has_law = law_type:law_autocracy
+							ig:ig_landowners = {
+								is_in_government = yes
+							}
+						}						
+					}
+					NOT = {
+						standard_of_living <= 20
+					}
+				}
+				value = 0.75
+			}
+		}
+
+		add = {
+			desc = "RURAL_POP"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+					rural_employment = yes
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "ideology_junker_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+					has_state_religion = yes
+					religion = rel:protestant
+					culture = cu:north_german
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_junker_paternalistic
+						}
+					}
+				}
+				value = 150
+			}
+		}
+
+		add = {
+			desc = "ideology_junker_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = farmers
+					has_state_religion = yes
+					religion = rel:protestant
+					culture = cu:north_german
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_junker_paternalistic
+						}
+					}
+				}
+				value = 150
+			}
+		}
+
+		add = {
+			desc = "ideology_junker_paternalistic"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = officers
+					}
+					has_state_religion = yes
+					religion = rel:protestant
+					culture = cu:north_german
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_junker_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+		
+		add = {
+			desc = "ideology_safavid_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+					has_state_religion = yes
+					culture = cu:persian
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_safavid_paternalistic
+						}
+					}
+				}
+				value = 150
+			}
+		}
+
+		add = {
+			desc = "ideology_safavid_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = farmers
+					has_state_religion = yes
+					culture = cu:persian
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_safavid_paternalistic
+						}
+					}
+				}
+				value = 150
+			}
+		}
+
+		add = {
+			desc = "ideology_safavid_paternalistic"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = officers
+					}
+					has_state_religion = yes
+					culture = cu:persian
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_safavid_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+		
+		add = {
+			desc = "ideology_rumelist"
+			if = {
+				limit = { 
+					is_pop_type = capitalists
+					pop_is_discriminated = no
+					owner = {
+						ig:ig_landowners = {
+							leader = {
+								has_ideology = ideology:ideology_rumelist
+							}
+						}
+						has_law = law_type:law_monarchy
+					}
+				}
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "WEALTH"
+			if = {
+				limit = { 
+					wealth > 30
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = capitalists
+					}
+					pop_is_discriminated = no
+					owner = {
+						ig:ig_landowners = {
+							leader = {
+								has_ideology = ideology:ideology_rumelist
+							}
+						}
+						has_law = law_type:law_monarchy
+					}
+				}
+
+				value = wealth
+				subtract = 20
+				multiply = 4
+				max = 250
+
+			}
+			
+		}
+
+		add = {
+			desc = "ideology_scholar_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_scholar_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "ideology_papal_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_papal_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+		
+		add = {
+			desc = "ideology_akkovin_paternalistic"
+			if = {
+				limit = { 
+					is_pop_type = aristocrats
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_akkovin_paternalistic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+		
+		add = {
+			desc = "ideology_szlachta_stratocratic"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = officers
+					}
+					owner = {
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_szlachta_stratocratic
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "NOTPROTESTANT"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = { ig:ig_landowners = { has_ideology = ideology:ideology_junker_paternalistic }}
+					has_state_religion = no
+				}
+				value = 0.25
+			}
+		}
+
+
+		multiply = {
+			desc = "SMALL_URBAN_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					state = {
+						any_scope_building = {
+							is_building_type = building_urban_center
+							level < 5
+						}
+					}
+				}
+				value = 1.25
+			}
+		}	
+
+		multiply = {
+			desc = "NO_URBAN_CENTER"
+			value = 1.0
+			if = {
+				limit = {
+					state = {
+						NOT = {
+							any_scope_building = {
+								is_building_type = building_urban_center
+							}
+						}
+					}
+				}
+				value = 1.5
+			}
+		}
+
+		add = {
+			desc = "SLAVE_STATE"
+			if = {
+				limit = {
+					state = { 
+						is_slave_state = yes
+					}
+					rural_employment = yes
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
+							}
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "SLAVE_STATE"
+			if = {
+				limit = {
+					state = { 
+						is_slave_state = yes
+					}
+					NOT = {
+						rural_employment = yes				
+					}
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
+							}
+						}
+					}
+				}
+				value = 50 #rest of the society is also affected
+			}
+		}
+
+		add = {
+			desc = "MONARCHIST"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_monarchy 
+					}
+					OR = {
+						rural_employment = yes
+						is_pop_type = peasants
+					}
+					strata = poor
+					pop_is_discriminated = no
+					has_state_religion = yes
+					NOT = { #rumelists are too economicaly liberals
+						owner = {
+							ig:ig_landowners = {
+								leader = {
+									has_ideology = ideology:ideology_rumelist
+								}
+							}
+						}
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ideology_rumelist"
+			if = {
+				limit = { 
+					is_pop_type = farmers
+					owner = {
+						ig:ig_landowners = {
+							leader = {
+								has_ideology = ideology:ideology_rumelist
+							}
+						}
+					}
+				}
+				value = -50
+			}
+		}
+
+		multiply = {
+			desc = "NON_SLAVE_STATE"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						THIS = c:USC
+						ig:ig_landowners = {
+							has_ideology = ideology:ideology_pro_slavery
+						}
+					}
+					state = { 
+						is_slave_state = no
+					}
+				}
+				value = 0.05
+			}
+		}
+
+		multiply = {
+			desc = "ideology_jacksonian_democrat"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								has_ideology = ideology:ideology_jacksonian_democrat
+							}
+						}
+					}
+					state = { 
+						is_slave_state = yes
+					}
+				}
+				value = 0.50
+			}
+		}
+
+		add = {
+			desc = "PLANTATION_EMPLOYMENT"
+			if = {
+				limit = {
+					pop_employment_building_group = bg_plantations
+					owner = {
+						ig:ig_rural_folk = {
+							leader = {
+								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
+							}
+						}
+					}
+				}
+				value = 100
+			}
+		}
+
+		multiply = {
+			desc = "AFROAMERICAN"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						c:USC = THIS
+					}
+					culture = cu:afro_american
+				}
+				value = 0.1
+			}
+		}
+		
+
+		multiply = {
+			desc = "WOMENVOTE"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_womens_suffrage
+					}
+				}
+				value = 0.8
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.75
+				}
+			}
+		}
+
+		multiply = {
+			desc = "IG_COUNCIL_REPUBLIC"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_council_republic
+					}
+					NOT = {
+						is_pop_type = aristocrats
+					}
+				}
+				value = 0
+			}
+		}
+	
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {

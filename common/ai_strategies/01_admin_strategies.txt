@@ -464,12 +464,12 @@ ai_strategy_industrial_expansion = {
 
 		if = {
 			limit = { 
-				exists = c:FRA
-				c:FRA = this
+				exists = c:TUR
+				c:TUR = this
 				ruler = {
 					OR = {
-						has_variable = orleanist_leader
-						has_variable = bonapartist_leader
+						has_variable = rumelist_leader
+						has_variable = caliphatist_leader
 					}
 				}
 			}

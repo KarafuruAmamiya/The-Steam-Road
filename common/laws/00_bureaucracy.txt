@@ -7,9 +7,9 @@
 	
 	modifier = {
 		state_bureaucracy_population_base_cost_factor_mult = -0.25
-		country_bureaucracy_investment_cost_factor_mult = 0.1
-        country_institution_size_change_speed_mult = -0.25
 		country_aristocrats_pol_str_mult = 0.25
+		state_tax_capacity_mult = -0.1
+		country_bureaucracy_investment_cost_factor_mult = 0.1
 	}
 
 	on_enact = {
@@ -82,7 +82,8 @@ law_appointed_bureaucrats = {
 	
 	modifier = {
 		country_bureaucrats_pol_str_mult = 0.25
-		state_tax_capacity_mult = 0.25
+		state_tax_capacity_mult = 0.1 #was 0.25
+		country_decree_cost_mult = -0.25
 	}
 	
 	possible_political_movements = {
@@ -114,6 +115,7 @@ law_appointed_bureaucrats = {
 					is_pop_type = academics
 				}
 				value = 0.33
+				multiply = literacy_rate
 			}
 		}
 		# Bureuacrats like non-hereditary
@@ -126,6 +128,7 @@ law_appointed_bureaucrats = {
 				}
 			}
 			value = 0.25
+			multiply = literacy_rate
 		}
 	}
 
@@ -175,8 +178,10 @@ law_elected_bureaucrats = {
 	}
 	
 	modifier = {
+		country_legitimacy_govt_total_clout_add = 10
 		country_bureaucracy_investment_cost_factor_mult = -0.15
-		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.1
+		country_bureaucrats_pol_str_mult = -0.25
+		state_political_strength_from_wealth_mult = -0.1
 	}
 	
 	possible_political_movements = {
@@ -195,6 +200,7 @@ law_elected_bureaucrats = {
 				}
 			}
 			value = 0.25
+			multiply = literacy_rate
 		}
 	}
 

@@ -1,0 +1,115 @@
+﻿
+can_have_radical_leader = { # interest_group scope
+	leader = {
+		NOR = {
+			has_ideology = ideology:ideology_radical
+			has_ideology = ideology:ideology_rumelist
+			has_ideology = ideology:ideology_metropolitan
+			has_ideology = ideology:ideology_caliphatist
+		}
+	}
+	OR = {
+		is_interest_group_type = ig_rural_folk
+		is_interest_group_type = ig_intelligentsia
+		is_interest_group_type = ig_trade_unions
+		is_interest_group_type = ig_industrialists
+	}
+}
+
+has_paternalist_ideology = {
+	OR = {
+		has_ideology = ideology:ideology_paternalistic
+		has_ideology = ideology:ideology_scholar_paternalistic
+		has_ideology = ideology:ideology_junker_paternalistic
+		has_ideology = ideology:ideology_papal_paternalistic
+		has_ideology = ideology:ideology_safavid_paternalistic
+		has_ideology = ideology:ideology_akkovin_paternalistic
+	}
+}
+
+coa_autocracy_trigger = {
+	OR = {
+		has_law = law_type:law_autocracy
+		has_law = law_type:law_single_party_state
+	}
+}
+
+employed_in_military_industry = {
+	OR = {
+		pop_employment_building = building_war_machine_industry
+		pop_employment_building = building_arms_industry
+		pop_employment_building = building_munition_plants
+		AND = {
+			pop_employment_building = building_shipyards
+			workplace = {
+				OR = {
+					has_active_production_method = pm_military_shipbuilding_wooden
+					has_active_production_method = pm_military_shipbuilding_wooden_2
+					has_active_production_method = pm_military_shipbuilding_steam
+					has_active_production_method = pm_military_shipbuilding_steam_2
+				}
+			}
+		}
+	}
+}
+
+rural_employment = {
+	OR = {
+		pop_employment_building_group = bg_agriculture
+		pop_employment_building_group = bg_ranching
+		pop_employment_building_group = bg_plantations
+		pop_employment_building_group = bg_logging
+		pop_employment_building_group = bg_rubber
+		pop_employment_building_group = bg_whaling
+		pop_employment_building_group = bg_fishing	
+		pop_employment_building_group = bg_subsistence_agriculture
+		pop_employment_building_group = bg_subsistence_ranching		
+		is_pop_type = peasants
+	}
+}
+
+building_owner = {
+	OR = {
+		AND = {
+			is_pop_type = capitalists
+			workplace = {
+				modifier:building_capitalists_shares_add > 0
+			}
+		}
+		AND = {
+			is_pop_type = aristocrats
+			workplace = {
+				modifier:building_capitalists_shares_add > 0
+			}
+		}
+		AND = {
+			is_pop_type = clergymen
+			workplace = {
+				modifier:building_capitalists_shares_add > 0
+			}
+		}
+		AND = {
+			is_pop_type = shopkeepers
+			workplace = {
+				modifier:building_shopkeepers_shares_add > 0
+			}
+		}
+		AND = {
+			is_pop_type = bureaucrats
+			workplace = {
+				modifier:building_government_shares_add > 0
+			}
+		}
+		AND = {
+			is_pop_type = engineers
+			workplace = {
+				modifier:building_government_shares_add > 0
+			}
+		}
+		# peoples military-industrial_complex
+		workplace = {
+			modifier:building_workforce_shares_add = 1
+		}
+	} 
+}
+

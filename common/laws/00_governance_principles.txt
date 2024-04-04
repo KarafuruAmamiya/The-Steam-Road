@@ -20,6 +20,9 @@ law_chiefdom = {
 	modifier = {
 		country_legitimacy_headofstate_add = 20
 		country_authority_add = 100
+		state_education_access_add = -0.2
+		country_weekly_innovation_add = -5
+		country_tech_spread_add = -10
 	}
 	
 	pop_support = {
@@ -55,14 +58,14 @@ law_monarchy = {
 	progressiveness = 0
 
 	disallowing_laws = {
-		law_anarchy
+		# law_anarchy
 	}
 
 	modifier = {
-		country_legitimacy_headofstate_add = 20
+		country_legitimacy_headofstate_add = 10 #was 20
 		country_legitimacy_ideological_incoherence_mult = 0.1
 		country_aristocrats_pol_str_mult = 0.25
-		country_authority_add = 200
+		country_authority_add = 100
 	}
 	
 	possible_political_movements = {
@@ -80,6 +83,7 @@ law_monarchy = {
 					is_pop_type = aristocrats
 				}
 				value = 0.33
+				#multiply = literacy_rate
 			}
 		}
 	}
@@ -88,6 +92,22 @@ law_monarchy = {
 		exists = ruler
 		ruler = {
 			has_monarchist_ideology = yes
+		}
+	}
+
+	on_activate = {
+		if = {
+			limit = {
+				c:TUR ?= this
+				game_date > 1836.1.1
+			}
+			if = {
+				limit = {
+					has_variable = tur_fractured_porte_freeze
+				}
+				remove_variable = tur_fractured_porte_freeze
+			}
+			add_journal_entry = { type = je_fractured_porte }
 		}
 	}
 
@@ -213,6 +233,39 @@ law_presidential_republic = {
 			}
 			add = 750
 		}
+		
+		add = {
+            desc = "POP_LITERACY"
+            
+            if = {
+                limit = { 
+                    owner = { 
+						ruler = {
+							NOT = {has_ideology = ideology:ideology_caliphatist}
+						}	
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 15
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 10
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 4
+                    }
+					multiply = literacy_rate
+                }
+            }			
+        }
 	}
 }
 
@@ -320,6 +373,39 @@ law_parliamentary_republic = {
 			}
 			add = 750
 		}
+		
+		add = {
+            desc = "POP_LITERACY"
+            
+            if = {
+                limit = { 
+                    owner = { 
+						ruler = {
+							NOT = {has_ideology = ideology:ideology_caliphatist}
+						}	
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 15
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 10
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 4
+                    }
+					multiply = literacy_rate
+                }
+            }			
+        }
 	}
 }
 
@@ -338,7 +424,8 @@ law_theocracy = {
 		country_legitimacy_headofstate_add = 20
 		country_legitimacy_ideological_incoherence_mult = 0.1
 		interest_group_ig_devout_pol_str_mult = 0.25
-		country_authority_add = 200
+		country_clergymen_pol_str_mult = 0.25
+		country_authority_add = 150
 	}
 	
 	possible_political_movements = {
@@ -403,6 +490,7 @@ law_council_republic = {
 	
 	disallowing_laws = {
 		law_feudalism
+		law_hereditary_bureaucrats
 	}
 	
 	on_activate = {		
@@ -450,8 +538,8 @@ law_council_republic = {
 
 	modifier = {
 		country_legitimacy_govt_total_votes_add = 10
-		country_legitimacy_govt_size_add = 1
-		country_legitimacy_ideological_incoherence_mult = -0.1
+		country_legitimacy_govt_total_clout_add = 30
+		country_legitimacy_ideological_incoherence_mult = -0.25
 		interest_group_ig_trade_unions_pol_str_mult = 0.25
 	}
 	
@@ -469,6 +557,7 @@ law_council_republic = {
 					strata = poor
 				}
 				value = 0.05
+				multiply = literacy_rate
 			}
 		}
 	}

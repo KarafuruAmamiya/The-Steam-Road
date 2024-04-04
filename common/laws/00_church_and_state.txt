@@ -318,6 +318,21 @@ law_freedom_of_conscience = {
 					is_pop_type = academics
 				}
 				value = 0.25		
+				multiply = literacy_rate
+			}
+		}
+		add = {
+			desc = "POP_ACADEMICS"
+			# Academics generally against religious perseecution
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_law = law_type:law_total_separation }
+					}
+					is_pop_type = academics
+				}
+				value = 0.25
+				multiply = literacy_rate
 			}
 		}
 		add = {
@@ -334,8 +349,27 @@ law_freedom_of_conscience = {
 						standard_of_living <= 10
 					}
 					add = 0.5
+					multiply = literacy_rate
 				}
 			}			
+		}
+		add = {
+			desc = "POP_DISCRIMINATED"
+			if = {
+				limit = { 
+					religion_accepted = no
+					owner = { NOT = { has_law = law_type:law_total_separation } }
+				}
+				add = 0.5
+				
+				if = {
+					limit = { 
+						standard_of_living <= 15
+					}
+					add = 0.5
+					multiply = literacy_rate
+				}
+			}		
 		}
 	}
 	
@@ -694,7 +728,7 @@ law_state_atheism = {
 
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = -0.5
-		state_conversion_mult = 0.25
+		state_conversion_mult = 1
 		country_authority_add = 200
 	}
 	
@@ -705,6 +739,7 @@ law_state_atheism = {
 	}
 	
 	on_enact = {
+		recalculate_pop_ig_support = yes
 		set_state_religion = rel:atheist
 		add_modifier = {
 			name = antireligious_policies
@@ -795,6 +830,7 @@ law_state_atheism = {
 					is_pop_type = academics
 				}
 				value = 0.1
+				multiply = literacy_rate
 			}
 		}
 		# Atheists will support this

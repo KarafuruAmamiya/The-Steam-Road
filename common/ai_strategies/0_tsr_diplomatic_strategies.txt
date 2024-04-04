@@ -649,10 +649,11 @@ ai_strategy_pol_odrodzenie = {
 			limit = { 
 				scope:target_country = { 
 					any_scope_state = {
-						OR = {
-							region = sr:region_poland
 							state_region = {
-								is_homeland = cu:polish
+								OR = {
+									is_homeland = cu:polish
+									is_homeland = cu:lithuanian
+								}
 							}
 						}
 					}
@@ -722,10 +723,11 @@ ai_strategy_pol_odrodzenie = {
 				limit = { 
 					scope:target_country = { 
 						any_scope_state = {
-							OR = {
-								region = sr:region_poland
 								state_region = {
-									is_homeland = cu:polish
+									OR = {
+										is_homeland = cu:polish
+										is_homeland = cu:lithuanian
+									}
 								}
 							}
 						}
@@ -741,33 +743,33 @@ ai_strategy_pol_odrodzenie = {
 	}
 
 	weight = {
-		value = 10
+		value = 0
 
 		if = {
 			limit = { 
-				c:POL ?= THIS
+				c:PLC ?= THIS
 				has_journal_entry = je_odrodzenie
 			}
-			add = 25
-		}
+			add = 35
 			
-		if = {
-			limit = { ig:ig_armed_forces = { is_powerful = yes } }
-			multiply = 1.5
+			if = {
+				limit = { ig:ig_armed_forces = { is_powerful = yes } }
+				multiply = 1.5
+			}
+			
+			if = {
+				limit = { has_law = law_type:law_council_republic }
+				multiply = 0.5
+			}
 		}			
 		
 		if = {
 			limit = { 
 				NOT = {
-					c:POL ?= THIS
+					c:PLC ?= THIS
 				}
 			}
 			multiply = 0
 		}	
-		
-		if = {
-			limit = { has_law = law_type:law_council_republic }
-			multiply = 0.5
-		}
 	}
 }

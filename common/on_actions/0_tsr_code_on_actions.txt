@@ -35,7 +35,6 @@ tsr_events_monthly = {
 		hre.4
 		akkovin_crisis.9
 		akkovin_crisis.10
-		akkovin_crisis.16
 		treaty_of_baglar_events.2
 		treaty_of_baglar_events.3
 		arabia_flavor.7
@@ -70,6 +69,52 @@ tsr_events_monthly = {
 		30 = al_afghani_events.1
 		30 = al_afghani_events.2
 		2 = al_afghani_events.3
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = akkovin_partition_start }
+				exists = c:AKN
+				c:AKN = { 
+					is_country_type = unrecognized
+					any_scope_state = {
+						is_incorporated = yes
+						count < 9
+					}
+					NOR = {
+						has_diplomatic_pact = {
+							who = c:PER
+							type = treaty_of_baglar_pact
+						}
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			set_global_variable = akkovin_partition_start
+			c:TUR ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
+			c:PER ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_global_variable = akkovin_partition_start }
+				exists = c:AKN
+				c:AKN = { 
+					is_country_type = unrecognized
+					any_scope_state = {
+						is_incorporated = yes
+						count < 9
+					}
+					OR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+				}
+			}
+			set_global_variable = akkovin_partition_start
+			c:TUR ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
+			c:PER ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
+		}
 	}
 }
 

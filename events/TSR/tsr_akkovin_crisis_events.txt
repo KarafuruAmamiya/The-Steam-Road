@@ -211,10 +211,10 @@ akkovin_crisis.2 = { # Collapse of the Akkovin Confederation
 		if = {
 			limit = {
 				has_state_in_state_region = STATE_KUBAN
-				exists = c:SAI
+				exists = c:DON
 			}
 			s:STATE_KUBAN.region_state:AKN = {
-				set_state_owner = c:SAI
+				set_state_owner = c:DON
 			}
 		}
 		else_if = {
@@ -735,6 +735,11 @@ akkovin_crisis.7 = {
 				}
 				post_notification = akkovin_renew_treaty
 			}
+			c:TUR ?= {
+				add_journal_entry = {
+					type = je_veiled_puppet
+				}
+			}
 		}
 		
 		ai_chance = {
@@ -856,7 +861,7 @@ akkovin_crisis.8 = {
 	}
 }
 
-# Partition of the Akkovin Sultanate
+# Partition of the Akkovin Sultanate (To Ottomans)
 akkovin_crisis.9 = {
 	type = country_event
 	placement = root
@@ -867,270 +872,69 @@ akkovin_crisis.9 = {
 	duration = 3
 
 	event_image = {
-		video = "europenorthamerica_before_the_battle"
+		video = "unspecific_factory_closed"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	trigger = {
-		NOT = { has_global_variable = akkovin_partition_start }
-		OR = {
-			AND = {
-				exists = c:TUR
-				c:TUR = ROOT
-				is_ai = no
-				is_at_war = no
-				NOT = { has_truce_with = c:AKN }
-			}
-			AND = {
-				exists = c:PER
-				c:PER = ROOT
-				is_ai = no
-				is_at_war = no
-				NOT = { has_truce_with = c:AKN }
-			}
-		}
-		exists = c:AKN
-		c:AKN = { 
-			is_country_type = unrecognized
-			any_scope_state = {
-				is_incorporated = yes
-				count < 9
-			}
-			NOR = {
-				has_diplomatic_pact = {
-					who = c:PER
-					type = treaty_of_baglar_pact
-				}
-				has_modifier = treaty_of_baglar
-				has_modifier = treaty_of_baglar_2
-			}
-		}
-	}
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	immediate = {
 		c:AKN = { save_scope_as = akn_scope }
-		set_global_variable = akkovin_partition_start
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_HARPUT }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_HARPUT
-						has_claim = s:STATE_HARPUT
-					}
-				}
-			}
-			s:STATE_HARPUT = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_DIYARBAKIR
-						has_claim = s:STATE_DIYARBAKIR
-					}
-				}
-			}
-			s:STATE_DIYARBAKIR = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_TRABZON }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_TRABZON
-						has_claim = s:STATE_TRABZON
-					}
-				}
-			}
-			s:STATE_TRABZON = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_ERZURUM }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_ERZURUM
-						has_claim = s:STATE_ERZURUM
-					}
-				}
-			}
-			s:STATE_ERZURUM = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_BITLIS }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_BITLIS
-						has_claim = s:STATE_BITLIS
-					}
-				}
-			}
-			s:STATE_BITLIS = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_ALEPPO }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_ALEPPO
-						has_claim = s:STATE_ALEPPO
-					}
-				}
-			}
-			s:STATE_ALEPPO = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_DEIR_EZ_ZOR }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_DEIR_EZ_ZOR
-						has_claim = s:STATE_DEIR_EZ_ZOR
-					}
-				}
-			}
-			s:STATE_DEIR_EZ_ZOR = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_VAN }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_VAN
-						has_claim = s:STATE_VAN
-					}
-				}
 			}
-			s:STATE_VAN = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
-				}
+			s:STATE_VAN.region_state:AKN = {
+				set_state_owner = c:PER
 			}
 		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_KARS }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_KARS
-						has_claim = s:STATE_KARS
-					}
-				}
 			}
-			s:STATE_KARS = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
-				}
+			s:STATE_KARS.region_state:AKN = {
+				set_state_owner = c:PER
 			}
 		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_MOSUL }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_MOSUL
-						has_claim = s:STATE_MOSUL
-					}
-				}
 			}
-			s:STATE_MOSUL = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
-				}
+			s:STATE_MOSUL.region_state:AKN = {
+				set_state_owner = c:PER
 			}
 		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_SHAHRIZOR }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_SHAHRIZOR
-						has_claim = s:STATE_SHAHRIZOR
-					}
-				}
 			}
-			s:STATE_SHAHRIZOR = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
-				}
+			s:STATE_SHAHRIZOR.region_state:AKN = {
+				set_state_owner = c:PER
 			}
 		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_ANBAR }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_ANBAR
-						has_claim = s:STATE_ANBAR
-					}
-				}
 			}
-			s:STATE_ANBAR = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
-				}
+			s:STATE_ANBAR.region_state:AKN = {
+				set_state_owner = c:PER
 			}
 		}
 		if = {
 			limit = {
 				c:AKN = { has_state_in_state_region = STATE_GREATER_CAUCASUS }
-				c:PER = {
-					NOR = { 
-						owns_entire_state_region = STATE_GREATER_CAUCASUS
-						has_claim = s:STATE_GREATER_CAUCASUS
-					}
-				}
 			}
-			s:STATE_GREATER_CAUCASUS = {
-				add_claim = c:PER
-				set_variable = {
-					name = akkovin_partition_state
+			s:STATE_GREATER_CAUCASUS.region_state:AKN = {
+				if = {
+					limit = {
+						exists = c:SRV
+						c:SRV = { is_subject_of = c:PER }
+					}
+					set_state_owner = c:SRV
+				}
+				else = {
+					set_state_owner = c:PER
 				}
 			}
 		}
@@ -1140,8 +944,16 @@ akkovin_crisis.9 = {
 		name = akkovin_crisis.9.a
 		default_option = yes
 		trigger = { c:TUR = ROOT }
-		add_journal_entry = {
-			type = je_akkovin_partition_tur
+		create_diplomatic_pact = {
+			country = c:AKN
+			type = puppet
+		}
+		c:AKN = { 
+			change_tag = KUR 
+			if = {
+				limit = { NOT = { country_has_primary_culture = cu:kurdish } }
+				add_primary_culture = cu:kurdish
+			}
 		}
 		
 		ai_chance = {
@@ -1153,26 +965,85 @@ akkovin_crisis.9 = {
 		name = akkovin_crisis.9.b
 		default_option = yes
 		trigger = { c:PER = ROOT }
-		add_journal_entry = {
-			type = je_akkovin_partition_per
+		show_as_tooltip = {
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_VAN }
+				}
+				s:STATE_VAN.region_state:AKN = {
+					set_state_owner = c:PER
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_KARS }
+				}
+				s:STATE_KARS.region_state:AKN = {
+					set_state_owner = c:PER
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_MOSUL }
+				}
+				s:STATE_MOSUL.region_state:AKN = {
+					set_state_owner = c:PER
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_SHAHRIZOR }
+				}
+				s:STATE_SHAHRIZOR.region_state:AKN = {
+					set_state_owner = c:PER
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_ANBAR }
+				}
+				s:STATE_ANBAR.region_state:AKN = {
+					set_state_owner = c:PER
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_GREATER_CAUCASUS }
+				}
+				s:STATE_GREATER_CAUCASUS.region_state:AKN = {
+					if = {
+						limit = {
+							exists = c:SRV
+							c:SRV = { is_subject_of = c:PER }
+						}
+						set_state_owner = c:SRV
+					}
+					else = {
+						set_state_owner = c:PER
+					}
+				}
+			}
+		}
+		
+		every_scope_state = {
+			limit = {
+				state_region = { 
+					is_homeland = cu:akturk
+				}
+            }
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:akturk
+			}
 		}
 		
 		ai_chance = {
 			base = 100
 		}
 	}
-	
-	option = {
-		name = akkovin_crisis.9.c
-		set_global_variable = akkovin_partition_start
-		
-		ai_chance = {
-			base = 0
-		}
-	}
 }
 
-# Ottoman-Akkovin Conflict (Treaty of Baglar)
+# Partition of the Akkovin Sultanate (To Persia)
 akkovin_crisis.10 = {
 	type = country_event
 	placement = root
@@ -1183,280 +1054,6 @@ akkovin_crisis.10 = {
 	duration = 3
 
 	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	trigger = {
-		NOT = { has_global_variable = akkovin_partition_start }
-		exists = c:PER
-		AND = {
-			exists = c:TUR
-			c:TUR = ROOT
-			is_at_war = no
-		}
-		exists = c:AKN
-		c:AKN = { 
-			has_variable = akkovin_fail 
-			is_country_type = unrecognized
-			has_diplomatic_pact = {
-				who = c:PER
-				type = treaty_of_baglar_pact
-			}
-			OR = {
-				has_modifier = treaty_of_baglar
-				has_modifier = treaty_of_baglar_2
-			}
-		}
-	}
-
-	immediate = {
-		c:AKN ?= { save_scope_as = akn_scope }
-		c:PER ?= { save_scope_as = per_scope }
-		set_global_variable = akkovin_partition_start
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_HARPUT }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_HARPUT
-						has_claim = s:STATE_HARPUT
-					}
-				}
-			}
-			s:STATE_HARPUT = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_DIYARBAKIR
-						has_claim = s:STATE_DIYARBAKIR
-					}
-				}
-			}
-			s:STATE_DIYARBAKIR = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_TRABZON }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_TRABZON
-						has_claim = s:STATE_TRABZON
-					}
-				}
-			}
-			s:STATE_TRABZON = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_ERZURUM }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_ERZURUM
-						has_claim = s:STATE_ERZURUM
-					}
-				}
-			}
-			s:STATE_ERZURUM = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_BITLIS }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_BITLIS
-						has_claim = s:STATE_BITLIS
-					}
-				}
-			}
-			s:STATE_BITLIS = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_ALEPPO }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_ALEPPO
-						has_claim = s:STATE_ALEPPO
-					}
-				}
-			}
-			s:STATE_ALEPPO = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_DEIR_EZ_ZOR }
-				c:TUR = {
-					NOR = { 
-						owns_entire_state_region = STATE_DEIR_EZ_ZOR
-						has_claim = s:STATE_DEIR_EZ_ZOR
-					}
-				}
-			}
-			s:STATE_DEIR_EZ_ZOR = {
-				add_claim = c:TUR
-				set_variable = {
-					name = akkovin_partition_state
-				}
-			}
-		}
-	}
-
-	option = {
-		name = akkovin_crisis.10.a
-		default_option = yes
-		
-		add_journal_entry = {
-			type = je_akkovin_partition_tur
-		}
-		
-		custom_tooltip = war_persia.tt
-		
-		ai_chance = {
-			base = 100
-		}
-	}
-	
-	option = {
-		name = akkovin_crisis.10.b
-		set_global_variable = akkovin_partition_start
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-}
-
-# Akkovin Partition War (No Treaty of Baglar) MOVED TO SCRIPTED BUTTONS
-#akkovin_crisis.11 = {
-#	type = country_event
-#	placement = root
-#	title = akkovin_crisis.11.t
-#	desc = akkovin_crisis.11.d
-#	flavor = akkovin_crisis.11.f
-#
-#	duration = 3
-#
-#	event_image = {
-#		video = "europenorthamerica_before_the_battle"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#
-#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-#
-#	trigger = {
-#		#Triggered by Akkovin Partition (Ottoman) JE
-#	}
-#
-#	option = {
-#		name = akkovin_crisis.11.a
-#		
-#	}
-#}
-
-# Ottoman-Akkovin War (Treaty of Baglar) MOVED TO SCRIPTED BUTTONS
-#akkovin_crisis.12 = {
-#	type = country_event
-#	placement = root
-#	title = akkovin_crisis.12.t
-#	desc = akkovin_crisis.12.d
-#	flavor = akkovin_crisis.12.f
-#
-#	duration = 3
-#
-#	event_image = {
-#		video = "europenorthamerica_before_the_battle"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#
-#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-#
-#	trigger = {
-#		#Triggered by Akkovin Partition (Ottoman) JE
-#	}
-#
-#	option = {
-#		name = akkovin_crisis.12.a
-#		
-#	}
-#}
-
-# Prepare for War with the Ottomans
-#akkovin_crisis.13 = {
-#	type = country_event
-#	placement = root
-#	title = akkovin_crisis.13.t
-#	desc = akkovin_crisis.13.d
-#	flavor = akkovin_crisis.13.f
-#
-#	duration = 3
-#
-#	event_image = {
-#		video = "europenorthamerica_before_the_battle"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#
-#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-#
-#	trigger = {
-#		#Triggered by Ottoman event
-#	}
-#
-#	option = {
-#		name = akkovin_crisis.13.a
-#	}
-#}
-
-# Restoring Order to former Akkovin lands
-akkovin_crisis.14 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.14.t
-	desc = akkovin_crisis.14.d
-	flavor = akkovin_crisis.14.f
-
-	duration = 3
-
-	event_image = {
 		video = "unspecific_factory_closed"
 	}
 
@@ -1464,74 +1061,62 @@ akkovin_crisis.14 = {
 
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
-	trigger = {
-		#Triggered by Ottomans winning the Ottoman-Akkovin War
-	}
-	
 	immediate = {
-		c:TUR = {
-			save_scope_as = tur_scope
-		}
-		every_state = {
-			limit = {
-				has_modifier = kurdish_autonomy
-			}
-			remove_modifier = kurdish_autonomy
-		}
-		create_country = {
-			tag = KUR
-			origin = THIS
-			state = s:STATE_SHAHRIZOR.region_state:PER
-		}
-	}
-
-	option = {
-		name = akkovin_crisis.14.a
+		c:AKN = { save_scope_as = akn_scope }
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_SHAHRIZOR }
+				c:AKN = { has_state_in_state_region = STATE_HARPUT }
 			}
-			s:STATE_SHAHRIZOR.region_state:AKN = {
-				set_state_owner = c:KUR
+			s:STATE_HARPUT.region_state:AKN = {
+				set_state_owner = c:TUR
 			}
 		}
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_MOSUL }
+				c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }
 			}
-			s:STATE_MOSUL.region_state:AKN = {
-				set_state_owner = c:KUR
-			}
-			c:KUR = { set_capital = STATE_MOSUL }
-		}
-		if = {
-			limit = {
-				c:AKN = { has_state_in_state_region = STATE_ANBAR }
-			}
-			s:STATE_ANBAR.region_state:AKN = {
-				set_state_owner = c:KUR
+			s:STATE_DIYARBAKIR.region_state:AKN = {
+				set_state_owner = c:TUR
 			}
 		}
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_VAN }
+				c:AKN = { has_state_in_state_region = STATE_TRABZON }
 			}
-			s:STATE_VAN.region_state:AKN = {
-				set_state_owner = c:KUR
+			s:STATE_TRABZON.region_state:AKN = {
+				set_state_owner = c:TUR
 			}
 		}
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_KARS }
+				c:AKN = { has_state_in_state_region = STATE_ERZURUM }
 			}
-			s:STATE_KARS.region_state:AKN = {
-				if = {
-					limit = { exists = c:SRV }
-					set_state_owner = c:SRV
-				}
-				else = {
-					set_state_owner = ROOT
-				}
+			s:STATE_ERZURUM.region_state:AKN = {
+				set_state_owner = c:TUR
+			}
+		}
+		if = {
+			limit = {
+				c:AKN = { has_state_in_state_region = STATE_BITLIS }
+			}
+			s:STATE_BITLIS.region_state:AKN = {
+				set_state_owner = c:TUR
+			}
+		}
+		if = {
+			limit = {
+				c:AKN = { has_state_in_state_region = STATE_ALEPPO }
+			}
+			s:STATE_ALEPPO.region_state:AKN = {
+				set_state_owner = c:TUR
+			}
+		}
+		if = {
+			limit = {
+				c:AKN = { has_state_in_state_region = STATE_DEIR_EZ_ZOR }
+			}
+			s:STATE_DEIR_EZ_ZOR.region_state:AKN = {
+				set_state_owner = c:TUR
 			}
 		}
 		if = {
@@ -1540,110 +1125,134 @@ akkovin_crisis.14 = {
 			}
 			s:STATE_GREATER_CAUCASUS.region_state:AKN = {
 				if = {
-					limit = { exists = c:SRV }
+					limit = {
+						exists = c:SRV
+						c:SRV = { is_subject_of = c:PER }
+					}
 					set_state_owner = c:SRV
 				}
 				else = {
-					set_state_owner = ROOT
+					set_state_owner = c:PER
 				}
 			}
 		}
-		root = {
-			create_diplomatic_pact = {
-				country = c:KUR
-				type = puppet
+	}
+
+	option = {
+		name = akkovin_crisis.10.a
+		default_option = yes
+		trigger = { c:PER = ROOT }
+		create_diplomatic_pact = {
+			country = c:AKN
+			type = puppet
+		}
+		c:AKN = { 
+			change_tag = KUR 
+			if = {
+				limit = { NOT = { country_has_primary_culture = cu:kurdish } }
+				add_primary_culture = cu:kurdish
 			}
 		}
-	}
-}
-
-# Restoring Order to Akturkistan (Akkovin)
-#akkovin_crisis.15 = {
-#	type = country_event
-#	placement = root
-#	title = akkovin_crisis.15.t
-#	desc = akkovin_crisis.15.d
-#	flavor = akkovin_crisis.15.f
-#
-#	duration = 3
-#
-#	event_image = {
-#		video = "unspecific_factory_closed"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#
-#	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-#
-#	trigger = {
-#		#Triggered by Ottomans losing the Ottoman-Akkovin War
-#	}
-#
-#	option = {
-#		name = akkovin_crisis.15.a
-#		if = {
-#			limit = { has_modifier = treaty_of_baglar }
-#			remove_modifier = treaty_of_baglar
-#		}
-#		else = {
-#			remove_modifier = treaty_of_baglar_2
-#		}
-#		set_owes_obligation_to = { country = c:PER setting = no }
-#		remove_variable = baglar_treaty_signed
-#	}
-#}
-
-# End of the Akkovin Sultanate
-akkovin_crisis.16 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.16.t
-	desc = akkovin_crisis.16.d
-	flavor = akkovin_crisis.16.f
-
-	duration = 3
-
-	event_image = {
-		video = "unspecific_factory_closed"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	trigger = {
-		NOT = { exists = c:AKN }
-		NOT = { has_variable = rip_akkovins }
-		OR = {
-			has_interest_marker_in_region = region_arabic
-			has_interest_marker_in_region = region_anatolia
-			has_interest_marker_in_region = region_kurdistan
-			has_interest_marker_in_region = region_persia
+		
+		ai_chance = {
+			base = 100
 		}
 	}
 	
-	immediate = {
-		set_variable = rip_akkovins
+	option = {
+		name = akkovin_crisis.10.b
+		default_option = yes
+		trigger = { c:TUR = ROOT }
+		show_as_tooltip = {
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_HARPUT }
+				}
+				s:STATE_HARPUT.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }
+				}
+				s:STATE_DIYARBAKIR.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_TRABZON }
+				}
+				s:STATE_TRABZON.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_ERZURUM }
+				}
+				s:STATE_ERZURUM.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_BITLIS }
+				}
+				s:STATE_BITLIS.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_ALEPPO }
+				}
+				s:STATE_ALEPPO.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_DEIR_EZ_ZOR }
+				}
+				s:STATE_DEIR_EZ_ZOR.region_state:AKN = {
+					set_state_owner = c:TUR
+				}
+			}
+			if = {
+				limit = {
+					c:AKN = { has_state_in_state_region = STATE_GREATER_CAUCASUS }
+				}
+				s:STATE_GREATER_CAUCASUS.region_state:AKN = {
+					if = {
+						limit = {
+							exists = c:SRV
+							c:SRV = { is_subject_of = c:PER }
+						}
+						set_state_owner = c:SRV
+					}
+					else = {
+						set_state_owner = c:PER
+					}
+				}
+			}
+		}
+		
 		every_scope_state = {
 			limit = {
 				state_region = { 
 					is_homeland = cu:akturk
 				}
             }
-			save_scope_as = akturk_state
-		}
-	}
-
-	option = {
-		name = akkovin_crisis.16.a
-		if = {
-			limit = { exists = scope:akturk_state }
-			scope:akturk_state = {
-				add_radicals_in_state = {
-					value = very_large_radicals
-					culture = cu:akturk
-				}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:akturk
 			}
+		}
+		
+		ai_chance = {
+			base = 100
 		}
 	}
 }
@@ -1696,371 +1305,5 @@ akkovin_crisis.17 = {
 				set_ideology = ideology:ideology_reformer
 			}
 		}
-	}
-}
-
-# Scripted Akkovin Partition War (with Persia)
-akkovin_crisis.18 = {
-	type = country_event
-	hidden = yes
-
-	trigger = {
-	}
-
-	immediate = {
-		if = {
-			limit = { 
-				ROOT = {
-					has_journal_entry = je_akkovin_partition_tur
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = c:TUR
-					target_is = c:AKN
-				}
-				add_initiator_backers = {
-					c:PER
-				}
-			}
-		}
-		else_if = {
-			limit = { 
-				ROOT = {
-					has_journal_entry = je_akkovin_partition_per
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = c:PER
-					target_is = c:AKN
-				}
-				add_initiator_backers = {
-					c:TUR
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_TRABZON = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_TRABZON.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_HARPUT = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_HARPUT.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_ERZURUM = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_ERZURUM.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_BITLIS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_BITLIS.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_ALEPPO = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_ALEPPO.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_VAN = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_VAN.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_KARS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_KARS.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_MOSUL = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_MOSUL.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_SHAHRIZOR = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_SHAHRIZOR.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				c:PER = {
-					has_journal_entry = je_akkovin_partition_per
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_ANBAR.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_GREATER_CAUCASUS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:PER
-					type = return_state
-					target_state = s:STATE_GREATER_CAUCASUS.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		
-		set_tariffs_import_priority = g:small_arms
-		set_tariffs_import_priority = g:artillery
-	}
-}
-
-# Scripted Akkovin Partition War (without Persia)
-akkovin_crisis.19 = {
-	type = country_event
-	hidden = yes
-
-	trigger = {
-	}
-
-	immediate = {
-		if = {
-			limit = { 
-				s:STATE_TRABZON = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_TRABZON.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_HARPUT = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_HARPUT.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_ERZURUM = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_ERZURUM.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_BITLIS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_BITLIS.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = { 
-				s:STATE_ALEPPO = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = ROOT
-					target_is = c:AKN
-				}
-				add_war_goal = {
-					holder = c:TUR
-					type = return_state
-					target_state = s:STATE_ALEPPO.region_state:AKN
-					primary_demand = yes
-				}
-			}
-		}
-		
-		set_tariffs_import_priority = g:small_arms
-		set_tariffs_import_priority = g:artillery
 	}
 }

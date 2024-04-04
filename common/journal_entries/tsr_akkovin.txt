@@ -14,51 +14,50 @@
 	}
 	
 	fail = {
-		OR = {
-			is_at_war = no
-			is_diplomatic_play_committed_participant = no
-		}
-		calc_true_if = {
-			amount = 2
-			is_subject = yes
-			any_scope_state = {
-				is_incorporated = yes
-				count < 9
+		AND = {
+			OR = {
+				is_at_war = no
+				is_diplomatic_play_committed_participant = no
 			}
-			NOT = {
-				AND = {
-					country_or_subject_owns_entire_state_region = STATE_SYRIA
-					country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
-					country_or_subject_owns_entire_state_region = STATE_PALESTINE
-					country_or_subject_owns_entire_state_region = STATE_LEBANON
-					country_or_subject_owns_entire_state_region = STATE_HAMA
-					country_or_subject_owns_entire_state_region = STATE_HEDJAZ
-					country_or_subject_owns_entire_state_region = STATE_MEDINA
-					trigger_if = {
-						limit = {
-							exists = c:NEJ
+			OR = {
+				any_scope_state = {
+					is_incorporated = yes
+					count <= 9
+				}
+				NOT = {
+					AND = {
+						country_or_subject_owns_entire_state_region = STATE_SYRIA
+						country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+						country_or_subject_owns_entire_state_region = STATE_PALESTINE
+						country_or_subject_owns_entire_state_region = STATE_LEBANON
+						country_or_subject_owns_entire_state_region = STATE_HAMA
+						country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+						country_or_subject_owns_entire_state_region = STATE_MEDINA
+						trigger_if = {
+							limit = {
+								exists = c:NEJ
+							}
+							c:NEJ = {
+								is_subject_of = ROOT
+							}
 						}
-						c:NEJ = {
-							is_subject_of = ROOT
+						trigger_else = {
+							has_state_in_state_region = STATE_NEJD
 						}
-					}
-					trigger_else = {
-						has_state_in_state_region = STATE_NEJD
-					}
-					trigger_if = {
-						limit = {
-							exists = c:JAB
+						trigger_if = {
+							limit = {
+								exists = c:JAB
+							}
+							c:JAB = {
+								is_subject_of = ROOT
+							}
 						}
-						c:JAB = {
-							is_subject_of = ROOT
+						trigger_else = {
+							has_state_in_state_region = STATE_HAIL
 						}
-					}
-					trigger_else = {
-						has_state_in_state_region = STATE_HAIL
 					}
 				}
 			}
-			exists = c:ARA
 		}
 	}
 	
@@ -117,7 +116,11 @@
 	transferable = no
 
 	invalid = {
-		NOT = { exists = c:AKN }
+		is_subject = yes
+	}
+	
+	on_invalid = {
+		set_variable = je_akkovin_crisis_invalid
 	}
 }
 
@@ -181,7 +184,10 @@ je_akkovin_reform_economy = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -247,7 +253,10 @@ je_akkovin_reform_education = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 	
@@ -338,7 +347,10 @@ je_akkovin_reform_army = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -400,7 +412,10 @@ je_akkovin_reform_navy = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -459,7 +474,10 @@ je_akkovin_reform_bureaucracy = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -552,7 +570,10 @@ je_akkovin_reform_sovereignty = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -674,7 +695,10 @@ je_akkovin_reform_kurdish = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -866,7 +890,10 @@ je_akkovin_reform_arabia = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -997,7 +1024,10 @@ je_akkovin_reform_minorities = {
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
+			}
 		}
 	}
 
@@ -1074,209 +1104,11 @@ je_akkovin_reform_nationalism = { #WIP
 	invalid = {
 		custom_tooltip = {
 			text = akkovin_fail_tt
-			has_variable = akkovin_fail
-		}
-	}
-
-	transferable = no
-	should_be_pinned_by_default = yes
-	weight = 5000
-}
-
-# Partition of the Akkovin Sultanate (Ottomans)
-je_akkovin_partition_tur = { #WIP
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-	group = je_group_tsr_content
-	
-	scripted_button = je_akkovin_partition_tur_button
-	
-	complete = {
-		trigger_if = {
-			limit = {
-				s:STATE_HARPUT = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_HARPUT
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_DIYARBAKIR = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_DIYARBAKIR
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_TRABZON = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_TRABZON
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_ERZURUM = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_ERZURUM
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_BITLIS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_BITLIS
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_ALEPPO = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_ALEPPO
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_DEIR_EZ_ZOR = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_DEIR_EZ_ZOR
-		}
-	}
-	
-	fail = {
-		custom_tooltip = {
-			text = akkovin_partition_fail_tt
-			AND = {
-				exists = c:AKN
-				has_diplomatic_pact = {
-					who = c:AKN
-					type = war_reparations
-					is_initiator = no
-				}
+			OR = {
+				has_variable = akkovin_fail
+				has_variable = je_akkovin_crisis_invalid
 			}
 		}
-	}
-	
-	on_fail = {
-	}
-
-	on_complete = {
-		if = {
-			limit = {
-				exists = c:AKN
-				c:AKN = {
-					has_diplomatic_pact = {
-						who = c:PER
-						type = treaty_of_baglar_pact
-					}
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-				}
-			}
-			c:PER = { trigger_event = { id = akkovin_crisis.14 days = 1 } }
-		}
-	}
-
-	on_monthly_pulse = {
-	}
-
-	invalid = {
-		NOT = { exists = c:TUR }
-	}
-
-	transferable = no
-	should_be_pinned_by_default = yes
-	weight = 5000
-}
-
-# Partition of the Akkovin Sultanate (Safavids)
-je_akkovin_partition_per = { #WIP
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-	group = je_group_tsr_content
-	
-	scripted_button = je_akkovin_partition_per_button
-	
-	complete = {
-		trigger_if = {
-			limit = {
-				s:STATE_KARS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_KARS
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_MOSUL = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_MOSUL
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_SHAHRIZOR = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_SHAHRIZOR
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_ANBAR = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_ANBAR
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_VAN = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_VAN
-		}
-		trigger_if = {
-			limit = {
-				s:STATE_GREATER_CAUCASUS = {
-					has_variable = akkovin_partition_state
-				}
-			}
-			owns_entire_state_region = STATE_GREATER_CAUCASUS
-		}
-	}
-
-	on_complete = {
-	}
-	
-	fail = {
-		custom_tooltip = {
-			text = akkovin_partition_fail_tt
-			AND = {
-				exists = c:AKN
-				has_diplomatic_pact = {
-					who = c:AKN
-					type = war_reparations
-					is_initiator = no
-				}
-			}
-		}
-	}
-
-	on_monthly_pulse = {
-	}
-
-	invalid = {
-		NOT = { exists = c:PER }
 	}
 
 	transferable = no

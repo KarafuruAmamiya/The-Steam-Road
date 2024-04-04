@@ -909,6 +909,28 @@ ai_strategy_default = {
 			
 			if = {
 				limit = {
+					c:PER ?= this
+					scope:target_country = {
+						AND = {
+							c:AKN ?= this
+							has_variable = baglar_treaty_signed
+						}
+						NOR = {
+							has_modifier = treaty_of_baglar
+							has_modifier = treaty_of_baglar_2
+						}
+						any_scope_state = {
+							state_region = {
+								has_claim_by = root
+							}
+						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
 					OR = {
 						c:NGF ?= this
 						c:SAX ?= this
@@ -2023,6 +2045,28 @@ ai_strategy_default = {
 				scope:target_country = {
 					is_country_type = unrecognized
 					country_is_in_india = yes
+				}
+			}
+			add = 25
+		}
+		
+		if = { #Persia vs Non-Baglar Akkovins
+			limit = {
+				c:PER ?= this
+				scope:target_country = {
+					AND = {
+						c:AKN ?= this
+						has_variable = baglar_treaty_signed
+					}
+					NOR = {
+						has_modifier = treaty_of_baglar
+						has_modifier = treaty_of_baglar_2
+					}
+					any_scope_state = {
+						state_region = {
+							has_claim_by = root
+						}
+					}
 				}
 			}
 			add = 25

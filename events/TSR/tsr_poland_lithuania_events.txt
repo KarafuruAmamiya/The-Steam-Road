@@ -1,6 +1,6 @@
 ﻿namespace = poland_lithuania_events
 
-# Owned by Polish Radicals
+# Owned by Polish/Lithuanian Radicals
 poland_lithuania_events.1 = {
 	type = country_event
 	placement = ROOT
@@ -25,13 +25,29 @@ poland_lithuania_events.1 = {
 		}
 		if = {
 			limit = {
+				capital = {
+					state_region = {
+						is_homeland = cu:polish
+					}
+				}
 				NOT = { country_has_primary_culture = cu:polish }
 			}
 			add_primary_culture = cu:polish
 		}
+		if = {
+			limit = {
+				capital = {
+					state_region = {
+						is_homeland = cu:lithuanian
+					}
+				}
+				NOT = { country_has_primary_culture = cu:lithuanian }
+			}
+			add_primary_culture = cu:lithuanian
+		}
 		set_variable = polish_revolter_var
 		save_scope_as = polish_revolt_country
-		c:POL = { 
+		c:PLC ?= {
 			save_scope_as = poland_scope
 			ruler = {
 				save_scope_as = poland_ruler_scope 
@@ -42,13 +58,13 @@ poland_lithuania_events.1 = {
 	option = {
 		name = poland_lithuania_events.1.a
 		default_option = yes
-		c:POL = {
+		scope:poland_scope = {
 			trigger_event = { id = poland_lithuania_events.2 popup = yes }
 		}
 	}
 }
 
-# Country gets taken over by Polish nationalists and wants to join us
+# Country gets taken over by Polish/Lithuanian nationalists and wants to join us
 poland_lithuania_events.2 = {
 	type = country_event
 	placement = ROOT
@@ -229,10 +245,13 @@ poland_lithuania_events.3 = {
 	duration = 1
 
 	trigger = {
-		Part of event chain
+		#Part of event chain
 	}
 
 	immediate = {
+		c:PLC ?= {
+			save_scope_as = poland_scope
+		}
 		random_state = {
 			limit = { has_variable = poland_steal_capital }
 			save_scope_as = capital_scope
@@ -246,10 +265,10 @@ poland_lithuania_events.3 = {
 		}
 		default_option = yes
 		
-		change_relations = { country = c:POL value = -100 }
+		change_relations = { country = scope:poland_scope value = -100 }
 		hidden_effect = {
 			set_secret_goal = {
-				country = c:POL
+				country = scope:poland_scope
 				secret_goal = conquer
 			}
 		}
@@ -268,13 +287,33 @@ poland_lithuania_events.4 = {
 			triggered_desc = {
 				desc = poland_lithuania_events.4.f1
 				trigger = {
-					c:POL ?= this
+					c:PLC ?= this
 				}
 			}
 			triggered_desc = {
 				desc = poland_lithuania_events.4.f2
 				trigger = {
-					NOT = { c:POL ?= this }
+					NOT = { 
+						c:PLC ?= this 
+						capital = {
+							state_region = {
+								is_homeland = cu:polish
+							}
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = poland_lithuania_events.4.f2
+				trigger = {
+					NOT = { 
+						c:PLC ?= this 
+						capital = {
+							state_region = {
+								is_homeland = cu:lithuanian
+							}
+						}
+					}
 				}
 			}
 		}
@@ -295,9 +334,10 @@ poland_lithuania_events.4 = {
 	}
 	
 	immediate = {
-		c:POL = {
+		c:PLC ?= { 
+			save_scope_as = poland_scope
 			ruler = {
-				save_scope_as = poland_ruler_scope
+				save_scope_as = poland_ruler_scope 
 			}
 		}
 		if = {
@@ -312,7 +352,7 @@ poland_lithuania_events.4 = {
 		name = poland_lithuania_events.4.a
 		default_option = yes
 		trigger = {
-			c:POL ?= this
+			scope:poland_scope ?= this
 		}
 		every_interest_group = {
 			limit = {
@@ -348,10 +388,10 @@ poland_lithuania_events.4 = {
 		}
 		every_state = {
 			limit = {
-				OR = {
-					region = sr:region_poland
-					state_region = {
+				state_region = {
+					OR = {
 						is_homeland = cu:polish
+						is_homeland = cu:lithuanian
 					}
 				}
 				NOT = { has_claim_by = root }
@@ -382,7 +422,188 @@ poland_lithuania_events.4 = {
 		name = poland_lithuania_events.4.b
 		default_option = yes
 		trigger = {
-			NOT = { c:POL ?= this }
+			NOT = { scope:poland_scope ?= this }
+		}
+	}
+}
+
+# Union of Augustów complete
+poland_lithuania_events.5 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.5.t
+	desc = poland_lithuania_events.5.d
+	flavor = poland_lithuania_events.5.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	trigger = {
+		#Part of event chain
+	}
+
+	immediate = {
+		c:POL ?= { 
+			save_scope_as = pol_scope 
+			ruler = { 
+				save_scope_as = poland_ruler_scope 
+				interest_group = { save_scope_as = ruler_ig_scope }
+			}
+		}
+		c:LIT ?= { save_scope_as = lit_scope }
+	}
+	
+	option = {
+		name = poland_lithuania_events.5.a
+		default_option = yes
+		annex_with_incorporation = c:LIT
+		change_tag = PLC
+		add_journal_entry = { type = je_odrodzenie }
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOR = { root = this is_subject_of = root }
+					capital = {
+						state_region = {
+							OR = {
+								is_homeland = cu:polish
+								is_homeland = cu:lithuanian
+							}
+						}
+					}
+				}
+				add_journal_entry = { type = je_odrodzenie_victim }
+			}
+			if = {
+				limit = { NOT = { country_has_primary_culture = cu:lithuanian } }
+				add_primary_culture = cu:lithuanian
+			}
+		}
+		
+		# prestige
+		add_modifier = {
+			name = plc_unifier_prestige
+			months = long_modifier_time
+		}
+	}
+	option = {
+		name = poland_lithuania_events.5.b
+		annex_with_incorporation = c:LIT
+		change_tag = PLC
+		add_journal_entry = { type = je_odrodzenie }
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOR = { root = this is_subject_of = root }
+					capital = {
+						state_region = {
+							OR = {
+								is_homeland = cu:polish
+								is_homeland = cu:lithuanian
+							}
+						}
+					}
+				}
+				add_journal_entry = { type = je_odrodzenie_victim }
+			}
+			if = {
+				limit = { NOT = { country_has_primary_culture = cu:lithuanian } }
+				add_primary_culture = cu:lithuanian
+			}
+		}
+		
+		# ruler IG attraction
+		scope:poland_ruler_scope = {
+			add_modifier = {
+				name = plc_unifiers_ruler
+				months = -1
+			}
+		}
+		scope:ruler_ig_scope = {
+			add_modifier = {
+				name = plc_unifiers_ig
+				months = long_modifier_time
+			}
+		}
+	}
+}
+
+# Union of Augustów fail
+poland_lithuania_events.6 = {
+	type = country_event
+	placement = ROOT
+
+	title = poland_lithuania_events.6.t
+	desc = poland_lithuania_events.6.d
+	flavor = poland_lithuania_events.6.f
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	duration = 1
+
+	trigger = {
+		#Part of event chain
+	}
+
+	immediate = {
+		c:POL ?= { save_scope_as = pol_scope }
+		c:LIT ?= { save_scope_as = lit_scope }
+	}
+	
+	option = {
+		name = poland_lithuania_events.6.a
+		default_option = yes
+		
+		if = {
+			limit = { c:POL ?= this }
+			change_relations = { country = c:LIT value = -100 }
+			c:LIT ?= {
+				every_scope_state = {
+					state_region = {
+						add_claim = root
+					}
+				}
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:LIT
+					secret_goal = conquer
+				}
+			}
+		}
+		
+		else_if = {
+			limit = { c:LIT ?= this }
+			show_as_tooltip = { change_relations = { country = c:POL value = -100 } }
+			c:POL ?= {
+				every_scope_state = {
+					state_region = {
+						add_claim = root
+					}
+				}
+			}
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:POL
+					secret_goal = antagonize
+				}
+			}
 		}
 	}
 }

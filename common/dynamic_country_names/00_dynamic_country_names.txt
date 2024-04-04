@@ -1297,7 +1297,9 @@ TUR = { # Turkey
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			has_variable = turkish_empire
+			scope:actor ?= {
+				has_variable = turkish_empire
+			}
 		}
 	}
 }

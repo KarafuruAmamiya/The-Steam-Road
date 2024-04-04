@@ -324,6 +324,18 @@
 					value = -50
 				}
 			}
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_LITHUANIA"
+				if = {
+					limit = {
+						c:LIT ?= this
+						scope:actor ?= {
+							c:POL ?= this
+						}
+					}
+					value = -1000
+				}
+			}
 		}
 
 		propose_score = {

@@ -4,7 +4,10 @@
 	every_scope_state = {
 		limit = {
 			state_region = {
-				is_homeland = cu:polish
+				OR = {
+					is_homeland = cu:polish
+					is_homeland = cu:lithuanian
+				}
 			}
 		}
 		set_variable = { name = polish_state_pop_radicals value = this.turmoil }
@@ -17,6 +20,212 @@
 	set_variable = { name = polish_states_radicals_total_bar value = var:polish_states_radicals_total }
 	change_variable = { name = polish_states_radicals_total_bar divide = var:polish_states_pop_total }
 	change_variable = { name = polish_states_radicals_total_bar multiply = 100 }
+}
+
+calculate_plc_point = {
+	set_global_variable = { name = plc_point_var_next value = 0 }
+	set_global_variable = { name = plc_point_from_radicals_pol value = 0 }
+	set_global_variable = { name = plc_point_from_radicals_lit value = 0 }
+	#From Radicals (negative)
+	c:POL ?= {
+		every_scope_state = {
+			limit = {
+				turmoil >= 0.10
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_radicals_pol add = prev.turmoil }
+			}
+		}
+	}
+	c:LIT ?= {
+		every_scope_state = {
+			limit = {
+				turmoil >= 0.10
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_radicals_lit add = prev.turmoil }
+			}
+		}
+	}
+	change_global_variable = { name = plc_point_from_radicals_pol multiply = -1 }
+	change_global_variable = { name = plc_point_from_radicals_lit multiply = -1 }
+	#From Loyalists
+	set_global_variable = { name = plc_point_from_loyalists_pol value = 0 }
+	set_global_variable = { name = plc_point_from_loyalists_lit value = 0 }
+	c:POL ?= {
+		every_scope_state = {
+			limit = {
+				turmoil >= 0.10
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_loyalists_pol add = prev.turmoil }
+			}
+		}
+	}
+	c:LIT ?= {
+		every_scope_state = {
+			limit = {
+				turmoil >= 0.10
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_loyalists_lit add = prev.turmoil }
+			}
+		}
+	}
+	#From Nationalism
+	set_global_variable = { name = plc_point_from_nationalism value = 0 }
+	if = {
+		limit = {
+			OR = {
+				c:POL ?= { has_technology_researched = nationalism }
+				c:LIT ?= { has_technology_researched = nationalism }
+			}
+		}
+		change_global_variable = { name = plc_point_from_nationalism add = 0.5 }
+	}
+	change_global_variable = { name = plc_point_from_nationalism multiply = -1 }
+	#From Pan-Nationalism
+	set_global_variable = { name = plc_point_from_pannationalism value = 0 }
+	if = {
+		limit = {
+			OR = {
+				c:POL ?= { has_technology_researched = pan-nationalism }
+				c:LIT ?= { has_technology_researched = pan-nationalism }
+			}
+		}
+		change_global_variable = { name = plc_point_from_pannationalism add = 1 }
+	}
+	#From Attitude
+	set_global_variable = { name = plc_point_from_positive_relations value = 0 }
+	if = {
+		limit = {
+			c:LIT ?= {
+				is_subject_of = c:POL
+				has_attitude = {
+					who = c:POL
+					attitude = loyal
+				}
+			}
+		}
+		change_global_variable = { name = plc_point_from_positive_relations add = 1 }
+	}
+	if = {
+		limit = {
+			c:LIT ?= {
+				is_subject_of = c:POL
+				has_attitude = {
+					who = c:POL
+					attitude = rebellious
+				}
+			}
+		}
+		change_global_variable = { name = plc_point_from_positive_relations add = 1 }
+		change_global_variable = { name = plc_point_from_positive_relations multiply = -1 }
+	}
+	# From Centralization
+	set_global_variable = { name = plc_point_from_centralization value = 0 }
+	set_global_variable = { name = temp_centralization_var_contribution value = c:POL.institution:institution_centralization.investment }
+	if = {
+		limit = {
+			c:POL ?= {
+				has_law = law_type:law_confederated
+			}
+		}
+		change_global_variable = { name = temp_centralization_var_contribution add = -0.3 }
+	}
+	else_if = {
+		limit = {
+			c:POL ?= {
+				has_law = law_type:law_federal
+			}
+		}
+		change_global_variable = { name = temp_centralization_var_contribution multiply = 0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_devolved
+		}
+		change_global_variable = { name = temp_centralization_var_contribution multiply = 0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_unitary
+		}
+		change_global_variable = { name = temp_centralization_var_contribution multiply = 0.5 }
+	}
+	
+	change_global_variable = { name = plc_point_from_centralization add = global_var:temp_centralization_var_contribution }
+	remove_global_variable = temp_centralization_var_contribution
+
+	# Compilation
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_radicals_pol }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_radicals_lit }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_loyalists_pol }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_loyalists_lit }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_nationalism }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_pannationalism }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_positive_relations }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_centralization }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_var_add }
+}
+
+add_plc_point = {
+	change_global_variable = { name = plc_union_progress_var add = global_var:plc_point_var_next }
+}
+
+set_plc_point_vars = {
+	set_global_variable = { name = plc_point_from_radicals_pol value = 0 }
+	set_global_variable = { name = plc_point_from_radicals_lit value = 0 }
+	set_global_variable = { name = plc_point_from_loyalists_pol value = 0 }
+	set_global_variable = { name = plc_point_from_loyalists_lit value = 0 }
+	set_global_variable = { name = plc_point_from_nationalism value = 0 }
+	set_global_variable = { name = plc_point_from_pannationalism value = 0 }
+	set_global_variable = { name = plc_point_from_positive_relations value = 0 }
+	set_global_variable = { name = plc_point_from_centralization value = 0 }
+	set_global_variable = { name = plc_point_var_add value = 0 }
+}
+
+clear_plc_point_vars = {
+	remove_global_variable = plc_point_var_next
+	remove_global_variable = plc_point_from_radicals_pol
+	remove_global_variable = plc_point_from_radicals_lit
+	remove_global_variable = plc_point_from_loyalists_pol
+	remove_global_variable = plc_point_from_loyalists_lit
+	remove_global_variable = plc_point_from_nationalism
+	remove_global_variable = plc_point_from_pannationalism
+	remove_global_variable = plc_point_from_positive_relations
+	remove_global_variable = plc_point_from_centralization
+	remove_global_variable = plc_point_var_add
+}
+
+remove_plc_point_effect = {
+	custom_tooltip = {
+		text = remove_plc_point_tt
+		change_global_variable = {
+			name = plc_union_progress_var
+			add = -5
+		}
+	}
+}
+
+add_plc_point_effect = {
+	custom_tooltip = {
+		text = add_plc_point_tt
+		change_global_variable = {
+			name = plc_union_progress_var
+			add = 5
+		}
+	}
+}
+			
+add_plc_point_effect_10 = {
+	custom_tooltip = {
+		text = add_10_plc_point_tt
+		change_global_variable = {
+			name = plc_union_progress_var
+			add = 10
+		}
+	}
 }
 
 calculate_russian_unrest = {

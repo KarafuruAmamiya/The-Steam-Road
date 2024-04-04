@@ -2,57 +2,42 @@
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_tsr_content
-
-	is_shown_when_inactive = {
-		c:POL ?= this
-		NOR = {
-			is_revolutionary = yes
-			is_secessionist = yes
-			is_subject = yes
-		}
-	}	
 	
 	scripted_button = je_odrodzenie_polish_radicals_subject_button
 	scripted_button = je_odrodzenie_polish_radicals_overlord_button
 
 	immediate = {
-		trigger_event = { id = poland_lithuania_events.4 popup = yes }
-	}
-		
-	possible = {
-		has_technology_researched = nationalism
+		root = { save_scope_as = poland_scope }
+		trigger_event = { id = poland_lithuania_events.4 days = 3 popup = yes }
 	}
 
 	complete = {
 		any_state = {
 			filter = { 
-				region = sr:region_poland 
 				state_region = {
-					is_homeland = cu:polish
+					OR = {
+						is_homeland = cu:polish
+						is_homeland = cu:lithuanian
+					}
 				}
 			}
 			count = all
-			OR = {
-				owner = root
-				owner = { is_subject_of = root }
-			}
+			owner = root
 		}
 	}
 
 	on_complete = {
 		trigger_event = { id = poland_events.4 popup = yes }
-		add_journal_entry = { type = je_greater_poland }
 	}
 	
 	fail = {
-		OR = {
-			is_subject = yes
-			country_rank <= rank_value:minor_power
-		}
+		is_subject = yes
 	}
 	
 	invalid = {
-		NOT = { exists = c:POL }
+		NOT = { 
+			exists = c:PLC 
+		}
 	}
 
 	weight = 100
@@ -65,38 +50,20 @@ je_odrodzenie_victim = {
 	
 	group = je_group_tsr_content
 
-	is_shown_when_inactive = {
-		exists = c:POL
-		NOR = { c:POL = this is_subject_of = c:POL }
-		capital = {
-			state_region = {
-				is_homeland = cu:polish
-			}
-			region = sr:region_poland
-		}
-	}	
-
 	immediate = {
 		capital = {
 			save_scope_as = capital_scope
 		}
-		c:POL = { save_scope_as = poland_scope }
+		c:PLC ?= { save_scope_as = poland_scope }
 		trigger_event = { id = poland_lithuania_events.4 popup = yes }
 		do_odrodzenie_math = yes
 	}
-		
-	possible = {
-		c:POL ?= {
-			has_technology_researched = nationalism
-		}
-	}
 
 	complete = {
-		c:POL = { 
+		c:PLC ?= { 
 			OR = {
 				is_subject = yes 
 				is_country_alive = no
-				country_rank <= rank_value:minor_power
 			}
 		}
 	}
@@ -144,7 +111,10 @@ je_polish_modernization = {
 	group = je_group_tsr_content
 	
 	is_shown_when_inactive = {
-		c:POL ?= this
+		OR = {
+			c:POL ?= this
+			c:PLC ?= this
+		}
 		NOR = {
 			is_revolutionary = yes
 			is_secessionist = yes
@@ -223,237 +193,33 @@ je_polish_modernization = {
     should_be_pinned_by_default = yes
 }
 
-je_restore_polish_borders = {
-    icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	group = je_group_tsr_content
-
-    immediate = {
-		random_state = {
-			limit = { state_region = s:STATE_PODOLIA }
-			add_claim = root
-		}
-		random_state = {
-			limit = { state_region = s:STATE_MINSK }
-			add_claim = root
-		}
-		random_state = {
-			limit = { state_region = s:STATE_SILESIA }
-			add_claim = root
-		}
-    }
-
-    complete = {
-       custom_tooltip = {
-			text = own_all_polish_homelands
-			NOT = {
-				any_state = {
-					state_region = {
-						is_homeland = cu:polish
-					}
-					NOR = { 
-						owner = ROOT 
-						owner = { is_subject_of = root } 
-					}
-				}
-			}
-		}
-        country_or_subject_owns_entire_state_region = STATE_PODOLIA
-        country_or_subject_owns_entire_state_region = STATE_MINSK
-        country_or_subject_owns_entire_state_region = STATE_SILESIA
-    }
-
-    fail = {
-		any_state = {
-			filter = { 
-				region = sr:region_poland 
-				state_region = {
-					is_homeland = cu:polish
-				}
-			}
-			NOR = {
-				owner = root
-				owner = { is_subject_of = root }
-			}
-		}
-    }
-
-    on_fail = {
-        trigger_event = { id = paraguay.8 popup = yes }
-        show_as_tooltip = {
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = ybycui_iron_works_modifier
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = ybycui_iron_works_modifier
-                    }
-                    remove_modifier = ybycui_iron_works_modifier
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = ybycui_prisoner_workforce_modifier
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = ybycui_prisoner_workforce_modifier
-                    }
-                    remove_modifier = ybycui_prisoner_workforce_modifier
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = ybycui_steelworks
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = ybycui_steelworks
-                    }
-                    remove_modifier = ybycui_steelworks
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = humanita_fortress_modifier
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = humanita_fortress_modifier
-                    }
-                    remove_modifier = humanita_fortress_modifier
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = vaccinations_prg_modifier
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = vaccinations_prg_modifier
-                    }
-                    remove_modifier = vaccinations_prg_modifier
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        has_modifier = barracks_boost_paraguay_quantity_modifier
-                    }
-                }
-                random_scope_state = {
-                    limit = {
-                        has_modifier = barracks_boost_paraguay_quantity_modifier
-                    }
-                    remove_modifier = barracks_boost_paraguay_quantity_modifier
-                }
-            }
-            if = {
-                limit = {
-                    has_modifier = barracks_boost_paraguay_quality_modifier
-                }
-                remove_modifier = barracks_boost_paraguay_quality_modifier
-            }
-            if = {
-                limit = {
-                    any_scope_character = {
-                        has_modifier = napoleon_of_the_americas_modifier
-                    }
-                }
-                random_character = {
-                    limit = {
-                        has_modifier = napoleon_of_the_americas_modifier
-                    }
-                    kill_character = yes
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_character = {
-                        has_modifier = el_excelentisimo_modifier
-                    }
-                }
-                random_character = {
-                    limit = {
-                        has_modifier = el_excelentisimo_modifier
-                    }
-                    kill_character = yes
-                }
-            }
-            if = {
-                limit = {
-                    ruler = {
-                        NOR = {
-                            has_modifier = el_excelentisimo_modifier
-                            has_modifier = napoleon_of_the_americas_modifier
-                        }
-                    }
-                }
-                ruler = {
-                    kill_character = yes
-                }
-            }
-            if = {
-                limit = {
-                    any_scope_state = {
-                        state_region = s:STATE_BAJO_PARAGUAY
-                    }
-                }
-                s:STATE_BAJO_PARAGUAY.region_state:PRG = {
-                    add_modifier = {
-                        name = thus_unto_tyrants_modifier
-                        months = long_modifier_time
-                    }
-                }
-            }
-            add_modifier = {
-                name = a_broken_land_modifier
-                months = long_modifier_time
-            }
-        }
-    }
-
-    on_complete = {
-        trigger_event = { id = paraguay.9 popup = yes }
-    }
-
-    invalid = {
-        is_subject = yes
-    }
-
-    weight = 1000
-    should_be_pinned_by_default = yes
-}
-
-je_union_of_augustow = {
-	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+je_union_of_augustow_pol = {
+	icon = "gfx/interface/icons/event_icons/event_plc.dds"
 	
 	group = je_group_tsr_content
 	
-	sci
-
-	complete = {
-		has_law = law_type:law_unitary
-		OR = {
-			AND = {
-				country_has_voting_franchise = yes
-				NOT = { has_law = law_type:law_landed_voting }
-			}
-			has_law = law_type:law_autocracy
-			has_law = law_type:law_oligarchy
+	immediate = {
+		set_plc_point_vars = yes
+		c:POL ?= {
+			save_scope_as = pol_scope
 		}
 		c:LIT ?= {
+			save_scope_as = lit_scope
+		}
+    }
+	
+	on_weekly_pulse = {
+		effect = {
+			calculate_plc_point = yes
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		c:LIT ?= {
+			is_subject_of = root
 			relations:root >= relations_threshold:cordial
 			has_attitude = {
 				who = root
@@ -465,13 +231,26 @@ je_union_of_augustow = {
 
 	on_complete = {
 		trigger_event = { id = paraguay.9 popup = yes }
+		show_as_tooltip = {
+			annex_with_incorporation = c:LIT
+			change_tag = PLC
+			add_journal_entry = { type = je_odrodzenie }
+		}
 	}
 	
 	fail = {
 		OR = {
+			custom_tooltip = {
+				text = plc_union_fail
+				global_var:plc_union_progress_var <= 0
+			}
 			is_subject = yes
 			c:LIT ?= { NOT = { is_subject_of = root } }
 		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = poland_lithuania_events.6 popup = yes }
 	}
 	
 	invalid = {
@@ -479,12 +258,131 @@ je_union_of_augustow = {
 	}
 
 	on_monthly_pulse = {
+		effect = {
+			calculate_plc_point = yes
+			add_plc_point = yes
+			if = {
+				limit = {
+					OR = {
+						any_civil_war = {
+							civil_war_progress > 0.5
+						}
+						c:LIT = {
+							any_civil_war = {
+								civil_war_progress > 0.5
+							}
+						}
+					}
+					NOT = { has_global_variable = plc_civilwar_point }
+				}
+				change_global_variable = { name = plc_union_progress_var subtract = 10 }
+				set_global_variable = { name = plc_civilwar_point years = 3 }
+			}
+			if = {
+				limit = {
+					OR = {
+						in_default = yes
+						has_modifier = declared_bankruptcy
+					}
+					NOT = { has_global_variable = plc_default_point }
+				}
+				change_global_variable = { name = plc_union_progress_var subtract = 10 }
+				set_global_variable = { name = plc_default_point }
+			}
+			if = {
+				limit = {
+					global_country_ranking < 15
+					NOT = { has_global_variable = plc_regional_power_point }
+				}
+				change_global_variable = { name = plc_union_progress_var add = 10 }
+				set_global_variable = { name = plc_regional_power_point }
+			}
+		}
 		random_events = {
 			100 = 0
-			10 = meiji.11
-			10 = meiji.12
+		}
+	}
+	
+	current_value = {
+		value = global_var:plc_union_progress_var
+	}
+	
+	goal_add_value = {
+		add = 400
+	}
+	
+	progressbar = yes
+
+	weight = 10000
+	should_be_pinned_by_default = yes
+}
+
+je_union_of_augustow_lit = {
+	icon = "gfx/interface/icons/event_icons/event_plc.dds"
+	
+	group = je_group_tsr_content
+	
+	#scripted_button =
+	
+	immediate = {
+		c:POL ?= {
+			save_scope_as = pol_scope
+		}
+		c:LIT ?= {
+			save_scope_as = lit_scope
+		}
+	}
+	
+	on_complete = {
+		show_as_tooltip = {
+			c:POL = {
+				trigger_event = { id = paraguay.9 popup = yes }
+				annex_with_incorporation = c:LIT
+				change_tag = PLC
+			}
 		}
 	}
 
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		is_subject_of = c:POL
+		has_attitude = {
+			who = c:POL
+			attitude = loyal
+		}
+		#In SOI, expand to lower Lithuania's liberty desire
+	}
+	
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = plc_union_fail
+				global_var:plc_union_progress_var <= 0
+			}
+			NOT = { is_subject_of = c:POL }
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = poland_lithuania_events.6 popup = yes }
+	}
+	
+	invalid = {
+		NOT = { exists = c:POL }
+	}
+	
+	current_value = {
+		value = global_var:plc_union_progress_var
+	}
+	
+	goal_add_value = {
+		add = 400
+	}
+	
+	progressbar = yes
+
 	weight = 10000
+	should_be_pinned_by_default = yes
 }

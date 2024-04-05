@@ -90,6 +90,16 @@
 				}
 				trigger_event = { id = akkovin_crisis.17 }
 			}
+			if = {
+				limit = {
+					NOR = {
+						has_modifier = treaty_of_baglar
+						has_variable = tob_countdown
+						has_variable = rejected_tob
+					}
+				}
+				trigger_event = { id = akkovin_crisis.7 }
+			}
 		}
 	}
 	

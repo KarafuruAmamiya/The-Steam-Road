@@ -327,7 +327,11 @@ generate_ottoman_monarch = {
 	}
 	if = {
 		limit = {
-			has_variable = rumelist_coup
+			OR = {
+				has_variable = rumelist_victory
+				has_variable = rumelist_coup
+				has_variable = generate_rumelist
+			}
 		}
 		create_character = {
 			template = dynamic_rumelist_ruler_template
@@ -335,7 +339,11 @@ generate_ottoman_monarch = {
 	}
 	else_if = {
 		limit = {
-			has_variable = caliphatist_coup
+			OR = {
+				has_variable = caliphatist_victory
+				has_variable = caliphatist_coup
+				has_variable = generate_caliphatist
+			}
 		}
 		create_character = {
 			template = dynamic_caliphatist_ruler_template
@@ -343,7 +351,11 @@ generate_ottoman_monarch = {
 	}
 	else_if = {
 		limit = {
-			has_variable = metropolitan_coup
+			OR = {
+				has_variable = metropolitan_victory
+				has_variable = metropolitan_coup
+				has_variable = generate_metropolitan
+			}
 		}
 		create_character = {
 			template = dynamic_metropolitan_ruler_template
@@ -354,6 +366,150 @@ generate_ottoman_monarch = {
 			is_ruler = yes
 		}
 		save_scope_as = new_sultan_scope
+	}
+}
+
+tur_handle_republic_monarch_assignment = { #Used specifically in the case of a Republican Turkey that enacts monarchy, and is now determining its monarch.
+	if = {
+		limit = { #If the ruler is a Bonapartist, but is not a Bonapartist ruler - eg. a general with the Bonapartist ideology, the monarch is automatically set to the first available Bonaparte.
+			ruler = { 
+				has_ideology = ideology:ideology_caliphatist
+			}
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_victory
+			}
+			remove_variable = caliphatist_victory
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_coup
+			}
+			remove_variable = caliphatist_coup
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_victory
+			}
+			remove_variable = rumelist_victory
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_coup
+			}
+			remove_variable = rumelist_coup
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_victory
+			}
+			remove_variable = metropolitan_victory
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_coup
+			}
+			remove_variable = metropolitan_coup
+		}
+		change_variable = { name = caliphatist_progress add = 10 } #Gives a bonus to the Bonapartists for this cycle of je_divided_monarchists.
+		set_variable = { name = generate_caliphatist months = 1 }
+		hidden_effect = { generate_ottoman_monarch = yes } #Standard generate_french_monarch effect.
+	}
+	else_if = {
+		limit = {
+			ruler = {
+				has_ideology = ideology:ideology_rumelist
+			}
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_victory
+			}
+			remove_variable = caliphatist_victory
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_coup
+			}
+			remove_variable = caliphatist_coup
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_victory
+			}
+			remove_variable = rumelist_victory
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_coup
+			}
+			remove_variable = rumelist_coup
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_victory
+			}
+			remove_variable = metropolitan_victory
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_coup
+			}
+			remove_variable = metropolitan_coup
+		}
+		change_variable = { name = rumelist_progress add = 10 }
+		set_variable = { name = generate_rumelist months = 1 }
+		hidden_effect = { generate_ottoman_monarch = yes }
+	}
+	else_if = {
+		limit = {
+			ruler = {
+				has_ideology = ideology:ideology_metropolitan
+			}
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_victory
+			}
+			remove_variable = caliphatist_victory
+		}
+		if = {
+			limit = {
+				has_variable = caliphatist_coup
+			}
+			remove_variable = caliphatist_coup
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_victory
+			}
+			remove_variable = rumelist_victory
+		}
+		if = {
+			limit = {
+				has_variable = rumelist_coup
+			}
+			remove_variable = rumelist_coup
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_victory
+			}
+			remove_variable = metropolitan_victory
+		}
+		if = {
+			limit = {
+				has_variable = metropolitan_coup
+			}
+			remove_variable = metropolitan_coup
+		}
+		change_variable = { name = metropolitan_progress add = 10 }
+		set_variable = { name = generate_metropolitan months = 1 }
+		hidden_effect = { generate_ottoman_monarch = yes }
+	}
+	else = {
+		trigger_event = { id = ottoman_flavor.3 popup = yes } #If the ruler is neither a Bonapartist, Legitimist, or Orleanist claimant, then it fires this event, which allows either restoring a dynasty of your choice, or making the previous President King. The latter option will cancel out of Divided Monarchists, and add a bunch of radicals.
 	}
 }
 

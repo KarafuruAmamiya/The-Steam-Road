@@ -581,7 +581,7 @@ akkovin_crisis.6 = {
 		set_variable = baglar_treaty_signed
 		
 		hidden_effect = {
-			trigger_event = { id = akkovin_crisis.7 months = 120 }
+			set_variable = { name = tob_countdown months = 120 }
 			every_country = {
 				limit = {
 					OR = {
@@ -743,13 +743,28 @@ akkovin_crisis.7 = {
 		}
 		
 		ai_chance = {
-			base = 25
+			base = 0
+			modifier = {
+				trigger = {
+					scope:per_scope.relations:root >= relations_threshold:cordial
+				}
+				add = 50
+			}
+			modifier = {
+				trigger = {
+					ROOT = {
+						country_rank <= rank_value:minor_power
+					}
+				}
+				add = 50
+			}
 		}
 	}
 	
 	option = {
 		name = akkovin_crisis.7.b
 		default_option = yes
+		set_variable = rejected_tob
 		change_relations = {
 			country = c:PER
 			value = -100
@@ -814,7 +829,21 @@ akkovin_crisis.7 = {
 		}
 		
 		ai_chance = {
-			base = 75
+			base = 10
+			modifier = {
+				trigger = {
+					scope:per_scope.relations:root <= relations_threshold:poor
+				}
+				add = 50
+			}
+			modifier = {
+				trigger = {
+					ROOT = {
+						country_rank >= rank_value:great_power
+					}
+				}
+				add = 50
+			}
 		}
 	}
 }
@@ -944,6 +973,49 @@ akkovin_crisis.9 = {
 		name = akkovin_crisis.9.a
 		default_option = yes
 		trigger = { c:TUR = ROOT }
+		custom_tooltip = {
+			text = gunpowder_alliance_disband_tt
+			if = {
+				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+				set_global_variable = gunpowder_alliance_disband
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:PER
+						type = trade_agreement
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:PER
+					type = trade_agreement
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:PER
+						type = defensive_pact
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:PER
+					type = defensive_pact
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:PER
+						type = alliance
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:PER
+					type = alliance
+				}
+			}
+		}
 		create_diplomatic_pact = {
 			country = c:AKN
 			type = puppet
@@ -966,6 +1038,49 @@ akkovin_crisis.9 = {
 		default_option = yes
 		trigger = { c:PER = ROOT }
 		show_as_tooltip = {
+			custom_tooltip = {
+				text = gunpowder_alliance_disband_tt
+				if = {
+					limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+					set_global_variable = gunpowder_alliance_disband
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:TUR
+							type = trade_agreement
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:TUR
+						type = trade_agreement
+					}
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:TUR
+							type = defensive_pact
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:TUR
+						type = defensive_pact
+					}
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:TUR
+							type = alliance
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:TUR
+						type = alliance
+					}
+				}
+			}
 			if = {
 				limit = {
 					c:AKN = { has_state_in_state_region = STATE_VAN }
@@ -1142,6 +1257,49 @@ akkovin_crisis.10 = {
 		name = akkovin_crisis.10.a
 		default_option = yes
 		trigger = { c:PER = ROOT }
+		custom_tooltip = {
+			text = gunpowder_alliance_disband_tt
+			if = {
+				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+				set_global_variable = gunpowder_alliance_disband
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = trade_agreement
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = trade_agreement
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = defensive_pact
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = defensive_pact
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = alliance
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = alliance
+				}
+			}
+		}
 		create_diplomatic_pact = {
 			country = c:AKN
 			type = puppet
@@ -1164,6 +1322,49 @@ akkovin_crisis.10 = {
 		default_option = yes
 		trigger = { c:TUR = ROOT }
 		show_as_tooltip = {
+			custom_tooltip = {
+				text = gunpowder_alliance_disband_tt
+				if = {
+					limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+					set_global_variable = gunpowder_alliance_disband
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:PER
+							type = trade_agreement
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:PER
+						type = trade_agreement
+					}
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:PER
+							type = defensive_pact
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:PER
+						type = defensive_pact
+					}
+				}
+				if = {
+					limit = {
+						has_diplomatic_pact = { 
+							who = c:PER
+							type = alliance
+						}
+					}
+					remove_diplomatic_pact = {
+						country = c:PER
+						type = alliance
+					}
+				}
+			}
 			if = {
 				limit = {
 					c:AKN = { has_state_in_state_region = STATE_HARPUT }

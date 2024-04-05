@@ -911,14 +911,25 @@ ai_strategy_default = {
 				limit = {
 					c:PER ?= this
 					scope:target_country = {
-						AND = {
-							c:AKN ?= this
-							has_variable = baglar_treaty_signed
+						c:AKN ?= this
+						has_variable = rejected_tob
+						any_scope_state = {
+							state_region = {
+								has_claim_by = root
+							}
 						}
-						NOR = {
-							has_modifier = treaty_of_baglar
-							has_modifier = treaty_of_baglar_2
-						}
+					}
+				}
+				add = 200
+			}
+			
+			if = {
+				limit = {
+					c:TUR ?= this
+					has_journal_entry = je_veiled_puppet
+					scope:target_country = {
+						c:AKN ?= this
+						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
 							state_region = {
 								has_claim_by = root
@@ -2054,14 +2065,25 @@ ai_strategy_default = {
 			limit = {
 				c:PER ?= this
 				scope:target_country = {
-					AND = {
-						c:AKN ?= this
-						has_variable = baglar_treaty_signed
+					c:AKN ?= this
+					has_variable = rejected_tob
+					any_scope_state = {
+						state_region = {
+							has_claim_by = root
+						}
 					}
-					NOR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
+				}
+			}
+			add = 25
+		}
+		
+		if = { # Veiled Puppet
+			limit = {
+				c:TUR ?= this
+				has_journal_entry = je_veiled_puppet
+				scope:target_country = {
+					c:AKN ?= this
+					has_modifier = treaty_of_baglar_2
 					any_scope_state = {
 						state_region = {
 							has_claim_by = root
@@ -4200,6 +4222,28 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			if = { # Ottomans and Safavids should no longer be buddy-buddy if Gunpowder Alliance is officially gone
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:TUR ?= this
+					scope:target_country = {
+						c:PER ?= this
+					}
+				}
+				add = -1000
+			}
+			
+			if = {
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:PER ?= this
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				add = -1000
+			}
+			
 			if = { # between a rock and a hard place
 				limit = {
 					OR = {
@@ -4377,6 +4421,28 @@ ai_strategy_default = {
 					}
 				}
 				subtract = 1000
+			}
+			
+			if = { # Ottomans and Safavids should no longer be buddy-buddy if Gunpowder Alliance is officially gone
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:TUR ?= this
+					scope:target_country = {
+						c:PER ?= this
+					}
+				}
+				add = -1000
+			}
+			
+			if = {
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:PER ?= this
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				add = -1000
 			}
 			
 			if = {
@@ -4776,6 +4842,28 @@ ai_strategy_default = {
 					}
 				}
 				add = 100
+			}
+			
+			if = { # Ottomans and Safavids should no longer be buddy-buddy if Gunpowder Alliance is officially gone
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:TUR ?= this
+					scope:target_country = {
+						c:PER ?= this
+					}
+				}
+				add = 10
+			}
+			
+			if = {
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:PER ?= this
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				add = 10
 			}
 			
 			multiply = {
@@ -5402,18 +5490,51 @@ ai_strategy_default = {
 					exists = c:PER
 					this = c:PER
 					scope:target_country = {
-						AND = {
-							exists = c:AKN
-							this = c:AKN
-							has_variable = baglar_treaty_signed
-						}
-						NOR = {
-							has_modifier = treaty_of_baglar
-							has_modifier = treaty_of_baglar_2
+						c:AKN ?= this
+						has_variable = rejected_tob
+					}
+				}
+				add = 1000
+			}
+			
+			# Veiled Puppet
+			if = {
+				limit = {
+					c:TUR ?= this
+					has_journal_entry = je_veiled_puppet
+					scope:target_country = {
+						c:AKN ?= this
+						has_modifier = treaty_of_baglar_2
+						any_scope_state = {
+							state_region = {
+								has_claim_by = root
+							}
 						}
 					}
 				}
 				add = 1000
+			}
+			
+			if = { # Ottomans and Safavids should no longer be buddy-buddy if Gunpowder Alliance is officially gone
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:TUR ?= this
+					scope:target_country = {
+						c:PER ?= this
+					}
+				}
+				add = 10
+			}
+			
+			if = {
+				limit = {
+					has_global_variable = gunpowder_alliance_disband
+					c:PER ?= this
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				add = 10
 			}
 			
 			if = { # Unifying China
@@ -5876,6 +5997,23 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			if = {
+				limit = {
+					c:TUR ?= this
+					has_journal_entry = je_veiled_puppet
+					scope:target_country = {
+						c:AKN ?= this
+						has_modifier = treaty_of_baglar_2
+						any_scope_state = {
+							state_region = {
+								has_claim_by = root
+							}
+						}
+					}
+				}
+				add = 100
+			}
+			
 			if = { #Cispratine reconquest
 				limit = {
 					c:CSR ?= this
@@ -6241,6 +6379,23 @@ ai_strategy_default = {
 					}
 				}
 				add = 1000
+			}
+			
+			if = {
+				limit = {
+					c:TUR ?= this
+					has_journal_entry = je_veiled_puppet
+					scope:target_country = {
+						c:AKN ?= this
+						has_modifier = treaty_of_baglar_2
+						any_scope_state = {
+							state_region = {
+								has_claim_by = root
+							}
+						}
+					}
+				}
+				add = 100
 			}
 			
 			if = { #Cispratine reconquest

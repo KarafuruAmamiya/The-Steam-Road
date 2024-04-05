@@ -2720,6 +2720,55 @@ on_company_disbanded = {
 on_heir_born = {
 	effect = {
 		post_notification = heir_born_notification
+		if = {
+			limit = {
+				owner = {
+					c:TUR ?= this
+					ruler = {
+						has_variable = rumelist_leader
+					}
+				}
+			}
+			owner = {
+				heir = {
+					set_variable = { name = rumelist_leader }
+					set_ideology = ideology:ideology_rumelist
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					c:TUR ?= this
+					ruler = {
+						has_variable = caliphatist_leader
+					}
+				}
+			}
+			owner = {
+				heir = {
+					set_variable = { name = caliphatist_leader }
+					set_ideology = ideology:ideology_caliphatist
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					c:TUR ?= this
+					ruler = {
+						has_variable = metropolitan_leader
+					}
+				}
+			}
+			owner = {
+				heir = {
+					set_variable = { name = metropolitan_leader }
+					set_ideology = ideology:ideology_metropolitan
+				}
+			}
+		}
 	}
 }
 

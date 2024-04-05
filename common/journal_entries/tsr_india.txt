@@ -81,6 +81,7 @@ je_surat_riots = {
 		OR = {
 			has_law = law_type:law_commercialized_agriculture
 			has_law = law_type:law_free_trade
+			tax_level >= high
 			any_subject_or_below = {
 				country_is_in_india = yes
 				any_primary_culture = {

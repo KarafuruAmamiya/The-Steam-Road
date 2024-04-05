@@ -60,14 +60,17 @@
 				trigger = {
 					OR = {
 						AND = {
+							ruler_is_rumelist = no
 							var:rumelist_progress > var:caliphatist_progress
 							var:rumelist_progress > var:metropolitan_progress
 						}
 						AND = {
+							ruler_is_caliphatist = no
 							var:caliphatist_progress > var:rumelist_progress
 							var:caliphatist_progress > var:metropolitan_progress
 						}
 						AND = {
+							ruler_is_metropolitan = no
 							var:metropolitan_progress > var:rumelist_progress
 							var:metropolitan_progress > var:caliphatist_progress
 						}
@@ -281,7 +284,13 @@ je_ottoman_caliphate = {
 	}
 	
 	fail = {
-		
+		OR = {
+			NOT = { ruler_is_caliphatist = yes }
+			custom_tooltip = {
+				text = fractured_porte_invalid_tt
+				has_variable = fractured_porte_invalid
+			}
+		}
 	}
 
 	weight = 10
@@ -307,7 +316,13 @@ je_scourge_of_europe = {
 	}
 	
 	fail = {
-		
+		OR = {
+			NOT = { ruler_is_rumelist = yes }
+			custom_tooltip = {
+				text = fractured_porte_invalid_tt
+				has_variable = fractured_porte_invalid
+			}
+		}
 	}
 
 	weight = 10
@@ -333,10 +348,73 @@ je_federation_of_rum = {
 	}
 	
 	fail = {
-		
+		OR = {
+			NOT = { ruler_is_rumelist = yes }
+			custom_tooltip = {
+				text = fractured_porte_invalid_tt
+				has_variable = fractured_porte_invalid
+			}
+		}
 	}
 
 	weight = 10
 
+	should_be_pinned_by_default = yes
+}
+
+je_veiled_puppet = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_tsr_content
+
+	complete = {
+		OR = {
+			c:AKN ?= {
+				is_subject_of = ROOT
+			}
+			c:KUR ?= {
+				is_subject_of = ROOT
+			}
+			AND = {
+				country_or_subject_owns_entire_state_region = STATE_HARPUT
+				country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
+				country_or_subject_owns_entire_state_region = STATE_TRABZON
+				country_or_subject_owns_entire_state_region = STATE_ERZURUM
+				country_or_subject_owns_entire_state_region = STATE_BITLIS
+				country_or_subject_owns_entire_state_region = STATE_ALEPPO
+				country_or_subject_owns_entire_state_region = STATE_DEIR_EZ_ZOR
+			}
+		}
+	}
+	
+	on_complete = {
+		trigger_event = { id = treaty_of_baglar_events.6 popup = yes }
+	}
+
+	immediate = {
+		trigger_event = { id = treaty_of_baglar_events.4 popup = yes }
+	}
+	
+	invalid = {
+		NOR = { 
+			exists = c:AKN 
+			exists = c:KUR 
+		}
+	}
+
+	fail = {
+		c:AKN ?= {
+			is_subject = yes
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = treaty_of_baglar_events.7 popup = yes }
+	}
+
+	timeout = 3650
+
+	weight = 10000
 	should_be_pinned_by_default = yes
 }

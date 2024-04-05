@@ -92,6 +92,7 @@ cancel_treaty_of_baglar = {
 	}
 
 	when_taken = {
+		set_variable = rejected_tob
 		remove_diplomatic_pact = {
 			country = c:PER
 			type = treaty_of_baglar_pact
@@ -166,5 +167,19 @@ cancel_treaty_of_baglar = {
 
 	ai_chance = {
 		base = 0
+		modifier = {
+			trigger = {
+				c:PER.relations:root <= relations_threshold:poor
+			}
+			add = 50
+		}
+		modifier = {
+			trigger = {
+				ROOT = {
+					country_rank >= rank_value:great_power
+				}
+			}
+			add = 50
+		}
 	}
 }

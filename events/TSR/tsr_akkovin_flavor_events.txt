@@ -533,6 +533,15 @@ treaty_of_baglar_events.1 = { # The Akkovins did not renew the Treaty of Baglar
 		s:STATE_SHAHRIZOR = {
 			add_claim = ROOT
 		}
+		s:STATE_VAN = {
+			add_claim = ROOT
+		}
+		s:STATE_KARS = {
+			add_claim = ROOT
+		}
+		s:STATE_GREATER_CAUCASUS = {
+			add_claim = ROOT
+		}
 		hidden_effect = {
 			c:PER = {
 				set_secret_goal = {
@@ -620,18 +629,19 @@ treaty_of_baglar_events.3 = { # Persia demands you to enter their market
 	}
 	
 	trigger = {
-		exists = c:AKN
-		c:AKN = root
+		c:AKN ?= this
+		has_modifier = treaty_of_baglar_2
 		OR = {
 			country_rank < rank_value:major_power
 			is_country_type = unrecognized
 		}
-		exists = c:PER
-		has_diplomatic_pact = {
-			who = c:PER
-			type = treaty_of_baglar_pact
+		c:PER ?= {
+			NOT = { has_variable = no_bullying_akkovins }
+			has_diplomatic_pact = {
+				who = c:AKN
+				type = treaty_of_baglar_pact
+			}
 		}
-		has_modifier = treaty_of_baglar_2
 	}
 
 	option = { #
@@ -640,6 +650,462 @@ treaty_of_baglar_events.3 = { # Persia demands you to enter their market
 			create_diplomatic_pact = {
 				country = c:AKN
 				type = customs_union
+			}
+		}
+	}
+}
+
+treaty_of_baglar_events.4 = { # Veiled Puppet
+	type = country_event
+	title = treaty_of_baglar_events.4.t
+	desc = treaty_of_baglar_events.4.d
+	flavor =  treaty_of_baglar_events.4.f
+	duration = 3
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	immediate = {
+		c:PER = { save_scope_as = per_scope }
+	}
+
+	option = {
+		name = treaty_of_baglar_events.4.a
+		default_option = yes
+		s:STATE_HARPUT = {
+			add_claim = ROOT
+		}
+		s:STATE_DIYARBAKIR = {
+			add_claim = ROOT
+		}
+		s:STATE_TRABZON = {
+			add_claim = ROOT
+		}
+		s:STATE_ERZURUM = {
+			add_claim = ROOT
+		}
+		s:STATE_BITLIS = {
+			add_claim = ROOT
+		}
+		s:STATE_ALEPPO = {
+			add_claim = ROOT
+		}
+		s:STATE_DEIR_EZ_ZOR = {
+			add_claim = ROOT
+		}
+		c:PER ?= { trigger_event = treaty_of_baglar_events.5 days = 7 }
+		hidden_effect = {
+			c:TUR = {
+				set_secret_goal = {
+					country = c:AKN
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+}
+
+treaty_of_baglar_events.5 = { # Persia responds to increased Ottomans aggression
+	type = country_event
+	title = treaty_of_baglar_events.5.t
+	desc = treaty_of_baglar_events.5.d
+	flavor =  treaty_of_baglar_events.5.f
+	duration = 3
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	immediate = {
+		c:TUR = { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = treaty_of_baglar_events.5.a
+		default_option = yes
+		custom_tooltip = {
+			text = gunpowder_alliance_disband_tt
+			if = {
+				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+				set_global_variable = gunpowder_alliance_disband
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = trade_agreement
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = trade_agreement
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = defensive_pact
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = defensive_pact
+				}
+			}
+			if = {
+				limit = {
+					has_diplomatic_pact = { 
+						who = c:TUR
+						type = alliance
+					}
+				}
+				remove_diplomatic_pact = {
+					country = c:TUR
+					type = alliance
+				}
+			}
+		}
+		change_relations = {
+			country = c:TUR
+			value = -80
+		}
+		hidden_effect = {
+			c:TUR = {
+				set_secret_goal = {
+					country = c:PER
+					secret_goal = antagonize
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = treaty_of_baglar_events.5.b
+		change_relations = {
+			country = c:AKN
+			value = -20
+		}
+		change_relations = {
+			country = c:TUR
+			value = 20
+		}
+		custom_tooltip = {
+			text = no_bullying_akkovins_tt
+			set_variable = no_bullying_akkovins
+		}
+	}
+}
+
+# Reclaiming Eastern Anatolia (Veiled Puppet success)
+treaty_of_baglar_events.6 = {
+	type = country_event
+	placement = root
+	title = treaty_of_baglar_events.6.t
+	desc = treaty_of_baglar_events.6.d
+	flavor = treaty_of_baglar_events.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "tsr_persian_city"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		save_scope_as = kur_overlord_country
+		if = {
+			limit = { 
+				exists = c:AKN
+				c:AKN ?= { is_subject_of = root }
+			}
+			c:AKN ?= {
+				save_scope_as = akn_scope
+				ruler = {
+					save_scope_as = akn_ruler
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				exists = c:KUR
+				c:KUR ?= { is_subject_of = root }
+			}
+			c:KUR ?= {
+				save_scope_as = akn_scope
+				ruler = {
+					save_scope_as = akn_ruler
+				}
+			}
+		}
+		c:TUR = {
+			save_scope_as = ottoman_country
+			ruler = {
+				save_scope_as = ottoman_ruler
+			}
+		}
+	}
+
+	option = {
+		name = treaty_of_baglar_events.6.a
+		default_option = yes
+		add_modifier = {
+			name = veiled_influence
+			months = normal_modifier_time
+		}
+		change_relations = {
+			country = c:PER
+			value = -20
+		}
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_increase_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = rumelist_progress_increase_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_increase_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = 1 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = treaty_of_baglar_events.6.b
+		trigger = {
+			OR = {
+				AND = {
+					exists = c:AKN
+					c:AKN ?= { is_subject_of = root }
+				}
+				AND = {
+					exists = c:KUR
+					c:KUR ?= { is_subject_of = root }
+				}
+			}
+		}
+		scope:akn_ruler = {
+			kill_character = yes
+		}
+		change_relations = {
+			country = scope:akn_scope
+			value = 50
+		}
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_increase_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = rumelist_progress_increase_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_increase_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = 1 }
+				}
+			}
+		}
+		change_relations = {
+			country = c:PER
+			value = -20
+		}
+	}
+}
+
+# Eastern Anatolia lost (Veiled Puppet fail)
+treaty_of_baglar_events.7 = {
+	type = country_event
+	placement = root
+	title = treaty_of_baglar_events.7.t
+	desc = treaty_of_baglar_events.7.d
+	flavor = treaty_of_baglar_events.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		if = {
+			limit = { 
+				exists = c:AKN
+			}
+			c:AKN ?= {
+				save_scope_as = akn_scope
+				overlord = {
+					save_scope_as = akn_overlord_country
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				exists = c:KUR
+			}
+			c:KUR ?= {
+				save_scope_as = akn_scope
+				overlord = {
+					save_scope_as = akn_overlord_country
+				}
+			}
+		}
+		c:TUR = {
+			save_scope_as = ottoman_country
+			ruler = {
+				save_scope_as = ottoman_ruler
+			}
+		}
+	}
+
+	option = {
+		name = treaty_of_baglar_events.7.a
+		default_option = yes
+		change_relations = {
+			country = scope:akn_overlord_country
+			value = -20
+		}
+		if = {
+			limit = {
+				scope:akn_overlord_country = {
+					c:PER ?= this
+				}
+				every_interest_group = {
+					limit = {
+						leader = {
+							OR = {
+								is_interest_group_type = ig_devout
+								has_ideology = ideology:ideology_caliphatist
+								has_ideology = ideology:ideology_traditionalist
+							}
+						}
+					}
+					ROOT = {
+						add_radicals = {
+							value = medium_radicals
+							interest_group = prev
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:akn_overlord_country = {
+					any_primary_culture = {
+						OR = {
+							has_discrimination_trait = western_european_heritage
+							has_discrimination_trait = eastern_european_heritage
+							has_discrimination_trait = south_european_heritage
+						}
+					}
+				}
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_nationalist
+						leader = {
+							OR = {
+								is_interest_group_type = ig_armed_forces
+								has_ideology = ideology:ideology_rumelist
+								has_ideology = ideology:ideology_traditionalist
+							}
+						}
+					}
+					ROOT = {
+						add_radicals = {
+							value = medium_radicals
+							interest_group = prev
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_decrease_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+				}
+				custom_tooltip = {
+					text = rumelist_progress_decrease_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_decrease_tick_1_tt
+					change_variable = { name = metropolitan_progress_from_effects add = -1 }
+				}
 			}
 		}
 	}

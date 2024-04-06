@@ -238,7 +238,9 @@
         	socialist_revolution_ongoing = yes
         	liberal_revolution_ongoing = yes
 			any_scope_state = {
-				state_region = s:STATE_EASTERN_THRACE
+				state_region = {
+					is_homeland = cu:turkish
+				}
 				turmoil >= 0.2
 			}
         }
@@ -373,6 +375,7 @@ je_turkish_revolution = {
 	scripted_button = je_turkish_revolution_button_b
 
 	immediate = {
+		set_global_variable = turkish_revolution_happened
 		set_variable = {
 			name = turkish_revolution_drift_final_var
 			value = 0

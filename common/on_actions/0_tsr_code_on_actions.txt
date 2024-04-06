@@ -33,8 +33,6 @@ tsr_events_monthly = {
 		krl_independence.7
 		aragon_sicily.1
 		hre.4
-		akkovin_crisis.9
-		akkovin_crisis.10
 		treaty_of_baglar_events.2
 		treaty_of_baglar_events.3
 		arabia_flavor.7
@@ -74,46 +72,33 @@ tsr_events_monthly = {
 		if = {
 			limit = {
 				NOT = { has_global_variable = akkovin_partition_start }
-				exists = c:AKN
-				c:AKN = { 
+				c:AKN ?= {
+					is_ai = yes
 					is_country_type = unrecognized
+					has_variable = akkovin_fail
 					any_scope_state = {
 						is_incorporated = yes
 						count < 9
 					}
-					NOR = {
-						has_diplomatic_pact = {
-							who = c:PER
-							type = treaty_of_baglar_pact
+				}
+			}
+			set_global_variable = akkovin_partition_start
+			if = {
+				limit = {
+					c:AKN ?= {
+						OR = {
+							has_modifier = treaty_of_baglar
+							has_modifier = treaty_of_baglar_2
 						}
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
 					}
 				}
+				c:TUR ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
+				c:PER ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
 			}
-			set_global_variable = akkovin_partition_start
-			c:TUR ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
-			c:PER ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
-		}
-		else_if = {
-			limit = {
-				NOT = { has_global_variable = akkovin_partition_start }
-				exists = c:AKN
-				c:AKN = { 
-					is_country_type = unrecognized
-					any_scope_state = {
-						is_incorporated = yes
-						count < 9
-					}
-					OR = {
-						has_modifier = treaty_of_baglar
-						has_modifier = treaty_of_baglar_2
-					}
-				}
+			else = {
+				c:TUR ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
+				c:PER ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
 			}
-			set_global_variable = akkovin_partition_start
-			c:TUR ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
-			c:PER ?= { trigger_event = { id = akkovin_crisis.10 popup = yes } }
 		}
 	}
 }

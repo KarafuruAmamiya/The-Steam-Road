@@ -128,6 +128,18 @@ GLOBAL = {
 			add_ideology = ideology_revolutionary_republican
 		}
 	}
+	every_country = {
+		limit = {
+			country_is_in_new_word = yes
+		}
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_nationalist
+			add_ideology = ideology_segregationist
+		}
+		ig:ig_landowners = {
+			add_ideology = ideology_segregationist
+		}
+	}
 	# Revolution Safety Check
 	every_country = {
 		limit = {

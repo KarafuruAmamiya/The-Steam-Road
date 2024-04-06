@@ -649,11 +649,10 @@ ai_strategy_pol_odrodzenie = {
 			limit = { 
 				scope:target_country = { 
 					any_scope_state = {
-							state_region = {
-								OR = {
-									is_homeland = cu:polish
-									is_homeland = cu:lithuanian
-								}
+						state_region = {
+							OR = {
+								is_homeland = cu:polish
+								is_homeland = cu:lithuanian
 							}
 						}
 					}
@@ -721,13 +720,12 @@ ai_strategy_pol_odrodzenie = {
 			}
 			if = {
 				limit = { 
-					scope:target_country = { 
+					scope:target_country = {
 						any_scope_state = {
-								state_region = {
-									OR = {
-										is_homeland = cu:polish
-										is_homeland = cu:lithuanian
-									}
+							state_region = {
+								OR = {
+									is_homeland = cu:polish
+									is_homeland = cu:lithuanian
 								}
 							}
 						}

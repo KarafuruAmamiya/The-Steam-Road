@@ -107,6 +107,16 @@
 				add_ideology = ideology_revolutionary_republican
 			}
 		}
+		# New World Intelligentsia
+		else_if = {
+			limit = {
+				country_is_in_new_word = yes
+			}
+			ig:ig_intelligentsia = { 
+				remove_ideology = ideology_nationalist
+				add_ideology = ideology_segregationist
+			}
+		}
 		if = {
 			limit = {
 				has_technology_researched = feminism

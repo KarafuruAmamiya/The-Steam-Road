@@ -249,6 +249,15 @@
 				add_ideology = ideology_szlachta_stratocratic
 			}
 		}
+		# New World Landowners
+		else_if = {
+			limit = {
+				country_is_in_new_word = yes
+			}
+			ig:ig_landowners = {
+				add_ideology = ideology_segregationist
+			}
+		}
 		# VTM - this does not work on start up unfortunately and must be handled in history global for the initial setup
 		else_if = {
 			limit = {

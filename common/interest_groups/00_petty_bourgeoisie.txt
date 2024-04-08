@@ -130,21 +130,6 @@
 				add_ideology = ideology_republican
 			}
 		}
-		# Revolutionary Republican PB
-		else_if = {
-			limit = {
-				coa_republic_trigger = yes
-				OR = {
-					c:ITA ?= this
-					is_subject_of = c:ITA
-				}
-			}
-			ig:ig_petty_bourgeoisie = { 
-				remove_ideology = ideology_constitutionalist
-				remove_ideology = ideology_republican
-				add_ideology = ideology_revolutionary_republican
-			}
-		}
 	}
 
 	on_disable = {}

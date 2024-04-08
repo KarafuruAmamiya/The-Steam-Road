@@ -689,15 +689,9 @@
 		region_state:ITA={
 			create_building={
 				building="building_textile_mills"
-				level=2
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_dye_workshops" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_privately_owned_building_textile_mills" }
-			}
-			create_building={
-				building="building_steel_mills"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_blister_steel_process" "pm_automation_disabled" "pm_privately_owned_industry" }
 			}
 			create_building={
 				building="building_tooling_workshops"
@@ -894,10 +888,10 @@
 				activate_production_methods={ "pm_leaded_glass" "pm_privately_owned_building_glassworks" "pm_manual_glassblowing" "pm_ceramics" }
 			}
 			create_building={
-				building="building_textile_mills"
-				level=4
+				building="building_steel_mills"
+				level=2
 				reserves=1
-				activate_production_methods={ "pm_dye_workshops" "pm_privately_owned_building_textile_mills" "pm_traditional_looms" "pm_craftsman_sewing" }
+				activate_production_methods={ "pm_blister_steel_process" "pm_automation_disabled" "pm_privately_owned_industry" }
 			}
 			create_building={
 				building="building_fishing_wharf"
@@ -2342,20 +2336,20 @@
 	s:STATE_SLOVENIA={
 		region_state:ITA={
 			create_building={
-				building="building_wheat_farm"
-				level=3
+				building="building_university"
+				level=1
 				reserves=1
-				activate_production_methods={ "pm_soil_enriching_farming" "pm_privately_owned" "pm_tools" "pm_citrus_orchards" }
+				activate_production_methods={ "pm_scholastic_education" }
 			}
 			create_building={
-				building="building_livestock_ranch"
+				building="building_wheat_farm"
 				level=2
 				reserves=1
-				activate_production_methods={ "pm_sheep_farms" "pm_slaughterhouses" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}			
+				activate_production_methods={ "pm_soil_enriching_farming" "pm_privately_owned" "pm_tools" "pm_citrus_orchards" }
+			}		
 			create_building={
 				building="building_logging_camp"
-				level=2
+				level=3
 				reserves=1
 				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_privately_owned_building_logging_camp" }
 			}
@@ -2366,16 +2360,10 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_citrus_orchards" }
-			}
-			create_building={
-				building="building_livestock_ranch"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}			
+			}		
 			create_building={
 				building="building_barracks"
-				level=3
+				level=1
 				reserves=1
 				activate_production_methods={ "pm_no_organization" }
 			}
@@ -2383,24 +2371,6 @@
 	}
 	s:STATE_DALMATIA={
 		region_state:ITA={
-			create_building={
-				building="building_government_administration"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
-			}
-			create_building={
-				building="building_university"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_scholastic_education" }
-			}
-			create_building={
-				building="building_steel_mills"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_blister_steel_process" "pm_automation_disabled" "pm_privately_owned_industry" }
-			}
 			create_building={
 				building="building_fishing_wharf"
 				level=3
@@ -2540,10 +2510,28 @@
 	s:STATE_ISTRIA={
 		region_state:ITA={
 			create_building={
+				building="building_government_administration"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
+				building="building_university"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_scholastic_education" }
+			}
+			create_building={
 				building="building_tooling_workshops"
 				level=3
 				reserves=1
 				activate_production_methods={ "pm_steel" "pm_automation_disabled" "pm_privately_owned_building_tooling_workshops" }
+			}
+			create_building={
+				building="building_textile_mills"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_dye_workshops" "pm_privately_owned_building_textile_mills" "pm_traditional_looms" "pm_craftsman_sewing" }
 			}
 			create_building={
 				building="building_shipyards"

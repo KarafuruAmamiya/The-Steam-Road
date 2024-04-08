@@ -18,17 +18,17 @@ burmese_war.1 = { # End of the Taungoo Empire (for Burma)
 	desc = burmese_war.1.d
 	flavor = burmese_war.1.f
 	
-	trigger = {
-		exists = c:TAU
-		c:TAU = this
-		is_subject_of = c:PER
-	}
-	
 	immediate = {
 		remove_diplomatic_pact = {
 			country = c:YUN 
 			type = tributary
-		} 
+		}
+		every_diplomatic_play = {
+			limit = {
+				target_is = root
+			}
+			end_play = yes
+		}
 	}
 	
 	option = { # A dark day for the Burmese
@@ -153,13 +153,6 @@ burmese_war.3 = { # End the war on Lan Xang's side
 			s:STATE_LUANG_PRABANG.region_state:BUR = {
 				set_state_owner = c:LXA
 			}
-		}
-		every_diplomatic_play = {
-			limit = {
-				initiator_is = c:LXA
-				target_is = c:BUR
-			}
-			end_play = yes
 		}
 	}
 }

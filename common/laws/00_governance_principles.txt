@@ -216,6 +216,38 @@ law_presidential_republic = {
 				value = 0.05
 			}
 		}
+		add = {
+            desc = "POP_LITERACY"
+            
+            if = {
+                limit = { 
+                    owner = { 
+						ruler = {
+							NOT = { has_ideology = ideology:ideology_caliphatist }
+						}	
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 15
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 2
+                    }
+                }
+                if = {
+                    limit = {
+                        wealth < 10
+                    }
+                    add = {
+                        value = literacy_rate
+                        divide = 4
+                    }
+					multiply = literacy_rate
+                }
+            }			
+        }
 	}
 
 	ai_will_do = {
@@ -243,39 +275,6 @@ law_presidential_republic = {
 			}
 			add = 750
 		}
-		
-		add = {
-            desc = "POP_LITERACY"
-            
-            if = {
-                limit = { 
-                    owner = { 
-						ruler = {
-							NOT = {has_ideology = ideology:ideology_caliphatist}
-						}	
-                    }
-                }
-                if = {
-                    limit = {
-                        wealth < 15
-                    }
-                    add = {
-                        value = literacy_rate
-                        divide = 2
-                    }
-                }
-                if = {
-                    limit = {
-                        wealth < 10
-                    }
-                    add = {
-                        value = literacy_rate
-                        divide = 4
-                    }
-					multiply = literacy_rate
-                }
-            }			
-        }
 	}
 }
 
@@ -356,33 +355,6 @@ law_parliamentary_republic = {
 				value = 0.05
 			}
 		}
-	}
-
-	ai_will_do = {
-		exists = ruler
-		ruler = {
-			has_ideology = ideology:ideology_republican_leader
-		}
-	}
-
-	ai_enact_weight_modifier = { #Petitions
-		value = 0
-		
-		if = {
-			limit = {
-				law_is_important = yes
-			}
-			add = 750
-		}
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
-			add = 750
-		}
 		
 		add = {
             desc = "POP_LITERACY"
@@ -416,6 +388,33 @@ law_parliamentary_republic = {
                 }
             }			
         }
+	}
+
+	ai_will_do = {
+		exists = ruler
+		ruler = {
+			has_ideology = ideology:ideology_republican_leader
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_government_petition
+				has_variable = desired_law_var
+                scope:law = var:desired_law_var
+			}
+			add = 750
+		}
 	}
 }
 

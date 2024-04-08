@@ -77,12 +77,12 @@ front_commander_pick_weight = {
 # No randomness allowed
 
 front_battle_state_weight = {
-    value = 100000
+    value = 500
     if = {
         limit = {
             scope:is_strategic_objective = yes
         }
-        add = 1000
+        add = 500
     }
 	else_if = {
 		limit = {
@@ -104,7 +104,7 @@ front_battle_state_weight = {
 	}
 	
     else = {
-        subtract = 100
+        subtract = 250
     }
 }
 

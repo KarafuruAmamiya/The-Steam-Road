@@ -2642,7 +2642,16 @@ on_wargoal_enforced = {
 					set_state_type = incorporated
 				}
         	}
-        }   
+        }
+		if = {
+        	limit = {
+        		c:PER ?= root
+				c:TAU ?= { is_subject_of = root }
+        	}
+        	c:TAU = {
+				trigger_event = { id = burmese_war.1 popup = yes }
+        	}
+        }		
 	}	
 }
 

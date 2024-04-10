@@ -25,7 +25,7 @@
 		law_interventionism = neutral
 		law_agrarianism = approve
 		law_industry_banned = strongly_disapprove
-		law_traditionalism = disapprove		
+		law_traditionalism = neutral		
 		law_laissez_faire = disapprove		
 	}
 	
@@ -54,7 +54,7 @@
 	
 	possible = {
 		owner = {
-			has_technology_researched = academia
+			has_technology_researched = joint_stock_companies
 			OR = {
 				has_law = law_type:law_feudalism
 				has_law = law_type:law_traditionalism 
@@ -100,13 +100,12 @@
 	}
 	
 	leader_weight = {
-		value = 50
+		value = 100
 		# more likely when having relations with a westernized country or researched nationalism
 		if = {
 			limit = {
 				OR = {
 					owner = {
-						has_technology_researched = nationalism
 						any_neighboring_state = {
 							owner = {
 								OR = {
@@ -178,21 +177,15 @@
 			}
 			add = -75
 		}
-		# more likely for intelligentsia when issues are relevant
+		# more likely when it's late game and they're still backwards
 		if = {
 			limit = {
 				owner = {
+					has_technology_researched = pan-nationalism
 					OR = {
 						has_law = law_type:law_feudalism
-						has_law = law_type:law_traditionalism 
-						has_law = law_type:law_peasant_levies 
 						has_law = law_type:law_serfdom
-						has_law = law_type:law_isolationism
-						has_law = law_type:law_debt_slavery 
-						has_law = law_type:law_slave_trade 
-					}
-					scope:interest_group = {
-						is_interest_group_type = ig_intelligentsia
+						has_law = law_type:law_traditionalism
 					}
 				}
 			}

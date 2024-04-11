@@ -1,0 +1,71 @@
+﻿return_constantinople = {
+	is_shown = {
+		exists = c:TUR
+		OR = {
+			has_variable = cyprus_convention
+			has_variable = crete_convention
+			has_variable = crimea_convention
+			has_variable = algiers_convention
+		}
+		NOT = { has_variable = constantinople_unlawful_territory }
+		NOT = { c:TUR ?= this }
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+		}
+	}
+
+	when_taken = {
+		random_scope_state = {
+			limit = { state_region = s:STATE_EASTERN_THRACE }
+			set_state_owner = c:TUR
+		}
+		c:TUR = {
+			if = {
+				limit = { any_scope_state = { state_region = s:STATE_EASTERN_THRACE } }
+				random_scope_state = {
+					limit = { state_region = s:STATE_EASTERN_THRACE }
+					set_state_type = incorporated
+				}
+				set_capital = STATE_EASTERN_THRACE
+			}
+		}
+		change_relations = {
+			country = c:TUR
+			value = 100
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					random_state = {
+						limit = { state_region = s:STATE_EASTERN_THRACE }
+						has_claim_by = root
+					}
+				}
+				random_state = {
+					limit = { state_region = s:STATE_EASTERN_THRACE }
+					state_region = {
+						remove_claim = root
+					}
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 100
+		}
+	}
+}

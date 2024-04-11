@@ -276,23 +276,6 @@ DEFAULT = {
 		}
 	}
 	dynamic_country_name = {
-		name = hormuz_special_region_name
-		adjective = hormuz_special_region_name_adj
-		
-		is_revolutionary = no
-		priority = 100
-		
-		trigger = {
-			exists = scope:actor
-			scope:actor ?= {
-				is_country_type = colonial
-				is_subject = yes
-				is_subject_type = subject_type_dependency
-				has_state_in_state_region = STATE_MOGOSTAN
-			}
-		}
-	}
-	dynamic_country_name = {
 		name = colonial_admin_zanj
 		adjective = colonial_admin_zanj_adj
 		use_overlord_prefix = yes
@@ -373,6 +356,69 @@ DEFAULT = {
 			exists = scope:actor
 			scope:actor ?= {
 				has_variable = senegal_subject_var
+			}
+		}
+	}
+	
+	##TSR Defaults
+	dynamic_country_name = {
+		name = hormuz_special_region_name
+		adjective = hormuz_special_region_name_adj
+		
+		is_revolutionary = no
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_subject = yes
+				is_subject_type = subject_type_dependency
+				capital ?= { state_region = s:STATE_MOGOSTAN } 
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = cyprus_name
+		adjective = cyprus_adj
+		
+		is_revolutionary = no
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_subject = yes
+				capital ?= { state_region = s:STATE_CYPRUS } 
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = crete_name
+		adjective = crete_adj
+		
+		is_revolutionary = no
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_subject = yes
+				capital ?= { state_region = s:STATE_CRETE } 
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = crimea_name
+		adjective = crimea_adj
+		
+		is_revolutionary = no
+		priority = 100
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_subject = yes
+				capital ?= { state_region = s:STATE_CRIMEA } 
 			}
 		}
 	}

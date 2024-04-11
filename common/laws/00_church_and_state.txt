@@ -10,6 +10,16 @@ law_state_religion = {
 	
 	progressiveness = -50
 	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
+	}
+	
 	on_enact = {
 		recalculate_pop_ig_support = yes
 		if = {
@@ -239,6 +249,16 @@ law_freedom_of_conscience = {
 
 	disallowing_laws = {
 		law_theocracy
+	}
+	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
 	}
 	
 	on_enact = {
@@ -735,6 +755,13 @@ law_state_atheism = {
 	can_enact = {
 		ig:ig_devout = {
 			is_in_government = no
+		}
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
 		}
 	}
 	

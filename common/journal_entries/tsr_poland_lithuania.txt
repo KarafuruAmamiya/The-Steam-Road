@@ -80,13 +80,19 @@ je_odrodzenie_victim = {
 
 	on_weekly_pulse = {
 		effect = {
-			do_odrodzenie_math = yes
+			if = {
+				limit = { NOT = { has_variable = odrodzenie_freeze } }
+				do_odrodzenie_math = yes
+			}
 		}
 	}
 
 	on_monthly_pulse = {
 		effect = {
-			do_odrodzenie_math = yes
+			if = {
+				limit = { NOT = { has_variable = odrodzenie_freeze } }
+				do_odrodzenie_math = yes
+			}
 		}
 	}
 

@@ -1,0 +1,2275 @@
+﻿#For some reason the first file doesn't work from balkan_crisis.14 onwards?
+namespace = balkan_crisis_2
+
+# Ask Cossacks for Help
+balkan_crisis_2.1 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.1.t
+	desc = balkan_crisis_2.1.d
+	flavor =  balkan_crisis_2.1.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:ZAP ?= { save_scope_as = cossack_1_scope }
+		c:SLB ?= { save_scope_as = cossack_2_scope }
+	}
+
+	option = { #Ask for aid in exchange for autonomy
+		name = balkan_crisis_2.1.a
+		default_option = yes
+		if = {
+			limit = { 
+				exists = c:ZAP 
+				c:ZAP ?= { is_subject_of = root }
+				NOT = { is_subject_type = subject_type_protectorate }
+			}
+			c:ZAP ?= { 
+				change_subject_type = subject_type_protectorate
+				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
+			}
+			change_relations = {
+				country = c:ZAP
+				value = 100
+			}
+			random_diplomatic_play = {
+				limit = {
+					target_is = c:TUR
+					initiator = {
+						has_variable = balkan_war_attacker
+					}
+				}
+				add_target_backers = {
+					c:ZAP
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SLB 
+				c:SLB ?= { is_subject_of = root }
+				NOT = { is_subject_type = subject_type_protectorate }
+			}
+			c:SLB ?= { 
+				change_subject_type = subject_type_protectorate 
+				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
+			}
+			change_relations = {
+				country = c:SLB
+				value = 100
+			}
+			random_diplomatic_play = {
+				limit = {
+					target_is = c:TUR
+					initiator = {
+						has_variable = balkan_war_attacker
+					}
+				}
+				add_target_backers = {
+					c:SLB
+				}
+			}
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.1.b
+		if = {
+			limit = { 
+				exists = c:ZAP 
+				c:ZAP ?= { is_subject_of = root }
+			}
+			change_relations = {
+				country = c:ZAP
+				value = -20
+			}
+		}
+		if = {
+			limit = { 
+				exists = c:SLB 
+				c:SLB ?= { is_subject_of = root }
+			}
+			change_relations = {
+				country = c:SLB
+				value = -20
+			}
+		}
+	}
+}
+
+# Scripted Balkan Wars
+balkan_crisis_2.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		ROOT = { save_scope_as = attacker_scope }
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = scope:attacker_scope
+				target_is = c:TUR
+			}
+			if = {
+				limit = { c:TUR ?= { has_variable = greek_massacre } }
+				add_war_goal = {
+					holder = scope:attacker_scope
+					type = liberate_country
+					target_country = c:MAC
+					primary_demand = yes
+				}
+			}
+			if = {
+				limit = { c:TUR ?= { has_variable = serb_massacre } }
+				add_war_goal = {
+					holder = scope:attacker_scope
+					type = liberate_country
+					target_country = c:SER
+					primary_demand = yes
+				}
+			}
+			if = {
+				limit = { c:TUR ?= { has_variable = croat_massacre } }
+				add_war_goal = {
+					holder = scope:attacker_scope
+					type = liberate_country
+					target_country = c:CRO
+					primary_demand = yes
+				}
+			}
+			if = {
+				limit = { c:TUR ?= { has_variable = bulgarian_massacre } }
+				add_war_goal = {
+					holder = scope:attacker_scope
+					type = liberate_country
+					target_country = c:BUL
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:HUN
+				c:HUN ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:HUN
+				}
+				add_war_goal = {
+					holder = c:HUN
+					type = independence
+					target_country = c:TUR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:WAL
+				c:WAL ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:WAL
+				}
+				add_war_goal = {
+					holder = c:WAL
+					type = independence
+					target_country = c:TUR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:MOL
+				c:MOL ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:MOL
+				}
+				add_war_goal = {
+					holder = c:MOL
+					type = independence
+					target_country = c:TUR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:TRS
+				c:TRS ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:TRS
+				}
+				add_war_goal = {
+					holder = c:TRS
+					type = independence
+					target_country = c:TUR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:ROM
+				c:ROM ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:ROM
+				}
+				add_war_goal = {
+					holder = c:ROM
+					type = independence
+					target_country = c:TUR
+					primary_demand = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:POL
+				c:POL ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					OR = {
+						any_scope_state = {
+							has_claim_by = c:TUR
+						}
+						any_subject_or_below = {
+							any_scope_state = {
+								has_claim_by = c:TUR
+							}
+						}
+					}
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:POL
+				}
+				add_war_goal = {
+					holder = c:POL
+					type = revoke_claim
+					target_state = s:STATE_EAST_GALICIA
+					primary_demand = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = c:PLC
+				c:PLC ?= {
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+					OR = {
+						any_scope_state = {
+							has_claim_by = c:TUR
+						}
+						any_subject_or_below = {
+							any_scope_state = {
+								has_claim_by = c:TUR
+							}
+						}
+					}
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_initiator_backers = {
+					c:PLC
+				}
+				add_war_goal = {
+					holder = c:PLC
+					type = revoke_claim
+					target_state = s:STATE_EAST_GALICIA
+					primary_demand = yes
+				}
+			}
+		}
+		every_country = {
+			limit = { 
+				has_journal_entry = je_war_of_the_balkan_coalition_defender
+				NOR = {
+					c:TUR ?= this
+					is_subject_of = c:TUR
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = scope:attacker_scope
+					target_is = c:TUR
+				}
+				add_target_backers = {
+					ROOT
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis Success
+balkan_crisis_2.3 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.3.t
+	desc = balkan_crisis_2.3.d
+	flavor =  balkan_crisis_2.3.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:TUR ?= { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = balkan_crisis_2.3.a
+		default_option = yes
+		
+		add_modifier = {
+			name = eternal_porte
+			months = long_modifier_time
+		}
+		hidden_effect = {
+			every_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_greece
+						region = sr:region_west_balkans
+						region = sr:region_east_balkans
+					}
+				}
+				add_modifier = {
+					name = balkan_crisis_suppression
+					months = long_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_increase_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = rumelist_progress_increase_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+					NOT = { has_variable = tur_fractured_porte_freeze }
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_increase_tick_1_tt
+					change_variable = { name = metropolitan_progress_from_effects add = 1 }
+				}
+			}
+		}
+	}
+}
+
+# Balkan Crisis Fail - Ottoman Confederation
+balkan_crisis_2.4 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.4.t
+	desc = balkan_crisis_2.4.d
+	flavor =  balkan_crisis_2.4.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = balkan_crisis_fail_var }
+				set_global_variable = balkan_crisis_fail_var
+			}
+		}
+		c:TUR ?= { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = balkan_crisis_2.4.a
+		default_option = yes
+		trigger = { c:TUR ?= this }
+		
+		every_subject_or_below = {
+			limit = { country_is_in_europe = yes }
+			make_independent = yes
+		}
+
+		if = {
+			limit = { exists = c:GRE }
+			random_scope_state = {
+				limit = { state_region = s:STATE_WESTERN_THRACE }
+				set_state_owner = c:GRE
+			}
+		}
+		else_if = {
+			limit = { NOT = { exists = c:MAC } }
+			custom_tooltip = {
+				text = macedonia_created_as_subject
+				create_country = {
+					tag = MAC
+					origin = ROOT
+					state = s:STATE_WESTERN_THRACE.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:MAC
+					}
+					ROOT = {
+						create_diplomatic_pact = {
+							country = c:MAC
+							type = puppet
+						}
+					}
+					c:MAC ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:SER }
+			}
+			custom_tooltip = {
+				text = serbia_created_as_subject
+				create_country = {
+					tag = SER
+					origin = ROOT
+					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_MONTENEGRO }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_BOSNIA }
+						set_state_owner = c:SER
+					}
+					ROOT = {
+						create_diplomatic_pact = {
+							country = c:SER
+							type = puppet
+						}
+					}
+					c:SER ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:CRO }
+			}
+			custom_tooltip = {
+				text = croatia_created_as_subject
+				create_country = {
+					tag = CRO
+					origin = ROOT
+					state = s:STATE_CROATIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:CRO
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SLAVONIA }
+						set_state_owner = c:CRO
+					}
+					ROOT = {
+						create_diplomatic_pact = {
+							country = c:CRO
+							type = puppet
+						}
+					}
+					c:CRO ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BUL }
+			}
+			custom_tooltip = {
+				text = bulgaria_created_as_subject
+				create_country = {
+					tag = BUL
+					origin = ROOT
+					state = s:STATE_BULGARIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_WEST_BULGARIA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_DOBRUDJA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_NORTHERN_THRACE }
+						set_state_owner = c:BUL
+					}
+					ROOT = {
+						create_diplomatic_pact = {
+							country = c:BUL
+							type = puppet
+						}
+					}
+					c:BUL ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		
+		set_variable = rumelian_confederation
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_confederated }
+			}
+			activate_law = law_type:law_confederated
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_shared_roots }
+			}
+			activate_law = law_type:law_shared_roots
+		}	
+		
+		add_modifier = {
+			name = balkan_crisis_fail
+			months = long_modifier_time
+		}
+		
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_decrease_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+				}
+				custom_tooltip = {
+					text = rumelist_progress_decrease_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_decrease_tick_1_tt
+					change_variable = { name = metropolitan_progress_from_effects add = -1 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = balkan_crisis_2.4.b
+		default_option = yes
+		trigger = { c:TUR != this }
+		
+		show_as_tooltip = {
+			c:TUR ?= {
+				every_subject_or_below = {
+					limit = { country_is_in_europe = yes }
+					make_independent = yes
+				}
+				if = {
+					limit = { exists = c:GRE }
+					random_scope_state = {
+						limit = { state_region = s:STATE_WESTERN_THRACE }
+						set_state_owner = c:GRE
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = c:MAC } }
+					custom_tooltip = {
+						text = macedonia_created_as_subject
+						create_country = {
+							tag = MAC
+							origin = c:TUR
+							state = s:STATE_WESTERN_THRACE.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:MAC
+							}
+							c:TUR = {
+								create_diplomatic_pact = {
+									country = c:MAC
+									type = puppet
+								}
+							}
+							c:MAC ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:SER }
+					}
+					custom_tooltip = {
+						text = serbia_created_as_subject
+						create_country = {
+							tag = SER
+							origin = c:TUR
+							state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_MONTENEGRO }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_BOSNIA }
+								set_state_owner = c:SER
+							}
+							c:TUR = {
+								create_diplomatic_pact = {
+									country = c:SER
+									type = puppet
+								}
+							}
+							c:SER ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:CRO }
+					}
+					custom_tooltip = {
+						text = croatia_created_as_subject
+						create_country = {
+							tag = CRO
+							origin = c:TUR
+							state = s:STATE_CROATIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:CRO
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SLAVONIA }
+								set_state_owner = c:CRO
+							}
+							c:TUR = {
+								create_diplomatic_pact = {
+									country = c:CRO
+									type = puppet
+								}
+							}
+							c:CRO ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:BUL }
+					}
+					custom_tooltip = {
+						text = bulgaria_created_as_subject
+						create_country = {
+							tag = BUL
+							origin = c:TUR
+							state = s:STATE_BULGARIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_WEST_BULGARIA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_DOBRUDJA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_NORTHERN_THRACE }
+								set_state_owner = c:BUL
+							}
+							c:TUR = {
+								create_diplomatic_pact = {
+									country = c:BUL
+									type = puppet
+								}
+							}
+							c:BUL ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				
+				set_variable = rumelian_confederation
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_confederated }
+					}
+					activate_law = law_type:law_confederated
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_shared_roots }
+					}
+					activate_law = law_type:law_shared_roots
+				}	
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = { 
+					owns_entire_state_region = STATE_EASTERN_THRACE 
+					any_country = {
+						OR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+					}
+				}
+				trigger_event = { id = balkan_crisis_2.11 }
+			}
+		}
+	}
+}
+
+# Balkan Crisis Fail - Balkans Break Free
+balkan_crisis_2.5 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.5.t
+	desc = balkan_crisis_2.5.d
+	flavor =  balkan_crisis_2.5.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	
+	event_image = {
+		video = "unspecific_factory_closed"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:TUR ?= { save_scope_as = tur_scope }
+		if = {
+			limit = {
+				NOT = { has_global_variable = balkan_crisis_fail_var }
+				set_global_variable = balkan_crisis_fail_var
+			}
+		}
+	}
+
+	option = {
+		name = balkan_crisis_2.5.a
+		default_option = yes
+		trigger = { c:TUR ?= this }
+		
+		every_subject_or_below = {
+			limit = { country_is_in_europe = yes }
+			make_independent = yes
+		}
+		
+		if = {
+			limit = { exists = c:GRE }
+			random_scope_state = {
+				limit = { state_region = s:STATE_WESTERN_THRACE }
+				set_state_owner = c:GRE
+			}
+		}
+		else_if = {
+			limit = { NOT = { exists = c:MAC } }
+			custom_tooltip = {
+				text = macedonia_created
+				create_country = {
+					tag = MAC
+					origin = c:TUR
+					state = s:STATE_WESTERN_THRACE.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:MAC
+					}
+					c:MAC ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:SER }
+			}
+			custom_tooltip = {
+				text = serbia_created
+				create_country = {
+					tag = SER
+					origin = c:TUR
+					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_MONTENEGRO }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_BOSNIA }
+						set_state_owner = c:SER
+					}
+					c:SER ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:CRO }
+			}
+			custom_tooltip = {
+				text = croatia_created
+				create_country = {
+					tag = CRO
+					origin = c:TUR
+					state = s:STATE_CROATIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:CRO
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SLAVONIA }
+						set_state_owner = c:CRO
+					}
+					c:CRO ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:BUL }
+			}
+			custom_tooltip = {
+				text = bulgaria_created
+				create_country = {
+					tag = BUL
+					origin = c:TUR
+					state = s:STATE_BULGARIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_WEST_BULGARIA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_DOBRUDJA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_NORTHERN_THRACE }
+						set_state_owner = c:BUL
+					}
+					c:BUL ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_shared_roots }
+			}
+			activate_law = law_type:law_shared_roots
+		}
+		
+		add_modifier = {
+			name = balkan_crisis_fail_max
+			months = long_modifier_time
+		}
+		
+		if = {
+			limit = { has_journal_entry = je_fractured_porte }
+			if = {
+				limit = {
+					ruler_is_caliphatist = yes
+				}
+				custom_tooltip = {
+					text = caliphatist_progress_decrease_tick_1_tt
+					change_variable = { name = caliphatist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_rumelist = yes
+				}
+				custom_tooltip = {
+					text = rumelist_progress_decrease_tick_1_tt
+					change_variable = { name = rumelist_progress_from_effects add = -1 }
+				}
+			}
+			if = {
+				limit = {
+					ruler_is_metropolitan = yes
+				}
+				custom_tooltip = {
+					text = metropolitan_progress_decrease_tick_1_tt
+					change_variable = { name = metropolitan_progress_from_effects add = -1 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = balkan_crisis_2.5.b
+		trigger = { c:TUR != this }
+		
+		show_as_tooltip = {
+			c:TUR ?= {
+				every_subject_or_below = {
+					limit = { country_is_in_europe = yes }
+					make_independent = yes
+				}
+			
+				if = {
+					limit = { exists = c:GRE }
+					random_scope_state = {
+						limit = { state_region = s:STATE_WESTERN_THRACE }
+						set_state_owner = c:GRE
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = c:MAC } }
+					custom_tooltip = {
+						text = macedonia_created
+						create_country = {
+							tag = MAC
+							origin = c:TUR
+							state = s:STATE_WESTERN_THRACE.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:MAC
+							}
+							c:MAC ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:SER }
+					}
+					custom_tooltip = {
+						text = serbia_created
+						create_country = {
+							tag = SER
+							origin = c:TUR
+							state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_MONTENEGRO }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_BOSNIA }
+								set_state_owner = c:SER
+							}
+							c:SER ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:CRO }
+					}
+					custom_tooltip = {
+						text = croatia_created
+						create_country = {
+							tag = CRO
+							origin = c:TUR
+							state = s:STATE_CROATIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:CRO
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SLAVONIA }
+								set_state_owner = c:CRO
+							}
+							c:CRO ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = c:BUL }
+					}
+					custom_tooltip = {
+						text = bulgaria_created
+						create_country = {
+							tag = BUL
+							origin = c:TUR
+							state = s:STATE_BULGARIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_WEST_BULGARIA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_DOBRUDJA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_NORTHERN_THRACE }
+								set_state_owner = c:BUL
+							}
+							c:BUL ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_law = law_type:law_shared_roots }
+					}
+					activate_law = law_type:law_shared_roots
+				}
+			}
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = { 
+					owns_entire_state_region = STATE_EASTERN_THRACE 
+					any_country = {
+						OR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+					}
+				}
+				trigger_event = { id = balkan_crisis_2.11 }
+			}
+		}
+	}
+}
+
+# Aftermath of the Balkan Coalition War
+balkan_crisis_2.6 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.6.t
+	desc = balkan_crisis_2.6.d
+	flavor =  balkan_crisis_2.6.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:TUR ?= { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = balkan_crisis_2.6.a
+		default_option = yes
+		trigger = { c:TUR ?= this }
+		
+		if = {
+			limit = { 
+				c:TUR ?= { has_variable = greek_massacre } 
+				NOR = { 
+					exists = c:MAC
+					c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
+				}
+			}
+			if = {
+				limit = { exists = c:GRE }
+				random_scope_state = {
+					limit = { state_region = s:STATE_WESTERN_THRACE }
+					set_state_owner = c:GRE
+				}
+			}
+			else_if = {
+				limit = { NOT = { exists = c:MAC } }
+				custom_tooltip = {
+					text = macedonia_created
+					create_country = {
+						tag = MAC
+						origin = ROOT
+						state = s:STATE_WESTERN_THRACE.region_state:TUR
+					}
+					if = {
+						limit = {
+							exists = c:MAC
+						}
+						c:MAC ?= {
+							add_modifier = {
+								name = radicals_bandaid
+								months = normal_modifier_time
+							}
+							every_scope_state = {
+								limit = { has_modifier = balkan_uprising }
+								remove_modifier = balkan_uprising
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				c:TUR ?= { has_variable = serb_massacre } 
+				NOT = { exists = c:SER }
+			}
+			custom_tooltip = {
+				text = serbia_created
+				create_country = {
+					tag = SER
+					origin = ROOT
+					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_MONTENEGRO }
+						set_state_owner = c:SER
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_BOSNIA }
+						set_state_owner = c:SER
+					}
+					c:SER ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				c:TUR ?= { has_variable = croat_massacre } 
+				NOT = { exists = c:CRO }
+			}
+			custom_tooltip = {
+				text = croatia_created
+				create_country = {
+					tag = CRO
+					origin = ROOT
+					state = s:STATE_CROATIA.region_state:TUR
+				}
+				if = {
+					limit = {
+						exists = c:CRO
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_SLAVONIA }
+						set_state_owner = c:CRO
+					}
+					c:CRO ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				c:TUR ?= { has_variable = bulgarian_massacre } 
+				NOT = { exists = c:BUL }
+			}
+			custom_tooltip = {
+				text = bulgaria_created
+				create_country = {
+					tag = BUL
+					origin = ROOT
+					state = scope:spawn_state
+				}
+				if = {
+					limit = {
+						exists = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_WEST_BULGARIA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_DOBRUDJA }
+						set_state_owner = c:BUL
+					}
+					random_scope_state = {
+						limit = { state_region = s:STATE_NORTHERN_THRACE }
+						set_state_owner = c:BUL
+					}
+					c:BUL ?= {
+						add_modifier = {
+							name = radicals_bandaid
+							months = normal_modifier_time
+						}
+						every_scope_state = {
+							limit = { has_modifier = balkan_uprising }
+							remove_modifier = balkan_uprising
+						}
+					}
+				}
+			}
+		}
+		
+		every_diplomatic_play = {
+			limit = {
+				target_is = root
+			}
+			end_play = yes
+		}
+	}
+	
+	option = {
+		name = balkan_crisis_2.6.b
+		trigger = { c:TUR != this }
+		
+		show_as_tooltip = {
+			c:TUR ?= {
+				if = {
+					limit = { 
+						c:TUR ?= { has_variable = greek_massacre } 
+						NOR = { 
+							exists = c:MAC
+							c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
+						}
+					}
+					if = {
+						limit = { exists = c:GRE }
+						random_scope_state = {
+							limit = { state_region = s:STATE_WESTERN_THRACE }
+							set_state_owner = c:GRE
+						}
+					}
+					else = {
+						custom_tooltip = {
+							text = macedonia_created
+							create_country = {
+								tag = MAC
+								origin = ROOT
+								state = s:STATE_WESTERN_THRACE.region_state:TUR
+							}
+							if = {
+								limit = {
+									exists = c:MAC
+								}
+								c:MAC ?= {
+									add_modifier = {
+										name = radicals_bandaid
+										months = normal_modifier_time
+									}
+									every_scope_state = {
+										limit = { has_modifier = balkan_uprising }
+										remove_modifier = balkan_uprising
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { 
+						c:TUR ?= { has_variable = serb_massacre } 
+						NOT = { exists = c:SER }
+					}
+					custom_tooltip = {
+						text = serbia_created
+						create_country = {
+							tag = SER
+							origin = ROOT
+							state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_MONTENEGRO }
+								set_state_owner = c:SER
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_BOSNIA }
+								set_state_owner = c:SER
+							}
+							c:SER ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { 
+						c:TUR ?= { has_variable = croat_massacre } 
+						NOT = { exists = c:CRO }
+					}
+					custom_tooltip = {
+						text = croatia_created
+						create_country = {
+							tag = CRO
+							origin = ROOT
+							state = s:STATE_CROATIA.region_state:TUR
+						}
+						if = {
+							limit = {
+								exists = c:CRO
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_SLAVONIA }
+								set_state_owner = c:CRO
+							}
+							c:CRO ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = { 
+						c:TUR ?= { has_variable = bulgarian_massacre } 
+						NOT = { exists = c:BUL }
+					}
+					custom_tooltip = {
+						text = bulgaria_created
+						create_country = {
+							tag = BUL
+							origin = ROOT
+							state = scope:spawn_state
+						}
+						if = {
+							limit = {
+								exists = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_WEST_BULGARIA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_DOBRUDJA }
+								set_state_owner = c:BUL
+							}
+							random_scope_state = {
+								limit = { state_region = s:STATE_NORTHERN_THRACE }
+								set_state_owner = c:BUL
+							}
+							c:BUL ?= {
+								add_modifier = {
+									name = radicals_bandaid
+									months = normal_modifier_time
+								}
+								every_scope_state = {
+									limit = { has_modifier = balkan_uprising }
+									remove_modifier = balkan_uprising
+								}
+							}
+						}
+					}
+				}
+				
+				every_diplomatic_play = {
+					limit = {
+						target_is = root
+					}
+					end_play = yes
+				}
+			}
+		}
+	}
+}
+
+# Convention of Cyprus (France)
+balkan_crisis_2.7 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.7.t
+	desc = balkan_crisis_2.7.d
+	flavor =  balkan_crisis_2.7.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:FRA ?= { save_scope_as = offer_scope_fra }
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_CYPRUS
+			}
+			save_scope_as = cyprus_state
+			set_variable = state_to_cede
+		}
+	}
+
+	option = { # Accept the deal
+		name = balkan_crisis_2.7.a
+		default_option = yes
+		
+		custom_tooltip = cyprus_convention_tur_tt
+		custom_tooltip = {
+			text = balkan_crisis_progress_decrease_20_tt
+			change_global_variable = { name = balkan_crisis_main_var add = -20 }
+		}
+		create_dynamic_country = {
+			origin = ROOT
+			tier = principality
+			culture = cu:french
+			religion = rel:orthodox
+			
+			capital = scope:cyprus_state
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			
+			on_created = {
+				activate_law = law_type:law_presidential_republic
+				add_primary_culture = cu:greek
+				add_primary_culture = cu:turkish
+				every_state = {
+					remove_variable = state_to_cede
+				}
+			}
+		}
+		hidden_effect = {
+			c:FRA = {
+				set_variable = cyprus_convention
+				post_notification = tur_convention_accepted
+				create_diplomatic_pact = {
+					country = scope:cyprus_state.owner
+					type = protectorate
+				}
+				set_secret_goal = {
+					country = c:TUR
+					secret_goal = conciliatory
+				}
+			}
+		}
+		
+		change_relations = {
+			country = c:FRA
+			value = 30
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						c:FRA.army_size > root.army_size
+						c:FRA.navy_size > root.navy_size
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.7.b
+		change_relations = {
+			country = c:FRA
+			value = -30
+		}
+		c:FRA = {
+			post_notification = tur_convention_refused
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Convention of Crete (England)
+balkan_crisis_2.8 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.8.t
+	desc = balkan_crisis_2.8.d
+	flavor =  balkan_crisis_2.8.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		if = {
+			limit = {
+				exists = c:ENG
+			}
+			c:ENG ?= { save_scope_as = offer_scope_eng }
+		}
+		else_if = {
+			limit = {
+				exists = c:GBR
+			}
+			c:GBR ?= { save_scope_as = offer_scope_eng }
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_CRETE
+			}
+			save_scope_as = crete_state
+			set_variable = state_to_cede
+		}
+	}
+
+	option = { # Accept the deal
+		name = balkan_crisis_2.8.a
+		default_option = yes
+		
+		custom_tooltip = convention_tt
+		custom_tooltip = {
+			text = balkan_crisis_progress_decrease_20_tt
+			change_global_variable = { name = balkan_crisis_main_var add = -20 }
+		}
+		create_dynamic_country = {
+			origin = ROOT
+			tier = principality
+			culture = cu:british
+			religion = rel:orthodox
+			
+			capital = scope:crete_state
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			
+			on_created = {
+				activate_law = law_type:law_presidential_republic
+				add_primary_culture = cu:greek
+				add_primary_culture = cu:turkish
+				every_state = {
+					remove_variable = state_to_cede
+				}
+			}
+		}
+		hidden_effect = {
+			scope:offer_scope_eng = {
+				create_diplomatic_pact = {
+					country = scope:crete_state.owner
+					type = protectorate
+				}
+				set_variable = crete_convention
+				post_notification = tur_convention_accepted
+				
+				set_secret_goal = {
+					country = c:TUR
+					secret_goal = conciliatory
+				}
+			}
+		}
+		
+		change_relations = {
+			country = scope:offer_scope_eng
+			value = 30
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						scope:offer_scope_eng.army_size > root.army_size
+						scope:offer_scope_eng.navy_size > root.navy_size
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.8.b
+		change_relations = {
+			country = scope:offer_scope_eng
+			value = -30
+		}
+		scope:offer_scope_eng = {
+			post_notification = tur_convention_refused
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Convention of Crimea (Sweden/Scandinavia)
+balkan_crisis_2.9 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.9.t
+	desc = balkan_crisis_2.9.d
+	flavor =  balkan_crisis_2.9.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		if = {
+			limit = {
+				exists = c:SWE
+			}
+			c:SWE ?= { save_scope_as = offer_scope_swe }
+		}
+		else_if = {
+			limit = {
+				exists = c:SCA
+			}
+			c:SCA ?= { save_scope_as = offer_scope_swe }
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_CRIMEA
+			}
+			save_scope_as = crimea_state
+			set_variable = state_to_cede
+		}
+	}
+
+	option = { # Accept the deal
+		name = balkan_crisis_2.9.a
+		default_option = yes
+		
+		custom_tooltip = convention_tt
+		custom_tooltip = {
+			text = balkan_crisis_progress_decrease_20_tt
+			change_global_variable = { name = balkan_crisis_main_var add = -20 }
+		}
+		create_dynamic_country = {
+			origin = ROOT
+			tier = principality
+			culture = cu:swedish
+			religion = rel:catholic
+			
+			capital = scope:crimea_state
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			
+			on_created = {
+				activate_law = law_type:law_presidential_republic
+				every_state = {
+					remove_variable = state_to_cede
+				}
+			}
+		}
+		hidden_effect = {
+			scope:offer_scope_swe = {
+				create_diplomatic_pact = {
+					country = scope:crimea_state.owner
+					type = protectorate
+				}
+				set_variable = crimea_convention
+				post_notification = tur_convention_accepted
+				
+				set_secret_goal = {
+					country = c:TUR
+					secret_goal = conciliatory
+				}
+			}
+		}
+		
+		change_relations = {
+			country = scope:offer_scope_swe
+			value = 30
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						scope:offer_scope_swe.army_size > root.army_size
+						scope:offer_scope_swe.navy_size > root.navy_size
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.9.b
+		change_relations = {
+			country = scope:offer_scope_swe
+			value = -30
+		}
+		scope:offer_scope_swe = {
+			post_notification = tur_convention_refused
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Convention of Algiers (Iberia)
+balkan_crisis_2.10 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.10.t
+	desc = balkan_crisis_2.10.d
+	flavor =  balkan_crisis_2.10.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		c:IBE = { save_scope_as = offer_scope_ibe }
+		c:TUN = { save_scope_as = tunis_scope }
+	}
+
+	option = { # Accept the deal
+		name = balkan_crisis_2.10.a
+		default_option = yes
+		
+		custom_tooltip = convention_tt
+		custom_tooltip = {
+			text = balkan_crisis_progress_decrease_20_tt
+			change_global_variable = { name = balkan_crisis_main_var add = -20 }
+		}
+		hidden_effect = {
+			c:TUN = { make_independent = yes }
+		}
+		c:IBE = {
+			create_diplomatic_pact = {
+				country = c:TUN
+				type = protectorate
+			}
+			set_variable = algiers_convention
+			post_notification = tur_convention_accepted
+			
+			hidden_effect = {
+				set_secret_goal = {
+					country = c:TUR
+					secret_goal = conciliatory
+				}
+			}
+		}
+		
+		change_relations = {
+			country = c:IBE
+			value = 30
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						c:IBE.army_size > root.army_size
+						c:IBE.navy_size > root.navy_size
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.10.b
+		change_relations = {
+			country = c:IBE
+			value = -30
+		}
+		c:IBE = {
+			post_notification = tur_convention_refused
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Balkan attacker forced to return Constantinople
+balkan_crisis_2.11 = {
+	type = country_event
+	placement = root
+	title = balkan_crisis_2.11.t
+	desc = balkan_crisis_2.11.d
+	flavor =  balkan_crisis_2.11.f
+	
+	duration = 3
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	immediate = {
+		root = { save_scope_as = constantinople_holder_scope }
+		if = {
+			limit = {
+				any_country = { has_variable = cyprus_convention }
+			}
+			random_country = {
+				limit = {
+					has_variable = cyprus_convention
+				}
+				save_scope_as = cyprus_overlord
+			}
+		}
+		if = {
+			limit = {
+				any_country = { has_variable = crete_convention }
+			}
+			random_country = {
+				limit = {
+					has_variable = crete_convention
+				}
+				save_scope_as = crete_overlord
+			}
+		}
+		if = {
+			limit = {
+				any_country = { has_variable = crimea_convention }
+			}
+			random_country = {
+				limit = {
+					has_variable = crimea_convention
+				}
+				save_scope_as = crimea_overlord
+			}
+		}
+		if = {
+			limit = {
+				any_country = { has_variable = algiers_convention }
+			}
+			random_country = {
+				limit = {
+					has_variable = algiers_convention
+				}
+				save_scope_as = algiers_overlord
+			}
+		}
+	}
+
+	option = { # Accept the deal
+		name = balkan_crisis_2.11.a
+		default_option = yes
+		
+		random_scope_state = {
+			limit = { state_region = s:STATE_EASTERN_THRACE }
+			set_state_owner = c:TUR
+		}
+		c:TUR = {
+			if = {
+				limit = { any_scope_state = { state_region = s:STATE_EASTERN_THRACE } }
+				random_scope_state = {
+					limit = { state_region = s:STATE_EASTERN_THRACE }
+					set_state_type = incorporated
+				}
+				set_capital = STATE_EASTERN_THRACE
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = { #No
+		name = balkan_crisis_2.11.b
+		
+		custom_tooltip = constantinople_holder_aggression_tt
+		set_variable = constantinople_unlawful_territory
+		change_infamy = 20
+		change_relations = {
+			country = c:TUR
+			value = -100
+		}
+		change_relations = {
+			country = scope:cyprus_overlord
+			value = -50
+		}
+		change_relations = {
+			country = scope:crete_overlord
+			value = -50
+		}
+		change_relations = {
+			country = scope:crimea_overlord
+			value = -50
+		}
+		change_relations = {
+			country = scope:algiers_overlord
+			value = -50
+		}
+		
+		hidden_effect = {
+			random_scope_state = {
+				limit = { state_region = s:STATE_EASTERN_THRACE }
+				state_region = {
+					add_claim = scope:cyprus_overlord
+					add_claim = scope:crimea_overlord
+					add_claim = scope:crete_overlord
+					add_claim = scope:algiers_overlord
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+				}
+				set_secret_goal = {
+					country = scope:constantinople_holder_scope
+					secret_goal = conquer
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					global_country_ranking >= 1 #if you're #1 GP who cares lol
+				}
+				add = 100
+			}
+		}
+	}
+}

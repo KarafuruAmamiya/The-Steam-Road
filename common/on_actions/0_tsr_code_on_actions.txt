@@ -25,6 +25,19 @@ tsr_events_yearly = {
 		persian_flavor.13
 		persian_flavor.3
 	}
+	effect = {
+		clear_global_variable_list = council_republics
+		every_country = {
+			limit = { 
+				has_law = law_type:law_council_republic
+				country_rank > rank_value:minor_power 
+			}
+			add_to_global_variable_list = {
+				name = council_republics
+				target = THIS
+			}
+		}
+	}
 }
 
 tsr_events_monthly = {
@@ -46,7 +59,6 @@ tsr_events_monthly = {
 		opium_wars.2
 		opium_wars.12
 		tsr_test.2
-		burmese_war.1
 		persian_flavor.5
 		persian_flavor.8
 		peoples_springtime.120
@@ -140,6 +152,20 @@ tsr_diplomatic_play_started = {
 			}
 			scope:initiator = {
 				trigger_event = { id = opium_wars.9 days = 0 }
+			}
+		}
+		if = {
+			limit = {
+				scope:initiator = {
+					has_variable = balkan_war_attacker
+					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+				}
+				scope:target = {
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			scope:initiator = {
+				trigger_event = { id = balkan_crisis_2.2 days = 0 }
 			}
 		}
 	}

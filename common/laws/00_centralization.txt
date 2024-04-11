@@ -18,6 +18,16 @@ law_feudalism = {
 		law_anarchy
 	}
 	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
+	}
+	
 	# AI should never switch back to feudalism
 	ai_will_do = {
 		always = no
@@ -65,6 +75,13 @@ law_warlord_state = {
 	
 	can_enact = {
 		NOT = { country_tier = empire }
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
 	}
 	
 	possible_political_movements = {
@@ -144,6 +161,16 @@ law_unitary = {
 	
 	unlocking_technologies = {
 		centralization
+	}
+	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
 	}
 
 	modifier = {
@@ -230,6 +257,16 @@ law_devolved = {
 	
 	unlocking_technologies = {
 		centralization
+	}
+	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
 	}
 	
 	modifier = {
@@ -324,6 +361,16 @@ law_federal = {
 	}
 	
 	institution = institution_centralization
+	
+	can_enact = {
+		trigger_if = {
+			limit = { has_variable = rumelian_confederation }
+			custom_tooltip = {
+				text = no_rumelian_confederation
+				NOT = { has_variable = rumelian_confederation }
+			}
+		}
+	}
 	
 	on_activate = {
 		if = {

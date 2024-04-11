@@ -78,3 +78,72 @@ nationalist_takeover_negative = {
 	interest_group_pop_attraction_mult = -0.25
 	interest_group_approval_add = -5
 }
+
+balkan_uprising = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_radicals_from_discrimination_mult = 0.25
+	state_tax_collection_mult = -0.25
+	state_conscription_rate_mult = -0.5
+}
+
+quelling_uprising = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_authority_mult = -0.15
+	state_turmoil_effects_mult = -0.25
+}
+
+radicals_bandaid = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_turmoil_effects_mult = -0.5
+	state_loyalists_from_sol_change_accepted_culture_mult = 0.5
+}
+
+quelling_uprising_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 8000
+}
+
+constantinople_conference = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_prestige_mult = -0.25
+	interest_group_approval_add = -3
+}
+
+refused_to_liberate_balkans = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	interest_group_approval_add = -3
+}
+
+eternal_porte = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_approval_add = 3
+	state_loyalists_from_sol_change_accepted_culture_mult = 0.25
+	country_authority_mult = 0.25
+	country_influence_mult = 0.25
+}
+
+balkan_crisis_suppression = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_turmoil_effects_mult = -0.5
+	state_radicals_from_discrimination_mult = -0.25
+}
+
+balkan_crisis_fail = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_prestige_mult = -0.15
+	country_influence_mult = -0.15
+	country_legitimacy_base_add = -20
+    state_turmoil_effects_mult = 0.25
+    state_radicals_from_sol_change_mult = 0.15
+    state_radicals_from_discrimination_mult = 0.15
+}
+
+balkan_crisis_fail_max = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_prestige_mult = -0.25
+	country_influence_mult = -0.25
+	country_legitimacy_base_add = -50
+    state_turmoil_effects_mult = 0.5
+    state_radicals_from_sol_change_mult = 0.25
+    state_radicals_from_discrimination_mult = 0.25
+}

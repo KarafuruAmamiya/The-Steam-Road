@@ -1,0 +1,223 @@
+﻿balkan_crisis_deescalate_france = {
+	name = "balkan_crisis_deescalate_france"
+	desc = "balkan_crisis_deescalate_france_desc"
+
+	visible = { 
+		c:FRA ?= this
+		NOT = { has_variable = balkan_war_attacker }
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		custom_tooltip = {
+			text = balkan_crisis_50_tt
+			global_var:balkan_crisis_main_var >= 50
+		}
+		custom_tooltip = {
+			text = balkan_crisis_escalation
+			has_global_variable = balkan_crisis_freeze
+		}
+		hidden_trigger = {
+			NOT = { has_variable = offer_cyprus_convention }
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = cyprus_convention_tt
+			set_variable = offer_cyprus_convention
+		}
+		c:TUR ?= { trigger_event = { id = balkan_crisis_2.7 } }
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_country = {
+					has_variable = balkan_war_attacker
+					NOT = { this = root }
+					relations:root < relations_threshold:neutral
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 10
+		}
+	}
+}
+
+balkan_crisis_deescalate_england = {
+	name = "balkan_crisis_deescalate_england"
+	desc = "balkan_crisis_deescalate_england_desc"
+
+	visible = { 
+		OR = {
+			c:ENG ?= this
+			c:GBR ?= this
+		}
+		NOT = { has_variable = balkan_war_attacker }
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		custom_tooltip = {
+			text = balkan_crisis_50_tt
+			global_var:balkan_crisis_main_var >= 50
+		}
+		custom_tooltip = {
+			text = balkan_crisis_escalation
+			has_global_variable = balkan_crisis_freeze
+		}
+		hidden_trigger = {
+			NOT = { has_variable = offer_crete_convention }
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = crete_convention_tt
+			set_variable = offer_crete_convention
+		}
+		c:TUR ?= { trigger_event = { id = balkan_crisis_2.8 } }
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_country = {
+					has_variable = balkan_war_attacker
+					NOT = { this = root }
+					relations:root < relations_threshold:neutral
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 10
+		}
+	}
+}
+
+balkan_crisis_deescalate_sweden = {
+	name = "balkan_crisis_deescalate_sweden"
+	desc = "balkan_crisis_deescalate_sweden_desc"
+
+	visible = { 
+		OR = {
+			c:SWE ?= this
+			c:SCA ?= this
+		}
+		NOT = { has_variable = balkan_war_attacker }
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		custom_tooltip = {
+			text = balkan_crisis_50_tt
+			global_var:balkan_crisis_main_var >= 50
+		}
+		custom_tooltip = {
+			text = balkan_crisis_escalation
+			has_global_variable = balkan_crisis_freeze
+		}
+		hidden_trigger = {
+			NOT = { has_variable = offer_crimea_convention }
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = crimea_convention_tt
+			set_variable = offer_crimea_convention
+		}
+		c:TUR ?= { trigger_event = { id = balkan_crisis_2.9 } }
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_country = {
+					has_variable = balkan_war_attacker
+					NOT = { this = root }
+					relations:root < relations_threshold:neutral
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 10
+		}
+	}
+}
+
+balkan_crisis_deescalate_iberia = {
+	name = "balkan_crisis_deescalate_iberia"
+	desc = "balkan_crisis_deescalate_iberia_desc"
+
+	visible = { 
+		c:IBE ?= this
+		NOT = { has_variable = balkan_war_attacker }
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		custom_tooltip = {
+			text = balkan_crisis_50_tt
+			global_var:balkan_crisis_main_var >= 50
+		}
+		custom_tooltip = {
+			text = balkan_crisis_escalation
+			has_global_variable = balkan_crisis_freeze
+		}
+		hidden_trigger = {
+			NOT = { has_variable = offer_algiers_convention }
+		}
+		exists = c:TUN
+		c:TUN ?= { is_subject_of = c:TUR }
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = algiers_convention_tt
+			set_variable = offer_algiers_convention
+		}
+		c:TUR ?= { trigger_event = { id = balkan_crisis_2.10 } }
+	}
+	
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_country = {
+					has_variable = balkan_war_attacker
+					NOT = { this = root }
+					relations:root < relations_threshold:neutral
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 10
+		}
+	}
+}

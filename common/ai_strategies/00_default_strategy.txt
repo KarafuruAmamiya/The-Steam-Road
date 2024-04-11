@@ -271,6 +271,27 @@ ai_strategy_default = {
 			add = 1000
 		}	
 		
+		# Balkan wars participants should both be confident
+		if = {
+			limit = {
+				has_journal_entry = je_war_of_the_balkan_coalition_attacker
+				scope:target_country = {
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			add = 1000
+		}
+		
+		if = {
+			limit = {
+				has_variable = je_war_of_the_balkan_coalition_attacker
+				scope:target_country = {
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			add = 1000
+		}	
+		
 		# unite against french aggression
 			if = {
 				limit = {
@@ -865,6 +886,106 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			# General aggression increase against Ottomans in Balkan Crisis with high tension
+			if = {
+				limit = {
+					has_global_variable = balkan_crisis_main_var
+					trigger_if = {
+						limit = { has_global_variable = balkan_crisis_main_var }
+						global_var:balkan_crisis_main_var >= 50
+					}
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+					NOR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						c:TUR ?= this
+						has_journal_entry = je_balkan_crisis_tur
+					}
+					scope:target_state = {
+						OR = {
+							region = sr:region_west_balkans
+							region = sr:region_east_balkans
+							region = sr:region_greece
+						}
+					}
+				}
+				add = 100
+			}
+			
+			# General aggression increase against Ottomans in Balkan Crisis with high tension
+			if = {
+				limit = {
+					has_global_variable = balkan_crisis_main_var
+					trigger_if = {
+						limit = { has_global_variable = balkan_crisis_main_var }
+						global_var:balkan_crisis_main_var >= 100
+					}
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+					NOR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						c:TUR ?= this
+						has_journal_entry = je_balkan_crisis_tur
+					}
+					scope:target_state = {
+						OR = {
+							region = sr:region_west_balkans
+							region = sr:region_east_balkans
+							region = sr:region_greece
+						}
+					}
+				}
+				add = 100
+			}
+			
+			# Balkan attacker will try to take Constantinople
+			if = {
+				limit = {
+					has_variable = balkan_war_attacker
+					scope:target_country = {
+						c:TUR ?= this
+						has_journal_entry = je_war_of_the_balkan_coalition_defender
+					}
+					scope:target_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+				}
+				add = 1000
+			}
+			
+			# Balkan attacker will get a coalition if they don't return Constantinople
+			if = {
+				limit = {
+					has_strategy = ai_strategy_maintain_power_balance
+					OR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						has_variable = constantinople_unlawful_territory
+						any_scope_state = {
+							state_region = s:STATE_EASTERN_THRACE
+						}
+					}
+					scope:target_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+				}
+				add = 1000
+			}
+			
 			if = {
 				limit = {
 					has_journal_entry = je_reconquer_china
@@ -914,9 +1035,7 @@ ai_strategy_default = {
 						c:AKN ?= this
 						has_variable = rejected_tob
 						any_scope_state = {
-							state_region = {
-								has_claim_by = root
-							}
+							has_claim_by = root
 						}
 					}
 				}
@@ -931,9 +1050,7 @@ ai_strategy_default = {
 						c:AKN ?= this
 						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
-							state_region = {
-								has_claim_by = root
-							}
+							has_claim_by = root
 						}
 					}
 				}
@@ -1640,6 +1757,27 @@ ai_strategy_default = {
 			add = 3
 		}	
 		
+		# Balkan wars participants should both be confident
+		if = {
+			limit = {
+				has_journal_entry = je_war_of_the_balkan_coalition_attacker
+				scope:target_country = {
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			add = 3
+		}
+		
+		if = {
+			limit = {
+				has_variable = je_war_of_the_balkan_coalition_attacker
+				scope:target_country = {
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			add = 3
+		}	
+		
 		if = {
 			limit = {
 				OR = {
@@ -1902,6 +2040,86 @@ ai_strategy_default = {
 			add = 200
 		}
 		
+		# Balkan war aggressor should be very, very aggressive against Ottomans
+		if = {
+			limit = {
+				has_variable = balkan_war_attacker
+				scope:target_country = {
+					c:TUR ?= this
+					has_journal_entry = je_war_of_the_balkan_coalition_defender
+				}
+			}
+			add = 200
+		}
+		
+		# Balkan attacker will get a coalition if they don't return Constantinople
+		if = {
+			limit = {
+				has_strategy = ai_strategy_maintain_power_balance
+				OR = {
+					has_variable = cyprus_convention
+					has_variable = crete_convention
+					has_variable = crimea_convention
+					has_variable = algiers_convention
+				}
+				scope:target_country = {
+					has_variable = constantinople_unlawful_territory
+					any_scope_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+				}
+			}
+			add = 200
+		}
+		
+		# General aggression increase against Ottomans in Balkan Crisis with high tension
+		if = {
+			limit = {
+				has_global_variable = balkan_crisis_main_var
+				trigger_if = {
+					limit = { has_global_variable = balkan_crisis_main_var }
+					global_var:balkan_crisis_main_var >= 50
+				}
+				country_is_in_europe = yes
+				country_rank >= rank_value:great_power
+				NOR = {
+					has_variable = cyprus_convention
+					has_variable = crete_convention
+					has_variable = crimea_convention
+					has_variable = algiers_convention
+				}
+				scope:target_country = {
+					c:TUR ?= this
+					has_journal_entry = je_balkan_crisis_tur
+				}
+			}
+			add = 50
+		}
+		
+		# General aggression increase against Ottomans in Balkan Crisis with high tension
+		if = {
+			limit = {
+				has_global_variable = balkan_crisis_main_var
+				trigger_if = {
+					limit = { has_global_variable = balkan_crisis_main_var }
+					global_var:balkan_crisis_main_var >= 100
+				}
+				country_is_in_europe = yes
+				country_rank >= rank_value:great_power
+				NOR = {
+					has_variable = cyprus_convention
+					has_variable = crete_convention
+					has_variable = crimea_convention
+					has_variable = algiers_convention
+				}
+				scope:target_country = {
+					c:TUR ?= this
+					has_journal_entry = je_balkan_crisis_tur
+				}
+			}
+			add = 50
+		}
+		
 		if = {
 			limit = {
 				has_journal_entry = je_reconquer_china
@@ -2068,9 +2286,7 @@ ai_strategy_default = {
 					c:AKN ?= this
 					has_variable = rejected_tob
 					any_scope_state = {
-						state_region = {
-							has_claim_by = root
-						}
+						has_claim_by = root
 					}
 				}
 			}
@@ -2085,9 +2301,7 @@ ai_strategy_default = {
 					c:AKN ?= this
 					has_modifier = treaty_of_baglar_2
 					any_scope_state = {
-						state_region = {
-							has_claim_by = root
-						}
+						has_claim_by = root
 					}
 				}
 			}
@@ -4844,6 +5058,7 @@ ai_strategy_default = {
 				add = 100
 			}
 			
+			
 			if = { # Ottomans and Safavids should no longer be buddy-buddy if Gunpowder Alliance is officially gone
 				limit = {
 					has_global_variable = gunpowder_alliance_disband
@@ -5436,6 +5651,74 @@ ai_strategy_default = {
 					}
 				}
 				add = 200
+			}
+			
+			# Balkan attacker will get a coalition if they don't return Constantinople
+			if = {
+				limit = {
+					has_strategy = ai_strategy_maintain_power_balance
+					OR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						has_variable = constantinople_unlawful_territory
+						any_scope_state = {
+							state_region = s:STATE_EASTERN_THRACE
+						}
+					}
+				}
+				add = 100
+			}
+			
+			# General aggression increase against Ottomans in Balkan Crisis with high tension
+			if = {
+				limit = {
+					has_global_variable = balkan_crisis_main_var
+					trigger_if = {
+						limit = { has_global_variable = balkan_crisis_main_var }
+						global_var:balkan_crisis_main_var >= 50
+					}
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+					NOR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						c:TUR ?= this
+						has_journal_entry = je_balkan_crisis_tur
+					}
+				}
+				add = 50
+			}
+			
+			# General aggression increase against Ottomans in Balkan Crisis with high tension
+			if = {
+				limit = {
+					has_global_variable = balkan_crisis_main_var
+					trigger_if = {
+						limit = { has_global_variable = balkan_crisis_main_var }
+						global_var:balkan_crisis_main_var >= 100
+					}
+					country_is_in_europe = yes
+					country_rank >= rank_value:great_power
+					NOR = {
+						has_variable = cyprus_convention
+						has_variable = crete_convention
+						has_variable = crimea_convention
+						has_variable = algiers_convention
+					}
+					scope:target_country = {
+						c:TUR ?= this
+						has_journal_entry = je_balkan_crisis_tur
+					}
+				}
+				add = 50
 			}
 			
 			if = {
@@ -7159,6 +7442,54 @@ ai_strategy_default = {
 					}
 					add = 25
 				}
+				
+				# General aggression increase against Ottomans in Balkan Crisis with high tension
+				if = {
+					limit = {
+						has_global_variable = balkan_crisis_main_var
+						trigger_if = {
+							limit = { has_global_variable = balkan_crisis_main_var }
+							global_var:balkan_crisis_main_var >= 50
+						}
+						country_is_in_europe = yes
+						country_rank >= rank_value:great_power
+						NOR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+						scope:target_country.top_overlord = {
+							c:TUR ?= this
+							has_journal_entry = je_balkan_crisis_tur
+						}
+					}
+					add = 50
+				}
+				
+				# General aggression increase against Ottomans in Balkan Crisis with high tension
+				if = {
+					limit = {
+						has_global_variable = balkan_crisis_main_var
+						trigger_if = {
+							limit = { has_global_variable = balkan_crisis_main_var }
+							global_var:balkan_crisis_main_var >= 100
+						}
+						country_is_in_europe = yes
+						country_rank >= rank_value:great_power
+						NOR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+						scope:target_country.top_overlord = {
+							c:TUR ?= this
+							has_journal_entry = je_balkan_crisis_tur
+						}
+					}
+					add = 50
+				}
 
 				# Relations with subject
 				multiply = {
@@ -7247,6 +7578,54 @@ ai_strategy_default = {
 							has_strategy = ai_strategy_nationalist_agenda
 							has_strategy = ai_strategy_progressive_agenda
 							has_strategy = ai_strategy_egalitarian_agenda
+						}
+					}
+					add = 50
+				}
+				
+				# General aggression increase against Ottomans in Balkan Crisis with high tension
+				if = {
+					limit = {
+						has_global_variable = balkan_crisis_main_var
+						trigger_if = {
+							limit = { has_global_variable = balkan_crisis_main_var }
+							global_var:balkan_crisis_main_var >= 50
+						}
+						country_is_in_europe = yes
+						country_rank >= rank_value:great_power
+						NOR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+						scope:target_country = {
+							c:TUR ?= this
+							has_journal_entry = je_balkan_crisis_tur
+						}
+					}
+					add = 50
+				}
+				
+				# General aggression increase against Ottomans in Balkan Crisis with high tension
+				if = {
+					limit = {
+						has_global_variable = balkan_crisis_main_var
+						trigger_if = {
+							limit = { has_global_variable = balkan_crisis_main_var }
+							global_var:balkan_crisis_main_var >= 100
+						}
+						country_is_in_europe = yes
+						country_rank >= rank_value:great_power
+						NOR = {
+							has_variable = cyprus_convention
+							has_variable = crete_convention
+							has_variable = crimea_convention
+							has_variable = algiers_convention
+						}
+						scope:target_country = {
+							c:TUR ?= this
+							has_journal_entry = je_balkan_crisis_tur
 						}
 					}
 					add = 50

@@ -26,3 +26,7 @@
  notification_new_homeland_name: "[SCOPE.sState('new_homeland_state').GetName] is now our [concept_homeland]"
  notification_new_homeland_desc: "[SCOPE.sState('new_homeland_state').GetName] has been populated by enough of the [SCOPE.sCulture('primary_culture').GetName] people to be considered a [SCOPE.sCulture('primary_culture').GetName] [concept_homeland]."
  notification_new_homeland_tooltip: "#header $notification_new_homeland_name$#!\n$TOOLTIP_DELIMITER$\n$notification_new_homeland_desc$"
+ 
+ notification_country_intervened_in_balkans_crisis_notification_name: "[SCOPE.sCountry('balkan_intervention_scope').GetName] announced their interest in the Balkan Crisis"
+ notification_country_intervened_in_balkans_crisis_notification_desc: "[SCOPE.sCountry('balkan_intervention_scope').GetName] has laid stakes in the #bold Balkan Crisis#! brewing in [SCOPE.sCountry('tur_scope').GetName], hinting at a possible [SCOPE.sCountry('balkan_intervention_scope').GetAdjectiveNoFormatting] intervention."
+ notification_country_intervened_in_balkans_crisis_notification_tooltip: "#header $notification_country_intervened_in_balkans_crisis_notification_name$#!\n$TOOLTIP_DELIMITER$\n$notification_country_intervened_in_balkans_crisis_notification_desc$"

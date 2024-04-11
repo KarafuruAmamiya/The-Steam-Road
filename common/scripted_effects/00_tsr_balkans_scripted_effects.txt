@@ -1,0 +1,221 @@
+﻿calculate_balkan_unrest = {
+	set_global_variable = { name = balkan_crisis_main_var_next value = 0 }
+	#Greek Unrest
+	set_global_variable = { name = balkan_unrest_from_greeks value = 0 }
+	set_variable = { name = greek_states_pop_total value = 0 }
+	set_variable = { name = greek_states_radicals_total value = 0 }
+	
+	every_scope_state = {
+		limit = {
+			state_region = {
+				is_homeland = cu:greek
+			}
+		}
+		set_variable = { name = greek_state_pop_radicals value = this.turmoil }
+		change_variable = { name = greek_state_pop_radicals multiply = this.state_population }
+		ROOT = {
+			change_variable = { name = greek_states_pop_total add = prev.state_population }
+			change_variable = { name = greek_states_radicals_total add = prev.var:greek_state_pop_radicals }
+		}
+	}
+	set_variable = { name = greek_states_radicals_total_bar value = var:greek_states_radicals_total }
+	change_variable = { name = greek_states_radicals_total_bar divide = var:greek_states_pop_total }
+	change_variable = { name = greek_states_radicals_total_bar multiply = 10 }
+	change_global_variable = { name = balkan_unrest_from_greeks add = var:greek_states_radicals_total_bar }
+	
+	#Serbian Unrest
+	set_global_variable = { name = balkan_unrest_from_serbs value = 0 }
+	set_variable = { name = serb_states_pop_total value = 0 }
+	set_variable = { name = serb_states_radicals_total value = 0 }
+	
+	every_scope_state = {
+		limit = {
+			state_region = {
+				is_homeland = cu:serb
+			}
+		}
+		set_variable = { name = serb_state_pop_radicals value = this.turmoil }
+		change_variable = { name = serb_state_pop_radicals multiply = this.state_population }
+		ROOT = {
+			change_variable = { name = serb_states_pop_total add = prev.state_population }
+			change_variable = { name = serb_states_radicals_total add = prev.var:serb_state_pop_radicals }
+		}
+	}
+	set_variable = { name = serb_states_radicals_total_bar value = var:serb_states_radicals_total }
+	change_variable = { name = serb_states_radicals_total_bar divide = var:serb_states_pop_total }
+	change_variable = { name = serb_states_radicals_total_bar multiply = 10 }
+	change_global_variable = { name = balkan_unrest_from_serbs add = var:serb_states_radicals_total_bar }
+	
+	#Croatian Unrest
+	set_global_variable = { name = balkan_unrest_from_croats value = 0 }
+	set_variable = { name = croat_states_pop_total value = 0 }
+	set_variable = { name = croat_states_radicals_total value = 0 }
+	
+	every_scope_state = {
+		limit = {
+			state_region = {
+				is_homeland = cu:croat
+			}
+		}
+		set_variable = { name = croat_state_pop_radicals value = this.turmoil }
+		change_variable = { name = croat_state_pop_radicals multiply = this.state_population }
+		ROOT = {
+			change_variable = { name = croat_states_pop_total add = prev.state_population }
+			change_variable = { name = croat_states_radicals_total add = prev.var:croat_state_pop_radicals }
+		}
+	}
+	set_variable = { name = croat_states_radicals_total_bar value = var:croat_states_radicals_total }
+	change_variable = { name = croat_states_radicals_total_bar divide = var:croat_states_pop_total }
+	change_variable = { name = croat_states_radicals_total_bar multiply = 10 }
+	change_global_variable = { name = balkan_unrest_from_croats add = var:croat_states_radicals_total_bar }
+	
+	#Bulgarian Unrest
+	set_global_variable = { name = balkan_unrest_from_bulgarians value = 0 }
+	set_variable = { name = bulgarian_states_pop_total value = 0 }
+	set_variable = { name = bulgarian_states_radicals_total value = 0 }
+	
+	every_scope_state = {
+		limit = {
+			state_region = {
+				is_homeland = cu:bulgarian
+			}
+		}
+		set_variable = { name = bulgarian_state_pop_radicals value = this.turmoil }
+		change_variable = { name = bulgarian_state_pop_radicals multiply = this.state_population }
+		ROOT = {
+			change_variable = { name = bulgarian_states_pop_total add = prev.state_population }
+			change_variable = { name = bulgarian_states_radicals_total add = prev.var:bulgarian_state_pop_radicals }
+		}
+	}
+	set_variable = { name = bulgarian_states_radicals_total_bar value = var:bulgarian_states_radicals_total }
+	change_variable = { name = bulgarian_states_radicals_total_bar divide = var:bulgarian_states_pop_total }
+	change_variable = { name = bulgarian_states_radicals_total_bar multiply = 10 }
+	change_global_variable = { name = balkan_unrest_from_bulgarians add = var:bulgarian_states_radicals_total_bar }
+	
+	# From Laws
+	set_global_variable = { name = balkan_unrest_from_laws value = 0 }
+	# Cops
+	set_variable = { name = temp_policing_var_contribution value = institution:institution_police.investment }
+	if = {
+		limit = {
+			has_law = law_type:law_no_police
+		}
+		change_variable = { name = temp_policing_var_contribution add = 0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_local_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_dedicated_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_militarized_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.5 }
+	}
+	# Internal Affairs
+	set_variable = { name = temp_ha_var_contribution value = institution:institution_home_affairs.investment }
+	if = {
+		limit = {
+			has_law = law_type:law_no_home_affairs
+		}
+		change_variable = { name = temp_ha_var_contribution add = 0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_guaranteed_liberties
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_national_guard
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law = law_type:law_secret_police
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.5 }
+	}
+	change_global_variable = { name = balkan_unrest_from_laws add = var:temp_policing_var_contribution }
+	change_global_variable = { name = balkan_unrest_from_laws add = var:temp_ha_var_contribution }
+	remove_variable = temp_policing_var_contribution
+	remove_variable = temp_ha_var_contribution
+	
+	# Compilation
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_from_greeks }
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_from_serbs }
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_from_croats }
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_from_bulgarians }
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_from_laws }
+	change_global_variable = { name = balkan_crisis_main_var_next add = global_var:balkan_unrest_var_add }
+}
+
+add_balkan_crisis_var = {
+	change_global_variable = { name = balkan_crisis_main_var add = global_var:balkan_crisis_main_var_next }
+	change_variable = { name = greek_states_radicals_total_bar multiply = 10 }
+	change_variable = { name = greek_states_radicals_total_final add = var:greek_states_radicals_total_bar }
+	change_variable = { name = serb_states_radicals_total_bar multiply = 10 }
+	change_variable = { name = serb_states_radicals_total_final add = var:serb_states_radicals_total_bar }
+	change_variable = { name = croat_states_radicals_total_bar multiply = 10 }
+	change_variable = { name = croat_states_radicals_total_final add = var:croat_states_radicals_total_bar }
+	change_variable = { name = bulgarian_states_radicals_total_bar multiply = 10 }
+	change_variable = { name = bulgarian_states_radicals_total_final add = var:bulgarian_states_radicals_total_bar }
+	clamp_variable = {
+		name = greek_states_radicals_total_final
+		max = 50
+		min = 0
+	}
+	clamp_variable = {
+		name = serb_states_radicals_total_final
+		max = 50
+		min = 0
+	}
+	clamp_variable = {
+		name = croat_states_radicals_total_final
+		max = 50
+		min = 0
+	}
+	clamp_variable = {
+		name = bulgarian_states_radicals_total_final
+		max = 50
+		min = 0
+	}
+}
+
+set_balkan_crisis_vars = {
+	set_variable = { name = greek_states_radicals_total_bar value = 0 }
+	set_variable = { name = serb_states_radicals_total_bar value = 0 }
+	set_variable = { name = croat_states_radicals_total_bar value = 0 }
+	set_variable = { name = bulgarian_states_radicals_total_bar value = 0 }
+	set_global_variable = { name = balkan_unrest_from_greeks value = 0 }
+	set_global_variable = { name = balkan_unrest_from_serbs value = 0 }
+	set_global_variable = { name = balkan_unrest_from_croats value = 0 }
+	set_global_variable = { name = balkan_unrest_from_bulgarians value = 0 }
+	set_global_variable = { name = balkan_unrest_from_laws value = 0 }
+	set_global_variable = { name = balkan_unrest_var_add value = 0 }
+}
+
+clear_balkan_crisis_vars = {
+	remove_variable = greek_states_radicals_total_bar
+	remove_variable = serb_states_radicals_total_bar
+	remove_variable = croat_states_radicals_total_bar
+	remove_variable = bulgarian_states_radicals_total_bar
+	remove_global_variable = balkan_unrest_from_greeks
+	remove_global_variable = balkan_unrest_from_serbs
+	remove_global_variable = balkan_unrest_from_croats
+	remove_global_variable = balkan_unrest_from_bulgarians
+	remove_global_variable = balkan_unrest_from_laws
+	remove_global_variable = balkan_unrest_var_add
+	remove_global_variable = balkan_crisis_main_var_next
+	
+}

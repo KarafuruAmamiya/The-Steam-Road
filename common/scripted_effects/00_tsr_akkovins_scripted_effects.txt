@@ -594,24 +594,6 @@
 			}
 		}
 	}
-	if = {
-		limit = {
-			any_state = {
-				state_region = s:STATE_KUBAN
-				state_region = {
-					NOT = { is_homeland = cu:ukrainian }
-				}
-			}
-		}
-		random_state = {
-			limit = {
-				state_region = s:STATE_KUBAN
-			}
-			state_region = {
-				add_homeland = cu:ukrainian
-			}
-		}
-	}
 	every_scope_state = {
 		limit = {
 			NOT = {

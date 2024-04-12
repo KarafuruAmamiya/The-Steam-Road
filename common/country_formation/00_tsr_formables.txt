@@ -122,37 +122,18 @@ MVR = { # Great Moravia
 	}
 }
 
-DPR = { # Dnieperia
-	states = {
-		STATE_KIEV
-		STATE_CHERNIGOV
-		STATE_VITEBSK
-		STATE_MOGILEV
-		STATE_GOMEL
-		STATE_MINSK
-		STATE_SMOLENSK
-		STATE_ORYOL
-		STATE_KALUG
-		STATE_TAURIDA
-		STATE_EKATERINOSLAV
-		STATE_CHERSON
-		STATE_VOLHYNIA
-		STATE_PODOLIA
-		STATE_POLTAVA
-		STATE_KHARKOV
-		STATE_KURSK
-		STATE_EAST_GALICIA
-	}
+RUT = { # Ruthenia
+	use_culture_states = yes
 
 	required_states_fraction = 0.8
 	
 	ai_will_do = { always = yes }
 
 	possible = {
-		OR = {      
-			country_has_primary_culture = cu:ukrainian
-			country_has_primary_culture = cu:byelorussian
-			country_has_primary_culture = cu:russian
+		is_subject = no
+		OR = {
+			c:UKR ?= this
+			c:BYE ?= this
 		}
 	}
 }

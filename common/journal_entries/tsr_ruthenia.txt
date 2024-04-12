@@ -1,0 +1,366 @@
+﻿je_ruthenian_identity = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	
+	group = je_group_tsr_content
+
+	is_shown_when_inactive = {
+		OR = {
+			country_has_primary_culture = cu:ruthenian
+			country_has_primary_culture = cu:cossack
+		}
+		NOR = {
+			c:GAL ?= this
+			c:LIT ?= this
+		}
+	}
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:ruthenian
+			country_has_primary_culture = cu:cossack
+		}	
+	}
+ 
+	complete = {		
+		any_country = {
+			filter = {
+				OR = {
+					country_has_primary_culture = cu:ruthenian
+					country_has_primary_culture = cu:cossack				
+				}
+				NOR = {
+					c:GAL ?= this
+					c:LIT ?= this
+				}
+			}
+			has_technology_researched = nationalism	
+			percent >= 0.75
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = ruthenian_events.1 } # Ruthenian National Identity
+		show_as_tooltip = {
+			add_journal_entry = { id = je_ruthenian_identity_emergence }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_ruthenian_identity_status
+			}
+		}
+	}
+
+	weight = 1000
+	should_be_pinned_by_default = yes
+}
+
+je_ruthenian_identity_emergence = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_tsr_content
+
+	immediate = {
+		set_national_identity_vars = yes
+		set_variable = { name = national_identity_progress_var value = 0 }
+		calculate_national_identity_progress = yes
+		if = {
+			limit = {
+				c:PLT ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:byelorussian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:CHR ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SMO ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:byelorussian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:ZAP ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SLB ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:DON ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		trigger_event = { id = ruthenian_events.2 popup = yes }
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			calculate_national_identity_progress = yes
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			add_national_identity_progress = yes
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		clear_national_identity_vars = yes
+		trigger_event = {
+			id = ruthenian_events.3 popup = yes
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					c:PLT ?= this
+				}
+				add_primary_culture = cu:byelorussian
+				remove_primary_culture = cu:ruthenian
+			}
+			if = {
+				limit = {
+					c:CHR ?= this
+				}
+				add_primary_culture = cu:ukrainian
+				remove_primary_culture = cu:ruthenian
+			}
+			if = {
+				limit = {
+					c:SMO ?= this
+				}
+				add_primary_culture = cu:byelorussian
+				remove_primary_culture = cu:ruthenian
+			}
+			if = {
+				limit = {
+					c:ZAP ?= this
+				}
+				add_primary_culture = cu:ukrainian
+			}
+			if = {
+				limit = {
+					c:SLB ?= this
+				}
+				add_primary_culture = cu:ukrainian
+			}
+			if = {
+				limit = {
+					c:DON ?= this
+				}
+				add_primary_culture = cu:ukrainian
+			}
+		}
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = completed_pan_national_project_tt
+			c:RUT ?= this
+		}
+	}
+
+	current_value = {
+		value = root.var:national_identity_progress_var
+	}
+
+	goal_add_value = {
+		add = 100
+	}
+
+	weight = 100
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+
+je_ukraine_belarus_national_identity = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_tsr_content
+
+	# Now activated by event
+
+	modifiers_while_active = {
+		modifier_assimilation_nnc
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				c:PLT ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:byelorussian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:CHR ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SMO ?= this
+			}
+			cu:ruthenian = {
+				save_scope_as = old_national_culture
+			}
+			cu:byelorussian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:ZAP ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SLB ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:DON ?= this
+			}
+			cu:cossack = {
+				save_scope_as = old_national_culture
+			}
+			cu:ukrainian = {
+				save_scope_as = new_national_culture
+			}
+		}
+	}
+
+	complete = {
+		NOT = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:ruthenian
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		trigger_event = {
+			id = ruthenian_events.4
+		}
+		add_loyalists = {
+			value = large_radicals
+			culture = scope:new_national_culture
+		}
+	}
+
+	scripted_button = je_ukraine_belarus_national_identity_integrate_a_state
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}
+
+je_ukrainian_unification = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	group = je_group_tsr_content
+
+	complete = {
+		c:UKR ?= THIS
+	}
+
+	on_complete = {
+		trigger_event = { id = ruthenian_events.5 popup = yes }
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}
+
+je_byelorussian_expansion = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	group = je_group_tsr_content
+
+	complete = {
+		c:BYE ?= THIS
+	}
+
+	on_complete = {
+		trigger_event = { id = ruthenian_events.6 popup = yes }
+	}
+
+	weight = 100
+	should_be_pinned_by_default = yes
+}

@@ -61,24 +61,6 @@ TUN = { # Tunisia
 	}
 }
 
-BYE = { # Belarus
-	dynamic_country_name = { # Polotsk
-		name = dyn_c_polotsk
-		adjective = dyn_c_polotsk_adj
-		
-		is_main_tag_only = yes
-		priority = 5
-		
-		trigger = {
-			exists = scope:actor
-			scope:actor ?= { 
-				NOT = { has_technology_researched = nationalism }
-				is_subject_of = c:TUR
-			}
-		}
-	}
-}
-
 UKR = { # Ukraine
 	dynamic_country_name = { # Kiev
 		name = dyn_c_kiev
@@ -859,6 +841,40 @@ LAE = { # Constantinople
 			exists = scope:actor
 			scope:actor ?= {
 				has_law = law_type:law_council_republic
+			}
+		}
+	}
+}
+
+ZAP = { # Zaporizhia
+	dynamic_country_name = { # Zaporizhian Host
+		name = dyn_c_zaporizhian_cossack
+		adjective = ZAP_ADJ
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { 
+				NOT = { has_technology_researched = nationalism }
+			}
+		}
+	}
+}
+
+SLB = { # Sloboda Ukraine
+	dynamic_country_name = { # Slobodan Host
+		name = dyn_c_slobodan_cossack
+		adjective = SLB_ADJ
+		
+		is_main_tag_only = yes
+		priority = 5
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { 
+				NOT = { has_technology_researched = nationalism }
 			}
 		}
 	}

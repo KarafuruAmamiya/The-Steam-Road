@@ -145,24 +145,6 @@
 				add_ideology = ideology_shinto_moralist
 			}
 		}
-		# Russian Orthodox Church
-		else_if = {
-			limit = {
-				country_has_state_religion = rel:orthodox
-				OR = {
-					country_has_primary_culture = cu:russian
-					country_has_primary_culture = cu:byelorussian
-					country_has_primary_culture = cu:ukrainian
-					country_has_primary_culture = cu:ruthenian
-					country_has_primary_culture = cu:cossack
-				}
-			}
-			ig:ig_devout = {
-				set_interest_group_name = ig_orthodox_church
-				remove_ideology = ideology_patriarchal
-				add_ideology = ideology_russian_patriarch
-			}
-		}
 		# Confucian Scholars
 		else_if = {
 			limit = {
@@ -251,13 +233,6 @@
 		else_if = {
 			limit = { 
 				country_has_state_religion = rel:orthodox
-				NOR = {
-					country_has_primary_culture = cu:russian
-					country_has_primary_culture = cu:byelorussian
-					country_has_primary_culture = cu:ukrainian
-					country_has_primary_culture = cu:ruthenian
-					country_has_primary_culture = cu:cossack
-				}
 			}
 			ig:ig_devout = { 
 				set_interest_group_name = ig_orthodox_church
@@ -602,25 +577,6 @@
 		}
 		
 		add = {
-			desc = "ideology_russian_patriarch"
-			if = {
-				limit = { 
-					OR = {
-						is_pop_type = aristocrats
-						is_pop_type = clergymen
-						is_pop_type = peasants
-					}
-					owner = {
-						ig:ig_devout = {
-							has_ideology = ideology:ideology_russian_patriarch
-						}
-					}
-				}
-				value = 50
-			}
-		}
-		
-		add = {
 			desc = "ideology_orthodox_patriarch"
 			if = {
 				limit = { 
@@ -629,6 +585,7 @@
 						is_pop_type = clergymen
 						is_pop_type = peasants
 					}
+					NOT = { culture = cu:cossack }
 					owner = {
 						ig:ig_devout = {
 							has_ideology = ideology:ideology_orthodox_patriarch

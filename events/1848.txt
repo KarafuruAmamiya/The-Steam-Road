@@ -180,6 +180,14 @@
 			}
 			else_if = {
 				limit = {
+					owner ?= {
+						country_has_primary_culture = cu:cossack
+					}
+				}
+				add_ideology = ideology_cossack_paternalistic
+			}
+			else_if = {
+				limit = {
 					owner = {
 						has_law = law_type:law_theocracy
 						country_has_state_religion = rel:catholic

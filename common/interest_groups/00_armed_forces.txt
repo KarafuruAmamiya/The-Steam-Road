@@ -79,6 +79,15 @@
 				set_interest_group_name = ig_samurai
 			}
 		}
+		# Cossacks
+		if = {
+			limit = {
+				country_has_primary_culture = cu:cossack
+			}
+			ig:ig_armed_forces = {
+				add_ideology = ideology_cossack_paternalistic
+			}
+		}
 	}
 	on_disable = {}
 	on_character_ig_membership = {}
@@ -415,6 +424,21 @@
 					}
 				}
 				value = 100
+			}
+		}
+		
+		add = { # Cossack pops
+			desc = "cossack"
+			if = {
+				limit = { 
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = soldiers
+						is_pop_type = officers
+					}
+					culture = cu:cossack
+				}
+				value = 200
 			}
 		}
 

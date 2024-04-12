@@ -139,6 +139,19 @@ GLOBAL = {
 			add_ideology = ideology_segregationist
 		}
 	}
+	every_country = {
+		limit = {
+			country_has_primary_culture = cu:cossack
+		}
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			remove_ideology = ideology_republican_paternalistic
+			add_ideology = ideology_cossack_paternalistic
+		}
+		ig:ig_armed_forces = {
+			add_ideology = ideology_cossack_paternalistic
+		}
+	}
 	# Revolution Safety Check
 	every_country = {
 		limit = {

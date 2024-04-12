@@ -2866,6 +2866,13 @@ on_war_end = {
 		        days = 1825
 		        value = yes
 		    } 
+			if = {
+				limit = {
+					has_modifier = opium_wars_modifier
+					has_truce_with = c:PER
+				}
+				remove_modifier = opium_wars_modifier
+			}
 		    #set_variable = { #Available to use whenever needed
 		    #	name = most_recent_war_opponent
 		    #	value = scope:target

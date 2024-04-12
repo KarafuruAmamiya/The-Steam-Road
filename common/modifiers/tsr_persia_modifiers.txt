@@ -74,14 +74,15 @@ opium_wars_addiction_modifier = {
     state_loyalists_from_sol_change_mult = -0.25
     state_standard_of_living_add = -1
 	state_mortality_mult = 0.01
+	state_conscription_rate_add = -0.05 # VTM
 }
 
-opium_wars_modifier = {
+opium_wars_modifier = { #Temporary super-buff until better naval warfare/limited war
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_offense_mult = 0.25
-	unit_defense_mult = 0.25
-	unit_morale_damage_mult = 0.25
-	country_war_exhaustion_casualties_mult = -0.25
+	unit_offense_mult = 0.5
+	unit_defense_mult = 0.5
+	unit_morale_loss_mult = -0.75
+	country_war_exhaustion_casualties_mult = -1
 }
 
 opium_wars_navy_modifier = {

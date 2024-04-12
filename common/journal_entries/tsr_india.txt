@@ -4,20 +4,13 @@
 
 	complete = {
 		NOT = { exists = c:GUJ }
-		any_scope_state = {
-			filter = {
-				state_is_in_india = yes
-			}
-			turmoil < 0.5
-			percent >= 0.9
-		}
 		owns_entire_state_region = STATE_GUJARAT
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 	}
 
 	on_complete = {
-		trigger_event = { id = raj.1 days = 0 popup = yes }
+		trigger_event = { id = raj.1 days = 7 popup = yes }
 		add_modifier = {
 			name = company_crushed_mutiny
 			months = normal_modifier_time
@@ -67,7 +60,10 @@ je_surat_riots = {
     }
 	
     possible = {
-		game_date > 1856.1.1 #Technically caused by Persia having free trade post-Opium Wars, but it unfortunately didn't trigger :\
+		OR = {
+			game_date >= 1856.1.1
+			has_law = law_type:law_free_trade
+		}
 		any_scope_state = {
 			filter = {
 				OR = {
@@ -80,7 +76,6 @@ je_surat_riots = {
 		}
 		OR = {
 			has_law = law_type:law_commercialized_agriculture
-			has_law = law_type:law_free_trade
 			tax_level >= high
 			any_subject_or_below = {
 				country_is_in_india = yes

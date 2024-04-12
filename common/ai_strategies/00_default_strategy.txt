@@ -56,6 +56,30 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
 		value = 50
+		
+		# Ottomans: screw this im outta here
+		if = {
+			limit = {
+				c:TUR ?= this
+				any_diplomatic_play = {
+					is_diplomatic_play_type = dp_opium_wars
+					target_is = c:PER
+				}
+			}
+			add = 100
+		}
+		
+		# Persia returns the sentiment
+		if = {
+			limit = {
+				c:PER ?= this
+				any_diplomatic_play = {
+					target_is = c:TUR
+				}
+				c:TUR ?= { has_journal_entry = je_balkan_crisis_tur }
+			}
+			add = 100
+		}
 
 		#GPs don't want to get involved with too many other GPs in the early game
 		if = {
@@ -249,48 +273,6 @@ ai_strategy_default = {
 			}
 			add = 1000
 		}
-		
-		# Opium wars participants should both be confident
-		if = {
-			limit = {
-				has_journal_entry = je_opium_wars
-				scope:target_country = {
-					has_variable = opium_wars_exporter
-				}
-			}
-			add = 1000
-		}
-		
-		if = {
-			limit = {
-				has_variable = opium_wars_exporter
-				scope:target_country = {
-					has_journal_entry = je_opium_wars
-				}
-			}
-			add = 1000
-		}	
-		
-		# Balkan wars participants should both be confident
-		if = {
-			limit = {
-				has_journal_entry = je_war_of_the_balkan_coalition_attacker
-				scope:target_country = {
-					has_journal_entry = je_war_of_the_balkan_coalition_defender
-				}
-			}
-			add = 1000
-		}
-		
-		if = {
-			limit = {
-				has_variable = je_war_of_the_balkan_coalition_attacker
-				scope:target_country = {
-					has_journal_entry = je_war_of_the_balkan_coalition_defender
-				}
-			}
-			add = 1000
-		}	
 		
 		# unite against french aggression
 			if = {
@@ -1742,7 +1724,7 @@ ai_strategy_default = {
 					has_variable = opium_wars_exporter
 				}
 			}
-			add = 3
+			add = 1
 		}
 		
 		if = {
@@ -1752,7 +1734,7 @@ ai_strategy_default = {
 					has_journal_entry = je_opium_wars
 				}
 			}
-			add = 3
+			add = 1
 		}	
 		
 		# Balkan wars participants should both be confident
@@ -1763,7 +1745,7 @@ ai_strategy_default = {
 					has_journal_entry = je_war_of_the_balkan_coalition_defender
 				}
 			}
-			add = 3
+			add = 1
 		}
 		
 		if = {
@@ -1773,7 +1755,7 @@ ai_strategy_default = {
 					has_journal_entry = je_war_of_the_balkan_coalition_defender
 				}
 			}
-			add = 3
+			add = 1
 		}	
 		
 		if = {
@@ -4648,6 +4630,17 @@ ai_strategy_default = {
 				add = -1000
 			}
 			
+			# Opium victims will never reconcile with Safavids
+			if = {
+				limit = {
+					has_journal_entry = je_opium_wars
+					scope:target_country = {
+						has_variable = opium_wars_exporter
+					}
+				}
+				add = -1000
+			}
+			
 			if = {
 				limit = {
 					OR = {
@@ -5035,16 +5028,6 @@ ai_strategy_default = {
 					}
 				}
 				add = 500
-			}
-			
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_exporter
-					}
-				}
-				add = 100
 			}
 			
 			
@@ -7108,16 +7091,6 @@ ai_strategy_default = {
 				}
 				add = 50
 			}			
-
-			if = {
-				limit = {
-					has_journal_entry = je_opium_wars
-					scope:target_country = {
-						has_variable = opium_wars_exporter
-					}
-				}
-				add = 1000
-			}
 
 			if = {
 				limit = {

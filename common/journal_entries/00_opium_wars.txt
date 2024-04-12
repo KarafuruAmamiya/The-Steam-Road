@@ -88,34 +88,15 @@ je_opium_wars = {
 	group = je_group_foreign_affairs
 	
 	complete = {
-		OR = {
-			NOT = { exists = c:PER }
-			AND = {
-				exists = c:PER
-				any_scope_state = {
-					state_region = {
-						is_homeland = cu:persian
-					}
-					NOT = { owner = c:PER }
-				}
-				is_banning_goods = opium
-			}
+		NOT = {
+			c:PER ?= { owns_entire_state_region = STATE_MOGOSTAN }
 		}
 	}
 
 	on_complete = {
-		if = {
-			limit = {
-				any_scope_state = {
-					state_region = {
-						is_homeland = cu:persian
-					}
-				}
-			}
-			trigger_event = {
-				id = opium_wars.4
-				days = 5
-			}
+		trigger_event = {
+			id = opium_wars.4
+			days = 5
 		}
 		hidden_effect = {
 			c:PER = {
@@ -128,15 +109,9 @@ je_opium_wars = {
 	}
 
 	fail = {
-		custom_tooltip = {
-			text = opium_wars_fail_tt
-			AND = {
-				exists = c:PER
-				has_diplomatic_pact = {
-					who = c:PER
-					type = war_reparations
-				}
-			}
+		has_diplomatic_pact = {
+			who = c:PER
+			type = war_reparations
 		}
 	}
 
@@ -163,6 +138,17 @@ je_opium_wars = {
 				}
 				remove_variable = opium_wars_exporter
 			}
+		}
+	}
+	
+	invalid = {
+		NOT = { exists = c:PER }
+	}
+	
+	on_invalid = {
+		custom_tooltip = {
+			text = opium_wars_fail_invalid_tt
+			remove_variable = opium_wars_aggressor
 		}
 	}
 

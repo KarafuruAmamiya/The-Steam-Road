@@ -416,17 +416,13 @@ opium_wars.4 = {
 				limit = {
 					has_variable = opium_wars_aggressor
 					any_scope_state = {
-						state_region = {
-							is_homeland = cu:persian
-						}
+						state_region = s:STATE_MOGOSTAN
 					}
 				}
 				save_scope_as = opium_wars_treaty_port_winner
 				random_scope_state = {
 					limit = {
-						state_region = {
-							is_homeland = cu:persian
-						}
+						state_region = s:STATE_MOGOSTAN
 					}
 					save_scope_as = treaty_port_state
 				}
@@ -453,6 +449,12 @@ opium_wars.4 = {
 				NOT = { has_law = law_type:law_substances_banned }
 			}
 			activate_law = law_type:law_substances_banned
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_free_trade }
+			}
+			activate_law = law_type:law_free_trade
 		}
 		if = {
 			limit = {
@@ -485,13 +487,20 @@ opium_wars.4 = {
 	
 	option = {
 		name = opium_wars.4.b
-		trigger = { scope:opium_wars_treaty_port_winner ?= this }
+		trigger = { c:PER != this }
 		add_modifier = {
 			name = opium_wars_navy_modifier
 			months = normal_modifier_time
 		}
 		hidden_effect = {
-			trigger_event = { id = opium_wars.11 }
+			if = {
+				limit = {
+					any_scope_state = {
+						state_region = s:STATE_MOGOSTAN
+					}
+				}
+				trigger_event = { id = opium_wars.11 }
+			}
 		}
 		every_country = {
 			limit = {
@@ -499,7 +508,12 @@ opium_wars.4 = {
 			}
 			remove_modifier = opium_wars_modifier
 		}
-		remove_variable = opium_wars_aggressor
+		every_country = {
+			limit = {
+				has_variable = opium_wars_aggressor
+			}
+			remove_variable = opium_wars_aggressor
+		}
 	}
 }
 
@@ -866,6 +880,7 @@ opium_wars.9 = {
 				has_variable = opium_wars_aggressor
 				NOT = { this = root }
 				is_at_war = no
+				is_diplomatic_play_committed_participant = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_1
@@ -876,6 +891,7 @@ opium_wars.9 = {
 				NOT = { this = root }
 				NOT = { this = scope:opium_war_ally_1 }
 				is_at_war = no
+				is_diplomatic_play_committed_participant = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_2
@@ -887,6 +903,7 @@ opium_wars.9 = {
 				NOT = { this = scope:opium_war_ally_1 }
 				NOT = { this = scope:opium_war_ally_2 }
 				is_at_war = no
+				is_diplomatic_play_committed_participant = no
 				is_ai = yes
 			}
 			save_scope_as = opium_war_ally_3

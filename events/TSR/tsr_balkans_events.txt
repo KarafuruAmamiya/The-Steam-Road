@@ -36,8 +36,7 @@ balkan_crisis.1 = {
 						OR = {
 							has_diplomatic_relevance = c:TUR
 							has_interest_marker_in_region = region_greece
-							has_interest_marker_in_region = region_west_balkans
-							has_interest_marker_in_region = region_east_balkans
+							has_interest_marker_in_region = region_balkans
 						}
 						NOT = { THIS = ROOT }
 						OR = {
@@ -132,8 +131,7 @@ balkan_crisis.2 = {
 							c:TUR ?= this
 							has_diplomatic_relevance = c:TUR
 							has_interest_marker_in_region = region_greece
-							has_interest_marker_in_region = region_west_balkans
-							has_interest_marker_in_region = region_east_balkans
+							has_interest_marker_in_region = region_balkans
 						}
 					}
 					post_notification = country_intervened_in_balkans_crisis_notification

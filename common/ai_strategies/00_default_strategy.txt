@@ -908,8 +908,7 @@ ai_strategy_default = {
 					}
 					scope:target_state = {
 						OR = {
-							region = sr:region_west_balkans
-							region = sr:region_east_balkans
+							region = sr:region_balkans
 							region = sr:region_greece
 						}
 					}
@@ -939,8 +938,7 @@ ai_strategy_default = {
 					}
 					scope:target_state = {
 						OR = {
-							region = sr:region_west_balkans
-							region = sr:region_east_balkans
+							region = sr:region_balkans
 							region = sr:region_greece
 						}
 					}
@@ -3580,16 +3578,7 @@ ai_strategy_default = {
 				add = -1000
 			}
 		}
-		region_west_balkans = {
-			if = { #Stop New World minors from declaring interest in random places
-				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
-				}
-				add = -1000
-			}
-		}	
-		region_east_balkans = {
+		region_balkans = {
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
 					country_rank <= rank_value:great_power
@@ -3775,7 +3764,7 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_hungary = {
+		region_danubia = {
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
 					country_rank <= rank_value:great_power

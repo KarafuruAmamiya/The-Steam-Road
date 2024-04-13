@@ -1,4 +1,32 @@
-﻿gov_hre = {
+﻿gov_governorate = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_presidential_republic
+		OR = {
+			AND = {
+				exists = c:SWE
+				is_subject_of = c:SWE
+			}
+			AND = {
+				exists = c:SCA
+				is_subject_of = c:SCA
+			}
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_hre = {
 	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_KAISER"
@@ -10,7 +38,6 @@
 	possible = {
 		has_law = law_type:law_monarchy
 		has_modifier = hre_emperor
-		country_tier = empire
 		exists = c:SAX
 		c:SAX = ROOT
 	}
@@ -143,38 +170,6 @@ gov_electorate_theocracy = {
 	}
 	on_post_government_type_change = {
 		post_change_to_dictatorial = yes
-	}
-}
-
-gov_free_city = {
-	transfer_of_power = presidential_elective
-
-	male_ruler = "RULER_TITLE_BURGOMASTER"
-	female_ruler = "RULER_TITLE_BURGOMASTER"
-	
-	possible = {
-		OR = {
-			AND = { exists = c:ULM c:ULM = ROOT }
-			AND = { exists = c:ANH c:ANH = ROOT }
-			AND = { exists = c:RIG c:RIG = ROOT }
-			AND = { exists = c:MML c:MML = ROOT }
-			AND = { exists = c:GOS c:GOS = ROOT }
-			AND = { exists = c:MUL c:MUL = ROOT }
-			AND = { exists = c:COB c:COB = ROOT }
-			AND = { exists = c:REG c:REG = ROOT }
-		}
-		any_scope_state = {
-			count <= 1
-		}
-		has_law = law_type:law_presidential_republic
-		country_has_voting_franchise = yes
-	}
-	
-	on_government_type_change = {
-		change_to_presidential_elective = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
 	}
 }
 
@@ -335,7 +330,11 @@ gov_satrapies = {
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 		}
-		country_is_in_india = no
+		NOT = {
+			any_primary_culture = {
+				has_discrimination_trait = south_asian_heritage
+			}
+		}
 	}
 	
 	on_government_type_change = {
@@ -365,7 +364,9 @@ gov_indian_satrapies = {
 			is_subject_type = subject_type_puppet
 			is_subject_type = subject_type_dependency
 		}
-		country_is_in_india = yes
+		any_primary_culture = {
+			has_discrimination_trait = south_asian_heritage
+		}
 	}
 	
 	on_government_type_change = {
@@ -386,8 +387,7 @@ gov_special_satrapies_raj = {
 	female_heir = ""
 	
 	possible = {
-		c:RAJ ?= this
-		has_law = law_type:law_monarchy
+		c:RAJ ?= ROOT
 		exists = c:PER 
 		is_subject_of = c:PER 
 		c:PER = {
@@ -413,8 +413,10 @@ gov_special_satrapies_muslim = {
 	female_heir = "RULER_TITLE_CROWN_PRINCESS"
 	
 	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = south_asian_heritage
+		}
 		has_law = law_type:law_monarchy
-		country_is_in_india = yes
 		exists = c:PER 
 		is_subject_of = c:PER 
 		c:PER = {
@@ -445,9 +447,11 @@ gov_special_satrapies_hindu = {
 	female_heir = "RULER_TITLE_PRINCESS"
 	
 	possible = {
+		any_primary_culture = {
+			has_discrimination_trait = south_asian_heritage
+		}
 		has_law = law_type:law_monarchy
-		country_is_in_india = yes
-		exists = c:PER 
+		exists = c:PER
 		is_subject_of = c:PER 
 		c:PER = {
 			has_law = law_type:law_monarchy
@@ -475,7 +479,9 @@ gov_indian_kingdom = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_is_in_india = yes
+		any_primary_culture = {
+			has_discrimination_trait = south_asian_heritage
+		}
 		NOT = { is_subject_of = c:PER }
 		country_has_state_religion = rel:hindu
 	}
@@ -499,7 +505,9 @@ gov_indian_sultanate = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		country_is_in_india = yes
+		any_primary_culture = {
+			has_discrimination_trait = south_asian_heritage
+		}
 		NOT = { is_subject_of = c:PER }
 		OR = {
 			country_has_state_religion = rel:sunni
@@ -516,8 +524,7 @@ gov_indian_sultanate = {
 }
 
 gov_iberian_viceroyalty = {
-	transfer_of_power = presidential_elective
-	new_leader_on_reform_government = no
+	transfer_of_power = dictatorial
 
 	male_ruler = "RULER_TITLE_VICEROY"
 	female_ruler = "RULER_TITLE_VICEROY"
@@ -531,18 +538,21 @@ gov_iberian_viceroyalty = {
 			is_subject_type = subject_type_dependency
 		}
 		is_country_type = colonial
-		top_overlord = { NOT = { is_country_type = colonial } }
 		any_primary_culture = {
-			has_discrimination_trait = south_european_heritage
+			OR = {
+				has_discrimination_trait = western_european_heritage
+				has_discrimination_trait = eastern_european_heritage
+				has_discrimination_trait = south_european_heritage
+			}
 		}
 		country_is_in_europe = no
 	}
 	
 	on_government_type_change = {
-		change_to_presidential_elective = yes
+		change_to_dictatorial = yes
 	}
 	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
+		post_change_to_dictatorial = yes
 	}
 }
 
@@ -556,8 +566,7 @@ gov_puppet_shogunate = {
 	female_heir = "RULER_TITLE_HEIR_APPARENT"
 	
 	possible = {
-		exists = c:UES
-		c:UES = ROOT
+		c:UES ?= ROOT
 		has_law = law_type:law_monarchy
 		AND = { exists = c:FRA is_subject_of = c:FRA }
 	}
@@ -610,27 +619,9 @@ gov_hetmanate = {
         has_law = law_type:law_presidential_republic
         has_law = law_type:law_peasant_levies
         OR = {
-            AND = {
-                exists = c:SLB
-                c:SLB = ROOT
-            }
-            AND = {
-                exists = c:ZAP
-                c:ZAP = ROOT
-            }
-			AND = {
-                exists = c:DON
-                c:DON = ROOT
-            }
-			AND = {
-                exists = c:UKR
-                c:UKR = ROOT
-				OR = {
-					was_formed_from = ZAP
-					was_formed_from = SLB
-					was_formed_from = DON
-				}
-            }
+			c:SLB ?= ROOT
+			c:ZAP ?= ROOT
+			c:DON ?= ROOT
         }
     }
 	

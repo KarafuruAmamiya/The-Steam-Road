@@ -6,7 +6,15 @@ character_roles_hidden.1 = {
 	hidden = yes
 	trigger = {
 		has_law = law_type:law_presidential_republic
-		country_has_voting_franchise = yes
+		trigger_if = {
+			limit = { 
+				is_country_type = colonial 
+				is_subject = yes
+			}
+			overlord = {
+				is_country_type = colonial
+			}
+		}
 		NOT = { has_variable = vice_president }
 	}
 	immediate = {
@@ -30,7 +38,15 @@ character_roles_hidden.2 = {
 	hidden = yes
 	trigger = {
 		has_law = law_type:law_presidential_republic
-		country_has_voting_franchise = yes
+		trigger_if = {
+			limit = { 
+				is_country_type = colonial 
+				is_subject = yes
+			}
+			overlord = {
+				is_country_type = colonial
+			}
+		}
 		has_variable = vice_president
 		OR = {
 			NOT = { 
@@ -44,14 +60,14 @@ character_roles_hidden.2 = {
 		}
 	}
 	immediate = {
-	    if = {
-			limit = {
-				ruler = {
-				    has_variable = vice_president_trigger
-			    }
-			}
-			ruler = { remove_variable = vice_president_trigger }
-		}
+	    #if = {
+			#	limit = {
+			#		ruler = {
+			#			has_variable = vice_president_trigger
+			#		}
+			#	}
+			#	ruler = { remove_variable = vice_president_trigger }
+			#}
 		if = {
 			limit = {
 				any_scope_character = {
@@ -116,10 +132,18 @@ character_roles_hidden.3 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		NOT = {
-			AND = {
-				country_has_voting_franchise = yes
+		OR = {
+			NOT = {
 				has_law = law_type:law_presidential_republic
+			}
+			trigger_if = {
+				limit = { 
+					is_country_type = colonial 
+					is_subject = yes
+				}
+				overlord = {
+					NOT = { is_country_type = colonial }
+				}
 			}
 		}
 		has_variable = vice_president
@@ -144,7 +168,7 @@ character_roles_hidden.4 = {
 			has_law = law_type:law_monarchy
 			has_law = law_type:law_parliamentary_republic
 		}
-		country_has_voting_franchise = yes
+		NOT = { has_law = law_type:law_autocracy }
 		NOT = { has_variable = prime_minister }
 	}
 	immediate = {
@@ -183,7 +207,7 @@ character_roles_hidden.5 = {
 			has_law = law_type:law_monarchy
 			has_law = law_type:law_parliamentary_republic
 		}
-		country_has_voting_franchise = yes
+		NOT = { has_law = law_type:law_autocracy }
 		has_variable = prime_minister
 			NOT = { 
 				any_scope_character = {
@@ -240,7 +264,7 @@ character_roles_hidden.6 = {
 	trigger = {
 		NOT = {
 			AND = {
-				country_has_voting_franchise = yes
+				NOT = { has_law = law_type:law_autocracy }
 				OR = {
 					has_law = law_type:law_monarchy
 					has_law = law_type:law_parliamentary_republic

@@ -40,6 +40,16 @@
 			ig_leader = yes
 			interest_group = ig_landowners
 			ideology = ideology_jingoist_leader
+			
+			on_created = {
+				set_variable = prime_minister_trigger
+				owner = {
+					set_variable = {
+						name = prime_minister
+						value = PREV
+					}
+				}
+			}
 		}
 	}
 	c:ASK = {
@@ -765,6 +775,16 @@
 			traits = {
 				experienced_political_operator
 				tactful
+			}
+			
+			on_created = {
+				set_variable = prime_minister_trigger
+				owner = {
+					set_variable = {
+						name = prime_minister
+						value = PREV
+					}
+				}
 			}
 		}
 		

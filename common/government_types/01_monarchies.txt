@@ -108,6 +108,29 @@ gov_hawaiian_monarchy = {
 	}
 }
 
+gov_maharaja = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_MAHARAJA"
+	female_ruler = "RULER_TITLE_MAHARANI" 
+
+	male_heir = "RULER_TITLE_YUVARAJ"
+	female_heir = "RULER_TITLE_YUVARANI"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:PAN
+		c:PAN = ROOT
+	}	
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
 gov_tsardom = {
 	transfer_of_power = hereditary
 	
@@ -121,6 +144,26 @@ gov_tsardom = {
 		has_law = law_type:law_monarchy
 		exists = c:RUS
 		c:RUS = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_dey = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_DEY"
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		AND = { exists = c:ALD c:ALD = ROOT }
+		has_variable = algeria_deylik_restored
 	}
 
 	on_government_type_change = {
@@ -178,6 +221,26 @@ gov_sultanate = {
 			AND = { exists = c:TUN c:TUN = ROOT }
 		}
 	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_hakimate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_HAKIM"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		country_tier = principality
+		has_law = law_type:law_monarchy
+		exists = c:BHN
+		c:BHN = ROOT
+	}
 
 	on_government_type_change = {
 		change_to_hereditary = yes
@@ -223,6 +286,29 @@ gov_kongolese_kingdom = {
 		has_law = law_type:law_monarchy
 		exists = c:KON 
 		c:KON = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_sunanate = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SUSUHUNAN"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:SRK 
+		c:SRK = ROOT
 	}
 
 	on_government_type_change = {
@@ -362,7 +448,61 @@ gov_khedive = {
 		has_law = law_type:law_monarchy
 		exists = c:EGY
 		c:EGY = ROOT
-		has_variable = khedivate_conferred
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_vilayet = {								
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_VALI"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_MUTASARRIF"	# Governor of a Vilayet's subunit, the Sanjak, who would assume command in the Vali's absence
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:TRI
+		exists = c:TUR
+		c:TRI = ROOT
+		is_subject_of = c:TUR		
+	}		
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_shah = {
+	transfer_of_power = hereditary
+	
+	male_ruler = "RULER_TITLE_SHAH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:persian
+		NOT = { country_tier = empire }
+	}			
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
 	}
 }
 
@@ -379,9 +519,7 @@ gov_pashalik = {
 		has_law = law_type:law_monarchy
 		exists = c:EGY
 		c:EGY = ROOT
-		NOT = {
-			has_variable = khedivate_conferred
-		}
+		is_subject_of = c:TUR
 	}
 	
 	on_government_type_change = {
@@ -389,29 +527,6 @@ gov_pashalik = {
 	}
 	on_post_government_type_change = {
 		post_change_to_hereditary = yes
-	}
-}
-
-
-gov_vilayet = {								
-	transfer_of_power = dictatorial
-	
-	male_ruler = "RULER_TITLE_VALI"			# Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary. 
-	female_ruler = "" # Empty on purpose
-
-	male_heir = "RULER_TITLE_MUTASARRIF"	# Governor of a Vilayet's subunit, the Sanjak, who would assume command in the Vali's absence
-	female_heir = "" # Empty on purpose
-	
-	possible = {
-		exists = c:TUR
-		is_subject_of = c:TUR
-		NOR = {
-			country_has_state_religion = rel:orthodox
-			country_has_state_religion = rel:catholic
-			country_has_state_religion = rel:protestant
-			country_has_state_religion = rel:reformed
-			country_has_primary_culture = cu:kurdish 	#Kurds are set up to use Emir
-		}
 	}
 }
 
@@ -662,6 +777,32 @@ gov_khanate = {
 			AND = { exists = c:KOK c:KOK = ROOT }
 			AND = { exists = c:KAZ c:KAZ = ROOT }
 			AND = { exists = c:KAL c:KAL = ROOT }
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_zhuz = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SENIOR_SULTAN"
+	female_ruler = "RULER_TITLE_SENIOR_SULTANA"
+	
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			AND = { exists = c:UZH c:UZH = ROOT }
+			AND = { exists = c:KZH c:KZH = ROOT }
+			AND = { exists = c:OZH c:OZH = ROOT }
 		}
 	}
 

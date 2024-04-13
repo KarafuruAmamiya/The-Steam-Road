@@ -145,8 +145,16 @@ vfm_vice_presidents = {
 		if = { #Creates initial vice president if conditions met
 			limit = {
 				has_law = law_type:law_presidential_republic
-				country_has_voting_franchise = yes
 				NOT = { has_variable = vice_president }
+				trigger_if = {
+					limit = { 
+						is_country_type = colonial 
+						is_subject = yes
+					}
+					overlord = {
+						is_country_type = colonial
+					}
+				}
 			}
 			create_character = {
 				on_created = {
@@ -163,11 +171,19 @@ vfm_vice_presidents = {
 		if = { #Removes vice president if no longer presidential republic
 			limit = {
 				has_law = law_type:law_presidential_republic
-				country_has_voting_franchise = yes
 				has_variable = vice_president
 				NOT = { 
 					any_scope_character = {
 						has_variable = vice_president_trigger
+					}
+				}
+				trigger_if = {
+					limit = { 
+						is_country_type = colonial 
+						is_subject = yes
+					}
+					overlord = {
+						is_country_type = colonial
 					}
 				}
 			}
@@ -239,7 +255,20 @@ vfm_vice_presidents = {
 		if = { #Removes vice president if no longer presidential republic
 			limit = {
 				has_variable = vice_president
-				NOT = { has_law = law_type:law_presidential_republic }
+				OR = {
+					NOT = {
+						has_law = law_type:law_presidential_republic
+					}
+					trigger_if = {
+						limit = { 
+							is_country_type = colonial 
+							is_subject = yes
+						}
+						overlord = {
+							NOT = { is_country_type = colonial }
+						}
+					}
+				}
 			}
 			remove_variable = vice_president
 			random_scope_character = {
@@ -260,7 +289,7 @@ vfm_prime_ministers = {
 					has_law = law_type:law_monarchy
 					has_law = law_type:law_parliamentary_republic
 				}
-				country_has_voting_franchise = yes
+				NOT = { has_law = law_type:law_autocracy }
 				NOT = { has_variable = prime_minister }
 			}
 			random_scope_character = {
@@ -293,7 +322,7 @@ vfm_prime_ministers = {
 					has_law = law_type:law_monarchy
 					has_law = law_type:law_parliamentary_republic
 				}
-				country_has_voting_franchise = yes
+				NOT = { has_law = law_type:law_autocracy }
 				has_variable = prime_minister
 				NOT = { 
 					any_scope_character = {
@@ -344,11 +373,11 @@ vfm_prime_ministers = {
 			limit = {
 				NOT = {
 					AND = {
-						country_has_voting_franchise = yes
 						OR = {
 							has_law = law_type:law_monarchy
 							has_law = law_type:law_parliamentary_republic
 						}
+						NOT = { has_law = law_type:law_autocracy }
 					}
 				}
 				has_variable = prime_minister

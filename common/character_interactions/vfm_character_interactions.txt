@@ -10,8 +10,11 @@
 		is_ruler = no
 		is_heir = no
 		owner = {
-			has_law = law_type:law_monarchy
-			country_has_voting_franchise = yes
+			OR = {
+				has_law = law_type:law_monarchy
+				has_law = law_type:law_parliamentary_republic
+			}
+			NOT = { has_law = law_type:law_autocracy }
 		}
 		NOT = { has_variable = prime_minister_trigger }
 	}

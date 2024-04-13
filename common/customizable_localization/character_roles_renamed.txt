@@ -5,8 +5,24 @@
 	text = {
 		trigger = {
 			has_variable = vice_president_trigger	
+			NOT = {
+				owner = {
+					country_has_primary_culture = cu:cossack
+					NOT = { c:UKR ?= this }
+				}
+			}
 		}
 		localization_key = vice_president_role
+	}
+	text = {
+		trigger = {
+			has_variable = vice_president_trigger	
+			owner = {
+				country_has_primary_culture = cu:cossack
+				NOT = { c:UKR ?= this }
+			}
+		}
+		localization_key = kish_otaman_role
 	}
 	text = {
 		trigger = {

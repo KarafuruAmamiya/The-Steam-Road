@@ -1,37 +1,4 @@
-﻿gov_governorate = {
-	transfer_of_power = presidential_elective
-	new_leader_on_reform_government = no
-
-	male_ruler = "RULER_TITLE_GOVERNOR"
-	female_ruler = "RULER_TITLE_GOVERNOR"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		exists = c:SWE
-		is_subject_of = c:SWE
-		OR = {
-			is_subject_type = subject_type_dependency
-			is_subject_type = subject_type_puppet
-		}
-		any_primary_culture = {
-			OR = {
-				has_discrimination_trait = western_european_heritage
-				has_discrimination_trait = eastern_european_heritage
-				has_discrimination_trait = south_european_heritage
-			}
-		}
-		country_is_in_europe = yes
-	}
-	
-	on_government_type_change = {
-		change_to_presidential_elective = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_presidential_elective = yes
-	}
-}
-
-gov_provisional_government = {
+﻿gov_provisional_government = {
 	transfer_of_power = dictatorial
 
 	male_ruler = "RULER_TITLE_PRESIDENT"
@@ -108,6 +75,45 @@ gov_bhutanese_dual_system_temporal = {
 		has_law = law_type:law_presidential_republic
 		has_law = law_type:law_state_religion
 		country_has_voting_franchise = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_free_city = {
+	transfer_of_power = presidential_elective
+
+	male_ruler = "RULER_TITLE_BURGOMASTER"
+	female_ruler = "RULER_TITLE_BURGOMASTER"
+	
+	possible = {
+		OR = {
+			AND = { exists = c:ULM c:ULM = ROOT }
+			AND = { exists = c:ANH c:ANH = ROOT }
+			AND = { exists = c:RIG c:RIG = ROOT }
+			AND = { exists = c:MML c:MML = ROOT }
+			AND = { exists = c:GOS c:GOS = ROOT }
+			AND = { exists = c:MUL c:MUL = ROOT }
+			AND = { exists = c:COB c:COB = ROOT }
+			AND = { exists = c:REG c:REG = ROOT }
+		}
+		any_scope_state = {
+			count <= 1
+		}
+		has_law = law_type:law_presidential_republic
+		country_has_voting_franchise = yes
+	}
+	
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
 	}
 }
 
@@ -192,7 +198,6 @@ gov_colonial_administration = {
 		has_law = law_type:law_presidential_republic
 		OR = {
 			AND = {
-				AND = { exists = c:NET is_subject_of = c:NET }
 				OR = {
 					is_subject_type = subject_type_puppet
 					is_subject_type = subject_type_dependency
@@ -207,63 +212,33 @@ gov_colonial_administration = {
 						has_discrimination_trait = south_european_heritage
 					}
 				}
-				country_is_in_europe = no
-			}
-			AND = {
-				AND = { exists = c:MYP is_subject_of = c:MYP }
-				OR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dependency
-					is_subject_type = subject_type_dominion
-				}
-				is_country_type = colonial
-				any_primary_culture = {
-					OR = {
-						has_discrimination_trait = western_european_heritage
-						has_discrimination_trait = eastern_european_heritage
-						has_discrimination_trait = south_european_heritage
+				NOR = {
+					AND = {
+						exists = c:GBR
+						is_subject_of = c:GBR
+						c:GBR = {
+							has_law = law_type:law_monarchy
+						}
+					}
+					AND = {
+						exists = c:ENG
+						is_subject_of = c:ENG
+						c:ENG = {
+							has_law = law_type:law_monarchy
+						}
 					}
 				}
 				country_is_in_europe = no
 			}
 			AND = {
-				AND = { exists = c:FRA is_subject_of = c:FRA }
+				exists = c:MYP
+				is_subject_of = c:MYP
 				OR = {
 					is_subject_type = subject_type_puppet
 					is_subject_type = subject_type_dependency
 					is_subject_type = subject_type_dominion
 				}
 				is_country_type = colonial
-				top_overlord = { NOT = { is_country_type = colonial } }
-				any_primary_culture = {
-					OR = {
-						has_discrimination_trait = western_european_heritage
-						has_discrimination_trait = eastern_european_heritage
-						has_discrimination_trait = south_european_heritage
-					}
-				}
-				country_is_in_europe = no
-			}
-			AND = {
-				AND = { exists = c:PER is_subject_of = c:PER }
-				OR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dependency
-					is_subject_type = subject_type_dominion
-				}
-				is_country_type = colonial
-				top_overlord = { NOT = { is_country_type = colonial } }
-				country_is_in_europe = no
-			}
-			AND = {
-				AND = { exists = c:SWE is_subject_of = c:SWE }
-				OR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dependency
-					is_subject_type = subject_type_dominion
-				}
-				is_country_type = colonial
-				top_overlord = { NOT = { is_country_type = colonial } }
 				any_primary_culture = {
 					OR = {
 						has_discrimination_trait = western_european_heritage
@@ -329,9 +304,7 @@ gov_crown_colony = {
 				}
 			}
 		}
-		is_subject_type = subject_type_dependency
 		is_country_type = colonial
-		top_overlord = { NOT = { is_country_type = colonial } }
 		any_primary_culture = {
 			OR = {
 				has_discrimination_trait = western_european_heritage
@@ -408,6 +381,9 @@ gov_junta = {
 		OR = {
 			has_law = law_type:law_mass_conscription
 			has_law = law_type:law_professional_army
+		}
+		ig:ig_armed_forces = {
+			is_in_government = yes
 		}
 	}
 

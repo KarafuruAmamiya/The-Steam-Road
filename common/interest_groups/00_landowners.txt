@@ -249,6 +249,16 @@
 				add_ideology = ideology_szlachta_stratocratic
 			}
 		}
+		# Dutch States General
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:dutch
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_dutch_stratocratic
+			}
+		}
 		# New World Landowners
 		else_if = {
 			limit = {
@@ -256,6 +266,22 @@
 			}
 			ig:ig_landowners = {
 				add_ideology = ideology_segregationist
+			}
+		}
+		# Federal Landowners
+		else_if = {
+			limit = {
+				OR = {
+					c:USC ?= this
+					c:KRL ?= this
+					c:SLR ?= this
+					c:SWI ?= this
+					c:ITA ?= this
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_federal_stratocratic
 			}
 		}
 		# VTM - this does not work on start up unfortunately and must be handled in history global for the initial setup

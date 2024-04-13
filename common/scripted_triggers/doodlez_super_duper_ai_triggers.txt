@@ -59,6 +59,14 @@ law_is_important = {
 						has_journal_entry = je_prohibition
 					}
 					scope:law.type = law_type:law_substances_banned
+				}
+				# Centralization
+				AND = {
+					has_law = law_type:law_feudalism
+					OR = {
+						scope:law.type = law_type:law_unitary
+						scope:law.type = law_type:law_devolved
+					}
 				}				
 			}
 		}
@@ -219,7 +227,18 @@ law_is_important = {
 						scope:law.type = law_type:law_landed_voting
 						scope:law.type = law_type:law_wealth_voting
 					}
-				}							
+				}
+				# Centralization
+				AND = {
+					NOR = { 
+						has_law = law_type:law_federal 
+						has_law = law_type:law_confederated 
+					}
+					OR = {
+						scope:law.type = law_type:law_federal
+						scope:law.type = law_type:law_confederated
+					}
+				}						
 			}
 		}
 		# Socialist
@@ -357,6 +376,11 @@ law_is_important = {
 						scope:law.type = law_type:law_professional_army
 						scope:law.type = law_type:law_mass_conscription
 					}
+				}
+				# Centralization
+				AND = {
+					NOT = { has_law = law_type:law_unitary }
+					scope:law.type = law_type:law_unitary
 				}
 			}
 		}		

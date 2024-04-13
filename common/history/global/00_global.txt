@@ -77,6 +77,12 @@ GLOBAL = {
 				c:PER ?= this
 				c:POL ?= this
 				c:LIT ?= this
+				c:NET ?= this
+				c:USC ?= this
+				c:KRL ?= this
+				c:SLR ?= this
+				c:SWI ?= this
+				c:ITA ?= this
 			}
 		}
 		ig:ig_landowners = { 
@@ -150,6 +156,19 @@ GLOBAL = {
 		}
 		ig:ig_armed_forces = {
 			add_ideology = ideology_cossack_paternalistic
+		}
+	}
+	c:NET ?= {
+		ig:ig_intelligentsia = { 
+			remove_ideology = ideology_constitutionalist
+			add_ideology = ideology_republican
+		}
+	}
+	c:USC ?= {
+		ig:ig_landowners = { 
+			remove_ideology = ideology_stratocratic
+			remove_ideology = ideology_modern_stratocratic
+			add_ideology = ideology_federal_stratocratic
 		}
 	}
 	# Revolution Safety Check

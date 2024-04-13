@@ -92,6 +92,16 @@
 				add_ideology = ideology_republican
 			}
 		}
+		# Republican Intelligentsia (Dutch)
+		else_if = {
+			limit = {
+				c:NET ?= this
+			}
+			ig:ig_intelligentsia = { 
+				remove_ideology = ideology_constitutionalist
+				add_ideology = ideology_republican
+			}
+		}
 		# Revolutionary Republican Intelligentsia
 		else_if = {
 			limit = {

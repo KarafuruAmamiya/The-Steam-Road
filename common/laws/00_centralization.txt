@@ -97,10 +97,9 @@ law_warlord_state = {
 	progressiveness = -50
 	
 	modifier = {
-		country_authority_add = -50
+		country_authority_add = 50
 		country_officers_pol_str_mult = 0.5
 		state_tax_capacity_mult = -0.2
-		state_mortality_mult = 0.025
 		state_bureaucracy_population_base_cost_factor_mult = -0.25
 		country_radicals_from_conquest_mult = -0.25
 		state_radicals_from_sol_change_mult = 0.25
@@ -241,6 +240,13 @@ law_unitary = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 	}
 }
 
@@ -271,8 +277,6 @@ law_devolved = {
 	
 	modifier = {
 		country_authority_add = 50
-		state_tax_waste_add = 0.025
-		state_pop_pol_str_mult = 0.1
 		country_bureaucracy_investment_cost_factor_mult = -0.1
 		state_market_access_price_impact = 0.025
 		state_radicals_from_discrimination_mult = 0.1
@@ -334,6 +338,13 @@ law_devolved = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 	}
 }
 
@@ -353,8 +364,7 @@ law_federal = {
 	}
 	
 	modifier = {
-		state_tax_waste_add = 0.05
-		state_pop_pol_str_mult = 0.25
+		country_secession_progress_mult = 0.1
 		state_radicals_from_sol_change_mult = -0.1
 		state_radicals_from_discrimination_mult = -0.1
 		country_bureaucracy_investment_cost_factor_mult = -0.25
@@ -427,6 +437,13 @@ law_federal = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = {
+				law_is_important = yes
+			}
+			add = 750
+		}
 	}
 }
 
@@ -439,9 +456,8 @@ law_confederated = {
 	
 	modifier = {
 		country_authority_add = -50
-		state_tax_waste_add = 0.1
+		country_secession_progress_mult = 0.25
 		state_market_access_price_impact = -0.05
-		state_pop_pol_str_mult = 0.5
 		state_radicals_from_sol_change_mult = -0.25
 		state_radicals_from_discrimination_mult = -0.25
 		country_bureaucracy_investment_cost_factor_mult = -0.5
@@ -511,6 +527,13 @@ law_confederated = {
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var
                 scope:law = var:desired_law_var
+			}
+			add = 750
+		}
+		
+		if = {
+			limit = {
+				law_is_important = yes
 			}
 			add = 750
 		}

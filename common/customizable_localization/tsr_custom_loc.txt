@@ -46,3 +46,28 @@ ottoman_leading_faction = {
 		localization_key = ideology_metropolitan
 	}
 }
+
+ruthenian_identity = {
+	type = country
+	
+	text = {
+		trigger = {
+			OR = {
+				c:PLT ?= this
+				c:SMO ?= this
+			}
+		}
+		localization_key = BYE_ADJ
+	}
+	text = {
+		trigger = {
+			OR = {
+				c:CHR ?= this
+				c:ZAP ?= this
+				c:SLB ?= this
+				c:DON ?= this
+			}
+		}
+		localization_key = UKR_ADJ
+	}
+}

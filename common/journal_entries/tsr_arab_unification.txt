@@ -20,7 +20,7 @@
 	}
 
 	possible = {
-		country_rank <= rank_value:unrecognized_power
+		country_rank >= rank_value:unrecognized_regional_power
 		NOT = { country_has_primary_culture = cu:akturk }
 		has_technology_researched = nationalism
 		is_subject = no

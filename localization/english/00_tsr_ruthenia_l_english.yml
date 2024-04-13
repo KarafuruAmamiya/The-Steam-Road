@@ -1,0 +1,61 @@
+﻿l_english:
+ # Ruthenian Identity
+ je_ruthenian_identity_emergence: "The [ROOT.GetCountry.GetCustom('ruthenian_identity')] Nation"
+ je_ruthenian_identity_emergence_reason: "The independence of Ruthenian and Cossack nations, including [ROOT.GetCountry.GetName], from the #bold Russian Empire#! has given rise to rumblings of nationalism across the region. To defend our autonomy from enroaching #bold Ottoman#!, #bold Polish#!, or #bold Nordic#! influences, we need to focus on the restoration of [SCOPE.sCulture('new_national_culture').GetName] culture.\n\nThe following conditions will benefit the process of developing our #bold national identity#!:\n• [GetIdeology('ideology_patriotic').GetName] or [GetIdeology('ideology_nationalist').GetName] [Concept('concept_interest_group','$concept_interest_groups$')] that are [concept_in_government] or have high [concept_clout]\n• Ongoing [Concept('concept_war','$concept_wars$')] with high [concept_war_support]\n• [GetBuildingType('building_university').GetName], [GetBuildingType('building_arts_academy').GetName], and [GetBuildingType('building_government_administration').GetName] buildings with high [concept_occupancy]\n• High national [concept_prestige]\n\nThe progress of this #bold national awakening#! is expected to progress by #tooltippable;tooltip:[Country.GetTooltipTag],je_ruthenian_identity_emergence_special_tooltip [Country.MakeScope.Var('national_identity_progress_var_next').GetValue|+=]#! next month.\n\n@warning! Completing this [concept_journal_entry] will exclude [ROOT.GetCountry.GetName] from pursuing greater pan-national ambitions such as #bold forming Ruthenia#!"
+ je_ruthenian_identity_emergence_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('national_identity_progress_from_igs').GetValue|+=]#! from [concept_clout] of [GetIdeology('ideology_patriotic').GetName] and [GetIdeology('ideology_nationalist').GetName] [Concept('concept_interest_group','$concept_interest_groups$')]\n#variable [Country.MakeScope.Var('national_identity_progress_from_wars').GetValue|+=]#! from ongoing [Concept('concept_war','$concept_wars$')]\n#variable [Country.MakeScope.Var('national_identity_progress_from_universities').GetValue|+=]#! from [GetBuildingType('building_university').GetName], [GetBuildingType('building_arts_academy').GetName], and [GetBuildingType('building_government_administration').GetName] buildings\n#variable [Country.MakeScope.Var('national_identity_progress_from_prestige').GetValue|+=]#! from [concept_prestige]\n#variable [Country.MakeScope.Var('national_identity_progress_var_add').GetValue|+=]#! from other effects"
+ je_ruthenian_identity_emergence_goal: "The progress of the emerging [ROOT.GetCountry.GetCustom('ruthenian_identity')] #bold National Identity#! has reached #variable 100%#!"
+ 
+ je_ukraine_belarus_national_identity: "A New National Identity"
+ je_ukraine_belarus_national_identity_reason: "Although we shared a common root as descendants of Kievan Rus and and Ruthenian people, we have diverged considerably over the centuries. It is time we fully assumed a new [SCOPE.sCulture('new_national_culture').GetName] identity."
+ je_ukraine_belarus_national_identity_integrate_a_state: "Promote National Identity"
+ je_ukraine_belarus_national_identity_integrate_a_state_desc: "Begins a campaign to push the integration of our new national culture across the nation, granting new [SCOPE.sCulture('new_national_culture').GetName] homelands in our [SCOPE.sCulture('old_national_culture').GetName] [Concept('concept_incorporated_state', '$concept_incorporated_states$')]."
+ every_pop_converts_others_tt: "Every [SCOPE.sCulture('old_national_culture').GetName] [concept_pop] in this country will [Concept('concept_assimilation','$concept_assimilate$')] to [SCOPE.sCulture('ukrainian_culture').GetName] or [SCOPE.sCulture('byelorussian_culture').GetName]"
+ completed_ruthenian_culture_change: "Our country has fully embraced Ukrainian or Byelorussian culture"
+ 
+ ruthenian_events.1.t: "[SCOPE.sCulture('new_national_culture').GetName] National Revival"
+ ruthenian_events.1.d: "The legacy of our independence from Russia has spurred the beginnings of a developed national identity, leading to a resurgence of [SCOPE.sCulture('new_national_culture').GetName] language, literature, and folk traditions. By embracing our national identity, we may lay the groundwork for a modern nation-state."
+ ruthenian_events.1.f: "Ever since the fall of the Russian Empire, [ROOT.GetCountry.GetName] found itself increasingly caught between the competing influences of neighboring empires, particularly the Ottoman, Polish, and Scandinavian Empires. Under foreign rule, [SCOPE.sCulture('new_national_culture').GetName] had been marginalized in favor of languages such as Polish and Russian. However, intellectuals and activists of the revival sought to elevate [SCOPE.sCulture('new_national_culture').GetName] to the status of a literary language and a symbol of national identity."
+ ruthenian_events.1.a: "Our homeland takes another step towards freedom."
+ ruthenian_events.1.b: "We are but one nation amongst many."
+ 
+ ruthenian_events.2.t: "National Foundations"
+ ruthenian_events.2.d: "A national awakening in our country has led to the emergence of a distinct [SCOPE.sCulture('new_national_culture').GetName] identity among leading nationalists."
+ ruthenian_events.2.f1: ""Ukraine has not yet died, neither her glory, nor her freedom.\nStill upon us, young brethren, fate shall smile!\nOur enemies shall vanish like dew in the sun;\nWe too shall rule in our beloved country.""
+ ruthenian_events.2.f2: ""The name and strength of a Belarusian.\nLet it be heard and seen,\nWho dares carry oppression upon us.\nAnd first dare challenge us in battle.""
+ ruthenian_events.2.a: "We are now the [SCOPE.sCulture('new_national_culture').GetName] people!"
+ 
+ ruthenian_events.3.t: "The [SCOPE.sCulture('new_national_culture').GetName] Nation"
+ ruthenian_events.3.d: "From every corner of the land, people speak of their [SCOPE.sCulture('new_national_culture').GetName] homeland. The path to a united [SCOPE.sCulture('new_national_culture').GetName] nation is closer than ever."
+ ruthenian_events.3.f: "The flag flapped in the central square, as a procession marched around, trumpets blaring and drums beating in unison. "May the sun renounce its light before we ever break the solemn vow we made to our home!" the crowd roared, more sincerely than they ever had before."
+ ruthenian_events.3.a: "Glory to the [SCOPE.sCulture('new_national_culture').GetName] people!"
+ 
+ ruthenian_events.4.t: "National Values"
+ ruthenian_events.4.d: "An upsurge of people in the regions neighboring [SCOPE.sState('ruthenian_culture_state').GetName] have begun to embrace their [SCOPE.sCulture('new_national_culture').GetName] identity."
+ ruthenian_events.4.f: ""What majestic land is this, that houses such a fair people? Beloved nation, beloved land, I belong to thee!"\n\nThe crowd politely applauded the poet's purple prose. While his words were... florid, the sentiment was still appreciated."
+ ruthenian_events.4.a: "Welcome to the [SCOPE.sCulture('new_national_culture').GetName] nation!"
+ 
+ ruthenian_events.5.t: "Cultural Awakening in Ruthenian Populations"
+ ruthenian_events.5.d: "The nationalist movements in neighboring Ruthenian countries has spread to our own [SCOPE.sCulture('new_national_culture').GetName] populace. Through literary works, cultural institutions, and folk revival, the seeds of [SCOPE.sCulture('ukrainian_culture').GetName] and [SCOPE.sCulture('byelorussian_culture').GetName] culture in our country has taken root."
+ ruthenian_events.5.f: ""What majestic land is this, that houses such a fair people? Beloved nation, beloved land, I belong to thee!"\n\nThe crowd politely applauded the poet's purple prose. While his words were... florid, the sentiment was still appreciated."
+ ruthenian_events.5.a: "Interesting."
+ 
+ ruthenian_culture_convert_cooldown_tt: "Has not used the #bold Promote National Identity#! decision in the past #bold five years#!"
+ 
+ je_ukrainian_unification: "Unify Ukraine"
+ je_ukrainian_unification_reason: "With the awakening of the Ukrainian national identity, the thoughts of a unified Ukrainian nation have also awakened. Let us lead the path and unite Ukraine's vast fields and people under our banner."
+ ukraine_formation: "We have formed #bold Ukraine#!"
+ belarus_formation: "We have formed #bold Belarus#!"
+ je_byelorussian_expansion: "Unify Belarus"
+ je_byelorussian_expansion_reason: "With the awakening of the Byelorussian national identity, the thoughts of a unified Byelorussian nation have also awakened. From Hrodna to Viciebsk, let us lead the path to the Byelorussian state."
+ 
+ ruthenian_events.6.t: "Ukrainian Unification"
+ ruthenian_events.6.d: ""
+ ruthenian_events.6.f: ""
+ ruthenian_events.6.a: ""
+ ruthenian_events.6.b: ""
+ 
+ ruthenian_events.7.t: "Byelorussian Unification"
+ ruthenian_events.7.d: ""
+ ruthenian_events.7.f: ""
+ ruthenian_events.7.a: ""
+ ruthenian_events.7.b: ""

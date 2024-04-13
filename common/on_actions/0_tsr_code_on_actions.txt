@@ -37,6 +37,34 @@ tsr_events_yearly = {
 				target = THIS
 			}
 		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = {
+						is_homeland = cu:ruthenian
+					}
+				}
+				OR = {
+					NOR = { 
+						country_has_primary_culture = cu:ruthenian
+						country_has_primary_culture = cu:cossack
+					}
+					c:LIT ?= this
+					c:GAL ?= this
+				}
+				NOT = {
+					any_country = {
+						NOR = {
+							c:LIT ?= this
+							c:GAL ?= this
+						}
+						country_has_primary_culture = cu:ruthenian
+					}
+				}
+				NOT = { has_variable = ruthenian_culture_change }
+			}
+			trigger_event = { id = ruthenian_events.5 }
+		}
 	}
 }
 

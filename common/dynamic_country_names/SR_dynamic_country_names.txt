@@ -845,37 +845,3 @@ LAE = { # Constantinople
 		}
 	}
 }
-
-ZAP = { # Zaporizhia
-	dynamic_country_name = { # Zaporizhian Host
-		name = dyn_c_zaporizhian_cossack
-		adjective = ZAP_ADJ
-		
-		is_main_tag_only = yes
-		priority = 5
-		
-		trigger = {
-			exists = scope:actor
-			scope:actor ?= { 
-				NOT = { has_technology_researched = nationalism }
-			}
-		}
-	}
-}
-
-SLB = { # Sloboda Ukraine
-	dynamic_country_name = { # Slobodan Host
-		name = dyn_c_slobodan_cossack
-		adjective = SLB_ADJ
-		
-		is_main_tag_only = yes
-		priority = 5
-		
-		trigger = {
-			exists = scope:actor
-			scope:actor ?= { 
-				NOT = { has_technology_researched = nationalism }
-			}
-		}
-	}
-}

@@ -293,22 +293,7 @@
 			}
 		}
 		events = { 
-			##balkan_crisis.2 #Serbian Uprising
-			##balkan_crisis.3 #Croatian Uprising
-			##balkan_crisis.4 #Bulgarian Uprising
-			##balkan_crisis.5 #Greek Uprising
-			##balkan_crisis.6 #Romanians Demand Autonomy
-			##balkan_crisis.7 #Hungary Demand Autonomy
-			##balkan_crisis.8 #Cossacks Demand Autonomy
-			##balkan_crisis.9 #Ruthenian Protectorates Lost
-			##balkan_crisis.10 #Egypt Demands Autonomy
-			##balkan_crisis.11 #Safavids Withdraw Support
-			##balkan_crisis.12 #Galicia-Volhynia Defects to Poland/PLC
-			##balkan_crisis.13 #Atrocities in the Balkans
-			##balkan_crisis.14 #Deteriorating Relations with Italy
-			##balkan_crisis.15 #Italy Forms the Balkan Coalition
-			##balkan_crisis.16 #Albanian Uprising
-			##balkan_crisis.16 #Italo-Turkish War
+			balkan_crisis.3 #Balkan Uprising
 		}
 	}
 	
@@ -630,6 +615,15 @@ je_war_of_the_balkan_coalition_attacker = {
 		}
 	}
 	
+	on_complete = {
+		if = {
+			limit = {
+				has_variable = odrodzenie_freeze
+			}
+			remove_variable = odrodzenie_freeze
+		}
+	}
+	
 	fail = {
 		custom_tooltip = {
 			text = lost_war_tt
@@ -672,6 +666,15 @@ je_war_of_the_balkan_coalition_attacker = {
 			NOT = { 
 				exists = c:BUL
 			}
+		}
+	}
+	
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = odrodzenie_freeze
+			}
+			remove_variable = odrodzenie_freeze
 		}
 	}
 	
@@ -833,6 +836,25 @@ je_war_of_the_balkan_coalition_defender = {
 					exists = c:GAL
 				}
 				c:GAL ?= { NOT = { is_subject_of = root } }
+			}
+			trigger_if = {
+				limit = { c:TUR ?= { has_variable = greek_massacre } }
+				OR = { 
+					exists = c:MAC
+					c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
+				}
+			}
+			trigger_if = {
+				limit = { c:TUR ?= { has_variable = serb_massacre } }
+				exists = c:SER
+			}
+			trigger_if = {
+				limit = { c:TUR ?= { has_variable = croat_massacre } }
+				exists = c:CRO
+			}
+			trigger_if = {
+				limit = { c:TUR ?= { has_variable = bulgarian_massacre } }
+				exists = c:BUL
 			}
 		}
 	}

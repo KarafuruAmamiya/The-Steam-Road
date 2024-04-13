@@ -103,7 +103,14 @@ russian_events.1 = {
 						has_discrimination_trait = eastern_european_heritage
 					}
 				}
-				trigger_event = { id = russian_events.3 }
+				if = {
+					limit = {
+						NOT = { has_technology_researched = nationalism }
+					}
+					add_technology_researched = nationalism
+				}
+				post_notification = rus_moscow_uprising
+				#trigger_event = { id = russian_events.3 }
 			}
 		}
 	}
@@ -346,157 +353,157 @@ russian_events.2 = {
 	}
 }
 
-# Manifesto for the Russian Nation
-russian_events.3 = {
-	type = country_event
-	placement = scope:moscow_state
-
-	title = russian_events.3.t
-	desc = russian_events.3.d
-	flavor = russian_events.3.f
-
-	event_image = {
-		video = "unspecific_military_parade"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	duration = 3
-
-	trigger = {
-		#Fired by JE
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				NOT = { has_technology_researched = nationalism }
-			}
-			add_technology_researched = nationalism
-		}
-		c:MSC = {
-			capital = {
-				save_scope_as = moscow_state
-			}
-		}
-		random_country = {
-			limit = { has_variable = russian_oppressor }
-			save_scope_as = oppressor_scope
-		}
-		random_primary_culture = {
-			save_scope_as = primary_culture_scope
-		}
-	}
-
-	option = {
-		name = russian_events.3.a #We must fight for our freedom
-		default_option = yes
-		trigger = {
-			is_subject = yes
-		}
-		if = {
-			limit = {
-				any_state = {
-					is_homeland_of_country_cultures = root
-					NOT = { has_claim_by = root }
-				}
-			}
-			custom_tooltip = {
-				text = gain_claim_on_homeland_tt
-				every_state = {
-					limit = {
-						is_homeland_of_country_cultures = root
-						NOT = { has_claim_by = root }
-						owner = { NOT = { is_subject_of = root } }
-						owner = { NOT = { root = this } }
-					}
-					state_region = {
-						add_claim = root
-					}
-				}
-			}
-		}
-		overlord = {
-			change_relations = {
-				country = root
-				value = -100
-			}
-		}
-		every_country = {
-			limit = {
-				NOT = { root = this }
-				NOT = { overlord = this }
-				NOT = { is_subject_of = root }
-				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
-				any_scope_state = {
-					is_homeland_of_country_cultures = root
-					NOT = { has_claim_by = root }
-				}
-			}
-			change_relations = {
-				country = root
-				value = -100
-			}
-		}
-	}
-	
-	option = {
-		name = russian_events.3.b #We must reclaim our homeland
-		trigger = {
-			is_subject = no
-		}
-		if = {
-			limit = {
-				any_state = {
-					is_homeland_of_country_cultures = root
-					NOT = { has_claim_by = root }
-				}
-			}
-			custom_tooltip = {
-				text = gain_claim_on_homeland_tt
-				every_state = {
-					limit = {
-						is_homeland_of_country_cultures = root
-						NOT = { has_claim_by = root }
-						owner = { NOT = { is_subject_of = root } }
-						owner = { NOT = { root = this } }
-					}
-					state_region = {
-						add_claim = root
-					}
-				}
-			}
-		}
-		every_country = {
-			limit = {
-				NOT = { root = this }
-				NOT = { is_subject_of = root }
-				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
-				any_scope_state = {
-					is_homeland_of_country_cultures = root
-					NOT = { has_claim_by = root }
-				}
-			}
-			change_relations = {
-				country = root
-				value = -100
-			}
-		}
-	}
-	
-	option = {
-		name = russian_events.3.b #We cannot alienate our neighbors/overlord
-		add_radicals = {
-			value = medium_radicals
-			culture = scope:primary_culture_scope
-		}
-		ai_chance = {
-			base = 0
-		}
-	}
-}
+## Manifesto for the Russian Nation
+#russian_events.3 = {
+#	type = country_event
+#	placement = scope:moscow_state
+#
+#	title = russian_events.3.t
+#	desc = russian_events.3.d
+#	flavor = russian_events.3.f
+#
+#	event_image = {
+#		video = "unspecific_military_parade"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+#
+#	duration = 3
+#
+#	trigger = {
+#		#Fired by JE
+#	}
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				NOT = { has_technology_researched = nationalism }
+#			}
+#			add_technology_researched = nationalism
+#		}
+#		c:MSC = {
+#			capital = {
+#				save_scope_as = moscow_state
+#			}
+#		}
+#		random_country = {
+#			limit = { has_variable = russian_oppressor }
+#			save_scope_as = oppressor_scope
+#		}
+#		random_primary_culture = {
+#			save_scope_as = primary_culture_scope
+#		}
+#	}
+#
+#	option = {
+#		name = russian_events.3.a #We must fight for our freedom
+#		default_option = yes
+#		trigger = {
+#			is_subject = yes
+#		}
+#		if = {
+#			limit = {
+#				any_state = {
+#					is_homeland_of_country_cultures = root
+#					NOT = { has_claim_by = root }
+#				}
+#			}
+#			custom_tooltip = {
+#				text = gain_claim_on_homeland_tt
+#				every_state = {
+#					limit = {
+#						is_homeland_of_country_cultures = root
+#						NOT = { has_claim_by = root }
+#						owner = { NOT = { is_subject_of = root } }
+#						owner = { NOT = { root = this } }
+#					}
+#					state_region = {
+#						add_claim = root
+#					}
+#				}
+#			}
+#		}
+#		overlord = {
+#			change_relations = {
+#				country = root
+#				value = -100
+#			}
+#		}
+#		every_country = {
+#			limit = {
+#				NOT = { root = this }
+#				NOT = { overlord = this }
+#				NOT = { is_subject_of = root }
+#				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
+#				any_scope_state = {
+#					is_homeland_of_country_cultures = root
+#					NOT = { has_claim_by = root }
+#				}
+#			}
+#			change_relations = {
+#				country = root
+#				value = -100
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = russian_events.3.b #We must reclaim our homeland
+#		trigger = {
+#			is_subject = no
+#		}
+#		if = {
+#			limit = {
+#				any_state = {
+#					is_homeland_of_country_cultures = root
+#					NOT = { has_claim_by = root }
+#				}
+#			}
+#			custom_tooltip = {
+#				text = gain_claim_on_homeland_tt
+#				every_state = {
+#					limit = {
+#						is_homeland_of_country_cultures = root
+#						NOT = { has_claim_by = root }
+#						owner = { NOT = { is_subject_of = root } }
+#						owner = { NOT = { root = this } }
+#					}
+#					state_region = {
+#						add_claim = root
+#					}
+#				}
+#			}
+#		}
+#		every_country = {
+#			limit = {
+#				NOT = { root = this }
+#				NOT = { is_subject_of = root }
+#				#NOT = { any_primary_culture = { is_primary_culture_of = root } }
+#				any_scope_state = {
+#					is_homeland_of_country_cultures = root
+#					NOT = { has_claim_by = root }
+#				}
+#			}
+#			change_relations = {
+#				country = root
+#				value = -100
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = russian_events.3.b #We cannot alienate our neighbors/overlord
+#		add_radicals = {
+#			value = medium_radicals
+#			culture = scope:primary_culture_scope
+#		}
+#		ai_chance = {
+#			base = 0
+#		}
+#	}
+#}
 
 # End of the Moscow Governorate (victory)
 russian_events.4 = {

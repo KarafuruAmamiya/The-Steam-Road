@@ -358,8 +358,7 @@ poland_lithuania_events.4 = {
 			limit = {
 				OR = {
 					has_ideology = ideology:ideology_patriotic
-					has_ideology = ideology:ideology_liberal
-					has_ideology = ideology:ideology_liberal_modern
+					has_ideology = ideology:ideology_nationalist
 					leader = {
 						OR = {						
 							has_ideology = ideology:ideology_radical
@@ -473,6 +472,7 @@ poland_lithuania_events.5 = {
 				limit = {
 					NOR = { root = this is_subject_of = root }
 					capital = {
+						region = sr:region_poland
 						state_region = {
 							OR = {
 								is_homeland = cu:polish
@@ -506,6 +506,7 @@ poland_lithuania_events.5 = {
 				limit = {
 					NOR = { root = this is_subject_of = root }
 					capital = {
+						region = sr:region_poland
 						state_region = {
 							OR = {
 								is_homeland = cu:polish

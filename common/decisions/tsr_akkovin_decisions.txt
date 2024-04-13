@@ -92,6 +92,8 @@ cancel_treaty_of_baglar = {
 	}
 
 	when_taken = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
 		set_variable = rejected_tob
 		remove_diplomatic_pact = {
 			country = c:PER
@@ -177,6 +179,7 @@ cancel_treaty_of_baglar = {
 			trigger = {
 				ROOT = {
 					country_rank >= rank_value:great_power
+					is_losing_power_rank = no
 				}
 			}
 			add = 50

@@ -447,11 +447,7 @@ akkovin_crisis.5 = {
 	option = {
 		name = akkovin_crisis.5.a
 		trigger_event = { id = akkovin_crisis.6 days = 7 }
-		c:PER = { trigger_event = { id = akkovin_crisis.6 days = 7 } }
-		add_modifier = {
-			name = prestige_loss
-			months = normal_modifier_time
-		}
+		hidden_effect = { c:PER = { trigger_event = { id = akkovin_crisis.6 days = 7 } } }
 	}
 }
 

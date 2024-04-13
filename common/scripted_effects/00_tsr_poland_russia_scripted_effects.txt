@@ -55,20 +55,20 @@ calculate_plc_point = {
 	c:POL ?= {
 		every_scope_state = {
 			limit = {
-				turmoil >= 0.10
+				loyalty >= 0.10
 			}
 			ROOT = {
-				change_global_variable = { name = plc_point_from_loyalists_pol add = prev.turmoil }
+				change_global_variable = { name = plc_point_from_loyalists_pol add = prev.loyalty }
 			}
 		}
 	}
 	c:LIT ?= {
 		every_scope_state = {
 			limit = {
-				turmoil >= 0.10
+				loyalty >= 0.10
 			}
 			ROOT = {
-				change_global_variable = { name = plc_point_from_loyalists_lit add = prev.turmoil }
+				change_global_variable = { name = plc_point_from_loyalists_lit add = prev.loyalty }
 			}
 		}
 	}

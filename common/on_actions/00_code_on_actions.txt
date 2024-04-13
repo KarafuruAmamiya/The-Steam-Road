@@ -3,6 +3,12 @@
 # Root = Country
 on_monthly_pulse_country = {
 	events = {
+		character_roles_hidden.1
+		character_roles_hidden.2
+		character_roles_hidden.3
+		character_roles_hidden.4
+		character_roles_hidden.5
+		character_roles_hidden.6
 		communism.8 # Red Army
 		peoples_springtime.1
 		opium_wars.1
@@ -858,9 +864,28 @@ on_character_death = {
 				}
 			}
 			owner = {
-				trigger_event = character_deaths.1
+				trigger_event = character.deaths.1
 			}
 		}
+		#	owner = {
+		#		every_scope_character = {
+		#			limit = { has_variable = vice_president_trigger }
+		#			remove_variable = vice_president_trigger
+		#			set_character_as_ruler = yes
+		#		}
+		#		create_character = {
+		#			on_created = {
+		#				set_variable = vice_president_trigger
+		#				owner = {
+		#					set_variable = {
+		#						name = vice_president
+		#						value = PREV
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
 		
 		if = {
 			limit = {
@@ -920,6 +945,32 @@ on_character_death = {
 						template = dynamic_metropolitan_ruler_template
 					}
 				}				
+			}
+		}
+		
+		#Succession to the Crown Act 1707, Parliament dissolved on Monarch death
+		if = {
+			limit = {
+				is_ruler = yes
+				OR = {
+					AND = {
+						exists = c:GBR
+						owner = c:GBR
+					}
+					AND = {
+						exists = c:ENG
+						owner = c:ENG
+					}
+				}
+				owner = {
+					has_law = law_type:law_monarchy
+					country_has_voting_franchise = yes
+				}
+			}
+			owner = {
+				call_election = {
+					months = 1
+				}
 			}
 		}
 	}
@@ -1132,6 +1183,21 @@ on_country_released_as_independent = {
 	effect = {
 		if = {
 			limit = {
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				country_rank >= rank_value:great_power
+				scope:target = {
+					is_country_type = unrecognized
+				}
+			}
+			scope:target = {
+				set_country_type = recognized
+			}
+		}
+		if = {
+			limit = {
 				scope:target = {
 					country_has_primary_culture = cu:ashkenazi
 				}
@@ -1180,6 +1246,103 @@ on_country_released_as_independent = {
 			}
 			change_global_variable = { name = balkan_crisis_main_var add = -20 }
 		}
+		scope:target = {
+			if = {
+				limit = {
+					country_has_state_religion = rel:theravada
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_theravada_monks
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_buddhist_moralist
+				}
+			}
+			if = {
+				limit = {
+					exists = c:RUS
+					c:RUS = scope:target
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_orthodox_church
+					remove_ideology = ideology_patriarchal
+					add_ideology = ideology_russian_patriarch
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:orthodox
+					OR = {
+						NOT = { exists = c:RUS }
+						NOT = { c:RUS = scope:target }
+					}
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_orthodox_church
+					remove_ideology = ideology_patriarchal
+					add_ideology = ideology_orthodox_patriarch
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:hindu
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_hindu_priesthood
+					remove_ideology = ideology_hindu_moralist
+					add_ideology = ideology_hindu_moralist
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:gelugpa
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_vajrayana_monks
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_buddhist_moralist
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:mahayana
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_mahayana_monks
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_buddhist_moralist
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:sikh
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_sikh_priesthood
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_sikh_moralist
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:oriental_orthodox
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_oriental_orthodox_church
+					remove_ideology = ideology_patriarchal
+					add_ideology = ideology_oriental_orthodox_patriarch
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:shiite
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_shia_madrasahs
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_shiite_moralist
+				}
+			}
+		}
 	}
 }
 
@@ -1187,6 +1350,21 @@ on_country_released_as_independent = {
 # scope:target = Released Country
 on_country_released_as_own_subject = {
 	effect = {
+		if = {
+			limit = {
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				country_rank >= rank_value:great_power
+				scope:target = {
+					is_country_type = unrecognized
+				}
+			}
+			scope:target = {
+				set_country_type = recognized
+			}
+		}
 		if = {
 			limit = {
 				scope:target = {
@@ -1301,6 +1479,16 @@ on_country_released_as_own_subject = {
 					set_interest_group_name = ig_oriental_orthodox_church
 					remove_ideology = ideology_patriarchal
 					add_ideology = ideology_oriental_orthodox_patriarch
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:shiite
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_shia_madrasahs
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_shiite_moralist
 				}
 			}
 		}
@@ -1313,6 +1501,21 @@ on_country_released_as_overlord_subject = {
 	effect = {
 		if = {
 			limit = {
+				OR = {
+					is_country_type = recognized
+					is_country_type = colonial
+				}
+				country_rank >= rank_value:great_power
+				scope:target = {
+					is_country_type = unrecognized
+				}
+			}
+			scope:target = {
+				set_country_type = recognized
+			}
+		}
+		if = {
+			limit = {
 				scope:target = {
 					country_has_primary_culture = cu:ashkenazi
 				}
@@ -1425,6 +1628,16 @@ on_country_released_as_overlord_subject = {
 					set_interest_group_name = ig_oriental_orthodox_church
 					remove_ideology = ideology_patriarchal
 					add_ideology = ideology_oriental_orthodox_patriarch
+				}
+			}
+			if = {
+				limit = {
+					country_has_state_religion = rel:shiite
+				}
+				ig:ig_devout = {
+					set_interest_group_name = ig_shia_madrasahs
+					remove_ideology = ideology_moralist
+					add_ideology = ideology_shiite_moralist
 				}
 			}
 		}
@@ -3036,6 +3249,37 @@ on_election_campaign_start = {
 on_election_campaign_end = {
 	effect = {
 		debug_log = "Election Campaign Ended"
+	}
+}
+
+on_election_ended = {
+	trigger = {
+		in_election_campaign = no
+		has_variable = election_onging
+	}
+	effect = {
+		remove_variable = election_onging
+		
+		#Septennial Act 1715, 7 year maximum unless Parliament dissolved or Monarch dies
+		if = {
+			limit = {
+				AND = {
+					exists = c:GBR
+					owner = c:GBR
+				}
+				AND = {
+					exists = c:ENG
+					owner = c:ENG
+				}
+				owner = {
+					has_law = law_type:law_monarchy
+					country_has_voting_franchise = yes
+				}
+			}
+			call_election = {
+				months = 84
+			}
+		}
 	}
 }
 

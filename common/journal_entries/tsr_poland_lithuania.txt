@@ -298,11 +298,21 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_country_ranking < 15
+					country_rank = rank_value:major_power
+					is_losing_power_rank = no
 					NOT = { has_global_variable = plc_regional_power_point }
 				}
 				change_global_variable = { name = plc_union_progress_var add = 10 }
 				set_global_variable = { name = plc_regional_power_point }
+			}
+			if = {
+				limit = {
+					country_rank = rank_value:great_power
+					is_losing_power_rank = no
+					NOT = { has_global_variable = plc_great_power_point }
+				}
+				change_global_variable = { name = plc_union_progress_var add = 10 }
+				set_global_variable = { name = plc_great_power_point }
 			}
 		}
 		random_events = {

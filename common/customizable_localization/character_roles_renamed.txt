@@ -11,8 +11,32 @@
 	text = {
 		trigger = {
 			has_variable = prime_minister_trigger	
+			NOT = {
+				owner = {
+					has_law = law_type:law_state_religion
+					OR = {
+						country_has_state_religion = rel:sunni
+						country_has_state_religion = rel:shiite
+						country_has_state_religion = rel:ibadi
+					}
+				}
+			}
 		}
 		localization_key = prime_minister_role
+	}
+	text = {
+		trigger = {
+			has_variable = prime_minister_trigger	
+			owner = {
+				has_law = law_type:law_state_religion
+				OR = {
+					country_has_state_religion = rel:sunni
+					country_has_state_religion = rel:shiite
+					country_has_state_religion = rel:ibadi
+				}
+			}
+		}
+		localization_key = grand_vizier_role
 	}
 	text = {
 		trigger = {

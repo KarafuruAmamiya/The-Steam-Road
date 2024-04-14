@@ -55,6 +55,10 @@
 	c:AUS ?= { # Austria
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		add_taxed_goods = g:liquor
 
@@ -85,8 +89,10 @@
 	c:BOH ?= { # Bohemia
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
-		
+		add_technology_researched = empiricism
 		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy
@@ -577,8 +583,10 @@
 	c:GLG ?= { # Glogow
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
-		
+		add_technology_researched = empiricism
 		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy
@@ -930,19 +938,23 @@
 	}
 	c:LIT ?= { # Lithuania
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
-		effect_starting_politics_conservative = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_landed_voting
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_land_based_taxation
-		activate_law = law_type:law_devolved
+		activate_law = law_type:law_unitary
 		
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -1048,9 +1060,10 @@
 		
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
-		
+		add_technology_researched = empiricism
 		add_technology_researched = dialectics	
 		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_laissez_faire
@@ -1159,8 +1172,12 @@
 		activate_law = law_type:law_right_of_assembly
 	}
 	c:MVA ?= { # Moravia
-		effect_starting_technology_tier_2_tech = yes
+		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
         set_ruling_interest_groups = {
         	ig_devout
@@ -1368,15 +1385,19 @@
 	}
 	c:POL ?= { # Poland
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism	
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
-		effect_starting_politics_conservative = yes
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_landed_voting
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
+		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_right_of_assembly
@@ -1686,6 +1707,10 @@
 	}
 	c:SLO ?= { # Slovenia / Cilli
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		effect_starting_politics_reactionary = yes
 		activate_law = law_type:law_religious_schools
@@ -1704,6 +1729,10 @@
 	c:SLV ?= { # Slovakia / Nitra
 		effect_starting_technology_tier_3_tech = yes
 		effect_starting_politics_conservative = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		set_tax_level = medium		
 		
@@ -1783,6 +1812,10 @@
 	}
 	c:SRB ?= { # Sorbia / Lusatia
 		effect_starting_technology_tier_3_tech = yes
+		add_technology_researched = empiricism
+		add_technology_researched = dialectics	
+		add_technology_researched = stock_exchange
+		add_technology_researched = mass_communication
 		
 		effect_starting_politics_conservative = yes
 		activate_law = law_type:law_religious_schools

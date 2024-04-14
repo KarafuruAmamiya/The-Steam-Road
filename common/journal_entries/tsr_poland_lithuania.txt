@@ -112,98 +112,17 @@ je_odrodzenie_victim = {
 	should_be_pinned_by_default = yes
 }
 
-je_polish_modernization = {
-    icon = "gfx/interface/icons/event_icons/event_industry.dds"
-
-	group = je_group_tsr_content
-	
-	is_shown_when_inactive = {
-		OR = {
-			c:POL ?= this
-			c:PLC ?= this
-		}
-		NOR = {
-			is_revolutionary = yes
-			is_secessionist = yes
-			is_subject = yes
-		}
-	}
-	
-	possible = {
-		ruler.interest_group ?= {
-			OR = {
-				is_interest_group_type = ig_intelligentsia
-				is_interest_group_type = ig_industrialists
-			}
-		}
-	}
-
-    immediate = {
-        g:iron = {
-            save_scope_as = iron_scope
-        }
-        g:wood = {
-            save_scope_as = wood_scope
-        }
-    }
-
-    scripted_button = humanita_fortress_button
-    scripted_button = ybycui_iron_works_button
-    scripted_button = good_health_prg_button
-    scripted_button = army_git_good_button
-
-    complete = {
-        scope:journal_entry = {
-            is_goal_complete = yes
-        }
-		country_rank >= rank_value:major_power
-        custom_tooltip = {
-            text = je_polish_modernization.tt_1
-            has_global_variable = humanita_fortress_global_var
-        }
-        custom_tooltip = {
-            text = je_polish_modernization.tt_2
-            has_global_variable = ybycui_iron_works_global_var
-        }
-        custom_tooltip = {
-            text = je_polish_modernization.tt_3
-            has_global_variable = paraguay_army_reform_global_var
-        }
-        custom_tooltip = {
-            text = je_polish_modernization.tt_4
-            has_global_variable = improve_living_conditions_global_var
-        }
-    }
-
-    on_monthly_pulse = {
-        random_events = {
-            100 = 0
-            10 = paraguay.2 # Napoleon of South America
-        }
-    }
-
-    current_value = {
-        value = root.gdp
-    }
-
-    goal_add_value = {
-        value = root.gdp
-    }
-
-    progressbar = yes
-
-    on_complete = {
-        trigger_event = { id = paraguay.12 popup = yes }
-    }
-
-    weight = 1000
-    should_be_pinned_by_default = yes
-}
-
 je_union_of_augustow_pol = {
 	icon = "gfx/interface/icons/event_icons/event_plc.dds"
 	
 	group = je_group_tsr_content
+	
+	scripted_button = pollit_constitution_button
+	scripted_button = pollit_industrialization_button
+	scripted_button = pollit_defense_button
+	scripted_button = pollit_sovereignty_button
+	scripted_button = pollit_nationalism_button
+	scripted_button = pollit_pledge_button
 	
 	immediate = {
 		set_plc_point_vars = yes
@@ -217,7 +136,14 @@ je_union_of_augustow_pol = {
 	
 	on_weekly_pulse = {
 		effect = {
-			calculate_plc_point = yes
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = plc_point_freeze
+					}
+				}
+				calculate_plc_point = yes
+			}
 		}
 	}
 
@@ -237,7 +163,7 @@ je_union_of_augustow_pol = {
 	}
 
 	on_complete = {
-		trigger_event = { id = paraguay.9 popup = yes }
+		trigger_event = { id = poland_lithuania_events.5 popup = yes }
 		show_as_tooltip = {
 			annex_with_incorporation = c:LIT
 			change_tag = PLC
@@ -253,10 +179,12 @@ je_union_of_augustow_pol = {
 			}
 			is_subject = yes
 			c:LIT ?= { NOT = { is_subject_of = root } }
+			has_war_with = c:LIT
 		}
 	}
 	
 	on_fail = {
+		set_global_variable = plc_union_fail_var
 		trigger_event = { id = poland_lithuania_events.6 popup = yes }
 	}
 	
@@ -266,8 +194,15 @@ je_union_of_augustow_pol = {
 
 	on_monthly_pulse = {
 		effect = {
-			calculate_plc_point = yes
-			add_plc_point = yes
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = plc_point_freeze
+					}
+				}
+				calculate_plc_point = yes
+				add_plc_point = yes
+			}
 			if = {
 				limit = {
 					OR = {
@@ -314,9 +249,102 @@ je_union_of_augustow_pol = {
 				change_global_variable = { name = plc_union_progress_var add = 10 }
 				set_global_variable = { name = plc_great_power_point }
 			}
+			
+			#Checkpoints
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 50
+					NOT = { has_global_variable = union_stall_1 }
+				}
+				set_global_variable = union_stall_1
+				freeze_plc_point = yes
+			}
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 100
+					NOT = { has_global_variable = union_stall_2 }
+				}
+				set_global_variable = union_stall_2
+				freeze_plc_point = yes
+				if = {
+					limit = { has_variable = checkpoint_ongoing }
+					remove_variable = checkpoint_ongoing
+				}
+			}
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 150
+					NOT = { has_global_variable = union_stall_3 }
+				}
+				set_global_variable = union_stall_3
+				freeze_plc_point = yes
+				if = {
+					limit = { has_variable = checkpoint_ongoing }
+					remove_variable = checkpoint_ongoing
+				}
+			}
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 200
+					NOT = { has_global_variable = union_stall_4 }
+				}
+				set_global_variable = union_stall_4
+				freeze_plc_point = yes
+				if = {
+					limit = { has_variable = checkpoint_ongoing }
+					remove_variable = checkpoint_ongoing
+				}
+			}
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 250
+					NOT = { has_global_variable = union_stall_5 }
+				}
+				set_global_variable = union_stall_5
+				freeze_plc_point = yes
+				if = {
+					limit = { has_variable = checkpoint_ongoing }
+					remove_variable = checkpoint_ongoing
+				}
+			}
+			if = {
+				limit = {
+					global_var:plc_union_progress_var >= 300
+					NOT = { has_global_variable = union_stall_6 }
+				}
+				set_global_variable = union_stall_6
+				freeze_plc_point = yes
+				if = {
+					limit = { has_variable = checkpoint_ongoing }
+					remove_variable = checkpoint_ongoing
+				}
+			}
 		}
 		random_events = {
 			100 = 0
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = union_progressing
+				trigger = {
+					global_var:plc_point_var_next > 0
+				}
+			}
+			triggered_desc = {
+				desc = union_regressing
+				trigger = {
+					global_var:plc_point_var_next < 0
+				}
+			}
+			triggered_desc = {
+				desc = union_stall
+				trigger = {
+					global_var:plc_point_var_next = 0
+				}
+			}
 		}
 	}
 	
@@ -325,7 +353,7 @@ je_union_of_augustow_pol = {
 	}
 	
 	goal_add_value = {
-		add = 400
+		add = 360
 	}
 	
 	progressbar = yes
@@ -339,8 +367,6 @@ je_union_of_augustow_lit = {
 	
 	group = je_group_tsr_content
 	
-	#scripted_button =
-	
 	immediate = {
 		c:POL ?= {
 			save_scope_as = pol_scope
@@ -353,7 +379,7 @@ je_union_of_augustow_lit = {
 	on_complete = {
 		show_as_tooltip = {
 			c:POL = {
-				trigger_event = { id = paraguay.9 popup = yes }
+				trigger_event = { id = poland_lithuania_events.5 popup = yes }
 				annex_with_incorporation = c:LIT
 				change_tag = PLC
 			}
@@ -373,12 +399,19 @@ je_union_of_augustow_lit = {
 	}
 	
 	fail = {
-		OR = {
-			custom_tooltip = {
-				text = plc_union_fail
-				global_var:plc_union_progress_var <= 0
+		hidden_trigger = {
+			has_global_variable = plc_union_fail_var
+		}
+		show_as_tooltip = {
+			OR = {
+				custom_tooltip = {
+					text = plc_union_fail
+					global_var:plc_union_progress_var <= 0
+				}
+				c:POL ?= { is_subject = yes }
+				NOT = { is_subject_of = c:POL }
+				has_war_with = c:POL
 			}
-			NOT = { is_subject_of = c:POL }
 		}
 	}
 	
@@ -390,12 +423,35 @@ je_union_of_augustow_lit = {
 		NOT = { exists = c:POL }
 	}
 	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = union_progressing
+				trigger = {
+					global_var:plc_point_var_next > 0
+				}
+			}
+			triggered_desc = {
+				desc = union_regressing
+				trigger = {
+					global_var:plc_point_var_next < 0
+				}
+			}
+			triggered_desc = {
+				desc = union_stall
+				trigger = {
+					global_var:plc_point_var_next = 0
+				}
+			}
+		}
+	}
+	
 	current_value = {
 		value = global_var:plc_union_progress_var
 	}
 	
 	goal_add_value = {
-		add = 400
+		add = 360
 	}
 	
 	progressbar = yes

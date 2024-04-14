@@ -156,3 +156,186 @@ je_odrodzenie_polish_radicals_subject_button = {
 		}
 	}
 }
+
+# Augustow Buttons
+
+pollit_constitution_button = {
+	name = "pollit_constitution_button"
+	desc = "pollit_constitution_button_desc"
+
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		OR = {
+			has_global_variable = union_stall_1
+			has_global_variable = union_stall_2
+			has_global_variable = union_stall_3
+			has_global_variable = union_stall_4
+			has_global_variable = union_stall_5
+		}
+		NOT = { has_variable = constitution_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = constitution_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_constitution }
+	}
+}
+
+pollit_industrialization_button = {
+	name = "pollit_industrialization_button"
+	desc = "pollit_industrialization_button_desc"
+	
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		OR = {
+			has_global_variable = union_stall_1
+			has_global_variable = union_stall_2
+			has_global_variable = union_stall_3
+			has_global_variable = union_stall_4
+			has_global_variable = union_stall_5
+		}
+		NOT = { has_variable = industrialization_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = industrialization_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_industrialization }
+	}
+}
+
+pollit_defense_button = {
+	name = "pollit_defense_button"
+	desc = "pollit_defense_button_desc"
+
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		OR = {
+			has_global_variable = union_stall_1
+			has_global_variable = union_stall_2
+			has_global_variable = union_stall_3
+			has_global_variable = union_stall_4
+			has_global_variable = union_stall_5
+		}
+		NOT = { has_variable = defense_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = defense_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_defense }
+	}
+}
+
+pollit_sovereignty_button = {
+	name = "pollit_sovereignty_button"
+	desc = "pollit_sovereignty_button_desc"
+
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		OR = {
+			has_global_variable = union_stall_1
+			has_global_variable = union_stall_2
+			has_global_variable = union_stall_3
+			has_global_variable = union_stall_4
+			has_global_variable = union_stall_5
+		}
+		NOT = { has_variable = sovereignty_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = sovereignty_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_sovereignty }
+	}
+}
+
+pollit_nationalism_button = {
+	name = "pollit_nationalism_button"
+	desc = "pollit_nationalism_button_desc"
+
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		OR = {
+			has_global_variable = union_stall_1
+			has_global_variable = union_stall_2
+			has_global_variable = union_stall_3
+			has_global_variable = union_stall_4
+			has_global_variable = union_stall_5
+		}
+		has_technology_researched = nationalism
+		NOT = { has_variable = nationalism_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = nationalism_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_nationalism }
+	}
+}
+
+pollit_pledge_button = { #"Will you pledge an equal union with this nation, to be faithful to her as long as you both shall live?" "I do" /jk
+	name = "pollit_pledge_button"
+	desc = "pollit_pledge_button_desc"
+
+	visible = { 
+		always = yes
+	}
+
+	possible = {
+		has_global_variable = union_stall_6
+		NOT = { has_variable = pledge_button_done }
+		NOT = { has_variable = checkpoint_ongoing }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+
+	effect = {
+		set_variable = pledge_button_done
+		set_variable = checkpoint_ongoing
+		#add_journal_entry = { type = je_pollit_pledge }
+	}
+}

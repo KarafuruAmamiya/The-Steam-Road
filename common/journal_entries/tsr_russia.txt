@@ -27,9 +27,17 @@
 	}
 	
     complete = {
-        custom_tooltip = {
-			text = russian_unrest_variable_at_full_tt
-			root.var:russian_unrest_je_var >= 100
+		OR = {
+			custom_tooltip = {
+				text = russian_unrest_variable_at_full_tt
+				root.var:russian_unrest_je_var >= 100
+			}
+			cu:russian = {
+				culture_secession_progress = {
+					target = ROOT
+					value >= 0.9
+				}
+			}
 		}
     }
 	

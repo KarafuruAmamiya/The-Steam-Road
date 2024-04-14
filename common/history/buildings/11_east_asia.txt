@@ -52,7 +52,7 @@
 		}
 	}
 	s:STATE_SICHUAN={
-		region_state:CHI={
+		region_state:CXI={
 			create_building={
 				building="building_government_administration"
 				level=10
@@ -572,7 +572,7 @@
 		}
 	}
 	s:STATE_SHANXI={
-		region_state:CHI={
+		region_state:CSH={
 			create_building={
 				building="building_government_administration"
 				level=7
@@ -594,7 +594,7 @@
 		}
 	}
 	s:STATE_NINGXIA={
-		region_state:CHI={
+		region_state:CSH={
 			create_building={
 				building="building_government_administration"
 				level=4
@@ -610,7 +610,7 @@
 		}
 	}
 	s:STATE_GANSU={
-		region_state:CHI={
+		region_state:CSH={
 			create_building={
 				building="building_livestock_ranch"
 				level=6
@@ -620,10 +620,10 @@
 		}
 	}
 	s:STATE_XIAN={
-		region_state:CHI={
+		region_state:CSH={
 			create_building={
 				building="building_government_administration"
-				level=4
+				level=7
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
@@ -698,7 +698,7 @@
 		}
 	}
 	s:STATE_CHONGQING={
-		region_state:CHI={
+		region_state:CXI={
 			create_building={
 				building="building_government_administration"
 				level=12
@@ -822,7 +822,7 @@
 		}
 	}
 	s:STATE_FUJIAN={
-		region_state:CHI={
+		region_state:ZHN={
 			create_building={
 				building="building_government_administration"
 				level=11
@@ -853,10 +853,16 @@
 				reserves=1
 				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
 			}
+			create_building={
+				building="building_port"
+				level=1
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
 		}
 	}
 	s:STATE_ZHEJIANG={
-		region_state:CHI={
+		region_state:ZHN={
 			create_building={
 				building="building_government_administration"
 				level=10
@@ -1020,7 +1026,7 @@
 		}
 	}
 	s:STATE_JIANGXI={
-		region_state:CHI={
+		region_state:ZHN={
 			create_building={
 				building="building_government_administration"
 				level=12

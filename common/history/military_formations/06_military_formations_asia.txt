@@ -151,54 +151,6 @@
 				state_region = s:STATE_HENAN
 				count = 20
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_SHANXI
-				count = 10
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_north_china
-			name = "Xi'an Army"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_NINGXIA
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_GANSU
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_XIAN
-				count = 15
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_south_china
-			name = "Xinan Army"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_SICHUAN
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_GUIZHOU
-				count = 10
-			}		
 		}
 
 		create_military_formation = {
@@ -255,24 +207,6 @@
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_WESTERN_HUBEI
 				count = 5
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_south_china
-			name = "Hangzhou Army"
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_FUJIAN
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_ZHEJIANG
-				count = 20
 			}
 		}
 
@@ -343,12 +277,6 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_JIANGXI
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_SHAOZHOU
 				count = 20
 			}
@@ -358,12 +286,12 @@
 			type = army
 			hq_region = sr:region_south_china
 			name = "Xiang Army"
-
+			
 			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_CHONGQING
-				count = 20
-			}
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GUIZHOU
+				count = 10
+			}	
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -378,7 +306,7 @@
 			name = "Bohai Gulf Fleet"
 			combat_unit = {
 				type = unit_type:combat_unit_type_frigate # War junks, but no modern ships
-				state_region = s:STATE_FUJIAN
+				state_region = s:STATE_SUZHOU
 				count = 7
 			}
 		}
@@ -392,6 +320,96 @@
 				type = unit_type:combat_unit_type_frigate # War junks, but no modern ships
 				state_region = s:STATE_SHAOZHOU
 				count = 8
+			}
+		}
+	}
+	
+	c:CSH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_china
+			name = "Shun Army"
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_XIAN
+				count = 15
+			}
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_china
+			name = "Xibei Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_NINGXIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GANSU
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_XIAN
+				count = 15
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SHANXI
+				count = 10
+			}
+		}
+	}
+	
+	c:CXI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_china
+			name = "Xi Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SICHUAN
+				count = 20
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CHONGQING
+				count = 20
+			}
+		}
+	}
+	
+	c:ZHN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_china
+			name = "Zheng Army"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_FUJIAN
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ZHEJIANG
+				count = 20
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_JIANGXI
+				count = 20
 			}
 		}
 	}

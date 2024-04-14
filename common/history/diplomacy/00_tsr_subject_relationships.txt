@@ -222,6 +222,28 @@
 			country = c:YGR
 			type = tributary
 		}
+		create_diplomatic_pact = {
+			country = c:MGL
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:BYT
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:XBO
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:HXI
+			type = tributary
+		}
+	}
+	c:MGL ?= {
+		create_diplomatic_pact = {
+			country = c:KHR
+			type = vassal
+		}
 	}
 	c:ETH ?= {
 		create_diplomatic_pact = {
@@ -549,24 +571,6 @@
 			type = dependency
 		}
 	}
-	c:MGL ?= {
-		create_diplomatic_pact = {
-			country = c:KHR
-			type = vassal
-		}
-		create_diplomatic_pact = {
-			country = c:BYT
-			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:XBO
-			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:HXI
-			type = tributary
-		}
-	}
 	c:CHI ?= {
 		create_diplomatic_pact = {
 			country = c:KOR
@@ -578,19 +582,31 @@
 		}
 		create_diplomatic_pact = {
 			country = c:QIN
-			type = dependency
+			type = vassal
 		}
 		create_diplomatic_pact = {
 			country = c:KHM
-			type = dependency
+			type = vassal
 		}
 		create_diplomatic_pact = {
 			country = c:IMG
-			type = dependency
+			type = vassal
 		}
 		create_diplomatic_pact = {
 			country = c:DAI
-			type = dependency
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:CSH
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:CXI
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:ZHN
+			type = vassal
 		}
 		create_diplomatic_pact = {
 			country = c:LXA

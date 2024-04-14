@@ -48,7 +48,17 @@ je_annex_subject_overlord = {
 	}
 
 	goal_add_value = {
-		add = 24
+		value = scope:annex_target_scope.gdp
+		divide = {
+			value = root.gdp
+			divide = 1500
+		}
+		multiply = {
+			value = 7
+			subtract = root.institution:institution_centralization.investment
+			divide = 10
+		}
+		min = 24
 	}
 
 	progressbar = yes
@@ -66,6 +76,8 @@ je_annex_subject_overlord = {
 			}
 			annex = scope:annex_target_scope
 		}
+		remove_variable = annexing_subject_var
+		remove_variable = annexing_subject_years_var
     }
 
 	fail = {
@@ -119,6 +131,7 @@ je_annex_subject_junior = {
 			name = being_annexed_var
 			value = 0
 		}
+		
 	}
 	on_monthly_pulse = {
 		effect = {
@@ -149,7 +162,17 @@ je_annex_subject_junior = {
 	}
 
 	goal_add_value = {
-		add = 24
+		value = root.gdp
+		divide = {
+			value = scope:overlord_scope.gdp
+			divide = 1500
+		}
+		multiply = {
+			value = 7
+			subtract = scope:overlord_scope.institution:institution_centralization.investment
+			divide = 10
+		}
+		min = 24
 	}
 
 	progressbar = yes

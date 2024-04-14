@@ -53,9 +53,12 @@ NAI = {
 	AI_PEACE_AGREEMENT_WHITE_PEACE_BASE = 15 # If no wargoals are being enforced on either side
 	AI_PEACE_AGREEMENT_WHITE_PEACE_WAR_DURATION = 2 # For each month the war goes on add this to the acceptance for a white peace
 	
-	TRADE_ROUTE_MIN_MARKET_SHARE = 0.05 # If the AI is junior in a customs union and has less than this market share in a market, don't make any trade routes
-	TRADE_ROUTE_MIN_SCORE_TO_CREATE_BASE = 750 #1000 If a potential trade route is scored less than this, don't create it
+	TTRADE_ROUTE_MIN_MARKET_SHARE = 0.05 # If the AI is junior in a customs union and has less than this market share in a market, don't make any trade routes
+	TRADE_ROUTE_MIN_ACCEPTABLE_PRODUCTIVITY = 2.4 #3 # If a potential trade route would result in lower productivity than this, don't create it unless it's to resolve a shortage
+	TRADE_ROUTE_MIN_WANTED_RELATIVE_VOLUME = 0.07 #0.1 # If a trade route won't account for at least this fraction of buy/sell orders in the market, don't create it
+	TRADE_ROUTE_MIN_VALUE_TO_IGNORE_VOLUME_CHECK = 500 # If a trade route is trading at least this much base value worth of goods, ignore the relative check above
 	TRADE_ROUTE_ACCEPTABLE_SPENDING = 0.004 #0.002 AI will not spend more BUR than this on trade routes (scaled by weekly GDP)
+	TRADE_ROUTE_ACCEPTABLE_SPENDING_MINIMUM = 85 #20 If TRADE_ROUTE_ACCEPTABLE_SPENDING is less than this, this is used instead (so even small countries can do some trading)
 	
 	TRADE_ROUTE_REPLACE_THRESHOLD = 3.5 #5.0 If there is a sufficiently better new trade route (old route score x this), remove the old one
 	TRADE_ROUTE_SUPPLY_NETWORK_STRENGTH_THRESHOLD = 0.9 #1.0 If supply network strength less than this, don't make new trade routes
@@ -124,9 +127,12 @@ NPolitics = {
 	POP_IG_RANDOM_FACTOR = 0.3
 	MAX_POP_FRACTION_LEAVE_IG = 0.1
 	
-	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 10			# Excess turmoil is divided by this and used to increase chance for secession movements
-	MIN_POP_SIZE_TO_SECEDE = 50000						# Num pops (including dependents) needed for a secession movement to start
-	SECESSION_STATE_CUTOFF_PERCENT = 0.33				# Required pop percentage in State to be egligble (oi) for secession
+	SECESSION_CHECKPOINT_INTERVAL_BASE_WEEKS = 2	#1 secession progress will be updated every this many weeks (may be affected by modifiers)
+	
+	SECESSION_TURMOIL_CUTOFF = 0.35						# 0.5 Turmoil requires for cultures to start secession
+	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 40			    # 100 Excess turmoil is divided by this and used to increase chance for secession movements
+	MIN_POP_SIZE_TO_SECEDE = 40000						# Num pops (including dependents) needed for a secession movement to start
+    SECESSION_STATE_CUTOFF_PERCENT = 0.3
 	
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
 	MAX_IG_APPROVAL_FROM_LAWS = 5 #5		# IG cannot have approval higher than this as a total from laws 'on the book'

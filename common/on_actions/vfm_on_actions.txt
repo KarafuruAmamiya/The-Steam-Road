@@ -168,11 +168,11 @@ vfm_vice_presidents = {
 				}		
 			}
 		}
-		if = { #Removes vice president if no longer presidential republic
+		if = { #New VP
 			limit = {
 				has_law = law_type:law_presidential_republic
 				has_variable = vice_president
-				NOT = { 
+				NOT = {
 					any_scope_character = {
 						has_variable = vice_president_trigger
 					}
@@ -187,14 +187,6 @@ vfm_vice_presidents = {
 					}
 				}
 			}
-			#if = {
-			#	limit = {
-			#		ruler = {
-			#			has_variable = vice_president_trigger
-			#		}
-			#	}
-			#	ruler = { remove_variable = vice_president_trigger }
-			#}
 			if = {
 				limit = {
 					any_scope_character = {
@@ -208,7 +200,7 @@ vfm_vice_presidents = {
 							}
 						}
 						interest_group = {
-							is_in_government = yes
+							is_powerful = yes
 						}
 					}
 				}
@@ -224,7 +216,7 @@ vfm_vice_presidents = {
 							}
 						}
 						interest_group = {
-							is_in_government = yes
+							is_powerful = yes
 						}
 					}
 					set_variable = vice_president_trigger
@@ -238,7 +230,14 @@ vfm_vice_presidents = {
 				}
 			}
 			else = {
+				random_interest_group = {
+					limit = {
+						is_powerful = yes
+					}
+					save_scope_as = government_ig_scope
+				}
 				create_character = {
+					interest_group = scope:government_ig_scope
 					on_created = {
 						set_variable = vice_president_trigger
 						save_scope_as = new_vice_president
@@ -278,6 +277,12 @@ vfm_vice_presidents = {
 				remove_variable = vice_president_trigger
 			}
 		}
+		if = { #Removes vice president if ruler
+			limit = {
+				ruler = { has_variable = vice_president_trigger }
+			}
+			ruler = { remove_variable = vice_president_trigger }
+		}
 	}
 }
 
@@ -305,6 +310,7 @@ vfm_prime_ministers = {
 					}
 					interest_group = {
 						is_in_government = yes
+						is_strongest_ig_in_government = yes
 					}
 				}
 				set_variable = prime_minister_trigger
@@ -329,44 +335,72 @@ vfm_prime_ministers = {
 						has_variable = prime_minister_trigger
 					}
 				}
-
-				#any_scope_character = {
-				#	AND = {
-				#		NOT = { ig = is_in_government = yes }
-				#		has_variable = prime_minister_trigger
-				#	}
-				#}
 			}
-			random_scope_character = {
+			if = {
 				limit = {
-					is_ruler = no
-					is_heir = no
-					NOT = {
-						OR = {
-							has_role = general
-							has_role = admiral
-							has_role = agitator
+					any_scope_character = {
+						is_ruler = no
+						is_heir = no
+						NOT = {
+							OR = {
+								has_role = general
+								has_role = admiral
+								has_role = agitator
+							}
+						}
+						interest_group = {
+							is_in_government = yes
+							is_strongest_ig_in_government = yes
 						}
 					}
-					interest_group = {
-						is_in_government = yes
-					}
 				}
-				set_variable = prime_minister_trigger
-				save_scope_as = new_prime_minister
-				owner = {
-					set_variable = {
-						name = prime_minister
-						value = PREV
+				random_scope_character = {
+					limit = {
+						is_ruler = no
+						is_heir = no
+						NOT = {
+							OR = {
+								has_role = general
+								has_role = admiral
+								has_role = agitator
+							}
+						}
+						interest_group = {
+							is_in_government = yes
+							is_strongest_ig_in_government = yes
+						}
+					}
+					set_variable = prime_minister_trigger
+					save_scope_as = new_prime_minister
+					owner = {
+						set_variable = {
+							name = prime_minister
+							value = PREV
+						}
 					}
 				}
 			}
-			every_scope_character = {
-				limit = {
-					has_variable = prime_minister_trigger
-					NOT = { THIS = scope:new_prime_minister }
+			else = {
+				random_interest_group = {
+					limit = {
+						is_in_government = yes
+						is_strongest_ig_in_government = yes
+					}
+					save_scope_as = government_ig_scope
 				}
-				remove_variable = prime_minister_trigger
+				create_character = {
+					interest_group = scope:government_ig_scope
+					on_created = {
+						set_variable = prime_minister_trigger
+						save_scope_as = new_prime_minister
+						owner = {
+							set_variable = {
+								name = prime_minister
+								value = PREV
+							}
+						}
+					}		
+				}
 			}
 		}
 		if = {
@@ -389,6 +423,12 @@ vfm_prime_ministers = {
 				}
 				remove_variable = prime_minister_trigger
 			}
+		}
+		if = { #Removes prime_minister if ruler
+			limit = {
+				ruler = { has_variable = prime_minister_trigger }
+			}
+			ruler = { remove_variable = prime_minister_trigger }
 		}
 	}
 }

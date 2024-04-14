@@ -67,3 +67,159 @@ on_colony_created = {
 		vfm_barracks_colony_created
 	}
 }
+
+# Root = Country
+# scope:target = Uprising country
+on_secession_start = {
+	on_actions = {
+		secession_escalation_on_action
+	}
+}
+
+secession_escalation_on_action = {
+	effect = {
+	    if = {
+			limit = {
+				ROOT = {
+					any_scope_state = {
+						is_homeland_of_country_cultures = scope:target
+
+						any_scope_culture = {
+							is_primary_culture_of = scope:target
+							save_temporary_scope_as = discrim_culture
+			            }
+			            culture_percent_state = {
+			                target = scope:discrim_culture
+			                value >= 0.4
+			            }
+						turmoil >= 0.1
+					}
+				}
+			}
+			ROOT = {
+				every_scope_state = {
+					limit = {
+						is_homeland_of_country_cultures = scope:target
+
+						any_scope_culture = {
+							is_primary_culture_of = scope:target
+							save_temporary_scope_as = discrim_culture
+			            }
+			            culture_percent_state = {
+			                target = scope:discrim_culture
+			                value >= 0.5
+			            }
+						turmoil >= 0.15
+					}
+					random_list = {
+						80 = {
+							set_state_owner = scope:target
+						}
+						20 = {
+						}
+					}
+				}
+				every_scope_state = {
+					limit = {
+						is_homeland_of_country_cultures = scope:target
+
+						any_scope_culture = {
+							is_primary_culture_of = scope:target
+							save_temporary_scope_as = discrim_culture
+			            }
+			            culture_percent_state = {
+			                target = scope:discrim_culture
+			                value >= 0.3
+			            }
+						turmoil >= 0.15
+					}
+					random_list = {
+						50 = {
+							set_state_owner = scope:target
+						}
+						50 = {
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					any_scope_state = {
+						is_homeland_of_country_cultures = scope:target
+						NOT = { has_claim_by = scope:target }
+					}
+				}
+			}
+			ROOT = {
+				every_scope_state = {
+					limit = {
+						is_homeland_of_country_cultures = scope:target
+						NOT = { has_claim_by = scope:target }
+					}
+					state_region = {
+						add_claim = scope:target
+					}
+				}
+			}
+			random_diplomatic_play = {
+				limit = {
+					any_scope_play_involved = { this = ROOT }
+					any_scope_play_involved = { this = scope:target }
+					is_diplomatic_play_type = dp_secession
+				}
+				every_state = {
+					limit = {
+						owner = ROOT
+						is_homeland_of_country_cultures = scope:target
+					}
+					prev = {
+						add_war_goal = {
+							holder = scope:target
+							type = return_state
+							target_state = prev
+						}
+					}
+				}
+			}
+		}
+
+		scope:target = {
+		    add_modifier = {
+			    name = nationalist_fervor
+			    months = 25
+		    }
+			random_primary_culture = {
+				save_temporary_scope_as = discrim_culture
+			}
+			every_scope_state = {
+				every_scope_pop = {
+					limit = {
+						NOT = { culture = scope:discrim_culture }
+						OR = {
+							is_pop_type = bureaucrats
+							is_pop_type = soldiers
+							is_pop_type = officers
+							is_pop_type = aristocrats
+					   }
+					}
+					change_pop_culture = {
+						target = scope:discrim_culture
+						value = 0.5
+					}
+				}
+			}
+			add_loyalists = {
+			    culture = scope:discrim_culture
+		    	pop_type = soldiers
+				value = 0.1
+		    }
+			add_loyalists = {
+			    culture = scope:discrim_culture
+		    	pop_type = officers
+				value = 0.1
+		    }
+		}
+	}
+}

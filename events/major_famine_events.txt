@@ -24,7 +24,10 @@ famine_events.1 = { #there's a great famine
 
 	immediate = {
 		random_scope_state = {
-			limit = { has_variable = famine_var }
+			limit = { 
+				has_variable = famine_var 
+				NOT = { has_modifier = great_famine_modifier }
+			}
 			save_scope_as = famine_state
 		}
 	}
@@ -89,6 +92,7 @@ famine_events.2 = { #famine spreads
 				is_incorporated = yes
 				owner = ROOT
 				NOT = { has_variable = famine_var }
+				NOT = { has_modifier = great_famine_modifier }
 			}
 		}
         # VFM don't stack this
@@ -115,6 +119,7 @@ famine_events.2 = { #famine spreads
 					is_incorporated = yes
 					owner = ROOT
 					NOT = { has_variable = famine_var }
+					NOT = { has_modifier = great_famine_modifier }
 				}
 				save_scope_as = famine_2_state
 				set_variable = famine_var

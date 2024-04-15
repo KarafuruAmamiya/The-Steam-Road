@@ -876,39 +876,6 @@ treaty_of_baglar_events.6 = {
 			country = c:PER
 			value = -20
 		}
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_increase_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = rumelist_progress_increase_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_increase_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = 1 }
-				}
-			}
-		}
 	}
 
 	option = {
@@ -931,39 +898,6 @@ treaty_of_baglar_events.6 = {
 		change_relations = {
 			country = scope:akn_scope
 			value = 50
-		}
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_increase_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = rumelist_progress_increase_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_increase_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = 1 }
-				}
-			}
 		}
 		change_relations = {
 			country = c:PER
@@ -1037,15 +971,9 @@ treaty_of_baglar_events.7 = {
 					c:PER ?= this
 				}
 			}
-			every_interest_group = {
+			random_interest_group = {
 				limit = {
-					leader = {
-						OR = {
-							is_interest_group_type = ig_devout
-							has_ideology = ideology:ideology_caliphatist
-							has_ideology = ideology:ideology_traditionalist
-						}
-					}
+					is_interest_group_type = ig_devout
 				}
 				ROOT = {
 					add_radicals = {
@@ -1069,11 +997,10 @@ treaty_of_baglar_events.7 = {
 			}
 			every_interest_group = {
 				limit = {
-					has_ideology = ideology:ideology_nationalist
-					leader = {
-						OR = {
-							is_interest_group_type = ig_armed_forces
-							has_ideology = ideology:ideology_rumelist
+					OR = {
+						is_interest_group_type = ig_armed_forces
+						has_ideology = ideology:ideology_nationalist
+						leader = {
 							has_ideology = ideology:ideology_traditionalist
 						}
 					}
@@ -1083,36 +1010,6 @@ treaty_of_baglar_events.7 = {
 						value = medium_radicals
 						interest_group = prev
 					}
-				}
-			}
-		}
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_decrease_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-				}
-				custom_tooltip = {
-					text = rumelist_progress_decrease_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_decrease_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = -1 }
 				}
 			}
 		}

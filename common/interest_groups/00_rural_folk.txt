@@ -131,25 +131,6 @@
 		}
 
 		add = {
-			desc = "POP_CLERGYMEN"
-			if = {
-				limit = {
-					is_pop_type = clergymen
-					NOT = {
-						owner = {
-							ig:ig_devout = {
-								leader = {
-									has_ideology = ideology:ideology_caliphatist
-								}
-							}
-						}
-					}
-				}
-				value = 50
-			}
-		}
-		
-		add = {
 			desc = "RURAL_POP"
 			if = {
 				limit = { 
@@ -377,59 +358,10 @@
 					pop_is_discriminated = no
 					has_state_religion = yes
 					NOT = { is_pop_type = aristocrats }
-					NOT = { #rumelists are too economicaly liberals
-						owner = {
-							ig:ig_landowners = {
-								leader = {
-									has_ideology = ideology:ideology_rumelist
-								}
-							}
-						}
-					}
 				}
 				value = 0.75
 			}
 		}
-
-		multiply = {
-			desc = "ideology_metropolitan"
-			value = 1.0
-
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_monarchy
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-					pop_is_discriminated = yes
-				}
-				value = 0.50
-			}
-		}		
-		
-		multiply = {
-			desc = "ideology_metropolitan"
-			value = 1.0
-
-			if = {
-				limit = {
-					owner = {
-						NOT = { has_law = law_type:law_monarchy }
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-					pop_is_discriminated = yes
-				}
-				value = 0.25
-			}
-		}		
 
 		multiply = {
 			desc = "THEOCRACT"

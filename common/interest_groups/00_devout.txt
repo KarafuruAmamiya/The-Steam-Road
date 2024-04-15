@@ -331,15 +331,6 @@
 				limit = { 
 					rural_employment = yes
 					NOT = { is_pop_type = aristocrats }
-					NOT = {
-						owner = {
-							ig:ig_devout = {
-								leader = {
-									has_ideology = ideology:ideology_caliphatist
-								}
-							}
-						}
-					}
 					owner = {
 						ig:ig_rural_folk = {
 							leader = {
@@ -459,52 +450,6 @@
 			}
 		}
 
-		multiply = {
-			desc = "ideology_metropolitan"
-			value = 1.0
-
-			if = {
-				limit = {
-					rural_employment = yes
-					NOT = { is_pop_type = aristocrats }
-					NOT = { is_pop_type = clergymen }
-					owner = {
-						has_law = law_type:law_monarchy
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-					pop_is_discriminated = yes
-				}
-				value = 0.50
-			}
-		}		
-		
-		multiply = {
-			desc = "ideology_metropolitan"
-			value = 1.0
-
-			if = {
-				limit = {
-					rural_employment = yes
-					NOT = { is_pop_type = aristocrats }
-					NOT = { is_pop_type = clergymen }
-					owner = {
-						NOT = { has_law = law_type:law_monarchy }
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-					pop_is_discriminated = yes
-				}
-				value = 0.25
-			}
-		}
-
 		if = {
 			limit = {
 				owner = {
@@ -514,46 +459,6 @@
 			multiply = {
 				desc = "STATE_ATHEISM_LAW"
 				value = 0.1
-			}
-		}
-		
-		add = {
-			desc = "ideology_caliphatist"
-			if = {
-				limit = { 
-					OR = {
-						is_pop_type = peasants
-						is_pop_type = farmers
-					}
-					owner = {
-						ig:ig_devout = {
-							leader = {
-								has_ideology = ideology:ideology_caliphatist
-							}
-						}
-					}
-				}
-				value = -50
-			}
-		}
-
-		add = {
-			desc = "ideology_caliphatist"
-			if = {
-				limit = { 
-					OR = {
-						is_pop_type = aristocrats
-						is_pop_type = clergymen
-					}
-					owner = {
-						ig:ig_devout = {
-							leader = {
-								has_ideology = ideology:ideology_caliphatist
-							}
-						}
-					}
-				}
-				value = 50
 			}
 		}
 		

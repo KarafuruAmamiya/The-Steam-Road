@@ -571,54 +571,6 @@
 				value = 100
 			}
 		}
-		
-		add = {
-			desc = "ideology_rumelist"
-			if = {
-				limit = { 
-					is_pop_type = capitalists
-					pop_is_discriminated = no
-					owner = {
-						ig:ig_landowners = {
-							leader = {
-								has_ideology = ideology:ideology_rumelist
-							}
-						}
-						has_law = law_type:law_monarchy
-					}
-				}
-				value = 200
-			}
-		}
-
-		add = {
-			desc = "WEALTH"
-			if = {
-				limit = { 
-					wealth > 30
-					OR = {
-						is_pop_type = aristocrats
-						is_pop_type = capitalists
-					}
-					pop_is_discriminated = no
-					owner = {
-						ig:ig_landowners = {
-							leader = {
-								has_ideology = ideology:ideology_rumelist
-							}
-						}
-						has_law = law_type:law_monarchy
-					}
-				}
-
-				value = wealth
-				subtract = 20
-				multiply = 4
-				max = 250
-
-			}
-			
-		}
 
 		add = {
 			desc = "ideology_scholar_paternalistic"
@@ -786,34 +738,8 @@
 					strata = poor
 					pop_is_discriminated = no
 					has_state_religion = yes
-					NOT = { #rumelists are too economicaly liberals
-						owner = {
-							ig:ig_landowners = {
-								leader = {
-									has_ideology = ideology:ideology_rumelist
-								}
-							}
-						}
-					}
 				}
 				value = 50
-			}
-		}
-
-		add = {
-			desc = "ideology_rumelist"
-			if = {
-				limit = { 
-					is_pop_type = farmers
-					owner = {
-						ig:ig_landowners = {
-							leader = {
-								has_ideology = ideology:ideology_rumelist
-							}
-						}
-					}
-				}
-				value = -50
 			}
 		}
 

@@ -785,24 +785,5 @@ ideology_imperialist = {
 			}
 			add = -75
 		}
-		# less likely for conservative Ottoman IG's
-		if = {
-			limit = {
-				owner = {
-					exists = c:TUR
-					this = c:TUR
-					has_journal_entry = je_fractured_porte
-				}
-				scope:interest_group = {
-					OR = {
-						is_interest_group_type = ig_industrialists
-						is_interest_group_type = ig_intelligentsia
-						is_interest_group_type = ig_landowners
-						is_interest_group_type = ig_petty_bourgeoisie
-					}
-				}
-			}
-			add = -100
-		}
 	}
 }

@@ -95,32 +95,6 @@ law_monarchy = {
 		}
 	}
 
-	on_activate = {
-		if = {
-			limit = {
-				c:TUR ?= this
-				game_date > 1836.1.1
-			}
-			if = {
-				limit = {
-					has_variable = tur_fractured_porte_freeze
-				}
-				remove_variable = tur_fractured_porte_freeze
-			}
-			add_journal_entry = { type = je_fractured_porte }
-		}
-		# Generates Ottoman monarch upon enaction.
-		hidden_effect = {
-			if = {
-				limit = {
-					c:TUR ?= this
-					game_date > 1836.1.1
-				}
-				tur_handle_republic_monarch_assignment = yes
-			}
-		}
-	}
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -219,14 +193,6 @@ law_presidential_republic = {
 		add = {
             desc = "POP_LITERACY"
             
-            if = {
-                limit = { 
-                    owner = { 
-						ruler = {
-							NOT = { has_ideology = ideology:ideology_caliphatist }
-						}	
-                    }
-                }
                 if = {
                     limit = {
                         wealth < 15
@@ -245,8 +211,7 @@ law_presidential_republic = {
                         divide = 4
                     }
 					multiply = literacy_rate
-                }
-            }			
+                }		
         }
 	}
 
@@ -359,14 +324,6 @@ law_parliamentary_republic = {
 		add = {
             desc = "POP_LITERACY"
             
-            if = {
-                limit = { 
-                    owner = { 
-						ruler = {
-							NOT = {has_ideology = ideology:ideology_caliphatist}
-						}	
-                    }
-                }
                 if = {
                     limit = {
                         wealth < 15
@@ -386,8 +343,7 @@ law_parliamentary_republic = {
                     }
 					multiply = literacy_rate
                 }
-            }			
-        }
+		}			
 	}
 
 	ai_will_do = {

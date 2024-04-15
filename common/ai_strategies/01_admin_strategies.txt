@@ -454,27 +454,6 @@ ai_strategy_industrial_expansion = {
 			}
 			add = 20
 		}
-		
-		if = {
-			limit = {
-                has_variable = gwangmu_reforms_var
-			}
-			add = 1000
-		}		
-
-		if = {
-			limit = { 
-				exists = c:TUR
-				c:TUR = this
-				ruler = {
-					OR = {
-						has_variable = rumelist_leader
-						has_variable = caliphatist_leader
-					}
-				}
-			}
-			add = 20
-		}
 
 		if = {
 			limit = {

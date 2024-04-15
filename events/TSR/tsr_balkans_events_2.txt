@@ -404,39 +404,6 @@ balkan_crisis_2.3 = {
 				}
 			}
 		}
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_increase_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = rumelist_progress_increase_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = 1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-					NOT = { has_variable = tur_fractured_porte_freeze }
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_increase_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = 1 }
-				}
-			}
-		}
 	}
 }
 
@@ -664,37 +631,6 @@ balkan_crisis_2.4 = {
 		add_modifier = {
 			name = balkan_crisis_fail
 			months = long_modifier_time
-		}
-		
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_decrease_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-				}
-				custom_tooltip = {
-					text = rumelist_progress_decrease_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_decrease_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = -1 }
-				}
-			}
 		}
 	}
 	
@@ -1107,37 +1043,6 @@ balkan_crisis_2.5 = {
 		add_modifier = {
 			name = balkan_crisis_fail_max
 			months = long_modifier_time
-		}
-		
-		if = {
-			limit = { has_journal_entry = je_fractured_porte }
-			if = {
-				limit = {
-					ruler_is_caliphatist = yes
-				}
-				custom_tooltip = {
-					text = caliphatist_progress_decrease_tick_1_tt
-					change_variable = { name = caliphatist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_rumelist = yes
-				}
-				custom_tooltip = {
-					text = rumelist_progress_decrease_tick_1_tt
-					change_variable = { name = rumelist_progress_from_effects add = -1 }
-				}
-			}
-			if = {
-				limit = {
-					ruler_is_metropolitan = yes
-				}
-				custom_tooltip = {
-					text = metropolitan_progress_decrease_tick_1_tt
-					change_variable = { name = metropolitan_progress_from_effects add = -1 }
-				}
-			}
 		}
 	}
 	

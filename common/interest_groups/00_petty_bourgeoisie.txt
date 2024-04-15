@@ -630,42 +630,6 @@
 			}
 		}
 
-		add = { #rural pops love metropolitans
-			desc = "ideology_metropolitan"
-			if = {
-				limit = { 
-					rural_employment = yes
-					owner = {
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-				}
-				value = 50
-			}
-		}
-
-		multiply = {
-			desc = "ideology_metropolitan"
-			value = 1.0
-
-			if = {
-				limit = {
-					owner = {
-						NOT = { has_law = law_type:law_monarchy }
-						ig:ig_petty_bourgeoisie = {
-							leader = {
-								has_ideology = ideology:ideology_metropolitan
-							}
-						}
-					}
-				}
-				value = 1.25
-			}
-		}
-
 		multiply = {
 			desc = "ideology_jacksonian_democrat"
 			value = 1.0

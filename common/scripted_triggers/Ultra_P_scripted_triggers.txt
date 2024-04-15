@@ -1,33 +1,4 @@
-﻿
-can_have_radical_leader = { # interest_group scope
-	leader = {
-		NOR = {
-			has_ideology = ideology:ideology_radical
-			has_ideology = ideology:ideology_rumelist
-			has_ideology = ideology:ideology_metropolitan
-			has_ideology = ideology:ideology_caliphatist
-		}
-	}
-	OR = {
-		is_interest_group_type = ig_rural_folk
-		is_interest_group_type = ig_intelligentsia
-		is_interest_group_type = ig_trade_unions
-		is_interest_group_type = ig_industrialists
-	}
-}
-
-has_paternalist_ideology = {
-	OR = {
-		has_ideology = ideology:ideology_paternalistic
-		has_ideology = ideology:ideology_scholar_paternalistic
-		has_ideology = ideology:ideology_junker_paternalistic
-		has_ideology = ideology:ideology_papal_paternalistic
-		has_ideology = ideology:ideology_safavid_paternalistic
-		has_ideology = ideology:ideology_akkovin_paternalistic
-	}
-}
-
-employed_in_military_industry = {
+﻿employed_in_military_industry = {
 	OR = {
 		pop_employment_building = building_war_machine_industry
 		pop_employment_building = building_arms_industry

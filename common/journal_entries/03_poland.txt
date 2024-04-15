@@ -44,19 +44,19 @@
 #}
 
 je_poland_lithuania = {
-    icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+    icon = "gfx/interface/icons/event_icons/event_flags/event_plc_flag.dds"
 
 	group = je_group_foreign_affairs
 
     is_shown_when_inactive = {
-       country_has_primary_culture = cu:polish
+       c:PLC ?= this
     }
 
     possible = {
         has_technology_researched = pan-nationalism
         custom_tooltip = {
-            text = je_poland_lithuania_tt
-            c:PLC ?= THIS
+            text = odrodzenie_complete_tt
+           has_variable = odrodzenie_complete
         }
     }
 
@@ -72,6 +72,7 @@ je_poland_lithuania = {
                 OR = {
                     is_homeland = cu:ukrainian
                     is_homeland = cu:byelorussian
+                    is_homeland = cu:ruthenian
                 }
             }
             count >=7
@@ -83,16 +84,47 @@ je_poland_lithuania = {
         trigger_event = { id = poland_events.7 popup = yes }
         custom_tooltip = plc_discrimination_tt
         show_as_tooltip = {
-            add_primary_culture = cu:ukrainian
-            add_primary_culture = cu:byelorussian
-            add_loyalists = {
-                culture = cu:ukrainian
-                value = 0.1
-            }
-            add_loyalists = {
-                culture = cu:byelorussian
-                value = 0.1
-            }
+			if = {
+				limit = {
+					any_country = {
+						country_has_primary_culture = cu:ukrainian
+					}
+				}
+				add_primary_culture = cu:ukrainian
+				add_loyalists = {
+					culture = cu:ukrainian
+					value = 0.1
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						country_has_primary_culture = cu:byelorussian
+					}
+				}
+				add_primary_culture = cu:byelorussian
+				add_loyalists = {
+					culture = cu:byelorussian
+					value = 0.1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							OR = {
+								country_has_primary_culture = cu:ukrainian
+								country_has_primary_culture = cu:byelorussian
+							}
+						}
+					}
+				}
+				add_primary_culture = cu:ruthenian
+				add_loyalists = {
+					culture = cu:ruthenian
+					value = 0.1
+				}
+			}
         }
         custom_tooltip = plc_discrimination_tt_2
         show_as_tooltip = {

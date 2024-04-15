@@ -576,7 +576,7 @@ poland_events.4 = {
 		default_option = yes
 		add_loyalists = {
 			culture = cu:polish
-			value = very_large_radicals
+			value = large_radicals
 		}
 		add_radicals = {
 			culture = cu:lithuanian
@@ -801,11 +801,8 @@ poland_events.6 = {
 		cu:lithuanian = {
 			save_scope_as = lithuanian_culture
 		}
-		cu:ukrainian = {
-			save_scope_as = ukrainian_culture
-		}
-		cu:byelorussian = {
-			save_scope_as = byelorussian_culture
+		cu:ruthenian = {
+			save_scope_as = ruthenian_culture
 		}
 	}
 
@@ -828,6 +825,7 @@ poland_events.6 = {
 				limit = {
 					state_region = {
 						OR = {
+		                    is_homeland = cu:ruthenian
 		                    is_homeland = cu:ukrainian
 		                    is_homeland = cu:byelorussian
 						}
@@ -848,6 +846,7 @@ poland_events.6 = {
 				limit = {
 					state_region = {
 						OR = {
+		                    is_homeland = cu:ruthenian
 		                    is_homeland = cu:ukrainian
 		                    is_homeland = cu:byelorussian
 						}
@@ -935,11 +934,8 @@ poland_events.7 = {
 	}
 
 	immediate = {
-		cu:ukrainian = {
-			save_scope_as = ukrainian_culture
-		}
-		cu:byelorussian = {
-			save_scope_as = byelorussian_culture
+		cu:ruthenian = {
+			save_scope_as = ruthenian_culture
 		}
 	}
 
@@ -952,16 +948,47 @@ poland_events.7 = {
 				has_law = law_type:law_national_supremacy
 			}
 		}
-		add_primary_culture = cu:ukrainian
-        add_primary_culture = cu:byelorussian
-		add_loyalists = {
-			culture = cu:ukrainian
-			value = 0.1
-		}
-		add_loyalists = {
-			culture = cu:byelorussian
-			value = 0.1
-		}
+			if = {
+				limit = {
+					any_country = {
+						country_has_primary_culture = cu:ukrainian
+					}
+				}
+				add_primary_culture = cu:ukrainian
+				add_loyalists = {
+					culture = cu:ukrainian
+					value = 0.1
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						country_has_primary_culture = cu:byelorussian
+					}
+				}
+				add_primary_culture = cu:byelorussian
+				add_loyalists = {
+					culture = cu:byelorussian
+					value = 0.1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							OR = {
+								country_has_primary_culture = cu:ukrainian
+								country_has_primary_culture = cu:byelorussian
+							}
+						}
+					}
+				}
+				add_primary_culture = cu:ruthenian
+				add_loyalists = {
+					culture = cu:ruthenian
+					value = 0.1
+				}
+			}
 	}
 	option = {
 		name = poland_events.7.b

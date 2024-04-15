@@ -1,5 +1,5 @@
 ﻿je_odrodzenie = {
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	icon = "gfx/interface/icons/event_icons/event_flags/event_plc_flag.dds"
 	
 	group = je_group_tsr_content
 	
@@ -28,6 +28,7 @@
 	}
 
 	on_complete = {
+		set_variable = odrodzenie_complete
 		trigger_event = { id = poland_events.4 popup = yes }
 	}
 	
@@ -47,7 +48,7 @@
 }
 
 je_odrodzenie_victim = {
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	icon = "gfx/interface/icons/event_icons/event_flags/event_plc_flag.dds"
 	
 	group = je_group_tsr_content
 

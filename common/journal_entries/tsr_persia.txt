@@ -266,10 +266,7 @@ je_eclipse_of_persia = {
 	is_shown_when_inactive = {
 		c:PER ?= this
 		has_law = law_type:law_monarchy
-		OR = {
-			has_technology_researched = nationalism
-			has_technology_researched = egalitarianism
-		}
+		has_technology_researched = nationalism
 	}
 
 	possible = {
@@ -292,7 +289,6 @@ je_eclipse_of_persia = {
 				devastation >= 0.2
 			}
 		}
-		has_technology_researched = pan-nationalism
 	}
 
 	immediate = {

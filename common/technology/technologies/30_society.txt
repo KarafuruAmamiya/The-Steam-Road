@@ -158,6 +158,17 @@ international_trade = {
 		tech_bureaucracy
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				is_country_type = unrecognized
+			}
+			ig:ig_intelligentsia = {
+				add_ideology = ideology_westernizer
+			}
+		}
+	}
+	
 	ai_weight = {
 		value = 3 # Very important in general
 	}
@@ -368,6 +379,23 @@ empiricism = {
 		country_influence_mult = 0.1
 		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.005
+	}
+	
+	on_researched = {
+		if = {
+			limit = {
+				NOR = {
+					has_law = law_type:law_theocracy
+					country_has_state_religion = rel:confucian
+					ig:ig_intelligentsia = {
+						has_ideology = ideology:ideology_westernizer
+					}
+				}
+			}
+			ig:ig_intelligentsia = {
+				add_ideology = ideology_anti_clerical
+			}
+		}
 	}
 	
 	unlocking_technologies = {

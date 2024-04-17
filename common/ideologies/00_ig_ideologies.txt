@@ -137,8 +137,8 @@ ideology_stratocratic = {
 	lawgroup_centralization = {
 		law_feudalism = strongly_approve
 		law_warlord_state = disapprove			
-		law_unitary = neutral
-		law_devolved = neutral
+		law_unitary = disapprove
+		law_devolved = disapprove
 		law_federal = disapprove
 		law_confederated = strongly_disapprove
 	}
@@ -455,7 +455,7 @@ ideology_liberal = {
 		law_feudalism = strongly_disapprove
 		law_warlord_state = strongly_disapprove			
 		law_unitary = disapprove
-		law_devolved = approve
+		law_devolved = neutral
 		law_federal = strongly_approve
 		law_confederated = approve
 	}
@@ -479,6 +479,12 @@ ideology_liberal = {
 		law_right_of_assembly = approve
 		law_censorship = disapprove
 		law_outlawed_dissent = strongly_disapprove
+	}
+	
+	lawgroup_bureaucracy = {
+		law_appointed_bureaucrats = approve
+		law_elected_bureaucrats = neutral	
+		law_hereditary_bureaucrats = disapprove
 	}
 	
 	lawgroup_rights_of_women = {
@@ -506,12 +512,6 @@ ideology_anti_clerical = {
 		law_private_schools = approve
 		law_no_schools = disapprove
 		law_religious_schools = disapprove		
-	}
-
-	lawgroup_bureaucracy = {
-		law_appointed_bureaucrats = approve
-		law_elected_bureaucrats = neutral	
-		law_hereditary_bureaucrats = disapprove
 	}
 }
 

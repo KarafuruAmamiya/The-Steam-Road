@@ -72,9 +72,20 @@ GLOBAL = {
 	every_country = {
 		limit = {
 			NOR = {
+				has_law = law_type:law_theocracy
+				country_has_state_religion = rel:confucian
+				NOT = { has_technology_researched = empiricism }
+			}
+		}
+		ig:ig_intelligentsia = {
+			add_ideology = ideology_anti_clerical
+		}
+	}
+	every_country = {
+		limit = {
+			NOR = {
 				has_law = law_type:law_serfdom
 				has_law = law_type:law_feudalism
-				c:PER ?= this
 				c:POL ?= this
 				c:LIT ?= this
 				c:NET ?= this

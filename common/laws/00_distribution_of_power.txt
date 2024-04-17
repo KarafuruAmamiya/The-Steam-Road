@@ -79,6 +79,23 @@ law_autocracy = {
 				value = 0.25
 			}
 		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -164,6 +181,22 @@ law_technocracy = {
 					is_pop_type = capitalists
 				}
 				value = 0.25
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}
@@ -261,6 +294,22 @@ law_oligarchy = {
 					is_pop_type = capitalists
 				}
 				value = 0.25
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}
@@ -435,6 +484,22 @@ law_landed_voting = {
 				}
 			}
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -518,6 +583,22 @@ law_wealth_voting = {
 					value = literacy_rate
 					divide = 2
 				}
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}
@@ -609,6 +690,22 @@ law_census_voting = {
 					value = literacy_rate
 					divide = 2
 				}
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}
@@ -709,6 +806,22 @@ law_universal_suffrage = {
 					}
 				}
 			}			
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
 		}
 	}
 
@@ -949,6 +1062,22 @@ law_single_party_state = {
 					is_pop_type = bureaucrats
 				}
 				value = 0.25
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}

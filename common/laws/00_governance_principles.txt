@@ -86,6 +86,22 @@ law_monarchy = {
 				#multiply = literacy_rate
 			}
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -213,6 +229,22 @@ law_presidential_republic = {
 					multiply = literacy_rate
                 }		
         }
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -343,7 +375,23 @@ law_parliamentary_republic = {
                     }
 					multiply = literacy_rate
                 }
-		}			
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
+			}
+		}		
 	}
 
 	ai_will_do = {
@@ -410,6 +458,22 @@ law_theocracy = {
 					is_pop_type = clergymen
 				}
 				value = 0.33
+			}
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+						OR = {
+							has_journal_entry = je_turkish_nationalism_main
+							has_journal_entry = je_turkish_revolution
+						}
+					}
+					NOT = { has_pop_culture = turkish }
+				}
+				value = 0
 			}
 		}
 	}

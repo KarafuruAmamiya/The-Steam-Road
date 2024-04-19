@@ -9,6 +9,18 @@
 
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 		# AI shouldn't try to abolish institutions
@@ -81,6 +93,19 @@ law_charitable_health_system = {
 				max = 0.75
 			}					
 		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -137,6 +162,19 @@ law_private_health_insurance = { #better than public health at SoL 25, better th
 			multiply = literacy_rate
 			min = 0
 			max = 1.0
+		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
 		}
 	}
 
@@ -195,6 +233,19 @@ law_public_health_insurance = {
 			multiply = literacy_rate
 			min = 0
 			max = 1.25	
+		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
 		}
 	}
 

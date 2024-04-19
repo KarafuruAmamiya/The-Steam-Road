@@ -51,6 +51,19 @@ law_state_religion = {
 				remove_modifier = council_of_zoroastrians
 			}
 		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				any_scope_state = {
+					state_region = s:STATE_HEDJAZ
+				}
+				NOT = { has_modifier = holy_city_of_mecca }
+			}
+			add_modifier = {
+				name = holy_city_of_mecca
+				months = -1
+			}
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -159,6 +172,13 @@ law_denominational_exclusion = {
 				}
 				remove_modifier = council_of_zoroastrians
 			}
+		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
 		}
 	}
 	
@@ -304,6 +324,13 @@ law_freedom_of_conscience = {
 				}
 				remove_modifier = bahai_persecution
 			}
+		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
 		}
 	}
 	
@@ -503,6 +530,13 @@ law_shared_roots = {
 				remove_modifier = bahai_persecution
 			}
 		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
+		}
 	}
 
 	religious_acceptance_rule = {
@@ -667,6 +701,13 @@ law_total_separation = {
 				}
 				remove_modifier = bahai_persecution
 			}
+		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
 		}
 	}
 	
@@ -837,6 +878,13 @@ law_state_atheism = {
 				}
 				remove_modifier = bahai_persecution
 			}
+		}
+		if = {
+			limit = {
+				c:HDJ ?= this
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
 		}
 	}
 	

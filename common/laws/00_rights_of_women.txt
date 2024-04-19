@@ -22,6 +22,18 @@ law_no_womens_rights = {
 	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -111,6 +123,19 @@ law_women_own_property = {
 			}
 		}
 		multiply = literacy_rate
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -224,6 +249,19 @@ law_women_in_the_workplace = {
 			}
 		}
 		multiply = literacy_rate
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -321,6 +359,19 @@ law_womens_suffrage = {
 			}
 		}
 		multiply = literacy_rate
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions

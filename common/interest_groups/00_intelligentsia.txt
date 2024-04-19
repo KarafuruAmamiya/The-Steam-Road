@@ -326,6 +326,26 @@
 		}
 		
 		add = {
+			desc = "PRO_MEHMED_SUPPORT"
+			
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+					owner = {
+						NOR = { 
+							has_global_variable = westernist_coup 
+							has_global_variable = turkish_revolution_happened
+						}
+					}
+					state = {
+						has_modifier = pro_mehmed_domain
+					}
+				}
+				add = 100
+			}
+		}
+		
+		add = {
 			desc = "POP_ENGINEERS"
 			if = {
 				limit = { 

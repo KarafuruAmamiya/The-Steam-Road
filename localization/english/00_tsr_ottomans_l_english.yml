@@ -1,14 +1,82 @@
 ﻿l_english:
+  #Ottoman Caliphate
+  je_ottoman_caliphate: "The Ottoman Caliphate"
+  je_ottoman_caliphate_reason: "Ever since the fall of the #bold Mamluk Sultanate#!, the authority over the Holy Cities has largely been held by the [SCOPE.sCountry('akn_scope').GetName], whose Sultans proclaimed themselves the Caliph, becoming the de facto leaders and representative of the Islamic world. For long, we held the belief that having the glorious Holy Cities fall under the incompetent rule of the Akkoyunlu Dynasty is nothing short of a travesty. Now that [SCOPE.sCountry('akn_scope').GetName] has shown signs of decline, it is time for a Muslim empire of actual Great Power stature to restore the glory of the Caliphate and Islam."
+  pursue_ottoman_caliphate_button: "Claim Caliphal Authority"
+  pursue_ottoman_caliphate_button_desc: "With the Holy Cities under our rule, it is time to proclaim ourselves as a Caliphate and assert our authority over Arabia."
+  gain_claim_on_arabia_tt: "Gain claims over the Arabic region"
+  middle_east_crisis_tt: "Other Middle Eastern countries will view this as a major sign of aggression"
+  pursuing_the_caliphate: "Asserting the Caliphate"
+  owns_all_arabia_states: "We control all states in the Arabic region directly"
+  claimed_caliphal_authority_tt: "We have taken the 'Claim Caliphal Authority' decision"
+  westernist_coup_tt: "The Westernist Faction has overthrown our government"
+  nationalists_has_taken_over_tt: "The Nationalist Faction has overthrown our government"
+  rumelian_confederation_tt: "The Rumelian Confederation has been enforced"
+  one_true_caliphate: "The New Caliphate"
+  
+  ottoman_flavor.1.t: "The Ottoman Caliphate"
+  ottoman_flavor.1.d: "The Holy Cities of Mecca and Medina has been successfully reclaimed by us. Sultan of the [SCOPE.sCountry('akn_scope').GetName], [SCOPE.sCharacter('akkovin_sultan').GetFirstName] has formally surrendered the title of caliph to [ROOT.GetCountry.GetRuler.GetFirstName], establishing the Ottoman dynasty as the new caliphal line. Now, it is time to assert our authority as the leader of the Muslim world."
+  ottoman_flavor.1.f: ""Allah had promised to those among you who believe and do good works that He will surely make them Successors in the earth, as He made Successors from among those who were before them; and that He will surely establish for them their religion which He has chosen for them; and that He will surely give them in exchange security and peace after their fear: They will worship Me, and they will not associate anything with Me. Then who so is ungrateful after that, they will be the rebellious."" #Surah An-Nur, 24:55
+  ottoman_flavor.1.a: "Allah is the one who guides to victory."
+
+  ottoman_flavor.2.t: "The Prophet's Legacy"
+  ottoman_flavor.2.d: "With Arabia consolidated, the cradle of Islam is now part of the benevolent rule of [ROOT.GetCountry.GetRuler.GetFirstName], Caliph, Amir al-Mu'minin, and Custodian of the Two Holy Mosques. From this day forward, let us recreate the ancient glory of the Four Caliphs and the Islamic Golden Age."
+  ottoman_flavor.2.f: ""The earth belongs to the Loving Divine, who allots it to whomever He wills; yet the most lasting legacy will be the enduring impact of those who have action-based hope.""
+  ottoman_flavor.2.a: "Glory to [ROOT.GetCountry.GetName]!"
+  
+  #Westernist Coalition
+  ideology_caliphatist: "Caliphatist"
+  ideology_caliphatist_desc: "#lore This leader wants to or wants their ruler to claim the title of a Caliph, uniting the Muslim ummahs under their banner.#!"
+  ideology_westernist: "Westernist"
+  ideology_westernist_desc: "#lore This leader wants a complete Westernization and radical transformation of the empire, including the modernization of all economic and social institution.#!"
+  ideology_turkish_nationalist: "Turkish Nationalist"
+  ideology_turkish_nationalist_desc: "#lore This leader demands the creation of a democratic and modernized Turkish nation-state.#!"
+  
+  je_westernist_coalition: "Westernist Coalition"
+  je_westernist_coalition_reason: "During the #bold First Ottoman Empire#! period, the [ROOT.GetCountry.GetName] was almost completely isolated from developments outside its own sphere, believing in its own superiority over anything outsiders could possibly produce. This was violently broken down following the devastating loss in the #bold Third Mamluk-Ottoman War#! which led to a decline of the First Empire and the resulting European enroachment. With the #bold Ottoman Civil War of 1689#! that marked the end of the First Ottoman Empire and the disbandment of the Janissaries, the gradual adoption of European military and administrative reforms, and the #bold Gunpowder Wars#! — a period of constant warfare against European powers, the influence of Western civilization within our empire has become deeply entrenched.\n\nThe current #bold Second Ottoman Empire#! period has seen further upheavals. Sultan #bold Orhan II#! undertook the #italic nizam-ı cedid#! beginning in the late 18th century that modernized the Ottoman Army into a professional standing army. His ambitions didn't stop at the military however, as he envisioned a complete Westernization of the Old Order, even including secular reforms. His radical vision led to numerous oppositions, culminating in his deposition by a conservative coalition led by his brother #bold Selim III#!. Orhan II was executed under Selim III's orders, but his son [SCOPE.sCharacter('mehmed_scope').GetFirstName] was safely kept hidden, and a reformist coalition has gathered to reclaim [SCOPE.sCharacter('mehmed_scope').GetFirstName]'s rightful place in the throne and continue the #italic nizam-ı cedid#!.\n\nOnce the progress bar is filled, the Westernists will launch a coup to put [SCOPE.sCharacter('mehmed_scope').GetFirstName] on the throne. #bold Westernist Progress#! is expected to advance by #tooltippable;tooltip:[Country.GetTooltipTag],je_westernist_coalition_special_tooltip [Country.MakeScope.Var('westernist_progress_var_next').GetValue|-=]#! next month"
+  je_westernist_coalition_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('westernist_progress_from_radicals').GetValue|-=]#! from Turkish [Concept('concept_state', '$concept_states$')] in [concept_turmoil]\n#variable [Country.MakeScope.Var('westernist_progress_from_characters').GetValue|-=]#! from the combined [concept_popularity] of Westernist characters\n#variable [Country.MakeScope.Var('westernist_progress_from_igs').GetValue|-=]#! from [concept_clout] of Westernist [Concept('concept_interest_group', '$concept_interest_groups$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_factories').GetValue|-=]#! from Industrial [Concept('concept_building_level', '$concept_building_levels$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_legitimacy').GetValue|-=]#! from [concept_government] [concept_legitimacy]\n#variable [Country.MakeScope.Var('westernist_progress_from_loyalists').GetValue|-=]#! from Turkish [Concept('concept_state', '$concept_states$')] with [Concept('concept_loyalist','$concept_loyalists$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_laws').GetValue|-=]#! from #bold Free Speech#! and #bold Home Affairs#! [Concept('concept_law','$concept_laws$')] and [Concept('concept_institution', '$concept_institutions$')]\n#variable [GetGlobalVariable('westernist_progress_from_foreign_support').GetValue|-=]#! from 'Support Westernists' and 'Oppose Westernists' [concept_diplomatic_action] from other countries\n#variable [Country.MakeScope.Var('westernist_progress_var_add').GetValue|-=]#! from other effects"
+  finished_ottoman_caliphate_je: "We have completed 'The Ottoman Caliphate' [concept_journal_entry]"
+  westernist_progress_zero: "The #bold Progress Bar#! has reached #variable 0%#!"
+  westernist_progress_full: "The #bold Progress Bar#! has reached #variable 100%#!"
+  pro_mehmed_domain: "Mehmed IV Support"
+  
+  #Veiled Puppet
+  je_veiled_puppet: "Veiled Puppet"
+  je_veiled_puppet_reason: "For most of its existence, the [SCOPE.sCountry('akn_scope').GetName] has remained under Persian influence. Although they had gained power and influence on their own through their victories in the #bold Gunpowder Wars#!, they failed to maintain their newfound power for long and are now slowly eroded back into [SCOPE.sCountry('per_scope').GetName]. The Treaty of Baglar and blatant Persian enroachment into Akkovin politics only strengthen our suspicions. If we wish to prevent Persian enroachment into Anatolia, we cannot let the Akturk lands fall under Persian dominance, even by force."
+  
+  treaty_of_baglar_events.4.t: "The Veiled Puppet"
+  treaty_of_baglar_events.4.d: "The renewing of the treaty between [SCOPE.sCountry('per_scope').GetName] and [SCOPE.sCountry('akn_scope').GetName] has caused major concerns in the Porte. For long, we have tried to maintain peaceful relations with [SCOPE.sCountry('per_scope').GetName], owing to our shared wars and struggles against Europeans in the past. However, they give us no choice but to act if they continue to enroach upon our realm."
+  treaty_of_baglar_events.4.f: "Whispers of blood is spreading among the former Gunpowder Alliance — the [SCOPE.sCountry('akn_scope').GetName] who desperately tries to hold onto power, the [SCOPE.sCountry('per_scope').GetName] who tries to cover their internal fractures with military glory, and the [ROOT.GetCountry.GetName] who tries to avoid succumbing to weakness and decline of the First Empire, at all cost."
+  treaty_of_baglar_events.4.a: "Send an ultimatum to [SCOPE.sCountry('per_scope').GetName]."
+  
+  treaty_of_baglar_events.5.t: "[SCOPE.sCountry('tur_scope').GetName] Opposes the Treaty of Baglar"
+  treaty_of_baglar_events.5.d: "Our recent pact with [SCOPE.sCountry('akn_scope').GetName] seems to have threatened our paranoid former [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] allies. If we continue to sway [SCOPE.sCountry('akn_scope').GetName] into our influence, our relations with [SCOPE.sCountry('tur_scope').GetName] will certainly deteriorate."
+  treaty_of_baglar_events.5.f: ""It is with heavy hearts and righteous indignation that we must expose the treacherous machinations of our erstwhile allies, the perfidious [ROOT.GetCountry.GetName]. Under the guise of friendship and cooperation, they have concocted a sinister plot to exploit our [SCOPE.sCulture('akturk_scope').GetName] brethren and subjugate them to their insatiable thirst for power and profit.""
+  treaty_of_baglar_events.5.a: "We simply want to protect our [SCOPE.sCulture('akturk_scope').GetName] brethren from #italic them#!!"
+  treaty_of_baglar_events.5.b: "Maintaining peace is more crucial."
+  gunpowder_alliance_disband_tt: "The Gunpowder Alliance formally disbands"
+  no_bullying_akkovins_tt: "We will not receive more opportunities to exercise authority over the Akkovins."
+  
+  treaty_of_baglar_events.6.t: "The End of Status Quo"
+  treaty_of_baglar_events.6.d: "With Eastern Anatolia and [SCOPE.sCountry('akn_scope').GetName] within our rule, we have successfully secured Akturkistan from further Persian enroachment, and are now looking forward to an integration with our [SCOPE.sCulture('akturk_scope').GetName] brethren. May this send a message for those who dares to undermine the authority of the Sublime Porte."
+  treaty_of_baglar_events.6.f: "The Gunpowder Alliance is now merely history, and the two remaining Gunpowder Empires now feel nothing but antagonism and loathing towards each other. Surrounded by enemies from all sides, but having reclaimed all of Anatolia, what will the future of [SCOPE.sCountry('tur_scope').GetName] be like?"
+  treaty_of_baglar_events.6.a: "None can deny the power of [SCOPE.sCountry('tur_scope').GetName]"
+  
+  treaty_of_baglar_events.7.t: "Fall of Akturkistan"
+  treaty_of_baglar_events.7.d: "[SCOPE.sCountry('akn_overlord_country').GetName] has secured dominion over [SCOPE.sCountry('akn_scope').GetName]. This state of affairs is quickly becoming known as the Veiled Puppet, for by a technicality [SCOPE.sCountry('akn_scope').GetName] remains legally autonomous, while the [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] Sultan could only helplessly observe the situation."
+  treaty_of_baglar_events.7.f: "Today, Diyarbakir was inundated with blood. Those who opposed the new regime were quickly put down. [SCOPE.sCountry('akn_overlord_country').GetAdjectiveNoFormatting] diplomats and politicians have fire in their eyes as they discuss, under the shadow of Karaca Dağ, how they will bring their civilization to the lands of Akturkistan."
+  treaty_of_baglar_events.7.a: "Damn them!"
+  
   #Turkish Nationalism
   je_turkish_nationalism_main: "The Nationalist Movement"
   je_turkish_nationalism_main_goal: "We have either completed the Nationalist factions' agenda or suppress them for more than 5 years."
-  je_turkish_nationalism_trigger_tt_1: "Each of the following has been true for more than 5 years:\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_presidential_republic').GetName], [GetLawType('law_parliamentary_republic').GetName], or [GetLawType('law_monarchy').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_ethnostate').GetName] or [GetLawType('law_national_supremacy').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_public_schools').GetName] or [GetLawType('law_private_schools').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_freedom_of_conscience').GetName], [GetLawType('law_shared_roots').GetName], or [GetLawType('law_total_separation').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_census_voting').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_unitary').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_slavery_banned').GetName]\n• Any interest group in government has $ideology_turkish_nationalist$ leader or agitator"
+  je_turkish_nationalism_trigger_tt_1: "Each of the following has been true for more than 5 years:\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_presidential_republic').GetName], [GetLawType('law_parliamentary_republic').GetName], or [GetLawType('law_monarchy').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_ethnostate').GetName] or [GetLawType('law_national_supremacy').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_public_schools').GetName] or [GetLawType('law_private_schools').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_freedom_of_conscience').GetName], [GetLawType('law_shared_roots').GetName], or [GetLawType('law_total_separation').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_census_voting').GetName] or [GetLawType('law_universal_suffrage').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_unitary').GetName]\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_slavery_banned').GetName]\n• Any interest group in government has $ideology_turkish_nationalist$ leader or agitator"
   je_turkish_nationalism_trigger_tt_2: "Each of the following has been true for more than 5 years:\n• [SCOPE.GetRootScope.GetCountry.GetName] has enacted [GetLawType('law_outlawed_dissent').GetName] or [GetLawType('law_censorship').GetName]\n• Every interest group with $ideology_turkish_nationalist$ leader or agitator has been marginalized"
-  je_turkish_nationalism_main_reason: "The winds of change has began sweeping through the [SCOPE.GetRootScope.GetCountry.GetName]. The disbandment of the Janissaries centuries earlier in the #bold Civil War of 1689#! had already eroded a central pillar of the empire's traditional power structure, opening the path to a period of great upheaval within our empire.\n\nThe spread of liberal ideas and movements across Europe resonated with certain segments of the Ottoman population, particularly among Turkish intellectuals and reformists. Disillusioned with the monarchy and advocating for the establishment of a Turkish nation-state, the movement attracted a growing number of followers who were increasingly frustrated with the perceived ineffectiveness and corruption of the imperial government.\n\n#bold Should we fail to comply with the Nationalists' demands or marginalize them, the Nationalist factions may attempt to instigate a revolution against the current regime.#!"
+  je_turkish_nationalism_main_reason: "The winds of change has began sweeping through the [SCOPE.GetRootScope.GetCountry.GetName]. The #bold Civil War of 1689#! and subsequent periods of Westernization had already eroded a central pillar of the empire's traditional power structure, opening the path to a period of great upheaval within our empire.\n\nThe spread of liberal ideas and movements across Europe resonated with certain segments of the Ottoman population, particularly among Turkish intellectuals and reformists. Disillusioned with the monarchy and advocating for the establishment of a Turkish nation-state, the movement attracted a growing number of followers who were increasingly frustrated with the perceived ineffectiveness and corruption of the imperial government.\n\n#bold Should we fail to comply with the Nationalists' demands or marginalize them, the Nationalist factions may attempt to instigate a revolution against the current regime.#!"
   
   je_turkish_revolution: "Turkish Revolution"
   je_turkish_revolution_reason: "The #bold National Union#!, a diverse group of intellectuals, military officers, and bureaucrats disillusioned with the ruling regime, has risen to bring about change within [SCOPE.GetRootScope.GetCountry.GetName]. With every passing day, they gather more and more support from the Muslim and Turkish populace, spreading words of dissent all over the empire. If we do not suppress them, we may risk a takeover of our government, or worse, a full-blown civil war.\n\nIf the progress of the Revolution reaches #bold 0#!, our forces will be able to repress it, but if its progress reaches #bold 100#! the revolutionaries shall seize control of the Sublime Porte. The progress of the #bold Turkish Revolution#! is changing by #tooltippable;tooltip:[Country.GetTooltipTag],je_turkish_revolution_drift_special_tooltip [Country.MakeScope.Var( 'turkish_revolution_drift_final_var' ).GetValue]#! every month."
-  je_turkish_revolution_drift_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('nationalist_support_level').GetValue]#! from foreign support of the #bold National Union#!\n#variable [Country.MakeScope.Var('turkish_revolution_progress_drift').GetValue]#! from events and other effects"\
+  je_turkish_revolution_drift_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('nationalist_support_level').GetValue]#! from foreign support of the #bold National Union#!\n#variable [Country.MakeScope.Var('turkish_revolution_progress_drift').GetValue]#! from events and other effects"
   je_turkish_revolution_zero_var: "The progress of the #bold Turkish Revolution#! has been reduced to #bold 0#!, allowing for the suppression of the uprising"
   je_turkish_revolution_full_var: "The progress of the #bold Turkish Revolution#! has reached #bold 100#!, causing a revolutionary takeover of the #bold Sublime Porte#!"
   
@@ -48,3 +116,52 @@
   nationalists_seize_power_tt: "The Nationalists will seize control over the #bold Sublime Porte#!, upheaving our government and laws."
   
   turkish_nationalism.7.t: "Crisis in the Ottoman Empire"
+  
+  #Others
+  
+  support_westernists: "Support Westernists"
+  support_westernists_action_name: "Support Westernists"
+  support_westernists_action_propose_name: "Support Westernists"
+  support_westernists_action_break_name: "Stop Supporting Westernists"
+  support_westernists_desc: "#header $support_westernists$#!\n$TOOLTIP_DELIMITER$\nAn [concept_ongoing_diplomatic_action] that increases the #bold Westernist Progress#! within the Ottoman Empire."
+  support_westernists_action_notification_name: "[INITIATOR_COUNTRY.GetName] has begun supporting Westernists"
+  support_westernists_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] is actively supporting Westernists within [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName]."
+  support_westernists_action_notification_desc: "[INITIATOR_COUNTRY.GetName] have started supporting the Westernist faction within our country."
+  support_westernists_action_notification_break_name: "[INITIATOR_COUNTRY.GetName] stopped supporting Westernists"
+  support_westernists_action_notification_break_desc: "[INITIATOR_COUNTRY.GetName] have stopped supporting the Westernist faction within our country."
+  
+  support_westernists_effect_desc_global: "Starts supporting Westernists"
+  support_westernists_effect_desc_first: "[COUNTRY.GetAdjectiveNoFlag] starts supporting the Westernist faction within [TARGET_COUNTRY.GetName]"
+  support_westernists_effect_desc_third: "[COUNTRY.GetName] starts supporting the Westernist faction within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  
+  support_westernists_trigger_desc_global: "Is supporting Westernists"
+  support_westernists_trigger_false_desc_global: "Is supporting Westernists"
+  support_westernists_trigger_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is #b not#! supporting Westernists within [TARGET_COUNTRY.GetName]"
+  support_westernists_trigger_false_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is supporting Westernists within [TARGET_COUNTRY.GetName]"
+  support_westernists_trigger_desc_third: "[COUNTRY.GetName] is #b not#! supporting Westernists within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  support_westernists_false_desc_third: "[COUNTRY.GetName] is #b not#! supporting Westernists within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  
+  oppose_westernists: "Oppose Westernists"
+  oppose_westernists_action_name: "Oppose Westernists"
+  oppose_westernists_action_propose_name: "Oppose Westernists"
+  oppose_westernists_action_break_name: "Stop Opposing Westernists"
+  oppose_westernists_desc: "#header $oppose_westernists$#!\n$TOOLTIP_DELIMITER$\nAn [concept_ongoing_diplomatic_action] that decreases the #bold Westernist Progress#! within the Ottoman Empire."
+  oppose_westernists_action_notification_name: "[INITIATOR_COUNTRY.GetName] has begun opposing Westernists"
+  oppose_westernists_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] is actively opposing Westernists within [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName]."
+  oppose_westernists_action_notification_desc: "[INITIATOR_COUNTRY.GetName] started opposing the Westernist faction within our country."
+  oppose_westernists_action_notification_break_name: "[INITIATOR_COUNTRY.GetName] stopped opposing Westernists"
+  oppose_westernists_action_notification_break_desc: "[INITIATOR_COUNTRY.GetName] have stopped opposing the Westernist faction within our country."
+ 
+  oppose_westernists_effect_desc_global: "Starts opposing Westernists"
+  oppose_westernists_effect_desc_first: "[COUNTRY.GetAdjectiveNoFlag] starts opposing the Westernist faction within [TARGET_COUNTRY.GetName]"
+  oppose_westernists_effect_desc_third: "[COUNTRY.GetName] starts opposing the Westernist faction within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  
+  oppose_westernists_trigger_desc_global: "Is opposing Westernists"
+  oppose_westernists_trigger_false_desc_global: "Is opposing Westernists"
+  oppose_westernists_trigger_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is #b not#! opposing Westernists within [TARGET_COUNTRY.GetName]"
+  oppose_westernists_trigger_false_desc_first: "[COUNTRY.GetAdjectiveNoFlag] is opposing Westernists within [TARGET_COUNTRY.GetName]"
+  oppose_westernists_trigger_desc_third: "[COUNTRY.GetName] is #b not#! opposing Westernists within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  oppose_westernists_false_desc_third: "[COUNTRY.GetName] is #b not#! opposing Westernists within [AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)]"
+  
+  westernist_progress_increase: "#bold Westernist Progress#! in the Ottoman Empire increases by #variable #green +0.5#!#! per month"
+  westernist_progress_decrease: "#bold Westernist Progress#! in the Ottoman Empire decreases by #variable #red -0.5#!#! per month"

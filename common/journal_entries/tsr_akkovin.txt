@@ -11,53 +11,43 @@
 		scope:journal_entry = {
 			is_goal_complete = yes
 		}
+		country_or_subject_owns_entire_state_region = STATE_SYRIA
+		country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
+		country_or_subject_owns_entire_state_region = STATE_PALESTINE
+		country_or_subject_owns_entire_state_region = STATE_LEBANON
+		country_or_subject_owns_entire_state_region = STATE_HAMA
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+		country_or_subject_owns_entire_state_region = STATE_MEDINA
+		trigger_if = {
+			limit = {
+				exists = c:NEJ
+			}
+			c:NEJ = {
+				is_subject_of = ROOT
+			}
+		}
+		trigger_else = {
+			has_state_in_state_region = STATE_NEJD
+		}
+		trigger_if = {
+			limit = {
+				exists = c:JAB
+			}
+			c:JAB = {
+				is_subject_of = ROOT
+			}
+		}
+		trigger_else = {
+			has_state_in_state_region = STATE_HAIL
+		}			
 	}
 	
 	fail = {
-		AND = {
-			OR = {
-				is_at_war = no
-				is_diplomatic_play_committed_participant = no
-			}
-			OR = {
-				any_scope_state = {
-					is_incorporated = yes
-					count <= 9
-				}
-				NOT = {
-					AND = {
-						country_or_subject_owns_entire_state_region = STATE_SYRIA
-						country_or_subject_owns_entire_state_region = STATE_TRANSJORDAN
-						country_or_subject_owns_entire_state_region = STATE_PALESTINE
-						country_or_subject_owns_entire_state_region = STATE_LEBANON
-						country_or_subject_owns_entire_state_region = STATE_HAMA
-						country_or_subject_owns_entire_state_region = STATE_HEDJAZ
-						country_or_subject_owns_entire_state_region = STATE_MEDINA
-						trigger_if = {
-							limit = {
-								exists = c:NEJ
-							}
-							c:NEJ = {
-								is_subject_of = ROOT
-							}
-						}
-						trigger_else = {
-							has_state_in_state_region = STATE_NEJD
-						}
-						trigger_if = {
-							limit = {
-								exists = c:JAB
-							}
-							c:JAB = {
-								is_subject_of = ROOT
-							}
-						}
-						trigger_else = {
-							has_state_in_state_region = STATE_HAIL
-						}
-					}
-				}
-			}
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		any_scope_state = {
+			is_incorporated = yes
+			count <= 9
 		}
 	}
 	
@@ -65,41 +55,47 @@
 		effect = {
 			if = {
 				limit = {
+					ruler = { has_trait = sickly }
+				}
+				random_list = {
+					11 = { }
+					1 = {
+						ruler = { kill_character = yes }
+					}
+				}
+			}
+			if = {
+				limit = {
+					ruler = { has_variable = is_halil }
+					NOT = { has_variable = mortalize_halil }
+				}
+				ruler = {
+					set_character_immortal = no
+					set_variable = mortalize_halil
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_variable = pre_treaty }
 					exists = c:PER
 					c:PER = {
-						NOT = { has_variable = pre_treaty }
 						has_attitude = {
 							who = c:AKN
 							attitude = protective
 						}
 					}
-				}
-				random_list = {
-					9 = { }
-					1 = {
-						c:PER = { trigger_event = akkovin_crisis.4 }
+					c:TUR ?= {
+						has_variable = pursue_caliphate_var
 					}
 				}
-			}
-			if = {
-				limit = {
-					has_variable = completed_akkovin_reform_economy_je
-					has_variable = completed_akkovin_reform_education_je
-					has_variable = completed_akkovin_reform_bureaucracy_je
-					NOT = { has_variable = ideology_change }
+				c:PER = {
+					trigger_event = { id = akkovin_crisis.4 popup = yes }
 				}
-				trigger_event = { id = akkovin_crisis.17 }
 			}
-			if = {
-				limit = {
-					has_variable = baglar_treaty_signed
-					NOR = {
-						has_modifier = treaty_of_baglar
-						has_variable = rejected_tob
-					}
-				}
-				trigger_event = { id = akkovin_crisis.7 }
-			}
+		}
+		events = {
+			akkovin_crisis.7 #Renewing Treaty of Baglar
+			akkovin_crisis.17 #Sultan turns reformer
 		}
 	}
 	
@@ -435,7 +431,7 @@ je_akkovin_reform_navy = {
 }
 
 
-# Bureaucractic Reform
+# Centralization Reform
 je_akkovin_reform_bureaucracy = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 	group = je_group_tsr_content
@@ -455,6 +451,7 @@ je_akkovin_reform_bureaucracy = {
 	}
 	
 	complete = {
+		has_law = law_type:law_unitary
 		NOR = { 
 			has_law = law_type:law_hereditary_bureaucrats 
 			has_law = law_type:law_land_based_taxation
@@ -462,6 +459,16 @@ je_akkovin_reform_bureaucracy = {
 		}
 		bureaucracy >= 0 
 		approaching_bureaucracy_shortage = no
+		custom_tooltip = {
+			text = ottoman_vilayet_organisation_tt
+			NOT = {
+				any_scope_state = {
+					NOT = {
+						tax_capacity_balance >= 0
+					}
+				}
+			}
+		}
 	}
 
 	on_complete = {
@@ -837,7 +844,69 @@ je_akkovin_reform_arabia = {
 		effect = {
 			if = {
 				limit = {
+					c:AKN ?= {
+						country_rank < rank_value:great_power
+						is_diplomatic_play_committed_participant = no
+						is_at_war = no
+					}
+					c:HDJ ?= {
+						is_subject_of = c:AKN
+						has_attitude = {
+							who = c:AKN
+							attitude = rebellious
+						}
+						NOT = { has_variable = hedjaz_revolt }
+					}
+				}
+				c:HDJ ?= { trigger_event = { id = akkovin_crisis.11 popup = yes } }
+			}
+			if = {
+				limit = {
 					AND = {
+						c:SYR ?= {
+							is_subject_of = ROOT
+							OR = {
+								is_subject_type = subject_type_dependency
+								is_subject_type = subject_type_dominion
+							}
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:HDJ ?= {
+							is_subject_of = ROOT
+							OR = {
+								is_subject_type = subject_type_dependency
+								is_subject_type = subject_type_dominion
+							}
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:NEJ ?= {
+							is_subject_of = ROOT
+							OR = {
+								is_subject_type = subject_type_dependency
+								is_subject_type = subject_type_dominion
+							}
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
+						c:JAB ?= {
+							is_subject_of = ROOT
+							OR = {
+								is_subject_type = subject_type_dependency
+								is_subject_type = subject_type_dominion
+							}
+							has_attitude = {
+								who = ROOT
+								attitude = loyal
+							}
+						}
 						cu:iraqi = {
 							culture_secession_progress = {
 								target = ROOT

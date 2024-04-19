@@ -443,6 +443,19 @@
 				value = 75
 			}
 		}
+		
+		add = {
+			desc = "holy_city_of_mecca"
+			
+			if = {
+				limit = {
+					state = {
+						has_state_trait = state_trait_kabah
+					}
+				}
+				add = 200
+			}
+		}
 
 		if = {
 			limit = {

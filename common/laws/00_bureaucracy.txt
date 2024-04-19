@@ -43,6 +43,18 @@
 				value = 0.25
 			}
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -130,6 +142,18 @@ law_appointed_bureaucrats = {
 			value = 0.25
 			multiply = literacy_rate
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -201,6 +225,18 @@ law_elected_bureaucrats = {
 			}
 			value = 0.25
 			multiply = literacy_rate
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
 		}
 	}
 

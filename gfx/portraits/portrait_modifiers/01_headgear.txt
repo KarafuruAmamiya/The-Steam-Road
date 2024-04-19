@@ -158,6 +158,12 @@
 			modifier = {
                 add = 90000
                 scope:character ?= {
+                    has_template = tur_mehmed_iv_character_template
+                }
+            }
+			modifier = {
+                add = 90000
+                scope:character ?= {
                     has_template = syr_bustani_character_template
                 }
             }
@@ -793,57 +799,6 @@
                     }
                 }
                 agitator_character_trigger = no
-            }
-        }
-    }
-    korean_empire_military_headgear = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = korean_empire_military_headgear
-                range = { 0 1 }
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 1200
-                OR = {
-                    AND = {
-                        scope:character ?= {
-                            culture = cu:korean
-                            owner = {
-                                has_variable = KOR_korean_empire_declared
-                            }
-                        }
-                        OR = {
-                            scope:character = {
-                                has_role = general
-                            }
-                            AND = {
-                                politician_clothes_trigger = yes
-                                armed_forces_clothes_trigger = yes
-                                scope:character ?= {
-                                    NOT = { has_ideology = ideology:ideology_traditionalist }
-                                }
-                            }
-                        }
-                        agitator_character_trigger = no
-                    }
-                    AND = {
-                        scope:pop ?= {
-                            culture = cu:korean
-                            owner = {
-                                has_variable = KOR_korean_empire_declared
-                            }
-                        }
-                        OR = {
-                            soldier_clothes_pop_trigger = yes
-                            officers_clothes_pop_trigger = yes
-                        }
-                    }
-                }
             }
         }
     }

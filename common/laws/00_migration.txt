@@ -16,6 +16,18 @@
 	}	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -125,11 +137,8 @@ law_migration_controls = {
 				}
 				value = 0.05
 			}
-		}	
-	}
-
-	pop_support = {
-		value = 0
+		}
+		
 		add = {
 			desc = "POP_LOWER_STRATA"
 			if = {
@@ -198,6 +207,19 @@ law_migration_controls = {
 				value = 0.05
 			}
 		}	
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -287,11 +309,8 @@ law_closed_borders = {
 				}
 				value = 0.05
 			}
-		}	
-	}
-
-	pop_support = {
-		value = 0
+		}
+		
 		add = {
 			desc = "POP_LOWER_STRATA"
 			if = {
@@ -335,6 +354,19 @@ law_closed_borders = {
 				value = 0.05
 			}
 		}	
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions

@@ -11,6 +11,18 @@
 	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	# AI will never abolish institutions entirely
@@ -107,6 +119,19 @@ law_religious_schools = {
 				max = 0.5
 			}
 		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = { #AI does not go back to religious schools
@@ -183,6 +208,18 @@ law_private_schools = {
 			multiply = literacy_rate
 			min = 0
 			max = 0.75
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
 		}
 	}
 
@@ -269,6 +306,18 @@ law_public_schools = {
 			multiply = literacy_rate
 			min = 0
 			max = 1
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
 		}
 	}
 

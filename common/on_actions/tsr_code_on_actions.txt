@@ -39,6 +39,18 @@ tsr_events_yearly = {
 		}
 		if = {
 			limit = {
+				c:HDJ ?= this
+				NOT = {
+					any_scope_state = {
+						state_region = s:STATE_HEDJAZ
+					}
+				}
+				has_modifier = holy_city_of_mecca
+			}
+			remove_modifier = holy_city_of_mecca
+		}
+		if = {
+			limit = {
 				any_scope_state = {
 					state_region = {
 						is_homeland = cu:ruthenian

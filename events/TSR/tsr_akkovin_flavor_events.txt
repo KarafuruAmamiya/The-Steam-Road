@@ -670,33 +670,70 @@ treaty_of_baglar_events.4 = { # Veiled Puppet
 	
 	immediate = {
 		c:PER = { save_scope_as = per_scope }
+		c:AKN = { save_scope_as = akn_scope }
+		c:TUR = { save_scope_as = tur_scope }
 	}
 
 	option = {
 		name = treaty_of_baglar_events.4.a
 		default_option = yes
-		s:STATE_HARPUT = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_HARPUT }
+			}
+			s:STATE_HARPUT = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_DIYARBAKIR = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_DIYARBAKIR }
+			}
+			s:STATE_DIYARBAKIR = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_TRABZON = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_TRABZON }
+			}
+			s:STATE_TRABZON = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_ERZURUM = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_ERZURUM }
+			}
+			s:STATE_ERZURUM = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_BITLIS = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_BITLIS }
+			}
+			s:STATE_BITLIS = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_ALEPPO = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_ALEPPO }
+			}
+			s:STATE_ALEPPO = {
+				add_claim = ROOT
+			}
 		}
-		s:STATE_DEIR_EZ_ZOR = {
-			add_claim = ROOT
+		if = {
+			limit = {
+				NOT = { has_claim = s:STATE_DEIR_EZ_ZOR }
+			}
+			s:STATE_DEIR_EZ_ZOR = {
+				add_claim = ROOT
+			}
 		}
-		c:PER ?= { trigger_event = treaty_of_baglar_events.5 days = 7 }
+		c:PER ?= { trigger_event = { id = treaty_of_baglar_events.5 days = 7 } }
 		hidden_effect = {
 			c:TUR = {
 				set_secret_goal = {
@@ -723,53 +760,20 @@ treaty_of_baglar_events.5 = { # Persia responds to increased Ottomans aggression
 	
 	immediate = {
 		c:TUR = { save_scope_as = tur_scope }
+		c:AKN = { save_scope_as = akn_scope }
+		cu:akturk = {
+			save_scope_as = akturk_scope
+		}
 	}
 
 	option = {
 		name = treaty_of_baglar_events.5.a
 		default_option = yes
-		custom_tooltip = {
-			text = gunpowder_alliance_disband_tt
-			if = {
-				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
-				set_global_variable = gunpowder_alliance_disband
+		if = {
+			limit = { 
+				NOT = { has_global_variable = gunpowder_alliance_disband } 
 			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = trade_agreement
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = trade_agreement
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = defensive_pact
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = defensive_pact
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = alliance
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = alliance
-				}
-			}
+			disband_gunpowder_alliance_per = yes
 		}
 		change_relations = {
 			country = c:TUR
@@ -777,6 +781,7 @@ treaty_of_baglar_events.5 = { # Persia responds to increased Ottomans aggression
 		}
 		hidden_effect = {
 			c:TUR = {
+				post_notification = safavid_response_double_down
 				set_secret_goal = {
 					country = c:PER
 					secret_goal = antagonize
@@ -802,6 +807,12 @@ treaty_of_baglar_events.5 = { # Persia responds to increased Ottomans aggression
 		custom_tooltip = {
 			text = no_bullying_akkovins_tt
 			set_variable = no_bullying_akkovins
+		}
+		
+		hidden_effect = {
+			c:TUR = {
+				post_notification = safavid_response_back_down
+			}
 		}
 		
 		ai_chance = {
@@ -832,7 +843,7 @@ treaty_of_baglar_events.6 = {
 	}
 
 	immediate = {
-		save_scope_as = kur_overlord_country
+		root = { save_scope_as = tur_scope }
 		if = {
 			limit = { 
 				exists = c:AKN
@@ -868,30 +879,6 @@ treaty_of_baglar_events.6 = {
 	option = {
 		name = treaty_of_baglar_events.6.a
 		default_option = yes
-		add_modifier = {
-			name = veiled_influence
-			months = normal_modifier_time
-		}
-		change_relations = {
-			country = c:PER
-			value = -20
-		}
-	}
-
-	option = {
-		name = treaty_of_baglar_events.6.b
-		trigger = {
-			OR = {
-				AND = {
-					exists = c:AKN
-					c:AKN ?= { is_subject_of = root }
-				}
-				AND = {
-					exists = c:KUR
-					c:KUR ?= { is_subject_of = root }
-				}
-			}
-		}
 		scope:akn_ruler = {
 			kill_character = yes
 		}
@@ -902,6 +889,10 @@ treaty_of_baglar_events.6 = {
 		change_relations = {
 			country = c:PER
 			value = -20
+		}
+		add_modifier = {
+			name = veiled_influence
+			months = normal_modifier_time
 		}
 	}
 }
@@ -951,7 +942,7 @@ treaty_of_baglar_events.7 = {
 			}
 		}
 		c:TUR = {
-			save_scope_as = ottoman_country
+			save_scope_as = tur_scope
 			ruler = {
 				save_scope_as = ottoman_ruler
 			}

@@ -1,0 +1,332 @@
+﻿support_westernists = {
+	requires_approval = no
+	show_confirmation_box = yes
+	show_effect_in_tooltip = yes
+
+	potential = {
+		NOT = { has_global_variable = westernist_coup }
+		country_rank >= rank_value:great_power
+		scope:target_country = {
+			c:TUR ?= this
+			NOR = { 
+				has_variable = turkish_empire 
+				has_variable = rumelian_confederation 
+			}
+		}
+		has_diplomatic_relevance = c:TUR
+		is_revolutionary = no
+	}
+
+	possible = {
+		NOT = { has_diplomatic_pact = { who = scope:target_country type = oppose_westernists } }	
+	}	
+
+	pact = {	
+		cost = 50
+		is_two_sided_pact = no
+		show_in_outliner = yes	
+		
+		requirement_to_maintain = {
+			trigger = {
+				has_diplomatic_relevance = scope:target_country
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = "DIPLOMATIC_PACT_REQUIREMENT_NOT_DECENTRALIZED"
+					NOT = { is_country_type = decentralized }
+					scope:target_country = {
+						NOT = { is_country_type = decentralized }
+					}				
+				}
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {				
+				NOT = { scope:target_country = { has_diplomats_expelled = root } }
+			}
+		}		
+	}
+	
+	accept_effect = {
+		change_relations = { country = scope:target_country value = -30 }
+		custom_tooltip = {
+			text = westernist_progress_increase
+			change_global_variable = { name = westernist_progress_from_foreign_support add = 0.5 }
+		}
+	}
+	
+	ai = {
+		max_influence_spending_fraction = 0.25
+	
+		propose_score = {
+			value = 5
+
+			if = {
+				limit = {	
+					has_attitude = {
+						who = scope:target_country
+						attitude = antagonistic
+					}						
+				}
+				
+				add = 5
+			}
+			
+			if = {
+				limit = {
+					has_attitude = {
+						who = scope:target_country
+						attitude = belligerent
+					}					
+				}
+				
+				add = 20
+			}
+			
+			#Persia don't want a powerful Ottoman Caliphate
+			if = {
+				limit = {
+					c:PER ?= this	
+					scope:target_country = {
+						has_variable = pursue_caliphate_var
+					}
+				}
+				add = 100
+			}
+			
+			#Italy wants to destabilize the Ottomans
+			if = {
+				limit = {
+					c:ITA ?= this	
+					has_diplomatic_pact = {
+						who = scope:target_country
+						type = rivalry 
+					}
+				}
+				add = 50
+			}
+			
+			#Europeans (except Italy) don't want a powerful, westernized Ottomans
+			if = {
+				limit = {
+					AND = {
+						country_is_in_europe = yes
+						NOT = {
+							c:ITA ?= this
+						}
+					}					
+				}
+				multiply = 0.1
+			}
+			
+			#No reason to do this if Ottomans are not a great power
+			
+			if = {
+				limit = {
+					c:TUR ?= {
+						country_rank < rank_value:great_power
+					}
+				}
+				
+				multiply = 0
+			}
+		}		
+	
+		will_propose = {
+			country_is_in_europe = no
+			OR = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}							
+				has_attitude = {
+					who = scope:target_country
+					attitude = belligerent
+				}
+				has_attitude = {
+					who = scope:target_country
+					attitude = domineering
+				}						
+			}
+		}	
+		
+		will_break = {
+			OR = {
+				country_is_in_europe = yes
+				has_attitude = {
+					who = scope:target_country
+					attitude = genial
+				}	
+				has_attitude = {
+					who = scope:target_country
+					attitude = conciliatory
+				}	
+				has_attitude = {
+					who = scope:target_country
+					attitude = cooperative
+				}
+				has_attitude = {
+					who = scope:target_country
+					attitude = protective
+				}					
+			}			
+		}
+	}
+}
+
+oppose_westernists = {
+	requires_approval = no
+	show_confirmation_box = yes
+	show_effect_in_tooltip = yes
+
+	potential = {
+		NOT = { has_global_variable = westernist_coup }
+		country_rank >= rank_value:great_power
+		scope:target_country = {
+			c:TUR ?= this
+			NOR = { 
+				has_variable = turkish_empire 
+				has_variable = rumelian_confederation 
+			}
+		}
+		has_diplomatic_relevance = c:TUR
+		is_revolutionary = no
+	}
+
+	possible = {
+		NOT = { has_diplomatic_pact = { who = scope:target_country type = support_westernists } }	
+	}	
+
+	pact = {	
+		cost = 50
+		is_two_sided_pact = no
+		show_in_outliner = yes	
+		
+		requirement_to_maintain = {
+			trigger = {
+				has_diplomatic_relevance = scope:target_country
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = "DIPLOMATIC_PACT_REQUIREMENT_NOT_DECENTRALIZED"
+					NOT = { is_country_type = decentralized }
+					scope:target_country = {
+						NOT = { is_country_type = decentralized }
+					}				
+				}
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {				
+				NOT = { scope:target_country = { has_diplomats_expelled = root } }
+			}
+		}		
+	}
+	
+	accept_effect = {
+		change_relations = { country = scope:target_country value = 30 }
+		custom_tooltip = {
+			text = westernist_progress_decrease
+			change_global_variable = { name = westernist_progress_from_foreign_support subtract = 0.5 }
+		}
+	}
+	
+	ai = {
+		max_influence_spending_fraction = 0.25
+	
+		propose_score = {
+			value = 5
+
+			if = {
+				limit = {	
+					has_strategy = ai_strategy_maintain_power_balance				
+				}
+				
+				add = 5
+			}
+			
+			#Europeans don't want a powerful, westernized Ottomans
+			if = {
+				limit = {
+					country_is_in_europe = yes
+					NOT = {
+						c:ITA ?= this
+					}
+					c:TUR ?= {
+						var:westernist_progress_var >= 10
+					}
+				}
+				add = 10
+			}
+			
+			#Europeans don't want a powerful, westernized Ottomans
+			if = {
+				limit = {
+					country_is_in_europe = yes
+					NOT = {
+						c:ITA ?= this
+					}
+					c:TUR ?= {
+						var:westernist_progress_var >= 60
+					}
+				}
+				add = 100
+			}
+			
+			#Persia don't want a powerful Ottoman Caliphate
+			if = {
+				limit = {
+					c:PER ?= this				
+				}
+				multiply = 0.1
+			}
+			
+			#Italy wants to destabilize the Ottomans
+			if = {
+				limit = {
+					c:ITA ?= this				
+				}
+				multiply = 0.1
+			}
+			
+			#No reason to do this if Ottomans are not a great power
+			if = {
+				limit = {
+					c:TUR ?= {
+						country_rank < rank_value:great_power
+					}
+				}
+				
+				multiply = 0
+			}
+		}		
+	
+		will_propose = {
+			NOR = { 
+				c:PER ?= this 
+				c:ITA ?= this 
+			}
+			c:TUR ?= {
+				var:westernist_progress_var >= 0				
+			}
+		}	
+		
+		will_break = {
+			OR = {
+				c:PER ?= this
+				c:ITA ?= this
+				c:TUR ?= {
+					var:westernist_progress_var <= 0
+				}				
+			}			
+		}
+	}
+}

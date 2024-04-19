@@ -174,11 +174,15 @@ je_akkovin_crisis_button = {
 	visible = { always = yes }
 
 	possible = {
-		custom_tooltip = {
-			text = erzurum_edict_tt
-			has_diplomatic_pact = {
-				who = c:PER
-				type = treaty_of_baglar_pact
+		OR = {
+			ig:ig_intelligentsia = {
+				is_in_government = yes
+			}
+			any_scope_character = {
+				is_ruler = yes
+				interest_group = {
+					is_interest_group_type = ig_intelligentsia
+				}
 			}
 		}
 		NOT = { has_variable = erzurum_edict }

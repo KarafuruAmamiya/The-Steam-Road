@@ -48,6 +48,18 @@ law_traditionalism = {
 	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	build_from_investment_pool = {
@@ -173,6 +185,19 @@ law_interventionism = {
 				multiply = literacy_rate
 			}
 		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -280,6 +305,19 @@ law_agrarianism = {
 				}
 				value = 0.33
 				multiply = literacy_rate
+			}
+		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
 			}
 		}
 	}
@@ -427,6 +465,19 @@ law_industry_banned = {
 				value = 0.1
 			}
 		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -523,6 +574,19 @@ law_laissez_faire = {
 				}
 				value = 0.5
 				multiply = literacy_rate
+			}
+		}
+		
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
 			}
 		}
 	}

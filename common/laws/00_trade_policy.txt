@@ -33,6 +33,18 @@ law_mercantilism = {
 	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	# Don't change back to mercantilism once we have protectionism or free trade
@@ -94,6 +106,18 @@ law_protectionism = {
 
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -157,6 +181,18 @@ law_free_trade = {
 
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -208,6 +244,18 @@ law_isolationism = {
 	
 	pop_support = {
 		value = 0
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					pop_is_discriminated = yes
+				}
+				value = 0
+			}
+		}
 	}
 
 		ai_will_do = {

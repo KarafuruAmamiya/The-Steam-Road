@@ -87,17 +87,13 @@ law_monarchy = {
 			}
 		}
 		multiply = {
-			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
 			if = {
 				limit = {
 					owner = { 
 						c:TUR ?= this
-						OR = {
-							has_journal_entry = je_turkish_nationalism_main
-							has_journal_entry = je_turkish_revolution
-						}
 					}
-					NOT = { has_pop_culture = turkish }
+					NOT = { pop_is_discriminated = yes }
 				}
 				value = 0
 			}
@@ -230,17 +226,13 @@ law_presidential_republic = {
                 }		
         }
 		multiply = {
-			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
 			if = {
 				limit = {
 					owner = { 
 						c:TUR ?= this
-						OR = {
-							has_journal_entry = je_turkish_nationalism_main
-							has_journal_entry = je_turkish_revolution
-						}
 					}
-					NOT = { has_pop_culture = turkish }
+					NOT = { pop_is_discriminated = yes }
 				}
 				value = 0
 			}
@@ -377,21 +369,17 @@ law_parliamentary_republic = {
                 }
 		}
 		multiply = {
-			desc = "TUR_NO_BALKAN_TURKISH_NATIONALISTS"			
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
 			if = {
 				limit = {
 					owner = { 
 						c:TUR ?= this
-						OR = {
-							has_journal_entry = je_turkish_nationalism_main
-							has_journal_entry = je_turkish_revolution
-						}
 					}
-					NOT = { has_pop_culture = turkish }
+					NOT = { pop_is_discriminated = yes }
 				}
 				value = 0
 			}
-		}		
+		}
 	}
 
 	ai_will_do = {
@@ -471,7 +459,7 @@ law_theocracy = {
 							has_journal_entry = je_turkish_revolution
 						}
 					}
-					NOT = { has_pop_culture = turkish }
+					NOT = { pop_is_discriminated = yes }
 				}
 				value = 0
 			}

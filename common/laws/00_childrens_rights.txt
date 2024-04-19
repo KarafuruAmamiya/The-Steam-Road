@@ -35,6 +35,18 @@ law_child_labor_allowed = {
 			}
 			value = 0.25
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -148,6 +160,18 @@ law_restricted_child_labor = {
 				}
 			}		
 		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
+		}
 	}
 
 	ai_will_do = {
@@ -259,6 +283,18 @@ law_compulsory_primary_school = {
 					max = 1.25
 				}
 			}		
+		}
+		multiply = {
+			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
+			if = {
+				limit = {
+					owner = { 
+						c:TUR ?= this
+					}
+					NOT = { pop_is_discriminated = yes }
+				}
+				value = 0
+			}
 		}
 	}
 

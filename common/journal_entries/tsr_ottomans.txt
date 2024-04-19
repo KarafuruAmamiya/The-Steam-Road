@@ -1,21 +1,57 @@
 ﻿je_ottoman_caliphate = {
-	icon = "gfx/interface/icons/religion_icons/sunni.dds"
+	icon = "gfx/interface/icons/event_icons/event_ottomans.dds"
 
 	group = je_group_tsr_content
 	
-	#scripted_button = claim_caliphal_authority_button
+	scripted_button = pursue_ottoman_caliphate_button
+	scripted_button = reject_ottoman_caliphate_button
+	
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+	}
 
 	complete = {
-		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
-		country_or_subject_owns_entire_state_region = STATE_MEDINA
+		custom_tooltip = {
+			text = owns_all_arabia_states
+			any_state = {
+				filter = {
+					region = sr:region_arabic
+					NOT = {
+						state_region = s:STATE_HEDJAZ
+						state_region = s:STATE_MEDINA
+					}
+				}
+				owner = root
+				count = all
+			}
+		}
 		custom_tooltip = {
 			text = claimed_caliphal_authority_tt
-			has_variable = claimed_caliphal_authority
+			has_variable = pursue_caliphate_var
+		}
+		trigger_if = {
+			limit = {
+				c:HDJ ?= { is_country_alive = yes }
+			}
+			c:HDJ ?= {
+				is_subject_of = root
+			}
+		}
+		trigger_else = {
+			country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+			country_or_subject_owns_entire_state_region = STATE_MEDINA
 		}
 	}
 
 	on_complete = {
-		
+		set_variable = ottoman_caliphate_success
+		trigger_event = { id = ottoman_flavor.2 }
+		every_interest_group = {
+			limit = {
+				has_modifier = pursuing_the_caliphate
+			}
+			remove_modifier = pursuing_the_caliphate
+		}
 	}
 	
 	on_monthly_pulse = {
@@ -23,7 +59,47 @@
 	}
 	
 	fail = {
-		
+		OR = {
+			custom_tooltip = {
+				text = westernist_coup_tt
+				has_global_variable = westernist_coup
+			}
+			custom_tooltip = {
+				text = nationalists_has_taken_over_tt
+				has_variable = turkish_empire
+			}
+			custom_tooltip = {
+				text = rumelian_confederation_tt
+				has_variable = rumelian_confederation
+			}
+			has_law = law_type:law_total_separation
+			has_law = law_type:law_state_atheism
+		}
+	}
+	
+	on_fail = {
+		every_interest_group = {
+			limit = {
+				has_modifier = pursuing_the_caliphate
+			}
+			remove_modifier = pursuing_the_caliphate
+		}
+	}
+	
+	invalid = {
+		custom_tooltip = {
+			text = reject_ottoman_caliphate_tt
+			has_variable = reject_ottoman_caliphate
+		}
+	}
+	
+	on_invalid = {
+		every_interest_group = {
+			limit = {
+				has_modifier = pursuing_the_caliphate
+			}
+			remove_modifier = pursuing_the_caliphate
+		}
 	}
 
 	weight = 10
@@ -31,28 +107,171 @@
 	should_be_pinned_by_default = yes
 }
 
-je_scourge_of_europe = {
+je_westernist_coalition = {
 	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
 
 	group = je_group_tsr_content
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_HUDAVENDIGAR
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KASTAMONU
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KARASI
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_AYDIN
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ADANA
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ANKARA
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KAYSERI
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		create_character = {
+			template = tur_mehmed_iv_character_template
+		}
+		set_westernist_vars = yes
+		random_scope_character = {
+			limit = { has_variable = is_mehmed_iv }
+			save_scope_as = mehmed_scope
+		}
+	}
 
 	complete = {
-		
+		custom_tooltip = {
+			text = westernist_progress_zero
+			var:westernist_progress_var <= 0
+		}
+		OR = {
+			AND = {
+				ig:ig_intelligentsia = {
+					is_marginal = yes
+				}
+				ig:ig_industrialists = {
+					is_marginal = yes
+				}
+			}
+			custom_tooltip = {
+				text = finished_ottoman_caliphate_je
+				has_variable = ottoman_caliphate_success
+			}
+		}
 	}
 
 	on_complete = {
-		
+		set_global_variable = westernist_coup
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			calculate_westernist_progress = yes
+		}
 	}
 	
 	on_monthly_pulse = {
-		
+		effect = {
+			calculate_westernist_progress = yes
+			add_westernist_progress = yes
+		}
 	}
 	
 	fail = {
-		
+		OR = {
+			custom_tooltip = {
+				text = westernist_progress_full
+				var:westernist_progress_var >= 100
+			}
+			AND = {
+				liberal_revolution_ongoing = yes
+				any_civil_war = {
+					civil_war_progress >= 0.9
+					is_civil_war_type = revolution
+				}
+			}
+		}
+	}
+	
+	invalid = {
+		OR = {
+			AND = {
+				OR = {
+					has_law = law_type:law_laissez_faire
+					has_law = law_type:law_interventionism
+				}
+				OR = {
+					has_law = law_type:law_per_capita_based_taxation
+					has_law = law_type:law_proportional_taxation
+				}
+				OR = {
+					has_law = law_type:law_commercialized_agriculture
+					has_law = law_type:law_homesteading
+				}
+			}
+			NOT = { has_law = law_type:law_monarchy }
+			NOT = {
+				any_character = {
+					has_variable = is_mehmed_iv
+				}
+			}
+			ruler = {
+				has_variable = is_mehmed_iv
+			}
+		}
+	}
+	
+	current_value = {
+		value = root.var:westernist_progress_var
 	}
 
-	weight = 10
+	goal_add_value = {
+		add = 100
+	}
+
+	progressbar = yes
+
+	weight = 1000
 
 	should_be_pinned_by_default = yes
 }
@@ -70,16 +289,14 @@ je_veiled_puppet = {
 			c:KUR ?= {
 				is_subject_of = ROOT
 			}
-			AND = {
-				country_or_subject_owns_entire_state_region = STATE_HARPUT
-				country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
-				country_or_subject_owns_entire_state_region = STATE_TRABZON
-				country_or_subject_owns_entire_state_region = STATE_ERZURUM
-				country_or_subject_owns_entire_state_region = STATE_BITLIS
-				country_or_subject_owns_entire_state_region = STATE_ALEPPO
-				country_or_subject_owns_entire_state_region = STATE_DEIR_EZ_ZOR
-			}
 		}
+		country_or_subject_owns_entire_state_region = STATE_HARPUT
+		country_or_subject_owns_entire_state_region = STATE_DIYARBAKIR
+		country_or_subject_owns_entire_state_region = STATE_TRABZON
+		country_or_subject_owns_entire_state_region = STATE_ERZURUM
+		country_or_subject_owns_entire_state_region = STATE_BITLIS
+		country_or_subject_owns_entire_state_region = STATE_ALEPPO
+		country_or_subject_owns_entire_state_region = STATE_DEIR_EZ_ZOR
 	}
 	
 	on_complete = {
@@ -87,6 +304,8 @@ je_veiled_puppet = {
 	}
 
 	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
 		trigger_event = { id = treaty_of_baglar_events.4 popup = yes }
 	}
 	
@@ -108,8 +327,516 @@ je_veiled_puppet = {
 		trigger_event = { id = treaty_of_baglar_events.7 popup = yes }
 	}
 
-	timeout = 3650
-
 	weight = 10000
 	should_be_pinned_by_default = yes
+}
+
+je_turkish_nationalism_main = {
+	icon = "gfx/interface/icons/event_icons/event_flags/event_tur_flag.dds"
+
+	group = je_group_tsr_content
+	
+	can_revolution_inherit = no
+
+	is_shown_when_inactive = {
+		c:TUR ?= this
+		has_technology_researched = nationalism
+	}
+
+	possible = {
+		any_interest_group = {
+			is_marginal = no
+			OR = {
+				is_powerful = yes
+				ig_approval <= -5
+			}
+			any_scope_character = {
+				AND = {
+					OR = {
+						has_role = politician
+						has_role = agitator
+					}
+					OR = {
+						has_ideology = ideology:ideology_turkish_nationalist
+						has_ideology = ideology:ideology_radical
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = tur_nationalism_progress_var
+			value = 1
+		}
+		random_interest_group = {
+			limit = {
+				is_marginal = no
+				any_scope_character = {
+					OR = {
+						has_role = politician
+						has_role = agitator
+					}
+					OR = {
+						has_ideology = ideology:ideology_turkish_nationalist
+						has_ideology = ideology:ideology_radical
+					}
+				}
+			}
+			save_scope_as = nationalist_ig
+		}
+		trigger_event = { id = turkish_nationalism.1 popup = yes }
+	}
+
+	complete = {
+		OR = {
+			custom_tooltip = {
+				text = je_turkish_nationalism_trigger_tt_1
+				scope:journal_entry = {
+					is_goal_complete = yes
+				}
+				AND = {
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_monarchy
+					}
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+					OR = {
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy
+					}
+					OR = {
+						has_law = law_type:law_public_schools
+						has_law = law_type:law_private_schools
+					}
+					OR = {
+						has_law = law_type:law_freedom_of_conscience
+						has_law = law_type:law_shared_roots
+						has_law = law_type:law_total_separation
+					}
+					has_law = law_type:law_unitary
+					has_law = law_type:law_slavery_banned
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_in_government = yes
+					} 
+				}
+			}
+			custom_tooltip = {
+				text = je_turkish_nationalism_trigger_tt_2
+				scope:journal_entry = {
+					is_goal_complete = yes
+				}
+				AND = {
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_marginal = yes
+						count = all
+					} 
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_monarchy
+					}
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+					OR = {
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy
+					}
+					OR = {
+						has_law = law_type:law_public_schools
+						has_law = law_type:law_private_schools
+					}
+					OR = {
+						has_law = law_type:law_freedom_of_conscience
+						has_law = law_type:law_shared_roots
+						has_law = law_type:law_total_separation
+					}
+					has_law = law_type:law_unitary
+					has_law = law_type:law_slavery_banned
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_in_government = yes
+					} 
+				}
+			}
+			trigger_event = { id = turkish_nationalism.2 popup = yes }
+			set_variable = turkish_empire
+		}
+		else_if = {
+			limit = {
+				AND = {
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_marginal = yes
+						count = all
+					} 
+				}
+			}
+			trigger_event = { id = turkish_nationalism.3 popup = yes }
+		}
+	}
+
+	fail = {
+		OR = {
+        	socialist_revolution_ongoing = yes
+        	liberal_revolution_ongoing = yes
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:turkish
+				}
+				turmoil >= 0.2
+			}
+        }
+	}
+
+	on_fail = {
+		if = {
+			limit = { 
+				NOT = { socialist_revolution_ongoing = yes }
+				has_law = law_type:law_monarchy
+			}
+			trigger_event = { id = turkish_nationalism.4 popup = yes }
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							OR = {
+								has_law = law_type:law_presidential_republic
+								has_law = law_type:law_parliamentary_republic
+								has_law = law_type:law_monarchy
+							}
+							OR = {
+								has_law = law_type:law_ethnostate
+								has_law = law_type:law_national_supremacy
+							}
+							OR = {
+								has_law = law_type:law_public_schools
+								has_law = law_type:law_private_schools
+							}
+							OR = {
+								has_law = law_type:law_freedom_of_conscience
+								has_law = law_type:law_shared_roots
+							}
+							OR = {
+								has_law = law_type:law_census_voting
+								has_law = law_type:law_universal_suffrage
+							}
+							has_law = law_type:law_unitary
+							has_law = law_type:law_slavery_banned
+							any_interest_group = {
+								filter = {
+									OR = {
+										leader = {
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+										any_scope_character = {
+											has_role = agitator
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+									}
+								}
+								is_in_government = yes
+							} 
+						}
+						AND = {
+							OR = {
+								has_law = law_type:law_outlawed_dissent
+								has_law = law_type:law_censorship
+							}
+							any_interest_group = {
+								filter = {
+									OR = {
+										leader = {
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+										any_scope_character = {
+											has_role = agitator
+											OR = {
+												has_ideology = ideology:ideology_turkish_nationalist
+												has_ideology = ideology:ideology_radical
+											}
+										}
+									}
+								}
+								is_marginal = yes
+								count = all
+							} 
+						}
+					}
+				}
+				change_variable = {
+					name = tur_nationalism_progress_var
+					add = 1
+				}
+			}
+		}
+	}
+
+	modifiers_while_active = {
+		modifier_tur_nationalism
+	}
+
+	current_value = {
+		value = root.var:tur_nationalism_progress_var
+	}
+
+	goal_add_value = {
+		add = 60
+	}
+
+	weight = 100
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+je_turkish_revolution = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	group = je_group_tsr_content
+	
+	can_revolution_inherit = no
+	
+	modifiers_while_active = {
+		modifier_tur_nationalism_2
+	}
+
+	immediate = {
+		set_global_variable = turkish_revolution_happened
+		set_variable = {
+			name = turkish_revolution_progress_var
+			value = 0
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		has_law = law_type:law_monarchy
+		NOR = {
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_parliamentary_republic
+		}
+		any_revolution_ongoing = no
+	}
+
+	on_complete = {
+		trigger_event = { id = turkish_nationalism.5 popup = yes }
+	}
+
+	fail = {
+		OR = {
+			has_revolution_over_law_type = law_type:law_census_voting
+			has_revolution_over_law_type = law_type:law_universal_suffrage
+			has_revolution_over_law_type = law_type:law_presidential_republic
+			has_revolution_over_law_type = law_type:law_parliamentary_republic
+		}
+		any_country = {
+			is_revolutionary = yes
+			country_definition = root.country_definition
+			leader = {
+				OR = {
+					has_ideology = ideology:ideology_radical
+					has_ideology = ideology:ideology_turkish_nationalist
+				}
+			}					
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = turkish_nationalism.7 popup = yes }
+	}
+	
+	invalid = {
+		OR = {
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_parliamentary_republic
+		}
+	}
+	
+	on_invalid = {
+		trigger_event = { id = turkish_nationalism.6 popup = yes }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					has_law = law_type:law_monarchy
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					any_revolution_ongoing = no
+				}
+				change_variable = {
+					name = turkish_revolution_progress_var
+					add = 1
+				}
+			}
+			else = {
+				change_variable = {
+					name = turkish_revolution_progress_var
+					subtract = 1
+					min = 0
+				}
+			}
+		}
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 8000
+
+	current_value = {
+		value = var:turkish_revolution_progress_var
+	}
+
+	goal_add_value = {
+		add = 120
+	}
+
+	progressbar = yes
+}
+
+je_turkish_revolutionary_war = {
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
+	group = je_group_tsr_content
+
+	complete = {
+		custom_tooltip = {
+			text = turkish_revolution_tt_complete
+			scope:target = { is_country_alive = no }
+		}
+	}
+
+	fail = {
+		OR = {
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+			has_law = law_type:law_presidential_republic
+			has_law = law_type:law_parliamentary_republic
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = turkish_nationalism.6 popup = yes }
+	}
+
+	should_be_pinned_by_default = yes
+	
+	can_revolution_inherit = no
 }

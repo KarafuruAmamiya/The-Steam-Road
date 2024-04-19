@@ -1,134 +1,154 @@
-﻿je_turkish_revolution_button_a = {
-	name = "je_turkish_revolution_button_a"
-	desc = "je_turkish_revolution_button_a_desc"
-	
-	ai_chance = {
-		base = 100
-	}
+﻿pursue_ottoman_caliphate_button = { #Claim Caliphal Authority
+	name = "pursue_ottoman_caliphate_button"
+	desc = "pursue_ottoman_caliphate_button_desc"
 
+	visible = {
+		NOT = { has_variable = pursue_caliphate_var }
+		NOT = { has_variable = reject_caliphate }
+	}
+	
 	possible = {
-		scope:journal_entry = {
-				not = {
-				custom_tooltip = {
-					text = turkish_revolution_on_cooldown_tt
-					has_variable = je_turkish_revolution_decision_cooldown
-				}
-			}
-		}
-		OR = {
-			custom_tooltip = {
-				text = nationalist_ig_low_clout
-				any_interest_group = {
-					filter = {
-						OR = {
-							has_ideology = ideology:ideology_nationalist
-							leader = {
-								OR = {
-									has_ideology = ideology:ideology_turkish_nationalist
-									has_ideology = ideology:ideology_radical
-								}
-							}
-						}
-					}
-					count = all
-					ig_clout <= 0.1
-				}
-			}
-			custom_tooltip = {
-				text = no_nationalist_ig
-				NOT = {
-					any_interest_group = {
-						OR = {
-							has_ideology = ideology:ideology_nationalist
-							leader = {
-								OR = {
-									has_ideology = ideology:ideology_turkish_nationalist
-									has_ideology = ideology:ideology_radical
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+		country_or_subject_owns_entire_state_region = STATE_MEDINA
 	}
 
 	effect = {
-        custom_tooltip = cooldown_tur_three_months_tt
-		scope:journal_entry = {
-			set_variable = { name = je_turkish_revolution_decision_cooldown months = 3 }
-		}	
-        add_radicals = {
-            value = small_radicals
-            culture = cu:turkish
-        }
-        custom_tooltip = revolution_progress_subtract_10
-        change_variable = {
-            name = turkish_revolution_progress_var
-            add = -10
-        }
+		set_variable = pursue_caliphate_var
+		trigger_event = { id = ottoman_flavor.1 popup = yes }
+		custom_tooltip = {
+			text = gain_claim_on_arabia_tt
+			every_state = {
+				limit = {
+					region = sr:region_arabic
+					NOT = { has_claim_by = ROOT }
+					NOR = { 
+						owner = root
+						owner = { is_subject_of = root }
+					}
+				}
+				state_region = {
+					add_claim = ROOT
+				}
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_jingoist
+					has_ideology = ideology:ideology_pious
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_jingoist_leader
+							has_ideology = ideology:ideology_theocrat
+							has_ideology = ideology:ideology_traditionalist
+							has_ideology = ideology:ideology_caliphatist
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = pursuing_the_caliphate
+				months = -1
+			}
+		}
+		change_infamy = 20
+		custom_tooltip = {
+			text = middle_east_crisis_tt
+			every_country = {
+				limit = {
+					country_is_in_middle_east = yes
+					NOR = { 
+						this = root
+						is_subject_of = root
+					}
+				}
+				change_relations = {
+					country = root
+					value = -30
+				}
+			}
+		}
+		hidden_effect = {
+			set_strategy = ai_strategy_ottoman_caliphate
+		}
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					is_powerful = yes
+					is_in_government = yes
+					OR = {
+						has_ideology = ideology:ideology_jingoist
+						has_ideology = ideology:ideology_pious
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_jingoist_leader
+								has_ideology = ideology:ideology_theocrat
+								has_ideology = ideology:ideology_traditionalist
+								has_ideology = ideology:ideology_caliphatist
+							}
+						}
+					}
+				}
+			}
+			add = 15
+		}
 	}
 }
 
-je_turkish_revolution_button_b = {
-	name = "je_turkish_revolution_button_b"
-	desc = "je_turkish_revolution_button_b_desc"
-	
-	ai_chance = {
-		base = 0
-	}
+reject_ottoman_caliphate_button = { #Dismiss Caliphatist Ambitions
+	name = "reject_ottoman_caliphate_button"
+	desc = "reject_ottoman_caliphate_button_desc"
 
-	possible = {
-		scope:journal_entry = {
-			not = {
-				custom_tooltip = {
-					text = turkish_revolution_on_cooldown_tt
-					has_variable = je_turkish_revolution_decision_cooldown
-				}
-			}
-		}
-		OR = {
-			custom_tooltip = {
-				text = reactionary_ig_low_clout
-				any_interest_group = {
-					filter = {
-						OR = {
-							is_interest_group_type = ig_landowners
-							is_interest_group_type = ig_devout
-						}
-					}
-					count = all
-					ig_clout <= 0.1
-				}
-			}
-			custom_tooltip = {
-				text = no_reactionary_ig
-				NOT = {
-					any_interest_group = {
-						OR = {
-							is_interest_group_type = ig_landowners
-							is_interest_group_type = ig_devout
-						}
-						is_in_government = yes
-					}
-				}
-			}
-		}
+	visible = {
+		has_variable = pursue_caliphate_var
+		NOT = { has_variable = reject_ottoman_caliphate }
 	}
 
 	effect = {
-		scope:journal_entry = {
-			custom_tooltip = cooldown_tur_three_months_tt
-			set_variable = { name = je_turkish_revolution_decision_cooldown months = 3 }
-		}	
-		add_radicals = {
-            value = small_radicals
-            culture = cu:turkish
-        }
-        custom_tooltip = revolution_progress_add_10
-        change_variable = {
-            name = turkish_revolution_progress_var
-            add = 10
-        }
+		custom_tooltip = {
+			text = dismiss_ottoman_caliphate_tt
+			remove_variable = pursue_caliphate_var
+			set_variable = reject_ottoman_caliphate
+		}
+		every_interest_group = {
+			limit = {
+				has_modifier = pursuing_the_caliphate
+			}
+			remove_modifier = pursuing_the_caliphate
+			add_modifier = {
+				name = rejected_the_caliphate
+				months = long_modifier_time
+				is_decaying = yes
+			}
+		}
+		every_state = {
+			limit = {
+				region = sr:region_arabic
+				has_claim_by = ROOT
+			}
+			state_region = {
+				remove_claim = ROOT
+			}
+		}
+		change_infamy = -10
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				any_interest_group = {
+					is_in_government = yes
+					leader = {
+						has_ideology = ideology:ideology_pacifist
+					}
+				}
+			}
+			add = 20	
+		}
 	}
 }

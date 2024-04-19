@@ -1,5 +1,119 @@
-﻿#namespace = ottoman_flavor
+﻿namespace = ottoman_flavor
 namespace = turkish_nationalism
+
+##Ottoman Empire
+
+#Ottoman Caliphate
+ottoman_flavor.1 = {
+	type = country_event
+	placement = scope:hedjaz_state
+	title = ottoman_flavor.1.t
+	desc = ottoman_flavor.1.d
+	flavor = ottoman_flavor.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	immediate = {
+		s:STATE_HEDJAZ = {
+			random_scope_state = {
+				save_scope_as = hedjaz_state
+			}
+		}
+		s:STATE_MEDINA = {
+			random_scope_state = {
+				save_scope_as = medina_state
+			}
+		}
+		c:AKN = { 
+			save_scope_as = akn_scope 
+			ruler = {
+				save_scope_as = akkovin_sultan
+			}
+		}
+		c:TUR = { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = ottoman_flavor.1.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_diplomatic_relevance = c:TUR
+						capital = {
+							region = sr:region_arabic
+						}
+						NOT = { THIS = ROOT }
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+				post_notification = tur_ottoman_caliphate_notification
+			}
+		}
+	}
+}
+
+#Caliphate JE success
+ottoman_flavor.2 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.2.t
+	desc = ottoman_flavor.2.d
+	flavor = ottoman_flavor.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_islam"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	immediate = {
+		s:STATE_HEDJAZ = {
+			random_scope_state = {
+				save_scope_as = hedjaz_state
+			}
+		}
+		s:STATE_MEDINA = {
+			random_scope_state = {
+				save_scope_as = medina_state
+			}
+		}
+		c:TUR = { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = ottoman_flavor.2.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+		}
+		add_loyalists = {
+			religion = rel:sunni
+			value = large_radicals
+		}
+		add_modifier = {
+			name = one_true_caliphate
+			months = long_modifier_time
+			is_decaying = yes
+		}
+	}
+}
 
 ##Turkish Nationalism
 
@@ -304,7 +418,6 @@ turkish_nationalism.4 = {
 	}
 
 	immediate = {
-		set_variable = { name = nationalist_support_level value = 0 }
 		ruler = {
 			save_scope_as = ruler_scope
 		}
@@ -315,10 +428,6 @@ turkish_nationalism.4 = {
 					NOT = { THIS = ROOT }
 				}
 				post_notification = tur_turkish_revolution_start_notification
-				if = {
-					limit = { country_rank >= rank_value:major_power }
-					trigger_event = { id = turkish_nationalism.7 days = 14 }
-				}
 			}
 		}
 		ROOT = {
@@ -332,11 +441,6 @@ turkish_nationalism.4 = {
 		add_journal_entry = {
 			type = je_turkish_revolution
 		}
-		hidden_effect = {
-			set_variable = { name = turkish_revolution_progress_var value = 40 } 
-			set_variable = { name = turkish_revolution_progress_drift value = 1 } 
-		}
-		custom_tooltip = revolution_progress_add_monthly_1
 	}
 }
 
@@ -446,7 +550,10 @@ turkish_nationalism.6 = {
 					this.interest_group = {
 						is_in_government = yes
 					}
-					is_ruler = no
+					trigger_if = {
+						limit = { has_law = law_type:law_monarchy }
+						is_ruler = no
+					}
 				}
 				kill_character = {
 					hidden = yes
@@ -499,7 +606,19 @@ turkish_nationalism.6 = {
 			}
 			if = {
 				limit = {
-					NOT = { has_law = law_type:law_national_supremacy }
+					NOR = { 
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+				}
+				activate_law = law_type:law_census_voting
+			}
+			if = {
+				limit = {
+					NOR = { 
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy 
+					}
 				}
 				activate_law = law_type:law_national_supremacy
 			}
@@ -511,15 +630,12 @@ turkish_nationalism.6 = {
 			}
 			if = {
 				limit = {
-					NOT = { has_law = law_type:law_freedom_of_conscience }
+					NOR = { 
+						has_law = law_type:law_freedom_of_conscience 
+						has_law = law_type:law_shared_roots
+					}
 				}
 				activate_law = law_type:law_freedom_of_conscience
-			}
-			if = {
-				limit = {
-					NOT = { has_law = law_type:law_census_voting }
-				}
-				activate_law = law_type:law_census_voting
 			}
 			if = {
 				limit = {
@@ -571,6 +687,7 @@ turkish_nationalism.6 = {
 	}
 }
 
+# Turkish Revolution (scripted)
 turkish_nationalism.7 = {
 	type = country_event
 	placement = root
@@ -580,155 +697,132 @@ turkish_nationalism.7 = {
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
 	title = turkish_nationalism.7.t
 	desc = turkish_nationalism.7.d
 	flavor = turkish_nationalism.7.f
 
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_revolt.dds"
+
 	duration = 3
 
-	trigger = {
-		#Triggered by JE
-	}
-
 	immediate = {
-		c:TUR = {
-			save_scope_as = tur_scope
-		}
-		ROOT = {
-			save_scope_as = supporter_scope
+		random_country = {
+			limit = {	
+				is_revolutionary = yes
+				country_definition = root.country_definition
+				leader = {
+					OR = {
+						has_ideology = ideology:ideology_radical
+						has_ideology = ideology:ideology_turkish_nationalist
+					}
+				}
+			}
+			save_scope_as = revolution_scope	
+				
+			#The Revolution shouldn't spawn in non-Turkish homelands
+			scope:revolution_scope = {
+				every_scope_state = {
+					limit = { 
+						state_region = {
+							NOT = { is_homeland = cu:turkish }
+						}
+					}
+					set_state_owner = root
+				}
+			}
+			#The Revolution takes over Constantinople (or whatever your capital is)
+			if = {
+				limit = {
+					any_scope_state = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+				}
+				random_scope_state = {
+					limit = {
+						state_region = s:STATE_EASTERN_THRACE
+					}
+					set_state_owner = scope:target
+				}
+				scope:target ?= {
+					every_scope_state = {
+						set_state_type = incorporated
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:target ?= {
+						any_scope_state = {
+							state_region = s:STATE_EASTERN_THRACE
+						}
+					}
+				}
+				scope:target ?= {
+					set_capital = STATE_EASTERN_THRACE
+				}
+			}
+			else = {
+				capital = {
+					set_state_owner = scope:target
+				}
+				scope:target ?= {
+					every_scope_state = {
+						set_state_type = incorporated
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					NOR = { 
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+					}
+				}
+				activate_law = law_type:law_census_voting
+			}
+			if = {
+				limit = {
+					NOR = { 
+						has_law = law_type:law_ethnostate
+						has_law = law_type:law_national_supremacy 
+					}
+				}
+				activate_law = law_type:law_national_supremacy
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_public_schools }
+				}
+				activate_law = law_type:law_public_schools
+			}
+			if = {
+				limit = {
+					NOR = { 
+						has_law = law_type:law_freedom_of_conscience 
+						has_law = law_type:law_shared_roots
+					}
+				}
+				activate_law = law_type:law_freedom_of_conscience
+			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_slavery_banned }
+				}
+				activate_law = law_type:law_slavery_banned
+			}
 		}
 	}
 
 	option = {
 		name = turkish_nationalism.7.a
 		default_option = yes
-		ai_chance = {
-			base = 100
-			modifier = {
-				trigger = {
-					scope:tur_scope.relations:root >= relations_threshold:cordial
-				}
-				add = 50
-			}
-		}
-		change_relations = {
-			country = scope:tur_scope
-			value = 10
-		}
-	}
-	option = {
-		name = turkish_nationalism.7.b
-		ai_chance = {
-			base = 15
-			modifier = {
-				trigger = {
-					scope:tur_scope.relations:root <= relations_threshold:poor
-				}
-				add = 30
-			}
-			modifier = {
-				trigger = {
-					OR = {
-						has_law = law_type:law_presidential_republic
-						has_law = law_type:law_parliamentary_republic
-					}
-				}
-				add = 250
-			}
-			modifier = {
-				trigger = {
-					scope:tur_scope = {
-						has_law = law_type:law_monarchy
-						NOR = {
-							has_law = law_type:law_universal_suffrage
-							has_law = law_type:law_census_suffrage
-						}
-					}
-					NOR = {
-						has_law = law_type:law_monarchy
-						has_law = law_type:law_theocracy
-					}
-					OR = {
-						has_law = law_type:law_universal_suffrage
-						has_law = law_type:law_census_suffrage
-					}
-				}
-				add = 10
-			}
-		}
-		change_relations = {
-			country = scope:tur_scope
-			value = -25
-		}
-		if = {
-			limit = {
-				ROOT = {
-					country_rank >= rank_value:great_power
-				}
-			}
-			c:TUR = {
-				change_variable = { name = nationalist_support_level add = 1 }  # Variable exists only for display purposes
-			}
-		}
-		else_if = {
-			limit = {
-				ROOT = {
-					country_rank >= rank_value:major_power
-				}
-			}
-			c:TUR = {
-				change_variable = { name = nationalist_support_level add = 0.5 } # Variable exists only for display purposes
-			}
-		}
-		scope:tur_scope = {
-			post_notification = foreign_country_supports_revolution
-		}
-		custom_tooltip = will_improve_revolution_progress_tt
-	}
-	option = {
-		name = turkish_nationalism.7.c
-		ai_chance = {
-			base = 75
-		}
-		change_relations = {
-			country = scope:tur_scope
-			value = -5
-		}
-	}
-}
-
-turkish_nationalism.8 = {
-	type = country_event
-	placement = root
-	event_image = {
-		video = "europenorthamerica_springtime_of_nations"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-
-	title = turkish_nationalism.8.t
-	desc = turkish_nationalism.8.d
-	flavor = turkish_nationalism.8.f
-
-	duration = 3
-
-	trigger = {
 		
-	}
-
-	immediate = {
-		set_variable = turkish_revolution_invalid
-	}
-
-	option = {
-		name = turkish_nationalism.8.a
-		default_option = yes
-		ai_chance = {
-			base = 100
+		add_journal_entry = {
+			type = je_turkish_revolutionary_war
+			target = scope:revolution_scope
 		}
 	}
 }

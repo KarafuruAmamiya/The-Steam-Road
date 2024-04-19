@@ -389,7 +389,7 @@ akkovin_crisis.3 = {
 	}
 }
 
-# Fate of the Gunpowder Alliance (For Safavids)
+# Fate of the Gunpowder Alliance
 akkovin_crisis.4 = {
 	type = country_event
 	placement = root
@@ -406,10 +406,16 @@ akkovin_crisis.4 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	
+	trigger = {
+		
+	}
 
 	immediate = {
 		set_variable = pre_treaty
 		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
+		c:TUR = { save_scope_as = tur_scope }
 	}
 
 	option = {
@@ -420,7 +426,7 @@ akkovin_crisis.4 = {
 	}
 }
 
-# An Agreement with the Safavid Empire?
+# A Deal with the Safavids?
 akkovin_crisis.5 = {
 	type = country_event
 	placement = root
@@ -442,12 +448,60 @@ akkovin_crisis.5 = {
 	}
 
 	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:PER = { save_scope_as = per_scope }
+		c:TUR = { save_scope_as = tur_scope }
 	}
 
 	option = {
 		name = akkovin_crisis.5.a
+		default_option = yes
 		trigger_event = { id = akkovin_crisis.6 days = 7 }
-		hidden_effect = { c:PER = { trigger_event = { id = akkovin_crisis.6 days = 7 } } }
+		hidden_effect = { c:AKN = { trigger_event = { id = akkovin_crisis.6 days = 7 } } }
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.5.b
+		change_relations = {
+			country = c:PER
+			value = -30
+		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = trade_agreement
+					}
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:PER
+				type = trade_agreement
+			}
+		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = defensive_pact
+					}
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:PER
+				type = defensive_pact
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 
@@ -532,6 +586,34 @@ akkovin_crisis.6 = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = trade_agreement
+					}
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:PER
+				type = trade_agreement
+			}
+		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = defensive_pact
+					}
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:PER
+				type = defensive_pact
+			}
+		}
 	}
 
 	option = {
@@ -560,10 +642,6 @@ akkovin_crisis.6 = {
 					months = 120
 				}
 			}
-		}
-		remove_diplomatic_pact = {
-			country = c:PER
-			type = trade_agreement
 		}
 		create_diplomatic_pact = {
 			country = c:PER
@@ -618,6 +696,15 @@ akkovin_crisis.7 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	trigger = {
+		has_variable = baglar_treaty_signed
+		NOR = {
+			has_modifier = treaty_of_baglar
+			has_modifier = treaty_of_baglar_2
+			has_variable = rejected_tob
+		}
+	}
 
 	immediate = {
 		c:AKN = { save_scope_as = akn_scope }
@@ -712,11 +799,6 @@ akkovin_crisis.7 = {
 		}
 		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_legacy_slavery
-		
-		every_subject_or_below = {
-			activate_law = law_type:law_free_trade
-			activate_law = law_type:law_legacy_slavery
-		}
 		
 		hidden_effect = {
 			every_country = {
@@ -968,48 +1050,11 @@ akkovin_crisis.9 = {
 		name = akkovin_crisis.9.a
 		default_option = yes
 		trigger = { c:TUR = ROOT }
-		custom_tooltip = {
-			text = gunpowder_alliance_disband_tt
-			if = {
-				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
-				set_global_variable = gunpowder_alliance_disband
+		if = {
+			limit = { 
+				NOT = { has_global_variable = gunpowder_alliance_disband } 
 			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:PER
-						type = trade_agreement
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:PER
-					type = trade_agreement
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:PER
-						type = defensive_pact
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:PER
-					type = defensive_pact
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:PER
-						type = alliance
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:PER
-					type = alliance
-				}
-			}
+			disband_gunpowder_alliance_tur = yes
 		}
 		create_diplomatic_pact = {
 			country = c:AKN
@@ -1033,48 +1078,11 @@ akkovin_crisis.9 = {
 		default_option = yes
 		trigger = { c:PER = ROOT }
 		show_as_tooltip = {
-			custom_tooltip = {
-				text = gunpowder_alliance_disband_tt
-				if = {
-					limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
-					set_global_variable = gunpowder_alliance_disband
+			if = {
+				limit = { 
+					NOT = { has_global_variable = gunpowder_alliance_disband } 
 				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:TUR
-							type = trade_agreement
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:TUR
-						type = trade_agreement
-					}
-				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:TUR
-							type = defensive_pact
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:TUR
-						type = defensive_pact
-					}
-				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:TUR
-							type = alliance
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:TUR
-						type = alliance
-					}
-				}
+				disband_gunpowder_alliance_per = yes
 			}
 			if = {
 				limit = {
@@ -1252,48 +1260,11 @@ akkovin_crisis.10 = {
 		name = akkovin_crisis.10.a
 		default_option = yes
 		trigger = { c:PER = ROOT }
-		custom_tooltip = {
-			text = gunpowder_alliance_disband_tt
-			if = {
-				limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
-				set_global_variable = gunpowder_alliance_disband
+		if = {
+			limit = { 
+				NOT = { has_global_variable = gunpowder_alliance_disband } 
 			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = trade_agreement
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = trade_agreement
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = defensive_pact
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = defensive_pact
-				}
-			}
-			if = {
-				limit = {
-					has_diplomatic_pact = { 
-						who = c:TUR
-						type = alliance
-					}
-				}
-				remove_diplomatic_pact = {
-					country = c:TUR
-					type = alliance
-				}
-			}
+			disband_gunpowder_alliance_per = yes
 		}
 		create_diplomatic_pact = {
 			country = c:AKN
@@ -1317,48 +1288,11 @@ akkovin_crisis.10 = {
 		default_option = yes
 		trigger = { c:TUR = ROOT }
 		show_as_tooltip = {
-			custom_tooltip = {
-				text = gunpowder_alliance_disband_tt
-				if = {
-					limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
-					set_global_variable = gunpowder_alliance_disband
+			if = {
+				limit = { 
+					NOT = { has_global_variable = gunpowder_alliance_disband } 
 				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:PER
-							type = trade_agreement
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:PER
-						type = trade_agreement
-					}
-				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:PER
-							type = defensive_pact
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:PER
-						type = defensive_pact
-					}
-				}
-				if = {
-					limit = {
-						has_diplomatic_pact = { 
-							who = c:PER
-							type = alliance
-						}
-					}
-					remove_diplomatic_pact = {
-						country = c:PER
-						type = alliance
-					}
-				}
+				disband_gunpowder_alliance_tur = yes
 			}
 			if = {
 				limit = {
@@ -1453,6 +1387,317 @@ akkovin_crisis.10 = {
 	}
 }
 
+# Hedjaz Demands Autonomy (Hedjaz)
+akkovin_crisis.11 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.11.t
+	desc = akkovin_crisis.11.d
+	flavor = akkovin_crisis.11.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_french_algeria"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	immediate = {
+		set_variable = hedjaz_revolt
+		c:AKN = { 
+			save_scope_as = akn_scope 
+			ruler = { save_scope_as = akn_ruler }
+		}
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.11.a #Make the demand
+		default_option = yes
+		c:AKN = { 
+			trigger_event = { id = akkovin_crisis.12 days = 7 popup = yes }
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.11.b #We can't risk angering the Akkovins
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Hedjaz Demands Autonomy (Response)
+akkovin_crisis.12 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.12.t
+	desc = akkovin_crisis.12.d
+	flavor = akkovin_crisis.12.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:sharif_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	immediate = {
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.12.a #Give in to the Sharif's demand
+		c:HDJ = {
+			change_subject_type = subject_type_dominion
+			post_notification = hdj_autonomy_increased
+		}
+		change_relations = {
+			country = c:HDJ
+			value = 30
+		}
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+			}
+			add_modifier = {
+				name = gave_in_the_sharif
+				months = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.12.b
+		default_option = yes
+		create_diplomatic_play = {
+			target_country = c:HDJ
+			type = dp_reduce_autonomy
+			escalation = 80
+			
+			add_war_goal = {
+				holder = c:HDJ
+				type = independence
+				target_country = c:AKN
+				primary_demand = yes
+			}
+		}
+		hidden_effect = {
+			c:HDJ ?= { 
+				trigger_event = { id = akkovin_crisis.13 } 
+				add_technology_progress = { progress = 2500 technology = mass_communication }
+				add_technology_progress = { progress = 2500 technology = nationalism }
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Hedjaz Requests Ottoman Protection (Hedjaz)
+akkovin_crisis.13 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.13.t
+	desc = akkovin_crisis.13.d
+	flavor = akkovin_crisis.13.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:padishah_scope
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+		c:TUR = {
+			save_scope_as = tur_scope
+			ruler = { save_scope_as = padishah_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.13.a #Requests Ottoman protection
+		default_option = yes
+		c:TUR = { trigger_event = { id = akkovin_crisis.14 days = 7 popup = yes } }
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.13.b #We can fight by ourselves
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Hedjaz Requests Ottoman Protection (Ottomans)
+akkovin_crisis.14 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.14.t
+	desc = akkovin_crisis.14.d
+	flavor = akkovin_crisis.14.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:sharif_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.14.a #Support Hedjaz
+		default_option = yes
+		hidden_effect = {
+			c:HDJ = {
+				set_variable = ottoman_protectorate_var
+			}
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:AKN
+				target_is = c:HDJ
+			}
+			add_target_backers = {
+				root
+			}
+			add_war_goal = {
+				holder = root
+				type = humiliation
+				target_country = c:AKN
+			}
+		}
+		if = {
+			limit = {
+				c:EGY ?= { is_subject_of = root }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:AKN
+					target_is = c:HDJ
+				}
+				add_target_backers = {
+					c:EGY
+				}
+			}
+		}
+		change_relations = {
+			country = c:AKN
+			value = -50
+		}
+		change_relations = {
+			country = c:HDJ
+			value = 100
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.14.b
+		change_relations = {
+			country = c:HDJ
+			value = -30
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				trigger = {
+					any_interest_group = {
+						is_in_government = yes
+						leader = {
+							has_ideology = ideology:ideology_pacifist
+						}
+					}
+				}
+				add = 100
+			}
+		}
+	}
+}
+
+# Hedjaz Becomes Ottoman Protectorate
+akkovin_crisis.15 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.15.t
+	desc = akkovin_crisis.15.d
+	flavor = akkovin_crisis.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	immediate = {
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.15.a
+		create_diplomatic_pact = {
+			country = scope:hedjaz_scope
+			type = protectorate
+		}
+	}
+}
+
 # Akkovin leaders embrace reform
 akkovin_crisis.17 = {
 	type = country_event
@@ -1470,6 +1715,13 @@ akkovin_crisis.17 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	trigger = {
+		has_variable = completed_akkovin_reform_economy_je
+		has_variable = completed_akkovin_reform_education_je
+		has_variable = completed_akkovin_reform_bureaucracy_je
+		NOT = { has_variable = ideology_change }
+	}
 
 	immediate = {
 		set_variable = ideology_change
@@ -1480,9 +1732,12 @@ akkovin_crisis.17 = {
 		if = {
 			limit = {
 				ruler = {
-					NOR = { 
+					NOR = {
 						has_ideology = ideology:ideology_moderate_reformer 
 						has_ideology = ideology:ideology_reformer
+						interest_group = {
+							is_interest_group_type = ig_intelligentsia
+						}
 					}
 				}
 			}
@@ -1490,14 +1745,8 @@ akkovin_crisis.17 = {
 				set_ideology = ideology:ideology_moderate_reformer
 			}
 		}
-		if = {
-			limit = {
-				any_scope_character = {
-					has_variable = is_halil
-				}
-			}
-			random_scope_character = {
-				limit = { has_variable = is_halil }
+		else = {
+			ruler = {
 				set_ideology = ideology:ideology_reformer
 			}
 		}

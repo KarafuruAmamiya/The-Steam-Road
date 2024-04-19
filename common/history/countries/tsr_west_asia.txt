@@ -1,11 +1,8 @@
 ﻿COUNTRIES = {
 	c:AKN ?= { # Akkovin Empire
-		effect_starting_technology_tier_4_tech = yes
+		effect_starting_technology_tier_4_asia_tech = yes
 		
-		add_technology_researched = academia
-		add_technology_researched = law_enforcement
 		add_technology_researched = mandatory_service
-		add_technology_researched = urban_planning
 		add_technology_researched = line_infantry
 		add_technology_researched = romanticism
 		
@@ -15,14 +12,14 @@
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
-		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_peasant_levies
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_devolved
+		activate_law = law_type:law_federal
 		
 		set_institution_investment_level ?= {
 			institution = institution_schools
@@ -33,7 +30,7 @@
 			add_ruling_interest_group = yes
 		}
 
-		
+		set_tax_level = high
 		
 		add_modifier ?= {
 			name = akkovin_crisis
@@ -57,13 +54,10 @@
 		}
 	}
 	c:ARD ?= { # Ardalan
-		effect_starting_technology_tier_4_tech = yes
+		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		
-		add_technology_researched = academia
-		add_technology_researched = law_enforcement
 		add_technology_researched = mandatory_service
-		add_technology_researched = urban_planning
 		add_technology_researched = line_infantry
 		
 		set_tax_level = medium
@@ -74,7 +68,7 @@
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_traditionalism
 		activate_law = law_type:law_serfdom
 		activate_law = law_type:law_feudalism
 		activate_law = law_type:law_censorship
@@ -85,18 +79,16 @@
 		set_variable = adopt_western_clothes
 	}
 	c:HDJ ?= { # Hedjaz
-		effect_starting_technology_tier_4_tech = yes
+		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
 		
-		add_technology_researched = academia
-		add_technology_researched = law_enforcement
 		add_technology_researched = mandatory_service
-		add_technology_researched = urban_planning
 		add_technology_researched = line_infantry
+		add_technology_researched = romanticism
 		
 		add_taxed_goods = g:tobacco
 		add_taxed_goods = g:coffee
-		add_taxed_goods = g:luxury_furniture
+		add_taxed_goods = g:liquor
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
@@ -119,7 +111,6 @@
 	c:JAB ?= { # Jabal Shammar
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
-		add_technology_researched = academia
 		add_technology_researched = colonization
 
 		activate_law = law_type:law_slave_trade
@@ -131,12 +122,10 @@
 		add_journal_entry ?= { type = je_arabian_desert }
 	}
 	c:KAT ?= { # Kathiri
-		effect_starting_technology_tier_4_tech = yes
+		effect_starting_technology_tier_4_asia_tech = yes
 		
-		add_technology_researched = academia
-		add_technology_researched = law_enforcement
 		add_technology_researched = mandatory_service
-		add_technology_researched = urban_planning
+		add_technology_researched = colonization
 		
 		set_tax_level = medium
 		
@@ -145,7 +134,7 @@
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
@@ -174,7 +163,6 @@
 	c:NEJ ?= { # Najd
 		effect_starting_technology_tier_4_asia_tech = yes
 		effect_starting_politics_traditional = yes
-		add_technology_researched = academia
 		add_technology_researched = colonization
 
 		activate_law = law_type:law_slave_trade
@@ -192,7 +180,6 @@
 	}
 	c:OMA ?= { # Oman
 		effect_starting_technology_tier_4_asia_tech = yes
-		add_technology_researched = academia
 		
 		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_slave_trade
@@ -211,6 +198,9 @@
 		set_tax_level = medium
 		
 		add_taxed_goods = g:opium
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:coffee
+		add_taxed_goods = g:liquor
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_landed_voting 
@@ -219,16 +209,15 @@
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_censorship # The government is slowly backtracking from promises made during Ebrahim's reign
-		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_legacy_slavery # While technically banned, except in certain states slavery is still around but "discouraged"
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_religious_schools
-		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_frontier_colonization
 		activate_law = law_type:law_national_guard
-		activate_law = law_type:law_poor_laws
 		activate_law = law_type:law_migration_controls
 		activate_law = law_type:law_devolved
 		
@@ -294,16 +283,21 @@
 		add_technology_researched = napoleonic_warfare
 		add_technology_researched = banking
 		add_technology_researched = lathe
+		
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:coffee
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:opium
 
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
 		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
-		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_legacy_slavery
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_religious_schools
@@ -334,15 +328,15 @@
 		
 		add_taxed_goods = g:tobacco
 		add_taxed_goods = g:coffee
-		add_taxed_goods = g:luxury_furniture
+		add_taxed_goods = g:liquor
 		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_state_religion
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_serfdom
-		activate_law = law_type:law_per_capita_based_taxation
+		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_slave_trade
@@ -366,6 +360,10 @@
 		
 		set_tax_level = medium
 		
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:coffee
+		add_taxed_goods = g:liquor
+		
 		activate_law = law_type:law_monarchy
 		activate_law = law_type:law_oligarchy 
 		activate_law = law_type:law_state_religion
@@ -373,7 +371,7 @@
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_agrarianism
 		activate_law = law_type:law_censorship
-		activate_law = law_type:law_per_capita_based_taxation	
+		activate_law = law_type:law_land_based_taxation	
 		activate_law = law_type:law_legacy_slavery	
 		activate_law = law_type:law_professional_army
 		activate_law = law_type:law_local_police
@@ -406,6 +404,14 @@
 		
 		set_variable = adopt_western_uniforms
 		set_variable = adopt_western_clothes
+		
+		add_journal_entry = { type = je_ottoman_caliphate }
+		add_journal_entry = { type = je_westernist_coalition }
+		
+		set_variable = {
+			name = westernist_progress_var
+			value = 0
+		}
 	}
 	
 	# Decentralized

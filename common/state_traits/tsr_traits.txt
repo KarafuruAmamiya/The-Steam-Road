@@ -176,6 +176,7 @@ state_trait_kabah = {
 		state_migration_pull_mult = 0.5 #Further increased by Hajj events
 		state_conversion_mult = 0.5
 		state_infrastructure_add = 15
+		country_tax_income_add = 5000
 	}
 }
 
@@ -262,5 +263,22 @@ state_trait_gurbantunggut_desert = {
 	modifier = {
 		building_silk_plantation_throughput_add = 0.1
 		building_textile_mills_throughput_add = 0.1
+	}
+}
+
+state_trait_pontic_mountains = {
+	icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
+	
+	modifier = {
+		state_construction_mult = -0.1
+		state_infrastructure_mult = -0.1
+	}
+}
+
+state_trait_oriental_tobacco = {
+	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
+	
+	modifier = {
+		building_tobacco_plantation_throughput_add = 0.1
 	}
 }

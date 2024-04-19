@@ -12,7 +12,7 @@
 			interest_group = ig_devout
 			ideology = ideology_traditionalist
 			traits = {
-				cautious
+				cautious sickly
 			}
 			on_created = {
 				set_variable = is_married
@@ -28,11 +28,11 @@
 			culture = cu:akturk
 			interest_group = ig_intelligentsia
 			ideology = ideology_moderate
+			birth_date = 1817.9.21
 			on_created = {
-				set_variable = is_married
 				set_variable = is_halil
+				set_character_immortal = yes
 			}
-			birth_date=1817.9.21
 		}
 		
 		create_character = {
@@ -736,7 +736,7 @@
     		religion = rel:sunni
 			interest_group = ig_landowners
 			dna = dna_suleyman_ii_osmanoglu
-			ideology = ideology_traditionalist
+			ideology = ideology_caliphatist
 			traits = {
 				brave expert_offensive_planner
 			}
@@ -754,7 +754,7 @@
 			birth_date = 1834.5.7
     		religion = rel:sunni
 			interest_group = ig_landowners
-			ideology = ideology_traditionalist
+			ideology = ideology_caliphatist
 			traits = {
 				wrathful hedonist
 			}
@@ -767,7 +767,7 @@
 			birth_date = 1785.11.28
 			ig_leader = yes
 			interest_group = ig_landowners
-			ideology = ideology_jingoist_leader
+			ideology = ideology_caliphatist
 			traits = {
 				experienced_political_operator
 				tactful
@@ -805,7 +805,7 @@
 			birth_date = 1767.10.24
 			ig_leader = yes
 			interest_group = ig_industrialists
-			ideology = ideology_reformer
+			ideology = ideology_westernist
 			traits = {
 				basic_political_operator
 				reckless
@@ -835,7 +835,7 @@
 			birth_date = 1768.9.4
 			ig_leader = yes
 			interest_group = ig_devout
-			ideology = ideology_traditionalist
+			ideology = ideology_caliphatist
 			traits = {
 				romantic
 				inspirational_orator

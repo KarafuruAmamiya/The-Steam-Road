@@ -616,3 +616,89 @@
 		}
 	}
 }
+
+disband_gunpowder_alliance_tur = {
+	custom_tooltip = {
+		text = gunpowder_alliance_disband_tt
+		set_global_variable = gunpowder_alliance_disband
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:PER
+				type = trade_agreement
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = trade_agreement
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:PER
+				type = defensive_pact
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = defensive_pact
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:PER
+				type = alliance
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:PER
+			type = alliance
+		}
+	}
+}
+
+disband_gunpowder_alliance_per = {
+	custom_tooltip = {
+		text = gunpowder_alliance_disband_tt
+		set_global_variable = gunpowder_alliance_disband
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:TUR
+				type = trade_agreement
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:TUR
+			type = trade_agreement
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:TUR
+				type = defensive_pact
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:TUR
+			type = defensive_pact
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = { 
+				who = c:TUR
+				type = alliance
+			}
+		}
+		remove_diplomatic_pact = {
+			country = c:TUR
+			type = alliance
+		}
+	}
+}

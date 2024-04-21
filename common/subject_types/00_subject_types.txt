@@ -405,7 +405,7 @@ subject_type_personal_union = {
 	use_overlord_map_color = yes
 	use_overlord_ruler = yes
 	annex_on_country_formation = yes
-	can_start_own_diplomatic_plays = no
+	can_start_own_diplomatic_plays = yes
 	breaks_if_subject_not_protected = yes
 	join_overlord_wars = yes
 	overlord_must_be_higher_rank = no
@@ -488,6 +488,14 @@ subject_type_real_union = {
 	convoy_contribution = 0.5
 	
 	diplomatic_action = real_union
+	
+	higher_autonomy_subject_type_alternatives = {
+		subject_type_personal_union
+	}
+	
+	lower_autonomy_subject_type_alternatives = {
+		subject_type_dependency
+	}
 	
 	valid_overlord_country_types = {
 		recognized

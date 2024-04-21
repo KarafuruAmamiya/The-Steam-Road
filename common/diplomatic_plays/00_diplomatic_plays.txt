@@ -355,15 +355,11 @@ dp_annex_subject = {
 				text = annex_subject_laws_tt
 				OR = {
 					is_subject_type = subject_type_dependency
-					is_subject_type = subject_type_real_union
 					AND = {
-						is_subject_type = subject_type_puppet
-						owner = {
-							has_law = law_type:law_unitary
+						OR = {
+							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_real_union
 						}
-					}
-					AND = {
-						is_subject_type = subject_type_vassal
 						owner = {
 							has_law = law_type:law_unitary
 						}

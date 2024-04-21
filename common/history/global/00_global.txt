@@ -115,26 +115,6 @@ GLOBAL = {
 	every_country = {
 		limit = {
 			NOR = {
-				has_law = law_type:law_serfdom
-				has_law = law_type:law_feudalism
-				c:POL ?= this
-				c:LIT ?= this
-				c:NET ?= this
-				c:USC ?= this
-				c:KRL ?= this
-				c:SLR ?= this
-				c:SWI ?= this
-				c:ITA ?= this
-			}
-		}
-		ig:ig_landowners = { 
-			remove_ideology = ideology_stratocratic
-			add_ideology = ideology_modern_stratocratic
-		}
-	}
-	every_country = {
-		limit = {
-			NOR = {
 				has_law = law_type:law_chiefdom
 				has_law = law_type:law_monarchy
 				has_law = law_type:law_theocracy
@@ -208,13 +188,6 @@ GLOBAL = {
 		ig:ig_intelligentsia = { 
 			remove_ideology = ideology_constitutionalist
 			add_ideology = ideology_republican
-		}
-	}
-	c:USC ?= {
-		ig:ig_landowners = { 
-			remove_ideology = ideology_stratocratic
-			remove_ideology = ideology_modern_stratocratic
-			add_ideology = ideology_federal_stratocratic
 		}
 	}
 	# Revolution Safety Check

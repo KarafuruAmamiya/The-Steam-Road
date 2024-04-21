@@ -128,6 +128,15 @@ calculate_plc_point = {
 		limit = {
 			c:LIT ?= {
 				is_subject_of = c:POL
+				is_subject_type = subject_type_real_union
+			}
+		}
+		change_global_variable = { name = plc_point_from_autonomy add = 0.5 }
+	}
+	if = {
+		limit = {
+			c:LIT ?= {
+				is_subject_of = c:POL
 				is_subject_type = subject_type_dependency
 			}
 		}

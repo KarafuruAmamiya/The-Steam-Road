@@ -20,12 +20,6 @@
 					}
 				}
 			}
-			OR = {
-				is_subject_type = subject_type_puppet
-				is_subject_type = subject_type_vassal
-				is_subject_type = subject_type_dependency
-				is_subject_type = subject_type_real_union
-			}
 			NAND = { 
 				is_country_type = colonial 
 				root = { NOT = { is_country_type = colonial } }
@@ -53,21 +47,11 @@
 				scope:target_country = {
 					is_subject_type = subject_type_dependency
 				}
-				scope:target_country = {
-					is_subject_type = subject_type_real_union
-				}
 				AND = {
 					scope:target_country = {
 						OR = {
 							is_subject_type = subject_type_puppet
-						}
-					}
-					has_law = law_type:law_unitary
-				}
-				AND = {
-					scope:target_country = {
-						OR = {
-							is_subject_type = subject_type_vassal
+							is_subject_type = subject_type_real_union
 						}
 					}
 					has_law = law_type:law_unitary
@@ -136,6 +120,7 @@
 				type = je_annex_subject_overlord
 			}
 		}
+		custom_tooltip = annex_subject_factors_tt
 
 	}
 	
@@ -311,6 +296,15 @@
 						"scope:actor.infamy" >= infamy_threshold:pariah
 					}
 					value = -50
+				}
+			}
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_GOVERNORATE"
+				if = {
+					limit = {
+						has_law = law_type:law_governorate
+					}
+					value = 20
 				}
 			}
 			add = {

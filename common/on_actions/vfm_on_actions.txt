@@ -147,16 +147,30 @@ vfm_vice_presidents = {
 				has_law = law_type:law_presidential_republic
 				NOT = { has_variable = vice_president }
 			}
-			create_character = {
-				on_created = {
-					set_variable = vice_president_trigger
-					owner = {
-						set_variable = {
-							name = vice_president
-							value = PREV
-						}
+			random_scope_character = {
+				limit = {
+					is_ruler = no
+					is_heir = no
+					NOR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+						has_variable = vice_president_trigger
 					}
-				}		
+					interest_group = {
+						is_marginal = no
+						ig_approval > 0
+						ig_clout >= 0.1
+					}
+				}
+				set_variable = vice_president_trigger
+				save_scope_as = new_vice_president
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
 			}
 		}
 		if = { #New VP
@@ -169,68 +183,37 @@ vfm_vice_presidents = {
 					}
 				}
 			}
-			if = {
+			random_scope_character = {
 				limit = {
-					any_scope_character = {
-						is_ruler = no
-						is_heir = no
-						NOT = {
-							OR = {
-								has_role = general
-								has_role = admiral
-								has_role = agitator
-							}
-						}
-						interest_group = {
-							is_powerful = yes
-						}
+					is_ruler = no
+					is_heir = no
+					NOR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+						has_variable = vice_president_trigger
+					}
+					interest_group = {
+						is_marginal = no
+						ig_approval > 0
+						ig_clout >= 0.1
 					}
 				}
-				random_scope_character = {
-					limit = {
-						is_ruler = no
-						is_heir = no
-						NOT = {
-							OR = {
-								has_role = general
-								has_role = admiral
-								has_role = agitator
-							}
-						}
-						interest_group = {
-							is_powerful = yes
-						}
-					}
-					set_variable = vice_president_trigger
-					save_scope_as = new_vice_president
-					owner = {
-						set_variable = {
-							name = vice_president
-							value = PREV
-						}
+				set_variable = vice_president_trigger
+				save_scope_as = new_vice_president
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
 					}
 				}
 			}
-			else = {
-				random_interest_group = {
-					limit = {
-						is_powerful = yes
-					}
-					save_scope_as = government_ig_scope
+			every_scope_character = {
+				limit = {
+					has_variable = vice_president_trigger
+					NOT = { THIS = scope:new_vice_president }
 				}
-				create_character = {
-					interest_group = scope:government_ig_scope
-					on_created = {
-						set_variable = vice_president_trigger
-						save_scope_as = new_vice_president
-						owner = {
-							set_variable = {
-								name = vice_president
-								value = PREV
-							}
-						}
-					}		
-				}
+				remove_variable = vice_president_trigger
 			}
 		}	
 		if = { #Removes vice president if no longer presidential republic
@@ -272,16 +255,16 @@ vfm_prime_ministers = {
 				limit = {
 					is_ruler = no
 					is_heir = no
-					NOT = {
-						OR = {
-							has_role = general
-							has_role = admiral
-							has_role = agitator
-						}
+					NOR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+						has_variable = prime_minister_trigger
 					}
 					interest_group = {
-						is_in_government = yes
-						is_strongest_ig_in_government = yes
+						is_marginal = no
+						ig_approval > 0
+						ig_clout >= 0.1
 					}
 				}
 				set_variable = prime_minister_trigger
@@ -307,70 +290,36 @@ vfm_prime_ministers = {
 					}
 				}
 			}
-			if = {
+			random_scope_character = {
 				limit = {
-					any_scope_character = {
-						is_ruler = no
-						is_heir = no
-						NOT = {
-							OR = {
-								has_role = general
-								has_role = admiral
-								has_role = agitator
-							}
-						}
-						interest_group = {
-							is_in_government = yes
-							is_strongest_ig_in_government = yes
-						}
+					is_ruler = no
+					is_heir = no
+					NOR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+						has_variable = prime_minister_trigger
+					}
+					interest_group = {
+						is_marginal = no
+						ig_approval > 0
+						ig_clout >= 0.1
 					}
 				}
-				random_scope_character = {
+				set_variable = prime_minister_trigger
+				save_scope_as = new_prime_minister
+				every_scope_character = {
 					limit = {
-						is_ruler = no
-						is_heir = no
-						NOT = {
-							OR = {
-								has_role = general
-								has_role = admiral
-								has_role = agitator
-							}
-						}
-						interest_group = {
-							is_in_government = yes
-							is_strongest_ig_in_government = yes
-						}
+						has_variable = prime_minister_trigger
+						NOT = { THIS = scope:new_prime_minister }
 					}
-					set_variable = prime_minister_trigger
-					save_scope_as = new_prime_minister
-					owner = {
-						set_variable = {
-							name = prime_minister
-							value = PREV
-						}
-					}
+					remove_variable = prime_minister_trigger
 				}
-			}
-			else = {
-				random_interest_group = {
-					limit = {
-						is_in_government = yes
-						is_strongest_ig_in_government = yes
+				owner = {
+					set_variable = {
+						name = prime_minister
+						value = PREV
 					}
-					save_scope_as = government_ig_scope
-				}
-				create_character = {
-					interest_group = scope:government_ig_scope
-					on_created = {
-						set_variable = prime_minister_trigger
-						save_scope_as = new_prime_minister
-						owner = {
-							set_variable = {
-								name = prime_minister
-								value = PREV
-							}
-						}
-					}		
 				}
 			}
 		}

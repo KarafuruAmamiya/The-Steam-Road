@@ -5,12 +5,21 @@ je_annex_subject_overlord = {
 	group = je_group_internal_affairs
 
 	immediate = {
+		save_scope_as = overlord_scope
 		random_country = {
 			limit = {
 				is_subject_of = ROOT
 				has_journal_entry = je_annex_subject_junior
 			}
 			save_scope_as = annex_target_scope
+		}
+		
+		every_country = {
+			limit = {
+				has_diplomatic_relevance = root
+				NOT = { this = root }
+			}
+			post_notification = subject_integration_begins
 		}
 
 		set_variable = {
@@ -49,10 +58,31 @@ je_annex_subject_overlord = {
 
 	goal_add_value = {
 		value = scope:annex_target_scope.gdp
-		divide = {
-			value = root.gdp
-			divide = 1500
+		if = {
+			limit = {
+				scope:annex_target_scope = {
+					OR = {
+						is_subject_type = subject_type_puppet
+						is_subject_type = subject_type_real_union
+					}
+				}				
+			}
+			divide = {
+				value = root.gdp
+				divide = 1500
+			}
 		}
+		else_if = {
+			limit = {
+				scope:annex_target_scope = {
+					is_subject_type = subject_type_dependency
+				}				
+			}
+			divide = {
+				value = root.gdp
+				divide = 1000
+			}
+		}		
 		multiply = {
 			value = 7
 			subtract = root.institution:institution_centralization.investment
@@ -77,7 +107,6 @@ je_annex_subject_overlord = {
 			annex = scope:annex_target_scope
 		}
 		remove_variable = annexing_subject_var
-		remove_variable = annexing_subject_years_var
     }
 
 	fail = {
@@ -127,6 +156,7 @@ je_annex_subject_junior = {
 		overlord = {
 			save_scope_as = overlord_scope
 		}
+		save_scope_as = annex_target_scope
 		set_variable = {
 			name = being_annexed_var
 			value = 0
@@ -163,9 +193,27 @@ je_annex_subject_junior = {
 
 	goal_add_value = {
 		value = root.gdp
-		divide = {
-			value = scope:overlord_scope.gdp
-			divide = 1500
+		if = {
+			limit = {
+				root = {
+					is_subject_type = subject_type_puppet
+				}				
+			}
+			divide = {
+				value = scope:overlord_scope.gdp
+				divide = 1500
+			}
+		}
+		else_if = {
+			limit = {
+				root = {
+					is_subject_type = subject_type_dependency
+				}				
+			}
+			divide = {
+				value = scope:overlord_scope.gdp
+				divide = 1000
+			}
 		}
 		multiply = {
 			value = 7

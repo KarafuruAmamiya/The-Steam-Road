@@ -544,7 +544,18 @@
 									has_ideology = ideology:ideology_communist
 									has_ideology = ideology:ideology_vanguardist
 									has_ideology = ideology:ideology_anarchist
-									has_ideology = ideology:ideology_republican_leader
+									AND = {
+										has_ideology = ideology:ideology_republican_leader
+										owner = {
+											any_interest_group = { 
+												is_interest_group_type = ig_landowners 
+												NOR = {
+													has_ideology = ideology:ideology_republican_paternalistic 
+													has_ideology = ideology:ideology_cossack_paternalistic 
+												}
+											}
+										}
+									}
 								}
 							}
 						}

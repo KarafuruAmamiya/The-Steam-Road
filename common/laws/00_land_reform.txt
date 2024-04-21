@@ -173,7 +173,12 @@ law_tenant_farmers = {
 		}
 		if = {
 			limit = {
-				NOT = { has_law = law_type:law_feudalism }
+				NOR = {
+					has_law = law_type:law_feudalism
+					c:POL ?= this
+					c:LIT ?= this
+					c:NET ?= this
+				}
 				ig:ig_landowners = {
 					has_ideology = ideology:ideology_stratocratic
 				}

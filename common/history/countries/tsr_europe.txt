@@ -236,7 +236,7 @@
 		effect_starting_politics_conservative = yes
 		
 		# Laws 
-		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_governorate
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
@@ -379,7 +379,7 @@
 		effect_starting_politics_conservative = yes
 		
 		# Laws 
-		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_governorate
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
@@ -673,9 +673,10 @@
 	c:HSA ?= { # Hanseatic Provinces
 		effect_starting_technology_tier_2_tech = yes
 		# set_next_election_date = ???
+		add_primary_culture = cu:dutch
 		
 		effect_starting_politics_conservative = yes
-		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_governorate
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_federal
 		activate_law = law_type:law_free_trade
@@ -983,7 +984,7 @@
 		effect_starting_politics_conservative = yes
 		
 		# Laws 
-		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_governorate
 		activate_law = law_type:law_autocracy 
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
@@ -1065,7 +1066,7 @@
 		add_technology_researched = stock_exchange
 		add_technology_researched = mass_communication
 		
-		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_governorate
 		activate_law = law_type:law_laissez_faire
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_tenant_farmers
@@ -1104,11 +1105,14 @@
 		effect_starting_technology_tier_3_tech = yes
 		
 		add_technology_researched = napoleonic_warfare
+		remove_primary_culture = cu:russian
+		add_primary_culture = cu:swedish
+		set_state_religion = rel:catholic
 		
 		add_taxed_goods = g:liquor
 		
 		# Laws 
-		activate_law = law_type:law_presidential_republic 
+		activate_law = law_type:law_governorate 
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_hereditary_bureaucrats
 		activate_law = law_type:law_racial_segregation
@@ -1485,7 +1489,7 @@
 		activate_law = law_type:law_laissez_faire
 		activate_law = law_type:law_freedom_of_conscience
 		activate_law = law_type:law_racial_segregation
-		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_wealth_voting
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_free_trade

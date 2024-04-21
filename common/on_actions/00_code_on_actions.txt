@@ -867,25 +867,6 @@ on_character_death = {
 				trigger_event = character.deaths.1
 			}
 		}
-		#	owner = {
-		#		every_scope_character = {
-		#			limit = { has_variable = vice_president_trigger }
-		#			remove_variable = vice_president_trigger
-		#			set_character_as_ruler = yes
-		#		}
-		#		create_character = {
-		#			on_created = {
-		#				set_variable = vice_president_trigger
-		#				owner = {
-		#					set_variable = {
-		#						name = vice_president
-		#						value = PREV
-		#					}
-		#				}
-		#			}
-		#		}
-		#	}
-		#}
 		
 		if = {
 			limit = {
@@ -926,6 +907,39 @@ on_character_death = {
 			owner = {
 				call_election = {
 					months = 1
+				}
+			}
+		}
+		
+		# Primary culture governorates have primary culture leaders
+		if = {
+			limit = {
+				is_ruler = yes
+				owner = {
+					has_law = law_type:law_governorate
+					is_subject = yes
+					has_variable = primary_culture_ruler
+				}
+			}
+			owner = {
+				overlord = {
+					ruler.culture = {
+						save_scope_as = overlord_culture
+					}
+					religion = {
+						save_scope_as = overlord_religion
+					}
+				}
+				create_character = {
+					ruler = yes
+					culture = scope:overlord_culture
+					religion = scope:overlord_religion
+				}
+				ruler = {
+					set_variable = {
+						name = memento_mori_immunity
+						months = 60
+					}
 				}
 			}
 		}
@@ -1447,6 +1461,19 @@ on_country_released_as_own_subject = {
 					add_ideology = ideology_shiite_moralist
 				}
 			}
+			if = {
+				limit = {
+					NOT = { has_law = law_type:law_governorate }
+					OR = {
+						is_subject_type = subject_type_puppet
+						is_subject_type = subject_type_dependency
+					}
+				}
+				set_variable = new_subject
+				overlord = {
+					trigger_event = { id = tsr_misc_events.1 popup = yes }
+				}
+			}
 		}
 	}
 }
@@ -1499,6 +1526,19 @@ on_country_released_as_overlord_subject = {
 				}
 			}
 			change_global_variable = { name = balkan_crisis_main_var add = -20 }
+		}
+		if = {
+			limit = {
+				NOT = { has_law = law_type:law_governorate }
+				OR = {
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
+				}
+			}
+			set_variable = new_subject
+			overlord = {
+				trigger_event = { id = tsr_misc_events.1 popup = yes }
+			}
 		}
 		scope:target = {
 			if = {

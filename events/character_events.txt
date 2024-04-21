@@ -50,17 +50,33 @@ character_events.100 = {
 						kill_character = {
 							hidden = yes
 						}
+						scope:memento_mori_ig = {
+							leader = {
+								set_variable = {
+									name = memento_mori_immunity
+									months = 60
+								}
+							}
+						}
 						owner = { post_notification = ig_leader_memento_mori }
 					}
 					3 = {}
 				}
 			}
 			else = {
-			kill_character = {
-				hidden = yes
-			}
+				kill_character = {
+					hidden = yes
+				}
+				scope:memento_mori_ig = {
+					leader = {
+						set_variable = {
+							name = memento_mori_immunity
+							months = 60
+						}
+					}
+				}
 				owner = { post_notification = ig_leader_memento_mori }
-		}
+			}
 		}
 		#post_notification = ig_leader_memento_mori
 		# Kill an Agitator occasionally, but not too often

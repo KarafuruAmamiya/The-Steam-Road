@@ -2685,6 +2685,19 @@
                     }
                 }
             }
+			modifier = {
+                add = 10000
+                exists = scope:character
+                scope:character = {
+					exists = home_country
+                    home_country = {
+						c:EGY ?= this
+						exists = c:TUR
+						is_subject_of = c:TUR
+                    }
+					ruler_clothes_trigger = yes
+                }
+            }
         }
     }
 	

@@ -6,15 +6,6 @@ character_roles_hidden.1 = {
 	hidden = yes
 	trigger = {
 		has_law = law_type:law_presidential_republic
-		trigger_if = {
-			limit = { 
-				is_country_type = colonial 
-				is_subject = yes
-			}
-			overlord = {
-				is_country_type = colonial
-			}
-		}
 		NOT = { has_variable = vice_president }
 	}
 	immediate = {
@@ -38,15 +29,6 @@ character_roles_hidden.2 = {
 	hidden = yes
 	trigger = {
 		has_law = law_type:law_presidential_republic
-		trigger_if = {
-			limit = { 
-				is_country_type = colonial 
-				is_subject = yes
-			}
-			overlord = {
-				is_country_type = colonial
-			}
-		}
 		has_variable = vice_president
 		OR = {
 			NOT = { 
@@ -132,19 +114,8 @@ character_roles_hidden.3 = {
 	type = country_event
 	hidden = yes
 	trigger = {
-		OR = {
-			NOT = {
-				has_law = law_type:law_presidential_republic
-			}
-			trigger_if = {
-				limit = { 
-					is_country_type = colonial 
-					is_subject = yes
-				}
-				overlord = {
-					NOT = { is_country_type = colonial }
-				}
-			}
+		NOT = {
+			has_law = law_type:law_presidential_republic
 		}
 		has_variable = vice_president
 	}

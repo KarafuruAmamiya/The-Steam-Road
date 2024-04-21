@@ -34,7 +34,7 @@ russian_events.1 = {
 		remove_primary_culture = cu:swedish
 		add_primary_culture = cu:russian
 		set_state_religion = rel:orthodox
-		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
 		if = {
 			limit = {
@@ -693,9 +693,9 @@ russian_events.5 = {
 			}
 			if = {
 				limit = {
-					NOT = { has_law = law_type:law_presidential_republic }
+					NOT = { has_law = law_type:law_governorate }
 				}
-				activate_law = law_type:law_presidential_republic
+				activate_law = law_type:law_governorate
 			}
 			if = {
 				limit = {
@@ -767,9 +767,9 @@ russian_events.5 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_law = law_type:law_presidential_republic }
+						NOT = { has_law = law_type:law_governorate }
 					}
-					activate_law = law_type:law_presidential_republic
+					activate_law = law_type:law_governorate
 				}
 				if = {
 					limit = {

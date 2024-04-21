@@ -1,32 +1,4 @@
-﻿gov_governorate = {
-	transfer_of_power = dictatorial
-
-	male_ruler = "RULER_TITLE_GOVERNOR"
-	female_ruler = "RULER_TITLE_GOVERNOR"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		OR = {
-			AND = {
-				exists = c:SWE
-				is_subject_of = c:SWE
-			}
-			AND = {
-				exists = c:SCA
-				is_subject_of = c:SCA
-			}
-		}
-	}
-	
-	on_government_type_change = {
-		change_to_dictatorial = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_dictatorial = yes
-	}
-}
-
-gov_hre = {
+﻿gov_hre = {
 	transfer_of_power = hereditary
 	
 	male_ruler = "RULER_TITLE_KAISER"
@@ -85,8 +57,13 @@ gov_palatinate = {
 	
 	possible = {
 		has_law = law_type:law_monarchy
-		exists = c:PFA
-		c:PFA = ROOT
+		OR = {
+			c:PFA ?= ROOT
+			AND = {
+				c:RHN ?= ROOT
+				was_formed_from = PFA
+			}
+		}
 	}
 	
 	on_government_type_change = {
@@ -311,40 +288,6 @@ gov_ottoman_empire = {
 	}
 }
 
-gov_satrapies = {
-	transfer_of_power = hereditary
-
-	male_ruler = "RULER_TITLE_SATRAP"
-	female_ruler = ""
-	
-	male_heir = "RULER_TITLE_CROWN_PRINCE"
-	female_heir = "RULER_TITLE_CROWN_PRINCESS"
-	
-	possible = {
-		has_law = law_type:law_monarchy
-		exists = c:PER
-		is_subject_of = c:PER
-		c:PER = { has_law = law_type:law_monarchy }
-		OR = {
-			is_subject_type = subject_type_satrapy
-			is_subject_type = subject_type_puppet
-			is_subject_type = subject_type_dependency
-		}
-		NOT = {
-			any_primary_culture = {
-				has_discrimination_trait = south_asian_heritage
-			}
-		}
-	}
-	
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 gov_indian_satrapies = {
 	transfer_of_power = hereditary
 
@@ -520,39 +463,6 @@ gov_indian_sultanate = {
 	}
 	on_post_government_type_change = {
 		post_change_to_hereditary = yes
-	}
-}
-
-gov_iberian_viceroyalty = {
-	transfer_of_power = dictatorial
-
-	male_ruler = "RULER_TITLE_VICEROY"
-	female_ruler = "RULER_TITLE_VICEROY"
-	
-	possible = {
-		has_law = law_type:law_presidential_republic
-		exists = c:IBE
-		is_subject_of = c:IBE
-		OR = {
-			is_subject_type = subject_type_puppet
-			is_subject_type = subject_type_dependency
-		}
-		is_country_type = colonial
-		any_primary_culture = {
-			OR = {
-				has_discrimination_trait = western_european_heritage
-				has_discrimination_trait = eastern_european_heritage
-				has_discrimination_trait = south_european_heritage
-			}
-		}
-		country_is_in_europe = no
-	}
-	
-	on_government_type_change = {
-		change_to_dictatorial = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_dictatorial = yes
 	}
 }
 

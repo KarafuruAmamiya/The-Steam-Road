@@ -1,0 +1,204 @@
+﻿gov_vilayet = {
+	transfer_of_power = dictatorial
+	
+	male_ruler = "RULER_TITLE_VALI" 
+	female_ruler = "" # Empty on purpose
+	
+	possible = {
+		has_law = law_type:law_governorate
+		exists = c:TUR
+		is_subject_of = c:TUR
+		c:TUR = { has_law = law_type:law_monarchy }
+	}		
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_satrapies = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SATRAP"
+	female_ruler = ""
+	
+	possible = {
+		has_law = law_type:law_governorate
+		exists = c:PER
+		is_subject_of = c:PER
+		c:PER = { has_law = law_type:law_monarchy }
+	}
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_crown_colony = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_governorate
+		is_country_type = colonial
+		NOR = {
+			is_subject_type = subject_type_chartered_company
+			AND = {
+				has_variable = african_chartered_company_var
+				is_subject = yes
+			}
+		}
+		OR = {
+			AND = {
+				exists = c:GBR
+				is_subject_of = c:GBR
+				c:GBR = {
+					has_law = law_type:law_monarchy
+				}
+			}
+			AND = {
+				exists = c:ENG
+				is_subject_of = c:ENG
+				c:ENG = {
+					has_law = law_type:law_monarchy
+				}
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_iberian_viceroyalty = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_VICEROY"
+	female_ruler = "RULER_TITLE_VICEROY"
+	
+	possible = {
+		has_law = law_type:law_governorate
+		is_country_type = colonial
+		NOR = {
+			is_subject_type = subject_type_chartered_company
+			AND = {
+				has_variable = african_chartered_company_var
+				is_subject = yes
+			}
+		}
+		OR = {
+			AND = {
+				exists = c:IBE
+				is_subject_of = c:IBE
+				c:IBE = {
+					has_law = law_type:law_monarchy
+				}
+			}
+			AND = {
+				exists = c:CAS
+				is_subject_of = c:CAS
+				c:CAS = {
+					has_law = law_type:law_monarchy
+				}
+			}
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_colonial_administration = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		has_law = law_type:law_governorate
+		is_country_type = colonial
+		NOR = {
+			is_subject_type = subject_type_chartered_company
+			AND = {
+				has_variable = african_chartered_company_var
+				is_subject = yes
+			}
+			top_overlord = {
+				is_country_type = colonial
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_chartered_company = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	
+	possible = {
+		has_law = law_type:law_governorate
+		OR = {
+			is_subject_type = subject_type_chartered_company
+			AND = {
+				has_variable = african_chartered_company_var
+				is_subject = yes
+			}
+		}
+	}
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_governorate = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNOR"
+	
+	possible = {
+		has_law = law_type:law_governorate
+		OR = {
+			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_dependency
+			is_subject_type = subject_type_dominion
+		}
+	}
+	
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+

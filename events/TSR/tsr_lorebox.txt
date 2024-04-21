@@ -126,7 +126,37 @@ tsr_test.4 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		set_variable = ruthenian_culture_change
+		if = {
+			limit = {
+				has_law = law_type:law_governorate
+			}
+			if = {
+				limit = {
+					is_country_type = colonial
+				}
+				activate_law = law_type:law_presidential_republic
+			}
+			else = {
+				enact_preferred_governance_principle_governorate = yes
+			}
+			restore_primary_culture = yes
+			if = {
+				limit = {
+					has_variable = primary_culture_ruler
+				}
+				remove_variable = primary_culture_ruler
+				ruler = {
+					kill_character = yes
+					hidden = yes
+				}
+				every_interest_group = {
+					leader = {
+						kill_character = yes
+						hidden = yes
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -134,7 +164,19 @@ tsr_test.5 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		add_journal_entry = { type = je_balkan_crisis_tur }
+		overlord = {
+			random_primary_culture = {
+				save_scope_as = overlord_culture
+			}
+			religion = {
+				save_scope_as = overlord_religion
+			}
+		}
+		create_character = {
+			ruler = yes
+			culture = scope:overlord_culture
+			religion = scope:overlord_religion
+		}
 	}
 }
 

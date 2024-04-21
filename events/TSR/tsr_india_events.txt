@@ -36,6 +36,14 @@ raj.1 = {
 				if = {
 					limit = {
 						NOT = {
+							has_law = law_type:law_governorate
+						}
+					}
+					activate_law = law_type:law_governorate
+				}
+				if = {
+					limit = {
+						NOT = {
 							has_law = law_type:law_oligarchy
 						}
 					}

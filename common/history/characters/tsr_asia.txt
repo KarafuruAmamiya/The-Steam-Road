@@ -173,37 +173,21 @@
 	}
 	c:EGY = {
 		create_character = {
-			first_name = "Sulayman"
-			last_name = "al-Mansuri"
+			first_name = Ibrahim
+			last_name = "al-_Alawi"
 			historical = yes
 			ruler = yes
-			female = no
-			age = 48
-    		culture = cu:misri
-			interest_group = ig_landowners
-			ideology = ideology_moderate
+			culture = cu:albanian
+			is_general = yes
+			age = 47
+			interest_group = ig_armed_forces
+			ideology = ideology_jingoist_leader
+			hq = region_nile_basin
+			commander_rank = commander_rank_3
 			traits = {
-				ambitious
-			}
-			on_created = {
-				set_variable = is_married
-			}
-		}
-		create_character = {
-			first_name = "Ibrahim"
-			last_name = "al-Mansuri"
-			historical = yes
-			heir = yes
-			female = no
-			age = 25
-    		culture = cu:misri
-			interest_group = ig_landowners
-			ideology = ideology_royalist
-			traits = {
-				imperious demagogue
-			}
-			on_created = {
-				set_variable = is_married
+				persistent
+				experienced_offensive_planner
+				pillager
 			}
 		}
 	}
@@ -888,6 +872,50 @@
 			traits = {
 				cautious
 			}
+		}
+	}
+	
+	##Temporary
+	c:TSN ?= {
+		create_character = {
+			culture = cu:persian
+			ruler = yes
+		}
+	}
+	c:BDK ?= {
+		create_character = {
+			culture = cu:persian
+			ruler = yes
+		}
+	}
+	c:KAB ?= {
+		create_character = {
+			culture = cu:persian
+			ruler = yes
+		}
+	}
+	c:SIN ?= {
+		create_character = {
+			culture = cu:persian
+			ruler = yes
+		}
+	}
+	c:IMG ?= {
+		create_character = {
+			culture = cu:zhongyuan
+			ruler = yes
+		}
+	}
+	c:KHM ?= {
+		create_character = {
+			culture = cu:zhongyuan
+			ruler = yes
+		}
+	}
+	c:QIN ?= {
+		create_character = {
+			culture = cu:zhongyuan
+			ruler = yes
 		}
 	}
 }

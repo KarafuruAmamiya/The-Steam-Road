@@ -1,0 +1,481 @@
+﻿namespace = tsr_misc_events
+
+#tsr_misc_events.1 = {
+#	type = country_event
+#	placement = ROOT
+#
+#	title = tsr_misc_events.1.t
+#	desc = tsr_misc_events.1.d
+#	flavor = tsr_misc_events.1.f
+#
+#	event_image = {
+#		video = "unspecific_signed_contract"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+#
+#	duration = 3
+#	
+#	immediate = {
+#		random_country = {
+#			limit = {
+#				NOT = { has_law = law_type:law_governorate }
+#				is_subject_of = root
+#				OR = {
+#					is_subject_type = subject_type_puppet
+#					is_subject_type = subject_type_dependency
+#				}
+#			}
+#			save_scope_as = subject_scope
+#			random_primary_culture = { save_scope_as = subject_culture_scope }
+#			if = {
+#				limit = {
+#					any_primary_culture = {
+#						NOT = { subject_culture_scope = this }
+#					}
+#					random_primary_culture = {
+#						limit = { NOT = { subject_culture_scope = this } }
+#						save_scope_as = subject_culture_scope_2
+#					}
+#				}
+#			}
+#			if = {
+#				limit = {
+#					any_primary_culture = {
+#						NOT = { subject_culture_scope = this }
+#						NOT = { subject_culture_scope_2 = this }
+#					}
+#					random_primary_culture = {
+#						limit = { 
+#							NOT = { subject_culture_scope = this } 
+#							NOT = { subject_culture_scope_2 = this } 
+#						}
+#						save_scope_as = subject_culture_scope_3
+#					}
+#				}
+#			}
+#		}
+#		random_primary_culture = { save_scope_as = ruler_culture_scope }
+#		religion = { save_scope_as = ruler_religion_scope }
+#	}
+#
+#	option = {
+#		name = tsr_misc_events.1.a #Let them keep their current government
+#		default_option = yes
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 20
+#		}
+#		
+#		ai_chance = {
+#			base = 100
+#		}
+#	}
+#	
+#	option = {
+#		name = tsr_misc_events.1.b #Change them to governorate but let them keep their culture
+#		scope:subject_scope = {
+#			ruler = {
+#				kill_character = yes
+#			}
+#			if = {
+#				limit = {
+#					any_scope_character = {
+#						is_heir = yes
+#					}
+#				}
+#				heir = {
+#					kill_character = yes
+#				}
+#			}
+#			activate_law = law_type:law_governorate
+#			add_radicals = {
+#				value = small_radicals
+#				culture = scope:subject_culture_scope
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				add_radicals = {
+#					value = small_radicals
+#					culture = scope:subject_culture_scope_2
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				add_radicals = {
+#					value = small_radicals
+#					culture = scope:subject_culture_scope_3
+#				}
+#			}
+#		}
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 20
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#	
+#	option = {
+#		name = tsr_misc_events.1.c #Change them to governorate but replace their ruler with primary culture
+#		scope:subject_scope = {
+#			set_variable = primary_culture_ruler
+#			ruler = {
+#				kill_character = yes
+#			}
+#			if = {
+#				limit = {
+#					any_scope_character = {
+#						is_heir = yes
+#					}
+#				}
+#				heir = {
+#					kill_character = yes
+#				}
+#			}
+#			create_character = {
+#				culture = scope:ruler_culture_scope
+#				religion = scope:ruler_religion_scope
+#				ruler = yes
+#			}
+#			activate_law = law_type:law_governorate
+#			add_radicals = {
+#				value = medium_radicals
+#				culture = scope:subject_culture_scope
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				add_radicals = {
+#					value = medium_radicals
+#					culture = scope:subject_culture_scope_2
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				add_radicals = {
+#					value = medium_radicals
+#					culture = scope:subject_culture_scope_3
+#				}
+#			}
+#		}
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 20
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#	
+#	option = {
+#		name = tsr_misc_events.1.d1 #Change them to governorate but add our primary culture
+#		trigger = {
+#			NOT = {
+#				c:TUR ?= this
+#				has_journal_entry = je_balkan_crisis_tur
+#			}
+#		}
+#		
+#		scope:subject_scope = {
+#			set_variable = primary_culture_ruler
+#			ruler = {
+#				kill_character = yes
+#			}
+#			if = {
+#				limit = {
+#					any_scope_character = {
+#						is_heir = yes
+#					}
+#				}
+#				heir = {
+#					kill_character = yes
+#				}
+#			}
+#			create_character = {
+#				culture = scope:ruler_culture_scope
+#				religion = scope:ruler_religion_scope
+#				ruler = yes
+#			}
+#			activate_law = law_type:law_governorate
+#			add_primary_culture = scope:ruler_culture_scope
+#			set_state_religion = scope:ruler_religion_scope
+#			add_radicals = {
+#				value = large_radicals
+#				culture = scope:subject_culture_scope
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				add_radicals = {
+#					value = large_radicals
+#					culture = scope:subject_culture_scope_2
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				add_radicals = {
+#					value = large_radicals
+#					culture = scope:subject_culture_scope_3
+#				}
+#			}
+#		}
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 30
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#	
+#	option = {
+#		name = tsr_misc_events.1.e #Change them to governorate but enforce religion
+#		trigger = {
+#			NOT = {
+#				c:TUR ?= this
+#				has_journal_entry = je_balkan_crisis_tur
+#			}
+#		}
+#		
+#		scope:subject_scope = {
+#			set_variable = primary_culture_ruler
+#			ruler = {
+#				kill_character = yes
+#			}
+#			if = {
+#				limit = {
+#					any_scope_character = {
+#						is_heir = yes
+#					}
+#				}
+#				heir = {
+#					kill_character = yes
+#				}
+#			}
+#			create_character = {
+#				culture = scope:ruler_culture_scope
+#				religion = scope:ruler_religion_scope
+#				ruler = yes
+#			}
+#			activate_law = law_type:law_governorate
+#			set_state_religion = scope:ruler_religion_scope
+#			add_radicals = {
+#				value = large_radicals
+#				culture = scope:subject_culture_scope
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				add_radicals = {
+#					value = large_radicals
+#					culture = scope:subject_culture_scope_2
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				add_radicals = {
+#					value = large_radicals
+#					culture = scope:subject_culture_scope_3
+#				}
+#			}
+#		}
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 30
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#	
+#	option = {
+#		name = tsr_misc_events.1.f #Change them to governorate but remove their primary culture and enforce religion
+#		trigger = {
+#			NOT = {
+#				c:TUR ?= this
+#				has_journal_entry = je_balkan_crisis_tur
+#			}
+#		}
+#		
+#		scope:subject_scope = {
+#			set_variable = primary_culture_ruler
+#			ruler = {
+#				kill_character = yes
+#			}
+#			if = {
+#				limit = {
+#					any_scope_character = {
+#						is_heir = yes
+#					}
+#				}
+#				heir = {
+#					kill_character = yes
+#				}
+#			}
+#			create_character = {
+#				culture = scope:ruler_culture_scope
+#				religion = scope:ruler_religion_scope
+#				ruler = yes
+#			}
+#			activate_law = law_type:law_governorate
+#			add_primary_culture = scope:ruler_culture_scope
+#			remove_primary_culture = scope:subject_culture_scope
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				remove_primary_culture = scope:subject_culture_scope_2
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				remove_primary_culture = scope:subject_culture_scope_3
+#			}
+#			set_state_religion = scope:ruler_religion_scope
+#			add_radicals = {
+#				value = very_large_radicals
+#				culture = scope:subject_culture_scope
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_2
+#				}
+#				add_radicals = {
+#					value = very_large_radicals
+#					culture = scope:subject_culture_scope_2
+#				}
+#			}
+#			if = {
+#				limit = {
+#					exists = scope:subject_culture_scope_3
+#				}
+#				add_radicals = {
+#					value = very_large_radicals
+#					culture = scope:subject_culture_scope_3
+#				}
+#			}
+#		}
+#		change_relations = {
+#			country = scope:subject_scope
+#			value = 50
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#}
+
+tsr_misc_events.2 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_law = law_type:law_governorate
+		country_has_voting_franchise = no
+		NOT = { has_variable = memento_mori }
+		ruler = {
+			NOT = { has_variable = memento_mori_immunity }
+		}
+	}
+
+	immediate = {
+		ruler = {
+			save_scope_as = memento_mori_leader
+		}
+		set_variable = {
+			name = memento_mori
+			years = 5
+		}
+		scope:memento_mori_leader = {
+			if = {
+				limit = {
+					is_historical = yes
+				}
+				random_list = {
+					6 = {
+						kill_character = {
+							hidden = yes
+						}
+						owner = {
+							if = {
+								limit = { has_variable = primary_culture_ruler }
+								overlord = {
+									ruler.culture = {
+										save_scope_as = overlord_culture
+									}
+									religion = {
+										save_scope_as = overlord_religion
+									}
+								}
+								create_character = {
+									ruler = yes
+									culture = scope:overlord_culture
+									religion = scope:overlord_religion
+								}
+							}
+							ruler = {
+								set_variable = {
+									name = memento_mori_immunity
+									months = 60
+								}
+							}
+						}
+					}
+					3 = {}
+				}
+			}
+			else = {
+				kill_character = {
+					hidden = yes
+				}
+				owner = {
+					if = {
+						limit = { has_variable = primary_culture_ruler }
+						overlord = {
+							ruler.culture = {
+								save_scope_as = overlord_culture
+							}
+							religion = {
+								save_scope_as = overlord_religion
+							}
+						}
+						create_character = {
+							ruler = yes
+							culture = scope:overlord_culture
+							religion = scope:overlord_religion
+						}
+					}
+					ruler = {
+						set_variable = {
+							name = memento_mori_immunity
+							months = 60
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -7,6 +7,33 @@
 
 ### Infantry
 
+combat_unit_type_tribal_infantry = {
+    group = combat_unit_group_infantry
+
+    battle_modifier = {
+        unit_offense_add = 5
+        unit_defense_add = 5
+        unit_morale_loss_add = 18
+    }
+	
+    upkeep_modifier = {
+    }
+
+    # scope = country
+    # both this and "can_build" needs to be true to build conscripts
+    can_build_conscript = {
+        always = yes
+    }
+	
+    combat_unit_image = {
+        texture = "gfx/unit_illustrations/infantry_african_irregular.dds"
+    }
+
+	upgrades = {
+		combat_unit_type_irregular_infantry
+	}
+}
+
 combat_unit_type_irregular_infantry = {
     group = combat_unit_group_infantry
 
@@ -15,6 +42,8 @@ combat_unit_type_irregular_infantry = {
         unit_defense_add = 10
         unit_morale_loss_add = 15
     }
+	
+	unlocking_technologies = { military_drill }
 	
     upkeep_modifier = {
     }
@@ -765,7 +794,7 @@ combat_unit_type_dragoons = {
         #should get modifiers to mobile/surprise battle conditions appearing
     }
 
-	unlocking_technologies = { military_drill }
+	unlocking_technologies = { mandatory_service }
 
     combat_unit_image = {
         trigger = { 
@@ -829,7 +858,7 @@ combat_unit_type_cuirassiers = {
         unit_occupation_mult = 0.3
     }
 
-	unlocking_technologies = { military_drill }
+	unlocking_technologies = { mandatory_service }
 
     combat_unit_image = {
         trigger = { 

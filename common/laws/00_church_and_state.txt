@@ -64,6 +64,19 @@ law_state_religion = {
 				months = -1
 			}
 		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				NOT = { has_modifier = millet_system }
+			}
+			add_modifier = {
+				name = millet_system
+				months = -1
+			}
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -179,6 +192,19 @@ law_denominational_exclusion = {
 				has_modifier = holy_city_of_mecca
 			}
 			remove_modifier = holy_city_of_mecca
+		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				NOT = { has_modifier = millet_system }
+			}
+			add_modifier = {
+				name = millet_system
+				months = -1
+			}
 		}
 	}
 	
@@ -331,6 +357,19 @@ law_freedom_of_conscience = {
 				has_modifier = holy_city_of_mecca
 			}
 			remove_modifier = holy_city_of_mecca
+		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				NOT = { has_modifier = millet_system }
+			}
+			add_modifier = {
+				name = millet_system
+				months = -1
+			}
 		}
 	}
 	
@@ -537,6 +576,16 @@ law_shared_roots = {
 			}
 			remove_modifier = holy_city_of_mecca
 		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				has_modifier = millet_system
+			}
+			remove_modifier = millet_system
+		}
 	}
 
 	religious_acceptance_rule = {
@@ -708,6 +757,16 @@ law_total_separation = {
 				has_modifier = holy_city_of_mecca
 			}
 			remove_modifier = holy_city_of_mecca
+		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				has_modifier = millet_system
+			}
+			remove_modifier = millet_system
 		}
 	}
 	
@@ -885,6 +944,16 @@ law_state_atheism = {
 				has_modifier = holy_city_of_mecca
 			}
 			remove_modifier = holy_city_of_mecca
+		}
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+				}
+				has_modifier = millet_system
+			}
+			remove_modifier = millet_system
 		}
 	}
 	

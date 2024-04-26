@@ -3068,6 +3068,24 @@ on_native_uprising = {
 			war = yes
 			type = dp_native_uprising
 		}
+		if = {
+			limit = { 
+				is_subject = yes 
+				NOT = { is_subject_type = subject_type_hre }
+			}
+			overlord = {
+				save_scope_as = overlord_scope
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = root
+					target_is = scope:native_nation
+				}
+				add_target_backers = {
+					scope:overlord_scope
+				}
+			}
+		}
 	}
 }
 

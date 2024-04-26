@@ -344,16 +344,26 @@ ideology_szlachta_stratocratic = {
 		law_feudalism = disapprove
 		law_warlord_state = disapprove			
 		law_unitary = neutral
-		law_devolved = approve
+		law_devolved = strongly_approve
 		law_federal = approve
 		law_confederated = strongly_disapprove
 	}
 	
 	lawgroup_army_model = {
-		law_peasant_levies = approve
+		law_peasant_levies = neutral
 		law_professional_army = approve
 		law_national_militia = disapprove
 		law_mass_conscription = strongly_disapprove
+	}
+	
+	lawgroup_economic_system = {		
+		law_traditionalism = neutral
+		law_agrarianism = strongly_approve
+		law_interventionism = approve
+		law_industry_banned = disapprove
+		law_laissez_faire = disapprove
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
 	}
 	
 	lawgroup_labor_rights = {
@@ -364,7 +374,7 @@ ideology_szlachta_stratocratic = {
 	
 	lawgroup_land_reform = {
 		law_serfdom = neutral
-		law_tenant_farmers = approve
+		law_tenant_farmers = strongly_approve
 		law_commercialized_agriculture = neutral
 		law_homesteading = strongly_disapprove
 		law_collectivized_agriculture = strongly_disapprove
@@ -379,7 +389,7 @@ ideology_szlachta_stratocratic = {
 	}
 
 	lawgroup_welfare = {
-		law_poor_laws = neutral
+		law_poor_laws = approve
 		law_no_social_security = neutral
 		law_wage_subsidies = disapprove
 		law_old_age_pension = strongly_disapprove
@@ -451,6 +461,16 @@ ideology_dutch_stratocratic = {
 		law_mass_conscription = disapprove
 	}
 	
+	lawgroup_economic_system = {		
+		law_traditionalism = neutral
+		law_agrarianism = approve
+		law_interventionism = strongly_approve
+		law_industry_banned = disapprove
+		law_laissez_faire = disapprove
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+	}
+	
 	lawgroup_labor_rights = {
 		law_no_workers_rights = neutral
 		law_regulatory_bodies = disapprove
@@ -474,7 +494,7 @@ ideology_dutch_stratocratic = {
 
 	lawgroup_land_reform = {
 		law_serfdom = disapprove
-		law_tenant_farmers = approve
+		law_tenant_farmers = strongly_approve
 		law_commercialized_agriculture = neutral
 		law_homesteading = strongly_disapprove
 		law_collectivized_agriculture = strongly_disapprove
@@ -500,6 +520,16 @@ ideology_federal_stratocratic = {
 		law_mass_conscription = approve
 	}
 	
+	lawgroup_economic_system = {		
+		law_traditionalism = disapprove
+		law_agrarianism = approve
+		law_interventionism = strongly_approve
+		law_industry_banned = disapprove
+		law_laissez_faire = neutral
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+	}
+	
 	lawgroup_labor_rights = {
 		law_no_workers_rights = neutral
 		law_regulatory_bodies = disapprove
@@ -523,7 +553,7 @@ ideology_federal_stratocratic = {
 
 	lawgroup_land_reform = {
 		law_serfdom = disapprove
-		law_tenant_farmers = approve
+		law_tenant_farmers = strongly_approve
 		law_commercialized_agriculture = neutral
 		law_homesteading = strongly_disapprove
 		law_collectivized_agriculture = strongly_disapprove

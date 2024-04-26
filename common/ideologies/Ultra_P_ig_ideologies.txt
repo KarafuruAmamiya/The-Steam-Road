@@ -7,7 +7,7 @@ ideology_modern_stratocratic = {
 	lawgroup_centralization = {
 		law_feudalism = neutral
 		law_warlord_state = disapprove			
-		law_unitary = approve
+		law_unitary = strongly_approve
 		law_devolved = approve
 		law_federal = neutral
 		law_confederated = disapprove
@@ -20,6 +20,16 @@ ideology_modern_stratocratic = {
 		law_mass_conscription = strongly_disapprove
 	}
 	
+	lawgroup_economic_system = {		
+		law_traditionalism = neutral
+		law_agrarianism = strongly_approve
+		law_interventionism = approve
+		law_industry_banned = disapprove
+		law_laissez_faire = disapprove
+		law_cooperative_ownership = strongly_disapprove
+		law_command_economy = strongly_disapprove
+	}
+	
 	lawgroup_labor_rights = {
 		law_no_workers_rights = approve
 		law_regulatory_bodies = disapprove
@@ -28,7 +38,7 @@ ideology_modern_stratocratic = {
 	
 	lawgroup_land_reform = {
 		law_serfdom = neutral
-		law_tenant_farmers = approve
+		law_tenant_farmers = strongly_approve
 		law_commercialized_agriculture = neutral
 		law_homesteading = strongly_disapprove
 		law_collectivized_agriculture = strongly_disapprove
@@ -47,13 +57,6 @@ ideology_modern_stratocratic = {
 		law_no_social_security = neutral
 		law_wage_subsidies = disapprove
 		law_old_age_pension = strongly_disapprove
-	}
-
-	lawgroup_education_system = {
-		law_private_schools = neutral
-		law_public_schools = disapprove
-		law_religious_schools = approve
-		law_no_schools = disapprove
 	}
 }
 

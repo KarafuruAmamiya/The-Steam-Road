@@ -613,6 +613,20 @@ joint_stock_companies = {
 		corporate_charters
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					has_ideology = ideology:ideology_stratocratic
+				}
+			}
+			ig:ig_landowners = {
+				remove_ideology = ideology_stratocratic
+				add_ideology = ideology_modern_stratocratic
+			}
+		}
+	}
+	
 	ai_weight = {
 		value = 2 # important tech
 	}

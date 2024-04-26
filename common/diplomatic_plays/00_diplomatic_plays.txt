@@ -342,7 +342,6 @@ dp_annex_subject = {
 	
 	possible = {
 		NOT = { is_country_type = decentralized }
-		NOT = { has_law = law_type:law_confederated }
 		aggressive_diplomatic_plays_permitted = yes
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
@@ -351,16 +350,40 @@ dp_annex_subject = {
 				root = { NOT = { is_country_type = colonial } }
 			}
 			is_direct_subject_of = root
-			custom_tooltip = {
-				text = annex_subject_laws_tt
-				OR = {
-					is_subject_type = subject_type_dependency
+			OR = {
+				custom_tooltip = {
+					text = annex_subject_federal_tt
+					AND = {
+						has_law = law_type:law_governorate
+						is_subject_type = subject_type_dependency
+						overlord = {
+							has_law = law_type:law_federal
+						}
+					}
+				}
+				custom_tooltip = {
+					text = annex_subject_devolved_tt
+					AND = {
+						is_subject_type = subject_type_dependency
+						overlord = {
+							OR = {
+								has_law = law_type:law_devolved
+								has_law = law_type:law_feudalism
+								has_law = law_type:law_warlord_state
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = annex_subject_unitary_tt
 					AND = {
 						OR = {
 							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_vassal
 							is_subject_type = subject_type_real_union
+							is_subject_type = subject_type_dependency
 						}
-						owner = {
+						overlord = {
 							has_law = law_type:law_unitary
 						}
 					}

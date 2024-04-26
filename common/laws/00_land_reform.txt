@@ -173,19 +173,30 @@ law_tenant_farmers = {
 		}
 		if = {
 			limit = {
-				NOR = {
+				NOT = {
 					has_law = law_type:law_feudalism
-					c:POL ?= this
-					c:LIT ?= this
-					c:NET ?= this
 				}
 				ig:ig_landowners = {
 					has_ideology = ideology:ideology_stratocratic
 				}
 			}
-			ig:ig_landowners = {
-				remove_ideology = ideology_stratocratic
-				add_ideology = ideology_modern_stratocratic
+			if = {
+				limit = {
+					OR = {
+						has_law = law_type:law_federal
+						has_law = law_type:law_confederated
+					}
+				}
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_federal_stratocratic
+				}
+			}
+			else = {
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_modern_stratocratic
+				}
 			}
 		}
 	}
@@ -307,14 +318,30 @@ law_commercialized_agriculture = {
 		}
 		if = {
 			limit = {
-				NOT = { has_law = law_type:law_feudalism }
+				NOT = {
+					has_law = law_type:law_feudalism
+				}
 				ig:ig_landowners = {
 					has_ideology = ideology:ideology_stratocratic
 				}
 			}
-			ig:ig_landowners = {
-				remove_ideology = ideology_stratocratic
-				add_ideology = ideology_modern_stratocratic
+			if = {
+				limit = {
+					OR = {
+						has_law = law_type:law_federal
+						has_law = law_type:law_confederated
+					}
+				}
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_federal_stratocratic
+				}
+			}
+			else = {
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_modern_stratocratic
+				}
 			}
 		}
 		if = {
@@ -449,14 +476,30 @@ law_homesteading = {
 		}
 		if = {
 			limit = {
-				NOT = { has_law = law_type:law_feudalism }
+				NOT = {
+					has_law = law_type:law_feudalism
+				}
 				ig:ig_landowners = {
 					has_ideology = ideology:ideology_stratocratic
 				}
 			}
-			ig:ig_landowners = {
-				remove_ideology = ideology_stratocratic
-				add_ideology = ideology_modern_stratocratic
+			if = {
+				limit = {
+					OR = {
+						has_law = law_type:law_federal
+						has_law = law_type:law_confederated
+					}
+				}
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_federal_stratocratic
+				}
+			}
+			else = {
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_modern_stratocratic
+				}
 			}
 		}
 		if = {
@@ -573,14 +616,30 @@ law_collectivized_agriculture = {
 	on_activate = {
 		if = {
 			limit = {
-				NOT = { has_law = law_type:law_feudalism }
+				NOT = {
+					has_law = law_type:law_feudalism
+				}
 				ig:ig_landowners = {
 					has_ideology = ideology:ideology_stratocratic
 				}
 			}
-			ig:ig_landowners = {
-				remove_ideology = ideology_stratocratic
-				add_ideology = ideology_modern_stratocratic
+			if = {
+				limit = {
+					OR = {
+						has_law = law_type:law_federal
+						has_law = law_type:law_confederated
+					}
+				}
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_federal_stratocratic
+				}
+			}
+			else = {
+				ig:ig_landowners = {
+					remove_ideology = ideology_stratocratic
+					add_ideology = ideology_modern_stratocratic
+				}
 			}
 		}
 		if = {

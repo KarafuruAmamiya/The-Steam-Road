@@ -3,46 +3,45 @@
 
 	group = je_group_tsr_content
 
-#	is_shown_when_inactive = {
-#		NOT = { has_global_variable = balkan_crisis_happened }
-#		c:TUR ?= this
-#		has_technology_researched = nationalism
-#		NOT = { has_technology_researched = pan-nationalism }
-#		country_rank >= rank_value:major_power
-#	}
-#
-#	possible = {
-#		hidden_trigger = {
-#			NOT = { has_global_variable = balkan_crisis_happened }
-#		}
-#		OR = {
-#			custom_tooltip = {
-#				text = lost_war_tt
-#				OR = {
-#					has_variable = recently_lost_war
-#					AND = {
-#						has_variable = recently_had_war
-#						NOT = {
-#							has_variable = recently_won_war
-#						}
-#					}
-#				}
-#			}
-#			in_default = yes
-#			tax_level >= high
-#			custom_tooltip = {
-#				text = turkish_revolution_happened_tt
-#				has_global_variable = turkish_revolution_happened
-#			}
-#		}
-#		any_scope_state = {
-#			OR = {
-#				region = sr:region_greece
-#				region = sr:region_balkans
-#			}
-#			turmoil >= 0.2
-#		}
-#	}
+	is_shown_when_inactive = {
+		NOT = { has_global_variable = balkan_crisis_happened }
+		c:TUR ?= this
+		has_technology_researched = nationalism
+		country_rank >= rank_value:major_power
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_global_variable = balkan_crisis_happened }
+		}
+		OR = {
+			custom_tooltip = {
+				text = lost_war_tt
+				OR = {
+					has_variable = recently_lost_war
+					AND = {
+						has_variable = recently_had_war
+						NOT = {
+							has_variable = recently_won_war
+						}
+					}
+				}
+			}
+			in_default = yes
+			tax_level >= high
+			custom_tooltip = {
+				text = turkish_revolution_happened_tt
+				has_global_variable = turkish_revolution_happened
+			}
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_greece
+				region = sr:region_balkans
+			}
+			turmoil >= 0.2
+		}
+	}
 
 	immediate = {
 		c:TUR ?= { save_scope_as = tur_scope }
@@ -196,6 +195,7 @@
 						country_is_in_europe = yes
 						country_rank >= rank_value:great_power 
 						NOT = { c:TUR ?= this }
+						NOT = { has_war_with = c:TUR }
 						count >= 5
 					}
 				}

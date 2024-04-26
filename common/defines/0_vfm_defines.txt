@@ -53,7 +53,7 @@ NAI = {
 	AI_PEACE_AGREEMENT_WHITE_PEACE_BASE = 15 # If no wargoals are being enforced on either side
 	AI_PEACE_AGREEMENT_WHITE_PEACE_WAR_DURATION = 2 # For each month the war goes on add this to the acceptance for a white peace
 	
-	TTRADE_ROUTE_MIN_MARKET_SHARE = 0.05 # If the AI is junior in a customs union and has less than this market share in a market, don't make any trade routes
+	TRADE_ROUTE_MIN_MARKET_SHARE = 0.05 # If the AI is junior in a customs union and has less than this market share in a market, don't make any trade routes
 	TRADE_ROUTE_MIN_ACCEPTABLE_PRODUCTIVITY = 2.4 #3 # If a potential trade route would result in lower productivity than this, don't create it unless it's to resolve a shortage
 	TRADE_ROUTE_MIN_WANTED_RELATIVE_VOLUME = 0.07 #0.1 # If a trade route won't account for at least this fraction of buy/sell orders in the market, don't create it
 	TRADE_ROUTE_MIN_VALUE_TO_IGNORE_VOLUME_CHECK = 500 # If a trade route is trading at least this much base value worth of goods, ignore the relative check above
@@ -365,6 +365,8 @@ NPops = {
 ### End Pop Growth Constant defines
 
 NPops = {
+	MIN_ASSIMILATION = 100						# If there is any assmiliation at least this many people will assimilate
+	
 	CONVERSION_RATE = 0.0005 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
 	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
 	DISCRIMINATION_BASE = 33 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
@@ -391,6 +393,10 @@ NCharacters = {
 	AGITATOR_EXPECTED_SPAWN_INTERVAL_0_LITERACY = 20 # At 0% literacy, a new agitator is expected to spawn in a given country once every this many years. (supports decimal values)
 	AGITATOR_EXPECTED_SPAWN_INTERVAL_100_LITERACY = 5 # At 100% literacy, a new agitator is expected to spawn in a given country once every this many years. (supports decimal values)
 	AGITATOR_MOVEMENT_POPULARITY_THRESHOLD = 15 # Agitators whose popularity is at or lower than this threshold will not be considered when starting/joining political movements
+	
+	CHARACTER_LIFE_EXPECTANCY_BASE_YEARS = 68	# The median life expecancy in years at baseline health. It's the µ parameter of the normal distribution [> 0]
+	CHARACTER_LIFE_EXPECTANCY_STDDEV = 7		# The standard deviation for the life expectancy distribution. It's the σ parameter [> 0]
+	CHARACTER_LIFE_EXPECTANCY_DELTA_YEARS_ABOVE_BASELINE = 5	# Random base for years that life expectancy is increased by, for every point of distance above baseline health [>= 0]
 }
 
 NCommands = {

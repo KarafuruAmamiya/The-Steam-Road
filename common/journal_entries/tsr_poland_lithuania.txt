@@ -71,8 +71,22 @@ je_odrodzenie_victim = {
 	}
 	
 	fail = {
-		scope:journal_entry = {
-			is_goal_complete = yes
+		OR = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			cu:polish = {
+				culture_secession_progress = {
+					target = ROOT
+					value >= 0.9
+				}
+			}
+			cu:lithuanian = {
+				culture_secession_progress = {
+					target = ROOT
+					value >= 0.9
+				}
+			}
 		}
 	}
 	
@@ -165,6 +179,7 @@ je_union_of_augustow_pol = {
 
 	on_complete = {
 		trigger_event = { id = poland_lithuania_events.5 popup = yes }
+		set_global_variable = union_of_augustow_complete
 		show_as_tooltip = {
 			annex_with_incorporation = c:LIT
 			change_tag = PLC
@@ -395,6 +410,12 @@ je_union_of_augustow_lit = {
 		has_attitude = {
 			who = c:POL
 			attitude = loyal
+		}
+		c:POL ?= {
+			relations:root >= relations_threshold:cordial
+		}
+		hidden_trigger = {
+			has_global_variable = union_of_augustow_complete
 		}
 		#In SOI, expand to lower Lithuania's liberty desire
 	}

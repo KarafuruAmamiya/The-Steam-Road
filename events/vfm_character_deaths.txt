@@ -36,6 +36,39 @@ character_deaths.1 = {
 			remove_variable = vice_president_trigger
 			set_character_as_ruler = yes
 		}
-		trigger_event = character_roles_hidden.2
+		hidden_effect = {
+			random_scope_character = {
+				limit = {
+					is_ruler = no
+					is_heir = no
+					NOR = {
+						has_role = general
+						has_role = admiral
+						has_role = agitator
+						has_variable = vice_president_trigger
+					}
+					interest_group = {
+						is_marginal = no
+						ig_approval > 0
+						ig_clout >= 0.1
+					}
+				}
+				set_variable = vice_president_trigger
+				save_scope_as = new_vice_president
+				owner = {
+					set_variable = {
+						name = vice_president
+						value = PREV
+					}
+				}
+			}
+			every_scope_character = {
+				limit = {
+					has_variable = vice_president_trigger
+					NOT = { THIS = scope:new_vice_president }
+				}
+				remove_variable = vice_president_trigger
+			}
+		}
 	}
 }

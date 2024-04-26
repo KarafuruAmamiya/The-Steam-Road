@@ -160,22 +160,26 @@ south_american_dictator_clothes_trigger = {
 		AND = {
 			is_ruler = yes
 			OR = {
-			exists = home_country
-			home_country = {
-			has_law = law_type:law_autocracy
-			}
-			has_role = general
-			}			
-			exists = home_country
-			home_country = {
-			coa_def_luso_american_trigger = yes
-			NOT = {c:SLR = this}
-			OR = {
-				has_law = law_type:law_presidential_republic
-				has_law = law_type:law_parliamentary_republic
-				has_law = law_type:law_council_republic
+				AND = {
+					exists = home_country
+					home_country = {
+						has_law = law_type:law_autocracy
+					}
+					has_role = general
 				}
-			}
+				AND = {
+					exists = home_country
+					home_country = {
+						coa_def_luso_american_trigger = yes
+						NOT = { c:SLR = this }
+						OR = {
+							has_law = law_type:law_presidential_republic
+							has_law = law_type:law_parliamentary_republic
+							has_law = law_type:law_council_republic
+						}
+					}
+				}
+			}			
 		}
 	}
 }

@@ -61,26 +61,18 @@ je_annex_subject_overlord = {
 		if = {
 			limit = {
 				scope:annex_target_scope = {
-					OR = {
-						is_subject_type = subject_type_puppet
-						is_subject_type = subject_type_real_union
-					}
-				}				
-			}
-			divide = {
-				value = root.gdp
-				divide = 1500
-			}
-		}
-		else_if = {
-			limit = {
-				scope:annex_target_scope = {
-					is_subject_type = subject_type_dependency
+					has_law = law_type:law_governorate
 				}				
 			}
 			divide = {
 				value = root.gdp
 				divide = 1000
+			}
+		}
+		else = {
+			divide = {
+				value = root.gdp
+				divide = 1500
 			}
 		}		
 		multiply = {
@@ -196,23 +188,18 @@ je_annex_subject_junior = {
 		if = {
 			limit = {
 				root = {
-					is_subject_type = subject_type_puppet
-				}				
-			}
-			divide = {
-				value = scope:overlord_scope.gdp
-				divide = 1500
-			}
-		}
-		else_if = {
-			limit = {
-				root = {
-					is_subject_type = subject_type_dependency
+					has_law = law_type:law_governorate
 				}				
 			}
 			divide = {
 				value = scope:overlord_scope.gdp
 				divide = 1000
+			}
+		}
+		else = {
+			divide = {
+				value = scope:overlord_scope.gdp
+				divide = 1500
 			}
 		}
 		multiply = {

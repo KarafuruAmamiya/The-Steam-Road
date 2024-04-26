@@ -43,18 +43,6 @@
 			}
 			multiply = 2
 		}
-		multiply = {
-			desc = "TUR_NO_BALKAN_REVOLTS_OVER_LAWS"			
-			if = {
-				limit = {
-					owner = { 
-						c:TUR ?= this
-					}
-					NOT = { pop_is_discriminated = yes }
-				}
-				value = 0
-			}
-		}
 	}
 	
 }

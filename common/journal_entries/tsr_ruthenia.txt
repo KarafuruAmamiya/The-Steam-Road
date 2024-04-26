@@ -3,48 +3,48 @@
 
 	group = je_group_tsr_content
 	
-#	is_shown_when_inactive = {
-#		OR = {
-#			country_has_primary_culture = cu:ruthenian
-#			country_has_primary_culture = cu:cossack
-#		}
-#		hidden_trigger = {
-#			NOT = { has_variable = completed_culture_genesis }
-#		}
-#		hidden_trigger = {
-#			NOR = {
-#				c:GAL ?= this
-#				c:LIT ?= this
-#				c:RUT ?= this
-#			}
-#		}
-#		is_revolutionary = no
-#	}
-#	
-#	possible = {
-#		has_technology_researched = nationalism
-#		any_country = {
-#			filter = {
-#				OR = {
-#					country_has_primary_culture = cu:ruthenian
-#					country_has_primary_culture = cu:cossack				
-#				}
-#				hidden_trigger = {
-#					NOR = {
-#						c:GAL ?= this
-#						c:LIT ?= this
-#						c:RUT ?= this
-#						this = root
-#					}
-#				}
-#			}
-#			has_technology_researched = nationalism	
-#			percent >= 0.75
-#		}
-#		hidden_trigger = {
-#			NOT = { has_variable = completed_culture_genesis }
-#		}
-#	}
+	is_shown_when_inactive = {
+		OR = {
+			country_has_primary_culture = cu:ruthenian
+			country_has_primary_culture = cu:cossack
+		}
+		hidden_trigger = {
+			NOT = { has_variable = completed_culture_genesis }
+		}
+		hidden_trigger = {
+			NOR = {
+				c:GAL ?= this
+				c:LIT ?= this
+				c:RUT ?= this
+			}
+		}
+		is_revolutionary = no
+	}
+	
+	possible = {
+		has_technology_researched = nationalism
+		any_country = {
+			filter = {
+				OR = {
+					country_has_primary_culture = cu:ruthenian
+					country_has_primary_culture = cu:cossack				
+				}
+				hidden_trigger = {
+					NOR = {
+						c:GAL ?= this
+						c:LIT ?= this
+						c:RUT ?= this
+						this = root
+					}
+				}
+			}
+			has_technology_researched = nationalism	
+			percent >= 0.75
+		}
+		hidden_trigger = {
+			NOT = { has_variable = completed_culture_genesis }
+		}
+	}
 
 	immediate = {
 		set_national_identity_vars = yes

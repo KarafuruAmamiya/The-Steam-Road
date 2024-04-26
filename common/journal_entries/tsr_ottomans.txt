@@ -310,9 +310,12 @@ je_veiled_puppet = {
 	}
 	
 	invalid = {
-		NOR = { 
-			exists = c:AKN 
-			exists = c:KUR 
+		OR = {
+			has_global_variable = akkovin_partition_start
+			NOR = { 
+				exists = c:AKN 
+				exists = c:KUR 
+			}
 		}
 	}
 

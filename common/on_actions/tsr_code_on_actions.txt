@@ -30,7 +30,8 @@ tsr_events_yearly = {
 		every_country = {
 			limit = { 
 				has_law = law_type:law_council_republic
-				country_rank > rank_value:minor_power 
+				country_rank > rank_value:minor_power
+				is_revolutionary = no
 			}
 			add_to_global_variable_list = {
 				name = council_republics
@@ -76,6 +77,14 @@ tsr_events_yearly = {
 				NOT = { has_variable = ruthenian_culture_change }
 			}
 			trigger_event = { id = ruthenian_events.5 }
+		}
+		
+		# Governor retires
+		random_list = {
+			1 = {
+				trigger_event = { id = tsr_misc_events.2 }
+			}
+			1 = { }
 		}
 	}
 }
@@ -130,7 +139,7 @@ tsr_events_monthly = {
 					has_variable = akkovin_fail
 					any_scope_state = {
 						is_incorporated = yes
-						count < 9
+						count <= 7
 					}
 				}
 			}
@@ -150,6 +159,43 @@ tsr_events_monthly = {
 			else = {
 				c:TUR ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
 				c:PER ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
+			}
+		}
+		every_country = {
+			limit = {
+				has_law = law_type:law_governorate
+				NOR = {
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
+					is_subject_type = subject_type_dominion
+					is_subject_type = subject_type_chartered_company
+				}
+			}
+			if = {
+				limit = {
+					is_country_type = colonial
+				}
+				activate_law = law_type:law_presidential_republic
+			}
+			else = {
+				enact_preferred_governance_principle_governorate = yes
+			}
+			restore_primary_culture = yes
+			if = {
+				limit = {
+					has_variable = primary_culture_ruler
+				}
+				remove_variable = primary_culture_ruler
+				ruler = {
+					kill_character = yes
+					hidden = yes
+				}
+				every_interest_group = {
+					leader = {
+						kill_character = yes
+						hidden = yes
+					}
+				}
 			}
 		}
 	}

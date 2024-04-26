@@ -39,22 +39,44 @@
 
 		bureaucracy >= 0 
 		approaching_bureaucracy_shortage = no
-		NOT = { has_law = law_type:law_confederated }
-		custom_tooltip = {
-			text = annex_subject_laws_tt
-
+		scope:target_country = {
 			OR = {
-				scope:target_country = {
-					is_subject_type = subject_type_dependency
-				}
-				AND = {
-					scope:target_country = {
-						OR = {
-							is_subject_type = subject_type_puppet
-							is_subject_type = subject_type_real_union
+				custom_tooltip = {
+					text = annex_subject_federal_tt
+					AND = {
+						has_law = law_type:law_governorate
+						is_subject_type = subject_type_dependency
+						overlord = {
+							has_law = law_type:law_federal
 						}
 					}
-					has_law = law_type:law_unitary
+				}
+				custom_tooltip = {
+					text = annex_subject_devolved_tt
+					AND = {
+						is_subject_type = subject_type_dependency
+						overlord = {
+							OR = {
+								has_law = law_type:law_devolved
+								has_law = law_type:law_feudalism
+								has_law = law_type:law_warlord_state
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = annex_subject_unitary_tt
+					AND = {
+						OR = {
+							is_subject_type = subject_type_puppet
+							is_subject_type = subject_type_vassal
+							is_subject_type = subject_type_real_union
+							is_subject_type = subject_type_dependency
+						}
+						overlord = {
+							has_law = law_type:law_unitary
+						}
+					}
 				}
 			}
 		}
@@ -67,17 +89,6 @@
 
 		is_at_war = no
 		scope:target_country = { is_at_war = no }
-
-		trigger_if = {
-			limit = {
-				exists = c:AKN
-				c:AKN = this
-			}
-			custom_tooltip = {
-				text = finished_reforms_tt
-				has_variable = akc_reforms_complete
-			}
-		}
 		
 		trigger_if = {
 			limit = {
@@ -100,10 +111,6 @@
 				text = moscow_uprising_tt
 				c:MSC ?= { NOT = { has_journal_entry = je_russian_nationalism } }
 			}
-		}
-		trigger_if = { #PLACEHOLDER
-			limit = { c:ITA ?= this }
-			coa_republic_trigger = no
 		}
 	}
 	

@@ -1303,7 +1303,10 @@ balkan_crisis.10 = {
 		name = balkan_crisis.10.b
 		default_option = yes
 		
-		custom_tooltip = refused_constantinople_conference_tt
+		custom_tooltip = {
+			text = refused_constantinople_conference_tt
+			set_variable = refused_constantinople_conference
+		}
 		
 		change_infamy = 10
 		custom_tooltip = {

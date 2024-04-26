@@ -1014,7 +1014,9 @@ MEX = { # Mexico
 		
 		trigger = {
 			coa_def_monarchy_flag_trigger = yes
-			country_rank >= rank_value:major_power
+			scope:actor ?= {
+				country_rank >= rank_value:major_power
+			}
 		}
 	}
 

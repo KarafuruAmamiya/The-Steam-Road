@@ -672,3 +672,20 @@ UES = { # Uesugi
 		priority = 1
 	}
 }
+
+DON = { # Don Cossacks
+	flag_definition = {
+		coa = DON
+		subject_canton = DON
+		priority = 1
+	}
+	flag_definition = {
+		coa = DON_host
+		subject_canton = DON_host
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+			#has_variable = cossacks_reform
+		}
+	}
+}

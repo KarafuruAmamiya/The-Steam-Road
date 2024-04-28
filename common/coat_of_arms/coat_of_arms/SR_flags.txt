@@ -850,7 +850,7 @@ DLH = { # Delhi
 
 SRG = { # Surguja
 	pattern = "pattern_solid.tga"
-	color1 = "green_light"
+	color1 = "green_lighter"
 	color2 = "yellow_light"
 
 	colored_emblem = {
@@ -988,7 +988,7 @@ KAB = { # Kabulistan
 	color2 = "white"
 
 	colored_emblem = {
-		texture = "ce_kabulistan.dds"
+		texture = "ce_coa_afghanistan.dds"
 		color1 = color2
 		instance = { scale = { 0.8 0.8 } position = { 0.5 0.5 } }	
 	}
@@ -1000,7 +1000,7 @@ KAB_subject = { # Kabulistan
 	color2 = "white"
 
 	colored_emblem = {
-		texture = "ce_kabulistan.dds"
+		texture = "ce_coa_afghanistan.dds"
 		color1 = "white"
 		color2 = "white"
 		instance = { scale = { 0.55 0.55 } position = { 0.75 0.55 } }
@@ -1071,6 +1071,171 @@ BRK = { # Brandenburg-Küstrin
 		color1 = "red"
 		color2 = "yellow"	
 		color3 = "pearl"		
+	}
+}
+
+# 0.0.4
+
+ZAP = { # Zaporizhia
+	pattern = "pattern_solid.tga"
+	color1 = "azure"
+
+	colored_emblem = {
+		texture = "ce_border_thin_4.dds"
+		color2 = "yellow"
+		instance = { scale = { 1.0 1.0 } }			
+	}
+	
+	textured_emblem = {
+		texture = "te_coa_zaporizhia.dds"
+		instance = { scale = { 0.8 0.8 } position = { 0.5 0.5 } }
+	}
+}
+
+SLB = { # Sloboda
+	pattern = "pattern_solid.tga"
+	color1 = "green_lighter"
+	
+	colored_emblem = {
+		texture = "ce_border_thin_4.dds"
+		color2 = "yellow"
+		instance = { scale = { 1.0 1.0 } }			
+	}
+
+	colored_emblem = {
+		texture = "ce_christogram_02.dds"
+		color1 = "white"
+		color2 = "yellow"
+		instance = { scale = { 0.8 0.8 } position = { 0.5 0.62 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_angel_left.dds"
+		color1 = "white"
+		color2 = "peach"
+		color3 = "brown"
+		instance = { scale = { 0.4 0.4 } position = { 0.3 0.24 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_angel_right.dds"
+		color1 = "white"
+		color2 = "peach"
+		color3 = "brown"
+		instance = { scale = { 0.4 0.4 } position = { 0.7 0.24 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_wreath_crown.dds"
+		color1 = "yellow"
+		instance = { scale = { 0.4 0.4 } position = { 0.5 0.24 } }			
+	}
+}
+
+CHR = { # Chernihiv
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+
+	colored_emblem = {
+		texture = "ce_border_thin_4.dds"
+		color2 = "yellow"
+		instance = { scale = { 1.0 1.0 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_eagle_chernigov.dds"
+		color1 = "black"
+		color2 = "red"
+		color3 = "yellow"
+		instance = { scale = { 0.7 0.7 } position = { 0.5 0.5 } }			
+	}
+}
+
+SMO = { # Smolensk
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_border_thin_4.dds"
+		color2 = "yellow"
+		instance = { scale = { 1.0 1.0 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_cannon_saltire.dds"
+		color1 = "yellow"
+		color2 = "brown"
+		instance = { scale = { 0.67 0.67 } position = { 0.5 0.55 } }			
+	}
+	
+	colored_emblem = {
+		texture = "ce_crown_st_edward.dds"
+		color1 = "pearl"
+		color2 = "yellow"
+		color3 = "white"
+		instance = { scale = { 0.4 0.4 } position = { 0.5 0.26 } }			
+	}
+	
+	textured_emblem = {
+		texture = "te_coa_smolensk.dds"
+		instance = { scale = { 0.5 0.5 } position = { 0.5 0.6 } }
+	}
+}
+
+DON = {	# Don Republic
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "yellow"
+		color2 = "red"
+	}
+}
+
+DON_host = { # Don Host
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "yellow"
+		color2 = "red"
+	}
+	
+	textured_emblem = {
+		texture = "te_coa_don_cossacks.dds"
+		instance = { scale = { 0.6 0.6 } position = { 0.5 0.5 } }
+	}
+}
+
+PLT = {	# Polack
+	pattern = "pattern_solid.tga"
+	color1 = "azure"
+
+	colored_emblem = {
+		texture = "ce_tricolor_vertical.dds"
+		color1 = "white"
+		color2 = "azure"
+	}
+	
+	colored_emblem = {
+		texture = "ce_shield_heater.dds"
+		color1 = "azure"
+		instance = { scale = { 0.65 0.65 } position = { 0.5 0.55 } }
+	}
+	
+	colored_emblem = {
+		texture = "ce_crown_st_edward.dds"
+		color1 = "pearl"
+		color2 = "yellow"
+		color3 = "golden"
+		instance = { scale = { 0.35 0.35 } position = { 0.5 0.21 } }			
+	}
+	
+	textured_emblem = {
+		texture = "te_vytis.dds"
+		instance = { scale = { 0.45 0.45 } position = { 0.5 0.55 } }
 	}
 }
 

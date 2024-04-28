@@ -845,3 +845,39 @@ LAE = { # Constantinople
 		}
 	}
 }
+
+ZAP = { # Zaporizhia
+	dynamic_country_name = {
+		name = dyn_c_zaporizhian_cossack
+		adjective = dyn_c_zaporizhian_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { 
+				coa_def_republic_flag_trigger = yes
+				#NOT = { has_variable = cossacks_reform }
+			}
+		}
+	}
+}
+
+SLB = { # Sloboda Ukraine
+	dynamic_country_name = {
+		name = dyn_c_slobodan_cossack
+		adjective = SLB_ADJ
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { 
+				coa_def_republic_flag_trigger = yes
+				#NOT = { has_variable = cossacks_reform }
+			}
+		}
+	}
+}

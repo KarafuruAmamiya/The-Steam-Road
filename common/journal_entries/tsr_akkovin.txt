@@ -451,7 +451,11 @@ je_akkovin_reform_bureaucracy = {
 	}
 	
 	complete = {
-		has_law = law_type:law_unitary
+		OR = {
+			has_law = law_type:law_unitary
+			has_law = law_type:law_devolved
+			has_law = law_type:law_federal
+		}
 		NOR = { 
 			has_law = law_type:law_hereditary_bureaucrats 
 			has_law = law_type:law_land_based_taxation
@@ -844,24 +848,6 @@ je_akkovin_reform_arabia = {
 		effect = {
 			if = {
 				limit = {
-					c:AKN ?= {
-						country_rank < rank_value:great_power
-						is_diplomatic_play_committed_participant = no
-						is_at_war = no
-					}
-					c:HDJ ?= {
-						is_subject_of = c:AKN
-						has_attitude = {
-							who = c:AKN
-							attitude = rebellious
-						}
-						NOT = { has_variable = hedjaz_revolt }
-					}
-				}
-				c:HDJ ?= { trigger_event = { id = akkovin_crisis.11 popup = yes } }
-			}
-			if = {
-				limit = {
 					AND = {
 						c:SYR ?= {
 							is_subject_of = ROOT
@@ -926,28 +912,28 @@ je_akkovin_reform_arabia = {
 					add = 1
 				}
 			}
-			if = {
-				limit = {
-					custom_tooltip = {
-						text = nahda_start_tt
-						has_global_variable = nahda_start
-						OR = {
-							has_global_variable = al_bustani_var
-							has_global_variable = al_shidyaq_var
-							has_global_variable = muhammad_abduh_var
-							has_global_variable = arab_wars_happened
-						}
-					}
-					any_subject_or_below = {
-						has_journal_entry = je_arab_nationalism_subject
-					}
-					NOT = {
-						OR = { has_variable = centralization_stance }
-						OR = { has_variable = autonomous_stance }
-					}
-				}
-				trigger_event = { id = arab_wars.3 }
-			}
+#			if = { #NEEDS REDOING
+#				limit = {
+#					custom_tooltip = {
+#						text = nahda_start_tt
+#						has_global_variable = nahda_start
+#						OR = {
+#							has_global_variable = al_bustani_var
+#							has_global_variable = al_shidyaq_var
+#							has_global_variable = muhammad_abduh_var
+#							has_global_variable = arab_wars_happened
+#						}
+#					}
+#					any_subject_or_below = {
+#						has_journal_entry = je_arab_nationalism_subject
+#					}
+#					NOT = {
+#						OR = { has_variable = centralization_stance }
+#						OR = { has_variable = autonomous_stance }
+#					}
+#				}
+#				trigger_event = { id = arab_wars.3 }
+#			}
 		}
 	}
 	

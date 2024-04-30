@@ -1388,134 +1388,133 @@ akkovin_crisis.10 = {
 }
 
 # Hedjaz Demands Autonomy (Hedjaz)
-akkovin_crisis.11 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.11.t
-	desc = akkovin_crisis.11.d
-	flavor = akkovin_crisis.11.f
-
-	duration = 3
-
-	event_image = {
-		video = "votp_french_algeria"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
-	immediate = {
-		set_variable = hedjaz_revolt
-		c:AKN = { 
-			save_scope_as = akn_scope 
-			ruler = { save_scope_as = akn_ruler }
-		}
-		c:HDJ = {
-			save_scope_as = hedjaz_scope
-			ruler = { save_scope_as = sharif_scope }
-		}
-	}
-
-	option = {
-		name = akkovin_crisis.11.a #Make the demand
-		default_option = yes
-		c:AKN = { 
-			trigger_event = { id = akkovin_crisis.12 days = 7 popup = yes }
-		}
-		
-		ai_chance = {
-			base = 10
-		}
-	}
-	
-	option = {
-		name = akkovin_crisis.11.b #We can't risk angering the Akkovins
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-}
-
-# Hedjaz Demands Autonomy (Response)
-akkovin_crisis.12 = {
-	type = country_event
-	placement = root
-	title = akkovin_crisis.12.t
-	desc = akkovin_crisis.12.d
-	flavor = akkovin_crisis.12.f
-
-	duration = 3
-
-	gui_window = event_window_1char_tabloid
-	left_icon = scope:sharif_scope
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-
-	immediate = {
-		c:HDJ = {
-			save_scope_as = hedjaz_scope
-			ruler = { save_scope_as = sharif_scope }
-		}
-	}
-
-	option = {
-		name = akkovin_crisis.12.a #Give in to the Sharif's demand
-		c:HDJ = {
-			change_subject_type = subject_type_dominion
-			post_notification = hdj_autonomy_increased
-		}
-		change_relations = {
-			country = c:HDJ
-			value = 30
-		}
-		every_interest_group = {
-			limit = {
-				is_in_government = yes
-			}
-			add_modifier = {
-				name = gave_in_the_sharif
-				months = normal_modifier_time
-				is_decaying = yes
-			}
-		}
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-	
-	option = {
-		name = akkovin_crisis.12.b
-		default_option = yes
-		create_diplomatic_play = {
-			target_country = c:HDJ
-			type = dp_reduce_autonomy
-			escalation = 80
-			
-			add_war_goal = {
-				holder = c:HDJ
-				type = independence
-				target_country = c:AKN
-				primary_demand = yes
-			}
-		}
-		hidden_effect = {
-			c:HDJ ?= { 
-				trigger_event = { id = akkovin_crisis.13 } 
-				add_technology_progress = { progress = 2500 technology = mass_communication }
-				add_technology_progress = { progress = 2500 technology = nationalism }
-			}
-		}
-		
-		ai_chance = {
-			base = 10
-		}
-	}
-}
+#akkovin_crisis.11 = {
+#	type = country_event
+#	placement = root
+#	title = akkovin_crisis.11.t
+#	desc = akkovin_crisis.11.d
+#	flavor = akkovin_crisis.11.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "votp_french_algeria"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+#	
+#	immediate = {
+#		set_variable = hedjaz_revolt
+#		c:AKN = { 
+#			save_scope_as = akn_scope 
+#			ruler = { save_scope_as = akn_ruler }
+#		}
+#		c:HDJ = {
+#			save_scope_as = hedjaz_scope
+#			ruler = { save_scope_as = sharif_scope }
+#		}
+#	}
+#
+#	option = {
+#		name = akkovin_crisis.11.a #Make the demand
+#		default_option = yes
+#		c:AKN = { 
+#			trigger_event = { id = akkovin_crisis.12 days = 7 popup = yes }
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#	
+#	option = {
+#		name = akkovin_crisis.11.b #We can't risk angering the Akkovins
+#		
+#		ai_chance = {
+#			base = 0
+#		}
+#	}
+#}
+#
+## Hedjaz Demands Autonomy (Response)
+#akkovin_crisis.12 = {
+#	type = country_event
+#	placement = root
+#	title = akkovin_crisis.12.t
+#	desc = akkovin_crisis.12.d
+#	flavor = akkovin_crisis.12.f
+#
+#	duration = 3
+#
+#	gui_window = event_window_1char_tabloid
+#	left_icon = scope:sharif_scope
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+#
+#	immediate = {
+#		c:HDJ = {
+#			save_scope_as = hedjaz_scope
+#			ruler = { save_scope_as = sharif_scope }
+#		}
+#	}
+#
+#	option = {
+#		name = akkovin_crisis.12.a #Give in to the Sharif's demand
+#		c:HDJ = {
+#			change_subject_type = subject_type_dominion
+#			post_notification = hdj_autonomy_increased
+#		}
+#		change_relations = {
+#			country = c:HDJ
+#			value = 30
+#		}
+#		every_interest_group = {
+#			limit = {
+#				is_in_government = yes
+#			}
+#			add_modifier = {
+#				name = gave_in_the_sharif
+#				months = normal_modifier_time
+#				is_decaying = yes
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 0
+#		}
+#	}
+#	
+#	option = {
+#		name = akkovin_crisis.12.b
+#		default_option = yes
+#		create_diplomatic_play = {
+#			target_country = c:HDJ
+#			type = dp_reduce_autonomy
+#			escalation = 80
+#			
+#			add_war_goal = {
+#				holder = c:HDJ
+#				type = independence
+#				target_country = c:AKN
+#				primary_demand = yes
+#			}
+#		}
+#		hidden_effect = {
+#			c:HDJ ?= {  
+#				add_technology_progress = { progress = 2500 technology = mass_communication }
+#				add_technology_progress = { progress = 2500 technology = nationalism }
+#			}
+#		}
+#		
+#		ai_chance = {
+#			base = 10
+#		}
+#	}
+#}
 
 # Hedjaz Requests Ottoman Protection (Hedjaz)
 akkovin_crisis.13 = {
@@ -1547,9 +1546,10 @@ akkovin_crisis.13 = {
 	}
 
 	option = {
-		name = akkovin_crisis.13.a #Requests Ottoman protection
+		name = akkovin_crisis.13.a Requests Ottoman protection
 		default_option = yes
 		c:TUR = { trigger_event = { id = akkovin_crisis.14 days = 7 popup = yes } }
+		custom_tooltip = become_ottoman_protectorate_tt
 		
 		ai_chance = {
 			base = 10
@@ -1557,7 +1557,7 @@ akkovin_crisis.13 = {
 	}
 	
 	option = {
-		name = akkovin_crisis.13.b #We can fight by ourselves
+		name = akkovin_crisis.13.b We can fight by ourselves
 		
 		ai_chance = {
 			base = 0
@@ -1636,7 +1636,30 @@ akkovin_crisis.14 = {
 		}
 		
 		ai_chance = {
-			base = 10
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_secret_goal = {
+							who = c:HDJ
+							attitude = protect
+						}
+						has_secret_goal = {
+							who = c:HDJ
+							attitude = befriend
+						}
+						has_attitude = {
+							who = c:HDJ
+							attitude = genial
+						}
+						has_attitude = {
+							who = c:HDJ
+							attitude = cooperative
+						}
+					}
+				}
+				add = 100
+			}
 		}
 	}
 	
@@ -1648,7 +1671,7 @@ akkovin_crisis.14 = {
 		}
 		
 		ai_chance = {
-			base = 10
+			base = 1
 			modifier = {
 				trigger = {
 					any_interest_group = {

@@ -4,10 +4,10 @@
 	show_effect_in_tooltip = yes
 
 	potential = {
-		NOT = { has_global_variable = westernist_coup }
 		country_rank >= rank_value:great_power
 		scope:target_country = {
 			c:TUR ?= this
+			has_journal_entry = je_westernist_coalition
 			NOR = { 
 				has_variable = turkish_empire 
 				has_variable = rumelian_confederation 
@@ -34,6 +34,25 @@
 		
 		requirement_to_maintain = {
 			trigger = {
+				country_rank >= rank_value:great_power
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
+				scope:target_country = {
+					c:TUR ?= this
+					has_journal_entry = je_westernist_coalition
+					NOR = { 
+						has_variable = turkish_empire 
+						has_variable = rumelian_confederation 
+					}
+				}
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
 				custom_tooltip = {
 					text = "DIPLOMATIC_PACT_REQUIREMENT_NOT_DECENTRALIZED"
 					NOT = { is_country_type = decentralized }
@@ -55,7 +74,7 @@
 		change_relations = { country = scope:target_country value = -30 }
 		custom_tooltip = {
 			text = westernist_progress_increase
-			change_global_variable = { name = westernist_progress_from_foreign_support add = 0.5 }
+			#change_global_variable = { name = westernist_progress_from_foreign_support add = 0.5 }
 		}
 	}
 	
@@ -63,7 +82,7 @@
 		max_influence_spending_fraction = 0.25
 	
 		propose_score = {
-			value = 5
+			value = 0
 
 			if = {
 				limit = {	
@@ -137,7 +156,6 @@
 		}		
 	
 		will_propose = {
-			country_is_in_europe = no
 			OR = {
 				has_attitude = {
 					who = scope:target_country
@@ -156,7 +174,6 @@
 		
 		will_break = {
 			OR = {
-				country_is_in_europe = yes
 				has_attitude = {
 					who = scope:target_country
 					attitude = genial
@@ -184,10 +201,10 @@ oppose_westernists = {
 	show_effect_in_tooltip = yes
 
 	potential = {
-		NOT = { has_global_variable = westernist_coup }
 		country_rank >= rank_value:great_power
 		scope:target_country = {
 			c:TUR ?= this
+			has_journal_entry = je_westernist_coalition
 			NOR = { 
 				has_variable = turkish_empire 
 				has_variable = rumelian_confederation 
@@ -214,6 +231,25 @@ oppose_westernists = {
 		
 		requirement_to_maintain = {
 			trigger = {
+				country_rank >= rank_value:great_power
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
+				scope:target_country = {
+					c:TUR ?= this
+					has_journal_entry = je_westernist_coalition
+					NOR = { 
+						has_variable = turkish_empire 
+						has_variable = rumelian_confederation 
+					}
+				}
+			}
+		}
+		
+		requirement_to_maintain = {
+			trigger = {
 				custom_tooltip = {
 					text = "DIPLOMATIC_PACT_REQUIREMENT_NOT_DECENTRALIZED"
 					NOT = { is_country_type = decentralized }
@@ -235,7 +271,7 @@ oppose_westernists = {
 		change_relations = { country = scope:target_country value = 30 }
 		custom_tooltip = {
 			text = westernist_progress_decrease
-			change_global_variable = { name = westernist_progress_from_foreign_support subtract = 0.5 }
+			#change_global_variable = { name = westernist_progress_from_foreign_support subtract = 0.5 }
 		}
 	}
 	
@@ -243,15 +279,7 @@ oppose_westernists = {
 		max_influence_spending_fraction = 0.25
 	
 		propose_score = {
-			value = 5
-
-			if = {
-				limit = {	
-					has_strategy = ai_strategy_maintain_power_balance				
-				}
-				
-				add = 5
-			}
+			value = 0
 			
 			#Europeans don't want a powerful, westernized Ottomans
 			if = {
@@ -261,7 +289,7 @@ oppose_westernists = {
 						c:ITA ?= this
 					}
 					c:TUR ?= {
-						var:westernist_progress_var >= 10
+						var:westernist_progress_var >= 100
 					}
 				}
 				add = 10
@@ -275,10 +303,10 @@ oppose_westernists = {
 						c:ITA ?= this
 					}
 					c:TUR ?= {
-						var:westernist_progress_var >= 60
+						var:westernist_progress_var >= 200
 					}
 				}
-				add = 100
+				add = 10
 			}
 			
 			#Persia don't want a powerful Ottoman Caliphate
@@ -310,22 +338,51 @@ oppose_westernists = {
 		}		
 	
 		will_propose = {
-			NOR = { 
-				c:PER ?= this 
-				c:ITA ?= this 
-			}
-			c:TUR ?= {
-				var:westernist_progress_var >= 0				
+			OR = {
+				AND = {
+					has_strategy = ai_strategy_maintain_power_balance
+					c:TUR ?= {
+						var:westernist_progress_var >= 50				
+					}
+				}
+				c:TUR ?= {
+					var:westernist_progress_var >= 100				
+				}
+				NOT = {
+					c:PER ?= this	
+					scope:target_country = {
+						has_variable = pursue_caliphate_var
+					}
+				}
 			}
 		}	
 		
 		will_break = {
 			OR = {
-				c:PER ?= this
-				c:ITA ?= this
 				c:TUR ?= {
-					var:westernist_progress_var <= 0
-				}				
+					var:westernist_progress_var <= 0				
+				}
+				AND = {
+					country_is_in_europe = no
+					has_attitude = {
+						who = scope:target_country
+						attitude = antagonistic
+					}							
+					has_attitude = {
+						who = scope:target_country
+						attitude = belligerent
+					}
+					has_attitude = {
+						who = scope:target_country
+						attitude = domineering
+					}
+				}
+				AND = {
+					c:PER ?= this	
+					scope:target_country = {
+						has_variable = pursue_caliphate_var
+					}
+				}
 			}			
 		}
 	}

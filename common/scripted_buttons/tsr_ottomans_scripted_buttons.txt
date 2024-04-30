@@ -152,3 +152,68 @@ reject_ottoman_caliphate_button = { #Dismiss Caliphatist Ambitions
 		}
 	}
 }
+
+westernist_coalition_suppress_westernist_faction = {
+	name = "westernist_coalition_suppress_westernist_faction"
+	desc = "westernist_coalition_suppress_westernist_faction_desc"
+
+	visible = {
+		always = yes
+	}
+	
+	possible = {
+		trigger_if = {
+			limit = {
+				NOT = {
+					ruler.interest_group = { 
+						has_ideology = ideology:ideology_westernizer
+					}
+				}
+			}
+			ruler.interest_group = {
+				is_in_government = yes
+			}
+		}
+		any_interest_group = {
+			filter = {
+				has_ideology = ideology:ideology_westernizer
+			}
+			count = all
+			is_in_government = no
+		}
+		custom_tooltip = {
+			text = westernist_coalition_losing_power
+			var:westernist_progress_var_next < 0
+		}
+		custom_tooltip = {
+			text = mehmed_not_in_country
+			NOT = {
+				any_scope_character = {
+					has_template = tur_mehmed_iv_character_template
+				}
+			}
+		}
+		NOR = {
+			has_law = law_type:law_protected_speech
+			has_law = law_type:law_guaranteed_liberties
+		}
+		any_scope_state = {
+			has_modifier = pro_mehmed_domain
+		}
+		custom_tooltip = {
+			text = suppress_westernists_cooldown_tt
+			NOT = {
+				has_variable = suppress_westernists_cooldown_var
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = { id = ottoman_flavor.9 popup = yes }
+		set_variable = { name = suppress_westernists_cooldown_var months = 6 }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

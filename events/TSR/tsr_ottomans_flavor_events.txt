@@ -3,7 +3,7 @@ namespace = turkish_nationalism
 
 ##Ottoman Empire
 
-#Ottoman Caliphate
+# Ottoman Caliphate
 ottoman_flavor.1 = {
 	type = country_event
 	placement = scope:hedjaz_state
@@ -65,7 +65,7 @@ ottoman_flavor.1 = {
 	}
 }
 
-#Caliphate JE success
+# Caliphate JE success
 ottoman_flavor.2 = {
 	type = country_event
 	placement = root
@@ -112,6 +112,652 @@ ottoman_flavor.2 = {
 			months = long_modifier_time
 			is_decaying = yes
 		}
+	}
+}
+
+# Mehmed IV in Exile
+ottoman_flavor.3 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.3.t
+	desc = ottoman_flavor.3.d
+	flavor = ottoman_flavor.3.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	
+	left_icon = scope:mehmed_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	immediate = {
+		c:TUR = {
+			save_scope_as = tur_scope
+		}
+		random_character_in_exile_pool = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.3.a #Give asylum to Mehmed
+		default_option = yes
+		scope:mehmed_scope = {
+			transfer_character = root
+		}
+		hidden_effect = {
+			c:TUR = {
+				trigger_event = { id = ottoman_flavor.6 }
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = ottoman_flavor.3.b #Don't bother
+		default_option = yes
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Army defects to Mehmed
+ottoman_flavor.4 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.4.t
+	desc = ottoman_flavor.4.d
+	flavor = ottoman_flavor.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	trigger = {
+		 ig:ig_armed_forces = {
+		 	ig_approval <= unhappy
+		 }
+		 NOT = { has_variable = armed_forces_defection }
+	}
+
+	immediate = {
+		set_variable = armed_forces_defection
+		ruler = {
+			save_scope_as = sultan_scope
+		}
+		ig:ig_armed_forces = {
+			save_scope_as = army_scope
+			leader = {
+				save_scope_as = army_leader
+			}
+		}
+		i:ideology_westernizer = {
+			save_scope_as = westernizer_scope
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.4.a
+		default_option = yes
+		ig:ig_armed_forces = {
+			add_ideology = ideology_westernizer
+			leader = {
+				set_ideology = ideology:ideology_westernist
+			}
+		}
+		add_modifier = {
+			name = armed_forces_discord
+			months = -1
+		}
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:turkish
+				}
+				is_incorporated = yes
+			}
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+	}
+}
+
+# The Return of Mehmed IV
+ottoman_flavor.5 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.5.t
+	desc = ottoman_flavor.5.d
+	flavor = ottoman_flavor.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+	
+	minor_left_icon = scope:mehmed_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+		}
+		capital = {
+			save_scope_as = capital_scope
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.5.a
+		default_option = yes
+		scope:mehmed_scope = {
+			if = {
+				limit = {
+					OR = {
+						is_in_exile_pool = yes
+						owner = { NOT = { root = this } }
+					}
+				}
+				transfer_character = root
+				add_modifier = {
+					name = mehmed_returns
+					months = -1
+				}
+			}
+			set_variable = no_exiling_mehmed
+		}
+		scope:capital_scope = {
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+	}
+}
+
+# Rival shelters Mehmed IV
+ottoman_flavor.6 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.6.t
+	desc = ottoman_flavor.6.d
+	flavor = ottoman_flavor.6.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	
+	left_icon = scope:mehmed_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	
+	immediate = {
+		random_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+			owner = { save_scope_as = mehmed_refuge_country }
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.6.a
+		default_option = yes
+		change_relations = {
+			country = scope:mehmed_refuge_country
+			value = -30
+		}
+		custom_tooltip = {
+			text = westernist_progress_increase_mehmed
+			set_variable = mehmed_in_another_country
+			change_variable = { name = westernist_progress_var_add add = 0.3 }
+		}
+	}
+}
+
+# Westernist Coalition defeated
+ottoman_flavor.7 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.7.t
+	desc = ottoman_flavor.7.d
+	flavor = ottoman_flavor.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+	
+	minor_left_icon = scope:ruler_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+		}
+		ruler = {
+			save_scope_as = ruler_scope
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.7.a
+		default_option = yes
+		scope:mehmed_scope = {
+			if = {
+				limit = {
+					OR = {
+						owner = root
+						is_in_exile_pool = yes
+					}
+				}
+				kill_character = yes
+			}
+		}
+		every_scope_state = {
+			limit = {
+				has_modifier = pro_mehmed_domain
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 10
+			}
+			remove_modifier = pro_mehmed_domain
+		}
+		ruler = {
+			add_modifier = {
+				name = the_restorer_modifier
+			}
+		}
+		every_interest_group = {
+			limit = {
+				NOR = {
+					has_ideology = ideology:ideology_westernizer
+					has_ideology = ideology:ideology_pluralist
+					has_ideology = ideology:ideology_populist
+					leader = {
+						has_ideology = ideology:ideology_westernist
+					}
+				}
+			}
+			add_modifier = {
+				name = westernist_defeated
+				months = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_westernizer
+					leader = {
+						has_ideology = ideology:ideology_westernist
+					}
+				}
+			}
+			ROOT = {
+				add_radicals = {
+					value = large_radicals
+					interest_group = prev
+				}
+			}
+		}
+	}
+}
+
+# The Restoration of Mehmed IV
+ottoman_flavor.8 = {
+	type = country_event
+	placement = root
+	title = ottoman_flavor.8.t
+	desc = ottoman_flavor.8.d
+	flavor = ottoman_flavor.8.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+	
+	minor_left_icon = scope:mehmed_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+		}
+		if = {
+			limit = {
+				ruler = {
+					NOT = { has_template = tur_mehmed_iv_character_template }
+				}
+			}
+			ruler = {
+				exile_character_with_martyrdom = yes
+				save_scope_as = old_ruler_scope
+			}
+			if = {
+				limit = {
+					any_scope_character = {
+						is_heir = yes
+					}
+				}
+				heir ?= {
+					kill_character = yes
+				}
+			}
+			if = {
+				limit = {
+					any_scope_character = {
+						has_variable = prime_minister_trigger
+					}
+				}
+				random_scope_character = {
+					limit = { has_variable = prime_minister_trigger }
+					remove_variable = prime_minister_trigger
+					kill_character = yes
+				}
+			}
+			scope:mehmed_scope = {
+				set_character_as_ruler = yes
+				remove_character_role = agitator
+			}
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.8.a
+		default_option = yes
+		if = {
+			limit = {
+				ruler = {
+					NOT = { has_template = tur_mehmed_iv_character_template }
+				}
+			}
+			custom_tooltip = {
+				text = exile_old_ruler_tt
+			}
+		}
+		ruler = {
+			add_modifier = {
+				name = the_restorer_modifier
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_modifier = mehmed_returns }
+					remove_modifier = mehmed_returns
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = { 
+					has_law = law_type:law_interventionism
+					has_law = law_type:law_laissez_faire
+				}
+			}
+			activate_law = law_type:law_laissez_faire
+		}
+		if = {
+			limit = {
+				NOR = { 
+					has_law = law_type:law_per_capita_based_taxation
+					has_law = law_type:law_proportional_taxation
+				}
+			}
+			activate_law = law_type:law_per_capita_based_taxation
+		}
+		if = {
+			limit = {
+				NOR = { 
+					has_law = law_type:law_freedom_of_conscience
+					has_law = law_type:law_shared_roots
+				}
+			}
+			activate_law = law_type:law_freedom_of_conscience
+		}
+		if = {
+			limit = {
+				NOT = { 
+					has_law = law_type:law_slavery_banned
+				}
+			}
+			activate_law = law_type:law_slavery_banned
+		}
+		if = {
+			limit = {
+				NOT = { 
+					has_law = law_type:law_appointed_bureaucrats
+				}
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		hidden_effect = {
+			every_interest_group = {
+				limit = {
+					OR = {
+						has_ideology = ideology:ideology_westernizer
+						leader = {
+							has_ideology = ideology:ideology_westernist
+						}
+					}
+				}
+				add_modifier = {
+					name = westernist_takeover_positive
+					months = long_modifier_time
+				}
+			}
+			ig:ig_intelligentsia = {
+				add_ruling_interest_group = yes
+			}
+			every_interest_group = {
+				limit = {
+					NOR = {
+						has_ideology = ideology:ideology_westernizer
+						has_ideology = ideology:ideology_pluralist
+						has_ideology = ideology:ideology_populist
+						leader = {
+							has_ideology = ideology:ideology_westernist
+						}
+					}
+				}
+				add_modifier = {
+					name = westernist_takeover_negative
+					months = long_modifier_time
+				}
+				ROOT = {
+					add_radicals = {
+						value = large_radicals
+						interest_group = prev
+					}
+				}
+				if = {
+					limit = {
+						is_in_government = yes
+					}
+					remove_ruling_interest_group = yes
+				}
+			}
+		}
+	}
+}
+
+ottoman_flavor.9 = { #Suppressing Pro-Mehmed Faction
+	type = country_event
+	placement = ROOT
+	title = ottoman_flavor.9.t
+	desc = ottoman_flavor.9.d
+	flavor = ottoman_flavor.9.f
+	duration = 3
+	event_image = {
+		video = "middleeast_police_breaking_door"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_modifier = pro_mehmed_domain
+			}
+			save_scope_as = pro_mehmed_state_1
+		}
+		random_state = {
+			limit = {
+				has_modifier = pro_mehmed_domain
+				NOT = { this = scope:pro_mehmed_state_1 }
+			}
+			save_scope_as = pro_mehmed_state_2
+		}
+		random_state = {
+			limit = {
+				has_modifier = pro_mehmed_domain
+				NOT = { this = scope:pro_mehmed_state_1 }
+				NOT = { this = scope:pro_mehmed_state_2 }
+			}
+			save_scope_as = pro_mehmed_state_3
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.9.a
+		default_option = yes
+		scope:pro_mehmed_state_1 = {
+			remove_modifier = pro_mehmed_domain
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 10
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:turkish
+			}
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.9.b
+		trigger = {
+			exists = scope:pro_mehmed_state_2
+		}
+		scope:pro_mehmed_state_2 = {
+			remove_modifier = pro_mehmed_domain
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 10
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:turkish
+			}
+		}
+	}
+	
+	option = {
+		name = ottoman_flavor.9.c
+		trigger = {
+			exists = scope:pro_mehmed_state_3
+		}
+		scope:pro_mehmed_state_3 = {
+			remove_modifier = pro_mehmed_domain
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = soldiers
+			}
+			kill_population_percent_in_state = {
+				percent = 0.02
+				pop_type = academics
+			}
+			state_region = {
+				add_devastation = 10
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:turkish
+			}
+		}
+	}
+}
+
+# Hidden Event to assign new Mehmed defector state
+ottoman_flavor.10 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				state_region = {
+					is_homeland = cu:turkish
+				}
+				is_capital = no
+				NOT = { has_modifier = pro_mehmed_domain }
+			}
+			save_scope_as = mehmed_defector_state
+			add_modifier = {
+				name = pro_mehmed_domain
+			}
+		}
+		post_notification = westernist_state_defection
 	}
 }
 
@@ -531,7 +1177,6 @@ turkish_nationalism.6 = {
 	duration = 3
 
 	immediate = {
-		
 	}
 
 	option = {
@@ -586,7 +1231,6 @@ turkish_nationalism.6 = {
 						}
 					}
 				}
-				add_ruling_interest_group = yes
 				add_modifier = {
 					name = nationalist_takeover_positive
 					months = long_modifier_time
@@ -603,6 +1247,9 @@ turkish_nationalism.6 = {
 					name = nationalist_takeover_negative
 					months = long_modifier_time
 				}
+			}
+			ig:ig_intelligentsia = {
+				add_ruling_interest_group = yes
 			}
 			if = {
 				limit = {

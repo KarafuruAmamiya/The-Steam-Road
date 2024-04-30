@@ -1,0 +1,47 @@
+﻿num_support_westernists = {
+	value = {
+		value = 0
+		add = {
+			every_country = {
+				limit = { 
+					has_diplomatic_pact = {
+						who = c:TUR
+						type = support_westernists 
+					}
+				}
+				add = 1
+			}
+		}
+    }
+}
+
+num_oppose_westernists = {
+	value = {
+		value = 0
+		add = {
+			every_country = {
+				limit = { 
+					has_diplomatic_pact = {
+						who = c:TUR
+						type = oppose_westernists 
+					}
+				}
+				add = 1
+			}
+		}
+    }
+}
+
+num_mehmed_domain = {
+	value = {
+		value = 0
+		add = {
+			every_scope_state = {
+				limit = { 
+					has_modifier = pro_mehmed_domain
+				}
+				add = 1
+			}
+		}
+    }
+}

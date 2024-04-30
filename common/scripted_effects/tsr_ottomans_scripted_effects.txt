@@ -39,8 +39,7 @@
 	every_interest_group = {
 		limit = {
 			OR = {
-				is_interest_group_type = ig_intelligentsia 
-				is_interest_group_type = ig_industrialists 
+				has_ideology = ideology:ideology_westernizer
 				leader = {
 					has_ideology = ideology:ideology_westernist
 				}
@@ -61,18 +60,15 @@
 			change_variable = { name = westernist_progress_from_igs add = var:ig_weight }
 		}
 	}
-	# From Buildings
-	set_variable = { name = westernist_progress_from_factories value = 0 }
-	every_scope_building = {
-		limit = {
-			is_building_group = bg_manufacturing
-			weekly_profit > 0
-		}
-		ROOT = {
-			change_variable = { name = westernist_progress_from_factories add = prev.level }
+	# From Mehmed Domain
+	set_variable = { name = westernist_progress_from_domain value = 0 }
+	change_variable = {
+		name = westernist_progress_from_domain 
+		add = {
+			value = 0.1
+			multiply = num_mehmed_domain
 		}
 	}
-	change_variable = { name = westernist_progress_from_factories divide = 200 }
 	# From Legitimacy
 	set_variable = { name = westernist_progress_from_legitimacy value = root.government_legitimacy }
 	change_variable = { name = westernist_progress_from_legitimacy divide = 100 }
@@ -138,31 +134,55 @@
 	change_variable = { name = westernist_progress_from_laws add = var:temp_ha_var_contribution }
 	remove_variable = temp_policing_var_contribution
 	remove_variable = temp_ha_var_contribution
+	
+	# From Foreign Support
+	set_variable = { name = westernist_progress_from_foreign_support value = 0 }
+	change_variable = { 
+		name = westernist_progress_from_foreign_support 
+		add = {
+			value = 0.3
+			multiply = num_support_westernists
+		}
+	}
+	change_variable = { 
+		name = westernist_progress_from_foreign_support 
+		subtract = {
+			value = 0.3
+			multiply = num_oppose_westernists
+		}
+	}
 
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_radicals }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_loyalists }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_characters }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_laws }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_igs }
-	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_factories }
+	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_domain }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_legitimacy }
-	change_variable = { name = westernist_progress_var_next add = global_var:westernist_progress_from_foreign_support }
+	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_foreign_support }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_var_add }
 }
 
 add_westernist_progress = {
 	change_variable = { name = westernist_progress_var add = var:westernist_progress_var_next }
+	clamp_variable = {
+		name = westernist_progress_var
+		max = 240
+		min = 0
+	}
 }
 
 set_westernist_vars = {
+	set_variable = { name = westernist_progress_var value = 0 }
+	set_variable = { name = westernist_progress_var_next value = 0 }
 	set_variable = { name = westernist_progress_from_radicals value = 0 }
 	set_variable = { name = westernist_progress_from_loyalists value = 0 }
 	set_variable = { name = westernist_progress_from_laws value = 0 }
 	set_variable = { name = westernist_progress_from_characters value = 0 }
 	set_variable = { name = westernist_progress_from_igs value = 0 }
 	set_variable = { name = westernist_progress_from_legitimacy value = 0 }
-	set_variable = { name = westernist_progress_from_factories value = 0 }
-	set_global_variable = { name = westernist_progress_from_foreign_support value = 0 }
+	set_variable = { name = westernist_progress_from_domain value = 0 }
+	set_variable = { name = westernist_progress_from_foreign_support value = 0 }
 	set_variable = { name = westernist_progress_var_add value = 0 }
 }
 
@@ -172,8 +192,8 @@ clear_westernist_vars = {
 	remove_variable = westernist_progress_from_laws
 	remove_variable = westernist_progress_from_characters
 	remove_variable = westernist_progress_from_igs
-	remove_variable = westernist_progress_from_factories
+	remove_variable = westernist_progress_from_domain
 	remove_variable = westernist_progress_from_legitimacy
-	remove_global_variable = westernist_progress_from_foreign_support
+	remove_variable = westernist_progress_from_foreign_support
 	remove_variable = westernist_progress_var_add
 }

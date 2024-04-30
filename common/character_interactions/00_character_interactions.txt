@@ -456,6 +456,8 @@ exile_character = {
 		is_ruler = no
 		is_heir = no
 		# Cannot exile pure commanders, we have the retire interaction for that
+		NOT = { has_variable = mohammad_zand }
+		NOT = { has_variable = no_exiling_mehmed }
 		OR = {
 			has_role = politician
 			has_role = agitator
@@ -478,7 +480,6 @@ exile_character = {
 			}
 			has_role = agitator
 		}
-		NOT = { has_variable = mohammad_zand }
 		trigger_if = {
 			limit = {
 				has_variable = bab
@@ -1058,6 +1059,7 @@ return_to_home_country = {
 		is_heir = no
 		exists = root.home_country
 		NOT = { root.home_country = this.owner }
+		NOT = { has_template = tur_mehmed_iv_character_template }
 	}
 
 	show_requirements = yes

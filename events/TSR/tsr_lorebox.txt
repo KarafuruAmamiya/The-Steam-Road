@@ -61,9 +61,12 @@ tsr_test.1 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		ruler = {
-			kill_character = yes
-		} 
+		random_scope_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			exile_character_with_martyrdom = yes
+		}
 	}
 }
 

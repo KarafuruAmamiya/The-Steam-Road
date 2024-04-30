@@ -72,6 +72,10 @@
 				text = rumelian_confederation_tt
 				has_variable = rumelian_confederation
 			}
+			NOR = { 
+				has_law = law_type:law_monarchy 
+				has_law = law_type:law_theocracy
+			}
 			has_law = law_type:law_total_separation
 			has_law = law_type:law_state_atheism
 		}
@@ -153,28 +157,12 @@ je_westernist_coalition = {
 				name = pro_mehmed_domain
 			}
 		}
-		random_scope_state = {
-			limit = {
-				state_region = s:STATE_ANKARA
-			}
-			add_modifier = {
-				name = pro_mehmed_domain
-			}
-		}
-		random_scope_state = {
-			limit = {
-				state_region = s:STATE_KAYSERI
-			}
-			add_modifier = {
-				name = pro_mehmed_domain
-			}
-		}
 		create_character = {
 			template = tur_mehmed_iv_character_template
 		}
 		set_westernist_vars = yes
 		random_scope_character = {
-			limit = { has_variable = is_mehmed_iv }
+			limit = { has_template = tur_mehmed_iv_character_template }
 			save_scope_as = mehmed_scope
 		}
 	}
@@ -183,6 +171,16 @@ je_westernist_coalition = {
 		custom_tooltip = {
 			text = westernist_progress_zero
 			var:westernist_progress_var <= 0
+		}
+		any_scope_state = {
+			filter = {
+				state_region = {
+					is_homeland = cu:turkish
+				}
+				is_incorporated = yes
+			}
+			turmoil <= 0.10
+			count = all
 		}
 		OR = {
 			AND = {
@@ -199,9 +197,15 @@ je_westernist_coalition = {
 			}
 		}
 	}
-
+	
 	on_complete = {
-		set_global_variable = westernist_coup
+		trigger_event = { id = ottoman_flavor.7 popup = yes }
+		if = {
+			limit = {
+				has_modifier = armed_forces_discord
+			}
+			remove_modifier = armed_forces_discord
+		}
 	}
 	
 	on_weekly_pulse = {
@@ -214,6 +218,123 @@ je_westernist_coalition = {
 		effect = {
 			calculate_westernist_progress = yes
 			add_westernist_progress = yes
+			
+			if = {
+				limit = {
+					scope:mehmed_scope = {
+						is_in_exile_pool = yes
+					}
+					any_rival_country = {
+						NOT = { has_variable = potential_mehmed_refuge }
+						OR = {
+							is_player = yes
+							has_strategy = ai_strategy_progressive_agenda
+							has_strategy = ai_strategy_egalitarian_agenda
+							ig:ig_intelligentsia = {
+								is_in_government = yes
+							}
+						}
+					}
+				}
+				random_rival_country = {
+					limit = {
+						NOT = { has_variable = potential_mehmed_refuge }
+						OR = {
+							is_player = yes
+							has_strategy = ai_strategy_progressive_agenda
+							has_strategy = ai_strategy_egalitarian_agenda
+							ig:ig_intelligentsia = {
+								is_in_government = yes
+							}
+						}
+					}
+					set_variable = potential_mehmed_refuge
+					trigger_event = { id = ottoman_flavor.3 }
+				}
+			}
+			
+			if = {
+				limit = {
+					has_variable = mehmed_in_another_country
+					scope:mehmed_scope = {
+						OR = {
+							owner = root
+							is_in_exile_pool = yes
+						}
+					}
+				}
+				remove_variable = mehmed_in_another_country
+				change_variable = { name = westernist_progress_var_add subtract = 0.3 }
+			}
+			
+			#Checkpoints
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 30
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_1 }
+				}
+				set_variable = westernist_coalition_checkpoint_1
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 60
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_2 }
+				}
+				set_variable = westernist_coalition_checkpoint_2
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 90
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_3 }
+				}
+				set_variable = westernist_coalition_checkpoint_3
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 120
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_4 }
+				}
+				set_variable = westernist_coalition_checkpoint_4
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 150
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_5 }
+				}
+				set_variable = westernist_coalition_checkpoint_5
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 180
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_6 }
+				}
+				set_variable = westernist_coalition_checkpoint_6
+				trigger_event = { id = ottoman_flavor.10 }
+				trigger_event = { id = ottoman_flavor.5 popup = yes }
+			}
+			if = {
+				limit = {
+					root.var:westernist_progress_var >= 210
+					root.var:westernist_progress_var_next >= 0
+					NOT = { has_variable = westernist_coalition_checkpoint_7 }
+				}
+				set_variable = westernist_coalition_checkpoint_7
+				trigger_event = { id = ottoman_flavor.10 }
+			}
+		}
+		events = {
+			ottoman_flavor.4 #Armed Forces defects to Mehmed
 		}
 	}
 	
@@ -221,7 +342,7 @@ je_westernist_coalition = {
 		OR = {
 			custom_tooltip = {
 				text = westernist_progress_full
-				var:westernist_progress_var >= 100
+				var:westernist_progress_var >= 240
 			}
 			AND = {
 				liberal_revolution_ongoing = yes
@@ -230,11 +351,12 @@ je_westernist_coalition = {
 					is_civil_war_type = revolution
 				}
 			}
-		}
-	}
-	
-	invalid = {
-		OR = {
+			custom_tooltip = {
+				text = mehmed_ruler
+				ruler = {
+					has_template = tur_mehmed_iv_character_template
+				}
+			}
 			AND = {
 				OR = {
 					has_law = law_type:law_laissez_faire
@@ -245,18 +367,48 @@ je_westernist_coalition = {
 					has_law = law_type:law_proportional_taxation
 				}
 				OR = {
-					has_law = law_type:law_commercialized_agriculture
-					has_law = law_type:law_homesteading
+					has_law = law_type:law_freedom_of_conscience
+					has_law = law_type:law_shared_roots
 				}
 			}
+		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = ottoman_flavor.8 popup = yes }
+		hidden_effect = {
+			set_global_variable = westernist_coup
+			if = {
+				limit = {
+					has_modifier = armed_forces_discord
+				}
+				remove_modifier = armed_forces_discord
+			}
+		}
+	}
+	
+	invalid = {
+		OR = {
 			NOT = { has_law = law_type:law_monarchy }
 			NOT = {
 				any_character = {
-					has_variable = is_mehmed_iv
+					has_template = tur_mehmed_iv_character_template
 				}
 			}
-			ruler = {
-				has_variable = is_mehmed_iv
+		}
+	}
+	
+	on_invalid = {
+		hidden_effect = {
+			every_scope_state = {
+				limit = { has_modifier = pro_mehmed_domain }
+				remove_modifier = pro_mehmed_domain
+			}
+			if = {
+				limit = {
+					has_modifier = armed_forces_discord
+				}
+				remove_modifier = armed_forces_discord
 			}
 		}
 	}
@@ -264,10 +416,53 @@ je_westernist_coalition = {
 	current_value = {
 		value = root.var:westernist_progress_var
 	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = westernist_coalition_gaining_power
+				trigger = {
+					var:westernist_progress_var < 60
+					var:westernist_progress_var_next >= 0
+				}
+			}
+			triggered_desc = {
+				desc = westernist_coalition_threaten_power
+				trigger = {
+					var:westernist_progress_var >= 60
+					var:westernist_progress_var < 120
+					var:westernist_progress_var_next >= 0
+				}
+			}
+			triggered_desc = {
+				desc = westernist_coalition_taking_power
+				trigger = {
+					var:westernist_progress_var >= 120
+					var:westernist_progress_var < 180
+					var:westernist_progress_var_next >= 0
+				}
+			}
+			triggered_desc = {
+				desc = westernist_coalition_usurping_power
+				trigger = {
+					var:westernist_progress_var >= 180
+					var:westernist_progress_var_next >= 0
+				}
+			}
+			triggered_desc = {
+				desc = westernist_coalition_losing_power
+				trigger = {
+					var:westernist_progress_var_next < 0
+				}
+			}
+		}
+	}
 
 	goal_add_value = {
-		add = 100
+		add = 240
 	}
+	
+	scripted_button = westernist_coalition_suppress_westernist_faction
 
 	progressbar = yes
 
@@ -533,7 +728,6 @@ je_turkish_nationalism_main = {
 				}
 			}
 			trigger_event = { id = turkish_nationalism.2 popup = yes }
-			set_variable = turkish_empire
 		}
 		else_if = {
 			limit = {
@@ -769,6 +963,20 @@ je_turkish_revolution = {
 	
 	on_invalid = {
 		trigger_event = { id = turkish_nationalism.6 popup = yes }
+		hidden_effect = {
+			every_interest_group = {
+				limit = {
+					has_modifier = westernist_takeover_positive
+				}
+				remove_modifier = westernist_takeover_positive
+			}
+			every_interest_group = {
+				limit = {
+					has_modifier = westernist_takeover_negative
+				}
+				remove_modifier = westernist_takeover_negative
+			}
+		}
 	}
 
 	on_monthly_pulse = {
@@ -837,6 +1045,20 @@ je_turkish_revolutionary_war = {
 
 	on_fail = {
 		trigger_event = { id = turkish_nationalism.6 popup = yes }
+		hidden_effect = {
+			every_interest_group = {
+				limit = {
+					has_modifier = westernist_takeover_positive
+				}
+				remove_modifier = westernist_takeover_positive
+			}
+			every_interest_group = {
+				limit = {
+					has_modifier = westernist_takeover_negative
+				}
+				remove_modifier = westernist_takeover_negative
+			}
+		}
 	}
 
 	should_be_pinned_by_default = yes

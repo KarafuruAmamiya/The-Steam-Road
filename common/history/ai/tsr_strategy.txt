@@ -1,7 +1,7 @@
 ﻿AI = {
 	c:ENG ?= {
 		set_strategy = ai_strategy_mining_exporter		
-		set_strategy = ai_strategy_maintain_power_balance
+		set_strategy = ai_strategy_colonial_expansion
 		random_list = {
 			50 = { set_strategy = ai_strategy_conservative_agenda }
 			50 = { set_strategy = ai_strategy_progressive_agenda }
@@ -12,7 +12,7 @@
 			60 = { set_strategy = ai_strategy_industrial_expansion }
 			40 = { set_strategy = ai_strategy_mining_exporter }
 		}	
-		set_strategy = ai_strategy_maintain_power_balance
+		set_strategy = ai_strategy_anti_imperialism_ita
 		set_strategy = ai_strategy_progressive_agenda
 	}
 	c:SLR ?= {
@@ -20,7 +20,7 @@
 			75 = { set_strategy = ai_strategy_resource_expansion }
 			25 = { set_strategy = ai_strategy_agricultural_expansion }
 		}		
-		set_strategy = ai_strategy_maintain_power_balance
+		set_strategy = ai_strategy_territorial_expansion
 		set_strategy = ai_strategy_progressive_agenda
 	}
 	c:CSR ?= {
@@ -42,7 +42,7 @@
 			75 = { set_strategy = ai_strategy_resource_expansion }
 			25 = { set_strategy = ai_strategy_industrial_expansion }
 		}	
-		set_strategy = ai_strategy_placate_population
+		set_strategy = ai_strategy_maintain_power_balance
 		random_list = {
 			75 = { set_strategy = ai_strategy_conservative_agenda }
 			25 = { set_strategy = ai_strategy_progressive_agenda }
@@ -72,8 +72,8 @@
 			25 = { set_strategy = ai_strategy_resource_expansion }		
 		}	
 		random_list = {	
-			75 = { set_strategy = ai_strategy_maintain_power_balance }
-			25 = { set_strategy = ai_strategy_economic_imperialism }	
+			50 = { set_strategy = ai_strategy_maintain_power_balance }
+			50 = { set_strategy = ai_strategy_economic_imperialism }	
 		}
 		random_list = {	
 			50 = { set_strategy = ai_strategy_progressive_agenda }
@@ -94,7 +94,7 @@
 			35 = { set_strategy = ai_strategy_mining_exporter }
 			10 = { set_strategy = ai_strategy_resource_expansion }
 		}			
-		set_strategy = ai_strategy_colonial_expansion
+		set_strategy = ai_strategy_economic_imperialism
 		set_strategy = ai_strategy_conservative_agenda
 	}
 	c:IBE ?= {

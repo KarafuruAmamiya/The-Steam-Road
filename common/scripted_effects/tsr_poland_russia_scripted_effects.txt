@@ -173,13 +173,17 @@ calculate_plc_point = {
 	}
 	else_if = {
 		limit = {
-			has_law = law_type:law_devolved
+			c:POL ?= {
+				has_law = law_type:law_devolved
+			}
 		}
 		change_global_variable = { name = temp_centralization_var_contribution multiply = 0.3 }
 	}
 	else_if = {
 		limit = {
-			has_law = law_type:law_unitary
+			c:POL ?= {
+				has_law = law_type:law_unitary
+			}
 		}
 		change_global_variable = { name = temp_centralization_var_contribution multiply = 0.5 }
 	}

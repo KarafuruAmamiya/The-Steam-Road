@@ -256,6 +256,17 @@ law_unitary = {
 			}
 			add = 750
 		}
+		
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_feudalism
+					has_law = law_type:law_devolved
+				}
+				has_technology_researched = nationalism
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -468,6 +479,13 @@ law_federal = {
 				law_is_important = yes
 			}
 			add = 750
+		}
+		
+		if = {
+			limit = {
+				has_journal_entry = je_akkovin_reform_bureaucracy
+			}
+			add = 1000
 		}
 	}
 }

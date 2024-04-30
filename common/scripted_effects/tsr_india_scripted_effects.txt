@@ -167,60 +167,6 @@
 		limit = {
 			any_scope_state = {
 				state_region = {
-					is_homeland = cu:malvi
-				}
-			}
-		}
-		random_scope_state = {
-			limit = {
-				state_region = {
-					is_homeland = cu:malvi
-				}
-			}
-			save_scope_as = malvi_state
-		}
-		if = {
-			limit = {
-				NOT = { exists = c:MLW }
-			}
-			create_country = {
-				tag = MLW
-				origin = root
-				state = scope:malvi_state
-			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:malvi
-					}
-				}
-				set_state_owner = c:MLW
-			}
-		}
-		if = {
-			limit = {
-				exists = c:MLW
-			}
-			every_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = cu:malvi
-					}
-				}
-				set_state_owner = c:MLW
-			}
-			if = {
-				limit = {
-					c:MLW = { is_subject_of = root }
-				}
-				c:MLW = { make_independent = yes }
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_scope_state = {
-				state_region = {
 					is_homeland = cu:marathi
 				}
 			}

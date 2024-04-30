@@ -254,5 +254,26 @@ tsr_diplomatic_play_started = {
 				trigger_event = { id = balkan_crisis_2.2 days = 0 }
 			}
 		}
+		if = {
+			limit = {
+				is_diplomatic_play_type = dp_reduce_autonomy
+				scope:initiator ?= {
+					has_journal_entry = je_akkovin_crisis
+				}
+				scope:target ?= {
+					c:HDJ ?= this
+				}
+			}
+			if = {
+				limit = {
+					c:TUR ?= {
+						has_journal_entry = je_ottoman_caliphate
+					}
+				}
+				c:HDJ ?= {
+					trigger_event = { id = akkovin_crisis.13 days = 20 popup = yes }
+				}
+			}
+		}
 	}
 }

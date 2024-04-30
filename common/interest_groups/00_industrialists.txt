@@ -54,6 +54,21 @@
 				set_ig_trait = ig_trait:ig_trait_job_creators
 			}
 		}
+		# Gunpowder Empire Industrialists
+		if = {
+			limit = {
+				OR = {
+					c:TUR ?= this
+					c:AKN ?= this
+					c:PER ?= this
+					is_country_type = unrecognized
+					has_technology_researched = international_trade
+				}
+			}
+			ig:ig_industrialists = {
+				add_ideology = ideology_westernizer
+			}
+		}
 	}
 
 	on_disable = {}

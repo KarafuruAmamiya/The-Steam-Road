@@ -1351,38 +1351,24 @@ balkan_crisis.10 = {
 					trigger_else_if = {
 						limit = {
 							is_player = yes
-						}
-						is_player = yes
-						has_journal_entry = je_balkan_crisis_display
-						country_rank >= rank_value:great_power 
-						NOR = {
-							has_war_with = c:TUR
-							is_diplomatic_play_enemy_of = c:TUR
-						}
-					}
-					trigger_else_if = {
-						limit = {
-							any_country = {
-								has_diplomatic_pact = {
-									who = c:TUR
-									type = rivalry
-								}
+							has_diplomatic_pact = {
+								who = c:TUR
+								type = rivalry
+							}
+							has_journal_entry = je_balkan_crisis_display
+							country_rank >= rank_value:great_power 
+							NOR = {
+								has_war_with = c:TUR
+								is_diplomatic_play_enemy_of = c:TUR
 							}
 						}
-						is_ai = yes
-						has_journal_entry = je_balkan_crisis_display
+						is_player = yes
+					}
+					trigger_else = {
 						has_diplomatic_pact = {
 							who = c:TUR
 							type = rivalry
 						}
-						country_rank >= rank_value:great_power 
-						NOR = {
-							has_war_with = c:TUR
-							is_diplomatic_play_enemy_of = c:TUR
-						}
-					}
-					trigger_else = {
-						is_ai = yes
 						has_journal_entry = je_balkan_crisis_display
 						country_rank >= rank_value:great_power 
 						NOR = {

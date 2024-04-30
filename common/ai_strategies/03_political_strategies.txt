@@ -31,10 +31,18 @@
 	
 	max_progressiveness = {
 		value = 50
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	max_regressiveness = {
 		value = 25
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	change_law_chance = { 
@@ -42,7 +50,21 @@
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
-			add = 5
+			add = 7.5
+		}
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 7.5
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
+			add = 7.5
 		}
 
 		if = {
@@ -144,6 +166,10 @@ ai_strategy_reactionary_agenda = {
 	
 	max_progressiveness = {
 		value = 25
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	max_regressiveness = {
@@ -155,7 +181,21 @@ ai_strategy_reactionary_agenda = {
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
-			add = 1.5
+			add = 2.5
+		}
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 2.5
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
+			add = 2.5
 		}
 
 		if = {
@@ -317,6 +357,10 @@ ai_strategy_progressive_agenda = {
 	
 	max_regressiveness = {
 		value = 25
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	change_law_chance = { 
@@ -324,6 +368,20 @@ ai_strategy_progressive_agenda = {
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}	
+
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 10
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
 			add = 10
 		}	
 
@@ -499,6 +557,10 @@ ai_strategy_egalitarian_agenda = {
 	
 	max_regressiveness = {
 		value = 0
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 25
+		}
 	}
 
 	change_law_chance = { 
@@ -506,6 +568,20 @@ ai_strategy_egalitarian_agenda = {
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 5
+		}	
+
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 5
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
 			add = 5
 		}	
 
@@ -659,10 +735,18 @@ ai_strategy_nationalist_agenda = {
 	
 	max_progressiveness = {
 		value = 50
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	max_regressiveness = {
 		value = 50
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 1.5
+		}
 	}
 	
 	change_law_chance = { 
@@ -670,6 +754,20 @@ ai_strategy_nationalist_agenda = {
 		
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 10
+		}
+
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 10
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
 			add = 10
 		}
 
@@ -811,14 +909,41 @@ ai_strategy_maintain_mandate_of_heaven = {
 	
 	max_progressiveness = {
 		value = 25
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			multiply = 2
+		}
 	}
 	
 	max_regressiveness = {
 		value = 2
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 25
+		}
 	}
 	
 	change_law_chance = { 
 		value = 1
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 3
+		}
+		
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes is_powerful = yes } }
+			add = 3
+		}
+		
+		if = {
+			limit = { 
+			    any_political_movement = {
+					political_movement_radicalism >= 70
+				}
+			}
+			add = 3
+		}
 		
 		if = {
 			limit = { has_journal_entry = je_government_petition  }

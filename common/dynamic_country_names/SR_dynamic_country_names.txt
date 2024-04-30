@@ -425,7 +425,7 @@ PER = {
 		}
 	}
 	dynamic_country_name = {
-		name = dyn_c_iran # Iran
+		name = dyn_c_iran # Persia
 		adjective = dyn_c_iran_adj
 		
 		is_main_tag_only = yes
@@ -433,7 +433,8 @@ PER = {
 		
 		trigger = {
 			scope:actor ?= {
-				coa_def_republic_flag_trigger = yes
+				has_law = law_type:law_monarchy
+				is_country_type = unrecognized
 			}
 		}
 	}

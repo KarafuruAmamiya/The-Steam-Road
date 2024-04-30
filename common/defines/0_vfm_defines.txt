@@ -46,10 +46,6 @@ NAI = {
 	PRODUCTION_METHOD_DEFICIT_FACTOR = 1.4 #1.5 Per pound of deficit the produced goods would generate (multiplies a negative value)
 	PRODUCTION_METHOD_CHANCE_TO_CHANGE = 0.2 # Chance that the AI will consider changing a production method when evaluating methods
 	
-	PRODUCTION_METHOD_INCREASE_OUTPUT_PENALTY_FACTOR = 0.2 #0.01 # Multiply method score by this if we're increasing the building's output penalties
-	
-	PRODUCTION_BUILDING_INCREASE_SHORTAGE_MULT = 0.2 #0.01 Multiply score by this if we're increasing the state region's shortages
-	
 	AI_PEACE_AGREEMENT_WHITE_PEACE_BASE = 15 # If no wargoals are being enforced on either side
 	AI_PEACE_AGREEMENT_WHITE_PEACE_WAR_DURATION = 2 # For each month the war goes on add this to the acceptance for a white peace
 	
@@ -116,6 +112,26 @@ NAI = {
 	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
 	
 	PRODUCTION_BUILDING_EXCESSIVE_INFRASTRUCTURE_SURPLUS = 100 #10 # If infra 'surplus' in state is at least this, AI doesn't want to improve it
+	
+	#Borrowed from kAI
+	# Assume a war goes on for 2 years = 100 weeks
+	MOBILIZATION_OPTION_MONEY_COST_FACTOR = 100 # When checking whether the AI should activate a mobilization option, the monetary cost of activation is multiplied by this and compared against AI value to determine if it's worth it
+
+	# Set a tight limit to deficit spending so that AI doesn't chain bankruptcies
+	# AI does not intentionally deficit spend on economic buildings
+	# If they ever get into debt, it's a mistake
+	CONSTRUCTION_DEBT_RESUME = 0.0 # If constructions are paused, resume once debt is this low relative to ceiling
+	CONSTRUCTION_DEBT_PAUSE = 0.05 # If in this much relative debt to debt ceiling, pause all non-critical constructions
+
+	# Encourage AI to create demand for goods that don't yet exist in the market
+	PRODUCTION_BUILDING_INPUT_NO_LOCAL_PRODUCTION_FACTOR = -0.15 # Add this value to a building for each unit of money worth of goods consumed that are not produced in the state but *are* produced by buildings in the market
+	PRODUCTION_BUILDING_OUTPUT_NO_LOCAL_CONSUMPTION_FACTOR = -0.15 # Add this value to a building for each unit of money worth of goods produced that are not consumed in the state but *are* consumed by buildings in the market
+	PRODUCTION_BUILDING_INCREASE_SHORTAGE_MULT = 0.5 # Multiply score by this if we're increasing the state region's shortages
+	PRODUCTION_METHOD_REDUCE_OUTPUT_PENALTY_FACTOR = 4 # Multiply method score by this if we're reducing the building's output penalties
+	PRODUCTION_METHOD_INCREASE_OUTPUT_PENALTY_FACTOR = 0.5 # Multiply method score by this if we're increasing the building's output penalties
+
+	# Constructing in the same state is not a big deal
+	PRODUCTION_BUILDING_OTHER_BUILDING_TYPES_UNDER_CONSTRUCTION_DIV = 0.1 # Divide score by (1 + this * number of other building types queued in the state)
 }
 
 NCountry = {

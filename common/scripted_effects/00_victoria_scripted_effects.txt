@@ -2231,9 +2231,34 @@ clear_communism_vars = {
 # National Identity
 calculate_national_identity_progress = {
 	set_variable = { name = national_identity_progress_var_next value = 0 }
-	set_variable = { name = national_identity_progress_from_igs value = 0 }
-
+	
+	#From Radicals
+	set_variable = { name = national_identity_progress_from_radicals value = 0 }
+	every_scope_state = {
+		limit = {
+			is_incorporated = yes
+			turmoil >= 0.10
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_radicals add = prev.turmoil }
+		}
+	}
+	change_variable = { name = national_identity_progress_from_loyalists multiply = -1 }
+	
+	#From Loyalists
+	set_variable = { name = national_identity_progress_from_loyalists value = 0 }
+	every_scope_state = {
+		limit = {
+			is_incorporated = yes
+			loyalty >= 0.10
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_loyalists add = prev.loyalty }
+		}
+	}
+	
 	# From Interest Groups
+	set_variable = { name = national_identity_progress_from_igs value = 0 }
 	every_interest_group = {
 		limit = {
 			OR = {
@@ -2323,6 +2348,8 @@ calculate_national_identity_progress = {
 		}
 	}
 
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_radicals }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_loyalists }
 	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_igs }
 	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_wars }
 	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_universities }
@@ -2337,6 +2364,8 @@ add_national_identity_progress = {
 }
 
 set_national_identity_vars = {
+	set_variable = { name = national_identity_progress_from_radicals value = 0 }
+	set_variable = { name = national_identity_progress_from_loyalists value = 0 }
 	set_variable = { name = national_identity_progress_from_igs value = 0 }
 	set_variable = { name = national_identity_progress_from_wars value = 0 }
 	set_variable = { name = national_identity_progress_from_universities value = 0 }
@@ -2347,6 +2376,8 @@ set_national_identity_vars = {
 }
 
 clear_national_identity_vars = {
+	remove_variable = national_identity_progress_from_radicals
+	remove_variable = national_identity_progress_from_loyalists
 	remove_variable = national_identity_progress_from_igs
 	remove_variable = national_identity_progress_from_wars
 	remove_variable = national_identity_progress_from_universities

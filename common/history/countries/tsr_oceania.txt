@@ -1,13 +1,4 @@
 ﻿COUNTRIES = {
-	c:BRB ?= { # Bora-Bora
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
 	c:HAW ?= { # Hawaii
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
@@ -29,61 +20,16 @@
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_confederated
 	}
-	c:MGV ?= { # Mangareva
+	c:PLY ?= { # Tahiti
 		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
+		effect_starting_politics_traditional = yes		
+		effect_native_conscription_3 = yes
 
+		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:NIU ?= { # Niue
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:NKV ?= { # Nuku Hiva
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:RAI ?= { # Raiatea
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:RRT ?= { # Rarotonga
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_right_of_assembly
 	}
 	c:SMA ?= { # Samoa
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
-	c:THT ?= { # Tahuata
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -117,7 +63,7 @@
 
 		add_taxed_goods = g:grain
 	}
-	c:WAF ?= { # Uvea
+	c:TNG	?= { # Tonga
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
 		effect_starting_politics_traditional = yes
@@ -169,11 +115,6 @@
 		effect_starting_politics_traditional = yes
 	}
 	c:HLA	?= {
-		effect_starting_technology_tier_7_tech = yes
-		effect_native_conscription_3 = yes
-		effect_starting_politics_traditional = yes
-	}
-	c:HUA	?= {
 		effect_starting_technology_tier_7_tech = yes
 		effect_native_conscription_3 = yes
 		effect_starting_politics_traditional = yes
@@ -268,15 +209,6 @@
 		effect_native_conscription_8 = yes
 		effect_starting_politics_traditional = yes
 	}
-	c:PLY ?= { # Tahiti
-		effect_starting_technology_tier_6_tech = yes
-		effect_starting_politics_traditional = yes		
-		effect_native_conscription_3 = yes
-
-		activate_law = law_type:law_national_supremacy
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_right_of_assembly
-	}
 	c:PLW	?= { # Palawa
 		effect_starting_technology_tier_7_tech = yes
 		effect_native_conscription_8 = yes
@@ -296,11 +228,6 @@
 		effect_starting_technology_tier_7_tech = yes
 		effect_native_conscription_8 = yes
 		effect_starting_politics_traditional = yes
-	}
-	c:TNG	?= { # Tonga
-		effect_starting_technology_tier_7_tech = yes	
-		effect_starting_politics_traditional = yes
-		effect_native_conscription_5 = yes
 	}
 	c:VNT	?= { # Vanuatu
 		effect_starting_technology_tier_7_tech = yes	

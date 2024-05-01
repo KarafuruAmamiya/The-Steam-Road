@@ -2861,6 +2861,30 @@
 				state_region = s:STATE_MARI_EL
 				count = 1
 			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_UDMURTIA
+				count = 1
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_UDMURTIA
+				count = 1
+			}
+		}
+		
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_west_siberia
+			name = "2-y Pekhotniy Korpus"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PERM
+				count = 5
+			}
 		}
 	}
 	

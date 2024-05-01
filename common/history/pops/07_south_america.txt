@@ -21,23 +21,7 @@
 				pop_type = slaves
 				culture = afro_caribeno
 				size = 54429
-			}		
-		}
-		region_state:IBE = {
-			create_pop = {
-				culture = spanish
-				size = 1000
 			}
-		}
-		region_state:SCY = {
-			create_pop = {
-				culture = amazonian
-				size = 5000
-			}
-		}
-	}
-	s:STATE_AZUAY = {
-		region_state:PEU = {
 			create_pop = {
 				culture = south_andean
 				size = 54100
@@ -54,7 +38,19 @@
 				pop_type = slaves
 				culture = afro_caribeno
 				size = 10000
-			}		
+			}			
+		}
+		region_state:IBE = {
+			create_pop = {
+				culture = spanish
+				size = 1000
+			}
+		}
+		region_state:SCY = {
+			create_pop = {
+				culture = amazonian
+				size = 5000
+			}
 		}
 	}
 	s:STATE_GUAYAQUIL = {
@@ -895,8 +891,20 @@
 			}
 		}
 	}
-	s:STATE_TAIXA = {
+	s:STATE_POTOSI = {
 		region_state:MRZ = {
+			create_pop = {
+				culture = andino
+				size = 84000
+			}
+			create_pop = {
+				culture = aimara
+				size = 181996
+			}
+			create_pop = {
+				culture = quechua
+				size = 34000
+			}
 			create_pop = {
 				culture = andino
 				size = 54300
@@ -933,22 +941,6 @@
 			}
 		}
 	}
-	s:STATE_POTOSI = {
-		region_state:MRZ = {
-			create_pop = {
-				culture = andino
-				size = 84000
-			}
-			create_pop = {
-				culture = aimara
-				size = 181996
-			}
-			create_pop = {
-				culture = quechua
-				size = 34000
-			}
-		}
-	}
 	s:STATE_CAJAMARCA = {
 		region_state:PEU = {
 			create_pop = {
@@ -968,10 +960,6 @@
 				culture = quechua
 				size = 186696
 			}
-		}
-	}
-	s:STATE_SAN_MARTIN = {
-		region_state:PEU = {
 			create_pop = {
 				culture = south_andean
 				size = 21400
@@ -1024,10 +1012,6 @@
 				culture = afro_caribeno
 				size = 6200
 			}
-		}
-	}
-	s:STATE_JUNIN = {
-		region_state:PEU = {
 			create_pop = {
 				culture = south_andean
 				size = 34500
@@ -1235,16 +1219,6 @@
 				culture = platiniano
 				size = 4000
 			}
-		}
-		region_state:GNI = {
-			create_pop = {
-				culture = guarani
-				size = 20000
-			}
-		}
-	}
-	s:STATE_PUCARA = {
-		region_state:MRZ = {
 			create_pop = {
 				culture = andino
 				size = 8000
@@ -1262,20 +1236,10 @@
 				size = 3000
 			}
 		}
-	}
-	s:STATE_CATAMARCA = {
-		region_state:CSR = {
+		region_state:GNI = {
 			create_pop = {
-				culture = platiniano
-				size = 29304
-			}
-			create_pop = {
-				culture = aimara
-				size = 2000
-			}
-			create_pop = {
-				culture = quechua
-				size = 3100
+				culture = guarani
+				size = 20000
 			}
 		}
 	}
@@ -1406,10 +1370,6 @@
 				culture = afro_brazilian
 				size = 10300
 			}
-		}
-	}
-	s:STATE_LOURINHA = {
-		region_state:CSR = {
 			create_pop = {
 				culture = platiniano
 				size = 885669
@@ -1498,10 +1458,6 @@
 				culture = quechua
 				size = 2600
 			}
-		}
-	}
-	s:STATE_PEREIRA = {
-		region_state:CSR = {
 			create_pop = {
 				culture = platiniano
 				size = 221033
@@ -1519,10 +1475,6 @@
 				culture = quechua
 				size = 3100
 			}
-		}
-	}
-	s:STATE_TUCUMAN = {
-		region_state:CSR = {
 			create_pop = {
 				culture = platiniano
 				size = 176078
@@ -1542,6 +1494,11 @@
 			}
 		}
 	}
+	s:STATE_PEREIRA = {
+		region_state:CSR = {
+			
+		}
+	}
 	s:STATE_NOVA_BEIRA = {
 		region_state:CSR = {
 			create_pop = {
@@ -1551,6 +1508,18 @@
 			create_pop = {
 				culture = quechua
 				size = 4000
+			}
+			create_pop = {
+				culture = platiniano
+				size = 29304
+			}
+			create_pop = {
+				culture = aimara
+				size = 2000
+			}
+			create_pop = {
+				culture = quechua
+				size = 3100
 			}
 		}
 	}
@@ -1573,16 +1542,6 @@
 				culture = quechua
 				size = 2000
 			}
-		}
-		region_state:PAT = {
-			create_pop = {
-				culture = patagonian
-				size = 2000
-			}
-		}
-	}
-	s:STATE_TUNUIAO = {
-		region_state:CSR = {
 			create_pop = {
 				culture = platiniano
 				size = 23993

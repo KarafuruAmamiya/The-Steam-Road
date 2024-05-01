@@ -38,6 +38,39 @@ tsr_events_yearly = {
 				target = THIS
 			}
 		}
+		every_country = {
+			limit = { 
+				country_is_in_india = yes
+				is_subject_of = c:PER
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = hindustani_subject_country
+						target = THIS
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = hindustani_subject_country
+				target = THIS
+			}
+		}
+		c:PER ?= {
+			every_scope_state = {
+				limit = {
+					state_is_in_india = yes
+					NOT = {
+						is_target_in_global_variable_list = {
+							name = hindustani_subject_state
+							target = THIS
+						}
+					}
+				}
+				add_to_global_variable_list = {
+					name = hindustani_subject_state
+					target = THIS
+				}
+			}
+		}
 		if = {
 			limit = {
 				c:HDJ ?= this

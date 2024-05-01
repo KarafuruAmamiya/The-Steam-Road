@@ -338,15 +338,17 @@ oppose_westernists = {
 		}		
 	
 		will_propose = {
-			OR = {
-				AND = {
-					has_strategy = ai_strategy_maintain_power_balance
-					c:TUR ?= {
-						var:westernist_progress_var >= 50				
+			AND = {
+				OR = {
+					AND = {
+						has_strategy = ai_strategy_maintain_power_balance
+						c:TUR ?= {
+							var:westernist_progress_var >= 30				
+						}
 					}
-				}
-				c:TUR ?= {
-					var:westernist_progress_var >= 100				
+					c:TUR ?= {
+						var:westernist_progress_var >= 100				
+					}
 				}
 				NOT = {
 					c:PER ?= this	

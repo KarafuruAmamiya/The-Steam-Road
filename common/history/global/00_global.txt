@@ -310,11 +310,14 @@ GLOBAL = {
             add_modifier = zoroastrian_persecution
         }
 		every_scope_state = {
-			limit = {
+            limit = {
 				state_is_in_india = yes
             }
-			set_variable = hindustani_subject_state
-		}
+            add_to_global_variable_list = {
+				name = hindustani_subject_state
+				target = THIS
+			}
+        }
 	}
 	
 	c:IBE ?= {
@@ -420,14 +423,25 @@ GLOBAL = {
     }
 	
 	every_country = {
-		limit = { 
+		limit = {
 			country_is_in_india = yes
 			is_subject_of = c:PER
 		}
-		every_scope_state = {
-			set_variable = hindustani_subject_state
+		add_to_global_variable_list = {
+			name = hindustani_subject_country
+			target = THIS
 		}
-    }
+	}
+	
+	every_country = {
+		limit = { 
+			is_subject_type = subject_type_hre
+		}
+		add_to_global_variable_list = {
+			name = hre_subject
+			target = THIS
+		}
+	}
 	
 	random_market = {
 		limit = {

@@ -21,7 +21,7 @@
 			}
 			create_building={
 				building="building_maize_farm"
-				level=2
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
@@ -50,16 +50,6 @@
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
-			}
-		}
-	}
-	s:STATE_AZUAY={
-		region_state:PEU={
-			create_building={
-				building="building_maize_farm"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
 		}
 	}
@@ -682,7 +672,7 @@
 			}
 			create_building={
 				building="building_gold_mine"
-				level=3
+				level=5
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_gold_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_gold_mine" }
 			}
@@ -694,10 +684,10 @@
 			}
 			create_building={
 				building="building_livestock_ranch"
-				level=1
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}		
+			}				
 		}
 	}
 	s:STATE_AREQUIPA={
@@ -752,28 +742,14 @@
 			}		
 		}
 	}
-	s:STATE_TAIXA={
-		region_state:MRZ={
-			create_building={
-				building="building_gold_mine"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_picks_and_shovels_building_gold_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_gold_mine" }
-			}
+	s:STATE_SALTA={
+		region_state:MRZ={	
 			create_building={
 				building="building_livestock_ranch"
 				level=1
 				reserves=1
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}	
-		}
-	}
-	s:STATE_PUCARA={
-		region_state:MRZ={			
-		}
-	}
-	s:STATE_SALTA={
-		region_state:MRZ={		
+			}
 		}
 	}
 	s:STATE_CAJAMARCA={
@@ -1190,51 +1166,17 @@
 		region_state:CSR={
 		}
 	}
-	s:STATE_LOURINHA={
-		region_state:CSR={
-			create_building={
-				building="building_government_administration"
-				level=3
-				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets"  }
-			}
-			create_building={
-				building="building_government_administration"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
-			}
-			create_building={
-				building="building_maize_farm"
-				level=6
-				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
-			}			
-			create_building={
-				building="building_textile_mills"
-				level=1
-				reserves=1
-				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
-			}		
-			create_building={
-				building="building_livestock_ranch"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-		}
-	}
 	s:STATE_SANTA_QUITERIA={
 		region_state:CSR={
 			create_building={
 				building="building_government_administration"
-				level=2
+				level=5
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets"  }
 			}
 			create_building={
 				building="building_maize_farm"
-				level=6
+				level=12
 				reserves=1
 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" "pm_privately_owned" }
 			}
@@ -1246,7 +1188,7 @@
 			}			
 			create_building={
 				building="building_livestock_ranch"
-				level=2
+				level=4
 				reserves=1
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
 			}
@@ -1255,18 +1197,14 @@
 				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
-			}
-		}	
-	}
-	s:STATE_CATAMARCA={
-		region_state:CSR={
+			}		
 			create_building={
-				building="building_livestock_ranch"
+				building="building_textile_mills"
 				level=1
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-		}
+				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" "pm_merchant_guilds_building_textile_mills" }
+			}		
+		}	
 	}
 	s:STATE_NOVA_BEIRA={
 		region_state:CSR={
@@ -1282,16 +1220,6 @@
 		region_state:CSR={
 		}
 	}
-	s:STATE_PEREIRA={
-		region_state:CSR={
-			create_building={
-				building="building_livestock_ranch"
-				level=2
-				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
-			}
-		}
-	}
 	s:STATE_TUCUMAN={
 		region_state:CSR={
 			create_building={
@@ -1300,6 +1228,12 @@
 				reserves=1
 				activate_production_methods={ "pm_picks_and_shovels_building_gold_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_merchant_guilds_building_gold_mine" }
 			}	
+			create_building={
+				building="building_livestock_ranch"
+				level=2
+				reserves=1
+				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+			}
 		}
 	}
 	s:STATE_CHACO={

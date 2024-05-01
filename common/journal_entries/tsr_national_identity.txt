@@ -1,0 +1,689 @@
+﻿je_ethnogenesis = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_tsr_content
+
+	is_shown_when_inactive = {
+		OR = {
+			c:GER ?= this
+			c:CHI ?= this
+			c:UTA ?= this
+			c:ARA ?= this
+			c:FRA ?= this
+			c:IBE ?= this
+			c:PER ?= this
+			c:BHT ?= this
+			c:IDN ?= this
+			c:SCA ?= this
+			c:TRH ?= this
+		}
+		hidden_trigger = {
+			NOT = { has_variable = completed_culture_genesis }
+		}
+		is_revolutionary = no
+	}
+	
+	possible = {
+		has_technology_researched = nationalism
+		NOR = {
+			has_law = law_type:law_feudalism
+			has_law = law_type:law_confederated
+		}
+		trigger_if = {
+			limit = {
+				OR = {
+					c:IBE ?= this
+					c:ARA ?= this
+					c:BHT ?= this
+					c:IDN ?= this
+					c:SCA ?= this
+					c:TRH ?= this
+				}
+			}
+			#Pan-national cultures requires extra efforts
+			has_law = law_type:law_unitary
+			has_technology_researched = pan-nationalism
+		}
+		hidden_trigger = {
+			NOT = { has_variable = completed_culture_genesis }
+		}
+	}
+	
+	immediate = {
+		set_national_identity_vars = yes
+		set_variable = { name = national_identity_progress_var value = 0 }
+		calculate_national_identity_progress = yes
+		if = {
+			limit = {
+				c:GER ?= this
+			}
+			cu:german = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:CHI ?= this
+			}
+			cu:han = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:UTA ?= this
+			}
+			cu:italian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:ARA ?= this
+			}
+			cu:arab = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:FRA ?= this
+			}
+			cu:french_new = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:IBE ?= this
+			}
+			cu:iberian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:PER ?= this
+			}
+			cu:persian_new = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:BHT ?= this
+			}
+			cu:indian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:IDN ?= this
+			}
+			cu:indonesian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SCA ?= this
+			}
+			cu:scandinavian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:TRH ?= this
+			}
+			cu:turkestani = {
+				save_scope_as = new_national_culture
+			}
+		}
+		#trigger_event = { id = culture_south_america.4 popup = yes }
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+	}
+
+	on_complete = {
+		clear_national_identity_vars = yes
+		trigger_event = {
+			id = culture_south_america.1 popup = yes
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					c:GER ?= this
+				}
+				add_primary_culture = cu:german
+				remove_primary_culture = cu:north_german
+				remove_primary_culture = cu:south_german
+				remove_primary_culture = cu:rhenish
+				remove_primary_culture = cu:alemannic
+				remove_primary_culture = cu:baltic_german
+			}
+			if = {
+				limit = {
+					c:UTA ?= this
+				}
+				add_primary_culture = cu:italian
+				remove_primary_culture = cu:north_italian
+				remove_primary_culture = cu:south_italian
+				remove_primary_culture = cu:corsican
+				remove_primary_culture = cu:maltese
+			}
+			if = {
+				limit = {
+					c:CHI ?= this
+				}
+				add_primary_culture = cu:han
+				remove_primary_culture = cu:zhongyuan
+				remove_primary_culture = cu:jianghuai
+				remove_primary_culture = cu:yue
+				remove_primary_culture = cu:min
+				remove_primary_culture = cu:hakka
+				remove_primary_culture = cu:wu
+				remove_primary_culture = cu:gan
+				remove_primary_culture = cu:jin
+				remove_primary_culture = cu:jiaoliao
+				remove_primary_culture = cu:shangjiang
+				remove_primary_culture = cu:xiang
+				remove_primary_culture = cu:jilu
+			}
+			if = {
+				limit = {
+					c:ARA ?= this
+				}
+				add_primary_culture = cu:arab
+				remove_primary_culture = cu:misri
+				remove_primary_culture = cu:levantine
+				remove_primary_culture = cu:iraqi
+				remove_primary_culture = cu:bedouin
+				remove_primary_culture = cu:omani
+				remove_primary_culture = cu:khaleeji
+				remove_primary_culture = cu:mashriqi
+				remove_primary_culture = cu:hadramhi
+				remove_primary_culture = cu:maghrebi
+			}
+			if = {
+				limit = {
+					c:FRA ?= this
+				}
+				add_primary_culture = cu:french_new
+				remove_primary_culture = cu:french
+				remove_primary_culture = cu:occitan
+				remove_primary_culture = cu:francoprovencal
+			}
+			if = {
+				limit = {
+					c:PER ?= this
+				}
+				add_primary_culture = cu:persian_new
+				remove_primary_culture = cu:persian
+				remove_primary_culture = cu:tajik
+				remove_primary_culture = cu:luri
+				remove_primary_culture = cu:caspian
+			}
+			if = {
+				limit = {
+					c:IBE ?= this
+				}
+				add_primary_culture = cu:iberian
+				remove_primary_culture = cu:portuguese
+				remove_primary_culture = cu:catalan
+				remove_primary_culture = cu:spanish
+				remove_primary_culture = cu:basque
+			}
+			if = {
+				limit = {
+					c:BHT ?= this
+				}
+				add_primary_culture = cu:indian
+				remove_primary_culture = cu:west_bengali
+				remove_primary_culture = cu:bengali
+				remove_primary_culture = cu:gondi
+				remove_primary_culture = cu:avadhi
+				remove_primary_culture = cu:kanauji
+				remove_primary_culture = cu:panjabi
+				remove_primary_culture = cu:assamese
+				remove_primary_culture = cu:bihari
+				remove_primary_culture = cu:oriya
+				remove_primary_culture = cu:sinhala
+				remove_primary_culture = cu:kashmiri
+				remove_primary_culture = cu:gujarati
+				remove_primary_culture = cu:marathi
+				remove_primary_culture = cu:sindi
+				remove_primary_culture = cu:rajput
+				remove_primary_culture = cu:kannada
+				remove_primary_culture = cu:malayalam
+				remove_primary_culture = cu:tamil
+				remove_primary_culture = cu:telegu
+
+			}
+			if = {
+				limit = {
+					c:IDN ?= this
+				}
+				add_primary_culture = cu:indonesian
+				remove_primary_culture = cu:malay
+				remove_primary_culture = cu:sulawesi
+				remove_primary_culture = cu:sundanese
+				remove_primary_culture = cu:sasak_sumbawa
+				remove_primary_culture = cu:sumba_flores
+				remove_primary_culture = cu:acehnese
+				remove_primary_culture = cu:batak
+				remove_primary_culture = cu:dayak
+				remove_primary_culture = cu:javan
+				remove_primary_culture = cu:moluccan
+				remove_primary_culture = cu:balinese
+
+			}
+			if = {
+				limit = {
+					c:SCA ?= this
+				}
+				add_primary_culture = cu:scandinavian
+				remove_primary_culture = cu:swedish
+				remove_primary_culture = cu:finnish
+				remove_primary_culture = cu:norwegian
+				remove_primary_culture = cu:danish
+				remove_primary_culture = cu:icelandic
+			}
+			if = {
+				limit = {
+					c:TRH ?= this
+				}
+				add_primary_culture = cu:turkestani
+				remove_primary_culture = cu:turkish
+				remove_primary_culture = cu:akturk
+				remove_primary_culture = cu:azerbaijani
+				remove_primary_culture = cu:uzbek
+				remove_primary_culture = cu:kazak
+				remove_primary_culture = cu:kirgiz
+				remove_primary_culture = cu:uighur
+				remove_primary_culture = cu:turkmen
+				remove_primary_culture = cu:tatar
+				remove_primary_culture = cu:yakut
+				remove_primary_culture = cu:tuvan
+				remove_primary_culture = cu:altai
+			}
+		}
+		hidden_effect = {
+			set_variable = completed_culture_genesis
+		}
+	}
+
+	invalid = {
+		NOR = {
+			c:GER ?= this
+			c:CHI ?= this
+			c:UTA ?= this
+			c:ARA ?= this
+			c:FRA ?= this
+			c:IBE ?= this
+			c:PER ?= this
+			c:BHT ?= this
+			c:IDN ?= this
+			c:SCA ?= this
+			c:TRH ?= this
+		}
+	}
+
+	on_invalid = {
+		hidden_effect = {
+			set_variable = completed_culture_genesis
+		}
+	}
+
+	current_value = {
+		value = root.var:national_identity_progress_var
+	}
+
+	goal_add_value = {
+		add = 100
+	}
+
+	weight = 100
+
+	progressbar = yes
+
+	should_be_pinned_by_default = yes
+}
+
+je_national_identity = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_internal_affairs
+
+	# Now activated by event
+
+	modifiers_while_active = {
+		modifier_assimilation_nnc
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				c:GER ?= this
+			}
+			cu:german = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:CHI ?= this
+			}
+			cu:han = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:UTA ?= this
+			}
+			cu:italian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:ARA ?= this
+			}
+			cu:arab = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:FRA ?= this
+			}
+			cu:french_new = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:IBE ?= this
+			}
+			cu:iberian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:PER ?= this
+			}
+			cu:persian_new = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:BHT ?= this
+			}
+			cu:indian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:IDN ?= this
+			}
+			cu:indonesian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:SCA ?= this
+			}
+			cu:scandinavian = {
+				save_scope_as = new_national_culture
+			}
+		}
+		if = {
+			limit = {
+				c:TRH ?= this
+			}
+			cu:turkestani = {
+				save_scope_as = new_national_culture
+			}
+		}
+	}
+
+	complete = {
+		NOR = {
+			trigger_if = {
+				limit = {
+					c:GER ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:north_german
+							is_homeland = cu:south_german
+							is_homeland = cu:rhenish
+							is_homeland = cu:alemannic
+							is_homeland = cu:baltic_german
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:UTA ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:north_italian
+							is_homeland = cu:south_italian
+							is_homeland = cu:corsican
+							is_homeland = cu:maltese
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:CHI ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:zhongyuan
+							is_homeland = cu:jianghuai
+							is_homeland = cu:yue
+							is_homeland = cu:min
+							is_homeland = cu:hakka
+							is_homeland = cu:wu
+							is_homeland = cu:gan
+							is_homeland = cu:jin
+							is_homeland = cu:jiaoliao
+							is_homeland = cu:shangjiang
+							is_homeland = cu:xiang
+							is_homeland = cu:jilu
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:ARA ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:misri
+							is_homeland = cu:levantine
+							is_homeland = cu:iraqi
+							is_homeland = cu:bedouin
+							is_homeland = cu:omani
+							is_homeland = cu:khaleeji
+							is_homeland = cu:mashriqi
+							is_homeland = cu:hadramhi
+							is_homeland = cu:maghrebi
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:FRA ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:french
+							is_homeland = cu:francoprovencal
+							is_homeland = cu:occitan
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:PER ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:persian
+							is_homeland = cu:luri
+							is_homeland = cu:tajik
+							is_homeland = cu:caspian
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:IBE ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:portuguese
+							is_homeland = cu:catalan
+							is_homeland = cu:spanish
+							is_homeland = cu:basque
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:BHT ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:west_bengali
+							is_homeland = cu:bengali
+							is_homeland = cu:gondi
+							is_homeland = cu:avadhi
+							is_homeland = cu:kanauji
+							is_homeland = cu:panjabi
+							is_homeland = cu:assamese
+							is_homeland = cu:bihari
+							is_homeland = cu:oriya
+							is_homeland = cu:sinhala
+							is_homeland = cu:kashmiri
+							is_homeland = cu:gujarati
+							is_homeland = cu:marathi
+							is_homeland = cu:sindi
+							is_homeland = cu:rajput
+							is_homeland = cu:kannada
+							is_homeland = cu:malayalam
+							is_homeland = cu:tamil
+							is_homeland = cu:telegu
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:IDN ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:malay
+							is_homeland = cu:sulawesi
+							is_homeland = cu:sundanese
+							is_homeland = cu:sasak_sumbawa
+							is_homeland = cu:sumba_flores
+							is_homeland = cu:acehnese
+							is_homeland = cu:batak
+							is_homeland = cu:dayak
+							is_homeland = cu:javan
+							is_homeland = cu:moluccan
+							is_homeland = cu:balinese
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:SCA ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:swedish
+							is_homeland = cu:finnish
+							is_homeland = cu:norwegian
+							is_homeland = cu:danish
+							is_homeland = cu:icelandic
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					c:TRH ?= this
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:turkish
+							is_homeland = cu:akturk
+							is_homeland = cu:azerbaijani
+							is_homeland = cu:uzbek
+							is_homeland = cu:kazak
+							is_homeland = cu:kirgiz
+							is_homeland = cu:uighur
+							is_homeland = cu:turkmen
+							is_homeland = cu:tatar
+							is_homeland = cu:yakut
+							is_homeland = cu:tuvan
+							is_homeland = cu:altai
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		#trigger_event = {
+		#	id = culture_south_america.3
+		#}
+		add_loyalists = {
+			value = large_radicals
+			culture = scope:new_national_culture
+		}
+	}
+
+	#scripted_button = je_national_identity_integrate_a_state
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}

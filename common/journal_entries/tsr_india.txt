@@ -23,11 +23,18 @@
 		}
 		custom_tooltip = {
 			text = any_indian_state_breaksaway
-			any_state = {
-				has_variable = hindustani_subject_state
-				NOR = {
-					owner = root
-					owner = { is_subject_of = root }
+			OR = {
+				any_in_global_list = {
+					variable = hindustani_subject_country
+					is_country_alive = yes
+					is_subject = no
+				}
+				any_in_global_list = {
+					variable = hindustani_subject_state
+					NOR = {
+						owner = ROOT
+						owner = { is_subject_of = root }
+					}
 				}
 			}
 		}

@@ -306,6 +306,15 @@
 				}
 			}
 			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_DEPENDENCY"
+				if = {
+					limit = {
+						is_subject_type = subject_type_dependency
+					}
+					value = 10
+				}
+			}
+			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_GOVERNORATE"
 				if = {
 					limit = {

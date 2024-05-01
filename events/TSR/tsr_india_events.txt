@@ -931,6 +931,7 @@ raj.6 = {
 				name = hindustani_uprising
 				type = dp_annex_war
 				target_country = c:GUJ
+				escalation = 80
 				
 				add_war_goal = {
 					holder = c:GUJ
@@ -1121,7 +1122,7 @@ raj.8 = {
 			base = 50
 			modifier = {
 				trigger = {
-					c:PER = { relations:root <= relations_threshold:neutral }
+					c:PER = { relations:root < relations_threshold:neutral }
 				}
 				add = 100
 			}
@@ -1130,6 +1131,15 @@ raj.8 = {
 	
 	option = {
 		name = raj.8.b
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:PER
+				target_is = c:GUJ
+			}
+			add_initiator_backers = {
+				root
+			}
+		}
 		ai_chance = {
 			base = 50
 		}

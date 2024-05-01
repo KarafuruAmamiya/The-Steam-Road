@@ -20,121 +20,16 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	
 	immediate = {
 		c:SAX = { save_scope_as = sax_scope }
-		remove_diplomatic_pact = {
-			country = c:PFA 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:RHE
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:NAS 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:MUN 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:HES 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:FRM 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:BRA 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:GOS 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:BRK 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:LOR 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:FRC 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:MUL 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:KNZ 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:WUR 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:ULM 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:SRB 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:AUS 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:GLG 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:BOH 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:MVA 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:SLV 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:SLO 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:FRN 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:COB 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:NET 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:LUX 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:LGE 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:MAI 
-			type = hre
-		}
-		remove_diplomatic_pact = {
-			country = c:REG 
-			type = hre
+		every_country = {
+			limit = {
+				is_subject_type = subject_type_hre
+			}
+			ROOT = {
+				remove_diplomatic_pact = {
+					country = prev
+					type = hre
+				}
+			}
 		}
 	}
 	

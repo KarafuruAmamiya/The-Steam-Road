@@ -1,29 +1,33 @@
 ﻿POPS = {
 	s:STATE_URAL = {
-		region_state:MSC = {
+		region_state:SSB = {
 			create_pop = {
-				culture = tatar
+				culture = russian
+				size = 77296
+			}
+			create_pop = {
+				culture = swedish
 				size = 10000
 			}
 			create_pop = {
-				culture = russian
-				size = 27296
+				culture = tatar
+				size = 5996
 			}
 			create_pop = {
 				culture = obugric
-				size = 83996
-			}
-			create_pop = {
-				culture = samoyedic
-				size = 5504
+				size = 13504
 			}
 		}
 	}
 	s:STATE_TOMSK = {
-		region_state:SIB = {
+		region_state:SSB = {
 			create_pop = {
-				culture = tatar
-				size = 230008
+				culture = russian
+				size = 170008
+			}
+			create_pop = {
+				culture = swedish
+				size = 40000
 			}
 			create_pop = {
 				culture = siberian
@@ -35,14 +39,24 @@
 				size = 24000
 			}
 			create_pop = {
-				pop_type = slaves
-				culture = russian
-				size = 10000
+				culture = tatar
+				size = 24000
 			}
 			create_pop = {
 				culture = tatar
 				religion = tengri
-				size = 32000
+				size = 16000
+			}
+		}
+		region_state:SIB = {
+			create_pop = {
+				culture = tatar
+				size = 230008
+			}
+			create_pop = {
+				culture = tatar
+				religion = tengri
+				size = 16000
 			}
 		}
 	}
@@ -66,7 +80,7 @@
 				culture = siberian
 				size = 20008
 			}
-		}		
+		}	
 	}
 	s:STATE_TOBOLSK = {
 		region_state:SIB = {
@@ -164,7 +178,7 @@
 		}
 	}
 	s:STATE_UPPER_YENISEYSK = {
-		region_state:EVK = {
+		region_state:SSB = {
 			create_pop = {
 				culture = siberian
 				size = 21780
@@ -174,28 +188,36 @@
 				size = 7980				# PDX's number
 			}
 			create_pop = {
+				culture = swedish
+				size = 852
+			}
+			create_pop = {
 				culture = yakut
 				size = 2568
 			}
 		}
 	}
 	s:STATE_OB = {
-		region_state:NNT = {
+		region_state:SSB = {
 			create_pop = {
 				culture = samoyedic		# changed from Ugrian to Samoyedic
 				size = 10776			# PDX's number
 			}
 			create_pop = {
-				culture = tatar
+				culture = russian
 				size = 596
 			}
 		}
 	}
 	s:STATE_NENETSIA = {
-		region_state:NNT = {
+		region_state:SSB = {
 			create_pop = {
 				culture = russian
 				size = 7204
+			}
+			create_pop = {
+				culture = swedish
+				size = 3000
 			}
 			create_pop = {
 				culture = samoyedic		# changed from Ugrian to Samoyedic
@@ -269,12 +291,31 @@
 				size = 8100
 			}
 		}
-	}
-	s:STATE_AMUR = {
-		region_state:XBO = {
+		region_state:SSB = {
+			create_pop = {
+				culture = yakut
+				size = 41100
+			}
+			create_pop = {
+				culture = yakut
+				religion = catholic
+				size = 9000
+			}
+			create_pop = {
+				culture = swedish
+				size = 16096
+			}
 			create_pop = {
 				culture = siberian
-				size = 115400
+				size = 800
+			}
+		}
+	}
+	s:STATE_AMUR = {
+		region_state:SSB = {
+			create_pop = {
+				culture = siberian
+				size = 15400
 			}
 			create_pop = {
 				culture = manchu
@@ -283,6 +324,10 @@
 			create_pop = {
 				culture = mongol
 				size = 50000
+			}
+			create_pop = {
+				culture = swedish
+				size = 1000
 			}
 		}
 		region_state:AMU = {

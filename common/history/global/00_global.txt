@@ -248,53 +248,8 @@ GLOBAL = {
 	}
 	
 	every_country = {
-		limit = { 
-			OR = {
-				country_is_in_middle_east = yes 
-				gunpowder_empire_trigger = yes
-			}
-		}
         trigger_event = {
             id = lorebox.1
-            days = 1
-        }
-    }
-	
-	every_country = {
-		limit = { 
-			country_is_in_europe = yes 
-			gunpowder_empire_trigger = no
-		}
-        trigger_event = {
-            id = lorebox.2
-            days = 1
-        }
-    }
-	
-	every_country = {
-		limit = { 
-			OR = {
-				country_is_in_east_asia = yes
-				country_is_in_central_asia = yes
-				country_is_in_southeast_asia = yes
-			}
-		}
-        trigger_event = {
-            id = lorebox.3
-            days = 1
-        }
-    }
-	
-	every_country = {
-		limit = { 
-			OR = {
-				country_is_in_north_america = yes
-				country_is_in_central_america = yes
-				country_is_in_south_america = yes
-			}
-		}
-        trigger_event = {
-            id = lorebox.4
             days = 1
         }
     }

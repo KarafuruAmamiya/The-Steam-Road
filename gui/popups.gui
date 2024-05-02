@@ -3561,10 +3561,10 @@ template start_diplo_play_table_header {
 	}
 }
 
-# TSR Loreboxes
+# TSR Lorebox
 
-notification_popup =  { # Middle East Lore
-	name = "lorebox_me_popup"
+notification_popup =  {
+	name = "lorebox_popup"
     resizable = no
     layer = top
     
@@ -3574,47 +3574,32 @@ notification_popup =  { # Middle East Lore
     parentanchor = center
 
 	blockoverride "window_header_name" {
-		text = "MIDDLE_EAST_LORE"
+		text = "[GetPlayer.GetCustom('continent_lore')]"
 	}
 	
 	default_header_clean = {
 		position = { 65 95 }
 		autoresize = yes
-		maximumsize = { 920 -1 }
-		minimumsize = { 920 -1 }
+		maximumsize = { 920 50 }
+		minimumsize = { 920 50 }
 		blockoverride "text" {
 			text = "LORE_HEADER"
 		}
 		using = default_fade_in_out
 	}
-	
-	#textbox = {
-	#	position = { 0 80 }
-	#	autoresize = yes
-	#	multiline = yes
-	#	maximumsize = { 920 -1 }
-	#	minimumsize = { 920 -1 }
-	#	text = "LORE_HEADER"
-	#	align = center|nobaseline
-	#	parentanchor = hcenter
-	#	margin_top = 20
-	#	margin_right = 10
-	#	margin_bottom = 20
-	#	using = fontsize_large
-	#}
 
 	blockoverride "scrollarea_content"
 	{
 		flowcontainer = {
 			direction = vertical
 			resizeparent = yes
-			margin_top = 55
+			margin_top = 60
 			margin_right = 10
 			margin_bottom = 20
 			
 			scrollarea = {
-				minimumsize = { 950 500 }
-				maximumsize = { 950 500 }
+				minimumsize = { 950 550 }
+				maximumsize = { 950 550 }
 				autoresizescrollarea = no
 				scrollbarpolicy_horizontal = always_off
 				scrollbar_vertical = {
@@ -3631,271 +3616,7 @@ notification_popup =  { # Middle East Lore
 						margin_left = 20
 						margin_right = 25
 						margin_bottom = 10
-						text = "MIDDLE_EAST_DESC"
-						using = fontsize_large
-					}
-				}
-			}
-
-		}
-	}
-	
-	blockoverride "fixed_bottom" {
-		button = {
-			using = default_list_position
-			using = default_button
-			size = { 400 40 }
-			text = "Close"
-			onclick = "[PopupManager.CloseMessage(PlayerMessageItem.AccessSelf)]"			
-		}
-	}
-}
-
-notification_popup =  { # Europe Lore
-	name = "lorebox_eu_popup"
-    resizable = no
-    layer = top
-    
-    using = Window_Background
-    
-
-    parentanchor = center
-
-	blockoverride "window_header_name" {
-		text = "EUROPE_LORE"
-	}
-	
-	default_header_clean = {
-		position = { 65 95 }
-		autoresize = yes
-		maximumsize = { 920 -1 }
-		minimumsize = { 920 -1 }
-		blockoverride "text" {
-			text = "LORE_HEADER"
-		}
-		using = default_fade_in_out
-	}
-	
-	#textbox = {
-	#	position = { 0 80 }
-	#	autoresize = yes
-	#	multiline = yes
-	#	maximumsize = { 920 -1 }
-	#	minimumsize = { 920 -1 }
-	#	text = "LORE_HEADER"
-	#	align = center|nobaseline
-	#	parentanchor = hcenter
-	#	margin_top = 20
-	#	margin_right = 10
-	#	margin_bottom = 20
-	#	using = fontsize_large
-	#}
-
-	blockoverride "scrollarea_content"
-	{
-		flowcontainer = {
-			direction = vertical
-			resizeparent = yes
-			margin_top = 55
-			margin_right = 10
-			margin_bottom = 20
-			
-			scrollarea = {
-				minimumsize = { 950 500 }
-				maximumsize = { 950 500 }
-				autoresizescrollarea = no
-				scrollbarpolicy_horizontal = always_off
-				scrollbar_vertical = {
-					using = vertical_scrollbar
-				}
-
-				scrollwidget = {		
-					textbox = {
-						minimumsize = { 950 -1 }
-						maximumsize = { 950 -1 }
-						multiline = yes
-						align = left|top
-						autoresize = yes
-						margin_left = 20
-						margin_right = 25
-						margin_bottom = 10
-						text = "EUROPE_DESC"
-						using = fontsize_large
-					}
-				}
-			}
-
-		}
-	}
-	
-	blockoverride "fixed_bottom" {
-		button = {
-			using = default_list_position
-			using = default_button
-			size = { 400 40 }
-			text = "Close"
-			onclick = "[PopupManager.CloseMessage(PlayerMessageItem.AccessSelf)]"			
-		}
-	}
-}
-
-notification_popup =  { # Far East Lore
-	name = "lorebox_as_popup"
-    resizable = no
-    layer = top
-    
-    using = Window_Background
-    
-
-    parentanchor = center
-
-	blockoverride "window_header_name" {
-		text = "ASIA_LORE"
-	}
-	
-	default_header_clean = {
-		position = { 65 95 }
-		autoresize = yes
-		maximumsize = { 920 -1 }
-		minimumsize = { 920 -1 }
-		blockoverride "text" {
-			text = "LORE_HEADER"
-		}
-		using = default_fade_in_out
-	}
-	
-	#textbox = {
-	#	position = { 0 80 }
-	#	autoresize = yes
-	#	multiline = yes
-	#	maximumsize = { 920 -1 }
-	#	minimumsize = { 920 -1 }
-	#	text = "LORE_HEADER"
-	#	align = center|nobaseline
-	#	parentanchor = hcenter
-	#	margin_top = 20
-	#	margin_right = 10
-	#	margin_bottom = 20
-	#	using = fontsize_large
-	#}
-
-	blockoverride "scrollarea_content"
-	{
-		flowcontainer = {
-			direction = vertical
-			resizeparent = yes
-			margin_top = 55
-			margin_right = 10
-			margin_bottom = 20
-			
-			scrollarea = {
-				minimumsize = { 950 500 }
-				maximumsize = { 950 500 }
-				autoresizescrollarea = no
-				scrollbarpolicy_horizontal = always_off
-				scrollbar_vertical = {
-					using = vertical_scrollbar
-				}
-
-				scrollwidget = {		
-					textbox = {
-						minimumsize = { 950 -1 }
-						maximumsize = { 950 -1 }
-						multiline = yes
-						align = left|top
-						autoresize = yes
-						margin_left = 20
-						margin_right = 25
-						margin_bottom = 10
-						text = "ASIA_DESC"
-						using = fontsize_large
-					}
-				}
-			}
-
-		}
-	}
-	
-	blockoverride "fixed_bottom" {
-		button = {
-			using = default_list_position
-			using = default_button
-			size = { 400 40 }
-			text = "Close"
-			onclick = "[PopupManager.CloseMessage(PlayerMessageItem.AccessSelf)]"			
-		}
-	}
-}
-
-notification_popup =  { # New World Lore
-	name = "lorebox_nw_popup"
-    resizable = no
-    layer = top
-    
-    using = Window_Background
-    
-
-    parentanchor = center
-
-	blockoverride "window_header_name" {
-		text = "NW_LORE"
-	}
-	
-	default_header_clean = {
-		position = { 65 95 }
-		autoresize = yes
-		maximumsize = { 920 -1 }
-		minimumsize = { 920 -1 }
-		blockoverride "text" {
-			text = "LORE_HEADER"
-		}
-		using = default_fade_in_out
-	}
-	
-	#textbox = {
-	#	position = { 0 80 }
-	#	autoresize = yes
-	#	multiline = yes
-	#	maximumsize = { 920 -1 }
-	#	minimumsize = { 920 -1 }
-	#	text = "LORE_HEADER"
-	#	align = center|nobaseline
-	#	parentanchor = hcenter
-	#	margin_top = 20
-	#	margin_right = 10
-	#	margin_bottom = 20
-	#	using = fontsize_large
-	#}
-
-	blockoverride "scrollarea_content"
-	{
-		flowcontainer = {
-			direction = vertical
-			resizeparent = yes
-			margin_top = 55
-			margin_right = 10
-			margin_bottom = 20
-			
-			scrollarea = {
-				minimumsize = { 950 500 }
-				maximumsize = { 950 500 }
-				autoresizescrollarea = no
-				scrollbarpolicy_horizontal = always_off
-				scrollbar_vertical = {
-					using = vertical_scrollbar
-				}
-
-				scrollwidget = {		
-					textbox = {
-						minimumsize = { 950 -1 }
-						maximumsize = { 950 -1 }
-						multiline = yes
-						align = left|top
-						autoresize = yes
-						margin_left = 20
-						margin_right = 25
-						margin_bottom = 10
-						text = "NW_DESC"
+						text = "[GetPlayer.GetCustom('continent_desc')]"
 						using = fontsize_large
 					}
 				}

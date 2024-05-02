@@ -88,3 +88,116 @@
 		localization_key = TRH_ADJ
 	}
 }
+
+possible_decision = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_possible_decisions = yes
+		}
+		localization_key = possible_decision_true
+	}
+	text = {
+		trigger = {
+			has_possible_decisions = no
+		}
+		localization_key = possible_decision_false
+	}
+}
+
+continent_lore = {
+	type = country
+	
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_middle_east = yes 
+				gunpowder_empire_trigger = yes
+			}
+		}
+		localization_key = MIDDLE_EAST_LORE
+	}
+	text = {
+		trigger = {
+			country_is_in_europe = yes 
+			gunpowder_empire_trigger = no
+		}
+		localization_key = EUROPE_LORE
+	}
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_east_asia = yes
+				country_is_in_central_asia = yes
+				country_is_in_southeast_asia = yes
+				country_is_in_oceania = yes
+			}
+		}
+		localization_key = ASIA_LORE
+	}
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_north_america = yes
+				country_is_in_central_america = yes
+				country_is_in_south_america = yes
+			}
+		}
+		localization_key = NW_LORE
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = OTHER_LORE
+	}
+}
+
+continent_desc = {
+	type = country
+	
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_middle_east = yes 
+				gunpowder_empire_trigger = yes
+			}
+		}
+		localization_key = MIDDLE_EAST_DESC
+	}
+	text = {
+		trigger = {
+			country_is_in_europe = yes 
+			gunpowder_empire_trigger = no
+		}
+		localization_key = EUROPE_DESC
+	}
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_east_asia = yes
+				country_is_in_central_asia = yes
+				country_is_in_southeast_asia = yes
+				country_is_in_oceania = yes
+			}
+		}
+		localization_key = ASIA_DESC
+	}
+	text = {
+		trigger = {
+			OR = {
+				country_is_in_north_america = yes
+				country_is_in_central_america = yes
+				country_is_in_south_america = yes
+			}
+		}
+		localization_key = NW_DESC
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = MIDDLE_EAST_DESC
+	}
+}

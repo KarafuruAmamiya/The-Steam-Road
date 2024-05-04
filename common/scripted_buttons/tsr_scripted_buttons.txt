@@ -64,3 +64,32 @@
 		base = 10
 	}
 }
+
+colony_button = {
+	name = colony_button
+	desc = colony_button_desc
+
+	visible = { always = yes }
+
+	possible = {
+		has_technology_researched = civilizing_mission
+		ig:ig_armed_forces = { 
+			is_marginal = no
+		}
+		any_scope_state = {
+			is_under_colonization = yes
+		}
+		NOT = { has_modifier = colonial_campaign }
+	}
+
+	effect = {
+		add_modifier = {
+			name = colonial_campaign
+			months = long_modifier_time
+		}
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

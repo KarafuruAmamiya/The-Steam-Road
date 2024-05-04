@@ -467,6 +467,26 @@ pharmaceuticals = {
 		medical_degrees
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				any_subject_or_below = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+				add_technology_researched = pharmaceuticals
+			}
+		}
+	}
+	
 	ai_weight = {
 		value = 1
 	}
@@ -509,6 +529,26 @@ quinine = {
 	unlocking_technologies = {
 		colonization
 		pharmaceuticals
+	}
+	
+	on_researched = {
+		if = {
+			limit = {
+				any_subject_or_below = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+				add_technology_researched = quinine
+			}
+		}
 	}
 	
 	ai_weight = {
@@ -953,6 +993,26 @@ civilizing_mission = {
 		nationalism
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				any_subject_or_below = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+				add_technology_researched = civilizing_mission
+			}
+		}
+	}
+	
 	ai_weight = {
 		value = 1
 		
@@ -1301,6 +1361,26 @@ malaria_prevention = {
 		civilizing_mission
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				any_subject_or_below = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_direct_subject_of = root
+					is_country_type = colonial
+					has_colonial_law = yes
+				}
+				add_technology_researched = malaria_prevention
+			}
+		}
+	}
+	
 	ai_weight = {
 		value = 1
 		
@@ -1346,6 +1426,7 @@ central_planning = {
 	modifier = {
 		state_tax_capacity_add = 25
 		country_institution_centralization_max_investment_add = 1
+		state_market_access_price_impact = 0.05
 	}
 	
 	unlocking_technologies = {

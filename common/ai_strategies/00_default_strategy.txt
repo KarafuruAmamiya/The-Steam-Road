@@ -1964,6 +1964,24 @@ ai_strategy_default = {
 			add = 25
 		}		
 		
+		#Akkovin will try to reduce subject autonomy
+		if = {
+			limit = {
+				has_journal_entry = je_akkovin_reform_arabia
+				scope:target_country = { 
+					is_subject_of = root
+					NOT = { is_subject_type = subject_type_dependency }
+					OR = {
+						c:HDJ ?= this
+						c:SYR ?= this
+						c:NEJ ?= this
+						c:JAB ?= this
+					}
+				}
+			}
+			add = 25
+		}
+		
 		if = {
 			limit = {
 				OR = {
@@ -4840,10 +4858,10 @@ ai_strategy_default = {
 			if = {
 				limit = { 
 					c:TUR ?= this
+					has_journal_entry = je_ottoman_caliphate
 					exists = c:HDJ
 					scope:target_country = {
 						c:HDJ ?= this
-						has_journal_entry = je_ottoman_caliphate
 					}
 				}
 				add = 1000
@@ -6329,6 +6347,24 @@ ai_strategy_default = {
 				add = 25
 			}
 			
+			#Akkovin will try to reduce subject autonomy
+			if = {
+				limit = {
+					has_journal_entry = je_akkovin_reform_arabia
+					scope:target_country = { 
+						is_subject_of = root
+						NOT = { is_subject_type = subject_type_dependency }
+						OR = {
+							c:HDJ ?= this
+							c:SYR ?= this
+							c:NEJ ?= this
+							c:JAB ?= this
+						}
+					}
+				}
+				add = 25
+			}
+			
 			if = {
 				limit = {
 					exists = c:PER
@@ -7067,11 +7103,13 @@ ai_strategy_default = {
 		reduce_autonomy = {
 			value = 100			
 			
+			#Akkovin will try to reduce subject autonomy
 			if = {
 				limit = {
 					has_journal_entry = je_akkovin_reform_arabia
 					scope:target_country = { 
 						is_subject_of = root
+						NOT = { is_subject_type = subject_type_dependency }
 						OR = {
 							c:HDJ ?= this
 							c:SYR ?= this
@@ -7080,7 +7118,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 50
+				add = 100
 			}
 		}		
 

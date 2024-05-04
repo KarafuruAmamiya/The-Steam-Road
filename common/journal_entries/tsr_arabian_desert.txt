@@ -23,21 +23,103 @@
 	}
 
 	possible = {
-		OR = {
-			has_law = law_type:law_colonial_exploitation
-			has_law = law_type:law_colonial_resettlement
-			has_law = law_type:law_frontier_colonization
-		}
+		has_colonial_law = yes
 	}
 	
 	modifiers_while_active = {
-		reining_the_desert
+		rapid_colonization
 	}
 
 	complete = {
-		OR = {
-			owns_entire_state_region = STATE_HAIL
-			owns_entire_state_region = STATE_NEJD
+		has_colonial_law = yes
+		is_at_war = no
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_HAIL
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_HAIL
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_NEJD
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_NEJD
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_HADHRAMAUT
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_HADHRAMAUT
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_YEMEN
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_YEMEN
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_NIZWA
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_NIZWA
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_HAASA
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_HAASA
+				is_under_colonization = no
+			}
+		}
+		trigger_if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_ABU_DHABI
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_ABU_DHABI
+				is_under_colonization = no
+			}
+		}
+	}
+	
+	fail = {
+		NOR = {
+			has_state_in_state_region = STATE_HAIL
+			has_state_in_state_region = STATE_NEJD
+			has_state_in_state_region = STATE_HADHRAMAUT
+			has_state_in_state_region = STATE_YEMEN
+			has_state_in_state_region = STATE_HAASA
+			has_state_in_state_region = STATE_ABU_DHABI
 		}
 	}
 
@@ -51,6 +133,12 @@
 			10 = arabia_flavor.6
 		}
 	}
+	
+	invalid = {
+		has_colonial_law = no
+	}
+	
+	should_be_pinned_by_default = yes
 
 	weight = 20
 }

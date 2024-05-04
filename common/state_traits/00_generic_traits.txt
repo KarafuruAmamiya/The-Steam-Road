@@ -1,7 +1,7 @@
 ﻿state_trait_malaria = {
     icon = "gfx/interface/icons/state_trait_icons/malaria_mild.dds"
 	
-	disabling_technologies = { "quinine" }
+	disabling_technologies = { "quinine" "sickle_cell" }
 	
 	modifier = {
 		state_non_homeland_colony_growth_speed_mult = -0.9
@@ -54,8 +54,7 @@ state_medeteranean_climate = {
 	icon = "gfx/interface/icons/state_trait_icons/medeteranean_climate.dds"
 	
 	modifier = {
-		goods_output_wine_mult = 0.15
-		goods_output_fruit_mult = 0.15
+		building_vineyard_plantation_throughput_add = 0.15
 	}
 }
 

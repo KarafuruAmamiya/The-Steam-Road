@@ -69,6 +69,21 @@ law_state_religion = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				NOT = { has_modifier = millet_system }
 			}
@@ -198,6 +213,21 @@ law_denominational_exclusion = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				NOT = { has_modifier = millet_system }
 			}
@@ -363,6 +393,21 @@ law_freedom_of_conscience = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				NOT = { has_modifier = millet_system }
 			}
@@ -581,6 +626,21 @@ law_shared_roots = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				has_modifier = millet_system
 			}
@@ -763,6 +823,21 @@ law_total_separation = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				has_modifier = millet_system
 			}
@@ -950,6 +1025,21 @@ law_state_atheism = {
 				OR = {
 					c:TUR ?= this
 					c:AKN ?= this
+					country_has_primary_culture = cu:tatar
+					AND = {
+						OR = {
+							country_has_primary_culture = cu:manchu
+							country_has_primary_culture = cu:mongol
+							any_primary_culture = {
+								has_discrimination_trait = south_asian_heritage
+							}
+						}
+						OR = {
+							country_has_state_religion = rel:sunni
+							country_has_state_religion = rel:shiite
+							country_has_state_religion = rel:ibadi
+						}
+					}
 				}
 				has_modifier = millet_system
 			}

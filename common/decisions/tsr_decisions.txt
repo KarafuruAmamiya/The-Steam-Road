@@ -354,9 +354,9 @@ enforce_veiling = {
 encourage_migration_to_colonies = {
 	is_shown = {
 		NOT = { is_country_type = colonial }
-		institution_investment_level = {
-			institution = institution_colonial_affairs
-			value >= 1
+		any_subject_or_below = {
+			is_direct_subject_of = root
+			is_country_type = colonial
 		}
 	}
 
@@ -368,7 +368,7 @@ encourage_migration_to_colonies = {
 		any_subject_or_below = {
 			is_direct_subject_of = root
 			is_country_type = colonial
-			NOT = { has_law = law_type:law_colonial_exploitation }
+			has_colonial_law = yes
 		}
 	}
 

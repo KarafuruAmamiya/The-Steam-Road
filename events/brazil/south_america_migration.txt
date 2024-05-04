@@ -284,7 +284,6 @@ sa_migration.5 = {
 			limit = {
 				is_direct_subject_of = root
 				is_country_type = colonial
-				NOT = { has_law = law_type:law_colonial_exploitation }
 			}
 			save_scope_as = migration_target_1
 		}
@@ -292,7 +291,6 @@ sa_migration.5 = {
 			limit = {
 				is_direct_subject_of = root
 				is_country_type = colonial
-				NOT = { has_law = law_type:law_colonial_exploitation }
 				NOT = { scope:migration_target_1 = this }
 			}
 			save_scope_as = migration_target_2
@@ -301,7 +299,6 @@ sa_migration.5 = {
 			limit = {
 				is_direct_subject_of = root
 				is_country_type = colonial
-				NOT = { has_law = law_type:law_colonial_exploitation }
 				NOT = { scope:migration_target_1 = this }
 				NOT = { scope:migration_target_2 = this }
 			}

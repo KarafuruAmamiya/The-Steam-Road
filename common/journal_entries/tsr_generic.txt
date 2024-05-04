@@ -1,0 +1,49 @@
+﻿je_generic_colony = { #WIP
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_tsr_content
+
+	scripted_button = colony_button
+
+	complete = {
+		trigger_if = {
+			limit = {
+				c:SSB ?= this
+			}
+			owns_entire_state_region = STATE_YAKUTSK
+			owns_entire_state_region = STATE_OKHOTSK
+			owns_entire_state_region = STATE_AMUR
+		}
+		trigger_if = {
+			limit = {
+				c:TIE ?= this
+			}
+			owns_entire_state_region = STATE_NORTH_ISLAND
+			owns_entire_state_region = STATE_SOUTH_ISLAND
+			owns_entire_state_region = STATE_TASMANIA
+			owns_entire_state_region = STATE_NEW_SOUTH_WALES
+			owns_entire_state_region = STATE_VICTORIA
+			owns_entire_state_region = STATE_QUEENSLAND
+			owns_entire_state_region = STATE_SOUTH_AUSTRALIA
+			owns_entire_state_region = STATE_WESTERN_AUSTRALIA
+			owns_entire_state_region = STATE_NORTHERN_TERRITORY
+		}
+		trigger_if = {
+			limit = {
+				c:BRL ?= this
+			}
+			owns_entire_state_region = STATE_VIUCON
+			owns_entire_state_region = STATE_BOREALIA
+			owns_entire_state_region = STATE_CHUKOTKA
+			owns_entire_state_region = STATE_KAMCHATKA
+		}
+	}
+	
+	modifiers_while_active = {
+		rapid_colonization
+	}
+	
+	should_be_pinned_by_default = yes
+
+	weight = 20
+}

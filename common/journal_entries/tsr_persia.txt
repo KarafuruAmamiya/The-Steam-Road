@@ -555,7 +555,15 @@ je_constitutional_reformation = {
 	
 	is_shown_when_inactive = {
 		c:PER ?= this
-		has_technology_researched = egalitarianism
+		any_scope_character = {
+			OR = {
+				is_ruler = yes
+				interest_group = {
+					is_in_government = yes
+				}
+			}
+			has_ideology = ideology:ideology_persian_constitutionalist
+		}
 	}
 	
 	possible = {
@@ -579,6 +587,7 @@ je_constitutional_reformation = {
 			}
 			has_ideology = ideology:ideology_persian_constitutionalist
 		}
+		has_technology_researched = egalitarianism
 	}
 	
 	immediate = {

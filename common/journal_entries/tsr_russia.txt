@@ -134,6 +134,7 @@ je_russian_independence_war = {
 	group = je_group_tsr_content
 
     complete = {
+		is_diplomatic_play_committed_participant = no
 		is_at_war = no
         is_subject = no
     }
@@ -144,6 +145,7 @@ je_russian_independence_war = {
         trigger_event = { id = russian_events.4 popup = yes }
     }
     fail = {
+		is_diplomatic_play_committed_participant = no
         is_at_war = no
 		OR = {
 			is_subject = yes
@@ -167,6 +169,7 @@ je_moscow_uprising = {
 	group = je_group_tsr_content
 
     complete = {
+		is_diplomatic_play_committed_participant = no
 		is_at_war = no
         c:MSC = {
 			OR = {
@@ -189,6 +192,7 @@ je_moscow_uprising = {
         trigger_event = { id = russian_events.5 popup = yes }
     }
     fail = {
+		is_diplomatic_play_committed_participant = no
 		is_at_war = no
         trigger_if = {
             limit = {

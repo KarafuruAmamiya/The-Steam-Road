@@ -1979,7 +1979,7 @@ ai_strategy_default = {
 					}
 				}
 			}
-			add = 25
+			add = 1000
 		}
 		
 		if = {
@@ -5842,6 +5842,24 @@ ai_strategy_default = {
 					add = 750 # 500
 			}
 			
+			#Akkovin will try to reduce subject autonomy
+			if = {
+				limit = {
+					has_journal_entry = je_akkovin_reform_arabia
+					scope:target_country = { 
+						is_subject_of = root
+						NOT = { is_subject_type = subject_type_dependency }
+						OR = {
+							c:HDJ ?= this
+							c:SYR ?= this
+							c:NEJ ?= this
+							c:JAB ?= this
+						}
+					}
+				}
+				add = 1000
+			}
+			
 			# If Akkovins abandon the treaty, Persia will turn hostile
 			if = {
 				limit = { 
@@ -6362,7 +6380,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				add = 25
+				add = 1000
 			}
 			
 			if = {

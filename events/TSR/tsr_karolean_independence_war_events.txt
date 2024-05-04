@@ -397,6 +397,9 @@ krl_independence.8 = {
 
 	option = {
 		name = krl_independence.8.a #They shall not dare to defy us again!
-		c:KRL = { change_subject_type = subject_type_dependency }
+		c:KRL = { 
+			activate_law = law_type:law_governorate
+			change_subject_type = subject_type_dependency 
+		}
 	}
 }

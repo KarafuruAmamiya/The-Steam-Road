@@ -217,6 +217,7 @@ gov_junta = {
 	possible = {
 		has_law = law_type:law_presidential_republic
 		country_has_voting_franchise = no
+		NOT = { country_has_primary_culture = cu:cossack }
 		OR = {
 			has_law = law_type:law_mass_conscription
 			has_law = law_type:law_professional_army

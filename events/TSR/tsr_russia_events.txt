@@ -36,11 +36,8 @@ russian_events.1 = {
 		set_state_religion = rel:orthodox
 		activate_law = law_type:law_presidential_republic
 		activate_law = law_type:law_wealth_voting
-		if = {
-			limit = {
-				has_law = law_type:law_hereditary_bureaucrats
-			}
-			activate_law = law_type:law_appointed_bureaucrats
+		ruler = {
+			kill_character = yes
 		}
 		create_character = { #WIP
 			culture = cu:russian
@@ -50,6 +47,20 @@ russian_events.1 = {
 			traits = {
 				ambitious expert_political_operator
 			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_hereditary_bureaucrats
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		add_modifier = {
+			name = modifier_russian_politics
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+		call_election = {
+			months = 1
 		}
 	}
 
@@ -73,7 +84,10 @@ russian_events.1 = {
 			}
 		}
 		
-		add_journal_entry = { type = je_russian_independence_war }
+		add_loyalists = {
+			culture = cu:russian
+			value = large_radicals
+		}
 		
 		hidden_effect = {
 			every_state = {
@@ -81,6 +95,7 @@ russian_events.1 = {
 					state_region = {
 						is_homeland = cu:russian
 					}
+					NOT = { owner = root }
 				}
 				state_region = { add_claim = root }
 			}
@@ -297,6 +312,9 @@ russian_events.2 = {
 		add_journal_entry = {
 			type = je_moscow_uprising
 		}
+		c:MSC ?= {
+			add_journal_entry = { type = je_russian_independence_war }
+		}
 		every_scope_state = {
 			limit = {
 				state_region = {
@@ -309,7 +327,7 @@ russian_events.2 = {
 			}
 		}
 		hidden_effect = {
-			change_infamy = -70
+			change_infamy = -100
 			c:MSC = {
 				add_modifier = {
 					name = russian_independence_war

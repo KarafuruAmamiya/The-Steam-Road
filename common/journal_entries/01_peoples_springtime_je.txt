@@ -4,6 +4,7 @@
 	group = je_group_crises
 
 	is_shown_when_inactive = {
+		total_population > 100000 #no springtime in small countries
 		has_technology_researched = egalitarianism
 		year <= 1875
 		capital = {
@@ -27,6 +28,11 @@
 				#region = sr:region_anatolia
 				#region = sr:region_persia
 			}
+		}
+		NOR = {
+			coa_republic_trigger = yes
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage	
 		}
 	}
 
@@ -89,32 +95,10 @@
 		has_revolution = no
 		is_revolutionary = no
 		has_insurrectionary_interest_groups = no
+		NOT = { has_law = law_type:law_monarchy }
 		OR = {
-			custom_tooltip = {
-				text = je_springtime_of_the_peoples_tt_1
-				always = no
-			}
-			AND = {
-				any_interest_group = {
-					is_in_government = yes
-					leader = { has_ideology = ideology:ideology_radical }
-				}
-				NOT = { has_law = law_type:law_monarchy }
-				OR = {
-					has_law = law_type:law_census_voting
-					has_law = law_type:law_universal_suffrage
-				}
-			}
-			custom_tooltip = {
-				text = je_springtime_of_the_peoples_tt_2
-				always = no
-			}
-			NOT = {
-				any_interest_group = {
-					leader = { has_ideology = ideology:ideology_radical }
-					is_marginal = no
-				}
-			}
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
 		}	
 	}
 
@@ -126,38 +110,7 @@
 			name = completed_peoples_stringtime_recent
 			months = short_modifier_time
 		}
-		custom_tooltip = je_springtime_of_the_peoples_tt_3
-		hidden_effect = {
-			if = {
-				limit = {
-					any_interest_group = {
-						is_in_government = yes
-						leader = { has_ideology = ideology:ideology_radical }
-					}
-					NOT = { has_law = law_type:law_monarchy }
-					OR = {
-						has_law = law_type:law_wealth_voting
-						has_law = law_type:law_census_voting
-						has_law = law_type:law_universal_suffrage
-					}
-				}
 		trigger_event = { id = peoples_springtime.7 }
-	}
-		}
-		custom_tooltip = je_springtime_of_the_peoples_tt_4
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = {
-						any_interest_group = {
-							leader = { has_ideology = ideology:ideology_radical }
-							is_marginal = no
-						}
-					}
-				}
-				trigger_event = { id = peoples_springtime.8 }
-			}
-		}
 	}
 
 	on_monthly_pulse = {
@@ -171,9 +124,9 @@
 			10 = peoples_springtime.5
 		}
 	}
-
-	invalid = {
-		has_global_variable = peoples_springtime_happened
+	
+	modifiers_while_active = {
+		1848_modifier
 	}
 
 	weight = 10000

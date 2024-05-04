@@ -478,12 +478,6 @@
 	# Aurelia
 	
 	s:STATE_ROCHOSAS = {
-			region_state:BCK = {
-				create_pop = {
-					culture = paiute
-					size = 2000
-				}
-			}
 			region_state:SLH = {
 				create_pop = {
 					culture = salish
@@ -504,12 +498,6 @@
 			}
 	}
 	s:STATE_SANTA_FE = {
-			region_state:ARP = {
-				create_pop = {
-					culture = siouan
-					size = 4000
-				}
-			}
 			region_state:APC = {
 				create_pop = {
 					culture = paiute
@@ -583,6 +571,12 @@
 		region_state:BLF = {
 			create_pop = {
 				culture = salish
+				size = 3000
+			}
+		}
+		region_state:UMA = {
+			create_pop = {
+				culture = nez_perce
 				size = 3000
 			}
 		}
@@ -849,12 +843,8 @@
 		}
 		region_state:SLR = {
 			create_pop = {
-				culture = paiute
-				size = 3000
-			}
-			create_pop = {
 				culture = siouan
-				size = 2000
+				size = 3000
 			}
 		}
 		region_state:UTE = {
@@ -955,19 +945,19 @@
 			}
 	}
 	s:STATE_QUIVIRA = {
-			region_state:SLR = {
-				create_pop = {
-					culture = siouan
-					size = 6000
-				}
-			}
 			region_state:PWN = {
 				create_pop = {
 					culture = caddoan
 					size = 15000
 				}
 			}
-			region_state:COM = {
+			region_state:SLR = {
+				create_pop = {
+					culture = caddoan
+					size = 5000
+				}
+			}
+			region_state:OSA = {
 				create_pop = {
 					culture = siouan
 					size = 2000
@@ -997,32 +987,28 @@
 					size = 3000
 				}
 			}
-	}
-	s:STATE_TAUACONI = {
-			region_state:SLR = {
+			region_state:PWN = {
 				create_pop = {
 					culture = caddoan
 					size = 3000
 				}
-				create_pop = {
-					culture = soalleiran
-					size = 500
-				}
 			}
+	}
+	s:STATE_TAUACONI = {
 			region_state:PWN = {
 				create_pop = {
 					culture = siouan
-					size = 14000
+					size = 6000
 				}
 				create_pop = {
 					culture = caddoan
 					size = 8000
 				}
 			}
-			region_state:COM = {
+			region_state:OSA = {
 				create_pop = {
-					culture = comanche
-					size = 2000
+					culture = siouan
+					size = 14000
 				}
 				create_pop = {
 					culture = caddoan
@@ -1040,6 +1026,12 @@
 				create_pop = {
 					culture = siouan
 					size = 4000
+				}
+			}
+			region_state:OSA = {
+				create_pop = {
+					culture = siouan
+					size = 10000
 				}
 			}
 	}
@@ -1091,7 +1083,7 @@
 		region_state:COM = {
 			create_pop = {
 				culture = comanche
-				size = 20000
+				size = 5000
 			}
 		}
 	}
@@ -1124,25 +1116,21 @@
 	s:STATE_ESPIRITO_SANTO = {
 		region_state:SLR = {
 			create_pop = {
-				culture = algonquian
-				size = 2000
-			}
-			create_pop = {
-				culture = dakota
-				size = 6000
+				culture = siouan
+				size = 11000
 			}
 			create_pop = {
 				culture = soalleiran
-				size = 11200
+				size = 1200
 			}
 		}
-		region_state:LKT = {
+		region_state:IOW = {
 			create_pop = {
 				culture = algonquian
-				size = 8000
+				size = 4000
 			}
 			create_pop = {
-				culture = dakota
+				culture = siouan
 				size = 14000
 			}
 		}
@@ -1153,9 +1141,15 @@
 				culture = dakota
 				size = 36000
 			}
+		}
+		region_state:IOW = {
 			create_pop = {
 				culture = algonquian
 				size = 20000
+			}
+			create_pop = {
+				culture = siouan
+				size = 15000
 			}
 		}
 	}
@@ -1201,9 +1195,9 @@
 				size = 472009
 			}
 		}
-		region_state:COM = {
+		region_state:OSA = {
 			create_pop = {
-				culture = comanche
+				culture = siouan
 				size = 20000
 			}
 		}
@@ -1403,26 +1397,16 @@
 			}
 	}
 	s:STATE_NEW_GALICIA = {
-			region_state:SLR = {
-				create_pop = {
-					culture = soalleiran
-					size = 27796
-				}
-				create_pop = {
-					culture = pueblo
-					size = 18000
-				}
-			}
 			region_state:COM = {
 				create_pop = {
 					culture = apache
-					size = 3000
+					size = 13000
 				}
 			}
 			region_state:APC = {
 				create_pop = {
 					culture = apache
-					size = 5000
+					size = 15000
 				}
 			}
 	}
@@ -1440,6 +1424,12 @@
 				culture = oodham
 				size = 8000
 			}
+			create_pop = {
+				culture = apache
+				size = 16000
+			}
+		}
+		region_state:APC = {
 			create_pop = {
 				culture = apache
 				size = 16000

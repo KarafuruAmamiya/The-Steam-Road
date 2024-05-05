@@ -1455,19 +1455,6 @@ on_country_released_as_own_subject = {
 					add_ideology = ideology_shiite_moralist
 				}
 			}
-			if = {
-				limit = {
-					NOT = { has_law = law_type:law_governorate }
-					OR = {
-						is_subject_type = subject_type_puppet
-						is_subject_type = subject_type_dependency
-					}
-				}
-				set_variable = new_subject
-				overlord = {
-					trigger_event = { id = tsr_misc_events.1 popup = yes }
-				}
-			}
 		}
 	}
 }
@@ -1520,19 +1507,6 @@ on_country_released_as_overlord_subject = {
 				}
 			}
 			change_global_variable = { name = balkan_crisis_main_var add = -20 }
-		}
-		if = {
-			limit = {
-				NOT = { has_law = law_type:law_governorate }
-				OR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dependency
-				}
-			}
-			set_variable = new_subject
-			overlord = {
-				trigger_event = { id = tsr_misc_events.1 popup = yes }
-			}
 		}
 		scope:target = {
 			if = {

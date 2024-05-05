@@ -1,0 +1,212 @@
+﻿namespace = akkovin_crisis
+
+# Hedjaz Requests Ottoman Protection (Ottomans)
+akkovin_crisis.14 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.14.t
+	desc = akkovin_crisis.14.d
+	flavor = akkovin_crisis.14.f
+
+	duration = 3
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:sharif_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	immediate = {
+		c:AKN = { save_scope_as = akn_scope }
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.14.a #Support Hedjaz
+		default_option = yes
+		hidden_effect = {
+			c:HDJ = {
+				set_variable = ottoman_protectorate_var
+			}
+		}
+		random_diplomatic_play = {
+			limit = {
+				initiator_is = c:AKN
+				target_is = c:HDJ
+			}
+			add_target_backers = {
+				root
+			}
+			add_war_goal = {
+				holder = root
+				type = humiliation
+				target_country = c:AKN
+			}
+		}
+		if = {
+			limit = {
+				c:EGY ?= { is_subject_of = root }
+			}
+			random_diplomatic_play = {
+				limit = {
+					initiator_is = c:AKN
+					target_is = c:HDJ
+				}
+				add_target_backers = {
+					c:EGY
+				}
+			}
+		}
+		change_relations = {
+			country = c:AKN
+			value = -50
+		}
+		change_relations = {
+			country = c:HDJ
+			value = 100
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				trigger = {
+					OR = {
+						has_secret_goal = {
+							who = c:HDJ
+							attitude = protect
+						}
+						has_secret_goal = {
+							who = c:HDJ
+							attitude = befriend
+						}
+						has_attitude = {
+							who = c:HDJ
+							attitude = genial
+						}
+						has_attitude = {
+							who = c:HDJ
+							attitude = cooperative
+						}
+					}
+				}
+				add = 100
+			}
+		}
+	}
+	
+	option = {
+		name = akkovin_crisis.14.b
+		change_relations = {
+			country = c:HDJ
+			value = -30
+		}
+		
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					any_interest_group = {
+						is_in_government = yes
+						leader = {
+							has_ideology = ideology:ideology_pacifist
+						}
+					}
+				}
+				add = 100
+			}
+		}
+	}
+}
+
+# Hedjaz Becomes Ottoman Protectorate
+akkovin_crisis.15 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.15.t
+	desc = akkovin_crisis.15.d
+	flavor = akkovin_crisis.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	immediate = {
+		c:HDJ = {
+			save_scope_as = hedjaz_scope
+			ruler = { save_scope_as = sharif_scope }
+		}
+	}
+
+	option = {
+		name = akkovin_crisis.15.a
+		create_diplomatic_pact = {
+			country = scope:hedjaz_scope
+			type = protectorate
+		}
+	}
+}
+
+# Akkovin leaders embrace reform
+akkovin_crisis.17 = {
+	type = country_event
+	placement = root
+	title = akkovin_crisis.17.t
+	desc = akkovin_crisis.17.d
+	flavor = akkovin_crisis.17.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	trigger = {
+		has_variable = completed_akkovin_reform_economy_je
+		has_variable = completed_akkovin_reform_education_je
+		has_variable = completed_akkovin_reform_bureaucracy_je
+		NOT = { has_variable = ideology_change }
+	}
+
+	immediate = {
+		set_variable = ideology_change
+	}
+
+	option = {
+		name = akkovin_crisis.17.a
+		if = {
+			limit = {
+				ruler = {
+					NOR = {
+						has_ideology = ideology:ideology_moderate_reformer 
+						has_ideology = ideology:ideology_reformer
+						interest_group = {
+							is_interest_group_type = ig_intelligentsia
+						}
+					}
+				}
+			}
+			ruler = {
+				set_ideology = ideology:ideology_moderate_reformer
+			}
+		}
+		else = {
+			ruler = {
+				set_ideology = ideology:ideology_reformer
+			}
+		}
+	}
+}

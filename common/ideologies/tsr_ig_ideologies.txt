@@ -525,3 +525,53 @@ ideology_federal_stratocratic = {
 		law_collectivized_agriculture = strongly_disapprove
 	}
 }
+
+ideology_jesuit_moralist = {
+	icon = "gfx/interface/icons/ideology_icons/papal_moralist.dds"
+	
+	lawgroup_governance_principles = {
+		law_monarchy = approve
+		law_theocracy = strongly_approve
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
+		law_council_republic = strongly_disapprove
+	}
+	
+	lawgroup_centralization = {
+		law_feudalism = strongly_disapprove
+		law_warlord_state = disapprove			
+		law_unitary = strongly_approve
+		law_devolved = neutral
+		law_federal = disapprove
+		law_confederated = strongly_disapprove
+	}
+	
+	lawgroup_distribution_of_power = {
+		law_single_party_state = disapprove
+		law_autocracy = strongly_approve
+		law_oligarchy = approve
+		law_landed_voting = disapprove
+		law_wealth_voting = disapprove
+		law_census_voting = disapprove
+		law_universal_suffrage = strongly_disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_approve
+		law_freedom_of_conscience = neutral
+		law_shared_roots = disapprove
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_citizenship = {
+		law_ethnostate = disapprove
+		law_national_supremacy = neutral
+		law_racial_segregation = neutral
+		law_shared_heritage = approve
+		law_cultural_exclusion = strongly_approve
+		law_multicultural = neutral	
+	}
+}

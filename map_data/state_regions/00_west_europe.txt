@@ -763,9 +763,9 @@ STATE_RHONE = {
 }
 
 STATE_FRENCH_LOW_COUNTRIES = {
-    id = 33
+    id = 2050
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x106000" "x5362AC" "x70C020" "xA0A080" "xD0854D" "xE0A0C0" }
+    provinces = { "x106000" "x70C020" "xA0A080" "xD0854D" "xE0A0C0" }
     traits = { "state_trait_good_soils" "state_trait_nord_pas_de_calais_coalfield" }
     city = "xA0A080"
     port = "xD0854D"
@@ -785,7 +785,7 @@ STATE_FRENCH_LOW_COUNTRIES = {
 STATE_PICARDY = {
     id = 34
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x075199" "x10A0C0" "x7040A0" "xC4C61A" "xCF1F6D" }
+    provinces = { "x075199" "x10A0C0" "x7040A0" "xC4C61A" "xCF1F6D" "x5362AC" }
     traits = { "state_trait_good_soils" }
     city = "x10A0C0"
     port = "xE0A624"
@@ -940,7 +940,7 @@ STATE_FRANCHE_COMTE = {
 }
 
 STATE_LORRAINE = {
-    id = 622
+    id = 2048
     subsistence_building = "building_subsistence_farms"
     provinces = { "x282DCC" "x3080E0" "x70BFA0" "x7FC1E6" "xB080E0" "xC5F13A" "x4899A2" "xF0C0A0" }
     traits = { "state_trait_saar_coalfield" }
@@ -1067,7 +1067,9 @@ STATE_GELRE = {
     capped_resources = {
         bg_coal_mining = 40
         bg_logging = 9
+		bg_fishing = 10
     }
+	naval_exit_id = 3027
 }
 
 STATE_WALLONIA = {
@@ -1596,12 +1598,15 @@ STATE_THURINGIA = {
 
 
 
+
     farm = "xD0C021"
     mine = "x917939" # change
 
 
 
+
     wood = "x31E0C0" # change
+
 
 
 
@@ -1671,7 +1676,7 @@ STATE_RUHR = {
 }
 
 STATE_LOIRE = {
-    id = 970
+    id = 33
     subsistence_building = "building_subsistence_farms"
     provinces = { "x093DF5" "x192CA5" "x30E080" "x3F74AF" "x50A040" "x56E158" "x6B5474" "x7CAE05" "xB0E080" "xDD4DD0" }
     traits = { "state_trait_loire_river" }

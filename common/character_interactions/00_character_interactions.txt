@@ -1211,5 +1211,12 @@ foster_national_agitation = {
 
 	ai_chance = {
 		value = 100
+		if = {
+			limit = {
+				c:PLC ?= this
+				has_journal_entry = je_odrodzenie
+			}
+			add = 100
+		}
 	}
 }

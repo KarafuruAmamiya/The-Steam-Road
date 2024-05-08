@@ -1610,13 +1610,6 @@ balkan_crisis.12 = {
 		default_option = yes
 		custom_tooltip = will_fight_ottomans
 		add_journal_entry = { type = je_war_of_the_balkan_coalition_attacker }
-		if = {
-			limit = {
-				c:GAL ?= this
-				has_journal_entry = je_odrodzenie_victim
-			}
-			set_variable = odrodzenie_freeze
-		}
 		
 		ai_chance = {
 			base = 10

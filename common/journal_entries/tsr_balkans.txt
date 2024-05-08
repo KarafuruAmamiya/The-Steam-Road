@@ -615,15 +615,6 @@ je_war_of_the_balkan_coalition_attacker = {
 		}
 	}
 	
-	on_complete = {
-		if = {
-			limit = {
-				has_variable = odrodzenie_freeze
-			}
-			remove_variable = odrodzenie_freeze
-		}
-	}
-	
 	fail = {
 		custom_tooltip = {
 			text = lost_war_tt
@@ -666,15 +657,6 @@ je_war_of_the_balkan_coalition_attacker = {
 			NOT = { 
 				exists = c:BUL
 			}
-		}
-	}
-	
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = odrodzenie_freeze
-			}
-			remove_variable = odrodzenie_freeze
 		}
 	}
 	

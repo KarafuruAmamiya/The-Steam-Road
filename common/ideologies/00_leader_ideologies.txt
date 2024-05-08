@@ -306,7 +306,7 @@ ideology_republican_leader = {
 		law_warlord_state = strongly_disapprove			
 		law_unitary = approve
 		law_devolved = approve
-		law_federal = strongly_approve
+		law_federal = approve
 		law_confederated = approve
 	}
 	
@@ -3854,8 +3854,8 @@ ideology_liberal_leader = {
 		law_feudalism = strongly_disapprove
 		law_warlord_state = strongly_disapprove			
 		law_unitary = strongly_disapprove
-		law_devolved = neutral
-		law_federal = approve
+		law_devolved = disapprove
+		law_federal = strongly_approve
 		law_confederated = approve
 	}
 	
@@ -3863,7 +3863,7 @@ ideology_liberal_leader = {
 		law_universal_suffrage = approve
 		law_census_voting = approve
 		law_wealth_voting = approve
-		law_landed_voting = neutral
+		law_landed_voting = approve
 		law_single_party_state = disapprove
 		law_technocracy = disapprove
 		law_oligarchy = disapprove
@@ -3897,13 +3897,7 @@ ideology_liberal_leader = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				OR = {
-					has_law = law_type:law_universal_suffrage
-					has_law = law_type:law_census_voting
-					has_law = law_type:law_wealth_voting
-					has_law = law_type:law_landed_voting
-				}
-				has_law = law_type:law_elected_bureaucrats
+				has_law = law_type:law_federal
 			}
 		}
 		scope:interest_group = {
@@ -3923,13 +3917,7 @@ ideology_liberal_leader = {
 		if = {
 			limit = {
 				owner = {
-					OR = {
-						has_law = law_type:law_universal_suffrage
-						has_law = law_type:law_census_voting
-						has_law = law_type:law_wealth_voting
-						has_law = law_type:law_landed_voting
-					}
-					has_law = law_type:law_elected_bureaucrats
+					has_law = law_type:law_federal
 				}
 			}
 			add = -25

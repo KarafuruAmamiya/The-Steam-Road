@@ -2640,19 +2640,19 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VITEBSK
+				state_region = s:STATE_POLATSK
 				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_MOGILEV
+				state_region = s:STATE_VITEBSK
 				count = 2
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_MINSK
+				state_region = s:STATE_MOGILEV
 				count = 1
 			}
 		}
@@ -2666,13 +2666,13 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KAUNAS
+				state_region = s:STATE_VILNA
 				count = 6
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VILNA
+				state_region = s:STATE_AUGUSTOW
 				count = 2
 			}
 
@@ -2690,7 +2690,7 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_VILNA
+				state_region = s:STATE_AUGUSTOW
 				count = 2
 			}
 
@@ -2714,6 +2714,32 @@
 		}
 	}
 	
+	c:SLS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_poland
+			name = "1. Korpus Armijny"
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_UPPER_SILESIA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_UPPER_SILESIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_UPPER_SILESIA
+				count = 2
+			}
+		}
+	}
+	
 	c:GAL ?= {
 		create_military_formation = {
 			type = army
@@ -2728,13 +2754,13 @@
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_EAST_GALICIA
+				state_region = s:STATE_VOLHYNIA
 				count = 2
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_EAST_GALICIA
+				state_region = s:STATE_VOLHYNIA
 				count = 2
 			}
 		}

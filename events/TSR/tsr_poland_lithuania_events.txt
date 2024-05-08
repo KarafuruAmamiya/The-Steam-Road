@@ -470,6 +470,8 @@ poland_lithuania_events.5 = {
 		hidden_effect = {
 			every_country = {
 				limit = {
+					is_subject = yes
+					NOT = { is_subject_type = subject_type_protectorate }
 					NOR = { root = this is_subject_of = root }
 					capital = {
 						region = sr:region_poland

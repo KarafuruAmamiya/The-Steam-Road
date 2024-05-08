@@ -2,9 +2,6 @@
 	icon = "gfx/interface/icons/event_icons/event_flags/event_plc_flag.dds"
 	
 	group = je_group_tsr_content
-	
-	scripted_button = je_odrodzenie_polish_radicals_subject_button
-	scripted_button = je_odrodzenie_polish_radicals_overlord_button
 
 	immediate = {
 		root = { save_scope_as = poland_scope }
@@ -62,11 +59,9 @@ je_odrodzenie_victim = {
 	}
 
 	complete = {
-		c:PLC ?= { 
-			OR = {
-				is_subject = yes 
-				is_country_alive = no
-			}
+		is_subject = no
+		cu:polish = {
+			NOT = { culture_is_discriminated_in = root }
 		}
 	}
 	
@@ -93,11 +88,29 @@ je_odrodzenie_victim = {
 	on_fail = {
 		trigger_event = { id = poland_lithuania_events.1 popup = yes }
 	}
+	
+	invalid = {
+		c:PLC ?= { 
+			OR = {
+				is_subject = yes 
+				is_country_alive = no
+			}
+		}
+	}
 
 	on_weekly_pulse = {
 		effect = {
 			if = {
-				limit = { NOT = { has_variable = odrodzenie_freeze } }
+				limit = { 
+					NOT = {
+						cu:polish = {
+							NOT = { culture_is_discriminated_in = root }
+						}
+						overlord = {
+							is_diplomatic_play_enemy_of = root
+						}
+					}
+				}
 				do_odrodzenie_math = yes
 			}
 		}
@@ -106,7 +119,16 @@ je_odrodzenie_victim = {
 	on_monthly_pulse = {
 		effect = {
 			if = {
-				limit = { NOT = { has_variable = odrodzenie_freeze } }
+				limit = { 
+					NOT = {
+						cu:polish = {
+							NOT = { culture_is_discriminated_in = root }
+						}
+						overlord = {
+							is_diplomatic_play_enemy_of = root
+						}
+					}
+				}
 				do_odrodzenie_math = yes
 			}
 		}

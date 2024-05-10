@@ -683,13 +683,28 @@
 				culture = ruthenian
 				size = 1000
 			}
+			create_pop = {
+				culture = circassian
+				pop_type = slaves
+				size = 15000
+			}
+			create_pop = {
+				culture = russian
+				pop_type = slaves
+				size = 25000
+			}
+			create_pop = {
+				culture = ruthenian
+				pop_type = slaves
+				size = 25000
+			}
 		}
 	}
 	s:STATE_TAURIDA = {
 		region_state:TUR = {
 			create_pop = {
 				culture = ashkenazi
-				size = 109960
+				size = 19960
 			}
 			create_pop = {
 				culture = bulgarian
@@ -706,7 +721,7 @@
 			}
 			create_pop = {
 				culture = ruthenian
-				size = 1067260
+				size = 157260
 			}
 			create_pop = {
 				culture = turkish
@@ -718,63 +733,23 @@
 				size = 45900
 			}
 			create_pop = {
+				culture = circassian
+				pop_type = slaves
+				size = 15000
+			}
+			create_pop = {
 				culture = russian
-				size = 23200
+				pop_type = slaves
+				size = 25000
+			}
+			create_pop = {
+				culture = ruthenian
+				pop_type = slaves
+				size = 25000
 			}
 		}
 	}
 	s:STATE_EKATERINOSLAV = {
-		region_state:SLB = {
-			create_pop = {
-				culture = ashkenazi
-				size = 10140
-			}
-			create_pop = {
-				culture = cossack
-				pop_type = officers
-				size = 5000
-			}
-			create_pop = {
-				culture = cossack
-				pop_type = soldiers
-				size = 10100
-			}
-			create_pop = {
-				culture = russian
-				size = 10000
-			}
-			create_pop = {
-				culture = tatar
-				size = 6200
-			}
-			create_pop = {
-				culture = ruthenian
-				size = 361220
-			}
-		}
-		region_state:ZAP = {
-			create_pop = {
-				culture = ashkenazi
-				size = 5000
-			}
-			create_pop = {
-				culture = cossack
-				pop_type = soldiers
-				size = 5100
-			}
-			create_pop = {
-				culture = russian
-				size = 2500
-			}
-			create_pop = {
-				culture = tatar
-				size = 4000
-			}
-			create_pop = {
-				culture = ruthenian
-				size = 181455
-			}
-		}
 		region_state:TUR = {
 			create_pop = {
 				culture = ashkenazi
@@ -804,7 +779,44 @@
 			}
 			create_pop = {
 				culture = ruthenian
-				size = 389330
+				size = 109330
+			}
+			create_pop = {
+				culture = turkish
+				size = 3992
+			}
+			create_pop = {
+				culture = greek
+				size = 14000
+			}
+			create_pop = {
+				culture = cossack
+				pop_type = officers
+				size = 20997
+			}
+			create_pop = {
+				culture = cossack
+				pop_type = soldiers
+				size = 20000
+			}
+			create_pop = {
+				culture = tatar
+				size = 58900
+			}
+			create_pop = {
+				culture = circassian
+				pop_type = slaves
+				size = 15000
+			}
+			create_pop = {
+				culture = russian
+				pop_type = slaves
+				size = 25000
+			}
+			create_pop = {
+				culture = ruthenian
+				pop_type = slaves
+				size = 25000
 			}
 		}
 	}
@@ -1213,11 +1225,11 @@
 			}
 		}
 	}
-	s:STATE_CHERSON = {
-		region_state:ZAP = {
+	s:STATE_YEDISAN = {
+		region_state:TUR = {
 			create_pop = {
 				culture = ashkenazi
-				size = 156420
+				size = 20000
 			}
 			create_pop = {
 				culture = bulgarian
@@ -1238,19 +1250,70 @@
 			}
 			create_pop = {
 				culture = romanian
-				size = 291000
-			}
-			create_pop = {
-				culture = russian
-				size = 67968
+				size = 21000
 			}
 			create_pop = {
 				culture = south_german
-				size = 67720
+				size = 7720
 			}
 			create_pop = {
 				culture = south_italian
 				size = 19600
+			}
+			create_pop = {
+				culture = cossack
+				size = 50000
+			}
+			create_pop = {
+				culture = tatar
+				pop_type = aristocrats
+				size = 5000
+			}
+			create_pop = {
+				culture = tatar
+				pop_type = officers
+				size = 10000
+			}
+			create_pop = {
+				culture = tatar
+				pop_type = soldiers
+				size = 20000
+			}
+			create_pop = {
+				culture = ruthenian
+				size = 107388
+			}
+			create_pop = {
+				culture = circassian
+				pop_type = slaves
+				size = 15000
+			}
+			create_pop = {
+				culture = russian
+				pop_type = slaves
+				size = 25000
+			}
+			create_pop = {
+				culture = ruthenian
+				pop_type = slaves
+				size = 25000
+			}
+		}
+	}
+	s:STATE_CHERSON = {
+		region_state:ZAP = {
+			create_pop = {
+				culture = ashkenazi
+				size = 156420
+			}
+			#Roma
+			create_pop = {
+				culture = romani
+				size = 2300
+			}
+			create_pop = {
+				culture = russian
+				size = 67968
 			}
 			create_pop = {
 				culture = tatar
@@ -1273,7 +1336,35 @@
 			}
 			create_pop = {
 				culture = ruthenian
-				size = 967388
+				size = 656770
+			}
+		}
+		region_state:SLB = {
+			create_pop = {
+				culture = ashkenazi
+				size = 10140
+			}
+			create_pop = {
+				culture = cossack
+				pop_type = officers
+				size = 5000
+			}
+			create_pop = {
+				culture = cossack
+				pop_type = soldiers
+				size = 10100
+			}
+			create_pop = {
+				culture = russian
+				size = 10000
+			}
+			create_pop = {
+				culture = tatar
+				size = 6200
+			}
+			create_pop = {
+				culture = ruthenian
+				size = 361220
 			}
 		}
 	}
@@ -1328,53 +1419,6 @@
 				culture = ruthenian
 				pop_type = slaves
 				size = 10000
-			}
-		}
-		region_state:TUR = {
-			create_pop = {
-				culture = turkish
-				size = 3992
-			}
-			create_pop = {
-				culture = greek
-				size = 14000
-			}
-			create_pop = {
-				culture = cossack
-				pop_type = officers
-				size = 20997
-			}
-			create_pop = {
-				culture = cossack
-				pop_type = soldiers
-				size = 20000
-			}
-			create_pop = {
-				culture = tatar
-				size = 58900
-			}
-			create_pop = {
-				culture = ruthenian
-				size = 58900
-			}
-			create_pop = {
-				culture = russian
-				size = 95480
-			}
-			create_pop = {
-				culture = circassian
-				pop_type = slaves
-				size = 5000
-			}
-			create_pop = {
-				culture = russian
-				pop_type = slaves
-				size = 5000
-			}
-			create_pop = {
-				culture = ruthenian
-				pop_type = slaves
-				size = 5000
 			}
 		}
 	}
@@ -1553,7 +1597,7 @@
 			}
 			create_pop = {
 				culture = ruthenian
-				size = 150300
+				size = 250300
 			}
 			create_pop = {
 				culture = baltic_german

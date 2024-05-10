@@ -57,6 +57,19 @@ GLOBAL = {
 			}
 			state_region = { remove_state_trait = state_trait_paraguay_river }
 		}
+		if = {
+			limit = {
+				OR = {
+					state_region = s:STATE_YEDISAN
+					state_region = s:STATE_TAURIDA
+					state_region = s:STATE_EKATERINOSLAV
+				}
+			}
+			add_modifier = {
+				name = tatar_cossack_conflicts
+				months = -1
+			}
+		}
 	}
 	every_country = {
 		add_taxed_goods = g:services

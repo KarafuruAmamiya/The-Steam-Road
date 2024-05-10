@@ -1125,9 +1125,16 @@ corporatism = {
 				NOT = { has_variable = corporatism_researched }
 			}
 			set_variable = corporatism_researched
-			ig:ig_devout = {
-				remove_ideology = ideology_pious
-				add_ideology = ideology_corporatist
+			if = {
+				limit = {
+					ig:ig_devout = {
+						has_ideology = ideology:ideology_pious
+					}
+				}
+				ig:ig_devout = {
+					remove_ideology = ideology_pious
+					add_ideology = ideology_corporatist
+				}
 			}
 		}
 	}

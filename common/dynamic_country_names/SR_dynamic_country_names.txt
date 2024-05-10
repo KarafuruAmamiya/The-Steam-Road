@@ -850,7 +850,7 @@ LAE = { # Constantinople
 ZAP = { # Zaporizhia
 	dynamic_country_name = {
 		name = dyn_c_zaporizhian_cossack
-		adjective = dyn_c_zaporizhian_adj
+		adjective = ZAP_ADJ
 		
 		is_main_tag_only = yes
 		priority = 0
@@ -878,6 +878,23 @@ SLB = { # Sloboda Ukraine
 			scope:actor ?= { 
 				coa_def_republic_flag_trigger = yes
 				#NOT = { has_variable = cossacks_reform }
+			}
+		}
+	}
+}
+
+COS = { # Hetmanate Ukraine
+	dynamic_country_name = {
+		name = dyn_c_cossack_hetmanate
+		adjective = dyn_c_cossack_hetmanate_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= { 
+				coa_def_republic_flag_trigger = no
 			}
 		}
 	}

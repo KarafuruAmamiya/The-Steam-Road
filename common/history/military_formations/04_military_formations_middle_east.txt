@@ -123,12 +123,24 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_dnieper
-			name = "Rutenya Ordusu"
-
+			name = "Kırım Ordusu"
+			
 			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
+				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_TAURIDA
-				count = 10
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_EKATERINOSLAV
+				count = 5
+			}
+			
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_YEDISAN
+				count = 5
 			}
 			
 			combat_unit = {

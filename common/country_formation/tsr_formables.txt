@@ -223,6 +223,15 @@ UKR = {
 	ai_will_do = { always = yes }
 	
 	possible = {
+		if = {
+			limit = {
+				country_has_primary_culture = cu:cossack
+			}
+			custom_tooltip = {
+				text = formed_cossack_hetmanate
+				c:COS ?= this
+			}
+		}
 		custom_tooltip = {
 			text = completed_ruthenian_culture_change
 			has_variable = ruthenian_culture_change
@@ -247,6 +256,19 @@ BYE = {
 		custom_tooltip = {
 			text = completed_ruthenian_culture_change
 			has_variable = ruthenian_culture_change
+		}
+	}
+}
+
+COS = { # Cossack Hetmanate
+	use_culture_states = yes
+	required_states_fraction = 0.3
+
+	ai_will_do = { always = yes }
+
+	possible = {
+		NOT = {
+			c:UKR ?= this
 		}
 	}
 }

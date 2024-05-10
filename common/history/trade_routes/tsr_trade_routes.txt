@@ -9,6 +9,12 @@
 			target = c:PER.market
 		}
 		create_trade_route = {
+			goods = fruit
+			level = 6
+			direction = import
+			target = c:ITA.market
+		}
+		create_trade_route = {
 			goods = dye
 			level = 3
 			direction = import
@@ -19,12 +25,6 @@
 			level = 3
 			direction = export
 			target = c:SAX.market
-		}
-		create_trade_route = {
-			goods = fabric
-			level = 5
-			direction = import
-			target = c:PER.market
 		}
 		create_trade_route = {
 			goods = fabric
@@ -121,12 +121,6 @@
 			level = 4
 			direction = import
 			target = c:TUR.market
-		}
-		create_trade_route = {
-			goods = coffee
-			level = 5
-			direction = import
-			target = c:IBE.market
 		}
 		create_trade_route = {
 			goods = iron
@@ -569,6 +563,12 @@
 	
 	# Iberia
 	c:IBE ?= {
+		create_trade_route = {
+			goods = fruit
+			level = 8
+			direction = export
+			target = c:CHI.market
+		}
 		create_trade_route = {
 			goods = silk
 			level = 8
@@ -1066,6 +1066,12 @@
 			level = 10
 			direction = export
 			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = fruit
+			level = 4
+			direction = import
+			target = c:TUR.market
 		}
 		create_trade_route = {
 			goods = opium

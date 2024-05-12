@@ -34,7 +34,18 @@ law_slavery_banned = {
 		custom_tooltip = {
 			text = liberate_slaves_tt
 			liberate_slaves = yes
-		}		
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					any_scope_state = { has_modifier = slave_economy }
+					every_scope_state = {
+						limit = { has_modifier = slave_economy }
+						remove_modifier = slave_economy
+					}
+				}
+			}
+		}
 	}
 	
 	modifier = {

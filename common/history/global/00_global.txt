@@ -70,6 +70,18 @@ GLOBAL = {
 				months = -1
 			}
 		}
+		if = {
+			limit = {
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+				NOT = { has_modifier = slave_economy }
+			}
+			add_modifier = {
+				name = slave_economy
+				months = -1
+			}
+		}
 	}
 	every_country = {
 		add_taxed_goods = g:services

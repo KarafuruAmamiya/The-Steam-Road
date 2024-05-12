@@ -98,6 +98,7 @@ sa_migration.1 = {
 					}
 				}
 				state_is_eligible_as_mass_migration_target = yes
+				is_slave_state = no
 			}
 			order_by = migration_pull
 			save_scope_as = migration_target_state
@@ -177,6 +178,7 @@ sa_migration.2 = {
 				every_scope_state = {
 					limit = {
 						is_incorporated = yes
+						is_slave_state = no
 						state_is_in_central_america = yes
 					}
 					add_modifier = {
@@ -196,6 +198,7 @@ sa_migration.2 = {
 				every_scope_state = {
 					limit = {
 						is_incorporated = yes
+						is_slave_state = no
 						state_is_in_north_america = yes
 					}
 					add_modifier = {

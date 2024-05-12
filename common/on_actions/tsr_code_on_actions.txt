@@ -83,6 +83,29 @@ tsr_events_yearly = {
 			}
 			remove_modifier = holy_city_of_mecca
 		}
+		every_state = {
+			limit = {
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+				NOT = { has_modifier = slave_economy }
+			}
+			add_modifier = {
+				name = slave_economy
+				months = -1
+			}
+		}
+		every_state = {
+			limit = {
+				NOT = {
+					any_scope_pop = {
+						is_pop_type = slaves
+					}
+				}
+				has_modifier = slave_economy
+			}
+			remove_modifier = slave_economy
+		}
 		if = {
 			limit = {
 				any_scope_state = {

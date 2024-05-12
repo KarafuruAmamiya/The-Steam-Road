@@ -1248,17 +1248,9 @@ language_accepted = {
 			}
 		}
 		AND = {
-			OR = {
-				culture = { has_discrimination_trait = arab_speaking }
-				culture = { has_discrimination_trait = north_african_group }
-			}
+			culture = { has_discrimination_trait = arab_speaking }
 			owner = {
-				any_primary_culture = { 
-					OR = {
-						has_discrimination_trait = arab_speaking 
-						has_discrimination_trait = north_african_group 
-					}
-				}
+				any_primary_culture = { has_discrimination_trait = arab_speaking }
 			}
 		}
 	}

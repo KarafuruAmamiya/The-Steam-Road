@@ -136,3 +136,30 @@ default_building_illegal_opium_plantation = {
 		}
 	}
 }
+
+pm_grape_orchards = {
+	texture = "gfx/interface/icons/production_method_icons/orchards.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_wine_add = -10
+			goods_output_fruit_add = 10
+		}
+	}
+}
+
+pm_sugar_beet = {
+	texture = "gfx/interface/icons/production_method_icons/sweeteners.dds"
+	
+	unlocking_technologies = {
+		atmospheric_engine
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add = 5
+			goods_output_grain_add = -15
+			goods_output_sugar_add = 15
+		}
+	}
+}

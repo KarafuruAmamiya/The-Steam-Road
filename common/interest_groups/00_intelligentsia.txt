@@ -66,6 +66,7 @@
 				NOR = {
 					has_law = law_type:law_theocracy
 					country_has_state_religion = rel:confucian
+					is_country_type = unrecognized
 					NOT = { has_technology_researched = empiricism }
 				}
 			}
@@ -163,7 +164,6 @@
 	on_character_ig_membership = {}
 
 	pop_potential = {
-		literacy_rate > 0.25
 		OR = {
 			is_pop_type = academics
 			is_pop_type = aristocrats
@@ -184,7 +184,7 @@
 				limit = {
 					is_pop_type = academics
 				}
-				value = 200
+				value = 250
 			}
 		}
 
@@ -194,7 +194,7 @@
 				limit = {
 					is_pop_type = bureaucrats
 				}
-				value = 100
+				value = 150
 			}
 		}
 
@@ -204,7 +204,7 @@
 				limit = {
 					is_pop_type = clerks
 				}
-				value = 100
+				value = 50
 			}
 		}
 
@@ -239,12 +239,14 @@
 		}
 		
 		add = {
-			desc = "POP_UNRECOGNIZED"
+			desc = "ideology_westernizer"
 				if = {
 					limit = {
 						is_pop_type = aristocrats
 						owner = {
-							is_country_type = unrecognized
+							ig:ig_intelligentsia = {
+								has_ideology = ideology:ideology_westernizer
+							}
 						}
 
 					}
@@ -463,174 +465,6 @@
 			}
 		}
 
-		multiply = {
-			desc = "law_autocracy"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_autocracy
-					}
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "law_oligarchy"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_oligarchy
-					}
-				}
-				value = 1.3
-			}
-		}
-
-		multiply = {
-			desc = "law_landed_voting"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_landed_voting
-					}
-				}
-				value = 1.25
-			}
-		}
-		multiply = {
-			desc = "law_wealth_voting"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_wealth_voting
-					}
-				}
-				value = 1.15
-			}
-		}
-
-		multiply = {
-			desc = "law_census_voting"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_census_voting
-					}
-				}
-				value = 1.1
-			}
-		}
-
-		multiply = {
-			desc = "law_anarchy"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_anarchy
-					}
-				}
-				value = 1.1
-			}
-		}
-
-		multiply = {
-			desc = "law_outlawed_dissent"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_outlawed_dissent
-					}
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "law_censorship"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_censorship
-					}
-				}
-				value = 1.25
-			}
-		}
-
-		multiply = {
-			desc = "law_state_religion"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_state_religion
-					}
-				}
-				value = 1.25
-			}
-		}
-
-		multiply = {
-			desc = "law_no_schools"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_no_schools
-					}
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "law_debt_slavery"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_debt_slavery
-					}
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "law_slave_trade"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_slave_trade
-					}
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "law_legacy_slavery"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_legacy_slavery
-					}
-				}
-				value = 1.25
-			}
-		}
-
 		add = { #Some Pops that would support TU supports Intelligentsia instead
 			desc = "NO_LABOR_MOVEMENT"
 			if = {
@@ -686,7 +520,7 @@
 			if = {
 				limit = {
 					owner = {
-						c:USC = THIS
+						c:USC ?= THIS
 					}
 					culture = cu:afro_american
 				}
@@ -722,23 +556,6 @@
 		}
 
 		multiply = {
-			desc = "ideology_jacksonian_democrat"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								has_ideology = ideology:ideology_jacksonian_democrat
-							}
-						}
-					}
-				}
-				value = 0.75
-			}
-		}
-
-		multiply = {
 			desc = "ideology_revolutionary_republican"
 			value = 1.0
 			if = {
@@ -765,6 +582,18 @@
 				}
 			}
 		}
+		
+		multiply = {
+			desc = "POP_LITERACY"
+			value = 1.0
+
+			if = {
+				limit = {
+					literacy_rate < 0.25
+				}
+				value = 0.0
+			}
+		}
 
 		multiply = {
 			desc = "decentralized_power"
@@ -779,6 +608,7 @@
 				value = 0.0
 			}
 		}
+		
 		if = {
 			limit = {
 				scope:interest_group = {

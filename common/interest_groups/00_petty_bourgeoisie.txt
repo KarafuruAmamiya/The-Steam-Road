@@ -145,10 +145,13 @@
 				}
 			}
 			OR = {
-				this.culture = {
-					AND = {
-						shares_heritage_trait_with_any_primary_culture = prev.owner
-						shares_non_heritage_trait_with_any_primary_culture = prev.owner
+				custom_tooltip = {
+					text = would_be_accepted_under_national_supremacy_tt
+					this.culture = {
+						AND = {
+							shares_heritage_trait_with_any_primary_culture = prev.owner
+							shares_non_heritage_trait_with_any_primary_culture = prev.owner
+						}
 					}
 				}
 				pop_is_discriminated = yes
@@ -198,7 +201,7 @@
 	}
 
 	pop_weight = {
-		value = 10
+		value = 50
 
 		add = {
 			desc = "POP_SHOPKEEPERS"
@@ -246,7 +249,7 @@
 				limit = {
 					is_pop_type = engineers
 				}
-				value = 75
+				value = 50
 			}
 		}
 		
@@ -276,7 +279,7 @@
 		}
 		
 		add = {
-			desc = "PRIMARY_CULTURE" #More likely for other cultures in Ottomans/Akkovins
+			desc = "POP_DISCRIMINATED" #More likely for other cultures in Ottomans/Akkovins
 			if = {
 				limit = {
 					owner = {
@@ -284,19 +287,9 @@
 							has_ideology = ideology:ideology_pluralist
 						}
 					}
-					pop_has_primary_culture = no
+					pop_is_discriminated = yes
 				}
-				value = 100
-			}
-		}
-
-		add = {
-			desc = "POP_FARMERS"
-			if = {
-				limit = { 
-					is_pop_type = farmers
-				}
-				value = 75
+				value = 250
 			}
 		}
 
@@ -317,16 +310,6 @@
 					is_pop_type = aristocrats
 				}
 				value = 10
-			}
-		}
-
-		add = {
-			desc = "POP_PEASANTS" #represent artisans etc
-			if = {
-				limit = {
-					is_pop_type = peasants
-				}
-				value = 75
 			}
 		}
 		
@@ -381,51 +364,6 @@
 				value = 2.0
 			}
 		}
-
-		multiply = {
-			desc = "TRADE_CENTER"
-			value = 1.0
-			if = {
-				limit = {
-					OR = {
-						is_pop_type = clerks
-						is_pop_type = bureaucrats
-					}
-					pop_employment_building = building_trade_center
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "URBAN_CENTER"
-			value = 1.0
-			if = {
-				limit = {
-					OR = {
-						is_pop_type = clerks
-						is_pop_type = bureaucrats
-					}
-					pop_employment_building = building_urban_center
-				}
-				value = 1.5
-			}
-		}
-
-		multiply = {
-			desc = "NOT_GOV"
-			value = 1.0
-			if = {
-				limit = {
-					OR = {
-						is_pop_type = clerks
-						is_pop_type = bureaucrats
-					}
-					NOT = { pop_employment_building_group = bg_government}
-				}
-				value = 1.25
-			}
-		}
 		
 		multiply = { 
 			desc = "COUNTERREVOLUTION"
@@ -433,6 +371,9 @@
 			if = {
 				limit = {
 					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_reactionary
+						}
 						ig:ig_trade_unions = {
 							is_powerful = yes
 						}
@@ -555,35 +496,6 @@
 			}
 		}
 
-		multiply = {
-			desc = "law_no_police"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_no_police
-					}
-				}
-				value = 1.1
-			}
-		}
-
-		multiply = {
-			desc = "law_no_migration_controls"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_no_migration_controls
-						ig:ig_petty_bourgeoisie = {
-							NOT = { has_ideology = ideology:ideology_pluralist }
-						}
-					}
-				}
-				value = 1.1
-			}
-		}
-
 		add = {
 			desc = "law_graduated_taxation" 
 			if = {
@@ -627,23 +539,6 @@
 					culture = cu:afro_american
 				}
 				value = 0.1
-			}
-		}
-
-		multiply = {
-			desc = "ideology_jacksonian_democrat"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								has_ideology = ideology:ideology_jacksonian_democrat
-							}
-						}
-					}
-				}
-				value = 0.75
 			}
 		}
 		

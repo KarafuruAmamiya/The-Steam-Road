@@ -242,26 +242,6 @@ liberal_party = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					country_is_in_north_america = yes
-					country_has_primary_culture = cu:yankee
-					has_law = law_type:law_presidential_republic
-				}
-				leader = {
-					NOR = {
-						has_reactionary_ideology = yes
-						has_conservative_ideology = yes
-						has_socialist_ideology = yes
-					}
-				}
-			}
-			add = {
-				value = 3
-				desc = "usa_two_party_system"
-			}
-		}
 		if = { # liberals love liberalism
 			limit = {
 				leader = {
@@ -577,35 +557,6 @@ liberal_party = {
 				desc = "from_modernizer"
 			}
 		}
-		# Special weights for ACW
-		if = {
-			limit = {
-				owner = {
-	         		has_variable = only_valid_party
-	         	}
-	         	 owner.var:only_valid_party = {
-		        	is_party_type = liberal_party
-		        }
-			}
-			add = {
-				value = 3
-				desc = "from_only_legal_party"
-			}
-			if = {
-				limit = { leader = { has_ideology = ideology:ideology_slaver } }
-				add = {
-					value = -100
-					desc = "from_slaver_leader"
-				}					
-			}	
-			else_if = {
-				limit = { leader = { has_ideology = ideology:ideology_abolitionist } }
-				add = {
-					value = 100
-					desc = "from_abolitionist_leader"
-				}					
-			}				
-		}	
 		
 		if = {
 			limit = {

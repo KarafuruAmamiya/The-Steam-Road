@@ -138,35 +138,6 @@
 		}
 
 		add = {
-			desc = "nationalism"
-			if = {
-				limit = {
-					pop_is_discriminated = no
-					owner = {
-						has_technology_researched = nationalism
-						NOT = {
-							has_technology_researched = pan-nationalism
-						}
-					}
-				}
-				value = 25
-			}
-		}
-
-		add = {
-			desc = "nationalism"
-			if = {
-				limit = {
-					pop_is_discriminated = no
-					owner = {
-						has_technology_researched = pan-nationalism
-					}
-				}
-				value = 25
-			}
-		}
-
-		add = {
 			desc = "POP_SOLDIERS"
 			if = {
 				limit = {
@@ -281,59 +252,6 @@
 			}
 		}
 
-		add = {
-			desc = "IG_HAS_RIVAL"
-			if = {
-				limit = {
-					owner = {
-						any_rival_country = {
-							count = 0
-						}
-					}
-				}
-				value = 0
-			}
-			else_if = {
-				limit = {
-					owner = {
-						any_rival_country = {
-							count = 1
-						}
-					}
-				}
-				value = 5
-			}
-			else_if ={
-				limit = {
-					owner = {
-						any_rival_country = {
-							count = 2
-						}
-					}
-				}
-				value = 10
-			}
-			else_if ={
-				limit = {
-					owner = {
-						any_rival_country = {
-							count = 3
-						}
-					}
-				}
-				value = 15
-			}
-			else_if ={
-				limit = {
-					owner = {
-						any_rival_country = {
-							count >= 4
-						}
-					}
-				}
-				value = 20
-			}
-		}
 
 		multiply = {
             desc = "concept_war"    
@@ -477,6 +395,22 @@
 				value = 100
 			}
 		}
+		
+		add = {
+			desc = "POP_DISCRIMINATED" #More likely for other cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = -250
+			}
+		}
+
 
 		multiply = { # Boost to Facism to make it relevant
 			desc = "ideology_fascist"

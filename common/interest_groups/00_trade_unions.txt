@@ -719,6 +719,21 @@
 				add = 1
 			}
 		}
+
+		multiply = {
+			desc = "YANKEE"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						c:USC ?= THIS
+					}
+					culture = cu:yankee
+				}
+				value = 0.75
+			}
+		}
 		
 		multiply = {
 			desc = "AFROAMERICAN"
@@ -727,7 +742,7 @@
 			if = {
 				limit = {
 					owner = {
-						c:USC = THIS
+						c:USC ?= THIS
 					}
 					culture = cu:afro_american
 				}

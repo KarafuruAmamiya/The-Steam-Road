@@ -315,32 +315,8 @@
 			if = {
 				limit = {
 					is_pop_type = aristocrats
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
-							}
-						}
-					}
 				}
 				value = 200
-			}
-		}
-
-		add = {
-			desc = "POP_ARISTOCRATS"
-			if = {
-				limit = {
-					is_pop_type = aristocrats
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								has_ideology = ideology:ideology_jacksonian_democrat
-							}
-						}
-					}
-				}
-				value = 100
 			}
 		}
 
@@ -361,7 +337,7 @@
 				limit = {
 					is_pop_type = officers
 				}
-				value = 100
+				value = 50
 			}
 		}
 
@@ -370,13 +346,6 @@
 			if = {
 				limit = {
 					is_pop_type = farmers
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
-							}
-						}
-					}
 				}
 				value = 25
 				add = this.standard_of_living
@@ -619,6 +588,22 @@
 				value = 100
 			}
 		}
+		
+		add = {
+			desc = "POP_DISCRIMINATED" #More likely for other cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = -250
+			}
+		}
+
 
 		multiply = {
 			desc = "NOTPROTESTANT"
@@ -675,18 +660,11 @@
 						is_slave_state = yes
 					}
 					rural_employment = yes
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
-							}
-						}
-					}
 				}
 				value = 100
 			}
 		}
-
+		
 		add = {
 			desc = "SLAVE_STATE"
 			if = {
@@ -696,13 +674,6 @@
 					}
 					NOT = {
 						rural_employment = yes				
-					}
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
-							}
-						}
 					}
 				}
 				value = 50 #rest of the society is also affected
@@ -754,7 +725,7 @@
 			if = {
 				limit = {
 					owner = {
-						THIS = c:USC
+						c:USC ?= this
 						ig:ig_landowners = {
 							has_ideology = ideology:ideology_pro_slavery
 						}
@@ -785,24 +756,7 @@
 				}
 				value = 0.50
 			}
-		}
-
-		add = {
-			desc = "PLANTATION_EMPLOYMENT"
-			if = {
-				limit = {
-					pop_employment_building_group = bg_plantations
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = { has_ideology = ideology:ideology_jacksonian_democrat }
-							}
-						}
-					}
-				}
-				value = 100
-			}
-		}
+		}	
 
 		multiply = {
 			desc = "AFROAMERICAN"

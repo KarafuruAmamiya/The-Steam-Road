@@ -179,7 +179,7 @@
 				limit = {
 					is_pop_type = aristocrats
 					owner = {
-						THIS = c:USC
+						c:USC ?= this
 						ig:ig_landowners = {
 							has_ideology = ideology:ideology_pro_slavery
 						}
@@ -335,6 +335,7 @@
 			}
 		}
 
+
 		multiply = {
 			desc = "MONARCHIST"
 			value = 1.0
@@ -457,6 +458,21 @@
 					}
 				}
 				value = 25
+			}
+		}
+		
+		add = {
+			desc = "POP_DISCRIMINATED" #More likely for other cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = -500
 			}
 		}
 

@@ -325,7 +325,7 @@
 
 
 	pop_potential = {
-		religion = owner.religion
+		religion_accepted = yes
 		NOT = {
 			has_pop_religion = atheist
 		}
@@ -340,36 +340,11 @@
 				limit = { 
 					rural_employment = yes
 					NOT = { is_pop_type = aristocrats }
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
-							}
-						}
-					}
 				}
 				value = 50
 			}
 		}
-
-		add = {
-			desc = "RURAL_POP"
-			if = {
-				limit = { 
-					rural_employment = yes
-					NOT = { is_pop_type = aristocrats }
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								has_ideology = ideology:ideology_jacksonian_democrat
-							}
-						}
-					}
-				}
-				value = 25
-			}
-		}
-
+		
 		multiply = {
 			desc = "SMALL_URBAN_CENTER"
 			value = 1.0
@@ -382,18 +357,11 @@
 							level < 5
 						}
 					}
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
-							}
-						}
-					}
 				}
 				value = 1.25
 			}
 		}	
-
+		
 		multiply = {
 			desc = "NO_URBAN_CENTER"
 			value = 1.0
@@ -404,13 +372,6 @@
 						NOT = {
 							any_scope_building = {
 								is_building_type = building_urban_center
-							}
-						}
-					}
-					owner = {
-						ig:ig_rural_folk = {
-							leader = {
-								NOT = {has_ideology = ideology:ideology_jacksonian_democrat}
 							}
 						}
 					}
@@ -471,6 +432,21 @@
 				add = 200
 			}
 		}
+		
+		add = {
+			desc = "POP_DISCRIMINATED" #More likely for other cultures in Ottomans/Akkovins
+			if = {
+				limit = {
+					owner = {
+						ig:ig_petty_bourgeoisie = {
+							has_ideology = ideology:ideology_pluralist
+						}
+					}
+					pop_is_discriminated = yes
+				}
+				value = 250
+			}
+		}
 
 		if = {
 			limit = {
@@ -481,25 +457,6 @@
 			multiply = {
 				desc = "STATE_ATHEISM_LAW"
 				value = 0.1
-			}
-		}
-		
-		add = {
-			desc = "ideology_confucian"
-			if = {
-				limit = { 
-					OR = {
-						is_pop_type = aristocrats
-						is_pop_type = clergymen
-						is_pop_type = peasants
-					}
-					owner = {
-						ig:ig_devout = {
-							has_ideology = ideology:ideology_confucian
-						}
-					}
-				}
-				value = 50
 			}
 		}
 		
@@ -736,18 +693,6 @@
 				value = 1.1
 			}
 		}
-		
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_shared_roots
-				}
-			}
-			multiply = {
-				desc = "law_shared_roots"
-				value = 0.9
-			}
-		}
 
 		if = {
 			limit = {
@@ -816,32 +761,6 @@
 		}
 
 		multiply = {
-			desc = "law_womens_suffrage"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_womens_suffrage
-					}
-				}
-				value = 1.1
-			}
-		}		
-
-		multiply = {
-			desc = "law_total_separation"
-			value = 1.0
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_total_separation
-					}
-				}
-				value = 1.1
-			}
-		}
-
-		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
 				leader ?= {
@@ -892,16 +811,6 @@
 				value = pop_radical_fraction
 				divide = 4
 				add = 1
-			}
-		}
-		
-		# VTM
-		if = {
-			limit = {
-				has_pop_religion = atheist
-			}
-			multiply = {
-				value = 0.0
 			}
 		}		
 	}

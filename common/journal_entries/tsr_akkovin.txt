@@ -749,6 +749,20 @@ je_akkovin_reform_arabia = {
 		}
 	}
 	
+	immediate = {
+		every_subject_or_below = {
+			limit = {
+				country_is_in_middle_east = yes
+			}
+			ROOT = {
+				set_secret_goal = {
+					country = prev
+					secret_goal = conquer
+				}
+			}
+		}
+	}
+	
 	complete = {
 		scope:journal_entry = {
 			is_goal_complete = yes

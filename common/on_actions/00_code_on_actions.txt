@@ -2822,20 +2822,6 @@ on_wargoal_enforced = {
 				trigger_event = { id = burmese_war.1 popup = yes }
         	}
         }
-		if = {
-        	limit = {
-        		c:HDJ ?= root
-				has_truce_with = c:AKN
-				NOT = { is_subject_of = c:AKN }
-				has_variable = ottoman_protectorate_var
-        	}
-        	c:TUR ?= {
-				trigger_event = { id = akkovin_crisis.15 popup = yes }
-        	}
-			c:HDJ ?= {
-				remove_variable = ottoman_protectorate_var
-			}
-        }		
 	}	
 }
 
@@ -2982,6 +2968,20 @@ on_war_end = {
 		    #	value = scope:actor
 		    #}
 		}
+		if = {
+        	limit = {
+        		c:HDJ ?= this
+				has_truce_with = c:AKN
+				NOT = { is_subject_of = c:AKN }
+				has_variable = ottoman_protectorate_var
+        	}
+        	c:TUR ?= {
+				trigger_event = { id = akkovin_crisis.15 popup = yes }
+        	}
+			c:HDJ ?= {
+				remove_variable = ottoman_protectorate_var
+			}
+        }		
 	}	
 }
 

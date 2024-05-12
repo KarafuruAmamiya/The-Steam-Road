@@ -140,9 +140,9 @@ ai_strategy_default = {
 					}
 				}
 				has_diplomatic_pact = {
-				    		who = prev
-				    		type = rivalry
-				        }
+				    who = prev
+				    type = rivalry
+				}
 			}
 			subtract = 25
 		}
@@ -172,23 +172,9 @@ ai_strategy_default = {
 		# even more if it's Zandi Rebellion
 		if = {
 			limit = {
-				AND = {
-					country_rank >= rank_value:great_power
-					OR = {
-						country_is_in_europe = yes
-						gunpowder_empire_trigger = yes
-					}
-					has_interest_marker_in_region = region_arabic
-				}
+				country_rank >= rank_value:great_power
+				has_interest_marker_in_region = region_arabic
 				any_diplomatic_play = {
-					any_scope_play_involved = {
-						OR = {
-							country_is_in_middle_east = yes
-							gunpowder_empire_trigger = yes
-						}
-						country_rank >= rank_value:major_power
-						is_diplomatic_play_committed_participant = yes
-					}
 					is_diplomatic_play_type = dp_zandi_rebellion
 				}
 			}
@@ -4450,14 +4436,13 @@ ai_strategy_default = {
 				add = 100
 			}
 			
-			# Et tu, Hedjaz ~the Akkovins
+			# Et tu, Arabs ~the Akkovins
 			if = {
 				limit = { 
-					c:HDJ ?= this
-					exists = c:TUR
+					country_is_in_middle_east = yes
+					is_subject_of = c:AKN
 					scope:target_country = {
 						c:TUR ?= this
-						has_journal_entry = je_ottoman_caliphate
 					}
 				}
 				add = 1000
@@ -4907,6 +4892,24 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
+			#Akkovin will try to reduce subject autonomy
+			if = {
+				limit = {
+					has_journal_entry = je_akkovin_reform_arabia
+					scope:target_country = { 
+						is_subject_of = root
+						NOT = { is_subject_type = subject_type_dependency }
+						OR = {
+							c:HDJ ?= this
+							c:SYR ?= this
+							c:NEJ ?= this
+							c:JAB ?= this
+						}
+					}
+				}
+				add = -1000
+			}
+			
 			# Same for Sweden and USC
 			if = {
 				limit = { 
@@ -4931,9 +4934,9 @@ ai_strategy_default = {
 				limit = { 
 					c:TUR ?= this
 					has_journal_entry = je_ottoman_caliphate
-					exists = c:HDJ
 					scope:target_country = {
-						c:HDJ ?= this
+						country_is_in_middle_east = yes
+						is_subject_of = c:AKN
 					}
 				}
 				add = 1000

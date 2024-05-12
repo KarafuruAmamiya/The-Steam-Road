@@ -290,22 +290,23 @@ tsr_diplomatic_play_started = {
 		if = {
 			limit = {
 				is_diplomatic_play_type = dp_reduce_autonomy
-				scope:initiator ?= {
-					has_journal_entry = je_akkovin_crisis
+				scope:initiator = {
+					c:AKN ?= this
 				}
-				scope:target ?= {
-					c:HDJ ?= this
-				}
-			}
-			if = {
-				limit = {
-					c:TUR ?= {
-						has_journal_entry = je_ottoman_caliphate
+				OR = {
+					scope:target = {
+						c:HDJ ?= this
+					}
+					any_scope_target_ally = {
+						c:HDJ ?= this
 					}
 				}
-				c:HDJ ?= {
-					trigger_event = { id = akkovin_crisis.13 days = 20 popup = yes }
+				c:TUR ?= {
+					has_journal_entry = je_ottoman_caliphate
 				}
+			}
+			c:HDJ ?= {
+				trigger_event = { id = akkovin_crisis.13 days = 20 popup = yes }
 			}
 		}
 	}

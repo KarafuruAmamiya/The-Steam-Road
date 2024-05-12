@@ -687,3 +687,155 @@ je_national_identity = {
 
 	should_be_pinned_by_default = yes
 }
+
+je_path_to_plutocracy = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+   group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		has_technology_researched = nationalism
+		ig:ig_industrialists = {
+			NOT = {
+				has_ideology = ideology:ideology_reactionary_industrialists
+			}
+		}
+	}
+	
+	possible = {
+		ig:ig_industrialists = {
+			NOT = {
+				has_ideology = ideology:ideology_reactionary_industrialists
+			}
+		}
+		OR = {
+			has_law = law_type:law_wealth_voting
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+		}
+	}
+
+	complete = {
+		OR = {
+			ig:ig_industrialists = {
+				ig_clout >= 0.25
+				is_in_government = yes
+			}
+			ig:ig_trade_unions = {
+				is_powerful = yes
+			}
+			any_interest_group = {
+			    is_powerful = yes
+			    leader = {
+				    OR = { 
+						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_vanguardist
+						has_ideology = ideology:ideology_anarchist
+					}
+				}
+			}
+		}
+		has_technology_researched = socialism
+	}
+
+	on_complete = {
+		trigger_event = { id = ideologies_change.4 }
+		show_as_tooltip = {
+			ig:ig_industrialists = {
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_constitutionalist
+					}
+					remove_ideology = ideology_constitutionalist
+				}
+				add_ideology = ideology_reactionary_industrialists
+			}
+		}
+	}
+
+	invalid = {
+		ig:ig_industrialists = {
+			has_ideology = ideology:ideology_reactionary_industrialists
+		}
+	}
+	weight = 300
+}
+
+je_path_to_caesarism = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+   group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		has_technology_researched = nationalism
+		ig:ig_petty_bourgeoisie = {
+			NOT = {
+				has_ideology = ideology:ideology_reactionary
+			}
+		}
+	}
+	
+	possible = {
+		ig:ig_petty_bourgeoisie = {
+			NOT = {
+				has_ideology = ideology:ideology_reactionary
+			}
+		}
+		OR = {
+			has_law = law_type:law_wealth_voting
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+		}
+	}
+
+	complete = {
+		OR = {
+			ig:ig_petty_bourgeoisie = {
+				ig_clout >= 0.25
+				is_in_government = yes
+			}
+			ig:ig_trade_unions = {
+				is_powerful = yes
+			}
+			any_interest_group = {
+			    is_powerful = yes
+			    leader = {
+				    OR = { 
+						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_vanguardist
+						has_ideology = ideology:ideology_anarchist
+					}
+				}
+			}
+		}
+		has_technology_researched = socialism
+	}
+
+	on_complete = {
+		trigger_event = { id = ideologies_change.4 }
+		show_as_tooltip = {
+			ig:ig_petty_bourgeoisie = {
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_constitutionalist
+					}
+					remove_ideology = ideology_constitutionalist
+				}
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_republican
+					}
+					remove_ideology = ideology_republican
+				}
+				add_ideology = ideology_reactionary
+			}
+		}
+	}
+
+	invalid = {
+		ig:ig_petty_bourgeoisie = {
+			has_ideology = ideology:ideology_reactionary
+		}
+	}
+	weight = 300
+}

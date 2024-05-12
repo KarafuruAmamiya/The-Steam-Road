@@ -18,16 +18,6 @@
 		activate_law = law_type:law_oligarchy
 		activate_law = law_type:law_monarchy
 	}
-	c:MTB ?= { # Mthwakazi
-		effect_starting_technology_tier_6_tech = yes
-		effect_native_conscription_7 = yes
-		effect_starting_politics_traditional = yes
-
-		activate_law = law_type:law_isolationism
-		activate_law = law_type:law_slave_trade
-		activate_law = law_type:law_oligarchy
-		activate_law = law_type:law_monarchy
-	}
 	c:RZW ?= { # Rozwi Empire
 		effect_starting_technology_tier_6_tech = yes
 		effect_native_conscription_7 = yes
@@ -80,6 +70,12 @@
 		effect_starting_technology_tier_7_tech = yes
 		effect_starting_politics_traditional = yes
 		effect_native_conscription_3 = yes
+		activate_law = law_type:law_debt_slavery
+	}
+	c:MTB ?= { # Matabele
+		effect_starting_technology_tier_7_tech = yes
+		effect_native_conscription_7 = yes
+		effect_starting_politics_traditional = yes
 		activate_law = law_type:law_debt_slavery
 	}
 }

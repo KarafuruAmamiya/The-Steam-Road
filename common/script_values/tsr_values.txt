@@ -45,3 +45,19 @@ num_mehmed_domain = {
 		}
     }
 }
+
+num_slave_state = {
+	value = {
+		value = 0
+		add = {
+			every_scope_state = {
+				limit = { 
+					any_scope_pop = {
+						is_pop_type = slaves
+					}
+				}
+				add = 1
+			}
+		}
+    }
+}

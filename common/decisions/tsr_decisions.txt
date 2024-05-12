@@ -390,3 +390,42 @@ encourage_migration_to_colonies = {
 		}
 	}
 }
+
+slave_emancipation_act = {
+	is_shown = {
+		has_law = law_type:law_slavery_banned
+		any_subject_or_below = {
+			is_direct_subject_of = root
+			has_law = law_type:law_governorate
+			NOT = { has_law = law_type:law_slavery_banned }
+		}
+	}
+
+	possible = {
+		in_default = no
+		NOT = { has_modifier = declared_bankruptcy }
+	}
+
+	when_taken = {
+		trigger_event = { id = tsr_misc_events.4 popup = yes }
+	}
+
+	ai_chance = {
+		base = 0
+		modifier = {
+			trigger = {
+				OR = {
+					has_strategy = ai_strategy_progressive_agenda
+					has_strategy = ai_strategy_egalitarian_agenda
+				}
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				scaled_gold_reserves <= 0.1
+			}
+			add = -100
+		}
+	}
+}

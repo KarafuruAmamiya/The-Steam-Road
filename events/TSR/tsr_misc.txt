@@ -479,3 +479,165 @@ tsr_misc_events.2 = {
 		}
 	}
 }
+
+tsr_misc_events.3 = {
+	type = country_event
+	hidden = yes
+	immediate = {	
+		random_primary_culture = {
+			save_scope_as = primary_culture
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					state_population >= 100000
+					is_split_state = no
+					is_under_colonization = no
+					state_region = {
+						NOT = { is_homeland = scope:primary_culture }
+					}
+					culture_percent_state = {
+						target = scope:primary_culture
+						value >= 0.4
+					}
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_population >= 100000
+					is_split_state = no
+					is_under_colonization = no
+					state_region = {
+						NOT = { is_homeland = scope:primary_culture }
+					}
+					culture_percent_state = {
+						target = scope:primary_culture
+						value >= 0.4
+					}
+				}
+				save_scope_as = new_homeland_state
+			}
+			scope:new_homeland_state = {
+				state_region = {
+					add_homeland = scope:primary_culture
+				}
+			}
+			post_notification = new_homeland
+		}
+	}
+}
+
+# Subject Slave Emancipation
+tsr_misc_events.4 = {
+	type = country_event
+	placement = root
+	
+	title = tsr_misc_events.4.t
+	desc = tsr_misc_events.4.d
+	flavor = tsr_misc_events.4.f
+	
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+
+	immediate = {
+		random_subject_or_below = {
+			limit = {
+				is_direct_subject_of = root
+				has_law = law_type:law_governorate
+				NOT = { has_law = law_type:law_slavery_banned }
+			}
+			set_variable = {
+				name = slave_compensation value = this.gold_reserves_limit 
+			}
+			change_variable = {
+				name = slave_compensation
+				divide = 5
+			}
+			change_variable = {
+				name = slave_compensation
+				multiply = num_slave_state
+			}
+			change_variable = {
+				name = slave_compensation
+				multiply = -1
+			}
+			save_scope_as = slavery_abolished_subject
+		}
+	}
+
+	option = {
+		name = tsr_misc_events.4.a
+		default_option = yes
+		scope:slavery_abolished_subject = {
+			trigger_event = { id = tsr_misc_events.5 popup = yes }
+		}
+		add_treasury = scope:slavery_abolished_subject.var:slave_compensation
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = {
+		name = tsr_misc_events.4.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# Overlord Abolishes Slavery
+tsr_misc_events.5 = {
+	type = country_event
+	placement = root
+	
+	title = tsr_misc_events.5.t
+	desc = tsr_misc_events.5.d
+	flavor = tsr_misc_events.5.f
+	
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	duration = 3
+
+	immediate = {
+		overlord = {
+			save_scope_as = overlord_country
+		}
+	}
+
+	option = {
+		name = tsr_misc_events.5.a
+		default_option = yes
+		activate_law = law_type:law_slavery_banned
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					leader = {
+						has_ideology = ideology:ideology_slaver
+					}
+				}
+			}
+			add_modifier = {
+				name = slave_owner_compensation
+				months = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}

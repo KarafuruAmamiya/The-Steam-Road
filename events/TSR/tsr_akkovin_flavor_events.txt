@@ -630,6 +630,7 @@ treaty_of_baglar_events.3 = { # Persia demands you to enter their market
 	
 	trigger = {
 		c:AKN ?= this
+		NOT = { is_subject_type = subject_type_customs_union }
 		has_modifier = treaty_of_baglar_2
 		OR = {
 			country_rank < rank_value:major_power

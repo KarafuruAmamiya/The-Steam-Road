@@ -80,9 +80,10 @@
 					exists = c:PER
 					c:PER = {
 						has_attitude = {
-							who = c:AKN
+							who = root
 							attitude = protective
 						}
+						relations:root >= relations_threshold:cordial
 					}
 					c:TUR ?= {
 						has_variable = pursue_caliphate_var

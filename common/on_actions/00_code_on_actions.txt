@@ -2972,7 +2972,10 @@ on_war_end = {
         	limit = {
         		c:HDJ ?= this
 				has_truce_with = c:AKN
-				NOT = { is_subject_of = c:AKN }
+				NOR = {
+					is_subject_type = subject_type_puppet
+					is_subject_type = subject_type_dependency
+				}
 				has_variable = ottoman_protectorate_var
         	}
         	c:TUR ?= {

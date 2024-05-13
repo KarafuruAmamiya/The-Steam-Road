@@ -325,6 +325,13 @@ law_mass_conscription = {
 		}
 		
 		if = {
+			limit = {
+				c:ITA ?= this
+			}
+			add = 750
+		}
+		
+		if = {
 			limit = { 
 				has_journal_entry = je_government_petition
 				has_variable = desired_law_var

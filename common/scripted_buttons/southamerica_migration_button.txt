@@ -69,7 +69,11 @@
 				}
 			}
 			state_is_eligible_as_mass_migration_target = yes
-			is_slave_state = no
+			NOT = {
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+			}
 		}
 		OR = {
 			has_law = law_type:law_racial_segregation

@@ -364,11 +364,17 @@ scandinavian_union_norway_democracy_button = {
 		OR = {
 			c:NOR = {
 				has_law = law_type:law_oligarchy
-				has_law = law_type:law_censorship
+				OR = {
+					has_law = law_type:law_outlawed_dissent
+					has_law = law_type:law_censorship
+				}
 			}
 			c:SWE = {
 				has_law = law_type:law_census_voting
-				has_law = law_type:law_right_of_assembly
+				OR = {
+					has_law = law_type:law_right_of_assembly
+					has_law = law_type:law_protected_speech
+				}
 			}
 		}
 	}

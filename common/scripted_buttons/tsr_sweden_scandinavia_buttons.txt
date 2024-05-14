@@ -1,0 +1,601 @@
+﻿scandinavian_union_denmark_button = {
+	name = "scandinavian_union_denmark_button"
+	desc = "scandinavian_union_denmark_button_desc"
+
+	visible = { 
+		exists = c:DEN
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = denmark_point_10
+			global_var:denmark_point >= 10
+		}
+	}
+
+	effect = {
+		set_variable = denmark_appeased
+		if = {
+			limit = {
+				c:DEN ?= {
+					is_subject_of = root
+					NOR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_real_union
+					}
+				}
+			}
+			if = {
+				limit = {
+					c:DEN ?= {
+						is_subject_type = subject_type_personal_union
+					}
+				}
+				c:DEN ?= {
+					change_subject_type = subject_type_real_union
+				}
+			}
+			else = {
+				c:DEN ?= {
+					change_subject_type = subject_type_dependency
+				}
+			}
+		}
+	}
+}
+
+scandinavian_union_norway_button = {
+	name = "scandinavian_union_norway_button"
+	desc = "scandinavian_union_norway_button_desc"
+
+	visible = { 
+		exists = c:NOR
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = norway_point_10
+			global_var:norway_point >= 10
+		}
+	}
+
+	effect = {
+		set_variable = norway_appeased
+		if = {
+			limit = {
+				c:NOR ?= {
+					is_subject_of = root
+					NOR = {
+						is_subject_type = subject_type_dependency
+						is_subject_type = subject_type_real_union
+					}
+				}
+			}
+			if = {
+				limit = {
+					c:NOR ?= {
+						is_subject_type = subject_type_personal_union
+					}
+				}
+				c:NOR ?= {
+					change_subject_type = subject_type_real_union
+				}
+			}
+			else = {
+				c:NOR ?= {
+					change_subject_type = subject_type_dependency
+				}
+			}
+		}
+	}
+}
+
+scandinavian_union_denmark_religion_button = {
+	name = "scandinavian_union_denmark_religion_button"
+	desc = "scandinavian_union_denmark_religion_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_religion_var }
+		}
+		c:DEN = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		OR = {
+			c:DEN = {
+				has_law = law_type:law_public_schools
+			}
+			c:SWE = {
+				has_law = law_type:law_religious_schools
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_religion_var
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_denmark_andersen_button = {
+	name = "scandinavian_union_denmark_andersen_button"
+	desc = "scandinavian_union_denmark_andersen_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_andersen_var }
+		}
+		custom_tooltip = {
+			text = andersen_agitate_5_years
+			c:DEN ?= {
+				any_scope_character = {
+					has_variable = pro_scandinavian_agitator
+				}
+			}
+			root.var:andersen_tracker >= 60
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_andersen_var
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_denmark_citizenship_button = {
+	name = "scandinavian_union_denmark_citizenship_button"
+	desc = "scandinavian_union_denmark_citizenship_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_citizenship_var }
+		}
+		OR = {
+			c:DEN = {
+				has_law = law_type:law_racial_segregation
+			}
+			c:SWE = {
+				has_law = law_type:law_national_supremacy
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_citizenship_var
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_denmark_nationalist_button = {
+	name = "scandinavian_union_denmark_nationalist_button"
+	desc = "scandinavian_union_denmark_nationalist_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
+		}
+		c:DEN = { has_technology_researched = nationalism }
+		OR = {
+			AND = {
+				OR = {
+					has_law = law_type:law_outlawed_dissent
+					has_law = law_type:law_censorship
+				}
+				OR = {
+					has_law = law_type:law_national_guard
+					has_law = law_type:law_secret_police
+				}
+			}
+			AND = {
+				OR = {
+					has_law = law_type:law_right_of_assembly
+					has_law = law_type:law_protected_speech
+				}
+				OR = {
+					has_law = law_type:law_federal
+					has_law = law_type:law_confederated
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_nationalist_var
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_denmark_bribe_button = {
+	name = "scandinavian_union_denmark_bribe_button"
+	desc = "scandinavian_union_denmark_bribe_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 0
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_bribe_var }
+		}
+		in_default = no
+		NOT = { has_modifier = declared_bankruptcy }
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_bribe_var
+		add_treasury = -200000
+		c:DEN = {
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:danish
+					}
+				}
+				add_radicals_in_state = {
+					culture = cu:danish
+					value = medium_radicals
+				}
+			}
+		}
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_denmark_martial_law_button = {
+	name = "scandinavian_union_denmark_martial_law_button"
+	desc = "scandinavian_union_denmark_martial_law_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 0
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_martial_law_var }
+		}
+		OR = {
+			has_law = law_type:law_secret_police
+			has_law = law_type:law_national_guard
+		}
+		c:DEN = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:danish
+				}
+				radical_fraction = {
+					value >= 0.25
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_denmark_martial_law_var
+		add_modifier = {
+			name = imposing_martial_law
+			multiplier = money_amount_multiplier_small
+			months = normal_modifier_time
+		}
+		c:DEN = {
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:danish
+					}
+				}
+				add_modifier = {
+					name = martial_law
+					months = normal_modifier_time
+				}
+				add_radicals_in_state = {
+					culture = cu:danish
+					value = medium_radicals
+				}
+			}
+		}
+		add_denmark_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_democracy_button = {
+	name = "scandinavian_union_norway_democracy_button"
+	desc = "scandinavian_union_norway_democracy_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_norway_democracy_var }
+		}
+		OR = {
+			c:NOR = {
+				has_law = law_type:law_oligarchy
+				has_law = law_type:law_censorship
+			}
+			c:SWE = {
+				has_law = law_type:law_census_voting
+				has_law = law_type:law_right_of_assembly
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_democracy_var
+		add_norway_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_vinland_button = {
+	name = "scandinavian_union_norway_vinland_button"
+	desc = "scandinavian_union_norway_vinland_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_norway_vinland_var }
+		}
+		trigger_if = {
+			limit = { c:KRL ?= { is_subject_of = root } }
+			c:KRL ?= {
+				has_attitude = {
+					who = root
+					attitude = loyal
+				}
+			}
+		}
+		trigger_else = {
+			OR = {
+				AND = {
+					exists = c:KRL
+					c:KRL = { is_subject_of = root }
+				}
+				owns_entire_state_region = STATE_GREENLAND
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_vinland_var
+		add_norway_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_trade_button = {
+	name = "scandinavian_union_norway_trade_button"
+	desc = "scandinavian_union_norway_trade_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_norway_trade_var }
+		}
+		OR = {
+			c:NOR = {
+				has_law = law_type:law_protectionism
+			}
+			c:SWE = {
+				NOT = { has_law = law_type:law_protectionism }
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_trade_var
+		add_norway_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_nationalist_button = {
+	name = "scandinavian_union_norway_nationalist_button"
+	desc = "scandinavian_union_norway_nationalist_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 100
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
+		}
+		c:NOR = { has_technology_researched = nationalism }
+		OR = {
+			AND = {
+				OR = {
+					has_law = law_type:law_outlawed_dissent
+					has_law = law_type:law_censorship
+				}
+				OR = {
+					has_law = law_type:law_national_guard
+					has_law = law_type:law_secret_police
+				}
+			}
+			AND = {
+				OR = {
+					has_law = law_type:law_right_of_assembly
+					has_law = law_type:law_protected_speech
+				}
+				OR = {
+					has_law = law_type:law_federal
+					has_law = law_type:law_confederated
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_nationalist_var
+		add_norway_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_bribe_button = {
+	name = "scandinavian_union_norway_bribe_button"
+	desc = "scandinavian_union_norway_bribe_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 0
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_norway_bribe_var }
+		}
+		in_default = no
+		NOT = { has_modifier = declared_bankruptcy }
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_bribe_var
+		add_treasury = -200000
+		c:NOR = {
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:norwegian
+					}
+				}
+				add_radicals_in_state = {
+					culture = cu:norwegian
+					value = medium_radicals
+				}
+			}
+		}
+		add_norway_point_effect = yes
+	}
+}
+
+scandinavian_union_norway_martial_law_button = {
+	name = "scandinavian_union_norway_martial_law_button"
+	desc = "scandinavian_union_norway_martial_law_button_desc"
+
+	visible = { 
+		always = yes
+	}
+	
+	ai_chance = {
+		base = 0
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = scandinavian_union_norway_martial_law_var }
+		}
+		OR = {
+			has_law = law_type:law_secret_police
+			has_law = law_type:law_national_guard
+		}
+		c:NOR = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:norwegian
+				}
+				radical_fraction = {
+					value >= 0.25
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = scandinavian_union_norway_martial_law_var
+		add_modifier = {
+			name = imposing_martial_law
+			multiplier = money_amount_multiplier_small
+			months = normal_modifier_time
+		}
+		c:NOR = {
+			every_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = cu:norwegian
+					}
+				}
+				add_modifier = {
+					name = martial_law
+					months = normal_modifier_time
+				}
+				add_radicals_in_state = {
+					culture = cu:norwegian
+					value = medium_radicals
+				}
+			}
+		}
+		add_norway_point_effect = yes
+	}
+}

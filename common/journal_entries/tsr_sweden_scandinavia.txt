@@ -4,14 +4,12 @@
 	group = je_group_tsr_content
 
 	complete = {
-		trigger_if = {
-			limit = {
-				any_scope_character = {
-					has_variable = is_gustav_iii
+		custom_tooltip = {
+			text = gustav_come_to_age_tt
+			trigger_if = {
+				limit = {
+					ruler = { NOT = { has_variable = is_gustav_iii } }
 				}
-			}
-			custom_tooltip = {
-				text = gustav_come_to_age_tt
 				trigger_if = {
 					limit = { has_variable = faster_regency }
 					any_scope_character = {
@@ -26,14 +24,8 @@
 					}
 				}
 			}
-		}
-		trigger_else = {
-			custom_tooltip = {
-				text = heir_come_to_age_tt
-				any_scope_character = {
-					is_heir = yes
-					age >= 16
-				}
+			trigger_else = {
+				ruler = { has_variable = is_gustav_iii }
 			}
 		}
 	}
@@ -47,9 +39,6 @@
 	}
 	
 	on_monthly_pulse = {
-		events = {
-			scandinavian_events.2
-		}
 		random_events = {
 			100 = 0
 			10 = scandinavian_events.3
@@ -58,12 +47,475 @@
 	
 	fail = {
 		custom_tooltip = {
-			text = gustav_iii_coronated_tt
-			ruler = { NOT = { has_variable = is_eleonora } }
+			text = no_gustav_iii_tt
+			NOT = {
+				any_scope_character = {
+					has_variable = is_gustav_iii
+				}
+			}
 		}
+	}
+	
+	on_fail = {
+		trigger_event = { id = scandinavian_events.2 popup = yes }
+	}
+	
+	invalid = {
+		NOT = { has_law = law_type:law_monarchy }
 	}
 
 	weight = 10
+
+	should_be_pinned_by_default = yes
+}
+
+je_scandinavian_union_main = {
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	group = je_group_tsr_content
+	
+	scripted_button = scandinavian_union_denmark_button
+	scripted_button = scandinavian_union_norway_button
+	
+	immediate = {
+		set_global_variable = {
+			name = denmark_point
+			value = 5
+		}
+		set_global_variable = {
+			name = norway_point
+			value = 5
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = not_in_regency_tt
+			NOT = { has_journal_entry = je_swe_regency }
+		}
+		trigger_if = { #Temporary measure pre 0.0.6
+			limit = {
+				is_ai = yes 
+				c:DEN ?= { is_player = no }
+				c:NOR ?= { is_player = no }
+			}
+			c:DEN ?= { is_subject_of = root }
+			c:NOR ?= { is_subject_of = root }
+			year >= 1847
+		}
+		trigger_else = {
+			trigger_if = {
+				limit = { exists = c:DEN }
+				custom_tooltip = {
+					text = denmark_appeased_tt
+					has_variable = denmark_appeased
+				}
+				custom_tooltip = {
+					text = denmark_loyalty_attitude_tt
+					c:DEN ?= {
+						has_attitude = {
+							who = root
+							attitude = loyal
+						}
+						OR = {
+							is_subject_type = subject_type_real_union
+							is_subject_type = subject_type_dependency
+						}
+					}
+				}
+				OR = {
+					custom_tooltip = {
+						text = denmark_martial_law_tt
+						has_variable = scandinavian_union_denmark_martial_law_var
+					}
+					custom_tooltip = {
+						text = denmark_radicals_tt
+						c:DEN = {
+							NOT = {
+								any_scope_state = {
+									state_region = {
+										is_homeland = cu:danish
+									}
+									radical_fraction = {
+										value >= 0.25
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = { exists = c:NOR }
+				custom_tooltip = {
+					text = norway_appeased_tt
+					has_variable = norway_appeased
+				}
+				custom_tooltip = {
+					text = norway_loyalty_attitude_tt
+					c:NOR ?= {
+						has_attitude = {
+							who = root
+							attitude = loyal
+						}
+						OR = {
+							is_subject_type = subject_type_real_union
+							is_subject_type = subject_type_dependency
+						}
+					}
+				}
+				OR = {
+					custom_tooltip = {
+						text = norway_martial_law_tt
+						has_variable = scandinavian_union_norway_martial_law_var
+					}
+					custom_tooltip = {
+						text = norway_radicals_tt
+						c:NOR = {
+							NOT = {
+								any_scope_state = {
+									state_region = {
+										is_homeland = cu:norwegian
+									}
+									radical_fraction = {
+										value >= 0.25
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					NOT = {
+						exists = c:DEN
+					}
+				}
+				owns_entire_state_region = STATE_JUTLAND
+				owns_entire_state_region = STATE_ZEALAND
+				owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN
+			}
+			trigger_if = {
+				limit = {
+					NOT = {
+						exists = c:NOR
+					}
+				}
+				owns_entire_state_region = STATE_EASTERN_NORWAY
+				owns_entire_state_region = STATE_WESTERN_NORWAY
+				owns_entire_state_region = STATE_NORTHERN_NORWAY
+			}
+		}
+	}
+	
+	on_complete = {
+		set_variable = scandinavian_union_complete
+		trigger_event = { id = scandinavian_events.4 popup = yes }
+		show_as_tooltip = {
+			if = {
+				limit = { exists = c:DEN }
+				annex_with_incorporation = c:DEN
+			}
+			if = {
+				limit = { exists = c:NOR }
+				annex_with_incorporation = c:NOR
+			}
+			change_tag = SCA
+		}
+	}
+	
+	fail = {
+		OR = {
+			c:DEN ?= { NOT = { is_subject_of = root } }
+			c:NOR ?= { NOT = { is_subject_of = root } }
+		}
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					c:DEN ?= {
+						is_subject_of = root
+						has_attitude = {
+							who = root
+							attitude = rebellious
+						}
+					}
+					NOT = { has_variable = je_scandinavian_union_denrebel_point }
+				}
+				remove_denmark_point_effect = yes
+				set_variable = { name = je_scandinavian_union_denrebel_point }
+			}
+			if = {
+				limit = {
+					c:NOR ?= {
+						is_subject_of = root
+						has_attitude = {
+							who = root
+							attitude = rebellious
+						}
+					}
+					NOT = { has_variable = je_scandinavian_union_norrebel_point }
+				}
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_norrebel_point }
+			}
+			if = {
+				limit = {
+					government_legitimacy < 25
+					NOT = { has_variable = je_scandinavian_union_legitimacy_point }
+				}
+				remove_denmark_point_effect = yes
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_legitimacy_point }
+			}
+			if = {
+				limit = {
+					any_civil_war = {
+						civil_war_progress > 0.5
+					}
+					NOT = { has_variable = je_scandinavian_union_civilwar_point }
+				}
+				remove_denmark_point_effect = yes
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_civilwar_point }
+			}
+			if = {
+				limit = {
+					OR = {
+						in_default = yes
+						has_modifier = declared_bankruptcy
+					}
+					NOT = { has_variable = je_scandinavian_union_default_point }
+				}
+				remove_denmark_point_effect = yes
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_default_point }
+			}
+			if = {
+				limit = {
+					country_rank < rank_value:great_power
+					NOT = { has_variable = je_scandinavian_union_gp_point }
+				}
+				remove_denmark_point_effect = yes
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_gp_point }
+			}
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_scandinavian_union_status
+			}
+		}
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+je_scandinavian_union_subject = {
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	group = je_group_tsr_content
+
+	complete = {
+		custom_tooltip = {
+			text = nobles_appeased_tt
+			c:SWE ?= { has_variable = scandinavian_union_complete }
+		}
+	}
+	
+	on_complete = {
+		show_as_tooltip = {
+			c:SWE ?= {
+				if = {
+					limit = { exists = c:DEN }
+					annex = c:DEN
+				}
+				if = {
+					limit = { exists = c:NOR }
+					annex = c:NOR
+				}
+				change_tag = SCA
+			}
+		}
+	}
+	
+	fail = {
+		NOT = { is_subject_of = c:SWE }
+	}
+	
+	invalid = {
+		NOT = { exists = c:SWE }
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = { 
+				desc = je_scandinavian_union_status
+			}
+		}
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+je_scandinavian_union_denmark = {
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	group = je_group_tsr_content
+	
+	scripted_button = scandinavian_union_denmark_religion_button #Matters on Religion and Schooling
+	scripted_button = scandinavian_union_denmark_citizenship_button #Matters on Citizenship
+	scripted_button = scandinavian_union_denmark_andersen_button #Pan-Nationalist Figures
+	scripted_button = scandinavian_union_denmark_nationalist_button #Deal with Danish Nationalists
+	scripted_button = scandinavian_union_denmark_bribe_button #Bribe Danish Voters
+	scripted_button = scandinavian_union_denmark_martial_law_button #Enforce Martial Law in Denmark
+	
+	is_shown_when_inactive = {
+		c:SWE ?= root
+		has_journal_entry = je_scandinavian_union_main
+		c:DEN ?= { is_subject_of = root }
+	}
+	
+	possible = {
+		c:DEN ?= { is_subject_of = root }
+		NOT = { has_journal_entry = je_swe_regency }
+	}
+	
+	immediate = {
+		c:DEN ?= { save_scope_as = den_scope }
+	}
+	
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = denmark_point_0
+				global_var:denmark_point <= 0
+			}
+			c:DEN ?= {
+				NOT = { owns_entire_state_region = STATE_SCHLESWIG_HOLSTEIN }
+			}
+		}
+	}
+	
+	on_fail = {
+		#Denmark declares independence
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					c:DEN ?= {
+						has_revolution = yes
+					}
+					NOT = { has_variable = je_scandinavian_union_civilwar_denmark_point }
+				}
+				remove_denmark_point_effect = yes
+				set_variable = { name = je_scandinavian_union_civilwar_denmark_point }
+			}
+			if = {
+				limit = {
+					exists = var:andersen_tracker
+					c:DEN ?= {
+						any_scope_character = {
+							has_variable = pro_scandinavian_agitator
+						}
+					}
+					NOT = { has_variable = scandinavian_union_denmark_andersen_var }
+				}
+				change_variable = { name = andersen_tracker add = 1 }
+			}
+		}
+		random_events = {
+			100 = 0
+			10 = scandinavian_events.5 #Hans Christian Andersen
+		}
+	}
+	
+	invalid = {
+		NOR = { 
+			exists = c:DEN 
+			has_journal_entry = je_scandinavian_union_main
+		}
+	}
+
+	weight = 10000
+
+	should_be_pinned_by_default = yes
+}
+
+je_scandinavian_union_norway = {
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+
+	group = je_group_tsr_content
+	
+	scripted_button = scandinavian_union_norway_democracy_button #Matters on Suffrage and Union Laws
+	scripted_button = scandinavian_union_norway_vinland_button #Appease Norway over independent Karolia
+	scripted_button = scandinavian_union_norway_trade_button #Matters on Trading
+	scripted_button = scandinavian_union_norway_nationalist_button #Deal with Norwegian Nationalists
+	scripted_button = scandinavian_union_norway_bribe_button #Bribe Norwegian Voters
+	scripted_button = scandinavian_union_norway_martial_law_button #Enforce Martial Law in Norway
+	
+	is_shown_when_inactive = {
+		c:SWE ?= root
+		has_journal_entry = je_scandinavian_union_main
+		c:NOR ?= { is_subject_of = root }
+	}
+	
+	possible = {
+		c:NOR ?= { is_subject_of = root }
+		NOT = { has_journal_entry = je_swe_regency }
+	}
+	
+	immediate = {
+		c:NOR ?= { save_scope_as = nor_scope }
+		c:KRL ?= { save_scope_as = krl_scope }
+	}
+	
+	fail = {
+		custom_tooltip = {
+			text = norway_point_0
+			global_var:norway_point <= 0
+		}
+	}
+	
+	on_fail = {
+		#Norway declares independence
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					c:NOR ?= {
+						has_revolution = yes
+					}
+					NOT = { has_variable = je_scandinavian_union_civilwar_norway_point }
+				}
+				remove_norway_point_effect = yes
+				set_variable = { name = je_scandinavian_union_civilwar_norway_point }
+			}
+		}
+	}
+	
+	invalid = {
+		NOR = { 
+			exists = c:NOR 
+			has_journal_entry = je_scandinavian_union_main
+		}
+	}
+
+	weight = 10000
 
 	should_be_pinned_by_default = yes
 }

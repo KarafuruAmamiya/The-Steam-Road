@@ -22,7 +22,8 @@ scandinavian_events.1 = { # The Coronation of Gustav III
 		c:DEN ?= { save_scope_as = den_scope }
 		c:NOR ?= { save_scope_as = nor_scope }
 		c:SWE ?= { save_scope_as = swe_scope }
-		heir = {
+		random_character = {
+			limit = { has_variable = is_gustav_iii }
 			save_scope_as = gustav_iii_scope
 		}
 	}
@@ -38,11 +39,18 @@ scandinavian_events.1 = { # The Coronation of Gustav III
 		default_option = yes
 		
 		custom_tooltip = gustav_iii_coronation_tt
-		hidden_effect = {
-			ruler = {
-				kill_character = { hidden = yes }
+		if = {
+			limit = {
+				scope:gustav_iii_scope = {
+					is_ruler = no
+				}
+			}
+			scope:gustav_iii_scope = {
+				set_character_as_ruler = yes
 			}
 		}
+		add_denmark_point_effect = yes
+		add_norway_point_effect = yes
 		remove_modifier = swe_regency
 	}
 	option = {
@@ -76,17 +84,7 @@ scandinavian_events.2 = { # The Death of Gustav III
 	
 	minor_left_icon = scope:karl_ix_scope
 	
-	trigger = {
-		NOT = {
-			any_scope_character = {
-				has_variable = is_gustav_iii
-			}
-		}
-		NOT = { has_variable = new_heir_event }
-	}
-	
 	immediate = {
-		set_variable = new_heir_event
 		create_character = {
 			first_name = Karl_IX
 			last_name = Vasa
@@ -119,6 +117,9 @@ scandinavian_events.2 = { # The Death of Gustav III
 			set_character_as_ruler = yes
 		}
 		
+		add_denmark_point_effect = yes
+		add_norway_point_effect = yes
+		
 		every_country = {
 			limit = { has_modifier = swe_regency }
 			remove_modifier = swe_regency
@@ -148,7 +149,7 @@ scandinavian_events.3 = { # Norway and Denmark want Gustav III now
 		NOT = { has_variable = regency_questioned }
 		any_scope_character = {
 			has_variable = is_gustav_iii
-			age <= 14
+			age < 14
 		}
 	}
 	
@@ -169,6 +170,19 @@ scandinavian_events.3 = { # Norway and Denmark want Gustav III now
 		name = scandinavian_events.3.a
 		default_option = yes
 		
+		add_modifier = {
+			name = changed_succession_laws
+			months = normal_modifier_time
+		}
+		
+		scope:gustav_iii_scope = {
+			add_modifier = {
+				name = changed_succession_laws_gustav
+				months = long_modifier_time
+				is_decaying = yes
+			}
+		}
+		
 		custom_tooltip = {
 			text = faster_regency_tt
 			set_variable = faster_regency
@@ -179,11 +193,129 @@ scandinavian_events.3 = { # Norway and Denmark want Gustav III now
 		name = scandinavian_events.3.b
 		change_relations = {
 			country = c:DEN
-			value = -10
+			value = -20
 		}
 		change_relations = {
 			country = c:NOR
-			value = -10
+			value = -20
+		}
+	}
+}
+
+scandinavian_events.4 = { # Scandinavian Union Complete
+	type = country_event
+	placement = ROOT
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	title = scandinavian_events.4.t
+	desc = scandinavian_events.4.d
+	flavor = scandinavian_events.4.f
+	
+	immediate = {
+		c:DEN ?= { save_scope_as = den_scope }
+		c:NOR ?= { save_scope_as = nor_scope }
+		c:SWE ?= { save_scope_as = swe_scope }
+		ruler = {
+			save_scope_as = ruler_scope
+		}
+	}
+	
+	option = {
+		name = scandinavian_events.4.a
+		default_option = yes
+		
+		if = {
+			limit = { exists = c:DEN }
+			annex_with_incorporation = c:DEN
+		}
+		if = {
+			limit = { exists = c:NOR }
+			annex_with_incorporation = c:NOR
+		}
+		
+		change_tag = SCA
+		
+		add_modifier = {
+			name = unification_prestige
+			months = very_long_modifier_time
+		}
+		
+		scope:ruler_scope = {
+			add_modifier = {
+				name = plc_unifiers_ruler
+				months = -1
+			}
+		}
+	}
+}
+
+scandinavian_events.5 = { # Hans Christian Andersen
+	type = country_event
+	placement = scope:zealand_scope
+
+	gui_window = event_window_1char_tabloid
+	
+	left_icon = scope:andersen_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	duration = 3
+
+	title = scandinavian_events.5.t
+	desc = scandinavian_events.5.d
+	flavor = scandinavian_events.5.f
+	
+	trigger = {
+		game_date < 1870.1.1
+		NOT = { has_global_variable = andersen_var }
+	}
+	
+	immediate = {
+		set_global_variable = andersen_var
+		set_variable = { name = andersen_tracker value = 0 }
+		create_character = {
+			template = hans_christian_andersen_character_template
+			on_created = {
+				set_variable = hc_andersen
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = hc_andersen
+			}
+			save_scope_as = andersen_scope
+		}
+		c:DEN ?= { save_scope_as = den_scope }
+		random_state = {
+			limit = {
+				state_region = s:STATE_ZEALAND
+			}
+			save_scope_as = zealand_scope
+		}
+	}
+	
+	option = {
+		name = scandinavian_events.5.a #Send him to agitate in Denmark
+		default_option = yes
+		
+		scope:andersen_scope = {
+			add_modifier = {
+				name = promoting_pan_scandinavianism
+				months = long_modifier_time
+				is_decaying = yes
+			}
+			transfer_character = c:DEN
 		}
 	}
 }

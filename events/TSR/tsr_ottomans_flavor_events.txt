@@ -623,6 +623,13 @@ ottoman_flavor.8 = {
 					remove_ruling_interest_group = yes
 				}
 			}
+			every_country = {
+				limit = { 
+					has_variable = westernist_supporter_countries
+					NOT = { is_diplomatic_play_enemy_of = root }
+				}
+				trigger_event = { id = ottoman_flavor.11 days = 1 }
+			}
 		}
 	}
 }
@@ -759,6 +766,126 @@ ottoman_flavor.10 = {
 			}
 		}
 		post_notification = westernist_state_defection
+	}
+}
+
+ottoman_flavor.11 = { #Westernist Coup in Ottoman Empire
+	type = country_event
+	placement = ROOT
+	title = ottoman_flavor.11.t
+	desc = ottoman_flavor.11.d
+	flavor = ottoman_flavor.11.f
+	duration = 3
+	event_image = {
+		video = "votp_agitator_speaking"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	
+	immediate = {
+		c:TUR ?= { save_scope_as = tur_scope }
+		random_character = {
+			limit = {
+				has_template = tur_mehmed_iv_character_template
+			}
+			save_scope_as = mehmed_scope
+		}
+	}
+
+	option = { #Continue our support for Mehmed
+		name = ottoman_flavor.11.a
+		default_option = yes
+		
+		if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = c:TUR
+					type = rivalry
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:TUR
+				type = rivalry
+			}
+		}
+		if = {
+			limit = {
+				c:TUR = {
+					has_diplomatic_pact = {
+						who = root
+						type = rivalry
+					}
+				}
+			}
+			c:TUR = {
+				remove_diplomatic_pact = {
+					country = root
+					type = rivalry
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = c:TUR
+					type = embargo
+				}
+			}
+			remove_diplomatic_pact = {
+				country = c:TUR
+				type = embargo
+			}
+		}
+		if = {
+			limit = {
+				c:TUR = {
+					has_diplomatic_pact = {
+						who = root
+						type = embargo
+					}
+				}
+			}
+			c:TUR = {
+				remove_diplomatic_pact = {
+					country = root
+					type = embargo
+				}
+			}
+		}
+		change_relations = {
+			country = c:TUR
+			value = 100
+		}
+		hidden_effect = {
+			c:TUR = {
+				set_secret_goal = {
+					country = root
+					secret_goal = befriend
+				}
+			}
+			set_secret_goal = {
+				country = c:TUR
+				secret_goal = befriend
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.11.b #Withdraw support
+		c:TUR = {
+			change_relations = {
+				country = root
+				value = -30
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 

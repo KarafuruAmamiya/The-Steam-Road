@@ -1038,6 +1038,26 @@ ai_strategy_default = {
 				}
 				multiply = 0.0
 			}
+			
+			#Westernist supporters/opposers shouldn't attack the Ottomans
+			if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = support_westernists
+						}
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = oppose_westernists
+						}
+					}
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				multiply = 0
+			}
 		}
 		
 		min = 0
@@ -2649,7 +2669,25 @@ ai_strategy_default = {
 			add = 50
 		}
 		
-		
+		#Westernist supporters/opposers shouldn't attack the Ottomans
+		if = {
+			limit = {
+				OR = {
+					has_diplomatic_pact = {
+						who = c:TUR
+						type = support_westernists
+					}
+					has_diplomatic_pact = {
+						who = c:TUR
+						type = oppose_westernists
+					}
+				}
+				scope:target_country = {
+					c:TUR ?= this
+				}
+			}
+			multiply = 0
+		}
 	}
 	
 	# How much construction output should the AI aim for
@@ -6344,6 +6382,26 @@ ai_strategy_default = {
 				limit = { is_still_learning = yes }
 				multiply = 0
 			}
+			
+			#Westernist supporters/opposers shouldn't attack the Ottomans
+			if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = support_westernists
+						}
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = oppose_westernists
+						}
+					}
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
+				multiply = 0
+			}
 		}
 		dominate = {
 			value = 0		
@@ -6678,6 +6736,26 @@ ai_strategy_default = {
 			
 			if = {
 				limit = { is_still_learning = yes }
+				multiply = 0
+			}
+			
+			#Westernist supporters/opposers shouldn't attack the Ottomans
+			if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = support_westernists
+						}
+						has_diplomatic_pact = {
+							who = c:TUR
+							type = oppose_westernists
+						}
+					}
+					scope:target_country = {
+						c:TUR ?= this
+					}
+				}
 				multiply = 0
 			}
 		}			

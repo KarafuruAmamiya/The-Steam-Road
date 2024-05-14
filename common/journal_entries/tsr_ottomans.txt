@@ -206,6 +206,10 @@ je_westernist_coalition = {
 			}
 			remove_modifier = armed_forces_discord
 		}
+		every_country = {
+			limit = { has_variable = westernist_supporter_countries }
+			remove_variable = westernist_supporter_countries
+		}
 	}
 	
 	on_weekly_pulse = {
@@ -330,6 +334,15 @@ je_westernist_coalition = {
 					NOT = { has_variable = westernist_coalition_checkpoint_7 }
 				}
 				set_variable = westernist_coalition_checkpoint_7
+				every_country = {
+					limit = {
+						has_diplomatic_pact = {
+							who = root
+							type = support_westernists
+						}
+					}
+					set_variable = westernist_supporter_countries
+				}
 				trigger_event = { id = ottoman_flavor.10 }
 			}
 		}
@@ -409,6 +422,10 @@ je_westernist_coalition = {
 					has_modifier = armed_forces_discord
 				}
 				remove_modifier = armed_forces_discord
+			}
+			every_country = {
+				limit = { has_variable = westernist_supporter_countries }
+				remove_variable = westernist_supporter_countries
 			}
 		}
 	}

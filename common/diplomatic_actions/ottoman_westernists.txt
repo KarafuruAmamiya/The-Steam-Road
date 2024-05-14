@@ -189,7 +189,14 @@
 				has_attitude = {
 					who = scope:target_country
 					attitude = protective
-				}					
+				}
+				
+				#edge cases for countries specifically against Ottomans
+				has_journal_entry = je_latin_republic
+				trigger_if = {
+					limit = { has_global_variable = balkan_crisis_main_var }
+					global_var:balkan_crisis_main_var >= 50
+				}
 			}			
 		}
 	}
@@ -384,6 +391,13 @@ oppose_westernists = {
 					scope:target_country = {
 						has_variable = pursue_caliphate_var
 					}
+				}
+				
+				#edge cases for countries specifically against Ottomans
+				has_journal_entry = je_latin_republic
+				trigger_if = {
+					limit = { has_global_variable = balkan_crisis_main_var }
+					global_var:balkan_crisis_main_var >= 50
 				}
 			}			
 		}

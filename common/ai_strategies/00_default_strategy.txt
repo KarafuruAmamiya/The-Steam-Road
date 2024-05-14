@@ -6026,24 +6026,15 @@ ai_strategy_default = {
 				add = 1000
 			}
 			
-			if = { # Mayapan must reclaim New Caledonia and Maya
+			if = { # Mayapan must reclaim Maya
 				limit = {
 					exists = c:MYP
 					this = c:MYP
 					scope:target_country = {
-						OR = {
-							AND = {
-								exists = c:CLD
-								this = c:CLD
-							}
-							AND = {
-								exists = c:MAY
-								this = c:MAY
-							}
-						}
+						c:MAY ?= this
 					}
 				}
-						add = 1000
+				add = 1000
 			}
 
 			if = {

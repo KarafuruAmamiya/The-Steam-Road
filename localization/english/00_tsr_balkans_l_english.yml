@@ -9,6 +9,7 @@
  
  je_balkan_crisis_display: "The Balkan Insurgency"
  je_balkan_crisis_display_reason: "The recent crises engulfing [SCOPE.sCountry('tur_scope').GetName] has caused the state of [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] administration in the Balkans to deteriorate. Turmoil and insurrection have engulfed the region despite [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] efforts to restore order, while neighboring powers have began taking advantage of the situation to weaken [SCOPE.sCountry('tur_scope').GetName]'s strongholds in Europe. If [SCOPE.sCountry('tur_scope').GetName] fail to regain control of the region, they may risk a complete loss of control of their European subjects.\n\nOverall #bold Balkan Crisis#! is expected to progress by #tooltippable;tooltip:[Country.GetTooltipTag],je_balkan_crisis_special_tooltip [GetGlobalVariable('balkan_crisis_main_var_next').GetValue|-=]#! next month. Once the value becomes high enough, we may be able to stage an intervention in the Balkans, provided we are at least a [concept_great_power]."
+ balkan_crisis_fail_tt: "The Ottomans has failed to handle the Balkan Crisis"
  
  je_war_of_the_balkan_coalition_attacker: "War of the Balkan Coalition"
  je_war_of_the_balkan_coalition_attacker_reason: "The [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting]'s violence in the #bold Balkan Insurgency#! has gone too far. Let us launch a punitive campaign to liberate the [SCOPE.sCulture('crisis_culture').GetName] people — and further our own interests in the Balkans, of course."
@@ -89,17 +90,8 @@
  balkan_crisis.11.a: "We shall liberate the Balkans and Danube from [SCOPE.sCountry('tur_scope').GetName]!"
  balkan_crisis.11.b: "There is too much risk."
  
- balkan_crisis.12.t: "Blood in the Water"
- balkan_crisis.12.d: "[SCOPE.sCountry('tur_scope').GetName]'s decision to disregard the results of the [SCOPE.sCountry('tur_scope').GetCapital.GetCityHubName] Conference has further deteriorated their relations with other European Great Powers. With anti-[SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] sympathies running high throughout Europe due to the [SCOPE.sCulture('crisis_culture').GetName] atrocities and the rejection of the [SCOPE.sCountry('tur_scope').GetCapital.GetCityHubName] agreements, there may no be a better time for us to finally break free from the Turkish yoke."
- balkan_crisis.12.f: ""Your Excellency, I am grateful for the opportunity to meet with you. As you are well aware, the conflict with [SCOPE.sCountry('tur_scope').GetName] has reached a critical juncture, and [SCOPE.sCountry('attacker_scope').GetName] seeks the support of its [ROOT.GetCountry.GetAdjectiveNoFormatting] allies.""
- balkan_crisis.12.a: "[ROOT.GetCountry.GetName] shall join the cause."
- balkan_crisis.12.b: "We will not get involved in [SCOPE.sCountry('attacker_scope').GetName]'s wars."
- will_fight_ottomans: "We will join the [SCOPE.sCountry('attacker_scope').GetAdjectiveNoFormatting]-[SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] War when it happens."
- 
- balkan_crisis.13.t: "The Threats of War"
- 
- balkans_fail_condition_1_tt: "If the #bold Balkan Crisis#! progress is #red #bold less than#!#! #variable 120#! when we fail, we will be forced to grant increased autonomy to our Balkan subjects."
- balkans_fail_condition_2_tt: "If the #bold Balkan Crisis#! progress #red #bold reaches#!#! #variable 120#! when we fail, we will be forced to grant independence to our Balkan subjects."
+ balkans_fail_condition_1_tt: "If the #bold Balkan Crisis#! progress is #red #bold less than#!#! #variable 120#! when the Ottomans fail, they will be forced to grant increased autonomy to their Balkan subjects."
+ balkans_fail_condition_2_tt: "If the #bold Balkan Crisis#! progress #red #bold reaches#!#! #variable 120#! when the Ottomans fail, they will be forced to grant independence to their Balkan subjects."
  
  balkan_crisis_2.3.t: "End of the Balkan Insurgency"
  balkan_crisis_2.3.d: "Through skillful negotiations, modernization, and political reforms, [ROOT.GetCountry.GetName] has managed to avert the worst-case scenario and emerged from the crisis intact. While this may not be the end of political turmoil in the Balkans, we have successfully proven to the world and the greedy vultures that [ROOT.GetCountry.GetName] is perfectly capable of maintaining its own stability and sovereignty."

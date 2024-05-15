@@ -1,365 +1,364 @@
-﻿#For some reason the first file doesn't work from balkan_crisis.14 onwards?
-namespace = balkan_crisis_2
+﻿namespace = balkan_crisis_2
 
 # Ask Cossacks for Help
-balkan_crisis_2.1 = {
-	type = country_event
-	placement = root
-	title = balkan_crisis_2.1.t
-	desc = balkan_crisis_2.1.d
-	flavor =  balkan_crisis_2.1.f
-	
-	duration = 3
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	immediate = {
-		c:ZAP ?= { save_scope_as = cossack_1_scope }
-		c:SLB ?= { save_scope_as = cossack_2_scope }
-	}
-
-	option = { #Ask for aid in exchange for autonomy
-		name = balkan_crisis_2.1.a
-		default_option = yes
-		if = {
-			limit = { 
-				exists = c:ZAP 
-				c:ZAP ?= { is_subject_of = root }
-				NOT = { is_subject_type = subject_type_protectorate }
-			}
-			c:ZAP ?= { 
-				change_subject_type = subject_type_protectorate
-				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
-			}
-			change_relations = {
-				country = c:ZAP
-				value = 100
-			}
-			random_diplomatic_play = {
-				limit = {
-					target_is = c:TUR
-					initiator = {
-						has_variable = balkan_war_attacker
-					}
-				}
-				add_target_backers = {
-					c:ZAP
-				}
-			}
-		}
-		if = {
-			limit = { 
-				exists = c:SLB 
-				c:SLB ?= { is_subject_of = root }
-				NOT = { is_subject_type = subject_type_protectorate }
-			}
-			c:SLB ?= { 
-				change_subject_type = subject_type_protectorate 
-				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
-			}
-			change_relations = {
-				country = c:SLB
-				value = 100
-			}
-			random_diplomatic_play = {
-				limit = {
-					target_is = c:TUR
-					initiator = {
-						has_variable = balkan_war_attacker
-					}
-				}
-				add_target_backers = {
-					c:SLB
-				}
-			}
-		}
-	}
-	
-	option = { #No
-		name = balkan_crisis_2.1.b
-		if = {
-			limit = { 
-				exists = c:ZAP 
-				c:ZAP ?= { is_subject_of = root }
-			}
-			change_relations = {
-				country = c:ZAP
-				value = -20
-			}
-		}
-		if = {
-			limit = { 
-				exists = c:SLB 
-				c:SLB ?= { is_subject_of = root }
-			}
-			change_relations = {
-				country = c:SLB
-				value = -20
-			}
-		}
-	}
-}
+#balkan_crisis_2.1 = {
+#	type = country_event
+#	placement = root
+#	title = balkan_crisis_2.1.t
+#	desc = balkan_crisis_2.1.d
+#	flavor =  balkan_crisis_2.1.f
+#	
+#	duration = 3
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#	
+#	event_image = {
+#		video = "europenorthamerica_before_the_battle"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	
+#	immediate = {
+#		c:ZAP ?= { save_scope_as = cossack_1_scope }
+#		c:SLB ?= { save_scope_as = cossack_2_scope }
+#	}
+#
+#	option = { #Ask for aid in exchange for autonomy
+#		name = balkan_crisis_2.1.a
+#		default_option = yes
+#		if = {
+#			limit = { 
+#				exists = c:ZAP 
+#				c:ZAP ?= { is_subject_of = root }
+#				NOT = { is_subject_type = subject_type_protectorate }
+#			}
+#			c:ZAP ?= { 
+#				change_subject_type = subject_type_protectorate
+#				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
+#			}
+#			change_relations = {
+#				country = c:ZAP
+#				value = 100
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					target_is = c:TUR
+#					initiator = {
+#						has_variable = balkan_war_attacker
+#					}
+#				}
+#				add_target_backers = {
+#					c:ZAP
+#				}
+#			}
+#		}
+#		if = {
+#			limit = { 
+#				exists = c:SLB 
+#				c:SLB ?= { is_subject_of = root }
+#				NOT = { is_subject_type = subject_type_protectorate }
+#			}
+#			c:SLB ?= { 
+#				change_subject_type = subject_type_protectorate 
+#				add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
+#			}
+#			change_relations = {
+#				country = c:SLB
+#				value = 100
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					target_is = c:TUR
+#					initiator = {
+#						has_variable = balkan_war_attacker
+#					}
+#				}
+#				add_target_backers = {
+#					c:SLB
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = { #No
+#		name = balkan_crisis_2.1.b
+#		if = {
+#			limit = { 
+#				exists = c:ZAP 
+#				c:ZAP ?= { is_subject_of = root }
+#			}
+#			change_relations = {
+#				country = c:ZAP
+#				value = -20
+#			}
+#		}
+#		if = {
+#			limit = { 
+#				exists = c:SLB 
+#				c:SLB ?= { is_subject_of = root }
+#			}
+#			change_relations = {
+#				country = c:SLB
+#				value = -20
+#			}
+#		}
+#	}
+#}
 
 # Scripted Balkan Wars
-balkan_crisis_2.2 = {
-	type = country_event
-	hidden = yes
-
-	immediate = {
-		ROOT = { save_scope_as = attacker_scope }
-		random_diplomatic_play = {
-			limit = {
-				initiator_is = scope:attacker_scope
-				target_is = c:TUR
-			}
-			if = {
-				limit = { c:TUR ?= { has_variable = greek_massacre } }
-				add_war_goal = {
-					holder = scope:attacker_scope
-					type = liberate_country
-					target_country = c:MAC
-					primary_demand = yes
-				}
-			}
-			if = {
-				limit = { c:TUR ?= { has_variable = serb_massacre } }
-				add_war_goal = {
-					holder = scope:attacker_scope
-					type = liberate_country
-					target_country = c:SER
-					primary_demand = yes
-				}
-			}
-			if = {
-				limit = { c:TUR ?= { has_variable = croat_massacre } }
-				add_war_goal = {
-					holder = scope:attacker_scope
-					type = liberate_country
-					target_country = c:CRO
-					primary_demand = yes
-				}
-			}
-			if = {
-				limit = { c:TUR ?= { has_variable = bulgarian_massacre } }
-				add_war_goal = {
-					holder = scope:attacker_scope
-					type = liberate_country
-					target_country = c:BUL
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:HUN
-				c:HUN ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:HUN
-				}
-				add_war_goal = {
-					holder = c:HUN
-					type = independence
-					target_country = c:TUR
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:WAL
-				c:WAL ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:WAL
-				}
-				add_war_goal = {
-					holder = c:WAL
-					type = independence
-					target_country = c:TUR
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:MOL
-				c:MOL ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:MOL
-				}
-				add_war_goal = {
-					holder = c:MOL
-					type = independence
-					target_country = c:TUR
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:TRS
-				c:TRS ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:TRS
-				}
-				add_war_goal = {
-					holder = c:TRS
-					type = independence
-					target_country = c:TUR
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:ROM
-				c:ROM ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:ROM
-				}
-				add_war_goal = {
-					holder = c:ROM
-					type = independence
-					target_country = c:TUR
-					primary_demand = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = c:POL
-				c:POL ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					OR = {
-						any_scope_state = {
-							has_claim_by = c:TUR
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								has_claim_by = c:TUR
-							}
-						}
-					}
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:POL
-				}
-				add_war_goal = {
-					holder = c:POL
-					type = revoke_claim
-					target_state = s:STATE_EAST_GALICIA
-					primary_demand = yes
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				exists = c:PLC
-				c:PLC ?= {
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-					OR = {
-						any_scope_state = {
-							has_claim_by = c:TUR
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								has_claim_by = c:TUR
-							}
-						}
-					}
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_initiator_backers = {
-					c:PLC
-				}
-				add_war_goal = {
-					holder = c:PLC
-					type = revoke_claim
-					target_state = s:STATE_EAST_GALICIA
-					primary_demand = yes
-				}
-			}
-		}
-		every_country = {
-			limit = { 
-				has_journal_entry = je_war_of_the_balkan_coalition_defender
-				NOR = {
-					c:TUR ?= this
-					is_subject_of = c:TUR
-				}
-			}
-			random_diplomatic_play = {
-				limit = {
-					initiator_is = scope:attacker_scope
-					target_is = c:TUR
-				}
-				add_target_backers = {
-					ROOT
-				}
-			}
-		}
-	}
-}
+#balkan_crisis_2.2 = {
+#	type = country_event
+#	hidden = yes
+#
+#	immediate = {
+#		ROOT = { save_scope_as = attacker_scope }
+#		random_diplomatic_play = {
+#			limit = {
+#				initiator_is = scope:attacker_scope
+#				target_is = c:TUR
+#			}
+#			if = {
+#				limit = { c:TUR ?= { has_variable = greek_massacre } }
+#				add_war_goal = {
+#					holder = scope:attacker_scope
+#					type = liberate_country
+#					target_country = c:MAC
+#					primary_demand = yes
+#				}
+#			}
+#			if = {
+#				limit = { c:TUR ?= { has_variable = serb_massacre } }
+#				add_war_goal = {
+#					holder = scope:attacker_scope
+#					type = liberate_country
+#					target_country = c:SER
+#					primary_demand = yes
+#				}
+#			}
+#			if = {
+#				limit = { c:TUR ?= { has_variable = croat_massacre } }
+#				add_war_goal = {
+#					holder = scope:attacker_scope
+#					type = liberate_country
+#					target_country = c:CRO
+#					primary_demand = yes
+#				}
+#			}
+#			if = {
+#				limit = { c:TUR ?= { has_variable = bulgarian_massacre } }
+#				add_war_goal = {
+#					holder = scope:attacker_scope
+#					type = liberate_country
+#					target_country = c:BUL
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:HUN
+#				c:HUN ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:HUN
+#				}
+#				add_war_goal = {
+#					holder = c:HUN
+#					type = independence
+#					target_country = c:TUR
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:WAL
+#				c:WAL ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:WAL
+#				}
+#				add_war_goal = {
+#					holder = c:WAL
+#					type = independence
+#					target_country = c:TUR
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:MOL
+#				c:MOL ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:MOL
+#				}
+#				add_war_goal = {
+#					holder = c:MOL
+#					type = independence
+#					target_country = c:TUR
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:TRS
+#				c:TRS ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:TRS
+#				}
+#				add_war_goal = {
+#					holder = c:TRS
+#					type = independence
+#					target_country = c:TUR
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:ROM
+#				c:ROM ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:ROM
+#				}
+#				add_war_goal = {
+#					holder = c:ROM
+#					type = independence
+#					target_country = c:TUR
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				exists = c:POL
+#				c:POL ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					OR = {
+#						any_scope_state = {
+#							has_claim_by = c:TUR
+#						}
+#						any_subject_or_below = {
+#							any_scope_state = {
+#								has_claim_by = c:TUR
+#							}
+#						}
+#					}
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:POL
+#				}
+#				add_war_goal = {
+#					holder = c:POL
+#					type = revoke_claim
+#					target_state = s:STATE_EAST_GALICIA
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				exists = c:PLC
+#				c:PLC ?= {
+#					has_journal_entry = je_war_of_the_balkan_coalition_attacker
+#					OR = {
+#						any_scope_state = {
+#							has_claim_by = c:TUR
+#						}
+#						any_subject_or_below = {
+#							any_scope_state = {
+#								has_claim_by = c:TUR
+#							}
+#						}
+#					}
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_initiator_backers = {
+#					c:PLC
+#				}
+#				add_war_goal = {
+#					holder = c:PLC
+#					type = revoke_claim
+#					target_state = s:STATE_EAST_GALICIA
+#					primary_demand = yes
+#				}
+#			}
+#		}
+#		every_country = {
+#			limit = { 
+#				has_journal_entry = je_war_of_the_balkan_coalition_defender
+#				NOR = {
+#					c:TUR ?= this
+#					is_subject_of = c:TUR
+#				}
+#			}
+#			random_diplomatic_play = {
+#				limit = {
+#					initiator_is = scope:attacker_scope
+#					target_is = c:TUR
+#				}
+#				add_target_backers = {
+#					ROOT
+#				}
+#			}
+#		}
+#	}
+#}
 
 # Balkan Crisis Success
 balkan_crisis_2.3 = {
@@ -614,7 +613,6 @@ balkan_crisis_2.4 = {
 			}
 		}
 		
-		set_variable = rumelian_confederation
 		if = {
 			limit = {
 				NOT = { has_law = law_type:law_confederated }
@@ -631,6 +629,10 @@ balkan_crisis_2.4 = {
 		add_modifier = {
 			name = balkan_crisis_fail
 			months = long_modifier_time
+		}
+		
+		hidden_effect = {
+			add_journal_entry = { type = je_rumelian_confederation }
 		}
 	}
 	
@@ -1213,7 +1215,7 @@ balkan_crisis_2.5 = {
 		
 		hidden_effect = {
 			if = {
-				limit = { 
+				limit = {
 					owns_entire_state_region = STATE_EASTERN_THRACE 
 					any_country = {
 						OR = {
@@ -1626,7 +1628,6 @@ balkan_crisis_2.7 = {
 
 	option = { # Accept the deal
 		name = balkan_crisis_2.7.a
-		default_option = yes
 		
 		custom_tooltip = cyprus_convention_tur_tt
 		custom_tooltip = {
@@ -1689,6 +1690,7 @@ balkan_crisis_2.7 = {
 	
 	option = { #No
 		name = balkan_crisis_2.7.b
+		default_option = yes
 		change_relations = {
 			country = c:FRA
 			value = -30
@@ -1744,7 +1746,6 @@ balkan_crisis_2.8 = {
 
 	option = { # Accept the deal
 		name = balkan_crisis_2.8.a
-		default_option = yes
 		
 		custom_tooltip = convention_tt
 		custom_tooltip = {
@@ -1808,6 +1809,7 @@ balkan_crisis_2.8 = {
 	
 	option = { #No
 		name = balkan_crisis_2.8.b
+		default_option = yes
 		change_relations = {
 			country = scope:offer_scope_eng
 			value = -30
@@ -1863,7 +1865,6 @@ balkan_crisis_2.9 = {
 
 	option = { # Accept the deal
 		name = balkan_crisis_2.9.a
-		default_option = yes
 		
 		custom_tooltip = convention_tt
 		custom_tooltip = {
@@ -1925,6 +1926,7 @@ balkan_crisis_2.9 = {
 	
 	option = { #No
 		name = balkan_crisis_2.9.b
+		default_option = yes
 		change_relations = {
 			country = scope:offer_scope_swe
 			value = -30
@@ -1963,7 +1965,6 @@ balkan_crisis_2.10 = {
 
 	option = { # Accept the deal
 		name = balkan_crisis_2.10.a
-		default_option = yes
 		
 		custom_tooltip = convention_tt
 		custom_tooltip = {
@@ -2010,6 +2011,7 @@ balkan_crisis_2.10 = {
 	
 	option = { #No
 		name = balkan_crisis_2.10.b
+		default_option = yes
 		change_relations = {
 			country = c:IBE
 			value = -30

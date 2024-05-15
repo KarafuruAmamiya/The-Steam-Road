@@ -14,10 +14,6 @@
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
 		}
-		custom_tooltip = {
-			text = balkan_crisis_escalation
-			has_global_variable = balkan_crisis_freeze
-		}
 		hidden_trigger = {
 			NOT = { has_variable = offer_cyprus_convention }
 		}
@@ -49,6 +45,25 @@
 			}
 			add = 10
 		}
+		modifier = {
+			trigger = {
+				OR = {
+					has_attitude = {
+						who = c:TUR
+						attitude = protective
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = befriend
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = conciliatory
+					}						
+				}
+			}
+			add = 10
+		}
 	}
 }
 
@@ -70,10 +85,6 @@ balkan_crisis_deescalate_england = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		custom_tooltip = {
-			text = balkan_crisis_escalation
-			has_global_variable = balkan_crisis_freeze
 		}
 		hidden_trigger = {
 			NOT = { has_variable = offer_crete_convention }
@@ -106,6 +117,25 @@ balkan_crisis_deescalate_england = {
 			}
 			add = 10
 		}
+		modifier = {
+			trigger = {
+				OR = {
+					has_attitude = {
+						who = c:TUR
+						attitude = protective
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = befriend
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = conciliatory
+					}						
+				}
+			}
+			add = 10
+		}
 	}
 }
 
@@ -127,10 +157,6 @@ balkan_crisis_deescalate_sweden = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		custom_tooltip = {
-			text = balkan_crisis_escalation
-			has_global_variable = balkan_crisis_freeze
 		}
 		hidden_trigger = {
 			NOT = { has_variable = offer_crimea_convention }
@@ -163,6 +189,25 @@ balkan_crisis_deescalate_sweden = {
 			}
 			add = 10
 		}
+		modifier = {
+			trigger = {
+				OR = {
+					has_attitude = {
+						who = c:TUR
+						attitude = protective
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = befriend
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = conciliatory
+					}						
+				}
+			}
+			add = 10
+		}
 	}
 }
 
@@ -181,10 +226,6 @@ balkan_crisis_deescalate_iberia = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		custom_tooltip = {
-			text = balkan_crisis_escalation
-			has_global_variable = balkan_crisis_freeze
 		}
 		hidden_trigger = {
 			NOT = { has_variable = offer_algiers_convention }
@@ -216,6 +257,25 @@ balkan_crisis_deescalate_iberia = {
 		modifier = {
 			trigger = {
 				has_strategy = ai_strategy_maintain_power_balance 
+			}
+			add = 10
+		}
+		modifier = {
+			trigger = {
+				OR = {
+					has_attitude = {
+						who = c:TUR
+						attitude = protective
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = befriend
+					}
+					has_attitude = {
+						who = c:TUR
+						attitude = conciliatory
+					}						
+				}
 			}
 			add = 10
 		}

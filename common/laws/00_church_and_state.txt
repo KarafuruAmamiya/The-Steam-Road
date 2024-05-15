@@ -12,11 +12,8 @@ law_state_religion = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 		NOT = { country_has_state_religion = rel:confucian }
 	}
@@ -330,11 +327,8 @@ law_freedom_of_conscience = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	
@@ -933,11 +927,8 @@ law_state_atheism = {
 			is_in_government = no
 		}
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	

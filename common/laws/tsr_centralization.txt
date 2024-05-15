@@ -20,11 +20,8 @@ law_feudalism = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	
@@ -76,11 +73,8 @@ law_warlord_state = {
 	can_enact = {
 		NOT = { country_tier = empire }
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	
@@ -169,11 +163,8 @@ law_unitary = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 
@@ -287,11 +278,8 @@ law_devolved = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	
@@ -400,11 +388,8 @@ law_federal = {
 	
 	can_enact = {
 		trigger_if = {
-			limit = { has_variable = rumelian_confederation }
-			custom_tooltip = {
-				text = no_rumelian_confederation
-				NOT = { has_variable = rumelian_confederation }
-			}
+			limit = { has_journal_entry = je_rumelian_confederation }
+			NOT = { has_journal_entry = je_rumelian_confederation }
 		}
 	}
 	

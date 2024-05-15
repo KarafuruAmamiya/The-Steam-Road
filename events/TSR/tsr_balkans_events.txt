@@ -1435,73 +1435,32 @@ balkan_crisis.11 = {
 				add_claim = root
 			}
 		}
-		add_journal_entry = { 
-			type = je_war_of_the_balkan_coalition_attacker 
+		every_country = {
+			limit = {
+				country_is_in_europe = yes
+				is_subject_of = c:TUR
+			}
+			change_relations = {
+				country = root
+				value = 50
+			}
+			change_relations = {
+				country = c:TUR
+				value = -100
+			}
+			set_secret_goal = {
+				country = root
+				secret_goal = befriend
+			}
+			set_secret_goal = {
+				country = c:TUR
+				secret_goal = conquer
+			}
 		}
 		custom_tooltip = {
 			text = balkan_crisis_progress_increase_20_tt
 			change_global_variable = { name = balkan_crisis_main_var add = 20 }
 		}
-		c:HUN ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		c:WAL ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		c:MOL ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		c:TRS ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		if = {
-			limit = { exists = c:ROM }
-			c:ROM ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		}
-		c:GAL ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		if = {
-			limit = {
-				c:POL ?= { 
-					OR = {
-						any_neighbouring_state = {
-							owner = {
-								OR = {
-									c:TUR ?= this
-									is_subject_of = c:TUR
-								}
-							}
-						}
-						any_scope_state = {
-							has_claim_by = c:TUR
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								has_claim_by = c:TUR
-							}
-						}
-					}
-				}
-			}
-			c:POL ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		}
-		else_if = {
-			limit = {
-				c:PLC ?= { 
-					OR = {
-						any_neighbouring_state = {
-							owner = {
-								OR = {
-									c:TUR ?= this
-									is_subject_of = c:TUR
-								}
-							}
-						}
-						any_scope_state = {
-							has_claim_by = c:TUR
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								has_claim_by = c:TUR
-							}
-						}
-					}
-				}
-			}
-			c:PLC ?= { trigger_event = { id = balkan_crisis.12 popup = yes } }
-		}
-		c:TUR = { trigger_event = { id = balkan_crisis.13 popup = yes } }
 		
 		ai_chance = {
 			base = 100
@@ -1521,304 +1480,32 @@ balkan_crisis.11 = {
 				value = -20
 			}
 		}
-		c:HUN ?= {
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		c:WAL ?= {
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		c:MOL ?= {
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		c:TRS ?= {
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		if = {
-			limit = { exists = c:ROM }
-			c:ROM ?= {
-				change_relations = {
-					country = root
-					value = -20
-				}
-			}
-		}
-		c:GAL ?= {
-			change_relations = {
-				country = root
-				value = -20
-			}
-		}
-		
-		every_interest_group = {
-			limit = {
-				OR = {
-					has_ideology = ideology:ideology_nationalist
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add_modifier = {
-				name = refused_to_liberate_balkans
-				months = normal_modifier_time
-			}
-		}
-		
-		ai_chance = {
-			base = 0
-		}
-	}
-}
-
-# Balkan War Prep (Allies)
-balkan_crisis.12 = {
-	type = country_event
-	placement = root
-	title = balkan_crisis.12.t
-	desc = balkan_crisis.12.d
-	flavor =  balkan_crisis.12.f
-	
-	duration = 3
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	immediate = {
-		random_country = {
-			limit = { has_variable = balkan_war_attacker }
-			save_scope_as = attacker_scope
-		}
-		c:TUR = { save_scope_as = tur_scope }
-	}
-
-	option = { #Fight fight fight
-		name = balkan_crisis.12.a
-		default_option = yes
-		custom_tooltip = will_fight_ottomans
-		add_journal_entry = { type = je_war_of_the_balkan_coalition_attacker }
-		
-		ai_chance = {
-			base = 10
-		}
-	}
-	
-	option = { #Let's not
-		name = balkan_crisis.12.b
-		
-		change_relations = {
-			country = scope:attacker_scope
-			value = -20
-		}
-		
-		change_relations = {
-			country = c:TUR
-			value = 50
-		}
-		
-		every_interest_group = {
-			limit = {
-				OR = {
-					has_ideology = ideology:ideology_nationalist
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add_modifier = {
-				name = refused_to_liberate_balkans
-				months = normal_modifier_time
-			}
-		}
-		
-		ai_chance = {
-			base = 0
-			modifier = {
-				trigger = {
-					OR = {	
-						c:POL ?= this
-						c:PLC ?= this
-					}
-					NOR = {
-						country_rank >= rank_value:major_power
-						any_scope_state = {
-							has_claim_by = c:TUR
-						}
-						any_subject_or_below = {
-							any_scope_state = {
-								has_claim_by = c:TUR
-							}
-						}
-					}
-				}
-				add = 100
-			}
-		}
-	}
-}
-
-# Balkan War Prep (Ottomans)
-balkan_crisis.13 = {
-	type = country_event
-	placement = root
-	title = balkan_crisis.13.t
-	desc = balkan_crisis.13.d
-	flavor =  balkan_crisis.13.f
-	
-	duration = 3
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	immediate = {
-		random_country = {
-			limit = { has_variable = balkan_war_attacker }
-			save_scope_as = attacker_scope
-		}
-		root = { save_scope_as = tur_scope }
-	}
-
-	option = { #Fight fight fight
-		name = balkan_crisis.13.a
-		default_option = yes
-		add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
 		every_country = {
 			limit = {
+				country_is_in_europe = yes
+				is_subject_of = c:TUR
+			}
+			change_relations = {
+				country = root
+				value = -20
+			}
+		}
+		
+		every_interest_group = {
+			limit = {
 				OR = {
-					has_diplomatic_pact = {
-						who = scope:attacker_scope
-						type = rivalry
-					}
-					AND = {
-						c:PER ?= this
-						NOT = { has_global_variable = gunpowder_alliance_disband }
-					}
+					has_ideology = ideology:ideology_nationalist
+					is_interest_group_type = ig_armed_forces
 				}
 			}
-			trigger_event = { id = balkan_crisis.14 popup = yes }
-		}
-	}
-}
-
-# Balkan War Prep (Ottoman Allies)
-balkan_crisis.14 = {
-	type = country_event
-	placement = root
-	title = balkan_crisis.14.t
-	desc = balkan_crisis.14.d
-	flavor =  balkan_crisis.14.f
-	
-	duration = 3
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	immediate = {
-		random_country = {
-			limit = { has_variable = balkan_war_attacker }
-			save_scope_as = attacker_scope
-		}
-		c:TUR = { save_scope_as = tur_scope }
-	}
-
-	option = { #Fight fight fight
-		name = balkan_crisis.14.a
-		add_journal_entry = { type = je_war_of_the_balkan_coalition_defender }
-		change_relations = {
-			country = scope:attacker_scope
-			value = -20
-		}
-		
-		change_relations = {
-			country = c:TUR
-			value = 100
-		}
-		
-		ai_chance = {
-			base = 10
-			ai_chance = {
-				base = 10
-				modifier = {
-					trigger = {
-						c:TUR ?= {
-							relations:root <= relations_threshold:neutral
-						}
-					}
-					add = -100
-				}
-				modifier = {
-					trigger = {
-						OR = {
-							has_journal_entry = je_surat_riots
-							has_journal_entry = je_hindustani_uprising
-							has_journal_entry = je_opium_obsession
-							has_journal_entry = je_opium_wars
-							has_journal_entry = je_rise_of_zandism
-							has_journal_entry = je_zandi_rebellion
-						}
-					}
-					add = -100
-				}
-			}
-		}
-	}
-	
-	option = { #Let's not
-		name = balkan_crisis.14.b
-		default_option = yes
-		change_relations = {
-			country = c:TUR
-			value = -50
-		}
-		
-		hidden_effect = {
-			c:TUR ?= {
-				post_notification = country_refused_to_help
+			add_modifier = {
+				name = refused_to_liberate_balkans
+				months = normal_modifier_time
 			}
 		}
 		
 		ai_chance = {
 			base = 0
-			modifier = {
-				trigger = {
-					c:TUR ?= {
-						relations:root <= relations_threshold:neutral
-					}
-				}
-				add = 100
-			}
-			modifier = {
-				trigger = {
-					OR = {
-						has_journal_entry = je_surat_riots
-						has_journal_entry = je_hindustani_uprising
-						has_journal_entry = je_opium_obsession
-						has_journal_entry = je_opium_wars
-						has_journal_entry = je_rise_of_zandism
-						has_journal_entry = je_zandi_rebellion
-					}
-				}
-				add = 100
-			}
 		}
 	}
 }

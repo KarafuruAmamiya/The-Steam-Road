@@ -299,20 +299,6 @@ tsr_diplomatic_play_started = {
 		}
 		if = {
 			limit = {
-				scope:initiator = {
-					has_variable = balkan_war_attacker
-					has_journal_entry = je_war_of_the_balkan_coalition_attacker
-				}
-				scope:target = {
-					has_journal_entry = je_war_of_the_balkan_coalition_defender
-				}
-			}
-			scope:initiator = {
-				trigger_event = { id = balkan_crisis_2.2 days = 0 }
-			}
-		}
-		if = {
-			limit = {
 				is_diplomatic_play_type = dp_reduce_autonomy
 				scope:initiator = {
 					c:AKN ?= this

@@ -370,7 +370,7 @@ STATE_ALEPPO = {
 STATE_BAGHDAD = {
     id = 410
     subsistence_building = "building_subsistence_orchards"
-    provinces = { "x0748CD" "x0B769F" "x0CA064" "x205060" "x20D060" "x34A371" "x396DB2" "x4F90CC" "x5F9550" "xAE7D6F" "xE090E0" "xA4A407" "x1EC145" }
+    provinces = { "x0748CD" "x0B769F" "x0CA064" "x205060" "x20D060" "x34A371" "x396DB2" "x4F90CC" "x5F9550" "xAE7D6F" "xE090E0" "xA4A407" "x1EC145" x312AA2 }
     traits = { "state_trait_mesopotamian_floodplain" "state_trait_euphrates_river" "state_trait_tigris_river" }
     city = "x205060"
     farm = "x205060"
@@ -429,7 +429,7 @@ STATE_DEIR_EZ_ZOR = {
 STATE_BASRA = {
     id = 413
     subsistence_building = "building_subsistence_orchards"
-    provinces = { "x2050E0" "x6CBE21" "x807060" "x93CB74" "xDB6370" }
+    provinces = { "x2050E0" "x6CBE21" "x807060" "x93CB74" "xDB6370" "x1CC9CC" "x1D7F5E" "x41F864" "x7CAD29" "x88ADC8" "x9F9CCA" "xBE6A23" "xF1BF17" "xFE18C1" }
     traits = { "state_trait_mesopotamian_floodplain" "state_trait_euphrates_river" "state_trait_tigris_river" }
     city = "x807060"
     port = ""
@@ -447,26 +447,6 @@ STATE_BASRA = {
         undiscovered_amount = 60
     }
     naval_exit_id = 3046
-}
-
-STATE_NASIRIYA = {
-    id = 1228
-    subsistence_building = "building_subsistence_orchards"
-    provinces = { "x1CC9CC" "x1D7F5E" "x312AA2" "x41F864" "x4FDA9B" "x7CAD29" "x88ADC8" "x9F9CCA" "xBE6A23" "xF1BF17" "xFE18C1" }
-    traits = { "state_trait_mesopotamian_floodplain" "state_trait_tigris_river" "state_trait_euphrates_river" }
-    city = "x7CAD29"
-    farm = "x312AA2"
-    mine = "x9F9CCA"
-    wood = "xFE18C1"
-    arable_land = 30
-    arable_resources = { "bg_rice_farms" "bg_livestock_ranches" "bg_cotton_plantations" "bg_silk_plantations" }
-    capped_resources = {
-        bg_logging = 2
-    }
-    resource = {
-        type = "bg_oil_extraction"
-        undiscovered_amount = 10
-    }
 }
 
 STATE_SHAHRIZOR = {
@@ -624,7 +604,7 @@ STATE_SOUTH_KHORASAN = {
 STATE_KHUZESTAN = {
     id = 418
     subsistence_building = "building_subsistence_orchards"
-    provinces = { "x00B0DF" "x09F8D1" "x241E05" "x4CA291" "x55D475" "x5D400F" "x80B060" "x80B0E0" "x80E4E1" "x872ACE" "xA18555" "xA99276" "xF5BD8F" "xFBA38B" "xEB15EE" "x202B10" "x7D89AA" "xFFA8FA" "x2657C9" "x672217" "x4AB629" "x8030DF" }
+    provinces = { "x00B0DF" "x09F8D1" "x241E05" "x4CA291" "x55D475" "x5D400F" "x80B060" "x80B0E0" "x80E4E1" "x872ACE" "xA18555" "xA99276" "xF5BD8F" "xFBA38B" "xEB15EE" "x202B10" "x7D89AA" "xFFA8FA" "x2657C9" "x672217" "x4AB629" "x8030DF" "x4FDA9B" }
     traits = { "state_trait_karun_river" "state_trait_rich_oil" "state_trait_zagros_mountains" }
     city = "x55D475"
     port = "xFBA38B"
@@ -1015,7 +995,7 @@ STATE_ADANA = {
 STATE_TRABZON = {
     id = 430
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x001080" "x009080" "x1357F8" "x146DD9" "x288BCD" "x59E513" "x809080" "x9655BD" "xA88EEC" "xAE07E3" "xB526B3" }
+    provinces = { "x001080" "x009080" "x1357F8" "x146DD9" "x288BCD" "x59E513" "x809080" "x9655BD" "xA88EEC" "xAE07E3" "xB526B3" "xC41BC3" }
     traits = { "state_medeteranean_climate" "state_trait_pontic_mountains" }
     city = "x9655BD"
     port = "x009080"
@@ -1139,7 +1119,7 @@ STATE_KAYSERI = {
 STATE_SIVAS = {
     id = 1169
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x03F8EA" "x04F350" "x0BD6EC" "x0D1D4E" "x15BC1F" "x180265" "x465D69" "x62FAA8" "x785849" "x7DD19B" "x8E9935" "x964F97" "xC29DFD" "xEB1F97" "xC41BC3" }
+    provinces = { "x03F8EA" "x04F350" "x0BD6EC" "x0D1D4E" "x15BC1F" "x180265" "x465D69" "x62FAA8" "x785849" "x7DD19B" "x8E9935" "x964F97" "xC29DFD" "xEB1F97" }
     traits = {}
     city = "x03F8EA"
     farm = "xC29DFD"

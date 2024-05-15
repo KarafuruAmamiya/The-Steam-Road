@@ -1087,7 +1087,6 @@ arab_wars.11 = {
 		NOT = { exists = c:IRQ }
 		has_state_in_state_region = STATE_BAGHDAD
 		has_state_in_state_region = STATE_BASRA
-		has_state_in_state_region = STATE_NASIRIYA
 		any_scope_state = { 
 			AND = {	
 	    		state_region = { 
@@ -1115,7 +1114,6 @@ arab_wars.11 = {
 			origin = this
 			state = s:STATE_BAGHDAD.region_state:PER
 			state = s:STATE_BASRA.region_state:PER
-			state = s:STATE_NASIRIYA.region_state:PER
 			on_created = {
 				if = {
 					limit = {
@@ -1477,9 +1475,6 @@ arab_wars.14 = {
 		s:STATE_BASRA = {
 			add_claim = c:PER
 		}
-		s:STATE_NASIRIYA = {
-			add_claim = c:PER
-		}
 		s:STATE_HAASA = {
 			add_claim = c:PER
 		}
@@ -1616,9 +1611,6 @@ arab_wars.14 = {
 			add_claim = c:PER
 		}
 		s:STATE_BASRA = {
-			add_claim = c:PER
-		}
-		s:STATE_NASIRIYA = {
 			add_claim = c:PER
 		}
 		s:STATE_HAASA = {

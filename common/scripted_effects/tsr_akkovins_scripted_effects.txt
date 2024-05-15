@@ -218,24 +218,6 @@
 	if = {
 		limit = {
 			any_state = {
-				state_region = s:STATE_HARPUT
-				state_region = {
-					NOT = { is_homeland = cu:armenian }
-				}
-			}
-		}
-		random_state = {
-			limit = {
-				state_region = s:STATE_HARPUT
-			}
-			state_region = {
-				add_homeland = cu:armenian
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_state = {
 				state_region = s:STATE_TRABZON
 				state_region = {
 					NOT = { is_homeland = cu:kurdish }
@@ -335,24 +317,6 @@
 		random_state = {
 			limit = {
 				state_region = s:STATE_DIYARBAKIR
-			}
-			state_region = {
-				add_homeland = cu:kurdish
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_state = {
-				state_region = s:STATE_HARPUT
-				state_region = {
-					NOT = { is_homeland = cu:kurdish }
-				}
-			}
-		}
-		random_state = {
-			limit = {
-				state_region = s:STATE_HARPUT
 			}
 			state_region = {
 				add_homeland = cu:kurdish
@@ -461,24 +425,6 @@
 		random_state = {
 			limit = {
 				state_region = s:STATE_DIYARBAKIR
-			}
-			state_region = {
-				add_homeland = cu:assyrian
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_state = {
-				state_region = s:STATE_HARPUT
-				state_region = {
-					NOT = { is_homeland = cu:assyrian }
-				}
-			}
-		}
-		random_state = {
-			limit = {
-				state_region = s:STATE_HARPUT
 			}
 			state_region = {
 				add_homeland = cu:assyrian
@@ -604,7 +550,6 @@
 				state_region = s:STATE_VAN
 				state_region = s:STATE_BITLIS
 				state_region = s:STATE_KARS
-				state_region = s:STATE_HARPUT
 				state_region = s:STATE_MOSUL
 			}
 			state_region = {

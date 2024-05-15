@@ -330,16 +330,12 @@ akkovin_crisis.3 = {
 				has_variable = completed_akkovin_reform_arabia_je
 			}
 			NAND = {
-				owns_entire_state_region = STATE_HARPUT
 				owns_entire_state_region = STATE_SIVAS
 				owns_entire_state_region = STATE_CYPRUS
 				owns_entire_state_region = STATE_SHAHRIZOR
 				owns_entire_state_region = STATE_KARS
 				owns_entire_state_region = STATE_ARMENIA
 			}
-		}
-		s:STATE_HARPUT = {
-			add_claim = ROOT
 		}
 		s:STATE_SIVAS = {
 			add_claim = ROOT
@@ -1183,14 +1179,6 @@ akkovin_crisis.10 = {
 		c:AKN = { save_scope_as = akn_scope }
 		if = {
 			limit = {
-				c:AKN = { has_state_in_state_region = STATE_HARPUT }
-			}
-			s:STATE_HARPUT.region_state:AKN = {
-				set_state_owner = c:TUR
-			}
-		}
-		if = {
-			limit = {
 				c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }
 			}
 			s:STATE_DIYARBAKIR.region_state:AKN = {
@@ -1293,14 +1281,6 @@ akkovin_crisis.10 = {
 					NOT = { has_global_variable = gunpowder_alliance_disband } 
 				}
 				disband_gunpowder_alliance_tur = yes
-			}
-			if = {
-				limit = {
-					c:AKN = { has_state_in_state_region = STATE_HARPUT }
-				}
-				s:STATE_HARPUT.region_state:AKN = {
-					set_state_owner = c:TUR
-				}
 			}
 			if = {
 				limit = {

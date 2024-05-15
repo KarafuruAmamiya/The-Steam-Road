@@ -680,14 +680,6 @@ treaty_of_baglar_events.4 = { # Veiled Puppet
 		default_option = yes
 		if = {
 			limit = {
-				NOT = { has_claim = s:STATE_HARPUT }
-			}
-			s:STATE_HARPUT = {
-				add_claim = ROOT
-			}
-		}
-		if = {
-			limit = {
 				NOT = { has_claim = s:STATE_DIYARBAKIR }
 			}
 			s:STATE_DIYARBAKIR = {

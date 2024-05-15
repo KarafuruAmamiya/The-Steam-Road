@@ -47,8 +47,16 @@ poland_lithuania_events.1 = {
 		}
 		set_variable = polish_revolter_var
 		save_scope_as = polish_revolt_country
-		c:PLC ?= {
-			save_scope_as = poland_scope
+		if = {
+			limit = { exists = c:POL }
+			c:POL ?= { save_scope_as = poland_scope }
+			ruler = {
+				save_scope_as = poland_ruler_scope 
+			}
+		}
+		else_if = {
+			limit = { exists = c:PLC }
+			c:PLC ?= { save_scope_as = poland_scope }
 			ruler = {
 				save_scope_as = poland_ruler_scope 
 			}
@@ -249,8 +257,13 @@ poland_lithuania_events.3 = {
 	}
 
 	immediate = {
-		c:PLC ?= {
-			save_scope_as = poland_scope
+		if = {
+			limit = { exists = c:POL }
+			c:POL ?= { save_scope_as = poland_scope }
+		}
+		else_if = {
+			limit = { exists = c:PLC }
+			c:PLC ?= { save_scope_as = poland_scope }
 		}
 		random_state = {
 			limit = { has_variable = poland_steal_capital }
@@ -287,14 +300,20 @@ poland_lithuania_events.4 = {
 			triggered_desc = {
 				desc = poland_lithuania_events.4.f1
 				trigger = {
-					c:PLC ?= this
+					OR = {
+						c:POL ?= this
+						c:PLC ?= this
+					}
 				}
 			}
 			triggered_desc = {
 				desc = poland_lithuania_events.4.f2
 				trigger = {
 					NOT = { 
-						c:PLC ?= this 
+						OR = {
+							c:POL ?= this 
+							c:PLC ?= this 
+						}
 						capital = {
 							state_region = {
 								is_homeland = cu:polish
@@ -307,7 +326,10 @@ poland_lithuania_events.4 = {
 				desc = poland_lithuania_events.4.f2
 				trigger = {
 					NOT = { 
-						c:PLC ?= this 
+						OR = {
+							c:POL ?= this 
+							c:PLC ?= this 
+						}
 						capital = {
 							state_region = {
 								is_homeland = cu:lithuanian
@@ -334,8 +356,16 @@ poland_lithuania_events.4 = {
 	}
 	
 	immediate = {
-		c:PLC ?= { 
-			save_scope_as = poland_scope
+		if = {
+			limit = { exists = c:POL }
+			c:POL ?= { save_scope_as = poland_scope }
+			ruler = {
+				save_scope_as = poland_ruler_scope 
+			}
+		}
+		else_if = {
+			limit = { exists = c:PLC }
+			c:PLC ?= { save_scope_as = poland_scope }
 			ruler = {
 				save_scope_as = poland_ruler_scope 
 			}
@@ -465,26 +495,8 @@ poland_lithuania_events.5 = {
 		default_option = yes
 		annex_with_incorporation = c:LIT
 		change_tag = PLC
-		add_journal_entry = { type = je_odrodzenie }
 		
 		hidden_effect = {
-			every_country = {
-				limit = {
-					is_subject = yes
-					NOT = { is_subject_type = subject_type_protectorate }
-					NOR = { root = this is_subject_of = root }
-					capital = {
-						region = sr:region_poland
-						state_region = {
-							OR = {
-								is_homeland = cu:polish
-								is_homeland = cu:lithuanian
-							}
-						}
-					}
-				}
-				add_journal_entry = { type = je_odrodzenie_victim }
-			}
 			if = {
 				limit = { NOT = { country_has_primary_culture = cu:lithuanian } }
 				add_primary_culture = cu:lithuanian
@@ -501,24 +513,8 @@ poland_lithuania_events.5 = {
 		name = poland_lithuania_events.5.b
 		annex_with_incorporation = c:LIT
 		change_tag = PLC
-		add_journal_entry = { type = je_odrodzenie }
 		
 		hidden_effect = {
-			every_country = {
-				limit = {
-					NOR = { root = this is_subject_of = root }
-					capital = {
-						region = sr:region_poland
-						state_region = {
-							OR = {
-								is_homeland = cu:polish
-								is_homeland = cu:lithuanian
-							}
-						}
-					}
-				}
-				add_journal_entry = { type = je_odrodzenie_victim }
-			}
 			if = {
 				limit = { NOT = { country_has_primary_culture = cu:lithuanian } }
 				add_primary_culture = cu:lithuanian

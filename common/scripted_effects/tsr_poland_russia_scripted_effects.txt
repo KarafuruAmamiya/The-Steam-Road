@@ -239,20 +239,14 @@ clear_plc_point_vars = {
 remove_plc_point_effect = {
 	custom_tooltip = {
 		text = remove_plc_point_tt
-		change_global_variable = {
-			name = plc_union_progress_var
-			add = -5
-		}
+		change_global_variable = { name = plc_point_var_add subtract = 1 }
 	}
 }
 
 add_plc_point_effect = {
 	custom_tooltip = {
 		text = add_plc_point_tt
-		change_global_variable = {
-			name = plc_union_progress_var
-			add = 5
-		}
+		change_global_variable = { name = plc_point_var_add add = 1 }
 	}
 }
 			

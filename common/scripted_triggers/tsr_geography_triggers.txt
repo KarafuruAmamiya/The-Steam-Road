@@ -38,3 +38,13 @@ gunpowder_empire_trigger = {
 		c:TUR ?= this
 	}
 }
+
+country_is_in_balkans = {
+	exists = capital
+	capital = {
+		OR = {
+			region = sr:region_balkans
+			region = sr:region_greece
+		}
+	}
+}

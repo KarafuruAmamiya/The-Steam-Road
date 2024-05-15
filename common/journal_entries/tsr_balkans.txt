@@ -487,6 +487,7 @@ je_balkan_crisis_display = {
 	weight = 8000
 }
 
+#NEED SOI
 je_rumelian_confederation = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
@@ -496,12 +497,27 @@ je_rumelian_confederation = {
 		
 	}
 	
-	fail = {
+	complete = {
+		NOT = {
+			any_subject_or_below = {
+				country_is_in_balkans = yes
+			}
+		}
+		any_state = {
+			filter = {
+				region = sr:region_balkans
+			}
+			owner = root
+			count = all
+		}
+	}
 	
+	fail = {
+		#high liberty desire in subjects
 	}
 	
 	on_fail = {
-
+		
 	}
 	
 	

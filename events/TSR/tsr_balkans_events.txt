@@ -1435,26 +1435,34 @@ balkan_crisis.11 = {
 				add_claim = root
 			}
 		}
-		every_country = {
-			limit = {
-				country_is_in_europe = yes
-				is_subject_of = c:TUR
-			}
-			change_relations = {
-				country = root
-				value = 50
-			}
-			change_relations = {
-				country = c:TUR
-				value = -100
-			}
-			set_secret_goal = {
-				country = root
-				secret_goal = befriend
-			}
-			set_secret_goal = {
-				country = c:TUR
-				secret_goal = conquer
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						c:POL ?= this
+						c:PLC ?= this
+						AND = {
+							country_is_in_europe = yes
+							is_subject_of = c:TUR
+						}
+					}
+				}
+				change_relations = {
+					country = root
+					value = 50
+				}
+				change_relations = {
+					country = c:TUR
+					value = -100
+				}
+				set_secret_goal = {
+					country = root
+					secret_goal = befriend
+				}
+				set_secret_goal = {
+					country = c:TUR
+					secret_goal = conquer
+				}
 			}
 		}
 		custom_tooltip = {

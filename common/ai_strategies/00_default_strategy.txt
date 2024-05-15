@@ -125,8 +125,14 @@ ai_strategy_default = {
 					}
 					target_is = c:TUR
 				}
-				country_is_in_europe = yes
-				is_subject_of = c:TUR
+				OR = {
+					c:POL ?= this
+					c:PLC ?= this
+					AND = {
+						country_is_in_europe = yes
+						is_subject_of = c:TUR
+					}
+				}
 			}
 			add = -200
 		}
@@ -6808,7 +6814,30 @@ ai_strategy_default = {
 				}
 			
 				add = scope:target_country.ai_subject_value:root
-			}							
+			}		
+
+			# Poland wants to grab Polish subjects
+			if = {
+				limit = {
+					OR = {
+						c:POL ?= this
+						c:PLC ?= this
+					}
+					has_journal_entry = je_odrodzenie
+					scope:target_country ?= {
+						capital = {
+							region = sr:region_poland
+							state_region = {
+								OR = {
+									is_homeland = cu:polish
+									is_homeland = cu:lithuanian
+								}
+							}
+						}
+					}
+				}
+				add = 100
+			}
 
 			min = 0
 			max = 100			

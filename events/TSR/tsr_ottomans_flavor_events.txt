@@ -1046,41 +1046,16 @@ turkish_nationalism.2 = {
 			culture = cu:turkish
 			value = large_radicals
 		}
-		add_radicals = {
-			culture = cu:greek
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:armenian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:bulgarian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:serb
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:croat
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:levantine
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:misri
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:kurdish
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:hungarian
-			value = large_radicals
+		every_scope_culture =  {
+			limit = {
+				NOT = { cu:turkish ?= this }
+			}
+			prev = {
+				add_radicals = {
+					culture = prev
+					value = large_radicals
+				}
+			}
 		}
 	}
 }
@@ -1109,27 +1084,6 @@ turkish_nationalism.3 = {
 	}
 
 	immediate = {
-		random_interest_group = {
-			limit = {
-				OR = {
-					leader = {
-						OR = {
-							has_ideology = ideology:ideology_turkish_nationalist
-							has_ideology = ideology:ideology_radical
-						}
-					}
-					any_scope_character = {
-						has_role = agitator
-						OR = {
-							has_ideology = ideology:ideology_turkish_nationalist
-							has_ideology = ideology:ideology_radical
-						}
-					}
-				}
-				
-			}
-			save_scope_as = nationalist_ig
-		}
 	}
 
 	option = { 
@@ -1143,28 +1097,54 @@ turkish_nationalism.3 = {
 		}
 		if = {
 			limit = {
-				scope:nationalist_ig = {
-					leader = {
-						OR = {
-							has_ideology = ideology:ideology_turkish_nationalist
-							has_ideology = ideology:ideology_radical
+				any_interest_group = {
+					OR = {
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
+						}
+						any_scope_character = {
+							has_role = agitator
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
 						}
 					}
 				}
 			}
-			create_character = {
-				ig_leader = yes
-				interest_group = scope:nationalist_ig
-				ideology = ideology_moderate
+			every_interest_group = {
+				limit = {
+					OR = {
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
+						}
+						any_scope_character = {
+							has_role = agitator
+							OR = {
+								has_ideology = ideology:ideology_turkish_nationalist
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+				}
+				leader = {
+					kill_character = yes
+				}
+				create_character = {
+					ig_leader = yes
+					ideology = ideology_moderate
+				}
 			}
 		}
 		add_modifier = {
 			name = modifier_end_of_nationalist_movements_country
 			months = normal_modifier_time
-		}
-		add_radicals = {
-			culture = cu:turkish
-			value = large_radicals
 		}
 	}
 }
@@ -1423,41 +1403,16 @@ turkish_nationalism.6 = {
 			culture = cu:turkish
 			value = large_radicals
 		}
-		add_radicals = {
-			culture = cu:greek
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:armenian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:bulgarian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:serb
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:croat
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:levantine
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:misri
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:kurdish
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:hungarian
-			value = large_radicals
+		every_scope_culture =  {
+			limit = {
+				NOT = { cu:turkish ?= this }
+			}
+			prev = {
+				add_radicals = {
+					culture = prev
+					value = large_radicals
+				}
+			}
 		}
 	}
 }
@@ -1487,14 +1442,14 @@ turkish_nationalism.7 = {
 			limit = {	
 				is_revolutionary = yes
 				country_definition = root.country_definition
-				leader = {
-					OR = {
-						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_turkish_nationalist
-					}
+				OR = {
+					has_law = law_type:law_census_voting
+					has_law = law_type:law_universal_suffrage
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
 				}
 			}
-			save_scope_as = revolution_scope	
+			save_scope_as = revolution_scope			
 				
 			#The Revolution shouldn't spawn in non-Turkish homelands
 			scope:revolution_scope = {
@@ -1525,17 +1480,17 @@ turkish_nationalism.7 = {
 						set_state_type = incorporated
 					}
 				}
-			}
-			if = {
-				limit = {
-					scope:target ?= {
-						any_scope_state = {
-							state_region = s:STATE_EASTERN_THRACE
+				if = {
+					limit = {
+						scope:target ?= {
+							any_scope_state = {
+								state_region = s:STATE_EASTERN_THRACE
+							}
 						}
 					}
-				}
-				scope:target ?= {
-					set_capital = STATE_EASTERN_THRACE
+					scope:target ?= {
+						set_capital = STATE_EASTERN_THRACE
+					}
 				}
 			}
 			else = {
@@ -1548,16 +1503,7 @@ turkish_nationalism.7 = {
 					}
 				}
 			}
-			
-			if = {
-				limit = {
-					NOR = { 
-						has_law = law_type:law_census_voting
-						has_law = law_type:law_universal_suffrage
-					}
-				}
-				activate_law = law_type:law_census_voting
-			}
+
 			if = {
 				limit = {
 					NOR = { 

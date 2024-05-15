@@ -562,7 +562,7 @@ je_turkish_nationalism_main = {
 			is_marginal = no
 			OR = {
 				is_powerful = yes
-				ig_approval <= -5
+				ig_approval < -5
 			}
 			any_scope_character = {
 				AND = {
@@ -582,7 +582,7 @@ je_turkish_nationalism_main = {
 	immediate = {
 		set_variable = {
 			name = tur_nationalism_progress_var
-			value = 1
+			value = 0
 		}
 		random_interest_group = {
 			limit = {
@@ -888,6 +888,98 @@ je_turkish_nationalism_main = {
 			}
 		}
 	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = turkish_nationalism_agenda_progressing
+				trigger = {
+					AND = {
+						OR = {
+							has_law = law_type:law_presidential_republic
+							has_law = law_type:law_parliamentary_republic
+							has_law = law_type:law_monarchy
+						}
+						OR = {
+							has_law = law_type:law_census_voting
+							has_law = law_type:law_universal_suffrage
+						}
+						OR = {
+							has_law = law_type:law_ethnostate
+							has_law = law_type:law_national_supremacy
+						}
+						OR = {
+							has_law = law_type:law_public_schools
+							has_law = law_type:law_private_schools
+						}
+						OR = {
+							has_law = law_type:law_freedom_of_conscience
+							has_law = law_type:law_shared_roots
+							has_law = law_type:law_total_separation
+						}
+					}
+					has_law = law_type:law_unitary
+					has_law = law_type:law_slavery_banned
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_in_government = yes
+					}
+				}
+			}
+			triggered_desc = {
+				desc = turkish_nationalism_agenda_repressed
+				trigger = {
+					OR = {
+						has_law = law_type:law_outlawed_dissent
+						has_law = law_type:law_censorship
+					}
+					any_interest_group = {
+						filter = {
+							OR = {
+								leader = {
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+								any_scope_character = {
+									has_role = agitator
+									OR = {
+										has_ideology = ideology:ideology_turkish_nationalist
+										has_ideology = ideology:ideology_radical
+									}
+								}
+							}
+						}
+						is_marginal = yes
+						count = all
+					}
+				}
+			}
+			triggered_desc = {
+				desc = turkish_nationalism_agenda_none
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
 
 	modifiers_while_active = {
 		modifier_tur_nationalism
@@ -901,7 +993,7 @@ je_turkish_nationalism_main = {
 		add = 60
 	}
 
-	weight = 100
+	weight = 10000
 
 	progressbar = yes
 
@@ -955,11 +1047,11 @@ je_turkish_revolution = {
 		any_country = {
 			is_revolutionary = yes
 			country_definition = root.country_definition
-			leader = {
-				OR = {
-					has_ideology = ideology:ideology_radical
-					has_ideology = ideology:ideology_turkish_nationalist
-				}
+			OR = {
+				has_law = law_type:law_census_voting
+				has_law = law_type:law_universal_suffrage
+				has_law = law_type:law_presidential_republic
+				has_law = law_type:law_parliamentary_republic
 			}					
 		}
 	}
@@ -970,10 +1062,9 @@ je_turkish_revolution = {
 	
 	invalid = {
 		OR = {
+			NOT = { has_law = law_type:law_monarchy }
 			has_law = law_type:law_census_voting
 			has_law = law_type:law_universal_suffrage
-			has_law = law_type:law_presidential_republic
-			has_law = law_type:law_parliamentary_republic
 		}
 	}
 	
@@ -1000,7 +1091,7 @@ je_turkish_revolution = {
 			if = {
 				limit = {
 					has_law = law_type:law_monarchy
-					OR = {
+					NOR = {
 						has_law = law_type:law_census_voting
 						has_law = law_type:law_universal_suffrage
 						has_law = law_type:law_presidential_republic
@@ -1025,7 +1116,46 @@ je_turkish_revolution = {
 
 	should_be_pinned_by_default = yes
 
-	weight = 8000
+	weight = 10000
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = turkish_revolution_not_progressing
+				trigger = {
+					has_law = law_type:law_monarchy
+					NOR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+					any_revolution_ongoing = no
+				}
+			}
+			triggered_desc = {
+				desc = turkish_revolution_progressing
+				trigger = {
+					any_revolution_ongoing = yes
+				}
+			}
+			triggered_desc = {
+				desc = turkish_revolution_complete
+				trigger = {
+					NOT = {
+						has_law = law_type:law_monarchy
+						NOR = {
+							has_law = law_type:law_census_voting
+							has_law = law_type:law_universal_suffrage
+							has_law = law_type:law_presidential_republic
+							has_law = law_type:law_parliamentary_republic
+						}
+					}
+					any_revolution_ongoing = no
+				}
+			}
+		}
+	}
 
 	current_value = {
 		value = var:turkish_revolution_progress_var
@@ -1078,6 +1208,7 @@ je_turkish_revolutionary_war = {
 	}
 
 	should_be_pinned_by_default = yes
+	weight = 10000
 	
 	can_revolution_inherit = no
 }

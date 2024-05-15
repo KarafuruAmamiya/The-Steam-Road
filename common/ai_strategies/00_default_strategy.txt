@@ -81,6 +81,27 @@ ai_strategy_default = {
 			add = 100
 		}
 		
+		# Countries will participate in the Turkish Revolution
+		if = {
+			limit = {
+				any_diplomatic_play = {
+					is_diplomatic_play_type = dp_revolution
+					target_is = c:TUR
+				}
+				any_country = {
+					is_revolutionary = yes
+					country_definition = cd:TUR
+					OR = {
+						has_law = law_type:law_census_voting
+						has_law = law_type:law_universal_suffrage
+						has_law = law_type:law_presidential_republic
+						has_law = law_type:law_parliamentary_republic
+					}
+				}
+			}
+			add = -200
+		}
+		
 		# Balkan war aggressor should be very, very aggressive against Ottomans
 			if = {
 				limit = {

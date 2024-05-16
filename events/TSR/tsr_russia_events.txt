@@ -127,6 +127,35 @@ russian_events.1 = {
 				post_notification = rus_moscow_uprising
 				#trigger_event = { id = russian_events.3 }
 			}
+			every_country = {
+				limit = {
+					NOR = { 
+						c:SWE ?= this 
+						c:SCA ?= this 
+						root = this
+					}
+					OR = {
+						cu:russian = {
+							culture_is_discriminated_in = root
+						}
+						any_scope_pop = {
+							religion = rel:orthodox
+							religion_accepted = no
+						}
+					}
+					any_scope_state = {
+						state_region = {
+							is_homeland = cu:russian
+						}
+						OR = {
+							region = sr:region_central_russia
+							region = sr:region_barents
+							region = sr:region_volga
+						}
+					}
+				}
+				add_journal_entry = { type = je_russian_insurgency }
+			}
 		}
 	}
 }

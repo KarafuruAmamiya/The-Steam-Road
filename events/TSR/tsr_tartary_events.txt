@@ -1,0 +1,247 @@
+﻿namespace = tartary_events
+
+# Tatars Defect to Ottomans
+tartary_events.1 = {
+	type = country_event
+	placement = root
+
+	title = tartary_events.1.t
+	desc = tartary_events.1.d
+	flavor = tartary_events.1.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_flags/event_map.dds"
+
+	duration = 3
+
+	trigger = {
+		country_has_primary_culture = cu:tatar
+		OR = {
+			any_scope_state = {
+				is_coastal = yes
+				has_port = yes
+			}
+			any_neighbouring_state = {
+				OR = {
+					owner = c:TUR
+					owner = { is_subject_of = c:TUR }
+				}
+			}
+		}
+		is_subject = no
+		NOT = { has_variable = become_protectorate_var }
+	}
+
+	immediate = {
+		set_variable = become_protectorate_var
+		c:TUR ?= { save_scope_as = tur_scope }
+	}
+
+	option = {
+		name = tartary_events.1.a
+		c:TUR = {
+			create_diplomatic_pact = {
+				country = root
+				type = protectorate
+			}
+		}
+		change_relations = {
+			country = c:TUR
+			value = 30
+		}
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				trigger = {
+					c:TUR = { relations:root < relations_threshold:neutral }
+				}
+				add = -100
+			}
+		}
+	}
+	
+	option = {
+		name = tartary_events.1.b
+		default_option = yes
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Russian Insurgency Success Event
+tartary_events.2 = {
+	type = country_event
+	placement = scope:russian_state
+
+	title = tartary_events.2.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = tartary_events.2.d
+				trigger = {
+					country_has_primary_culture = cu:tatar
+				}
+			}
+			triggered_desc = {
+				desc = tartary_events.2.d2
+				trigger = { 
+					NOT = { country_has_primary_culture = cu:tatar }
+				}
+			}
+		}
+	}
+	flavor = tartary_events.2.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_flags/event_rus_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+			save_scope_as = russian_state
+		}
+	}
+
+	option = {
+		name = tartary_events.2.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+			add_modifier = {
+				name = harsh_suppression
+				months = normal_modifier_time
+			}
+		}
+		every_scope_state = {
+			limit = { has_modifier = modifier_rus_nationalism }
+			remove_modifier = modifier_rus_nationalism
+		}
+	}
+	
+	option = {
+		name = tartary_events.2.b
+		trigger = { country_has_primary_culture = cu:tatar }
+		add_primary_culture = cu:russian
+		add_loyalists = {
+			culture = cu:russian
+			value = large_radicals
+		}
+		every_scope_culture = {
+			limit = {
+				NOT = { cu:russian ?= this }
+				NOT = { culture_is_discriminated_in = root }
+			}
+			prev = {
+				add_radicals = {
+					culture = prev
+					value = large_radicals
+				}
+			}
+		}
+		every_scope_state = {
+			limit = { has_modifier = modifier_rus_nationalism }
+			remove_modifier = modifier_rus_nationalism
+		}
+	}
+}
+
+# Russian Insurgency Fail Event
+tartary_events.3 = {
+	type = country_event
+	placement = root
+
+	title = tartary_events.3.t
+	desc = tartary_events.3.d
+	flavor = tartary_events.3.f
+
+	event_image = {
+		video = "asia_sepoy_mutiny"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_flags/event_rus_flag.dds"
+
+	duration = 3
+
+	trigger = {
+		#Fired by JE
+	}
+
+	immediate = {
+		save_scope_as = russian_country
+		random_country = {
+			limit = {
+				country_has_primary_culture = cu:russian
+				is_secessionist = yes
+				any_neighbouring_state = {
+					owner = root
+				}
+			}
+			save_scope_as = secessionist_country
+			every_scope_state = {
+				limit = { has_modifier = modifier_rus_nationalism }
+				remove_modifier = modifier_rus_nationalism
+			}
+			random_enemy_in_diplo_play = {
+				save_scope_as = insurgency_country
+			}
+			every_scope_state = {
+				state_region = { add_claim = scope:insurgency_country }
+			}
+			random_scope_state = {
+				limit = {
+					any_neighbouring_state = {
+						owner = scope:insurgency_country
+					}
+					has_claim_by = scope:insurgency_country
+				}
+				save_scope_as = target_state
+			}
+		}
+	}
+
+	option = {
+		name = tartary_events.3.a
+		annex = scope:secessionist_country
+		scope:insurgency_country = {
+			create_diplomatic_play = {
+				type = dp_return_state
+				target_state = scope:target_state
+			}
+		}
+		
+	}
+	
+	option = {
+		name = tartary_events.3.b
+		default_option = yes
+	}
+}

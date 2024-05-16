@@ -1,0 +1,201 @@
+﻿je_russian_insurgency = {
+    icon = "gfx/interface/icons/event_icons/event_flags/event_rus_flag.dds"
+
+	group = je_group_tsr_content
+	
+    immediate = {
+		set_variable = {
+			name = russian_insurgency_je_var
+			value = 0
+		}
+		every_scope_state = {
+			limit = {
+				state_region = { is_homeland = cu:russian }
+			}
+			add_radicals_in_state = {
+				culture = cu:russian
+				value = large_radicals
+			}
+			add_modifier = {
+				name = modifier_rus_nationalism
+				months = -1
+			}
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					country_has_primary_culture = cu:russian
+				}
+				change_relations = {
+					country = root
+					value = -50
+				}
+				set_secret_goal = {
+					country = root
+					secret_goal = conquer
+				}
+			}
+			random_country = {
+				limit = {
+					country_has_primary_culture = cu:russian
+					any_state = {
+						state_region = {
+							is_homeland = cu:russian
+						}
+						owner = root
+						NOT = { has_claim_by = prev }
+					}
+				}
+				save_scope_as = russian_country_1
+			}
+			random_country = {
+				limit = {
+					NOT = { scope:russian_country_1 ?= this }
+					country_has_primary_culture = cu:russian
+					any_state = {
+						state_region = {
+							is_homeland = cu:russian
+						}
+						owner = root
+						NOT = { has_claim_by = prev }
+					}
+				}
+				save_scope_as = russian_country_2
+			}
+			if = {
+				limit = { exists = scope:russian_country_1 }
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:russian
+						}
+						NOT = { has_claim_by = scope:russian_country_1 }
+					}
+					state_region = { add_claim = scope:russian_country_1 }
+				}
+			}
+			if = {
+				limit = { exists = scope:russian_country_2 }
+				every_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = cu:russian
+						}
+						NOT = { has_claim_by = scope:russian_country_2 }
+					}
+					state_region = { add_claim = scope:russian_country_2 }
+				}
+			}
+		}
+		cu:russian = { save_scope_as = russian_culture }
+		random_state = {
+			limit = {
+				state_region = s:STATE_MOSCOW
+			}
+			save_scope_as = moscow_state
+		}
+    }
+	
+    complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		has_any_secessionists_growing = no
+		cu:russian = {
+			NOT = { culture_is_discriminated_in = root }
+		}
+		custom_tooltip = {
+			text = orthodox_not_discriminated_tt
+			any_scope_pop = {
+				religion = rel:orthodox
+				religion_accepted = yes
+			}
+		}
+    }
+	
+    on_complete = {
+        trigger_event = { id = tartary_events.2 popup = yes }
+    }
+
+	current_value = {
+		value = root.var:russian_insurgency_je_var
+	}
+	
+	fail = {
+		has_any_secessionists_broken_out = yes
+		any_country = {
+			country_has_primary_culture = cu:russian
+			is_secessionist = yes
+		}
+	}
+	
+	on_fail = {
+		hidden_effect = {
+			if = {
+				limit = {
+					any_country = {
+						country_has_primary_culture = cu:russian
+						is_at_war = no
+						is_diplomatic_play_committed_participant = no
+						any_neighbouring_state = {
+							owner = {
+								country_has_primary_culture = cu:russian
+								is_secessionist = yes
+							}
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						country_has_primary_culture = cu:russian
+						is_at_war = no
+						is_diplomatic_play_committed_participant = no
+						any_neighbouring_state = {
+							owner = {
+								country_has_primary_culture = cu:russian
+								is_secessionist = yes
+							}
+						}
+					}
+					trigger_event = { id = tartary_events.3 days = 1 popup = yes }
+				}
+			}
+		}
+    }
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					has_any_secessionists_growing = no
+					cu:russian = {
+						NOT = { culture_is_discriminated_in = root }
+					}
+				}
+				change_variable = {
+					name = russian_insurgency_je_var
+					add = 1
+				}
+			}
+		}
+	}
+
+	goal_add_value = {
+		add = 120
+	}
+	
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:russian
+				}
+			}
+		}
+	}
+
+	progressbar = yes
+
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

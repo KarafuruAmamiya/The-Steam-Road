@@ -5,7 +5,10 @@
 	
 	is_shown_when_inactive = {
 		OR = {
-			c:POL ?= this
+			AND = {
+				c:POL ?= this
+				c:LIT ?= { is_subject_of = root }
+			}
 			c:PLC ?= this
 		}
 	}
@@ -579,6 +582,9 @@ je_pollit_constitution = {
 				has_law = law_type:law_appointed_bureaucrats
 				has_law = law_type:law_elected_bureaucrats
 			}
+			ig:ig_landowners = {
+				ig_clout < 0.25
+			}
 		}
 		c:LIT = {
 			OR = {
@@ -589,6 +595,9 @@ je_pollit_constitution = {
 			OR = {
 				has_law = law_type:law_appointed_bureaucrats
 				has_law = law_type:law_elected_bureaucrats
+			}
+			ig:ig_landowners = {
+				ig_clout < 0.25
 			}
 		}
 	}
@@ -680,23 +689,45 @@ je_pollit_defense = {
 	}
 	
 	complete = {
-		NOT = { has_law = law_type:law_peasant_levies }
-		has_technology_researched = general_staff
-		has_technology_researched = napoleonic_warfare
-		army_size >= 75
-		any_scope_building = {
-			is_building_type = building_barracks
-			has_active_production_method = pm_general_training
-			percent >= 0.75
+		c:POL = {
+			NOT = { has_law = law_type:law_peasant_levies }
+			has_technology_researched = general_staff
+			has_technology_researched = napoleonic_warfare
+			army_size >= 60
+			any_scope_building = {
+				is_building_type = building_barracks
+				has_active_production_method = pm_general_training
+				percent >= 0.75
+			}
+			any_military_formation = {
+				filter = {
+					is_army = yes
+				}
+				any_combat_unit = {
+					has_unit_type = unit_type:combat_unit_type_skirmish_infantry
+				}
+				percent >= 0.75
+			}
 		}
-		any_military_formation = {
-			filter = {
-				is_army = yes
+		c:LIT = {
+			NOT = { has_law = law_type:law_peasant_levies }
+			has_technology_researched = general_staff
+			has_technology_researched = napoleonic_warfare
+			army_size >= 30 #combined 90
+			any_scope_building = {
+				is_building_type = building_barracks
+				has_active_production_method = pm_general_training
+				percent >= 0.75
 			}
-			any_combat_unit = {
-				has_unit_type = unit_type:combat_unit_type_skirmish_infantry
+			any_military_formation = {
+				filter = {
+					is_army = yes
+				}
+				any_combat_unit = {
+					has_unit_type = unit_type:combat_unit_type_skirmish_infantry
+				}
+				percent >= 0.75
 			}
-			percent >= 0.75
 		}
 	}
 	
@@ -727,8 +758,8 @@ je_pollit_sovereignty = {
 	}
 	
 	complete = {
-		is_subject = no
 		#NEEDS SOI: Low economic reliance on other countries
+		is_in_customs_union = no
 		country_rank >= rank_value:major_power
 		is_losing_power_rank = no
 		any_country = {
@@ -778,10 +809,31 @@ je_pollit_nationalism = {
 	
 	complete = {
 		OR = {
-			has_technology_researched = pan-nationalism
+			AND = {
+				has_technology_researched = pan-nationalism
+				NOT = { c:LIT.average_sol < root.average_sol }
+			}
 			custom_tooltip = {
 				text = odrodzenie_complete_tt
 				has_variable = odrodzenie_complete
+			}
+		}
+		c:POL = {
+			NOT = {
+				any_scope_state = {
+					radical_fraction = {
+						value >= 0.1
+					}
+				}
+			}
+		}
+		c:LIT = {
+			NOT = {
+				any_scope_state = {
+					radical_fraction = {
+						value >= 0.1
+					}
+				}
 			}
 		}
 	}

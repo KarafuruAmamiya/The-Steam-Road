@@ -113,7 +113,14 @@
 		if = {
 			limit = { is_country_type = unrecognized }
 			multiply = 0.5
-		}	
+		}
+		
+		if = {
+			limit = {
+				has_strategy = ai_strategy_nationalist_agenda
+			}
+			add = -100
+		}
 	}
 }
 
@@ -192,7 +199,33 @@ ai_strategy_territorial_expansion = {
 				add = 1
 				min = 0.5
 			}
-		}			
+		}
+
+		#Extra nationalism aggression
+		if = {
+			limit = {
+				has_strategy = ai_strategy_nationalist_agenda
+				scope:target_country = {
+					any_scope_state = {
+						is_homeland_of_country_cultures = root
+					}
+				}
+			}
+			add = 10
+		}
+		
+		#Extra rival aggression
+		if = {
+			limit = {
+				scope:target_country = {
+					has_diplomatic_pact = {
+						type = rivalry
+						who = root
+					}
+				}
+			}
+			add = 10
+		}
 		
 		if = {
 			limit = {
@@ -264,7 +297,7 @@ ai_strategy_territorial_expansion = {
 						is_homeland_of_country_cultures = ROOT
 					}
 				}
-				add = 10
+				add = 100
 			}
 			if = {
 				limit = {
@@ -303,7 +336,7 @@ ai_strategy_territorial_expansion = {
 						is_homeland_of_country_cultures = ROOT
 					}
 				}
-				add = 10
+				add = 100
 			}
 		}
 
@@ -403,13 +436,10 @@ ai_strategy_territorial_expansion = {
 		}
 		
 		if = {
-			limit = { 
-				OR = {
-					country_is_in_europe = yes 
-					country_is_in_middle_east = yes
-				}
+			limit = {
+				has_strategy = ai_strategy_nationalist_agenda
 			}
-			multiply = 0.75
+			add = 100
 		}
 		
 		if = {

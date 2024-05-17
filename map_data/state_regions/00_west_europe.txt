@@ -1,7 +1,28 @@
 ﻿STATE_SVEALAND = {
     id = 1
     subsistence_building = "building_subsistence_pastures"
-    provinces = { "x0974E5" "x216569" "x24A2F1" "x298E7B" "x317138" "x36F523" "x3844C0" "x3E2C22" "x404643" "x41C729" "x432E07" "x45B6EF" "x4628A5" "x4836F2" "x4B02EB" "x4C9918" "x4FA424" "x604060" "x62D0D4" "x656512" "x6CF949" "x6E95C2" "x6F40EC" "x823263" "x8AC21D" "x90845E" "x93C3BC" "x93C76C" "x9686A5" "x9BBBE3" "xA001A0" "xA08021" "xA6C31B" "xA82FF7" "xA86C50" "xA9078A" "xB3F1FB" "xB90566" "xB9391F" "xBC0288" "xC0C0E0" "xC480A5" "xC8AEAF" "xCBFD28" "xCF16B1" "xD155CE" "xD702F7" "xD96FB9" "xE6C5FC" "xE7A6D6" "xE9B084" "xEA6A0F" "xEB5D5F" "xEFA14D" "xF08323" "xF48646" "xF8E400" "xFCCAFA" }
+    provinces = { x0974E5 x298E7B x317138 x41C729 x45B6EF x4B02EB x604060 x62D0D4 x8AC21D x93C3BC x93C76C x9686A5 xA86C50 xB3F1FB xC480A5 xE9B084 }
+    traits = { "state_trait_scandinavian_forests" "state_trait_natural_harbors" }
+    city = "x9686A5"
+    port = "x93C3BC"
+    farm = "xF48646"
+    mine = "x6F40EC"
+    wood = "x4C9918"
+    arable_land = 30
+    arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
+    capped_resources = {
+        bg_iron_mining = 16
+        bg_lead_mining = 8
+        bg_logging = 13
+        bg_fishing = 11
+    }
+    naval_exit_id = 3000
+}
+
+STATE_DALARNA = {
+    id = 1200
+    subsistence_building = "building_subsistence_pastures"
+    provinces = { x41C0C0 xC8AEAF xBC0288 xEB5D5F x24A2F1 xD155CE xEA6A0F xE6C5FC xD702F7 xB90566 x4628A5 xE7A6D6 xCF16B1 x6F40EC x3E2C22 xA001A0 x216569 x90845E xA9078A xF8E400 xF48646 x6CF949 xCBFD28 x4836F2 x4C9918 x823263 x656512 xB9391F x36F523 xF08323 x3844C0 xFCCAFA x4FA424 }
     traits = { "state_trait_bergslagen" "state_trait_scandinavian_forests" "state_trait_natural_harbors" }
     city = "x9686A5"
     port = "x93C3BC"
@@ -11,32 +32,69 @@
     arable_land = 30
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_iron_mining = 36
-        bg_lead_mining = 18
-        bg_logging = 23
-        bg_fishing = 11
+        bg_iron_mining = 20
+        bg_lead_mining = 10
+        bg_logging = 15
     }
-    naval_exit_id = 3000
 }
 
 STATE_GOTALAND = {
     id = 2
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x0212F4" "x04C53E" "x06D48F" "x1B711F" "x2B5590" "x31D8B4" "x4040DF" "x41C061" "x41C0E0" "x4539F8" "x46568F" "x6C9F3E" "x71C4AC" "x786C46" "x90B30A" "xA00120" "xA0DB88" "xA67CC8" "xB714A1" "xB7733E" "xC62E6A" "xCD8A76" "xDFD8A5" "xE5A269" "xE70DB3" "xEA7E80" "xFCBE2E" }
+    provinces = { x0212F4 x04C53E xA08021 xA6C31B x31D8B4 x41C0E0 x46568F x6C9F3E x786C46 xA00120 xA0DB88 xB714A1 xB7733E xFCBE2E }
     traits = { "state_trait_scandinavian_forests" }
     city = "x90B30A"
     port = "x41C0E0"
     farm = "x0212F4"
     mine = "xA67CC8"
     wood = "xEA7E80"
-    arable_land = 40
+    arable_land = 30
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_iron_mining = 15
         bg_logging = 17
         bg_fishing = 15
     }
     naval_exit_id = 3019
+}
+
+STATE_OSTERGOTLAND = {
+    id = 1202
+    subsistence_building = "building_subsistence_farms"
+    provinces = { xEFA14D x404643 x432E07 x9BBBE3 xA82FF7 xD96FB9 xC0C0E0 x6E95C2 }
+    traits = { "state_trait_scandinavian_forests" }
+    city = "x90B30A"
+    port = "x41C0E0"
+    farm = "x0212F4"
+    mine = "xA67CC8"
+    wood = "xEA7E80"
+    arable_land = 20
+    arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
+    capped_resources = {
+        bg_iron_mining = 5
+        bg_logging = 7
+        bg_fishing = 10
+    }
+    naval_exit_id = 3000
+}
+
+STATE_SMALAND = {
+    id = 1203
+    subsistence_building = "building_subsistence_farms"
+    provinces = { x4040DF x4539F8 xA67CC8 x06D48F x2B5590 x1B711F xCD8A76 xE70DB3 x71C4AC x90B30A xC62E6A xEA7E80 x41C061 xDFD8A5 xE5A269 }
+    traits = { "state_trait_scandinavian_forests" }
+    city = "x90B30A"
+    port = "x41C0E0"
+    farm = "x0212F4"
+    mine = "xA67CC8"
+    wood = "xEA7E80"
+    arable_land = 30
+    arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
+    capped_resources = {
+        bg_iron_mining = 15
+        bg_logging = 17
+		bg_fishing = 15
+    }
+	naval_exit_id = 3000
 }
 
 STATE_SCANIA = {
@@ -241,7 +299,7 @@ STATE_GREENLAND = {
 STATE_SOUTHERN_FINLAND = {
     id = 13
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x07C636" "x0BA694" "x22CBD6" "x278F84" "x33CFEC" "x34A9F8" "x3D47C3" "x3DBB6E" "x4A6463" "x5033CF" "x61C0E0" "x76CE44" "x79D379" "x85F5A0" "x86C729" "x9106DB" "xAFE141" "xB45BFF" "xB462A9" "xBD3A16" "xC168B6" "xC67B36" "xCBE76E" "xCC9AA7" "xD2FDBF" "xD38306" "xD9DA78" "xE041E0" "xE0C0E0" "xE7FDE4" "xE98BC6" "xEF788A" "xF09EDC" "xF3D220" "xF6F046" "xFEA699" }
+    provinces = { "x07C636" "x0BA694" "x22CBD6" "x278F84" "x33CFEC" "x34A9F8" "x3D47C3" "x3DBB6E" "x4A6463" "x5033CF" "x61C0E0" "x76CE44" "x79D379" "x85F5A0" "x86C729" "x9106DB" "xAFE141" "xB45BFF" "xB462A9" "xBD3A16" "xC168B6" "xC67B36" "xCBE76E" "xCC9AA7" "xD2FDBF" "xD38306" "xD9DA78" "xE041E0" "xE0C0E0" "xE7FDE4" "xE98BC6" "xEF788A" "xF09EDC" "xF3D220" "xF6F046" "xFEA699" x0D3DF3 x154428 x214180 x238A38 x2401AE x37CE53 x3C48A2 x40C040 x4753CB x51CC44 x523560 x5D1467 x7753B6 x7B45A5 x8C31CF x8DCF76 x932418 x969608 x9C363D xA789AE xBC487D xCC8E28 xD516FA xE761B2 xED84C3 xED8DC6 xFF4B4C }
     traits = { "state_trait_scandinavian_forests" "state_trait_cold_water_port" }
     city = "xCC9AA7"
     port = "xD2FDBF"
@@ -261,14 +319,14 @@ STATE_SOUTHERN_FINLAND = {
 STATE_WEST_KARELIA = {
     id = 917
     subsistence_building = "building_subsistence_farms"
-    provinces = { "x0A00AC" "x1E964A" "x208001" "x315CDB" "x3CFB81" "x3EFDA0" "x43E91D" "x63EE78" "x65EF3B" "x664F54" "x74C1F3" "x78FDD6" "x85EBD4" "xA04180" "xAB4A30" "xAD3FF9" "xBB0055" "xBC376C" "xC5A424" "xD093D4" "xFC48AF" "xFFBD54" }
+    provinces = { "x0A00AC" "x1E964A" "x208001" "x315CDB" "x3CFB81" "x3EFDA0" "x43E91D" "x63EE78" "x65EF3B" "x664F54" "x74C1F3" "x78FDD6" "x85EBD4" "xA04180" "xAB4A30" "xAD3FF9" "xBB0055" "xBC376C" "xC5A424" "xD093D4" "xFC48AF" "xFFBD54" x467F2F x825979 x934610 xB81268 xD105A8 xD26819 xF571CB }
     traits = { "state_trait_scandinavian_forests" "state_trait_cold_water_port" }
     city = "xAB4A30"
     port = "x3EFDA0"
     farm = "xD093D4"
     mine = "x3CFB81"
     wood = "x3EFDA0"
-    arable_land = 10
+    arable_land = 20
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_iron_mining = 18
@@ -276,23 +334,6 @@ STATE_WEST_KARELIA = {
         bg_fishing = 2
     }
     naval_exit_id = 3000
-}
-
-STATE_SAVOLAX = {
-    id = 1168
-    subsistence_building = "building_subsistence_farms"
-    provinces = { "x0D3DF3" "x154428" "x214180" "x238A38" "x2401AE" "x37CE53" "x3C48A2" "x40C040" "x467F2F" "x4753CB" "x51CC44" "x523560" "x5D1467" "x7753B6" "x7B45A5" "x825979" "x8C31CF" "x8DCF76" "x932418" "x934610" "x969608" "x9C363D" "xA789AE" "xB81268" "xBC487D" "xCC8E28" "xD105A8" "xD26819" "xD516FA" "xE761B2" "xED84C3" "xED8DC6" "xF571CB" "xFF4B4C" }
-    traits = { "state_trait_scandinavian_forests" }
-    city = "x51CC44"
-    farm = "x8DCF76"
-    mine = "x214180"
-    wood = "x825979"
-    arable_land = 30
-    arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
-    capped_resources = {
-        bg_iron_mining = 22
-        bg_logging = 15
-    }
 }
 
 STATE_ALAND = {

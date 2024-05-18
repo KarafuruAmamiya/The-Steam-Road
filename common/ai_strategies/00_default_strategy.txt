@@ -189,12 +189,11 @@ ai_strategy_default = {
 			subtract = 25
 		}
 			
-		# increased European GP intervention in Middle East
+		# increased intervention in Middle East for Ottomans and co.
 		if = {
 			limit = {
 				AND = {
-					country_rank >= rank_value:great_power
-					country_is_in_europe = yes
+					gunpowder_empire_trigger = yes
 					has_interest_marker_in_region = region_arabic
 				}
 				any_diplomatic_play = {
@@ -203,24 +202,10 @@ ai_strategy_default = {
 							country_is_in_middle_east = yes
 							gunpowder_empire_trigger = yes
 						}
-						country_rank >= rank_value:major_power
-						is_diplomatic_play_committed_participant = yes
 					}
 				}
 			}
 			subtract = 25
-		}
-		
-		# even more if it's Zandi Rebellion
-		if = {
-			limit = {
-				country_rank >= rank_value:great_power
-				has_interest_marker_in_region = region_arabic
-				any_diplomatic_play = {
-					is_diplomatic_play_type = dp_zandi_rebellion
-				}
-			}
-			subtract = 50
 		}
 		
 		if = {
@@ -252,6 +237,7 @@ ai_strategy_default = {
 			}
 			subtract = 150
 		}
+		
 		# unite against non-muslim invaders
 		if = {
 			limit = {

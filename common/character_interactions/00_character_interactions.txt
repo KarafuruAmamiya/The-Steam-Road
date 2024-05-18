@@ -753,8 +753,8 @@ exile_character = {
 			limit = {
 				scope:actor ?= {
 					OR = {
-						has_journal_entry = { type = je_scandinavian_union_main }
-						has_journal_entry = { type = je_scandinavian_union_subject }
+						has_journal_entry = je_scandinavian_union_main
+						has_journal_entry = je_scandinavian_union_subject
 					}
 				}
 				has_variable = pro_scandinavian_agitator				

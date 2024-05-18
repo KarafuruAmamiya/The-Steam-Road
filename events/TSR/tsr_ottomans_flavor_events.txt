@@ -94,6 +94,21 @@ ottoman_flavor.2 = {
 				save_scope_as = medina_state
 			}
 		}
+		sr:region_greece = {
+			save_scope_as = greece
+		}
+		sr:region_balkans = {
+			save_scope_as = balkans
+		}
+		sr:region_anatolia = {
+			save_scope_as = anatolia
+		}
+		sr:region_arabic = {
+			save_scope_as = arabic
+		}
+		sr:region_kurdistan = {
+			save_scope_as = kurdistan
+		}
 		c:TUR = { save_scope_as = tur_scope }
 	}
 
@@ -111,6 +126,29 @@ ottoman_flavor.2 = {
 			name = one_true_caliphate
 			months = long_modifier_time
 			is_decaying = yes
+		}
+		
+		custom_tooltip = {
+			text = gain_claim_caliphate_tt
+			every_state = {
+				limit = {
+					OR = {
+						region = sr:region_greece
+						region = sr:region_balkans
+						region = sr:region_arabic
+						region = sr:region_anatolia
+						region = sr:region_kurdistan
+					}
+					NOR = { 
+						has_claim_by = root
+						owner = root
+						owner = { is_subject_of = root }
+					}
+				}
+				state_region = {
+					add_claim = root
+				}
+			}
 		}
 	}
 }

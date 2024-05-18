@@ -425,7 +425,17 @@ law_theocracy = {
 
 	disallowing_laws = {
 		law_total_separation 
+		law_technocracy
 		law_governorate
+	}
+	
+	on_activate = {
+		if = {
+			limit = {
+				has_modifier = excommunicated
+			}
+			remove_modifier = excommunicated
+		}
 	}
 
 	modifier = {

@@ -772,12 +772,13 @@ PFA = { # Pfalz
 		adjective = dyn_c_pfalz_bayern_adj
 		
 		is_main_tag_only = yes
-		priority = 0
+		priority = 10
 		
 		trigger = {
-			scope:actor ?= {
+			exists = scope:actor
+			s:STATE_BAVARIA = {
 				any_scope_state = {
-					state_region = s:STATE_BAVARIA
+					owner = scope:actor
 				}
 			}
 		}

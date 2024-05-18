@@ -553,10 +553,11 @@ AFS = { #African Free State
 		trigger = {
 			scope:actor ?= {
 				capital = { region = sr:region_nile_basin }
-				any_state = {
-					owner = c:AFS
-					is_capital = yes
-					region = sr:region_north_africa
+				sr:region_north_africa = {
+					any_scope_state = {
+						owner = c:AFS
+						is_capital = yes
+					}
 				}
 			}
 		}

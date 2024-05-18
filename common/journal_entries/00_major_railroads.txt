@@ -7,15 +7,17 @@
 		is_player = yes
 		NOT = { has_global_variable = trans_siberian_done }
 		owns_entire_state_region = STATE_UZBEKIA
-		any_state = {
-			filter = {
-				OR = {
-					region = sr:region_east_siberia
-					region = sr:region_west_siberia
-				}
+		sr:region_east_siberia = {
+			any_scope_state = {
+				percent > 0.8
+				owner = ROOT
 			}
-			percent > 0.8
-			owner = ROOT
+		}
+		sr:region_west_siberia = {
+			any_scope_state = {
+				percent > 0.8
+				owner = ROOT
+			}
 		}
 	}
 
@@ -24,54 +26,78 @@
 	}
 
 	complete = {
-		any_scope_state = {
-			state_region = s:STATE_UZBEKIA
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_SYRDARYA
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_AKMOLINSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_OMSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_NOVOSIBIRSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_TOMSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_KRASNOYARSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_IRKUTSK
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_CHITA
-			has_building = building_railway
-		}
-		any_scope_state = {
-			state_region = s:STATE_AMUR
-			has_building = building_railway
-		}
-		OR = {
+		s:STATE_UZBEKIA = {
 			any_scope_state = {
-				state_region = s:STATE_OKHOTSK
+				owner = root
 				has_building = building_railway
 			}
+		}
+		STATE_SYRDARYA = {
 			any_scope_state = {
-				state_region = s:STATE_OUTER_MANCHURIA
+				owner = root
 				has_building = building_railway
+			}
+		}
+		s:STATE_AKMOLINSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_OMSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_NOVOSIBIRSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_TOMSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_KRASNOYARSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_IRKUTSK = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_CHITA = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		s:STATE_AMUR = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
+		}
+		OR = {
+			s:STATE_OKHOTSK = {
+				any_scope_state = {
+					owner = root
+					has_building = building_railway
+				}
+			}
+			s:STATE_OUTER_MANCHURIA = {
+				any_scope_state = {
+					owner = root
+					has_building = building_railway
+				}
 			}
 		}
 	}
@@ -93,8 +119,8 @@ je_trans_iranian_railway = {
 		is_player = yes
 		NOT = { has_global_variable = trans_iranian_done }
 		owns_entire_state_region = STATE_ISFAHAN
-		any_scope_state = {
-			state_region = s:STATE_TABRIZ
+		s:STATE_TABRIZ = {
+			any_scope_state = { owner = root }
 		}
 	}
 
@@ -105,25 +131,35 @@ je_trans_iranian_railway = {
 	}
 
 	complete = {
-		any_scope_state = {
-			state_region = s:STATE_TABRIZ
-			has_building = building_railway
+		s:STATE_TABRIZ = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_GILAN
-			has_building = building_railway
+		s:STATE_GILAN = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_IRAKAJEMI
-			has_building = building_railway
+		s:STATE_IRAKAJEMI = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_ISFAHAN
-			has_building = building_railway
+		s:STATE_ISFAHAN = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_KHUZESTAN
-			has_building = building_railway
+		s:STATE_KHUZESTAN = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
 	}
 
@@ -144,63 +180,93 @@ je_vinland_kanada_railway = {
 		is_player = yes
 		NOT = { has_global_variable = vinland_kanada_done }
 		OR = {
-			any_scope_state = {
-				state_region = s:STATE_KANADALAND
+			s:STATE_KANADALAND = {
+				any_scope_state = {
+					owner = root
+				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_VILHELMANIA
+			s:STATE_VILHELMANIA = {
+				any_scope_state = {
+					owner = root
+				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_OVRELAND
+			s:STATE_OVRELAND = {
+				any_scope_state = {
+					owner = root
+				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_KEJSKATJEWAN
+			s:STATE_KEJSKATJEWAN = {
+				any_scope_state = {
+					owner = root
+				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_MANITOSUND
+			s:STATE_MANITOSUND = {
+				any_scope_state = {
+					owner = root
+				}
 			}
 		}
 	}
 
 	possible = {
 		has_technology_researched = railways
-		any_scope_state = {
-			state_region = s:STATE_KANADALAND
-		}
-		any_scope_state = {
-			state_region = s:STATE_OVRELAND
-		}
-		any_scope_state = {
-			state_region = s:STATE_VILHELMANIA
-		}
-		any_scope_state = {
-			state_region = s:STATE_KEJSKATJEWAN
-		}
-		any_scope_state = {
-			state_region = s:STATE_MANITOSUND
-		}
+		s:STATE_KANADALAND = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+			s:STATE_VILHELMANIA = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+			s:STATE_OVRELAND = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+			s:STATE_KEJSKATJEWAN = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+			s:STATE_MANITOSUND = {
+				any_scope_state = {
+					owner = root
+				}
+			}
 	}
 
 	complete = {
-		any_scope_state = {
-			state_region = s:STATE_KANADALAND
-			has_building = building_railway
+		s:STATE_KANADALAND = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_OVRELAND
-			has_building = building_railway
+		s:STATE_OVRELAND = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_VILHELMANIA
-			has_building = building_railway
+		s:STATE_VILHELMANIA = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_KEJSKATJEWAN
-			has_building = building_railway
+		s:STATE_KEJSKATJEWAN = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_MANITOSUND
-			has_building = building_railway
+		s:STATE_MANITOSUND = {
+			any_scope_state = {
+				owner = root
+				has_building = building_railway
+			}
 		}
 	}
 	

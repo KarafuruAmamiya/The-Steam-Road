@@ -120,13 +120,25 @@ patagonia_button = {
 		ig:ig_armed_forces = { 
 			is_marginal = no
 		}
-		any_scope_state = {
-			OR = {
-				state_region = s:STATE_ARAUCANIA
-				state_region = s:STATE_PATAGONIA
-				state_region = s:STATE_BAIA_BRANCA
+		OR = {
+			s:STATE_ARAUCANIA = {
+				any_scope_state = {
+					owner = root
+					is_under_colonization = yes
+				}
 			}
-			is_under_colonization = yes
+			s:STATE_PATAGONIA = {
+				any_scope_state = {
+					owner = root
+					is_under_colonization = yes
+				}
+			}
+			s:STATE_BAIA_BRANCA = {
+				any_scope_state = {
+					owner = root
+					is_under_colonization = yes
+				}
+			}
 		}
 		NOT = { has_modifier = patagonia_campaign }
 	}

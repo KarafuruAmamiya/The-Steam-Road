@@ -77,9 +77,7 @@ tsr_events_yearly = {
 			limit = {
 				c:HDJ ?= this
 				NOT = {
-					any_scope_state = {
-						state_region = s:STATE_HEDJAZ
-					}
+					owns_entire_state_region = STATE_HEDJAZ
 				}
 				has_modifier = holy_city_of_mecca
 			}
@@ -218,6 +216,13 @@ tsr_events_monthly = {
 				c:TUR ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
 				c:PER ?= { trigger_event = { id = akkovin_crisis.9 popup = yes } }
 			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = c:PAP }
+				c:ITA ?= { has_modifier = excommunicated }
+			}
+			c:ITA ?= { remove_modifier = excommunicated }
 		}
 		every_country = {
 			limit = {

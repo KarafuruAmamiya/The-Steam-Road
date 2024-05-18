@@ -35,79 +35,93 @@
 		is_at_war = no
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_HAIL
+				s:STATE_HAIL = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_HAIL
-				is_under_colonization = no
+			s:STATE_HAIL = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_NEJD
+				s:STATE_NEJD = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_NEJD
-				is_under_colonization = no
+			s:STATE_NEJD = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_HADHRAMAUT
+				s:STATE_HADHRAMAUT = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_HADHRAMAUT
-				is_under_colonization = no
+			s:STATE_HADHRAMAUT = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_YEMEN
+				s:STATE_YEMEN = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_YEMEN
-				is_under_colonization = no
+			s:STATE_YEMEN = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_NIZWA
+				s:STATE_NIZWA = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_NIZWA
-				is_under_colonization = no
+			s:STATE_NIZWA = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_HAASA
+				s:STATE_HAASA = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_HAASA
-				is_under_colonization = no
+			s:STATE_HAASA = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 		trigger_if = {
 			limit = {
-				any_scope_state = {
-					state_region = s:STATE_ABU_DHABI
+				s:STATE_ABU_DHABI = {
+					any_scope_state = { owner = root }
 				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_ABU_DHABI
-				is_under_colonization = no
+			s:STATE_ABU_DHABI = {
+				any_scope_state = { 
+					owner = root 
+					is_under_colonization = no
+				}
 			}
 		}
 	}

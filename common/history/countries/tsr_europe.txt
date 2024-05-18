@@ -304,6 +304,7 @@
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_tenant_farmers
 		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_religious_schools
 		activate_law = law_type:law_censorship
 		
 		add_taxed_goods = g:liquor
@@ -358,7 +359,7 @@
 		activate_law = law_type:law_national_supremacy
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_colonial_resettlement
 		activate_law = law_type:law_local_police
@@ -823,7 +824,7 @@
 	
 		effect_starting_politics_liberal = yes
 		activate_law = law_type:law_parliamentary_republic
-		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_total_separation
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_public_schools
@@ -847,6 +848,11 @@
 		set_institution_investment_level = {
 			institution = institution_police
 			level = 1
+		}
+		
+		add_modifier = {
+			name = excommunicated
+			months = -1
 		}
 		
 		ig:ig_petty_bourgeoisie = {
@@ -1252,7 +1258,7 @@
 		activate_law = law_type:law_free_trade
 		activate_law = law_type:law_appointed_bureaucrats		
 		activate_law = law_type:law_local_police
-		activate_law = law_type:law_religious_schools	
+		activate_law = law_type:law_public_schools	
 		activate_law = law_type:law_right_of_assembly
 
 		set_institution_investment_level = {
@@ -1682,7 +1688,7 @@
 		activate_law = law_type:law_racial_segregation
 		activate_law = law_type:law_mercantilism
 		activate_law = law_type:law_interventionism
-		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_private_schools
 		activate_law = law_type:law_per_capita_based_taxation
 		activate_law = law_type:law_local_police
 		activate_law = law_type:law_national_militia
@@ -1861,7 +1867,7 @@
 		
 		effect_starting_politics_liberal = yes
 		activate_law = law_type:law_parliamentary_republic
-		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_total_separation
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_public_schools
@@ -1908,7 +1914,7 @@
 		
 		effect_starting_politics_liberal = yes
 		activate_law = law_type:law_parliamentary_republic
-		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_total_separation
 		activate_law = law_type:law_women_own_property
 		activate_law = law_type:law_appointed_bureaucrats
 		activate_law = law_type:law_public_schools

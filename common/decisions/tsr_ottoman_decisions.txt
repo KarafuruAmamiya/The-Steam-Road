@@ -9,16 +9,20 @@
 		}
 		NOT = { has_variable = constantinople_unlawful_territory }
 		NOT = { c:TUR ?= this }
-		any_scope_state = {
-			state_region = s:STATE_EASTERN_THRACE
+		s:STATE_EASTERN_THRACE = {
+			any_scope_state = {
+				owner = root
+			}
 		}
 	}
 
 	possible = {
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
-		any_scope_state = {
-			state_region = s:STATE_EASTERN_THRACE
+		s:STATE_EASTERN_THRACE = {
+			any_scope_state = {
+				owner = root
+			}
 		}
 	}
 
@@ -29,7 +33,13 @@
 		}
 		c:TUR = {
 			if = {
-				limit = { any_scope_state = { state_region = s:STATE_EASTERN_THRACE } }
+				limit = { 
+					s:STATE_EASTERN_THRACE = {
+						any_scope_state = {
+							owner = root
+						}
+					}
+				}
 				random_scope_state = {
 					limit = { state_region = s:STATE_EASTERN_THRACE }
 					set_state_type = incorporated
@@ -44,16 +54,10 @@
 		hidden_effect = {
 			every_country = {
 				limit = {
-					random_state = {
-						limit = { state_region = s:STATE_EASTERN_THRACE }
-						has_claim_by = root
-					}
+					has_claim = s:STATE_EASTERN_THRACE
 				}
-				random_state = {
-					limit = { state_region = s:STATE_EASTERN_THRACE }
-					state_region = {
-						remove_claim = root
-					}
+				s:STATE_EASTERN_THRACE = {
+					remove_claim = prev
 				}
 			}
 		}

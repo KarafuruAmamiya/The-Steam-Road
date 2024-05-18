@@ -40,18 +40,11 @@
 	}
 
 	complete = {
-		any_state = {
-			filter = { 
-				state_region = {
-					region = sr:region_poland
-					OR = {
-						is_homeland = cu:polish
-						is_homeland = cu:lithuanian
-					}
-				}
+		sr:region_poland = {
+			any_scope_state = { 
+				count = all
+				owner = root
 			}
-			count = all
-			owner = root
 		}
 	}
 

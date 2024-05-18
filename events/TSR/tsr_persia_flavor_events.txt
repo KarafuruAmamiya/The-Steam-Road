@@ -142,9 +142,7 @@ persian_flavor.3 = {
 		game_date >= 1865.1.1
 		game_date < 1900.1.1
 		NOT = { has_global_variable = mohammad_zand_var }
-		any_scope_state = {
-			state_region = s:STATE_KHUZESTAN
-		}
+		has_state_in_state_region = STATE_KHUZESTAN
 	}
 
 	immediate = {
@@ -389,9 +387,7 @@ persian_flavor.5 = {
 		game_date >= 1854.1.1
 		game_date < 1900.1.1
 		NOT = { has_global_variable = kermani_var }
-		any_scope_state = {
-			state_region = s:STATE_KERMAN
-		}
+		has_state_in_state_region = STATE_KERMAN
 		any_country = {
 			NOT = { root = this }
 			AND = {
@@ -1321,9 +1317,7 @@ persian_flavor.13 = {
 		c:PER ?= this
 		game_date >= 1844.1.1
 		NOT = { has_global_variable = bab_var }
-		any_scope_state = {
-			state_region = s:STATE_IRAKAJEMI
-		}
+		has_state_in_state_region = STATE_IRAKAJEMI
 	}
 
 	immediate = {
@@ -2041,15 +2035,17 @@ persian_flavor.19 = {
 			is_in_government = yes
 			is_marginal = no
 		}
-		any_scope_state = {
-			state_region = s:STATE_ISFAHAN
-			any_scope_building = {
-				OR = {
-					is_building_group = bg_heavy_industry
-					is_building_group = bg_power
-					is_building_group = bg_oil_extraction
+		s:STATE_ISFAHAN = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					OR = {
+						is_building_group = bg_heavy_industry
+						is_building_group = bg_power
+						is_building_group = bg_oil_extraction
+					}
+					level >= 15
 				}
-				level >= 15
 			}
 		}
 		NOT = { has_variable = zayanderud_water_event }
@@ -2514,9 +2510,7 @@ persian_flavor.25 = {
 		c:PER ?= this
 		NOT = { has_global_variable = bahaullah_var }
 		has_modifier = babi_reign_of_terror
-		any_scope_state = {
-			state_region = s:STATE_IRAKAJEMI
-		}
+		has_state_in_state_region = STATE_IRAKAJEMI
 	}
 
 	immediate = {

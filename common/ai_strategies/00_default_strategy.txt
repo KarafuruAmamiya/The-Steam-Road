@@ -2418,7 +2418,7 @@ ai_strategy_default = {
 				has_variable = us_stops_paying_sweden_aggressor				
 				scope:target_country = {
 					has_variable = us_stops_paying_sweden_target
-					any_state = {
+					any_scope_state = {
 						has_claim_by = root
 					}
 				}				
@@ -4735,6 +4735,18 @@ ai_strategy_default = {
 				add = 100					
 			}
 			
+			# Pope hates Italy
+			if = {
+				limit = {
+					c:PAP ?= this
+					scope:target_country = { 
+						c:ITA ?= this
+						has_modifier = excommunicated
+					}
+				}
+				add = -50
+			}
+			
 			# Ottomans should never reconcile with Akkovins
 			if = {
 				limit = {
@@ -5085,7 +5097,10 @@ ai_strategy_default = {
 			if = {
 				limit = {
 					country_has_state_religion = rel:catholic
-					coa_republic_trigger = no
+					NOR = {
+						has_law = law_type:law_total_separation
+						has_law = law_type:law_state_atheism
+					}
 					exists = c:PAP
 					scope:target_country = {
 						c:PAP = this
@@ -5168,6 +5183,18 @@ ai_strategy_default = {
 						any_scope_state = {
 							root = { has_claim = prev }
 						}	
+					}
+				}
+				add = 50
+			}
+			
+			# Pope hates Italy
+			if = {
+				limit = {
+					c:PAP ?= this
+					scope:target_country = { 
+						c:ITA ?= this
+						has_modifier = excommunicated
 					}
 				}
 				add = 50

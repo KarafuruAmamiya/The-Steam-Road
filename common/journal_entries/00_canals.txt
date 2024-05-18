@@ -32,9 +32,10 @@
 	invalid = { # If the Panama Canal is being built and you're not the one building it, you've blown it, chief.
 		OR = {
 			NOT = { has_variable = survey_panama_taken }
-			any_state = {
-				state_region = s:STATE_BATAVIA
-				NOT = { owner = ROOT }
+			s:STATE_BATAVIA = {
+				NOT = {
+					any_scope_state = { owner = ROOT }
+				}
 				any_scope_building = {
 					is_building_type = building_panama_canal
 				}
@@ -59,11 +60,13 @@ je_panama_canal = {
 	group = je_group_foreign_affairs
 
 	complete = {
-		any_scope_state = {
-			state_region = s:STATE_BATAVIA
-			any_scope_building = {
-				is_building_type = building_panama_canal
-				occupancy >= 0.9
+		s:STATE_BATAVIA = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					is_building_type = building_panama_canal
+					occupancy >= 0.9
+				}
 			}
 		}
 	}

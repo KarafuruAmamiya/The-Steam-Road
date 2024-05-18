@@ -58,11 +58,11 @@ je_surat_riots = {
 	is_shown_when_inactive = {
         exists = c:PER
         THIS = c:PER
-		any_scope_state = {
-			state_region = s:STATE_GUJARAT
+		s:STATE_GUJARAT = {
+			any_scope_state = { owner = root }
 		}
-		any_scope_state = {
-			state_region = s:STATE_SAURASHTRA
+		s:STATE_SAURASHTRA = {
+			any_scope_state = { owner = root }
 		}
     }
 	
@@ -71,15 +71,17 @@ je_surat_riots = {
 			game_date >= 1856.1.1
 			has_law = law_type:law_free_trade
 		}
-		any_scope_state = {
-			filter = {
-				OR = {
-					state_region = s:STATE_GUJARAT
-					state_region = s:STATE_SAURASHTRA
-				}
+		s:STATE_GUJARAT = {
+			any_scope_state = { 
+				owner = root 
+				average_sol < 10
 			}
-			average_sol < 10
-			count = all
+		}
+		s:STATE_SAURASHTRA = {
+			any_scope_state = { 
+				owner = root 
+				average_sol < 10
+			}
 		}
 		OR = {
 			has_law = law_type:law_commercialized_agriculture
@@ -109,13 +111,17 @@ je_surat_riots = {
 		}
 		OR = {
 			AND = {
-				any_scope_state = {
-					state_region = s:STATE_GUJARAT
-					average_sol >= 10
+				s:STATE_GUJARAT = {
+					any_scope_state = { 
+						owner = root 
+						average_sol >= 10
+					}
 				}
-				any_scope_state = {
-					state_region = s:STATE_SAURASHTRA
-					average_sol >= 10
+				s:STATE_SAURASHTRA = {
+					any_scope_state = { 
+						owner = root 
+						average_sol >= 10
+					}
 				}
 			}
 			has_law = law_type:law_slavery_banned
@@ -130,13 +136,17 @@ je_surat_riots = {
 		effect = {
 			if = {
 				limit = {
-					any_scope_state = {
-						state_region = s:STATE_GUJARAT
-						turmoil < 0.1
+					s:STATE_GUJARAT = {
+						any_scope_state = { 
+							owner = root 
+							turmoil < 0.1
+						}
 					}
-					any_scope_state = {
-						state_region = s:STATE_SAURASHTRA
-						turmoil < 0.1
+					s:STATE_SAURASHTRA = {
+						any_scope_state = { 
+							owner = root 
+							turmoil < 0.1
+						}
 					}
 					cu:gujarati = {
 						culture_secession_progress = {
@@ -161,13 +171,17 @@ je_surat_riots = {
 	
 	fail = {
 		OR = {
-			any_scope_state = {
-				state_region = s:STATE_GUJARAT
-				turmoil >= 0.4
+			s:STATE_GUJARAT = {
+				any_scope_state = { 
+					owner = root 
+					turmoil >= 0.4
+				}
 			}
-			any_scope_state = {
-				state_region = s:STATE_SAURASHTRA
-				turmoil >= 0.4
+			s:STATE_SAURASHTRA = {
+				any_scope_state = { 
+					owner = root 
+					turmoil >= 0.4
+				}
 			}
 			cu:gujarati = {
 				culture_secession_progress = {

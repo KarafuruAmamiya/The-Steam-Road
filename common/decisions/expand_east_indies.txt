@@ -10,10 +10,11 @@
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		OR = { 
-			any_state = {
-				owner = ROOT
-				region = sr:region_indonesia
-				is_under_colonization = no
+			sr:region_indonesia = {
+				any_scope_state = {
+					owner = ROOT
+					is_under_colonization = no
+				}
 			}
 			any_subject_or_below = {
 				capital.region = sr:region_indonesia
@@ -28,9 +29,11 @@
 		custom_tooltip = expand_east_indies_tt
 		if = {
 			limit= {
-				any_state = {
-					owner = ROOT
-					region = sr:region_indonesia
+				sr:region_indonesia = {
+					any_scope_state = {
+						owner = ROOT
+						is_under_colonization = no
+					}
 				}
 			}
 			every_scope_state = {
@@ -127,10 +130,11 @@ ibe_expand_east_indies = {
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		OR = { 
-			any_state = {
-				owner = ROOT
-				region = sr:region_indonesia
-				is_under_colonization = no
+			sr:region_indonesia = {
+				any_scope_state = {
+					owner = ROOT
+					is_under_colonization = no
+				}
 			}
 			any_subject_or_below = {
 				capital.region = sr:region_indonesia
@@ -145,9 +149,11 @@ ibe_expand_east_indies = {
 		custom_tooltip = expand_east_indies_tt
 		if = {
 			limit= {
-				any_state = {
-					owner = ROOT
-					region = sr:region_indonesia
+				sr:region_indonesia = {
+					any_scope_state = {
+						owner = ROOT
+						is_under_colonization = no
+					}
 				}
 			}
 			every_scope_state = {

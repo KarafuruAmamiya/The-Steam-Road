@@ -11,10 +11,11 @@
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		OR = { 
-			any_state = {
-				owner = ROOT
-				region = sr:region_japan
-				is_under_colonization = no
+			sr:region_japan = {
+				any_scope_state = {
+					owner = ROOT
+					is_under_colonization = no
+				}
 			}
 			any_subject_or_below = {
 				capital.region = sr:region_japan
@@ -29,9 +30,11 @@
 		custom_tooltip = expand_japan_tt
 		if = {
 			limit= {
-				any_state = {
-					owner = ROOT
-					region = sr:region_japan 
+				sr:region_japan = {
+					any_scope_state = {
+						owner = ROOT
+						is_under_colonization = no
+					}
 				}
 			}
 			every_scope_state = {

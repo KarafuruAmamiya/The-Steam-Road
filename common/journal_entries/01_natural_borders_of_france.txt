@@ -17,12 +17,18 @@
 		effect = {
 			if = {
 				limit = {
-					any_scope_state = {
-						OR = {
-							state_region = s:STATE_NORTH_RHINE
-							state_region = s:STATE_RHINELAND
-							state_region = s:STATE_ELSASS
-							state_region = s:STATE_PFALZ
+					OR = {
+						s:STATE_NORTH_RHINE = {
+							any_scope_state = { owner = root }
+						}
+						s:STATE_RHINELAND = {
+							any_scope_state = { owner = root }
+						}
+						s:STATE_ELSASS = {
+							any_scope_state = { owner = root }
+						}
+						s:STATE_PFALZ = {
+							any_scope_state = { owner = root }
 						}
 					}
 				}
@@ -64,60 +70,82 @@
 				}
 			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_FLANDERS
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_FLANDERS = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_WALLONIA
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_WALLONIA = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_LUXEMBOURG
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_LUXEMBOURG = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_RHINELAND
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_RHINELAND = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_RHINE
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_NORTH_RHINE = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_LORRAINE
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_LORRAINE = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_FRANCHE_COMTE
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_FRANCHE_COMTE = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_ELSASS
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_ELSASS = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_PFALZ
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_PFALZ = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_LIGURIA
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_LIGURIA = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_WEST_SWITZERLAND
-			is_incorporated = yes
-			is_split_state = no
+		s:STATE_WEST_SWITZERLAND = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				is_split_state = no
+			}
 		}
 	}
 

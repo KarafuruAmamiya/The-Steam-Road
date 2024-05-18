@@ -17,11 +17,13 @@
 			NOT = { has_global_variable = paris_commune_happened }
 		}
 		c:FRA ?= this
-		any_scope_state = {
-			state_region = s:STATE_ILE_DE_FRANCE
-			turmoil >= 0.2
+		s:STATE_ILE_DE_FRANCE = {
+			any_scope_state = {
+				owner = root
+				turmoil >= 0.2
+			}
 		}
-		OR = {
+		AND = { #this is changed to AND because France in this mod already starts not owning a few homelands
 			custom_tooltip = {
 				text = lost_war_tt
 				OR = {
@@ -131,11 +133,7 @@ je_the_paris_commune_france = {
 
 	invalid = {
 		OR = {
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_ILE_DE_FRANCE
-				}
-			}
+			NOT = { has_state_in_state_region = STATE_ILE_DE_FRANCE }
 			has_war_with = c:PRC
 			NOT = {
 				exists = c:PRC
@@ -293,11 +291,7 @@ je_the_paris_commune_communards = {
 
 	invalid = {
 		OR = {
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_ILE_DE_FRANCE
-				}
-			}
+			NOT = { has_state_in_state_region = STATE_ILE_DE_FRANCE }
 			has_war_with = c:FRA
 			NOT = {
 				exists = c:FRA

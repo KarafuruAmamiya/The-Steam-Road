@@ -1135,36 +1135,13 @@ foster_national_agitation = {
 		this.interest_group = {
 			is_in_government = yes
 		}
-		any_state = {
-			this.state_region = {
-				is_homeland = root.culture
-			}
-			custom_tooltip = {
-				text = is_rival_of_owner_tt
-				OR = {
-					owner = {
-						has_diplomatic_pact = {
-							who = root.owner
-							type = rivalry
-						}
-					}
-					root.owner = {
-						has_diplomatic_pact = {
-							who = prev.owner
-							type = rivalry
-						}
-					}
+		any_rival_country = {
+			any_scope_state = {
+				state_region = {
+					is_homeland = root.culture
 				}
-			}
-			custom_tooltip = {
-				text = not_homeland_of_states_tt
-				owner = {
-					NOR = {
-						this = root.owner
-						any_primary_culture = {
-							this = root.culture
-						}
-					}
+				NOT = {
+					is_homeland_of_country_cultures = prev
 				}
 			}
 		}
@@ -1177,43 +1154,26 @@ foster_national_agitation = {
 		root.owner = {
 			save_scope_as = agitation_sponsor
 		}
-		random_state = {
-			limit = {
-				state_region = {
-					is_homeland = root.culture
+		random_rival_country = {
+			random_scope_state = {
+				limit = {
+					state_region = {
+						is_homeland = root.culture
+					}
+					NOT = {
+						is_homeland_of_country_cultures = prev
+					}
 				}
-				OR = {
-					owner = {
-						has_diplomatic_pact = {
-							who = root.owner
-							type = rivalry
-						}
-					}
-					root.owner = {
-						has_diplomatic_pact = {
-							who = prev.owner
-							type = rivalry
-						}
-					}
+				save_scope_as = agitation_state
+				add_radicals_in_state = {
+					culture = root.culture
+					value = large_radicals
 				}
 				owner = {
-					NOR = {
-						this = root.owner
-						any_primary_culture = {
-							this = root.culture
-						}
+					post_notification = nationalism_national_agitation_occurred
+					change_relations = {
+						country = root value = -10
 					}
-				}
-			}
-			save_scope_as = agitation_state
-			add_radicals_in_state = {
-				culture = root.culture
-				value = large_radicals
-			}
-			owner = {
-				post_notification = nationalism_national_agitation_occurred
-				change_relations = {
-					country = root.owner value = -10
 				}
 			}
 		}

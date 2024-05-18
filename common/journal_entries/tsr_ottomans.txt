@@ -13,16 +13,15 @@
 	complete = {
 		custom_tooltip = {
 			text = owns_all_arabia_states
-			any_state = {
-				filter = {
-					region = sr:region_arabic
-					NOT = {
+			sr:region_arabic = {
+				any_scope_state = {
+					NOR = {
 						state_region = s:STATE_HEDJAZ
 						state_region = s:STATE_MEDINA
 					}
+					owner = root
+					count = all
 				}
-				owner = root
-				count = all
 			}
 		}
 		custom_tooltip = {

@@ -11,13 +11,17 @@
 		is_at_war = no
 		is_diplomatic_play_committed_participant = no
 		OR = { 
-			any_state = {
-				owner = ROOT
-				OR = {
-					region = sr:region_east_siberia
-					region = sr:region_manchuria
+			sr:region_east_siberia = {
+				any_scope_state = {
+					owner = ROOT
+					is_under_colonization = no
 				}
-				is_under_colonization = no
+			}
+			sr:region_manchuria = {
+				any_scope_state = {
+					owner = ROOT
+					is_under_colonization = no
+				}
 			}
 			any_subject_or_below = {
 				OR = {
@@ -35,11 +39,18 @@
 		custom_tooltip = expand_north_pacific_company_tt
 		if = {
 			limit= {
-				any_state = {
-					owner = ROOT
-					OR = {
-						region = sr:region_east_siberia
-						region = sr:region_manchuria
+				OR = {
+					sr:region_east_siberia = {
+						any_scope_state = {
+							owner = ROOT
+							is_under_colonization = no
+						}
+					}
+					sr:region_manchuria = {
+						any_scope_state = {
+							owner = ROOT
+							is_under_colonization = no
+						}
 					}
 				}
 			}

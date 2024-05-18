@@ -20,9 +20,7 @@ krakatoa.1 = { #krakatoa erupts and you're the owner
 		NOT = { has_variable = mega_eruption }
 		NOT = { global_var:number_of_mega_eruptions > 3 }
 		NOT = { has_global_variable = krakatoa_var }
-		any_scope_state = {
-			state_region = s:STATE_WEST_JAVA
-		}
+		has_state_in_state_region = STATE_WEST_JAVA
 	}
 
 	immediate = {	

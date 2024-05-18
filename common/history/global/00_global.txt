@@ -83,15 +83,6 @@ GLOBAL = {
 		}
 	}
 	every_country = {
-		add_taxed_goods = g:services
-		every_interest_group = {
-			set_variable = {
-				name = memento_mori
-				years = 10
-			}
-		}
-	}
-	every_country = {
 		limit = { has_law = law_type:law_governorate }
 		set_variable = {
 			name = memento_mori
@@ -278,6 +269,13 @@ GLOBAL = {
 	}
 	
 	every_country = {
+		add_taxed_goods = g:services
+		every_interest_group = {
+			set_variable = {
+				name = memento_mori
+				years = 10
+			}
+		}
         trigger_event = {
             id = lorebox.1
             days = 1
@@ -421,6 +419,32 @@ GLOBAL = {
 		add_to_global_variable_list = {
 			name = hre_subject
 			target = THIS
+		}
+	}
+	
+	#Catholic countries should start hostile to Ottomans
+	every_country = {
+		limit = { 
+			country_is_in_europe = yes
+			country_has_state_religion = rel:catholic
+			NOR = {
+				has_attitude = {
+					who = c:TUR
+					attitude = antagonistic
+				}
+				has_attitude = {
+					who = c:TUR
+					attitude = belligerent
+				}
+			}
+		}
+		change_relations = {
+			country = c:TUR
+			value = -50
+		}
+		set_secret_goal = {
+			country = c:TUR
+			secret_goal = antagonize
 		}
 	}
 	

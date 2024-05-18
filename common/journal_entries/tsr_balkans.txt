@@ -319,49 +319,60 @@
 	invalid = {
 		calc_true_if = {
 			amount >= 8
-			any_state = {
-				state_region = s:STATE_WESTERN_THRACE
-				owner = { is_subject_of = root }
+			s:STATE_WESTERN_THRACE = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_SOUTHERN_SERBIA
-				owner = { is_subject_of = root }
+			s:STATE_SOUTHERN_SERBIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_NORTHERN_SERBIA
-				owner = { is_subject_of = root }
+			s:STATE_NORTHERN_SERBIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_BOSNIA
-				owner = { is_subject_of = root }
+			s:STATE_BOSNIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_MONTENEGRO
-				owner = { is_subject_of = root }
+			s:STATE_MONTENEGRO = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_CROATIA
-				owner = { is_subject_of = root }
+			s:STATE_CROATIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_SLAVONIA
-				owner = { is_subject_of = root }
+			s:STATE_SLAVONIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_BULGARIA
-				owner = { is_subject_of = root }
+			s:STATE_BULGARIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_WEST_BULGARIA
-				owner = { is_subject_of = root }
+			s:STATE_WEST_BULGARIA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_DOBRUDJA
-				owner = { is_subject_of = root }
+			s:STATE_DOBRUDJA = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
-			any_state = {
-				state_region = s:STATE_NORTHERN_THRACE
-				owner = { is_subject_of = root }
+			s:STATE_NORTHERN_THRACE = {
+				any_scope_state = {
+					owner = { is_subject_of = root }
+				}
 			}
 		}
 	}
@@ -503,12 +514,11 @@ je_rumelian_confederation = {
 				country_is_in_balkans = yes
 			}
 		}
-		any_state = {
-			filter = {
-				region = sr:region_balkans
+		sr:region_balkans = {
+			any_scope_state = {
+				owner = root
+				count = all
 			}
-			owner = root
-			count = all
 		}
 	}
 	

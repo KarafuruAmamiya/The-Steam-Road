@@ -2531,28 +2531,6 @@ on_revolution_start = {
 			}
 			set_variable = persia_eclipse_revolution
 		}
-		if = {
-			limit = {
-				has_journal_entry = je_the_paris_commune_france
-			}
-			c:FRA = {
-				trigger_event = { id = paris_commune.4 popup = yes }
-			}
-			random_scope_state = {
-				limit = {
-					state_region = s:STATE_ILE_DE_FRANCE
-				}
-				set_state_owner = c:PRC
-			}
-			c:PRC = {
-				annex = scope:target
-				create_diplomatic_play = {
-					type = dp_revolution
-					target_state = c:FRA.capital
-					annex_as_civil_war = yes
-				}
-			}
-		}
 	}
 }
 

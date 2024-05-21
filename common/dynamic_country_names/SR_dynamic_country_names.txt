@@ -535,7 +535,7 @@ TRA = {
 
 BUK = { 
 	dynamic_country_name = {
-		name = dyn_c_bukhara # Bukharan Khaganate
+		name = dyn_c_bukhara # Bukharan Khanate
 		adjective = dyn_c_bukhara_adj
 		
 		is_main_tag_only = yes
@@ -544,7 +544,6 @@ BUK = {
 		trigger = {
 			scope:actor ?= {
 				has_law = law_type:law_monarchy
-				country_tier = empire
 			}
 		}
 	}

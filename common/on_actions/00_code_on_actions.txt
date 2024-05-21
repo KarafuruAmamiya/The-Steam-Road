@@ -2771,26 +2771,6 @@ on_wargoal_enforced = {
             days = 1825
             value = yes
         }
-        if = {
-        	limit = {
-        		c:PRC ?= root
-        		NOT = {
-        			exists = c:FRA
-        		}
-        	}
-        	c:PRC = {
-				set_immune_to_revolutions = no
-				change_tag = FRA
-				every_scope_state = {
-					limit = {
-						state_region = {
-							is_homeland = cu:french
-						}
-					}
-					set_state_type = incorporated
-				}
-        	}
-        }
 		if = {
         	limit = {
         		c:PER ?= root

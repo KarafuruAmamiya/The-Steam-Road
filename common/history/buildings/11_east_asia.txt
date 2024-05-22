@@ -109,19 +109,27 @@
 		region_state:CHI={
 			create_building={
 				building="building_logging_camp"
-				level=4
+				level=2
 				reserves=1
 				activate_production_methods={ "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" "pm_merchant_guilds_building_logging_camp" }
 			}
 			create_building={
 				building="building_tea_plantation"
-				level=4
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
 			create_building={
 				building="building_opium_plantation"
-				level=10
+				level=4
+				reserves=1
+				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+		}
+		region_state:YUE={
+			create_building={
+				building="building_opium_plantation"
+				level=2
 				reserves=1
 				activate_production_methods={ "default_building_opium_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
@@ -288,10 +296,10 @@
 		}
 	}
 	s:STATE_GUANGXI={
-		region_state:CHI={
+		region_state:YUE={
 			create_building={
 				building="building_government_administration"
-				level=10
+				level=6
 				reserves=1
 				activate_production_methods={ "pm_horizontal_drawer_cabinets" }
 			}
@@ -315,15 +323,21 @@
 			}
 			create_building={
 				building="building_dye_plantation"
-				level=10
+				level=6
 				reserves=1
 				activate_production_methods={ "default_building_dye_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
 			}
 			create_building={
 				building="building_silk_plantation"
-				level=16
+				level=6
 				reserves=1
 				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
+				building="building_barracks"
+				level=10
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
 			}
 		}
 	}
@@ -1208,6 +1222,12 @@
 				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_tools_disabled" "pm_privately_owned" }
 			}
 			create_building={
+				building="building_silk_plantation"
+				level=10
+				reserves=1
+				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+			}
+			create_building={
 				building="building_tea_plantation"
 				level=8
 				reserves=1
@@ -1548,7 +1568,7 @@
 		}
 	}
 	s:STATE_TONKIN={
-		region_state:DAI={
+		region_state:YUE={
 			create_building={
 				building="building_government_administration"
 				level=3
@@ -1582,7 +1602,7 @@
 		}
 	}
 	s:STATE_ANNAM={
-		region_state:DAI={
+		region_state:YUE={
 			create_building={
 				building="building_fishing_wharf"
 				level=1

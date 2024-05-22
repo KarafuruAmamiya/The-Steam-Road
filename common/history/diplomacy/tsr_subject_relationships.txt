@@ -567,10 +567,6 @@
 			type = dependency
 		}
 		create_diplomatic_pact = {
-			country = c:DAI
-			type = vassal
-		}
-		create_diplomatic_pact = {
 			country = c:CSH
 			type = vassal
 		}
@@ -583,19 +579,21 @@
 			type = vassal
 		}
 		create_diplomatic_pact = {
-			country = c:LXA
-			type = tributary
-		}
-		create_diplomatic_pact = {
-			country = c:MPH
-			type = tributary
-		}
-		create_diplomatic_pact = {
 			country = c:JNZ
 			type = tributary
 		}
 		create_diplomatic_pact = {
 			country = c:WRK
+			type = tributary
+		}
+	}
+	c:YUE ?= {
+		create_diplomatic_pact = {
+			country = c:LXA
+			type = tributary
+		}
+		create_diplomatic_pact = {
+			country = c:MPH
 			type = tributary
 		}
 	}

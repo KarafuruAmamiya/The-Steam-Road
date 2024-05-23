@@ -425,8 +425,37 @@
 			
 			if = {
 				limit = {
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
 					state = {
 						has_state_trait = state_trait_kabah
+						owner = {
+							NOT = { has_law = law_type:law_state_atheism }
+						}
+					}
+				}
+				add = 200
+			}
+		}
+		
+		add = {
+			desc = "state_trait_papacy"
+			
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = peasants
+					}
+					state = {
+						has_state_trait = state_trait_papacy
+						owner = {
+							NOT = { has_law = law_type:law_state_atheism }
+						}
 					}
 				}
 				add = 200

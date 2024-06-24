@@ -491,7 +491,7 @@ balkan_crisis.4 = {
 				is_busy = no
 				has_role = general
 			}
-			set_character_busy = yes
+			set_character_busy_and_immortal = yes
 			set_variable = quelling_uprising_var
 		}
 		add_modifier = {
@@ -758,7 +758,7 @@ balkan_crisis.6 = {
 		}
 		scope:balkan_pacifier_1 = {
 			set_variable = pacifying_balkan_var
-			set_character_busy = yes
+			set_character_busy_and_immortal = yes
 		}
 	}
 	option = { #Send leader #2
@@ -777,7 +777,7 @@ balkan_crisis.6 = {
 		}
 		scope:balkan_pacifier_2 = {
 			set_variable = pacifying_balkan_var
-			set_character_busy = yes
+			set_character_busy_and_immortal = yes
 		}
 	}
 	option = { #Send leader #3
@@ -796,7 +796,7 @@ balkan_crisis.6 = {
 		}
 		scope:balkan_pacifier_3 = {
 			set_variable = pacifying_balkan_var
-			set_character_busy = yes
+			set_character_busy_and_immortal = yes
 		}
 	}
 }
@@ -876,11 +876,11 @@ balkan_crisis.7 = {
 		}
 		
 		scope:balkan_general ?= {
-			set_character_busy = no
+			set_character_busy_and_immortal = no
 		}
 		
 		scope:balkan_pacifier ?= {
-			set_character_busy = no
+			set_character_busy_and_immortal = no
 		}
 	}
 }

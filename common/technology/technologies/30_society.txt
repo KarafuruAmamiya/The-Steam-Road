@@ -1089,6 +1089,18 @@ socialism = {
 		country_institution_workplace_safety_max_investment_add = 2
 	}
 	
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = socialism_researched }
+			}
+			set_variable = socialism_researched
+			ig:ig_trade_unions = {
+				add_ideology = ideology_socialist
+			}
+		}
+	}
+	
 	unlocking_technologies = {
 		labor_movement
 		dialectics

@@ -221,6 +221,10 @@ je_union_of_augustow_pol = {
 		c:LIT ?= {
 			save_scope_as = lit_scope
 		}
+		set_global_variable = {
+			name = plc_union_progress_var
+			value = 0
+		}
     }
 	
 	on_weekly_pulse = {
@@ -496,16 +500,14 @@ je_union_of_augustow_lit = {
 		hidden_trigger = {
 			has_global_variable = plc_union_fail_var
 		}
-		show_as_tooltip = {
-			OR = {
-				custom_tooltip = {
-					text = plc_union_fail
-					global_var:plc_union_progress_var <= 0
-				}
-				c:POL ?= { is_subject = yes }
-				NOT = { is_subject_of = c:POL }
-				has_war_with = c:POL
+		OR = {
+			custom_tooltip = {
+				text = plc_union_fail
+				global_var:plc_union_progress_var <= 0
 			}
+			c:POL ?= { is_subject = yes }
+			NOT = { is_subject_of = c:POL }
+			has_war_with = c:POL
 		}
 	}
 	

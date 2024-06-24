@@ -568,7 +568,13 @@ law_council_republic = {
 				remove_ideology = ideology_constitutionalist
 				add_ideology = ideology_republican
 			}
-		}	
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = communism_2 }
+			}
+			trigger_event = { id = communism.1 popup = yes }
+		}
 	}		
 
 	modifier = {

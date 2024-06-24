@@ -226,30 +226,6 @@ gov_sultanate = {
 	}
 }
 
-gov_hakimate = {
-	transfer_of_power = hereditary
-	
-	male_ruler = "RULER_TITLE_HAKIM"
-	female_ruler = "" # Empty on purpose
-
-	male_heir = "RULER_TITLE_PRINCE"
-	female_heir = "" # Empty on purpose
-	
-	possible = {
-		country_tier = principality
-		has_law = law_type:law_monarchy
-		exists = c:BHN
-		c:BHN = ROOT
-	}
-
-	on_government_type_change = {
-		change_to_hereditary = yes
-	}
-	on_post_government_type_change = {
-		post_change_to_hereditary = yes
-	}
-}
-
 gov_sheikhdom = {
 	transfer_of_power = hereditary
 	

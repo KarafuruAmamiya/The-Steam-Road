@@ -1174,9 +1174,12 @@ turkish_nationalism.3 = {
 				leader = {
 					kill_character = yes
 				}
-				create_character = {
-					ig_leader = yes
-					ideology = ideology_moderate
+				owner = {
+					create_character = {
+						ig_leader = yes
+						interest_group = prev
+						ideology = ideology_moderate
+					}
 				}
 			}
 		}
@@ -1342,7 +1345,7 @@ turkish_nationalism.6 = {
 						is_in_government = yes
 					}
 					trigger_if = {
-						limit = { has_law = law_type:law_monarchy }
+						limit = { owner = { has_law = law_type:law_monarchy } }
 						is_ruler = no
 					}
 				}

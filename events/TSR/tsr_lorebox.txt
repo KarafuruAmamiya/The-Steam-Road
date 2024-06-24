@@ -1,415 +1,415 @@
-﻿namespace = lorebox
-
-lorebox.1 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		post_notification = lorebox
-	}
-}
-
-namespace = tsr_test
-
-tsr_test.1 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		random_scope_character = {
-			limit = {
-				has_template = tur_mehmed_iv_character_template
-			}
-			exile_character_with_martyrdom = yes
-		}
-	}
-}
-
-tsr_test.2 = {
-	type = country_event
-	hidden = yes
-	immediate = {	
-	}
-}
-
-tsr_test.3 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		ruler = {
-			kill_character = yes
-		}
-	}
-}
-
-tsr_test.4 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		if = {
-			limit = {
-				has_law = law_type:law_governorate
-			}
-			if = {
-				limit = {
-					is_country_type = colonial
-				}
-				activate_law = law_type:law_presidential_republic
-			}
-			else = {
-				enact_preferred_governance_principle_governorate = yes
-			}
-			restore_primary_culture = yes
-			if = {
-				limit = {
-					has_variable = primary_culture_ruler
-				}
-				remove_variable = primary_culture_ruler
-				ruler = {
-					kill_character = yes
-					hidden = yes
-				}
-				every_interest_group = {
-					leader = {
-						kill_character = yes
-						hidden = yes
-					}
-				}
-			}
-		}
-	}
-}
-
-tsr_test.5 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		overlord = {
-			random_primary_culture = {
-				save_scope_as = overlord_culture
-			}
-			religion = {
-				save_scope_as = overlord_religion
-			}
-		}
-		create_character = {
-			ruler = yes
-			culture = scope:overlord_culture
-			religion = scope:overlord_religion
-		}
-	}
-}
-
-tsr_test.6 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		if = {
-			limit = { exists = c:GRE }
-			random_scope_state = {
-				limit = { state_region = s:STATE_WESTERN_THRACE }
-				set_state_owner = c:GRE
-			}
-		}
-		else_if = {
-			limit = { NOT = { exists = c:MAC } }
-			custom_tooltip = {
-				text = macedonia_created_as_subject
-				create_country = {
-					tag = MAC
-					origin = ROOT
-					state = s:STATE_WESTERN_THRACE.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:MAC
-					}
-					ROOT = {
-						create_diplomatic_pact = {
-							country = c:MAC
-							type = puppet
-						}
-					}
-					c:MAC ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = c:SER }
-			}
-			custom_tooltip = {
-				text = serbia_created_as_subject
-				create_country = {
-					tag = SER
-					origin = ROOT
-					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
-						set_state_owner = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_MONTENEGRO }
-						set_state_owner = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_BOSNIA }
-						set_state_owner = c:SER
-					}
-					ROOT = {
-						create_diplomatic_pact = {
-							country = c:SER
-							type = puppet
-						}
-					}
-					c:SER ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = c:CRO }
-			}
-			custom_tooltip = {
-				text = croatia_created_as_subject
-				create_country = {
-					tag = CRO
-					origin = ROOT
-					state = s:STATE_CROATIA.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:CRO
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_SLAVONIA }
-						set_state_owner = c:CRO
-					}
-					ROOT = {
-						create_diplomatic_pact = {
-							country = c:CRO
-							type = puppet
-						}
-					}
-					c:CRO ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = c:BUL }
-			}
-			custom_tooltip = {
-				text = bulgaria_created_as_subject
-				create_country = {
-					tag = BUL
-					origin = ROOT
-					state = s:STATE_BULGARIA.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_WEST_BULGARIA }
-						set_state_owner = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_DOBRUDJA }
-						set_state_owner = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_NORTHERN_THRACE }
-						set_state_owner = c:BUL
-					}
-					ROOT = {
-						create_diplomatic_pact = {
-							country = c:BUL
-							type = puppet
-						}
-					}
-					c:BUL ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-tsr_test.7 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		add_radicals = {
-			culture = cu:greek
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:bulgarian
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:serb
-			value = large_radicals
-		}
-		add_radicals = {
-			culture = cu:croat
-			value = large_radicals
-		}
-	}
-}
-
-tsr_test.8 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		if = {
-				limit = {
-					c:TUR ?= { has_variable = massacre_happened }
-					any_country = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-						count >= 5
-					}
-				}
-				set_global_variable = constantinople_conference
-				random_country = {
-					limit = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-					}
-					set_variable = european_gp_1
-					create_truce = {
-						country = c:TUR
-						year = 1
-					}
-				}
-				random_country = {
-					limit = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-						NOT = { has_variable = european_gp_1 }
-					}
-					set_variable = european_gp_2
-					create_truce = {
-						country = c:TUR
-						year = 1
-					}
-				}
-				random_country = {
-					limit = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-						NOT = { has_variable = european_gp_1 }
-						NOT = { has_variable = european_gp_2 }
-					}
-					set_variable = european_gp_3
-					create_truce = {
-						country = c:TUR
-						year = 1
-					}
-				}
-				random_country = {
-					limit = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-						NOT = { has_variable = european_gp_1 }
-						NOT = { has_variable = european_gp_2 }
-						NOT = { has_variable = european_gp_3 }
-					}
-					set_variable = european_gp_4
-					create_truce = {
-						country = c:TUR
-						year = 1
-					}
-				}
-				random_country = {
-					limit = {
-						country_is_in_europe = yes
-						country_rank >= rank_value:great_power 
-						NOT = { c:TUR ?= this }
-						NOT = { has_variable = european_gp_1 }
-						NOT = { has_variable = european_gp_2 }
-						NOT = { has_variable = european_gp_3 }
-						NOT = { has_variable = european_gp_4 }
-					}
-					set_variable = european_gp_5
-					create_truce = {
-						country = c:TUR
-						year = 1
-					}
-				}
-				random_country = {
-					limit = { has_variable = european_gp_1 }
-					trigger_event = { id = balkan_crisis.9 popup = yes }
-				}
-				random_country = {
-					limit = { has_variable = european_gp_2 }
-					trigger_event = { id = balkan_crisis.9 popup = yes }
-				}
-				random_country = {
-					limit = { has_variable = european_gp_3 }
-					trigger_event = { id = balkan_crisis.9 popup = yes }
-				}
-				random_country = {
-					limit = { has_variable = european_gp_4 }
-					trigger_event = { id = balkan_crisis.9 popup = yes }
-				}
-				random_country = {
-					limit = { has_variable = european_gp_5 }
-					trigger_event = { id = balkan_crisis.9 popup = yes }
-				}
-			}
-	}
-}
-
-tsr_test.9 = {
-	type = country_event
-	hidden = yes
-	immediate = {
-		add_journal_entry = { type = je_springtime_of_the_peoples }
-	}
-}
+﻿#namespace = lorebox
+#
+#lorebox.1 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		post_notification = lorebox
+#	}
+#}
+#
+#namespace = tsr_test
+#
+#tsr_test.1 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		random_scope_character = {
+#			limit = {
+#				has_template = tur_mehmed_iv_character_template
+#			}
+#			exile_character_with_martyrdom = yes
+#		}
+#	}
+#}
+#
+#tsr_test.2 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {	
+#	}
+#}
+#
+#tsr_test.3 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		ruler = {
+#			kill_character = yes
+#		}
+#	}
+#}
+#
+#tsr_test.4 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		if = {
+#			limit = {
+#				has_law = law_type:law_governorate
+#			}
+#			if = {
+#				limit = {
+#					is_country_type = colonial
+#				}
+#				activate_law = law_type:law_presidential_republic
+#			}
+#			else = {
+#				enact_preferred_governance_principle_governorate = yes
+#			}
+#			restore_primary_culture = yes
+#			if = {
+#				limit = {
+#					has_variable = primary_culture_ruler
+#				}
+#				remove_variable = primary_culture_ruler
+#				ruler = {
+#					kill_character = yes
+#					hidden = yes
+#				}
+#				every_interest_group = {
+#					leader = {
+#						kill_character = yes
+#						hidden = yes
+#					}
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#tsr_test.5 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		overlord = {
+#			random_primary_culture = {
+#				save_scope_as = overlord_culture
+#			}
+#			religion = {
+#				save_scope_as = overlord_religion
+#			}
+#		}
+#		create_character = {
+#			ruler = yes
+#			culture = scope:overlord_culture
+#			religion = scope:overlord_religion
+#		}
+#	}
+#}
+#
+#tsr_test.6 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		if = {
+#			limit = { exists = c:GRE }
+#			random_scope_state = {
+#				limit = { state_region = s:STATE_WESTERN_THRACE }
+#				set_state_owner = c:GRE
+#			}
+#		}
+#		else_if = {
+#			limit = { NOT = { exists = c:MAC } }
+#			custom_tooltip = {
+#				text = macedonia_created_as_subject
+#				create_country = {
+#					tag = MAC
+#					origin = ROOT
+#					state = s:STATE_WESTERN_THRACE.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:MAC
+#					}
+#					ROOT = {
+#						create_diplomatic_pact = {
+#							country = c:MAC
+#							type = puppet
+#						}
+#					}
+#					c:MAC ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { exists = c:SER }
+#			}
+#			custom_tooltip = {
+#				text = serbia_created_as_subject
+#				create_country = {
+#					tag = SER
+#					origin = ROOT
+#					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+#						set_state_owner = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_MONTENEGRO }
+#						set_state_owner = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_BOSNIA }
+#						set_state_owner = c:SER
+#					}
+#					ROOT = {
+#						create_diplomatic_pact = {
+#							country = c:SER
+#							type = puppet
+#						}
+#					}
+#					c:SER ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { exists = c:CRO }
+#			}
+#			custom_tooltip = {
+#				text = croatia_created_as_subject
+#				create_country = {
+#					tag = CRO
+#					origin = ROOT
+#					state = s:STATE_CROATIA.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:CRO
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_SLAVONIA }
+#						set_state_owner = c:CRO
+#					}
+#					ROOT = {
+#						create_diplomatic_pact = {
+#							country = c:CRO
+#							type = puppet
+#						}
+#					}
+#					c:CRO ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { exists = c:BUL }
+#			}
+#			custom_tooltip = {
+#				text = bulgaria_created_as_subject
+#				create_country = {
+#					tag = BUL
+#					origin = ROOT
+#					state = s:STATE_BULGARIA.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_WEST_BULGARIA }
+#						set_state_owner = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_DOBRUDJA }
+#						set_state_owner = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_NORTHERN_THRACE }
+#						set_state_owner = c:BUL
+#					}
+#					ROOT = {
+#						create_diplomatic_pact = {
+#							country = c:BUL
+#							type = puppet
+#						}
+#					}
+#					c:BUL ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#tsr_test.7 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		add_radicals = {
+#			culture = cu:greek
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:bulgarian
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:serb
+#			value = large_radicals
+#		}
+#		add_radicals = {
+#			culture = cu:croat
+#			value = large_radicals
+#		}
+#	}
+#}
+#
+#tsr_test.8 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		if = {
+#				limit = {
+#					c:TUR ?= { has_variable = massacre_happened }
+#					any_country = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#						count >= 5
+#					}
+#				}
+#				set_global_variable = constantinople_conference
+#				random_country = {
+#					limit = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#					}
+#					set_variable = european_gp_1
+#					create_truce = {
+#						country = c:TUR
+#						year = 1
+#					}
+#				}
+#				random_country = {
+#					limit = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#						NOT = { has_variable = european_gp_1 }
+#					}
+#					set_variable = european_gp_2
+#					create_truce = {
+#						country = c:TUR
+#						year = 1
+#					}
+#				}
+#				random_country = {
+#					limit = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#						NOT = { has_variable = european_gp_1 }
+#						NOT = { has_variable = european_gp_2 }
+#					}
+#					set_variable = european_gp_3
+#					create_truce = {
+#						country = c:TUR
+#						year = 1
+#					}
+#				}
+#				random_country = {
+#					limit = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#						NOT = { has_variable = european_gp_1 }
+#						NOT = { has_variable = european_gp_2 }
+#						NOT = { has_variable = european_gp_3 }
+#					}
+#					set_variable = european_gp_4
+#					create_truce = {
+#						country = c:TUR
+#						year = 1
+#					}
+#				}
+#				random_country = {
+#					limit = {
+#						country_is_in_europe = yes
+#						country_rank >= rank_value:great_power 
+#						NOT = { c:TUR ?= this }
+#						NOT = { has_variable = european_gp_1 }
+#						NOT = { has_variable = european_gp_2 }
+#						NOT = { has_variable = european_gp_3 }
+#						NOT = { has_variable = european_gp_4 }
+#					}
+#					set_variable = european_gp_5
+#					create_truce = {
+#						country = c:TUR
+#						year = 1
+#					}
+#				}
+#				random_country = {
+#					limit = { has_variable = european_gp_1 }
+#					trigger_event = { id = balkan_crisis.9 popup = yes }
+#				}
+#				random_country = {
+#					limit = { has_variable = european_gp_2 }
+#					trigger_event = { id = balkan_crisis.9 popup = yes }
+#				}
+#				random_country = {
+#					limit = { has_variable = european_gp_3 }
+#					trigger_event = { id = balkan_crisis.9 popup = yes }
+#				}
+#				random_country = {
+#					limit = { has_variable = european_gp_4 }
+#					trigger_event = { id = balkan_crisis.9 popup = yes }
+#				}
+#				random_country = {
+#					limit = { has_variable = european_gp_5 }
+#					trigger_event = { id = balkan_crisis.9 popup = yes }
+#				}
+#			}
+#	}
+#}
+#
+#tsr_test.9 = {
+#	type = country_event
+#	hidden = yes
+#	immediate = {
+#		add_journal_entry = { type = je_springtime_of_the_peoples }
+#	}
+#}

@@ -1178,6 +1178,12 @@ ideology_royalist = {
 				has_variable = monarchy_stamped_out_var
 			}
 		}
+		# no generic monarchists in Ottoman Empire
+		owner = {
+			NOT = {
+				c:TUR ?= this
+			}
+		}
 		scope:interest_group = { 
 			OR = {
 				is_interest_group_type = ig_devout
@@ -1231,15 +1237,6 @@ ideology_royalist = {
 				}
 			}
 			add = 50
-		}
-		# no generic monarchists in Ottoman Empire
-		owner = {
-			NOT = {
-				AND = {
-					exists = c:TUR
-					c:TUR = this
-				}
-			}
 		}
 	}
 }
@@ -2423,6 +2420,12 @@ ideology_theocrat = {
 				is_interest_group_type = ig_devout
 			}
 		}
+		# no generic theocrat in Ottoman Empire
+		owner = {
+			NOT = {
+				c:TUR ?= this
+			}
+		}
 		scope:interest_group = {
 			OR = {
 				is_interest_group_type = ig_rural_folk
@@ -2514,15 +2517,6 @@ ideology_theocrat = {
 				any_character_in_exile_pool = { has_template = per_mohammad_zand_character_template }
 			}
 			add = 100
-		}
-		# no generic theocrat in Ottoman Empire
-		owner = {
-			NOT = {
-				AND = {
-					exists = c:TUR
-					c:TUR = this
-				}
-			}
 		}
 	}
 }

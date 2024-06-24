@@ -68,15 +68,17 @@
 				set_state_type = unincorporated
 			}
 			else = {
-				random_subject_or_below = {
-					limit = {
-						OR = {
-							capital.region = sr:region_greece
-							capital.region = sr:region_balkans
-							capital.region = sr:region_anatolia
+				owner = {
+					random_subject_or_below = {
+						limit = {
+							OR = {
+								capital.region = sr:region_greece
+								capital.region = sr:region_balkans
+								capital.region = sr:region_anatolia
+							}
 						}
+						save_temporary_scope_as = balkan_subject_scope
 					}
-					save_temporary_scope_as = balkan_subject_scope
 				}
 				set_state_owner = scope:balkan_subject_scope
 				set_state_type = unincorporated

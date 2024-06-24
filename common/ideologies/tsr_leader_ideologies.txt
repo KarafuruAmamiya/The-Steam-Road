@@ -65,6 +65,12 @@
 				has_law = law_type:law_slave_trade 
 			}
 		}
+		# no generic reformers in Ottoman Empire
+		owner = {
+			NOT = {
+				c:TUR ?= this
+			}
+		}
 		NAND = {
 			has_role = agitator
 			owner = {
@@ -106,7 +112,7 @@
 			limit = {
 				OR = {
 					owner = {
-						any_neighboring_state = {
+						any_neighbouring_state = {
 							owner = {
 								OR = {
 									any_primary_culture = {
@@ -133,7 +139,7 @@
 							}
 						}
 						any_scope_diplomatic_pact = {
-							diplomatic_pact_other_country = {
+							any_participant = {
 								OR = {
 									any_primary_culture = {
 										OR = {
@@ -190,15 +196,6 @@
 				}
 			}
 			add = 50
-		}
-		# no generic reformers in Ottoman Empire
-		owner = {
-			NOT = {
-				AND = {
-					exists = c:TUR
-					c:TUR = this
-				}
-			}
 		}
 	}
 }

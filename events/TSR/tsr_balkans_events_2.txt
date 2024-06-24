@@ -427,7 +427,7 @@ balkan_crisis_2.4 = {
 		if = {
 			limit = {
 				NOT = { has_global_variable = balkan_crisis_fail_var }
-				set_global_variable = balkan_crisis_fail_var
+				has_global_variable = balkan_crisis_fail_var
 			}
 		}
 		c:TUR ?= { save_scope_as = tur_scope }
@@ -874,7 +874,7 @@ balkan_crisis_2.5 = {
 		if = {
 			limit = {
 				NOT = { has_global_variable = balkan_crisis_fail_var }
-				set_global_variable = balkan_crisis_fail_var
+				has_global_variable = balkan_crisis_fail_var
 			}
 		}
 	}
@@ -1233,370 +1233,370 @@ balkan_crisis_2.5 = {
 }
 
 # Aftermath of the Balkan Coalition War
-balkan_crisis_2.6 = {
-	type = country_event
-	placement = root
-	title = balkan_crisis_2.6.t
-	desc = balkan_crisis_2.6.d
-	flavor =  balkan_crisis_2.6.f
-	
-	duration = 3
-	icon = "gfx/interface/icons/event_icons/event_military.dds"
-	
-	event_image = {
-		video = "middleeast_battlefield_trenches"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	immediate = {
-		c:TUR ?= { save_scope_as = tur_scope }
-	}
-
-	option = {
-		name = balkan_crisis_2.6.a
-		default_option = yes
-		trigger = { c:TUR ?= this }
-		
-		if = {
-			limit = { 
-				c:TUR ?= { has_variable = greek_massacre } 
-				NOR = { 
-					exists = c:MAC
-					c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
-				}
-			}
-			if = {
-				limit = { exists = c:GRE }
-				random_scope_state = {
-					limit = { state_region = s:STATE_WESTERN_THRACE }
-					set_state_owner = c:GRE
-				}
-			}
-			else_if = {
-				limit = { NOT = { exists = c:MAC } }
-				custom_tooltip = {
-					text = macedonia_created
-					create_country = {
-						tag = MAC
-						origin = ROOT
-						state = s:STATE_WESTERN_THRACE.region_state:TUR
-					}
-					if = {
-						limit = {
-							exists = c:MAC
-						}
-						c:MAC ?= {
-							add_modifier = {
-								name = radicals_bandaid
-								months = normal_modifier_time
-							}
-							every_scope_state = {
-								limit = { has_modifier = balkan_uprising }
-								remove_modifier = balkan_uprising
-							}
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = { 
-				c:TUR ?= { has_variable = serb_massacre } 
-				NOT = { exists = c:SER }
-			}
-			custom_tooltip = {
-				text = serbia_created
-				create_country = {
-					tag = SER
-					origin = ROOT
-					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
-						set_state_owner = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_MONTENEGRO }
-						set_state_owner = c:SER
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_BOSNIA }
-						set_state_owner = c:SER
-					}
-					c:SER ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = { 
-				c:TUR ?= { has_variable = croat_massacre } 
-				NOT = { exists = c:CRO }
-			}
-			custom_tooltip = {
-				text = croatia_created
-				create_country = {
-					tag = CRO
-					origin = ROOT
-					state = s:STATE_CROATIA.region_state:TUR
-				}
-				if = {
-					limit = {
-						exists = c:CRO
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_SLAVONIA }
-						set_state_owner = c:CRO
-					}
-					c:CRO ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = { 
-				c:TUR ?= { has_variable = bulgarian_massacre } 
-				NOT = { exists = c:BUL }
-			}
-			custom_tooltip = {
-				text = bulgaria_created
-				create_country = {
-					tag = BUL
-					origin = ROOT
-					state = scope:spawn_state
-				}
-				if = {
-					limit = {
-						exists = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_WEST_BULGARIA }
-						set_state_owner = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_DOBRUDJA }
-						set_state_owner = c:BUL
-					}
-					random_scope_state = {
-						limit = { state_region = s:STATE_NORTHERN_THRACE }
-						set_state_owner = c:BUL
-					}
-					c:BUL ?= {
-						add_modifier = {
-							name = radicals_bandaid
-							months = normal_modifier_time
-						}
-						every_scope_state = {
-							limit = { has_modifier = balkan_uprising }
-							remove_modifier = balkan_uprising
-						}
-					}
-				}
-			}
-		}
-		
-		every_diplomatic_play = {
-			limit = {
-				target_is = root
-			}
-			end_play = yes
-		}
-	}
-	
-	option = {
-		name = balkan_crisis_2.6.b
-		trigger = { c:TUR != this }
-		
-		show_as_tooltip = {
-			c:TUR ?= {
-				if = {
-					limit = { 
-						c:TUR ?= { has_variable = greek_massacre } 
-						NOR = { 
-							exists = c:MAC
-							c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
-						}
-					}
-					if = {
-						limit = { exists = c:GRE }
-						random_scope_state = {
-							limit = { state_region = s:STATE_WESTERN_THRACE }
-							set_state_owner = c:GRE
-						}
-					}
-					else = {
-						custom_tooltip = {
-							text = macedonia_created
-							create_country = {
-								tag = MAC
-								origin = ROOT
-								state = s:STATE_WESTERN_THRACE.region_state:TUR
-							}
-							if = {
-								limit = {
-									exists = c:MAC
-								}
-								c:MAC ?= {
-									add_modifier = {
-										name = radicals_bandaid
-										months = normal_modifier_time
-									}
-									every_scope_state = {
-										limit = { has_modifier = balkan_uprising }
-										remove_modifier = balkan_uprising
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { 
-						c:TUR ?= { has_variable = serb_massacre } 
-						NOT = { exists = c:SER }
-					}
-					custom_tooltip = {
-						text = serbia_created
-						create_country = {
-							tag = SER
-							origin = ROOT
-							state = s:STATE_NORTHERN_SERBIA.region_state:TUR
-						}
-						if = {
-							limit = {
-								exists = c:SER
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_SOUTHERN_SERBIA }
-								set_state_owner = c:SER
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_MONTENEGRO }
-								set_state_owner = c:SER
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_BOSNIA }
-								set_state_owner = c:SER
-							}
-							c:SER ?= {
-								add_modifier = {
-									name = radicals_bandaid
-									months = normal_modifier_time
-								}
-								every_scope_state = {
-									limit = { has_modifier = balkan_uprising }
-									remove_modifier = balkan_uprising
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { 
-						c:TUR ?= { has_variable = croat_massacre } 
-						NOT = { exists = c:CRO }
-					}
-					custom_tooltip = {
-						text = croatia_created
-						create_country = {
-							tag = CRO
-							origin = ROOT
-							state = s:STATE_CROATIA.region_state:TUR
-						}
-						if = {
-							limit = {
-								exists = c:CRO
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_SLAVONIA }
-								set_state_owner = c:CRO
-							}
-							c:CRO ?= {
-								add_modifier = {
-									name = radicals_bandaid
-									months = normal_modifier_time
-								}
-								every_scope_state = {
-									limit = { has_modifier = balkan_uprising }
-									remove_modifier = balkan_uprising
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { 
-						c:TUR ?= { has_variable = bulgarian_massacre } 
-						NOT = { exists = c:BUL }
-					}
-					custom_tooltip = {
-						text = bulgaria_created
-						create_country = {
-							tag = BUL
-							origin = ROOT
-							state = scope:spawn_state
-						}
-						if = {
-							limit = {
-								exists = c:BUL
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_WEST_BULGARIA }
-								set_state_owner = c:BUL
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_DOBRUDJA }
-								set_state_owner = c:BUL
-							}
-							random_scope_state = {
-								limit = { state_region = s:STATE_NORTHERN_THRACE }
-								set_state_owner = c:BUL
-							}
-							c:BUL ?= {
-								add_modifier = {
-									name = radicals_bandaid
-									months = normal_modifier_time
-								}
-								every_scope_state = {
-									limit = { has_modifier = balkan_uprising }
-									remove_modifier = balkan_uprising
-								}
-							}
-						}
-					}
-				}
-				
-				every_diplomatic_play = {
-					limit = {
-						target_is = root
-					}
-					end_play = yes
-				}
-			}
-		}
-	}
-}
+#balkan_crisis_2.6 = {
+#	type = country_event
+#	placement = root
+#	title = balkan_crisis_2.6.t
+#	desc = balkan_crisis_2.6.d
+#	flavor =  balkan_crisis_2.6.f
+#	
+#	duration = 3
+#	icon = "gfx/interface/icons/event_icons/event_military.dds"
+#	
+#	event_image = {
+#		video = "middleeast_battlefield_trenches"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	
+#	immediate = {
+#		c:TUR ?= { save_scope_as = tur_scope }
+#	}
+#
+#	option = {
+#		name = balkan_crisis_2.6.a
+#		default_option = yes
+#		trigger = { c:TUR ?= this }
+#		
+#		if = {
+#			limit = { 
+#				c:TUR ?= { has_variable = greek_massacre } 
+#				NOR = { 
+#					exists = c:MAC
+#					c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
+#				}
+#			}
+#			if = {
+#				limit = { exists = c:GRE }
+#				random_scope_state = {
+#					limit = { state_region = s:STATE_WESTERN_THRACE }
+#					set_state_owner = c:GRE
+#				}
+#			}
+#			else_if = {
+#				limit = { NOT = { exists = c:MAC } }
+#				custom_tooltip = {
+#					text = macedonia_created
+#					create_country = {
+#						tag = MAC
+#						origin = ROOT
+#						state = s:STATE_WESTERN_THRACE.region_state:TUR
+#					}
+#					if = {
+#						limit = {
+#							exists = c:MAC
+#						}
+#						c:MAC ?= {
+#							add_modifier = {
+#								name = radicals_bandaid
+#								months = normal_modifier_time
+#							}
+#							every_scope_state = {
+#								limit = { has_modifier = balkan_uprising }
+#								remove_modifier = balkan_uprising
+#							}
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = { 
+#				c:TUR ?= { has_variable = serb_massacre } 
+#				NOT = { exists = c:SER }
+#			}
+#			custom_tooltip = {
+#				text = serbia_created
+#				create_country = {
+#					tag = SER
+#					origin = ROOT
+#					state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+#						set_state_owner = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_MONTENEGRO }
+#						set_state_owner = c:SER
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_BOSNIA }
+#						set_state_owner = c:SER
+#					}
+#					c:SER ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = { 
+#				c:TUR ?= { has_variable = croat_massacre } 
+#				NOT = { exists = c:CRO }
+#			}
+#			custom_tooltip = {
+#				text = croatia_created
+#				create_country = {
+#					tag = CRO
+#					origin = ROOT
+#					state = s:STATE_CROATIA.region_state:TUR
+#				}
+#				if = {
+#					limit = {
+#						exists = c:CRO
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_SLAVONIA }
+#						set_state_owner = c:CRO
+#					}
+#					c:CRO ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		if = {
+#			limit = { 
+#				c:TUR ?= { has_variable = bulgarian_massacre } 
+#				NOT = { exists = c:BUL }
+#			}
+#			custom_tooltip = {
+#				text = bulgaria_created
+#				create_country = {
+#					tag = BUL
+#					origin = ROOT
+#					state = scope:spawn_state
+#				}
+#				if = {
+#					limit = {
+#						exists = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_WEST_BULGARIA }
+#						set_state_owner = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_DOBRUDJA }
+#						set_state_owner = c:BUL
+#					}
+#					random_scope_state = {
+#						limit = { state_region = s:STATE_NORTHERN_THRACE }
+#						set_state_owner = c:BUL
+#					}
+#					c:BUL ?= {
+#						add_modifier = {
+#							name = radicals_bandaid
+#							months = normal_modifier_time
+#						}
+#						every_scope_state = {
+#							limit = { has_modifier = balkan_uprising }
+#							remove_modifier = balkan_uprising
+#						}
+#					}
+#				}
+#			}
+#		}
+#		
+#		every_diplomatic_play = {
+#			limit = {
+#				target_is = root
+#			}
+#			end_play = yes
+#		}
+#	}
+#	
+#	option = {
+#		name = balkan_crisis_2.6.b
+#		trigger = { c:TUR != this }
+#		
+#		show_as_tooltip = {
+#			c:TUR ?= {
+#				if = {
+#					limit = { 
+#						c:TUR ?= { has_variable = greek_massacre } 
+#						NOR = { 
+#							exists = c:MAC
+#							c:GRE ?= { owns_entire_state_region = STATE_WESTERN_THRACE }
+#						}
+#					}
+#					if = {
+#						limit = { exists = c:GRE }
+#						random_scope_state = {
+#							limit = { state_region = s:STATE_WESTERN_THRACE }
+#							set_state_owner = c:GRE
+#						}
+#					}
+#					else = {
+#						custom_tooltip = {
+#							text = macedonia_created
+#							create_country = {
+#								tag = MAC
+#								origin = ROOT
+#								state = s:STATE_WESTERN_THRACE.region_state:TUR
+#							}
+#							if = {
+#								limit = {
+#									exists = c:MAC
+#								}
+#								c:MAC ?= {
+#									add_modifier = {
+#										name = radicals_bandaid
+#										months = normal_modifier_time
+#									}
+#									every_scope_state = {
+#										limit = { has_modifier = balkan_uprising }
+#										remove_modifier = balkan_uprising
+#									}
+#								}
+#							}
+#						}
+#					}
+#				}
+#				if = {
+#					limit = { 
+#						c:TUR ?= { has_variable = serb_massacre } 
+#						NOT = { exists = c:SER }
+#					}
+#					custom_tooltip = {
+#						text = serbia_created
+#						create_country = {
+#							tag = SER
+#							origin = ROOT
+#							state = s:STATE_NORTHERN_SERBIA.region_state:TUR
+#						}
+#						if = {
+#							limit = {
+#								exists = c:SER
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_SOUTHERN_SERBIA }
+#								set_state_owner = c:SER
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_MONTENEGRO }
+#								set_state_owner = c:SER
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_BOSNIA }
+#								set_state_owner = c:SER
+#							}
+#							c:SER ?= {
+#								add_modifier = {
+#									name = radicals_bandaid
+#									months = normal_modifier_time
+#								}
+#								every_scope_state = {
+#									limit = { has_modifier = balkan_uprising }
+#									remove_modifier = balkan_uprising
+#								}
+#							}
+#						}
+#					}
+#				}
+#				if = {
+#					limit = { 
+#						c:TUR ?= { has_variable = croat_massacre } 
+#						NOT = { exists = c:CRO }
+#					}
+#					custom_tooltip = {
+#						text = croatia_created
+#						create_country = {
+#							tag = CRO
+#							origin = ROOT
+#							state = s:STATE_CROATIA.region_state:TUR
+#						}
+#						if = {
+#							limit = {
+#								exists = c:CRO
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_SLAVONIA }
+#								set_state_owner = c:CRO
+#							}
+#							c:CRO ?= {
+#								add_modifier = {
+#									name = radicals_bandaid
+#									months = normal_modifier_time
+#								}
+#								every_scope_state = {
+#									limit = { has_modifier = balkan_uprising }
+#									remove_modifier = balkan_uprising
+#								}
+#							}
+#						}
+#					}
+#				}
+#				if = {
+#					limit = { 
+#						c:TUR ?= { has_variable = bulgarian_massacre } 
+#						NOT = { exists = c:BUL }
+#					}
+#					custom_tooltip = {
+#						text = bulgaria_created
+#						create_country = {
+#							tag = BUL
+#							origin = ROOT
+#							state = scope:spawn_state
+#						}
+#						if = {
+#							limit = {
+#								exists = c:BUL
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_WEST_BULGARIA }
+#								set_state_owner = c:BUL
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_DOBRUDJA }
+#								set_state_owner = c:BUL
+#							}
+#							random_scope_state = {
+#								limit = { state_region = s:STATE_NORTHERN_THRACE }
+#								set_state_owner = c:BUL
+#							}
+#							c:BUL ?= {
+#								add_modifier = {
+#									name = radicals_bandaid
+#									months = normal_modifier_time
+#								}
+#								every_scope_state = {
+#									limit = { has_modifier = balkan_uprising }
+#									remove_modifier = balkan_uprising
+#								}
+#							}
+#						}
+#					}
+#				}
+#				
+#				every_diplomatic_play = {
+#					limit = {
+#						target_is = root
+#					}
+#					end_play = yes
+#				}
+#			}
+#		}
+#	}
+#}
 
 # Convention of Cyprus (France)
 balkan_crisis_2.7 = {
@@ -1664,7 +1664,7 @@ balkan_crisis_2.7 = {
 				}
 				set_secret_goal = {
 					country = c:TUR
-					secret_goal = conciliatory
+					secret_goal = reconcile
 				}
 			}
 		}
@@ -1783,7 +1783,7 @@ balkan_crisis_2.8 = {
 				
 				set_secret_goal = {
 					country = c:TUR
-					secret_goal = conciliatory
+					secret_goal = reconcile
 				}
 			}
 		}
@@ -1900,7 +1900,7 @@ balkan_crisis_2.9 = {
 				
 				set_secret_goal = {
 					country = c:TUR
-					secret_goal = conciliatory
+					secret_goal = reconcile
 				}
 			}
 		}
@@ -1985,7 +1985,7 @@ balkan_crisis_2.10 = {
 			hidden_effect = {
 				set_secret_goal = {
 					country = c:TUR
-					secret_goal = conciliatory
+					secret_goal = reconcile
 				}
 			}
 		}

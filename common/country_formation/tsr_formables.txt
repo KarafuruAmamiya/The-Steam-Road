@@ -218,12 +218,12 @@ UKR = {
 		STATE_YEDISAN
 		STATE_TAURIDA
 	}
-	required_num_states = 5
+	required_states_fraction = 0.45
 
 	ai_will_do = { always = yes }
 	
 	possible = {
-		if = {
+		trigger_if = {
 			limit = {
 				country_has_primary_culture = cu:cossack
 			}
@@ -248,7 +248,7 @@ BYE = {
 		STATE_GRODNO
 		STATE_SMOLENSK
 	}
-	required_num_states = 3
+	required_states_fraction = 0.5
 
 	ai_will_do = { always = yes }
 	

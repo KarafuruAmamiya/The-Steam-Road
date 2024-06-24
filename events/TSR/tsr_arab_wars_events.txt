@@ -262,171 +262,171 @@ arab_wars.2 = {
 }
 
 # First Arab Congress
-arab_wars.3 = {
-	type = country_event
-	placement = root
-	title = arab_wars.3.t
-	desc = arab_wars.3.d
-	flavor = arab_wars.3.f
-
-	duration = 3
-
-	event_image = {
-		video = "africa_leader_arguing"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-
-	trigger = {
-		#Triggered by Akkovin JE
-	}
-
-	immediate = {
-	}
-
-	option = {
-		name = arab_wars.3.a
-		default_option = yes
-		if = {
-			limit = {
-				c:SYR ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:SYR
-				value = -100 
-			}
-			c:SYR = {
-				change_subject_type = subject_type_dependency
-			}
-		}
-		if = {
-			limit = {
-				c:HDJ ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:HDJ
-				value = -100 
-			}
-			c:HDJ = {
-				change_subject_type = subject_type_dependency
-			}
-		}
-		if = {
-			limit = {
-				c:NEJ ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:NEJ
-				value = -100 
-			}
-			c:NEJ = {
-				change_subject_type = subject_type_dependency
-			}
-		}
-		if = {
-			limit = {
-				c:JAB ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:JAB
-				value = -100 
-			}
-			c:JAB = {
-				change_subject_type = subject_type_dependency
-			}
-		}
-		set_variable = centralization_stance
-		
-		ai_chance = {
-			base = 25
-			modifier = {
-				trigger = {
-					any_country = {
-						has_variable = al_bustani_nationalism
-					}
-				}
-				add = 25
-			}
-			modifier = {
-				trigger = {
-					any_country = {
-						has_variable = al_shidyaq_nationalism
-					}
-				}
-				add = 25
-			}
-			modifier = {
-				trigger = {
-					any_country = {
-						has_variable = muhammad_abduh_nationalism
-					}
-				}
-				add = 25
-			}
-		}
-		
-		custom_tooltip = arab_rebels.tt
-	}
-	
-	option = {
-		name = arab_wars.3.b
-		if = {
-			limit = {
-				c:SYR ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:SYR
-				value = 50 
-			}
-			c:SYR = {
-				change_subject_type = subject_type_dominion
-			}
-		}
-		if = {
-			limit = {
-				c:HDJ ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:HDJ
-				value = 50 
-			}
-			c:HDJ = {
-				change_subject_type = subject_type_dominion
-			}
-		}
-		if = {
-			limit = {
-				c:NEJ ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:NEJ
-				value = 50 
-			}
-			c:NEJ = {
-				change_subject_type = subject_type_dominion
-			}
-		}
-		if = {
-			limit = {
-				c:JAB ?= { is_subject_of = ROOT }
-			}
-			change_relations = {
-				country = c:JAB
-				value = 50 
-			}
-			c:JAB = {
-				change_subject_type = subject_type_dominion
-			}
-		}
-		set_variable = autonomous_stance
-		
-		ai_chance = {
-			base = 25
-		}
-	}
-}
+#arab_wars.3 = {
+#	type = country_event
+#	placement = root
+#	title = arab_wars.3.t
+#	desc = arab_wars.3.d
+#	flavor = arab_wars.3.f
+#
+#	duration = 3
+#
+#	event_image = {
+#		video = "africa_leader_arguing"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#
+#	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+#
+#	trigger = {
+#		#Triggered by Akkovin JE
+#	}
+#
+#	immediate = {
+#	}
+#
+#	option = {
+#		name = arab_wars.3.a
+#		default_option = yes
+#		if = {
+#			limit = {
+#				c:SYR ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:SYR
+#				value = -100 
+#			}
+#			c:SYR = {
+#				change_subject_type = subject_type_dependency
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:HDJ ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:HDJ
+#				value = -100 
+#			}
+#			c:HDJ = {
+#				change_subject_type = subject_type_dependency
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:NEJ ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:NEJ
+#				value = -100 
+#			}
+#			c:NEJ = {
+#				change_subject_type = subject_type_dependency
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:JAB ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:JAB
+#				value = -100 
+#			}
+#			c:JAB = {
+#				change_subject_type = subject_type_dependency
+#			}
+#		}
+#		set_variable = centralization_stance
+#		
+#		ai_chance = {
+#			base = 25
+#			modifier = {
+#				trigger = {
+#					any_country = {
+#						has_variable = al_bustani_nationalism
+#					}
+#				}
+#				add = 25
+#			}
+#			modifier = {
+#				trigger = {
+#					any_country = {
+#						has_variable = al_shidyaq_nationalism
+#					}
+#				}
+#				add = 25
+#			}
+#			modifier = {
+#				trigger = {
+#					any_country = {
+#						has_variable = muhammad_abduh_nationalism
+#					}
+#				}
+#				add = 25
+#			}
+#		}
+#		
+#		custom_tooltip = arab_rebels.tt
+#	}
+#	
+#	option = {
+#		name = arab_wars.3.b
+#		if = {
+#			limit = {
+#				c:SYR ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:SYR
+#				value = 50 
+#			}
+#			c:SYR = {
+#				change_subject_type = subject_type_dominion
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:HDJ ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:HDJ
+#				value = 50 
+#			}
+#			c:HDJ = {
+#				change_subject_type = subject_type_dominion
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:NEJ ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:NEJ
+#				value = 50 
+#			}
+#			c:NEJ = {
+#				change_subject_type = subject_type_dominion
+#			}
+#		}
+#		if = {
+#			limit = {
+#				c:JAB ?= { is_subject_of = ROOT }
+#			}
+#			change_relations = {
+#				country = c:JAB
+#				value = 50 
+#			}
+#			c:JAB = {
+#				change_subject_type = subject_type_dominion
+#			}
+#		}
+#		set_variable = autonomous_stance
+#		
+#		ai_chance = {
+#			base = 25
+#		}
+#	}
+#}
 
 # Ask support from Great Power with interest in Arabia
 arab_wars.4 = {

@@ -560,6 +560,10 @@
 			value = 1.0
 			if = {
 				limit = {
+					OR = {
+						is_pop_type = academics
+						is_pop_type = bureaucrats
+					}
 					owner = {
 						ig:ig_intelligentsia = {
 							has_ideology = ideology:ideology_revolutionary_republican

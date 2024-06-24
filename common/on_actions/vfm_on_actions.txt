@@ -262,14 +262,14 @@ vfm_prime_ministers = {
 				}
 				set_variable = prime_minister_trigger
 				save_scope_as = new_prime_minister
-				every_scope_character = {
-					limit = {
-						has_variable = prime_minister_trigger
-						NOT = { THIS = scope:new_prime_minister }
-					}
-					remove_variable = prime_minister_trigger
-				}
 				owner = {
+					every_scope_character = {
+						limit = {
+							has_variable = prime_minister_trigger
+							NOT = { THIS = scope:new_prime_minister }
+						}
+						remove_variable = prime_minister_trigger
+					}
 					set_variable = {
 						name = prime_minister
 						value = PREV

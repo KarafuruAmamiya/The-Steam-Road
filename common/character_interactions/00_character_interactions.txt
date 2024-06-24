@@ -1135,13 +1135,15 @@ foster_national_agitation = {
 		this.interest_group = {
 			is_in_government = yes
 		}
-		any_rival_country = {
-			any_scope_state = {
-				state_region = {
-					is_homeland = root.culture
-				}
-				NOT = {
-					is_homeland_of_country_cultures = prev
+		owner = {
+			any_rival_country = {
+				any_scope_state = {
+					state_region = {
+						is_homeland = root.culture
+					}
+					NOT = {
+						is_homeland_of_country_cultures = prev
+					}
 				}
 			}
 		}
@@ -1154,25 +1156,27 @@ foster_national_agitation = {
 		root.owner = {
 			save_scope_as = agitation_sponsor
 		}
-		random_rival_country = {
-			random_scope_state = {
-				limit = {
-					state_region = {
-						is_homeland = root.culture
+		owner = {
+			random_rival_country = {
+				random_scope_state = {
+					limit = {
+						state_region = {
+							is_homeland = root.culture
+						}
+						NOT = {
+							is_homeland_of_country_cultures = prev
+						}
 					}
-					NOT = {
-						is_homeland_of_country_cultures = prev
+					save_scope_as = agitation_state
+					add_radicals_in_state = {
+						culture = root.culture
+						value = large_radicals
 					}
-				}
-				save_scope_as = agitation_state
-				add_radicals_in_state = {
-					culture = root.culture
-					value = large_radicals
-				}
-				owner = {
-					post_notification = nationalism_national_agitation_occurred
-					change_relations = {
-						country = root value = -10
+					owner = {
+						post_notification = nationalism_national_agitation_occurred
+						change_relations = {
+							country = root value = -10
+						}
 					}
 				}
 			}

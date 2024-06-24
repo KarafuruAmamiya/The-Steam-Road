@@ -466,6 +466,10 @@ je_union_of_augustow_lit = {
 		c:LIT ?= {
 			save_scope_as = lit_scope
 		}
+		set_global_variable = {
+			name = plc_union_progress_var
+			value = 0
+		}
 	}
 	
 	on_complete = {

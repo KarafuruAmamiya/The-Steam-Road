@@ -696,7 +696,7 @@ types objective_types
 
 						default_header_clean = {
 							blockoverride "text" {
-								text = "SANDBOX"
+								text = ""
 							}
 							blockoverride "header_mask" {
 								using = frame_small_mask_top
@@ -723,10 +723,10 @@ types objective_types
 										blend_mode = alphamultiply
 									}
 								}
-
+								
 								textbox = {
 									text = "START_GAME"
-									margin_top = -5
+									margin_top = -4
 									align = hcenter|top
 									minimumsize = { 180 -1 }
 									maximumsize = { 180 -1 }
@@ -745,7 +745,7 @@ types objective_types
 									fontsize_min = 10
 									autoresize = yes
 									multiline = yes
-									using = fontsize_small
+									using = fontsize_medium
 								}
 								
 								

@@ -60,7 +60,7 @@ revolution_pulse_events.1 = {
 				OR = {
 					law_stance = {
 						law = law_type:law_national_supremacy
-						value > neutral
+						value >= neutral
 					}
 					leader = {
 						has_ideology = ideology:ideology_ethno_nationalist
@@ -1077,8 +1077,7 @@ revolution_pulse_events.8 = {
 		default_option = yes
 		add_modifier = {
 			name = modifier_bank_robbery_payments
-			multiplier = money_amount_multiplier_very_small
-			months = 24
+			months = short_modifier_time
 		}
 	}
 
@@ -1090,7 +1089,6 @@ revolution_pulse_events.8 = {
 		add_modifier = {
 			name = modifier_bank_robbery_payments
 			months = 13
-			multiplier = money_amount_multiplier_very_small
 		}
 	}
 
@@ -3631,7 +3629,10 @@ revolution_pulse_events.26 = {
 	}
 	event_image = {
 		trigger = {
+			OR = {
 			religion = rel:shinto
+				religion = rel:confucian
+			}
 		}
 		video = "asia_confucianism_shinto"
 	}
@@ -3953,7 +3954,10 @@ revolution_pulse_events.29 = {
 	}
 	event_image = {
 		trigger = {
+			OR = {
 			religion = rel:shinto
+				religion = rel:confucian
+			}
 		}
 		video = "asia_confucianism_shinto"
 	}

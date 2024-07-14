@@ -11,13 +11,11 @@
 		}
 	}
 
+	scripted_progress_bar = communism_1_progress_bar
+
 	possible = {
 		any_interest_group = {
-			AND = {
-				OR = {
-					is_powerful = yes
-					is_insurrectionary = yes
-				}
+			is_marginal = no
 				OR = {
 					law_stance = {
 						law = law_type:law_council_republic
@@ -37,17 +35,10 @@
 				}
 			}
 		}
-	}
 
 	immediate = {
 		root = {
 			save_scope_as = root_country
-		}
-		hidden_effect = {
-			set_variable = {
-				name = communism_je_1_var
-				value = 0
-			}
 		}
 		set_communism_vars = yes
 		trigger_event = { id = communism.10 days = 1 popup = yes }
@@ -66,18 +57,14 @@
 		}
 		effect = {
 			calculate_communism_progress = yes
-			add_communism_progress = yes
 		}
 	}
 
 	fail = {
-		trigger_if = {
-			limit = {
-				has_variable = communism_je_1_var
-			}
 			custom_tooltip = {
-				text = communism_variable_at_full_tt
-				root.var:communism_je_1_var >= 100
+			text = communism_progress_bar_at_full_tt
+			scope:journal_entry = {
+				"scripted_bar_progress(communism_1_progress_bar)" >= 100
 			}
 		}
 	}
@@ -94,16 +81,6 @@
 		trigger_event = { id = communism.11 popup = yes }
 		custom_tooltip = communism_je_1_complete_tt
 	}
-
-	current_value = {
-		value = root.var:communism_je_1_var
-	}
-
-	goal_add_value = {
-		add = 100
-	}
-
-	progressbar = yes
 
 	should_be_pinned_by_default = yes
 }

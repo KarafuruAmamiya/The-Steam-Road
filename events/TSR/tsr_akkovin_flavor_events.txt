@@ -611,50 +611,50 @@ treaty_of_baglar_events.2 = { # Persia demands you to embargo their rivals
 	}
 }
 
-treaty_of_baglar_events.3 = { # Persia demands you to enter their market
-	type = country_event
-	title = treaty_of_baglar_events.3.t
-	desc = treaty_of_baglar_events.3.d
-	flavor =  treaty_of_baglar_events.3.f
-	duration = 3
-	event_image = {
-		video = "africa_leader_arguing"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
-	
-	immediate = {
-		c:PER = { save_scope_as = per_scope }
-	}
-	
-	trigger = {
-		c:AKN ?= this
-		NOT = { is_subject_type = subject_type_customs_union }
-		has_modifier = treaty_of_baglar_2
-		OR = {
-			country_rank < rank_value:major_power
-			is_country_type = unrecognized
-		}
-		c:PER ?= {
-			NOT = { has_variable = no_bullying_akkovins }
-			has_diplomatic_pact = {
-				who = c:AKN
-				type = treaty_of_baglar_pact
-			}
-		}
-	}
-
-	option = { #
-		name = treaty_of_baglar_events.3.a
-		c:PER = {
-			create_diplomatic_pact = {
-				country = c:AKN
-				type = customs_union
-			}
-		}
-	}
-}
+#treaty_of_baglar_events.3 = { # Persia demands investment rights
+#	type = country_event
+#	title = treaty_of_baglar_events.3.t
+#	desc = treaty_of_baglar_events.3.d
+#	flavor =  treaty_of_baglar_events.3.f
+#	duration = 3
+#	event_image = {
+#		video = "africa_leader_arguing"
+#	}
+#
+#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+#	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+#	
+#	immediate = {
+#		c:PER = { save_scope_as = per_scope }
+#	}
+#	
+#	trigger = {
+#		c:AKN ?= this
+#		is_in_customs_union = no
+#		has_modifier = treaty_of_baglar_2
+#		OR = {
+#			country_rank < rank_value:major_power
+#			is_country_type = unrecognized
+#		}
+#		c:PER ?= {
+#			NOT = { has_variable = no_bullying_akkovins }
+#			has_diplomatic_pact = {
+#				who = c:AKN
+#				type = treaty_of_baglar_pact
+#			}
+#		}
+#	}
+#
+#	option = { #
+#		name = treaty_of_baglar_events.3.a
+#		c:PER = {
+#			create_diplomatic_pact = {
+#				country = c:AKN
+#				type = foreign_investment_rights
+#			}
+#		}
+#	}
+#}
 
 treaty_of_baglar_events.4 = { # Veiled Puppet
 	type = country_event

@@ -1,0 +1,161 @@
+﻿ ### For je_communism_1
+
+ communism_1_progress_bar = {
+	name = "communism_1_progress_bar"
+	desc = "communism_1_progress_bar_desc"
+
+	default_bad = yes
+
+	monthly_progress = {
+		if = {
+			limit = {
+				owner = {
+					any_scope_state = {
+						is_incorporated = yes
+						turmoil >= 0.10
+					}
+				}
+			}
+			add = {
+				desc = "communism_progress_from_radicals_tt"
+				owner = {
+					every_scope_state = {
+						limit = {
+							is_incorporated = yes
+							turmoil >= 0.10
+						}
+						add = this.turmoil
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					any_scope_state = {
+						is_incorporated = yes
+						loyalty >= 0.10
+					}
+				}
+			}
+			subtract = {
+				desc = "communism_progress_from_loyalists_tt"
+				owner = {
+					every_scope_state = {
+						limit = {
+							is_incorporated = yes
+							loyalty >= 0.10
+						}
+						add = this.loyalty
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = owner.var:communism_progress_from_poverty
+				owner.var:communism_progress_from_poverty > 0
+			}
+			add = {
+				desc = "communism_progress_from_poverty_tt"
+				value = owner.var:communism_progress_from_poverty
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					any_scope_character = {
+						OR = {
+							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_vanguardist
+							has_ideology = ideology:ideology_anarchist
+						}
+					}
+				}
+			}
+			add = {
+				desc = "communism_progress_from_characters_tt"
+				owner = {
+					every_scope_character = {
+						limit = {
+							OR = {
+								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_vanguardist
+								has_ideology = ideology:ideology_anarchist
+							}
+						}
+						add = this.popularity
+						divide = 100
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					any_interest_group = {
+						OR = {
+							law_stance = {
+								law = law_type:law_council_republic
+								value = approve
+							}
+							law_stance = {
+								law = law_type:law_council_republic
+								value = strongly_approve
+							}
+						}
+					}
+				}
+			}
+			add = {
+				desc = "communism_progress_from_interest_groups_tt"
+				owner = {
+					every_interest_group = {
+						limit = {
+							OR = { # There is a very good reason for this, and that's because of the 'count' value causing problems with a greater-than.
+								law_stance = {
+									law = law_type:law_council_republic
+									value = approve
+								}
+								law_stance = {
+									law = law_type:law_council_republic
+									value = strongly_approve
+								}
+							}
+						}
+						add = this.ig_clout
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = owner.var:communism_progress_from_laws
+				NOT = {  
+					owner.var:communism_progress_from_laws = 0
+				}
+			}
+			add = {
+				desc = "communism_progress_from_laws_tt"
+				value = owner.var:communism_progress_from_laws
+			}
+		}
+		if = {
+			limit = {
+				exists = owner.var:communism_progress_var_add
+				NOT = {  
+					owner.var:communism_progress_var_add = 0
+				}
+			}
+			add = {
+				desc = "communism_progress_from_events_tt"
+				value = owner.var:communism_progress_var_add
+			}
+		}
+	}
+
+	start_value = 10
+	min_value = 0
+	max_value = 100
+
+ }

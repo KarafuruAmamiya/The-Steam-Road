@@ -208,7 +208,8 @@ GLOBAL = {
 	# Revolution Safety Check
 	every_country = {
 		limit = {
-			total_population <= 100000
+			total_population <= 300000
+			is_player = no
 		}
 		set_variable = revolution_safety_check_var
 		set_immune_to_revolutions = yes
@@ -412,11 +413,11 @@ GLOBAL = {
 	}
 	
 	every_country = {
-		limit = { 
+		limit = {
 			is_subject_type = subject_type_hre
 		}
 		add_to_global_variable_list = {
-			name = hre_subject
+			name = hre_member
 			target = THIS
 		}
 	}

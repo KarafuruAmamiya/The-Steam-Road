@@ -450,10 +450,11 @@ STATE_INNER_MOROCCO = {
     arable_land = 40
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_sugar_plantations" }
     capped_resources = {
-        bg_iron_mining = 28
-        bg_lead_mining = 12
-        bg_logging = 2
-        bg_fishing = 9
+        bg_iron_mining = 30
+        bg_lead_mining = 30
+        bg_fishing = 4
+        bg_gold_mining = 3
+        bg_coal_mining = 6
     }
     naval_exit_id = 3089
 }
@@ -522,8 +523,15 @@ STATE_CONSTANTINE = {
     arable_land = 62
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
     capped_resources = {
-        bg_sulfur_mining = 20
-        bg_fishing = 8
+        bg_iron_mining = 55
+        bg_lead_mining = 19
+        bg_sulfur_mining = 18
+        bg_logging = 6
+        bg_fishing = 4
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 5
     }
     naval_exit_id = 3032
 }
@@ -548,8 +556,9 @@ STATE_TLEMCEN = {
     arable_land = 53
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" "bg_vineyard_plantations" }
     capped_resources = {
-        bg_iron_mining = 15
-        bg_fishing = 3
+        bg_iron_mining = 12
+        bg_fishing = 5
+        bg_logging = 3
     }
     naval_exit_id = 3032
 }

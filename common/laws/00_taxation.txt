@@ -87,11 +87,7 @@ law_consumption_based_taxation = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -188,11 +184,7 @@ law_land_based_taxation = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -299,13 +291,17 @@ law_per_capita_based_taxation = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_akkovin_reform_bureaucracy
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 5000
+		}			
 	}
 }
 
@@ -431,13 +427,17 @@ law_proportional_taxation = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_akkovin_reform_bureaucracy
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 5000
+		}		
 	}
 }
 
@@ -562,11 +562,7 @@ law_graduated_taxation = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}

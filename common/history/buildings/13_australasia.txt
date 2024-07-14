@@ -3,31 +3,68 @@
 		region_state:TIE={
 			create_building={
 				building="building_wheat_farm"
-				level=1
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:TIE"
+						levels=1
+						region="STATE_NEW_SOUTH_WALES"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" }
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" }
 			}
 			create_building={
 				building="building_livestock_ranch"
-				level=2
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:TIE"
+						levels=2
+						region="STATE_NEW_SOUTH_WALES"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_privately_owned" "pm_standard_fences" "pm_unrefrigerated" "pm_butchering_tools" }
+				activate_production_methods={ "pm_simple_ranch"  "pm_standard_fences" "pm_unrefrigerated" "pm_butchering_tools" }
 			}
 			create_building={
 				building="building_cotton_plantation"
-				level=2
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:TIE"
+						levels=1
+						region="STATE_NEW_SOUTH_WALES"
+					}
+					building={
+						type="building_manor_house"
+						country="c:IBE"
+						levels=1
+						region="STATE_CASTILLA_LA_NUEVA"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts" "pm_privately_owned_plantation" }
+				activate_production_methods={ "default_building_cotton_plantation" "pm_road_carts"  }
 			}
 			create_building={
 				building="building_barracks"
-				level=2
+				add_ownership={
+					country={
+						country="c:TIE"
+						levels=2
+					}
+				}
 				reserves=1
 				activate_production_methods={ "pm_no_organization" }
 			}
 			create_building={
 				building="building_port"
-				level=1
+				add_ownership={
+					country={
+						country="c:TIE"
+						levels=1
+					}
+				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
 			}
@@ -47,9 +84,16 @@
 		region_state:TIE={
 			create_building={
 				building="building_livestock_ranch"
-				level=1
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:TIE"
+						levels=1
+						region="STATE_QUEENSLAND"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "pm_simple_ranch" "pm_butchering_tools" "pm_standard_fences" "pm_unrefrigerated" "pm_privately_owned" }
+				activate_production_methods={ "pm_simple_ranch" "pm_butchering_tools" "pm_standard_fences" "pm_unrefrigerated"  }
 			}
 		}
 	}
@@ -63,15 +107,29 @@
 		region_state:KAU={
 			create_building={
 				building="building_wheat_farm"
-				level=1
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:KAU"
+						levels=1
+						region="STATE_SOUTH_AUSTRALIA"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "pm_simple_farming" "pm_privately_owned" "pm_tools_disabled" "pm_no_secondary" }
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" "pm_no_secondary" }
 			}
 			create_building={
 				building="building_fishing_wharf"
-				level=1
+				add_ownership={
+					building={
+						type="building_fishing_wharf"
+						country="c:KAU"
+						levels=1
+						region="STATE_SOUTH_AUSTRALIA"
+					}
+				}
 				reserves=1
-				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated" "pm_merchant_guilds_building_fishing_wharf" }
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated"  }
 			}
 		}
 	}
@@ -79,7 +137,12 @@
 		region_state:TIE={
 			create_building={
 				building="building_port"
-				level=1
+				add_ownership={
+					country={
+						country="c:TIE"
+						levels=1
+					}
+				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}	
@@ -95,7 +158,12 @@
 		region_state:TIE={
 			create_building={
 				building="building_port"
-				level=1
+				add_ownership={
+					country={
+						country="c:TIE"
+						levels=1
+					}
+				}
 				reserves=1
 				activate_production_methods={ "pm_anchorage" }
 			}
@@ -110,103 +178,3 @@
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

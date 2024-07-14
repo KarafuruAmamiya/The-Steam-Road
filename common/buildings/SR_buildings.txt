@@ -1,38 +1,4 @@
-﻿building_white_house = {
-	building_group = bg_monuments
-	texture = "gfx/interface/icons/building_icons/white_house.dds"
-	expandable = no
-	buildable = no
-	downsizeable = no
-	unique = yes
-	locator = "white_house_locator"
-	
-	entity_not_constructed = { }
-	entity_under_construction = { "building_construction_3x3_entity" }
-	entity_constructed = { "wonder_white_house_01_entity"}
-	
-	city_gfx_interactions = {
-		clear_size_area = yes
-		size = 4
-	}
-	
-	production_method_groups = {
-		pmg_base_building_white_house
-	}
-	
-	possible = {
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_MARYLAND
-			}
-		}
-	}
-	
-	required_construction = construction_cost_monument
-}
-
-building_argebam = {
+﻿building_argebam = {
 	building_group = bg_monuments
 	texture = "gfx/interface/icons/building_icons/argebam.dds"
 	expandable = no
@@ -54,12 +20,7 @@ building_argebam = {
 	}
 	
 	possible = {
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_KERMAN
-			}
-		}
+		state_region = s:STATE_KERMAN
 	}
 	
 	required_construction = construction_cost_monument
@@ -89,13 +50,7 @@ building_persepolis = {
 	}
 	
 	possible = {
-		owner = { has_variable = persepolis_excavation }
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_FARS
-			}
-		}
+		state_region = s:STATE_FARS
 	}
 	
 	required_construction = construction_cost_canal
@@ -125,13 +80,7 @@ building_susa = {
 	}
 	
 	possible = {
-		owner = { has_variable = susa_excavation }
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_KHUZESTAN
-			}
-		}
+		state_region = s:STATE_KHUZESTAN
 	}
 	
 	required_construction = construction_cost_canal
@@ -161,12 +110,7 @@ building_gonbad_e_qabus = {
 	}
 	
 	possible = {
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_MAZANDARAN
-			}
-		}
+		state_region = s:STATE_MAZANDARAN
 	}
 	
 	required_construction = construction_cost_monument
@@ -196,13 +140,7 @@ building_yazd_atash_beram = {
 	}
 	
 	possible = {
-		owner = { has_variable = granted_zoroastrian_rights }
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_YAZD
-			}
-		}
+		state_region = s:STATE_YAZD
 	}
 	
 	required_construction = construction_cost_monument
@@ -232,13 +170,7 @@ building_ctesiphon = {
 	}
 	
 	possible = {
-		owner = { has_variable = ctesiphon_excavation }
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_BAGHDAD
-			}
-		}
+		state_region = s:STATE_BAGHDAD
 	}
 	
 	required_construction = construction_cost_canal
@@ -268,12 +200,7 @@ building_soltaniyeh = {
 	}
 	
 	possible = {
-		error_check = {
-			severity = invalid
-			this = {
-				state_region = s:STATE_GILAN
-			}
-		}
+		state_region = s:STATE_GILAN
 	}
 	
 	required_construction = construction_cost_monument
@@ -319,4 +246,8 @@ building_vineyard_plantation = {
 		pmg_train_automation_building_vineyard_plantation
 		pmg_ownership_land_building_vineyard_plantation
 	}
+	
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }

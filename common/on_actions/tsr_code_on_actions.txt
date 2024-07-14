@@ -28,18 +28,6 @@ tsr_events_yearly = {
 	}
 	effect = {
 		change_global_variable = { name = current_year add = 1 }
-		clear_global_variable_list = council_republics
-		every_country = {
-			limit = { 
-				has_law = law_type:law_council_republic
-				country_rank > rank_value:minor_power
-				is_revolutionary = no
-			}
-			add_to_global_variable_list = {
-				name = council_republics
-				target = THIS
-			}
-		}
 		every_country = {
 			limit = { 
 				country_is_in_india = yes
@@ -147,8 +135,6 @@ tsr_events_yearly = {
 
 tsr_events_monthly = {
 	events = {
-		krl_independence.6
-		krl_independence.7
 		aragon_sicily.1
 		hre.4
 		treaty_of_baglar_events.2

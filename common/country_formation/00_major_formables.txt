@@ -15,7 +15,12 @@
 			text = hre_doesnt_exist
 			NOR = {
 				exists = c:HRE
-				c:SAX ?= { has_modifier = hre_emperor }
+				any_country = {
+					is_power_bloc_leader = yes
+					power_bloc ?= {
+						has_identity = identity:identity_hre
+					}
+				}
 			}
 		}
 		OR = {

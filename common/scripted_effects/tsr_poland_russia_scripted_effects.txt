@@ -95,32 +95,16 @@ calculate_plc_point = {
 		}
 		change_global_variable = { name = plc_point_from_pannationalism add = 1 }
 	}
-	#From Attitude
+	#From Liberty Desire
 	set_global_variable = { name = plc_point_from_positive_relations value = 0 }
 	if = {
 		limit = {
 			c:LIT ?= {
-				is_subject_of = c:POL
-				has_attitude = {
-					who = c:POL
-					attitude = loyal
-				}
+				liberty_desire > 25
 			}
 		}
-		change_global_variable = { name = plc_point_from_positive_relations add = 1 }
-	}
-	if = {
-		limit = {
-			c:LIT ?= {
-				is_subject_of = c:POL
-				has_attitude = {
-					who = c:POL
-					attitude = rebellious
-				}
-			}
-		}
-		change_global_variable = { name = plc_point_from_positive_relations add = 1 }
-		change_global_variable = { name = plc_point_from_positive_relations multiply = -1 }
+		change_global_variable = { name = plc_point_from_positive_relations add = c:LIT.liberty_desire }
+		change_global_variable = { name = plc_point_from_positive_relations multiply = -0.01 }
 	}
 	#From Lithuania's Autonomy
 	set_global_variable = { name = plc_point_from_autonomy value = 0 }

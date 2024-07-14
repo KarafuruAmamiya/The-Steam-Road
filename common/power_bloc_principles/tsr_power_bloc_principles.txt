@@ -1,0 +1,386 @@
+﻿### See power_bloc_principle_groups for grouping, primary groups for identities etc.
+
+### HRE
+
+principle_ewiger_landfriede_1 = {
+	icon = "gfx/interface/icons/principles_icons/sacred_civics.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {	
+		# Reduces cohesion
+		power_bloc_cohesion_add = -50
+	}
+	
+	leader_modifier = {
+	}
+
+	member_modifier = {
+		country_higher_diplomatic_acceptance_same_religion_bool = yes
+		country_tech_spread_mult = 0.05
+	}
+	
+	ai_weight = {
+		value = 200	
+	}
+}
+
+principle_ewiger_landfriede_2 = {
+	icon = "gfx/interface/icons/principles_icons/sacred_civics.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {	
+		# Reduces cohesion
+		power_bloc_cohesion_add = -25
+	}
+	
+	leader_modifier = {
+	}
+
+	member_modifier = {
+		country_higher_diplomatic_acceptance_same_religion_bool = yes
+		country_tech_spread_mult = 0.05
+		political_movement_radicalism_mult = -0.05
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}
+
+principle_ewiger_landfriede_3 = {
+	icon  = "gfx/interface/icons/principles_icons/sacred_civics.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+	}
+	
+	leader_modifier = {
+	}
+
+	member_modifier = {
+		country_higher_diplomatic_acceptance_same_religion_bool = yes
+		country_tech_spread_mult = 0.05
+		political_movement_radicalism_mult = -0.05
+		power_bloc_disallow_war_bool = yes
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}
+
+principle_reichskammergericht_reform_1 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+	}
+	
+	leader_modifier = {
+		country_reduced_liberty_desire_same_religion_bool = yes
+	}
+
+	member_modifier = {
+		country_institution_size_change_speed_mult = 0.15
+	}
+	
+	ai_weight = {
+		value = 200	
+	}
+}
+
+principle_reichskammergericht_reform_2 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_mandate_progress_mult = 0.1
+	}
+	
+	leader_modifier = {
+		country_reduced_liberty_desire_same_religion_bool = yes
+		country_authority_per_subject_add = 1
+	}
+
+	member_modifier = {
+		country_institution_size_change_speed_mult = 0.15
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}
+}
+
+principle_reichskammergericht_reform_3 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_mandate_progress_mult = 0.25
+	}
+	
+	leader_modifier = {
+		country_reduced_liberty_desire_same_religion_bool = yes
+		country_authority_per_subject_add = 1
+	}
+
+	member_modifier = {
+		country_institution_size_change_speed_mult = 0.15
+		country_law_enactment_stall_mult = -0.33
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}
+}
+
+principle_proclaim_erbkaisertum_1 = {
+	icon = "gfx/interface/icons/principles_icons/divine_economy.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_leverage_generation_mult = -1
+	}
+	
+	leader_modifier = {
+		#Converts member to HRE subject (already enacted at game start)
+		country_legitimacy_min_add = 25
+	}
+
+	member_modifier = {
+		
+	}
+	
+	ai_weight = {
+		value = 200	
+	}
+}
+
+principle_proclaim_erbkaisertum_2 = {
+	icon = "gfx/interface/icons/principles_icons/divine_economy.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {	
+		power_bloc_leverage_generation_mult = -0.5
+	}
+	
+	leader_modifier = {
+		country_legitimacy_min_add = 25
+		country_higher_leverage_from_economic_dependence_bool = yes
+	}
+
+	member_modifier = {
+		
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}
+
+principle_proclaim_erbkaisertum_3 = {
+	icon  = "gfx/interface/icons/principles_icons/divine_economy.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_leader_can_make_subjects_bool = yes
+	}
+	
+	leader_modifier = {
+		country_legitimacy_min_add = 25
+		country_higher_leverage_from_economic_dependence_bool = yes
+		
+		#Revoking Privilegia
+		country_join_power_bloc_member_in_defensive_plays_bool = yes
+		country_join_power_bloc_member_in_plays_bool = yes
+	}
+
+	member_modifier = {
+		country_liberty_desire_add = 0.5
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}
+
+principle_renovatio_imperii_1 = {
+	icon = "gfx/interface/icons/central_identity_pillars_icons/sovereign_empire.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+		year > 1848 #Basically impossible currently, must resolve HRE crisis in the future
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_cohesion_add = -5
+		power_bloc_invite_acceptance_add = -1000
+	}
+	
+	leader_modifier = {
+		country_authority_mult = 0.2
+	}
+
+	member_modifier = {
+		country_authority_mult = -0.2
+	}
+	
+	ai_weight = {
+		value = 0
+		
+		if = {
+			limit = {
+				exists = power_bloc
+			}
+			
+			add = {
+				value = power_bloc.current_cohesion_number
+				subtract = 50
+				multiply = 4
+			}			
+		}
+	}
+}
+
+principle_renovatio_imperii_2 = {
+	icon = "gfx/interface/icons/central_identity_pillars_icons/sovereign_empire.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_cohesion_add = -10
+		power_bloc_invite_acceptance_add = -1000
+	}
+	
+	leader_modifier = {
+		country_authority_mult = 0.2
+		country_influence_mult = 0.2
+		#In the future can instantly change subject type from HRE subject
+	}
+
+	member_modifier = {
+		country_authority_mult = -0.2
+		country_influence_mult = -0.2
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}
+
+principle_renovatio_imperii_3 = {
+	icon  = "gfx/interface/icons/central_identity_pillars_icons/sovereign_empire.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	visible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	possible = {
+		power_bloc ?= { has_identity = identity:identity_hre }
+	}
+	
+	power_bloc_modifier = {
+		power_bloc_cohesion_add = -20
+		power_bloc_invite_acceptance_add = -1000
+	}
+	
+	leader_modifier = {
+		country_authority_mult = 0.2
+		country_influence_mult = 0.2
+		country_can_form_hre_bool = yes
+	}
+
+	member_modifier = {
+		country_authority_mult = -0.2
+		country_influence_mult = -0.2
+	}
+	
+	ai_weight = {
+		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
+	}	
+}

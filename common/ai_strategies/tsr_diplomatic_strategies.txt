@@ -2,6 +2,10 @@
 	icon = "gfx/interface/icons/ai_strategy_icons/unification.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		always = yes
+	}
 		
 	undesirable_infamy_level = {
 		value = 50
@@ -112,10 +116,7 @@
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = ARA }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root							
 						}
 					}	
 					is_adjacent_to_state = scope:target_state
@@ -140,10 +141,7 @@
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = ARA }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}	
 					}
 				}
@@ -198,10 +196,7 @@
 						OR = { 
 							is_supporting_unification_candidate = { who = root country_formation = ARA }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}	
 					}
 				}
@@ -216,10 +211,7 @@
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = ARA }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}
 					}
 				}
@@ -310,6 +302,10 @@ ai_strategy_unify_india = {
 	icon = "gfx/interface/icons/ai_strategy_icons/unification.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		always = yes
+	}
 	
 	undesirable_infamy_level = {
 		value = 50
@@ -419,10 +415,7 @@ ai_strategy_unify_india = {
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = BHT }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}
 					}	
 					is_adjacent_to_state = scope:target_state
@@ -447,10 +440,7 @@ ai_strategy_unify_india = {
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = BHT }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}	
 					}
 				}
@@ -505,10 +495,7 @@ ai_strategy_unify_india = {
 						OR = { 
 							is_supporting_unification_candidate = { who = root country_formation = BHT }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}	
 					}
 				}
@@ -523,10 +510,7 @@ ai_strategy_unify_india = {
 						NOR = { 
 							is_supporting_unification_candidate = { who = root country_formation = BHT }
 							is_subject_of = root
-							has_diplomatic_pact = {
-								who = scope:target_country
-								type = customs_union
-							}							
+							is_in_customs_union_with = root									
 						}
 					}
 				}
@@ -613,6 +597,10 @@ ai_strategy_pol_odrodzenie = {
 	icon = "gfx/interface/icons/ai_strategy_icons/protect_region.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		always = yes
+	}
 	
 	undesirable_infamy_level = {
 		value = 50
@@ -772,6 +760,10 @@ ai_strategy_unify_ukraine = {
 	icon = "gfx/interface/icons/ai_strategy_icons/unification.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		always = yes
+	}
 	
 	undesirable_infamy_level = {
 		value = 75
@@ -967,6 +959,10 @@ ai_strategy_anti_imperialism_ita = {
 	icon = "gfx/interface/icons/ai_strategy_icons/protect_region.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		global_country_ranking <= 3
+	}
 	
 	undesirable_infamy_level = {
 		value = 25
@@ -1178,6 +1174,10 @@ ai_strategy_ottoman_caliphate = {
 	icon = "gfx/interface/icons/ai_strategy_icons/protect_region.dds"
 	
 	type = diplomatic
+	
+	will_form_power_bloc = {
+		always = yes
+	}
 	
 	undesirable_infamy_level = {
 		value = 50

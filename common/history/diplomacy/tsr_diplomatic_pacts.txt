@@ -1,17 +1,21 @@
 ﻿DIPLOMACY = {
 	c:SWE ?= {
 		create_diplomatic_pact = {
-			country = c:USC
-			type = defensive_pact
-		}
-		create_diplomatic_pact = {
 			country = c:ITA
 			type = trade_agreement
 		}
-	}
-	c:FRA ?= {
 		create_diplomatic_pact = {
-			country = c:KRL
+			country = c:POL
+			type = trade_agreement
+		}
+	}
+	c:USC ?= {
+		create_diplomatic_pact = {
+			country = c:AUR
+			type = trade_agreement
+		}
+		create_diplomatic_pact = {
+			country = c:AUR
 			type = defensive_pact
 		}
 	}
@@ -21,20 +25,28 @@
 			type = trade_agreement
 		}
 	}
-	c:PER = { # Basically all that's left of the Gunpowder Alliance
+	c:SLR ?= {
 		create_diplomatic_pact = {
-			country = c:TUR
+			country = c:ATL
+			type = trade_agreement
+		}
+		create_diplomatic_pact = {
+			country = c:ATL
+			type = defensive_pact
+		}
+	}
+	c:PER ?= {
+		create_diplomatic_pact = {
+			country = c:BUK
 			type = trade_agreement
 		}
 		create_diplomatic_pact = {
 			country = c:AKN
 			type = trade_agreement
 		}
-	}
-	c:ENG ?= {
 		create_diplomatic_pact = {
-			country = c:TPR
-			type = customs_union
+			country = c:TUR
+			type = trade_agreement
 		}
 	}
 }

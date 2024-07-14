@@ -134,6 +134,15 @@
 	option = {
 		name = 1848.2.a
 		default_option = yes
+		ig:ig_landowners = {
+			remove_ideology = ideology_paternalistic
+			remove_ideology = ideology_scholar_paternalistic
+			remove_ideology = ideology_junker_paternalistic
+			remove_ideology = ideology_papal_paternalistic
+			remove_ideology = ideology_akkovin_paternalistic
+			remove_ideology = ideology_safavid_paternalistic
+			add_ideology = ideology_republican_paternalistic
+		}
 		custom_tooltip = {
 			text = no_more_royalists
 			set_variable = monarchy_stamped_out_var
@@ -938,7 +947,7 @@
 	cooldown = { months = normal_modifier_time }
 
 	event_image = {
-		video = "asia_dead_cattle_poor_harvest"
+		video = "votp_realist_household"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"

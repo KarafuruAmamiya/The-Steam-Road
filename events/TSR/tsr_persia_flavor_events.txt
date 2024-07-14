@@ -622,7 +622,7 @@ persian_flavor.7 = {
 		default_option = yes
 		if = {
 			limit = {
-				ruler = { has_variable = is_mohammad_safavid }
+				ruler = { has_template = per_mohammad_sadiq_safavid_character_template }
 			}
 			ruler = {
 				set_character_immortal = no
@@ -2394,7 +2394,7 @@ persian_flavor.23 = {
 		has_variable = bab_executed
 		NOT = { has_variable = babi_assassination_attempt }
 		ruler = {
-			NOT = { has_variable = is_mohammad_safavid } #Can't ruin reformation like this
+			NOT = { has_template = per_mohammad_sadiq_safavid_character_template } #Can't ruin reformation like this
 		}
 	}
 	

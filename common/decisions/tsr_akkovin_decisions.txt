@@ -133,20 +133,6 @@ cancel_treaty_of_baglar = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				c:PER = {
-					has_diplomatic_pact = { 
-						who = root
-						type = customs_union
-					}
-				}
-			}
-			remove_diplomatic_pact = {
-				country = c:PER
-				type = customs_union
-			}
-		}
 		
 		custom_tooltip = no_renewing_baglar_tt
 		

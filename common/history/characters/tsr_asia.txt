@@ -312,43 +312,10 @@
 	}
 	c:PER = {
 		create_character = {
-			is_general = yes
-			first_name = "Hosayn_I"
-			last_name = "Safavid"
-			historical = yes
-			ruler = yes
-			birth_date = 1788.5.23
-    		religion = rel:shiite
-			dna = dna_hosayn_safavid
-			culture = cu:persian
-			interest_group = ig_armed_forces
-			ideology = ideology_jingoist_leader
-			traits = {
-				ambitious persistent explorer
-			}
-			on_created = {
-				set_variable = is_married
-			}
-		}	
-
+			template = per_hosayn_safavid_character_template
+		}
 		create_character = {
-			first_name = "Mohammad_Sadiq"
-			last_name = "Safavid"
-			historical = yes
-			heir = yes
-			birth_date = 1835.9.25
-    		religion = rel:shiite
-			dna = dna_mohammad_sadiq_safavid
-			culture = cu:persian
-			interest_group = ig_intelligentsia
-			ideology = ideology_persian_constitutionalist
-			traits = {
-				direct innovative
-			}
-			on_created = {
-				set_variable = is_mohammad_safavid
-				set_character_immortal = yes
-			}
+			template = per_mohammad_sadiq_safavid_character_template
 		}
 		
 		# IG Leaders

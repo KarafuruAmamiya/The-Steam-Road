@@ -24,6 +24,9 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 			limit = {
 				is_subject_type = subject_type_hre
 			}
+			ROOT.power_bloc ?= {
+				add_leverage = { target = PREV value = -1000 }
+			}
 			ROOT = {
 				remove_diplomatic_pact = {
 					country = prev
@@ -35,9 +38,11 @@ hre.1 = { # End of the Holy Roman Empire (for Saxony)
 	
 	option = {
 		name = hre.1.a
-		remove_modifier = hre_emperor
+		custom_tooltip = hre_disbands_tt
 		hidden_effect = {
 			set_strategy = ai_strategy_unify_germany
+			set_country_type = unrecognized
+			set_country_type = recognized
 		}
 	}
 }
@@ -66,10 +71,12 @@ hre.2 = { # End of the Holy Roman Empire (for everyone else)
 	
 	option = {
 		name = hre.2.a
+		custom_tooltip = hre_disbands_tt
 	}
 	option = {
 		name = hre.2.b
 		default_option = yes
+		custom_tooltip = hre_disbands_tt
 	}
 }
 
@@ -152,30 +159,6 @@ hre.4 = { # Pre-SGF (NOTE: THIS IS JUST A PLACEHOLDER)
 			base = 75
 		}
 		c:PFA = {
-			create_diplomatic_pact = {
-				country = c:WUR
-				type = customs_union
-			}
-			create_diplomatic_pact = {
-				country = c:ULM
-				type = customs_union
-			}
-			create_diplomatic_pact = {
-				country = c:KNZ
-				type = customs_union
-			}
-			create_diplomatic_pact = {
-				country = c:MUL
-				type = customs_union
-			}
-			create_diplomatic_pact = {
-				country = c:FRN
-				type = customs_union
-			}
-			create_diplomatic_pact = {
-				country = c:REG
-				type = customs_union
-			}
 			hidden_effect = {
 				set_strategy = ai_strategy_unify_germany
 			}

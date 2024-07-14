@@ -494,6 +494,22 @@ akkovin_crisis.5 = {
 				type = defensive_pact
 			}
 		}
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = { 
+						who = root
+						type = guarantee_independence
+					}
+				}
+			}
+			c:PER = {
+				remove_diplomatic_pact = {
+					country = c:PER
+					type = guarantee_independence
+				}
+			}
+		}
 		
 		ai_chance = {
 			base = 0
@@ -585,29 +601,69 @@ akkovin_crisis.6 = {
 		if = {
 			limit = {
 				c:PER = {
-					has_diplomatic_pact = { 
-						who = root
-						type = trade_agreement
-					}
-				}
+					has_diplomatic_pact = {
+						who = c:AKN
+						type = guarantee_independence
+					}									
+				}			
 			}
-			remove_diplomatic_pact = {
-				country = c:PER
-				type = trade_agreement
+			
+			c:PER = {
+				remove_diplomatic_pact = {
+					country = c:AKN
+					type = guarantee_independence
+				}			
+			}
+		}	
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = {
+						who = c:AKN
+						type = defensive_pact
+					}									
+				}			
+			}
+			
+			c:PER = {
+				remove_diplomatic_pact = {
+					country = c:AKN
+					type = defensive_pact
+				}			
+			}
+		}	
+		if = {
+			limit = {
+				c:PER = {
+					has_diplomatic_pact = {
+						who = c:AKN
+						type = trade_agreement
+					}									
+				}			
+			}
+			
+			c:PER = {
+				remove_diplomatic_pact = {
+					country = c:AKN
+					type = trade_agreement
+				}			
 			}
 		}
 		if = {
 			limit = {
 				c:PER = {
-					has_diplomatic_pact = { 
-						who = root
-						type = defensive_pact
-					}
-				}
+					has_diplomatic_pact = {
+						who = c:AKN
+						type = foreign_investment_rights
+					}									
+				}			
 			}
-			remove_diplomatic_pact = {
-				country = c:PER
-				type = defensive_pact
+			
+			c:PER = {
+				remove_diplomatic_pact = {
+					country = c:AKN
+					type = foreign_investment_rights
+				}			
 			}
 		}
 	}
@@ -618,6 +674,12 @@ akkovin_crisis.6 = {
 		
 		trigger = {
 			c:AKN ?= ROOT
+		}
+		show_as_tooltip = {
+			create_diplomatic_pact = {
+				country = c:PER
+				type = treaty_of_baglar_pact
+			}
 		}
 		if = {
 			limit = {
@@ -639,16 +701,10 @@ akkovin_crisis.6 = {
 				}
 			}
 		}
-		create_diplomatic_pact = {
-			country = c:PER
-			type = treaty_of_baglar_pact
-		}
 		add_modifier = {
 			name = treaty_of_baglar
 			months = 120
 		}
-		custom_tooltip = treaty_of_baglar_tt
-		set_variable = baglar_treaty_signed
 		
 		hidden_effect = {
 			every_country = {
@@ -663,6 +719,10 @@ akkovin_crisis.6 = {
 				post_notification = akkovin_signed_treaty
 			}
 		}
+		custom_tooltip = {
+			text = treaty_of_baglar_tt
+			set_variable = baglar_treaty_signed
+		}
 	}
 	
 	option = {
@@ -670,8 +730,11 @@ akkovin_crisis.6 = {
 		trigger = {
 			c:PER ?= ROOT
 		}
+		create_diplomatic_pact = {
+			country = c:AKN
+			type = treaty_of_baglar_pact
+		}
 		custom_tooltip = treaty_of_baglar_tt
-		set_variable = baglar_treaty_signed
 	}
 }
 
@@ -868,20 +931,6 @@ akkovin_crisis.7 = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				c:PER = {
-					has_diplomatic_pact = { 
-						who = root
-						type = customs_union
-					}
-				}
-			}
-			remove_diplomatic_pact = {
-				country = c:PER
-				type = customs_union
-			}
-		}
 		
 		custom_tooltip = no_renewing_baglar_tt
 		
@@ -1030,10 +1079,10 @@ akkovin_crisis.9 = {
 			s:STATE_GREATER_CAUCASUS.region_state:AKN = {
 				if = {
 					limit = {
-						exists = c:SRV
-						c:SRV = { is_subject_of = c:PER }
+						exists = c:AZB
+						c:AZB = { is_subject_of = c:PER }
 					}
-					set_state_owner = c:SRV
+					set_state_owner = c:AZB
 				}
 				else = {
 					set_state_owner = c:PER
@@ -1127,10 +1176,10 @@ akkovin_crisis.9 = {
 				s:STATE_GREATER_CAUCASUS.region_state:AKN = {
 					if = {
 						limit = {
-							exists = c:SRV
-							c:SRV = { is_subject_of = c:PER }
+							exists = c:AZB
+							c:AZB = { is_subject_of = c:PER }
 						}
-						set_state_owner = c:SRV
+						set_state_owner = c:AZB
 					}
 					else = {
 						set_state_owner = c:PER
@@ -1232,10 +1281,10 @@ akkovin_crisis.10 = {
 			s:STATE_GREATER_CAUCASUS.region_state:AKN = {
 				if = {
 					limit = {
-						exists = c:SRV
-						c:SRV = { is_subject_of = c:PER }
+						exists = c:AZB
+						c:AZB = { is_subject_of = c:PER }
 					}
-					set_state_owner = c:SRV
+					set_state_owner = c:AZB
 				}
 				else = {
 					set_state_owner = c:PER
@@ -1337,10 +1386,10 @@ akkovin_crisis.10 = {
 				s:STATE_GREATER_CAUCASUS.region_state:AKN = {
 					if = {
 						limit = {
-							exists = c:SRV
-							c:SRV = { is_subject_of = c:PER }
+							exists = c:AZB
+							c:AZB = { is_subject_of = c:PER }
 						}
-						set_state_owner = c:SRV
+						set_state_owner = c:AZB
 					}
 					else = {
 						set_state_owner = c:PER

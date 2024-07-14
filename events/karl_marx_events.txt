@@ -68,7 +68,8 @@ marx_events.1 = {
 					female = no
 					dna = dna_karl_marx
 					ideology = ideology_communist
-					religion = rel:jewish
+					culture = cu:ashkenazi
+					religion = rel:atheist
 					traits = {
 						direct
 						persistent
@@ -120,28 +121,9 @@ marx_events.1 = {
 					}
 				}
 			}
-			5 = {
-				trigger = {
-					capital = { state_region = s:STATE_TEXAS }
-				}
-				create_character = {
-					first_name = Charlie # howdy
-					last_name = Marx
-					is_agitator = yes
-					interest_group = ig_trade_unions
-					female = no
-					dna = dna_karl_marx
-					ideology = ideology_communist
-					religion = rel:jewish
-					traits = {
-						direct
-						persistent
-					}
-				}
-			}
 			1 = {
 				trigger = {
-					capital = { state_region = s:STATE_ESTONIA } 
+					capital = { state_region = s:STATE_NORTH_ESTONIA } 
 				}
 				create_character = {
 					first_name = Kras
@@ -251,10 +233,7 @@ marx_events.1 = {
 			}
 			1 = {
 				trigger = {
-					OR = {
-						capital = { state_region = s:STATE_NORTH_ESTONIA } 
-						capital = { state_region = s:STATE_SOUTH_ESTONIA } 
-					}
+					capital = { state_region = s:STATE_NORTH_ESTONIA } 
 				}
 				create_character = {
 					first_name = Kras

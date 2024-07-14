@@ -278,36 +278,6 @@
 			}
 		}
 
-		add = {
-			desc = "MIC_OWNER"
-			if = {
-				limit ={	
-					employed_in_military_industry = yes
-					building_owner = yes
-					owner = {
-						NOT = {
-							has_law = law_type:law_cooperative_ownership
-						}
-					}
-				}
-				value = 200
-			}
-		}
-
-		add = {
-			desc = "MIC_OWNER"
-			if = {
-				limit ={	
-					employed_in_military_industry = yes
-					building_owner = yes
-					owner = {
-						has_law = law_type:law_cooperative_ownership
-					}
-				}
-				value = 100
-			}
-		}
-
 		add = { #Policemens
 			desc = "POP_CLERKS"
 			if = {

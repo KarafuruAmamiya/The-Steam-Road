@@ -879,4 +879,13 @@
 		}
 		make_independent = yes
 	}
+	every_country = {
+		limit = {
+			country_is_in_india = yes
+			is_subject = no
+		}
+		c:PER.power_bloc ?= {
+			add_leverage = { target = PREV value = -500 }
+		}
+	}
 }

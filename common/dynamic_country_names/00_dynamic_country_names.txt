@@ -593,6 +593,21 @@ AZB = { # Azerbaijan
 			coa_def_british_ensign_trigger = yes
 		}
 	}
+	dynamic_country_name = {
+		name = dyn_c_shirvan
+		adjective = dyn_c_shirvan_adj
+
+		is_main_tag_only = yes
+		priority = 1
+
+		trigger = {
+			exists = scope:actor
+			exists = c:PER
+			scope:actor = {
+				is_subject_of = c:PER
+			}
+		}
+	}
 }
 
 BAV = { # Bavaria
@@ -1889,6 +1904,26 @@ TIS = { # Turtle Island
 		trigger = {
 			scope:actor ?= {
 				was_formed_from = IRO
+			}
+		}
+	}
+	
+	LUR = {
+		dynamic_country_name = {
+			name = dyn_c_bakhtiari
+			adjective = dyn_c_bakhtiari_adj
+	
+			is_main_tag_only = yes
+			priority = 1
+	
+			trigger = {
+				exists = scope:actor
+				scope:actor = {
+					is_country_type = unrecognized
+					NOT = {
+						has_technology_researched = nationalism
+					}
+				}
 			}
 		}
 	}

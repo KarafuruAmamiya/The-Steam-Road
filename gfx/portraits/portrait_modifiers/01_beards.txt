@@ -26,7 +26,7 @@
                             home_country = {
                                 OR = {
                                     AND = { exists = c:PER c:PER = this }
-                                    AND = { exists = c:SRV c:SRV = this }
+                                    AND = { exists = c:AZB c:AZB = this }
                                 }
                             }
 							OR = {
@@ -49,16 +49,6 @@
                  range = { 0 1 } # For the randomness to work correctly
              }
          }   
-    
-         weight = {
-             base = 0
-			 modifier = {
-                add = 10000
-                scope:character ?= {
-					has_variable = is_mohammad_safavid
-				}
-			}
-         }
     }
     
     asian_beards = {

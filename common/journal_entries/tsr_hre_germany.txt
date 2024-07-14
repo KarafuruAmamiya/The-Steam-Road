@@ -7,24 +7,30 @@ je_hre_falls_apart = {
 	should_be_pinned_by_default = yes
 
 	complete = {
-		custom_tooltip = {
-			text = hre_complete_tt
-			any_in_global_list = {
-                variable = hre_subject
-				is_direct_subject_of = c:SAX 
-				NOT = { is_subject_type = subject_type_hre }
-				count = all
+		is_power_bloc_leader = yes
+		power_bloc ?= {
+			any_power_bloc_member = {
+				custom_tooltip = {
+					text = hre_complete_tt
+					is_direct_subject_of = root
+					NOT = { is_subject_type = subject_type_hre }
+				}
+				percent = 1
 			}
+			current_cohesion_number > 50
 		}
 	}
 	
 	fail = {
-		custom_tooltip = {
-			text = hre_fail_tt
-			any_in_global_list = {
-                variable = hre_subject
-				NOT = { is_subject_of = root }
-            }
+		OR = {
+			is_power_bloc_leader = no
+			custom_tooltip = {
+				text = hre_fail_tt
+				any_in_global_list = {
+					variable = hre_member
+					NOT = { is_in_same_power_bloc = root }
+				}
+			}
 		}
 	}
 	
@@ -43,7 +49,7 @@ je_hre_falls_apart = {
 				}
 				trigger_event = { id = hre.2 }
 			}
-			clear_global_variable_list = hre_subject
+			clear_global_variable_list = hre_member
 		}
 	}
 
@@ -53,6 +59,7 @@ je_hre_falls_apart = {
 		hidden_effect = {
 			every_country = {
 				limit = {
+					NOT = { c:SAX ?= this }
 					OR = {
 						country_is_in_hre = yes
 						has_strategic_adjacency = c:SAX
@@ -75,7 +82,12 @@ je_hre_falls_apart = {
 	
 	invalid = {
 		c:SAX = {
-			NOT = { has_modifier = hre_emperor }
+			NOT = { 
+				is_power_bloc_leader = yes
+				power_bloc ?= {
+					has_identity = identity:identity_hre
+				}
+			}
 		}
 	}
 	

@@ -44,7 +44,10 @@ neighbor_events.1 = {
 	}
 	event_image = {
 		trigger = {
+			OR = {
 			religion = rel:shinto
+				religion = rel:confucian
+			}
 		}
 		video = "asia_confucianism_shinto"
 

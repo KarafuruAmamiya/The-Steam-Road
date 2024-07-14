@@ -317,7 +317,19 @@ AZB = { # Azerbaijan
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
 		}
-	}		
+	}
+	flag_definition = {
+		coa = AZB_shirvan
+		subject_canton = AZB_shirvan
+		allow_overlord_canton = no
+		priority = 1500
+		trigger = {
+			exists = c:PER
+			scope:actor ?= {
+				is_subject_of = c:PER
+			}
+		}
+	}	
 }
 
 BAD = { # Baden
@@ -6114,6 +6126,155 @@ KAU = { # Kaurna
 	}
 }
 
+KRL = { # Karelia
+	flag_definition = {
+		coa = KRL
+		subject_canton = KRL
+		priority = 1
+	}
+	flag_definition = {
+		coa = KRL_dictatorship
+		subject_canton = KRL_dictatorship
+		priority = 10
+		trigger = { 
+			OR = {
+				coa_def_monarchy_flag_trigger = yes
+				coa_def_dictatorship_flag_trigger = yes
+				coa_def_oligarchy_flag_trigger = yes
+			}
+		}
+	}	
+	flag_definition = {
+		coa = KRL_communist
+		subject_canton = KRL_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+TAR = { # Tatarstan
+	flag_definition = {
+		coa = TAR
+		subject_canton = TAR
+		priority = 1
+	}
+	flag_definition = { # Based on the flag of the Kazan Khanate
+		coa = TAR_monarchy
+		subject_canton = TAR_monarchy
+		priority = 20
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = TAR_communist
+		subject_canton = TAR_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+BKR = { # Bashkiria
+	flag_definition = {
+		coa = BKR
+		subject_canton = BKR
+		priority = 1
+	}
+	flag_definition = { # Based on the flag of Salavat Yulaev
+		coa = BKR_monarchy
+		subject_canton = BKR_monarchy
+		priority = 20
+		trigger = {
+			coa_def_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = { # Based on the flag of the Bashkir Separate Corps
+		coa = BKR_dictatorship
+		subject_canton = BKR_dictatorship
+		priority = 30
+		trigger = { 
+			OR = {
+				coa_def_dictatorship_flag_trigger = yes
+				coa_def_oligarchy_flag_trigger = yes
+			}
+		}
+	}	
+	flag_definition = { # Not based on anything in particular
+		coa = BKR_communist
+		subject_canton = BKR_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+BRY = { # Buryatia
+	flag_definition = {
+		coa = BRY
+		subject_canton = BRY
+		priority = 1
+	}
+	flag_definition = {  # To the madness of daring, we chant a song.
+		coa = BRY_communist
+		subject_canton = BRY_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+KMC = { # Kamchatka
+	flag_definition = {
+		coa = KMC
+		subject_canton = KMC
+		priority = 1
+	}
+	flag_definition = {
+		coa = KMC_communist
+		subject_canton = KMC_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+CKC = { # Chukotka
+	flag_definition = {
+		coa = CKC
+		subject_canton = CKC
+		priority = 1
+	}
+
+	flag_definition = {
+		coa = CKC_white
+		subject_canton = CKC_white
+		priority = 10
+		trigger = { 
+			OR = {
+				coa_def_monarchy_flag_trigger = yes
+				coa_def_dictatorship_flag_trigger = yes
+				coa_def_oligarchy_flag_trigger = yes
+			}
+		}
+	}	
+
+	flag_definition = {
+		coa = CKC_communist
+		subject_canton = CKC_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
 HRE = {
 	flag_definition = {
 		coa = HRE	
@@ -6197,6 +6358,168 @@ RHN = {
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+MRI = { # Mari El
+	flag_definition = {
+		coa = MRI
+		subject_canton = MRI
+	}
+
+	flag_definition = {
+		coa = MRI_communist
+		priority = 1500
+		trigger = { 
+			OR = {
+				coa_def_communist_flag_trigger = yes
+			}
+		}
+	}
+}
+
+MRD = { # Erzya-Moksha
+	flag_definition = {
+		coa = MRD
+		subject_canton = MRD
+		priority = 1
+	}
+
+	flag_definition = {
+		coa = MRD_communist
+		priority = 1500
+		trigger = { 
+			OR = {
+				coa_def_communist_flag_trigger = yes
+			}
+		}
+	}
+}
+
+TJI = { # Tajikistan
+	flag_definition = {
+		coa = TJI
+		subject_canton = TJI
+		priority = 1
+	}
+	flag_definition = {
+		coa = TJI_republic
+		subject_canton = TJI_republic
+		priority = 10
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = TJI_communist
+		subject_canton = TJI_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+KYR = { # Kirgizia
+	flag_definition = {
+		coa = KYR
+		subject_canton = KYR
+		priority = 1
+	}
+	flag_definition = {
+		coa = KYR_republic
+		subject_canton = KYR_republic
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}	
+	flag_definition = {
+		coa = KYR_communist
+		subject_canton = KYR_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+UZB = { # Uzbekistan
+	flag_definition = {
+		coa = UZB
+		subject_canton = UZB
+		priority = 1
+	}
+	flag_definition = {
+		coa = UZB_republic
+		subject_canton = UZB_republic
+		priority = 10
+		trigger = { 
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = UZB_communist
+		subject_canton = UZB_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+CAU = { # Transcaucasia
+	flag_definition = {
+		coa = CAU
+		subject_canton = CAU
+		priority = 1
+	}
+	flag_definition = {
+		coa = CAU_communist
+		subject_canton = CAU_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+SIB = { # Siberia
+	flag_definition = {
+		coa = SIB
+		subject_canton = SIB
+		priority = 1
+	}
+	flag_definition = {
+		coa = SIB_communist
+		subject_canton = SIB_communist
+		priority = 1000
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}
+
+SML = { # Seminole
+	flag_definition = {
+		coa = SML
+		subject_canton = SML
+		priority = 1
+	}
+}
+
+UBD = { # United Baltic
+	flag_definition = {
+		coa = UBD
+		subject_canton = UBD
+		priority = 1
+	}
+	flag_definition = {
+		coa = UBD_governorate
+		priority = 5
+		trigger = { 
+			coa_def_russian_ensign_trigger = yes
 		}
 	}
 }

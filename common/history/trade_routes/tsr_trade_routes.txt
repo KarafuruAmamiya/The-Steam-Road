@@ -744,7 +744,7 @@
 	}
 	
 	# Karolia
-	c:KRL ?= {
+	c:KRF ?= {
 		create_trade_route = {
 			goods = sugar
 			level = 3
@@ -889,6 +889,48 @@
 			direction = import
 			target = c:FRA.market
 		}
+		create_trade_route = {
+			goods = fabric
+			level = 10
+			direction = import
+			target = c:SLR.market
+		}
+		create_trade_route = {
+			goods = iron
+			level = 1
+			direction = import
+			target = c:SLR.market
+		}
+		create_trade_route = {
+			goods = sugar
+			level = 5
+			direction = export
+			target = c:SAX.market
+		}
+		create_trade_route = {
+			goods = coffee
+			level = 5
+			direction = export
+			target = c:IBE.market
+		}
+		create_trade_route = {
+			goods = tobacco
+			level = 5
+			direction = export
+			target = c:SLR.market
+		}
+		create_trade_route = {
+			goods = clothes
+			level = 5
+			direction = import
+			target = c:SLR.market
+		}
+		create_trade_route = {
+			goods = small_arms
+			level = 1
+			direction = import
+			target = c:SLR.market
+		}
 	}
 	
 	# The Bahamas
@@ -904,22 +946,16 @@
 	# Aurelia
 	c:AUR ?= {
 		create_trade_route = {
-			goods = silk
-			level = 1
+			goods = dye
+			level = 2
 			direction = import
 			target = c:FRA.market
 		}
 		create_trade_route = {
-			goods = silk
+			goods = dye
 			level = 1
 			direction = import
-			target = c:IBE.market
-		}
-		create_trade_route = {
-			goods = silk
-			level = 1
-			direction = import
-			target = c:ITA.market
+			target = c:USC.market
 		}
 		create_trade_route = {
 			goods = clothes
@@ -932,6 +968,12 @@
 			level = 3
 			direction = import
 			target = c:SLR.market
+		}
+		create_trade_route = {
+			goods = wood
+			level = 4
+			direction = export
+			target = c:FRA.market
 		}
 	}
 	
@@ -1006,8 +1048,8 @@
 			target = c:TUR.market
 		}
 		create_trade_route = {
-			goods = groceries
-			level = 3
+			goods = sugar
+			level = 10
 			direction = import
 			target = c:SWE.market
 		}
@@ -1022,6 +1064,12 @@
 			level = 1
 			direction = import
 			target = c:TUR.market
+		}
+		create_trade_route = {
+			goods = dye
+			level = 1
+			direction = import
+			target = c:SAX.market
 		}
 	}
 	

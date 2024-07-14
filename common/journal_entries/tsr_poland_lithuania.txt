@@ -251,6 +251,7 @@ je_union_of_augustow_pol = {
 				who = root
 				attitude = loyal
 			}
+			liberty_desire < 25
 			any_revolution_ongoing = no
 		}
 		#In SOI: Low Lithuanian liberty desire
@@ -491,6 +492,7 @@ je_union_of_augustow_lit = {
 			who = c:POL
 			attitude = loyal
 		}
+		liberty_desire < 25
 		c:POL ?= {
 			relations:root >= relations_threshold:cordial
 		}
@@ -559,6 +561,8 @@ je_union_of_augustow_lit = {
 	weight = 10000
 	should_be_pinned_by_default = yes
 }
+
+## Union of Augustow Matters
 
 je_pollit_constitution = {
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
@@ -757,8 +761,14 @@ je_pollit_sovereignty = {
 	}
 	
 	complete = {
-		#NEEDS SOI: Low economic reliance on other countries
-		is_in_customs_union = no
+		OR = {
+			is_in_power_bloc = no
+			is_power_bloc_leader = yes
+		}
+		OR = {
+			is_in_customs_union = no
+			leads_customs_union = yes
+		}
 		country_rank >= rank_value:major_power
 		is_losing_power_rank = no
 		any_country = {

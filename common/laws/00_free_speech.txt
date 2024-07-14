@@ -10,11 +10,12 @@ law_outlawed_dissent = {
 	
 	modifier = {
 		country_authority_add = 200
-		country_promotion_ig_attraction_mult = 0.25
+		country_bolster_ig_attraction_mult = 0.25
 		country_suppression_ig_attraction_mult = -0.25
 		country_tech_spread_mult = -0.30
 		state_political_strength_from_wealth_mult = 0.5
 		country_institution_home_affairs_max_investment_add = 2
+		country_leverage_resistance_mult = 0.5
 	}
 	
 	possible_political_movements = {
@@ -40,11 +41,7 @@ law_outlawed_dissent = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -58,11 +55,12 @@ law_censorship = {
 	
 	modifier = {
 		country_authority_add = 100
-		country_promotion_ig_attraction_mult = 0.2
+		country_bolster_ig_attraction_mult = 0.2
 		country_suppression_ig_attraction_mult = -0.2
 		country_tech_spread_mult = -0.15
 		state_political_strength_from_wealth_mult = 0.25
 		country_institution_home_affairs_max_investment_add = 1
+		country_leverage_resistance_mult = 0.25
 	}
 	
 	possible_political_movements = {
@@ -89,11 +87,7 @@ law_censorship = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -107,7 +101,7 @@ law_right_of_assembly = {
 	
 	modifier = {
 		country_authority_add = 50
-		country_promotion_ig_attraction_mult = 0.15
+		country_bolster_ig_attraction_mult = 0.15
 		country_suppression_ig_attraction_mult = -0.15
 		state_political_strength_from_wealth_mult = 0.1
 		state_migration_pull_mult = 0.1
@@ -163,11 +157,7 @@ law_right_of_assembly = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -186,6 +176,7 @@ law_protected_speech = {
 	modifier = {
 		country_tech_spread_mult = 0.1
 		state_migration_pull_mult = 0.25
+		country_leverage_resistance_mult = -0.25
 	}
 	
 	possible_political_movements = {
@@ -226,11 +217,7 @@ law_protected_speech = {
 		}
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}

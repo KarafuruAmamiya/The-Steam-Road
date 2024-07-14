@@ -111,6 +111,8 @@ peoples_springtime.2 = {
 
 	duration = 3
 
+	cooldown = { months = short_modifier_time }
+
 	immediate = {
 		random_interest_group = {
 			limit = {
@@ -218,6 +220,8 @@ peoples_springtime.3 = {
 
 	duration = 3
 
+	cooldown = { months = short_modifier_time }
+
 	option = {
 		name = peoples_springtime.3.a
 		ai_chance = {
@@ -226,7 +230,6 @@ peoples_springtime.3 = {
 		custom_tooltip = {
 			text = peoples_springtime.3.a.tt
 			create_character = {
-				culture = primary_culture
 				ig_leader = yes
 				ideology = ideology_radical
 				interest_group = scope:radical_ig
@@ -254,7 +257,6 @@ peoples_springtime.3 = {
 			}
 		}
 		create_character = {
-			culture = primary_culture
 			is_agitator = yes
 			ideology = ideology_radical
 			interest_group = scope:radical_ig
@@ -397,6 +399,8 @@ peoples_springtime.5 = {
 
 	duration = 3
 
+	cooldown = { months = short_modifier_time }
+
 	option = {
 		name = peoples_springtime.5.a
 		trigger = {
@@ -414,6 +418,8 @@ peoples_springtime.5 = {
 				value = very_large_radicals
 			}
 		}
+		default_option = yes
+		ai_chance = { base = 90 }
 	}
 
 	option = {
@@ -423,7 +429,7 @@ peoples_springtime.5 = {
 				value = very_large_radicals
 			}
 		}
-		default_option = yes
+		ai_chance = { base = 10 }
 	}
 }
 

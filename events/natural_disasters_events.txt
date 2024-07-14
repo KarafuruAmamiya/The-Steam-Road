@@ -25,9 +25,8 @@ natural_disaster_events.1 = { #Small Earthquake
 	}
 
 	immediate = {
-		random_state = {
+		random_scope_state = {
 			limit = {
-				owner = ROOT
 				in_earthquake_zone = yes
 			}
 			save_scope_as = earthquake_state
@@ -275,7 +274,6 @@ natural_disaster_events.4 = { #Mega Earthquake
 	immediate = {
 		random_scope_state = {
 			limit = {
-				owner = ROOT
 				in_earthquake_zone = yes
 			}
 			save_scope_as = mega_earthquake_state
@@ -431,10 +429,6 @@ natural_disaster_events.5 = { #Crop Failure
 			months = short_modifier_time
 		}
 		scope:crop_fail_state = {
-			add_modifier = {
-				name = modifier_crop_failure
-				months = normal_modifier_time
-			}
 			add_modifier = {
 				name = modifier_crop_failure_relief_effect
 				months = normal_modifier_time

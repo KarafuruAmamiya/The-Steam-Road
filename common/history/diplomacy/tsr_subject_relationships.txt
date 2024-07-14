@@ -85,7 +85,7 @@
 	}
 	c:PER ?= {
 		create_diplomatic_pact = {
-			country = c:SRV
+			country = c:AZB
 			type = puppet
 		}
 		create_diplomatic_pact = {
@@ -192,10 +192,6 @@
 			country = c:KAT
 			type = protectorate
 		}
-		create_diplomatic_pact = {
-			country = c:BUK
-			type = protectorate
-		}
 	}
 	c:MGL ?= {
 		create_diplomatic_pact = {
@@ -203,7 +199,7 @@
 			type = vassal
 		}
 		create_diplomatic_pact = {
-			country = c:BYT
+			country = c:BRY
 			type = tributary
 		}
 		create_diplomatic_pact = {
@@ -383,10 +379,6 @@
 		create_diplomatic_pact = {
 			country = c:MSC
 			type = dependency
-		}
-		create_diplomatic_pact = {
-			country = c:IRE
-			type = protectorate
 		}
 		create_diplomatic_pact = {
 			country = c:RPU
@@ -685,6 +677,85 @@
 		create_diplomatic_pact = {
 			country = c:MGD
 			type = tributary
+		}
+	}
+	
+	# Starting liberty desire
+	c:FRA ?= {
+		every_subject_or_below = {
+			add_liberty_desire = -30
+		}
+	}
+	
+	c:SWE ?= {
+		every_subject_or_below = {
+			add_liberty_desire = -30
+		}
+	}
+	
+	c:ITA ?= {
+		every_subject_or_below = {
+			add_liberty_desire = -30
+		}
+	}
+	
+	c:PER ?= {
+		every_subject_or_below = {
+			 add_liberty_desire = -20
+		}
+	}
+	
+	c:ZAP ?= {
+		add_liberty_desire = 10
+	}
+	
+	c:SLB ?= {
+		add_liberty_desire = 10
+	}
+	
+	c:LIT ?= {
+		add_liberty_desire = -30
+	}
+	
+	c:SLS ?= {
+		add_liberty_desire = -30
+	}
+	
+	c:HUN ?= {
+		add_liberty_desire = 20
+	}
+
+	c:TRS ?= {
+		add_liberty_desire = 20
+	}	
+	
+	c:MOL ?= {
+		add_liberty_desire = 20
+	}	
+	
+	c:WAL ?= {
+		add_liberty_desire = 20
+	}	
+	
+	c:MEX ?= {
+		add_liberty_desire = 10
+	}
+	
+	c:SCO ?= {
+		add_liberty_desire = 20
+	}
+	
+	c:CHI ?= {
+		every_subject_or_below = {
+			 set_relations = { country = c:CHI value = 50 }
+			 add_liberty_desire = -20
+		}
+	}	
+	
+	c:YUE ?= {
+		every_subject_or_below = {
+			 set_relations = { country = c:YUE value = 50 }
+			 add_liberty_desire = -20
 		}
 	}
 }

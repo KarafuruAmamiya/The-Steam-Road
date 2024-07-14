@@ -3,12 +3,12 @@
 		region_state:SWE = {
 			create_pop = {
 				culture = swedish
-				size = 881208
+				size = 981208
 			}
 			create_pop = {
 				culture = swedish
 				religion = protestant
-				size = 200230
+				size = 300230
 			}
 			create_pop = {
 				culture = finnish
@@ -265,7 +265,7 @@
 		}
 	}
 	s:STATE_GREENLAND = {
-		region_state:KRL = {
+		region_state:KRF = {
 			create_pop = {
 				culture = vinlandish
 				size = 410
@@ -308,6 +308,32 @@
 			create_pop = {
 				culture = ashkenazi
 				size = 400				# PDX's number
+			}
+		}
+	}
+	s:STATE_SAVONIA = {
+		region_state:SWE ={
+			create_pop = {
+				culture = finnish
+				size = 301794
+			}
+			create_pop = {
+				culture = finnish
+				religion = protestant
+				size = 56000
+			}
+			create_pop = {
+				culture = swedish
+				size = 51145
+			}
+			create_pop = {
+				culture = swedish
+				religion = protestant
+				size = 10000
+			}
+			create_pop = {
+				culture = russian
+				size = 10000
 			}
 		}
 	}
@@ -357,21 +383,38 @@
 		region_state:SWE ={
 			create_pop = {
 				culture = finnish
-				size = 258398
+				size = 135542
 			}
 			create_pop = {
 				culture = swedish
-				size = 77814
+				size = 66458
 			}
 			create_pop = {
 				culture = sami
 				religion = animist
-				size = 17400			# PDX claimed 18k Sami, from which 600 protestant Sami were substracted. PDX ahistorically made all Sami protestant.
+				size = 8400
 			}
 			create_pop = {
 				culture = sami
 				religion = catholic
 				size = 600
+			}
+		}
+	}
+	s:STATE_OULU = {
+		region_state:SWE = {
+			create_pop = {
+				culture = finnish
+				size = 116250
+			}
+			create_pop = {
+				culture = swedish
+				size = 1250
+			}
+			create_pop = {
+				culture = sami
+				religion = animist
+				size = 7500
 			}
 		}
 	}
@@ -759,12 +802,11 @@
 		region_state:FRA = {
 			create_pop = {
 				culture = french
-				size = 1608005
+				size = 1508005
 			}
 			create_pop = {
-				culture = french
-				religion = protestant
-				size = 10279
+				culture = wallonian
+				size = 110279
 			}
 			create_pop = {
 				culture = dutch
@@ -955,7 +997,20 @@
 		region_state:FRA = {
 			create_pop = {
 				culture = french
-				size = 1717200
+				size = 1713438
+			}
+			create_pop = {
+				culture = french
+				religion = protestant
+				size = 3472
+			}
+			create_pop = { # Givet area Walloon
+				culture = wallonian
+				size = 4167
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 868
 			}
 		}
 	}
@@ -1047,25 +1102,30 @@
 		region_state:NET = {
 			create_pop = {
 				culture = dutch
-				size = 1080164
+				size = 842331
 			}
 			create_pop = {
 				culture = dutch
 				religion = protestant
-				size = 21400
-			}
-			create_pop = {
-				culture = frisian
-				size = 20400
-			}
-			create_pop = {
-				culture = ashkenazi
-				size = 34004
+				size = 327009
 			}
 			create_pop = {
 				culture = dutch
-				religion = catholic
-				size = 220040
+				religion = protestant
+				size = 26531
+			}
+			create_pop = {
+				culture = wallonian # French or Walloon Reformed
+				religion = protestant
+				size = 6542
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 34143
+			}
+			create_pop = {
+				culture = sephardic # "Portuguese" Jews
+				size = 2908
 			}
 		}
 	}
@@ -1080,17 +1140,22 @@
 				size = 281400
 			}
 			create_pop = {
-				culture = north_german
+				culture = rhenish
 				size = 12800
 			}
 			create_pop = {
-				culture = ashkenazi
-				size = 1000
+				culture = dutch
+				religion = protestant
+				size = 134022
 			}
 			create_pop = {
-				culture = dutch
-				religion = catholic
-				size = 10000
+				culture = wallonian # French or Walloon Reformed
+				religion = protestant
+				size = 425
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 10947
 			}
 		}
 	}
@@ -1106,7 +1171,7 @@
 				size = 673889
 			}
 			create_pop = {
-				culture = french # French or Walloon Reformed
+				culture = wallonian # French or Walloon Reformed
 				religion = protestant
 				size = 774
 			}
@@ -1116,28 +1181,48 @@
 			}
 			create_pop = {
 				culture = rhenish
-				religion = catholic
 				size = 19201
 			}
 		}
 	}
 	s:STATE_WALLONIA = {
-		region_state:FRA = {
+		region_state:FRA = { # 
+			create_pop = {
+				culture = wallonian # 'Walloon & French' in census data.
+				size = 1313476
+			}
 			create_pop = {
 				culture = french
-				size = 1380000
+				size = 104550
+			}
+			create_pop = {
+				culture = rhenish
+				religion = catholic
+				size = 27847
+			}
+			create_pop = {
+				culture = dutch # 'Flemish & Dutch' in census data.
+				size = 40207
 			}
 			create_pop = {
 				culture = dutch
-				religion = protestant
-				size = 130800
+				religion = catholic
+				size = 1355
+			}
+			create_pop = {
+				culture = british
+				size = 317
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 205
 			}
 		}
 		region_state:LGE = {
 			create_pop = {
-				culture = french
+				culture = wallonian
 				religion = protestant
-				size = 106000
+				size = 86000
 			}
 			create_pop = {
 				culture = dutch
@@ -1148,6 +1233,10 @@
 				culture = luxembourgish
 				size = 12000
 			}
+			create_pop = {
+				culture = rhenish
+				size = 22000
+			}
 		}
 	}
 	s:STATE_LUXEMBOURG = {
@@ -1157,12 +1246,21 @@
 				size = 103992
 			}
 			create_pop = {
-				culture = french
+				culture = wallonian
 				size = 30000
 			}
 			create_pop = {
-				culture = north_german
-				size = 41996
+				culture = rhenish
+				religion = catholic
+				size = 71996
+			}
+			create_pop = {
+				culture = rhenish
+				size = 572
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 210
 			}
 		}
 	}
@@ -1178,12 +1276,21 @@
 				size = 67000
 			}
 			create_pop = {
-				culture = french
-				size = 100404
+				culture = wallonian # 'Walloon & French' in census data.
+				religion = protestant
+				size = 260733
+			}
+			create_pop = {
+				culture = rhenish
+				size = 3361
+			}
+			create_pop = {
+				culture = british
+				size = 3185
 			}
 			create_pop = {
 				culture = ashkenazi
-				size = 14000
+				size = 1131
 			}
 		}
 	}
@@ -1502,7 +1609,8 @@
 				size = 675568
 			}
 			create_pop = {
-				culture = french
+				culture = wallonian
+				religion = reformed
 				size = 208400
 			}
 			create_pop = {
@@ -1526,7 +1634,8 @@
 				size = 22000
 			}
 			create_pop = {
-				culture = french
+				culture = wallonian
+				religion = reformed
 				size = 136004
 			}
 			create_pop = {
@@ -1546,7 +1655,8 @@
 				size = 352157
 			}
 			create_pop = {
-				culture = french
+				culture = wallonian
+				religion = reformed
 				size = 20944
 			}
 			create_pop = {

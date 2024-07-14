@@ -1,0 +1,115 @@
+﻿POWER_BLOCS = {
+	c:PER ?= {
+		create_power_bloc = {
+			name = GUNPOWDER_ALLIANCE #YESS FINALLY
+			map_color = { 54  54  54 }
+
+			founding_date = 1634.2.21
+			identity = identity_military_treaty_organization
+			principle = principle_defensive_cooperation_1
+
+			member = c:TUR
+			member = c:AKN
+			member = c:BUK
+		}
+		if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_military_industry_1
+			}
+		}
+	}
+
+	c:FRA ?= {
+		create_power_bloc = {
+			name = FRENCH_EMPIRE
+			map_color = { 99  105  173 }
+
+			founding_date = 1784.5.12
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+
+			# subjects are automatically part of the bloc
+		}
+		if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_colonial_offices_2
+			}
+		}
+	}
+
+	# Holy Roman Empire
+	c:SAX ?= {
+		create_power_bloc = {
+			name = HOLY_ROMAN_EMPIRE
+
+			map_color = { 150  177  161 }
+
+			founding_date = 800.12.25 #Using the Charlemagne date
+			identity = identity_hre
+			principle = principle_ewiger_landfriede_1
+		}
+		power_bloc = {
+			add_principle = principle_reichskammergericht_reform_1
+			add_principle = principle_proclaim_erbkaisertum_1
+		}
+	}
+
+	c:SWE ?= {
+		create_power_bloc = {
+			name = SWEDISH_EMPIRE
+
+			map_color = { 93  169  217 }
+
+			founding_date = 1825.12.1
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+
+			# subjects are automatically part of the bloc
+			member = c:USC
+			member = c:IRE
+			
+		}
+		if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_defensive_cooperation_1
+			}
+		}
+	}
+	
+	c:CHI ?= {
+        create_power_bloc = {
+            name = CELESTIAL_EMPIRE
+            
+            map_color = { 204 153 0 }
+            
+            founding_date = 1781.5.8 # Liang claims Mandate of Heaven
+            
+            identity = identity_sovereign_empire
+            principle = principle_vassalization_1
+            
+            member = c:KOR
+            member = c:RYU
+            member = c:JNZ
+            member = c:WRK
+            member = c:TIB
+        }
+		
+		if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = { # Represents initial Liang reforms
+				add_principle = principle_creative_legislature_1
+			}
+		}
+    }
+}

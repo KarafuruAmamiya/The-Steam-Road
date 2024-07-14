@@ -219,7 +219,7 @@
 
 			
 	}
-	c:KRL ?= { # Karolean Federation
+	c:KRF ?= { # Karolean Federation
 		effect_starting_technology_tier_2_tech = yes
 		add_technology_researched = atmospheric_engine
 		
@@ -271,7 +271,7 @@
 		set_variable = karolean_independence_war
 		add_journal_entry = { type = je_karolean_independence_war }
 		trigger_event = {
-			id = krl_independence.4
+			id = krl_independence.2
 		}
 	}
 	c:MAY ?= { # Maya
@@ -511,10 +511,6 @@
 		}
 		
 		add_journal_entry = { type = je_usc_debt }
-		
-		trigger_event = {
-			id = krl_independence.1
-		}
 	}
 
 	# Decentralized Tribes

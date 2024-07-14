@@ -521,65 +521,22 @@ UNL = {
 }
 
 HRE = { # Holy Roman Empire
-	states = {
-		STATE_POMERANIA
-		STATE_ELBE
-		STATE_WESTPHALIA
-		STATE_ANHALT
-		STATE_RHINELAND
-		STATE_NORTH_RHINE
-		STATE_SCHLESWIG_HOLSTEIN
-		STATE_HANNOVER
-		STATE_BRUNSWICK
-		STATE_SAXONY
-		STATE_HESSE
-		STATE_MECKLENBURG
-		STATE_BRANDENBURG
-		STATE_WURTTEMBERG
-		STATE_BADEN
-		STATE_BAVARIA
-		STATE_FRANCONIA
-		STATE_AUSTRIA
-		STATE_STYRIA
-		STATE_TYROL
-		STATE_PFALZ
-		STATE_OBERPFALZ
-		STATE_ELSASS
-		STATE_THURINGIA
-		STATE_BOHEMIA
-		STATE_MORAVIA
-		STATE_UPPER_SILESIA
-		STATE_FLANDERS
-		STATE_SLOVENIA
-		STATE_WEST_SLOVAKIA
-		STATE_LORRAINE
-		STATE_FRANCHE_COMTE
-		STATE_LOMBARDY
-		STATE_VENETIA
-		STATE_PIEDMONT
-		STATE_WEST_SWITZERLAND
-		STATE_EAST_SWITZERLAND
-		STATE_TYROL
-		STATE_STYRIA
-		STATE_SLOVENIA
-		STATE_ISTRIA
-		STATE_DALMATIA
-		STATE_ROMAGNA
-		STATE_EMILIA
-		STATE_TUSCANY
-		STATE_LAZIO
-	}
+	use_culture_states = yes
 
-	required_states_fraction = 1
+	required_states_fraction = 0.75
 
 	ai_will_do = { always = yes }
 
 	possible = {
-		NOT = { has_game_rule = plausible_formable_nations }
-		has_modifier = hre_emperor
+		is_power_bloc_leader = yes
+		power_bloc ?= {
+			has_identity = identity:identity_hre
+			has_principle = principle:principle_renovatio_imperii_3
+		}
 		is_subject = no
 	}
 }
+
 TWT = {
 	use_culture_states = yes
 	

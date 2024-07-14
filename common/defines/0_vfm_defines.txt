@@ -4,120 +4,6 @@
 NJominiMap = {
 }
 
-NAI = {
-	STRATEGY_RANDOM_FACTOR = 10.0
-	CHANGE_STRATEGY_INCREASE_WEEKLY_CHANCE = 40.0
-	CHANGE_STRATEGY_DIPLOMATIC_STATE_GAINED = 15
-	CHANGE_STRATEGY_DIPLOMATIC_STATE_LOST = 15
-	COUNTRY_GOAL_STRATEGIC_UPDATE_COUNT = 10
-	COUNTRY_GOAL_ADJUSTMENT_UPDATE_COUNT = 75
-	BASE_AGGRESSION = 0.6
-	DIPLO_PROPOSAL_TO_PLAYER_COOLDOWN_MONTHS = 60
-	DIPLO_PROPOSAL_LIKELY_NON_ACCEPTED_COOLDOWN_MONTHS = 60
-	GOAL_BEFRIEND_RECONCILE_FACTOR = 100
-	RECRUITABLE_COMMANDER_RANDOM_FACTOR = 1.5
-	START_DIPLO_PLAY_RANDOM_FACTOR = 1.2
-	WAR_GOAL_RANDOM_FACTOR = 1.5
-	TECH_RANDOM_FACTOR = 1.5
-	TECH_REMAINING_COST_FACTOR = 0.03
-	DEFEND_STATE_CAPITAL_WEIGHT = 50
-	INVADE_STATE_CAPITAL_WEIGHT = 50
-	NAVAL_INVASION_COOLDOWN_DAYS = 60
-	FRONT_OR_HQ_IMPORTANCE_MIN_SCORE = 20
-	COLONY_ARABLE_LAND_WEIGHT = 15
-	COLONY_ADJACENT_WEIGHT_MULT = 20
-	COLONY_RANDOM_FACTOR = 1.5
-	MONEY_SPENDING_RANDOM_FACTOR = 1.5
-	PRODUCTION_BUILDING_RANDOM_FACTOR = 5
-	VIOLATE_SOVEREIGNTY_RANDOM_FACTOR = 1.5
-	
-	MONEY_SPENDING_SUPPLY_NETWORK_DESIRED_THRESHOLD = 1.1 # If supply network is worse than this, AI wants to improve it
-
-	MONEY_SPENDING_CONSTRUCTION_CRITICAL_THRESHOLD = 0.88 # If actual-to-wanted number of construction sector buildings is below this, AI considers it very important to get more
-	
-	MONEY_SPENDING_WANTED_CONVOYS_PER_BARRACKS_LEVEL = 4 # If the AI has fewer free convoys than this per level of barracks, it wants more ports
-	MONEY_SPENDING_BUREAUCRACY_CRITICAL_THRESHOLD = 0.95 # If bureaucracy income to expenses is worse than this, AI considers it critical to improve it
-	MONEY_SPENDING_BUREAUCRACY_DESIRED_THRESHOLD = 1.08 # If bureaucracy income to expenses is worse than this, AI wants to improve it
-	MONEY_SPENDING_BUREAUCRACY_EXCESSIVE_THRESHOLD = 1.16 # If bureaucracy income to expenses is better than this, AI will not improve it
-	MONEY_SPENDING_INFRASTRUCTURE_CRITICAL_THRESHOLD = 0.85 # If infra production to usage is worse than this, AI considers it critical to improve it
-	MONEY_SPENDING_INFRASTRUCTURE_DESIRED_THRESHOLD = 1.15 # If infra production to usage is worse than this, AI wants to improve it
-	
-	PRODUCTION_METHOD_PROFIT_FACTOR = 1.75 #1.0 Per pound of profit the produced goods would generate
-	PRODUCTION_METHOD_DEFICIT_FACTOR = 1.4 #1.5 Per pound of deficit the produced goods would generate (multiplies a negative value)
-	PRODUCTION_METHOD_CHANCE_TO_CHANGE = 0.2 # Chance that the AI will consider changing a production method when evaluating methods
-	
-	PRODUCTION_METHOD_INCREASE_OUTPUT_PENALTY_FACTOR = 0.2 #0.01 # Multiply method score by this if we're increasing the building's output penalties
-	
-	PRODUCTION_BUILDING_INCREASE_SHORTAGE_MULT = 0.2 #0.01 Multiply score by this if we're increasing the state region's shortages
-	
-	AI_PEACE_AGREEMENT_WHITE_PEACE_BASE = 15 # If no wargoals are being enforced on either side
-	AI_PEACE_AGREEMENT_WHITE_PEACE_WAR_DURATION = 2 # For each month the war goes on add this to the acceptance for a white peace
-	
-	TRADE_ROUTE_MIN_MARKET_SHARE = 0.05 # If the AI is junior in a customs union and has less than this market share in a market, don't make any trade routes
-	TRADE_ROUTE_MIN_ACCEPTABLE_PRODUCTIVITY = 2.4 #3 # If a potential trade route would result in lower productivity than this, don't create it unless it's to resolve a shortage
-	TRADE_ROUTE_MIN_WANTED_RELATIVE_VOLUME = 0.07 #0.1 # If a trade route won't account for at least this fraction of buy/sell orders in the market, don't create it
-	TRADE_ROUTE_MIN_VALUE_TO_IGNORE_VOLUME_CHECK = 500 # If a trade route is trading at least this much base value worth of goods, ignore the relative check above
-	TRADE_ROUTE_ACCEPTABLE_SPENDING = 0.004 #0.002 AI will not spend more BUR than this on trade routes (scaled by weekly GDP)
-	TRADE_ROUTE_ACCEPTABLE_SPENDING_MINIMUM = 85 #20 If TRADE_ROUTE_ACCEPTABLE_SPENDING is less than this, this is used instead (so even small countries can do some trading)
-	
-	TRADE_ROUTE_REPLACE_THRESHOLD = 3.5 #5.0 If there is a sufficiently better new trade route (old route score x this), remove the old one
-	TRADE_ROUTE_SUPPLY_NETWORK_STRENGTH_THRESHOLD = 0.9 #1.0 If supply network strength less than this, don't make new trade routes
-	TRADE_ROUTE_DURATION_FACTOR = 5.0 #10.0 # AI multiplies value of a route by ( 1 + this ) at COMPETITIVENESS_DURATION_BONUS_MAX_MONTHS (scales linearly up to this value at a lower duration)
-	
-	# Below data is used for naval invasions:
-	NAVAL_INVASION_RANDOM_FACTOR = 0.4 								# The higher this is, the more random AI naval invasion theater selection will be
-	NAVAL_INVASION_COOLDOWN_DAYS = 20 								# After launching a naval invasion, the AI will wait at least this long before launching another
-	NAVAL_INVASION_MIN_SCORE = 10									# AI won't bother launching naval invasions against theaters with a lower total state score than this
-	NAVAL_INVASION_MAX_LOCAL_FRONT_SCORE = 200						# Don't launch a naval invasion if there is a local front of at least this total score for the general
-	
-	MAX_INSTITUTION_SPENDING = 0.025 #0.02 AI will not spend more BUR than this on institutions (scaled by weekly GDP)
-	
-	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
-	
-	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # 2.0 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
-	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -70 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
-	DIPLO_PLAY_WEAK_ABANDON_SUPPORT_THRESHOLD = -25 # If support for the side an AI country is backing drops below this, consider abandoning it
-	DIPLO_PLAY_STRONG_ABANDON_SUPPORT_THRESHOLD = -50 # If support for the side an AI country is backing drops below this, abandon it immediately
-	
-	MONEY_SPENDING_INNOVATION_CRITICAL_THRESHOLD = 0.5 #0.25 # If innovation production compared to cap is worse than this, AI considers it very important to improve
-	
-	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # For each wargoal we have that's being pressed, apply wargoal value * this
-	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
-	
-	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
-	
-	MOBILIZATION_OPTION_GOODS_SHORTAGE_MULT = 0.1 #0.0			# Multiply value of mobilization option by this if there is a goods shortage of any of its input goods
-
-	HQ_DEFENSE_MIN_THEATER_SCORE = 20								# Theater of local HQ must have at least this importance score to have a minimum garrison
-	
-	REFORM_GOVERNMENT_MONTHS_BETWEEN_CHANGES = 6 #was 30 		# If the AI doesn't have elections, it won't consider changing government composition more often than this to avoid lots of radicals
-	
-	# Below data is used to determine how the AI invests into institution
-	INSTITUTION_INVESTMENT_RANDOM_FACTOR = 2.0 #was 1.0 # The higher this is, the more random AI institution selection will be 
-	INSTITUTION_CURRENT_INVESTMENT_DIVISOR = 0 #was 0.25 # Score for institution is divided by 1 + ( current levels after the first * this )
-	MAX_INSTITUTION_SPENDING = 0.05 #was 0.02 # AI will not spend more BUR than this on institutions (scaled by weekly GDP)
-	INSTITUTION_SPENDING_INCREASE_SPENDING_RATIO = 1.5 #was 1.0 # If current + additional institution spending is equal or less than max spending * this, try to improve some institutions
-	INSTITUTION_SPENDING_DECREASE_SPENDING_RATIO = 3.0 #was 2.0 # If current institution spending is at least max spending * this, try to degrade some institutions 
-
-	MIN_GOVERNMENT_LEGITIMACY = 25			# If legitimacy is below this, consider adding IGs we don't really like to the government
-	
-	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
-	CHANGE_LAW_RANDOM_FACTOR = 2.5 #was 1.0 # The higher this is, the more random AI law enactment will be
-	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 #was 100 # For enacting laws, per ideology match for IGs we approve of
-	CHANGE_LAW_ANTI_IG_IDEOLOGIES_FACTOR = -25 # For enacting laws, per ideology match for IGs we disapprove of
-	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #was 2 # Scales with movement support for movement that wants to enact the law
-	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #was 6 # Scales with movement radicalism for movement that wants to enact the law
-	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 75 #was 75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
-	CHANGE_LAW_POTENTIAL_CIVIL_WAR_ENACT_CHANCE = 20 #was 10 # Chance that the AI will proceed with a law change that could cause a civil war (1 = 1%)
-	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 #was 20 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
-	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #was 10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
-
-	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
-	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
-	
-	PRODUCTION_BUILDING_EXCESSIVE_INFRASTRUCTURE_SURPLUS = 100 #10 # If infra 'surplus' in state is at least this, AI doesn't want to improve it
-}
-
 NCountry = {
 	COUNTRY_FORMATION_CANDIDATE_MIN_RANK = 2
 }
@@ -164,7 +50,7 @@ NPolitics = {
 	MINIMUM_INVESTMENT_COST = 10			# The absolute minimum cost in BUR per investment level
 }
 
- NEconomy = {
+NEconomy = {
 	TRADE_ROUTE_AUTO_INCREASE_VERY_LOW_PRODUCTIVITY_THRESHOLD = 1.2 # If trade route's productivity is below this, always automatically decrease its level (regardless of total revenue)
 	TRADE_ROUTE_AUTO_INCREASE_LOW_PRODUCTIVITY_THRESHOLD = 1.3 # If trade route's productivity would drop below this, don't automatically increase its level (regardless of total revenue)
 	TRADE_ROUTE_AUTO_INCREASE_HIGH_PRODUCTIVITY_THRESHOLD = 1.4 # If trade route's productivity is above this, it's always fine to automatically increase its level (regardless of total revenue)

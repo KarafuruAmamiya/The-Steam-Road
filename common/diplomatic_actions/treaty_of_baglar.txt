@@ -1,18 +1,160 @@
 ﻿treaty_of_baglar_pact = {
+	groups= {
+		general
+	}
 	can_select = no
 	can_use_obligations = yes
 
 	potential = {
 		always = no
-	}	
+	}
+	
+	accept_effect = {
+		if = {
+			limit = {
+				scope:target_country = {
+					has_diplomatic_pact = {
+						who = root
+						type = guarantee_independence
+					}									
+				}			
+			}
+			
+			scope:target_country = {
+				remove_diplomatic_pact = {
+					country = root
+					type = guarantee_independence
+				}			
+			}
+		}	
+		else_if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = scope:target_country
+					type = guarantee_independence
+				}		
+			}
+			
+			remove_diplomatic_pact = {
+				country = scope:target_country
+				type = guarantee_independence
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:target_country = {
+					has_diplomatic_pact = {
+						who = root
+						type = defensive_pact
+					}									
+				}			
+			}
+			
+			scope:target_country = {
+				remove_diplomatic_pact = {
+					country = root
+					type = defensive_pact
+				}			
+			}
+		}	
+		else_if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = scope:target_country
+					type = defensive_pact
+				}		
+			}
+			
+			remove_diplomatic_pact = {
+				country = scope:target_country
+				type = defensive_pact
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:target_country = {
+					has_diplomatic_pact = {
+						who = root
+						type = trade_agreement
+					}									
+				}			
+			}
+			
+			scope:target_country = {
+				remove_diplomatic_pact = {
+					country = root
+					type = trade_agreement
+				}			
+			}
+		}
+		else_if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = scope:target_country
+					type = trade_agreement
+				}		
+			}
+			
+			remove_diplomatic_pact = {
+				country = scope:target_country
+				type = trade_agreement
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_pact = {
+					who = scope:target_country
+					type = foreign_investment_rights
+				}			
+			}
+			
+			remove_diplomatic_pact = {
+				country = scope:target_country
+				type = foreign_investment_rights
+			}	
+		}
+		else_if = {
+			limit = {
+				scope:target_country = {
+					has_diplomatic_pact = {
+						who = scope:actor
+						type = foreign_investment_rights
+					}	
+				}
+			}
+
+			scope:target_country = {
+				remove_diplomatic_pact = {
+					country = scope:actor
+					type = foreign_investment_rights
+				}	
+			}
+		}
+		
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = 3
+			ANTI_AMOUNT = -3
+			FACTOR = appeasement_defensive_pact_formed
+		}	
+	}
 	
 	pact = {
+		is_two_sided_pact = yes
 		is_defensive_pact = yes
 		is_trade_agreement = yes
+		is_foreign_investment_rights = yes
+		has_junior_participant = yes
 		
 		relations_progress_per_day = 1 # At 100, +1 relations
 		relations_improvement_max = 80		
-
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = 250
+		}	
 
 		actor_can_break = {
 			always = no
@@ -30,8 +172,7 @@
 
 		requirement_to_maintain = {
 			trigger = {
-				NOR = { 
-					scope:target_country = { is_non_customs_union_subject = yes }
+				NOR = {
 					scope:target_country = { is_subject_of = root }
 				}
 			}
@@ -39,8 +180,7 @@
 
 		requirement_to_maintain = {
 			trigger = {
-				NOR = { 
-					is_non_customs_union_subject = yes
+				NOR = {
 					is_subject_of = scope:target_country
 				}
 			}
@@ -57,12 +197,11 @@
 
 		manual_break_effect = {
 			change_relations = { country = scope:target_country value = -30 }
-			create_truce = { country = scope:target_country months = 12 }
+			create_bidirectional_truce = { country = scope:target_country months = 12 }		
 		}
 		
 		auto_break_effect = {
-			change_relations = { country = scope:target_country value = -30 }
-			create_truce = { country = scope:target_country months = 12 }
+			create_bidirectional_truce = { country = scope:target_country months = 12 }				
 		}
 	}
 }

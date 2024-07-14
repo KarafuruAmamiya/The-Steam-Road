@@ -55,11 +55,7 @@ law_feudalism = {
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -136,11 +132,7 @@ law_warlord_state = {
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 	}
@@ -227,17 +219,37 @@ law_unitary = {
 				value = 0.25
 			}
 		}
+		
+		# Literate pops support getting out of Feudalism once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism 
+						has_law = law_type:law_feudalism
+					}		
+				}
+				add = {
+					value = literacy_rate			
+					if = {
+						limit = { is_pop_type = aristocrats }
+						divide = 5
+					}	
+					else = {
+						divide = 2
+					}
+				}
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 		
@@ -255,6 +267,19 @@ law_unitary = {
 					has_law = law_type:law_devolved
 				}
 				has_technology_researched = nationalism
+			}
+			add = 1000
+		}
+		
+		# AI should really try to get out of Feudalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_feudalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_unitary }				
+				}			
 			}
 			add = 1000
 		}
@@ -338,17 +363,37 @@ law_devolved = {
 			}
 			value = 0.25
 		}
+		
+		# Literate pops support getting out of Feudalism once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism 
+						has_law = law_type:law_feudalism
+					}		
+				}
+				add = {
+					value = literacy_rate			
+					if = {
+						limit = { is_pop_type = aristocrats }
+						divide = 5
+					}	
+					else = {
+						divide = 2
+					}
+				}
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 		
@@ -357,6 +402,19 @@ law_devolved = {
 				law_is_important = yes
 			}
 			add = 750
+		}
+		
+		# AI should really try to get out of Feudalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_feudalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_devolved }				
+				}			
+			}
+			add = 1000
 		}
 	}
 }
@@ -446,17 +504,35 @@ law_federal = {
 				value = 0.05
 			}
 		}
+		
+		# Literate pops support getting out of Serfdom once you have Empiricism
+		add = {
+			desc = "empiricism"
+			
+			if = {
+				limit = { 
+					owner = { 
+						has_technology_researched = empiricism 
+						has_law = law_type:law_feudalism
+					}				
+					OR = { 
+						is_pop_type = academics
+						is_pop_type = capitalists 
+					} 
+				}
+				add = {
+					value = literacy_rate
+					divide = 2
+				}
+			}
+		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 		
@@ -470,6 +546,19 @@ law_federal = {
 		if = {
 			limit = {
 				has_journal_entry = je_akkovin_reform_bureaucracy
+			}
+			add = 1000
+		}
+		
+		# AI should really try to get out of Feudalism under the right circumstances
+		if = {
+			limit = {
+				has_law = law_type:law_feudalism
+				NOT = { has_strategy = ai_strategy_reactionary_agenda }
+				OR = {
+					NOT = { has_strategy = ai_strategy_conservative_agenda }
+					any_political_movement = { desired_law = law_type:law_federal }				
+				}			
 			}
 			add = 1000
 		}
@@ -491,7 +580,7 @@ law_confederated = {
 		state_radicals_from_sol_change_mult = -0.25
 		state_radicals_from_discrimination_mult = -0.25
 		country_bureaucracy_investment_cost_factor_mult = -0.5
-		tsr_disallow_annex_subject = yes
+		modifier_tsr_disallow_annex_subject_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -567,11 +656,7 @@ law_confederated = {
 		value = 0
 		
 		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
 		

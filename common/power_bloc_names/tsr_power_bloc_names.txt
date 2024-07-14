@@ -1,0 +1,28 @@
+﻿council_of_rome = {
+	trigger = {
+	    scope:selected_identity = identity:identity_ideological_union
+		coa_republic_trigger = yes
+		OR = {
+			any_scope_state = { state_region = s:STATE_TUSCANY }
+			any_scope_state = { state_region = s:STATE_LAZIO }
+		}
+	}
+}
+
+ottoman_caliphate = {
+	trigger = {
+	    scope:selected_identity = identity:identity_religious
+        c:TUR ?= this
+		has_law = law_type:law_state_religion
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+	}
+}
+
+akkovin_caliphate = {
+	trigger = {
+	    scope:selected_identity = identity:identity_religious
+        c:AKN ?= this
+		has_law = law_type:law_state_religion
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+	}
+}

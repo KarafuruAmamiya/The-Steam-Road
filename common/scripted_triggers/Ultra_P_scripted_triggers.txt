@@ -28,52 +28,7 @@ rural_employment = {
 		pop_employment_building_group = bg_fishing	
 		pop_employment_building_group = bg_subsistence_agriculture
 		pop_employment_building_group = bg_subsistence_ranching		
+		pop_employment_building_group = bg_manor_houses
 		is_pop_type = peasants
 	}
 }
-
-building_owner = {
-	OR = {
-		AND = {
-			is_pop_type = capitalists
-			workplace = {
-				modifier:building_capitalists_shares_add > 0
-			}
-		}
-		AND = {
-			is_pop_type = aristocrats
-			workplace = {
-				modifier:building_capitalists_shares_add > 0
-			}
-		}
-		AND = {
-			is_pop_type = clergymen
-			workplace = {
-				modifier:building_capitalists_shares_add > 0
-			}
-		}
-		AND = {
-			is_pop_type = shopkeepers
-			workplace = {
-				modifier:building_shopkeepers_shares_add > 0
-			}
-		}
-		AND = {
-			is_pop_type = bureaucrats
-			workplace = {
-				modifier:building_government_shares_add > 0
-			}
-		}
-		AND = {
-			is_pop_type = engineers
-			workplace = {
-				modifier:building_government_shares_add > 0
-			}
-		}
-		# peoples military-industrial_complex
-		workplace = {
-			modifier:building_workforce_shares_add = 1
-		}
-	} 
-}
-

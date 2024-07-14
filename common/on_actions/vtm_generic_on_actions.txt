@@ -62,7 +62,8 @@ revolution_safety_check_on_action = {
 	effect = {
 		if = {
 			limit = {
-				total_population <= 100000
+				total_population <= 300000
+				is_player = no
 				NOT = { has_variable = revolution_safety_check_var }
 			}
 			set_variable = revolution_safety_check_var
@@ -70,7 +71,7 @@ revolution_safety_check_on_action = {
 		}
 		else_if = {
 			limit = {
-				total_population >= 150000
+				total_population > 300000
 				has_variable = revolution_safety_check_var
 			}
 			remove_variable = revolution_safety_check_var

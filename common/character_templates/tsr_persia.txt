@@ -137,3 +137,44 @@ per_damodar_rao_character_template = {
     female = no
     birth_date = 1849.11.15
 }
+
+#Rulers
+
+per_hosayn_safavid_character_template = {
+	is_general = yes
+	first_name = "Hosayn_I"
+	last_name = "Safavid"
+	historical = yes
+	ruler = yes
+	birth_date = 1788.5.23
+    religion = rel:shiite
+	dna = dna_hosayn_safavid
+	culture = cu:persian
+	interest_group = ig_armed_forces
+	ideology = ideology_jingoist_leader
+	traits = {
+		ambitious persistent explorer
+	}
+	on_created = {
+		set_variable = is_married
+	}
+}
+
+per_mohammad_sadiq_safavid_character_template = {
+	first_name = "Mohammad_Sadiq"
+	last_name = "Safavid"
+	historical = yes
+	heir = yes
+	birth_date = 1835.9.25
+    religion = rel:shiite
+	dna = dna_mohammad_sadiq_safavid
+	culture = cu:persian
+	interest_group = ig_intelligentsia
+	ideology = ideology_persian_constitutionalist
+	traits = {
+		direct innovative
+	}
+	on_created = {
+		set_character_immortal = yes
+	}
+}

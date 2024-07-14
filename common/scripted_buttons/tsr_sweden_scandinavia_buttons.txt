@@ -402,8 +402,8 @@ scandinavian_union_norway_vinland_button = {
 			NOT = { has_variable = scandinavian_union_norway_vinland_var }
 		}
 		trigger_if = {
-			limit = { c:KRL ?= { is_subject_of = root } }
-			c:KRL ?= {
+			limit = { c:KRF ?= { is_subject_of = root } }
+			c:KRF ?= {
 				has_attitude = {
 					who = root
 					attitude = loyal
@@ -413,8 +413,8 @@ scandinavian_union_norway_vinland_button = {
 		trigger_else = {
 			OR = {
 				AND = {
-					exists = c:KRL
-					c:KRL = { is_subject_of = root }
+					exists = c:KRF
+					c:KRF = { is_subject_of = root }
 				}
 				owns_entire_state_region = STATE_GREENLAND
 			}

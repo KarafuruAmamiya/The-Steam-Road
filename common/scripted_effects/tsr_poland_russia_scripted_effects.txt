@@ -47,8 +47,8 @@ calculate_plc_point = {
 			}
 		}
 	}
+	change_global_variable = { name = plc_point_from_radicals_pol add = global_var:plc_point_from_radicals_lit }
 	change_global_variable = { name = plc_point_from_radicals_pol multiply = -1 }
-	change_global_variable = { name = plc_point_from_radicals_lit multiply = -1 }
 	#From Loyalists
 	set_global_variable = { name = plc_point_from_loyalists_pol value = 0 }
 	set_global_variable = { name = plc_point_from_loyalists_lit value = 0 }
@@ -72,35 +72,47 @@ calculate_plc_point = {
 			}
 		}
 	}
-	#From Nationalism
-	set_global_variable = { name = plc_point_from_nationalism value = 0 }
-	if = {
-		limit = {
-			OR = {
-				c:POL ?= { has_technology_researched = nationalism }
-				c:LIT ?= { has_technology_researched = nationalism }
+	change_global_variable = { name = plc_point_from_loyalists_pol add = global_var:plc_point_from_loyalists_lit }
+	#Prestige
+	set_global_variable = { name = plc_point_from_prestige value = 0 }
+	c:POL = {
+		ROOT = {
+			change_global_variable = { name = plc_point_from_prestige add = root.prestige }
+		}
+	}
+	change_global_variable = { name = plc_point_from_prestige divide = c:LIT.prestige }
+	change_global_variable = { name = plc_point_from_prestige divide = 10 }
+	#From Pro-Union Lobby
+	set_global_variable = { name = plc_point_from_pro_lobby value = 0 }
+	c:LIT ?= {
+		every_political_lobby = {
+			limit = {
+				is_political_lobby_type = lobby_pro_overlord
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_pro_lobby add = prev.lobby_clout }
 			}
 		}
-		change_global_variable = { name = plc_point_from_nationalism add = 0.5 }
 	}
-	change_global_variable = { name = plc_point_from_nationalism multiply = -1 }
-	#From Pan-Nationalism
-	set_global_variable = { name = plc_point_from_pannationalism value = 0 }
-	if = {
-		limit = {
-			OR = {
-				c:POL ?= { has_technology_researched = pan-nationalism }
-				c:LIT ?= { has_technology_researched = pan-nationalism }
+	#From Anti-Union Lobby
+	set_global_variable = { name = plc_point_from_anti_lobby value = 0 }
+	c:LIT ?= {
+		every_political_lobby = {
+			limit = {
+				is_political_lobby_type = lobby_anti_overlord
+			}
+			ROOT = {
+				change_global_variable = { name = plc_point_from_anti_lobby add = prev.lobby_clout }
 			}
 		}
-		change_global_variable = { name = plc_point_from_pannationalism add = 1 }
 	}
+	change_global_variable = { name = plc_point_from_anti_lobby multiply = -1 }
 	#From Liberty Desire
 	set_global_variable = { name = plc_point_from_positive_relations value = 0 }
 	if = {
 		limit = {
 			c:LIT ?= {
-				liberty_desire > 25
+				liberty_desire > 50
 			}
 		}
 		change_global_variable = { name = plc_point_from_positive_relations add = c:LIT.liberty_desire }
@@ -124,7 +136,7 @@ calculate_plc_point = {
 				is_subject_type = subject_type_dependency
 			}
 		}
-		change_global_variable = { name = plc_point_from_autonomy add = 0.5 }
+		change_global_variable = { name = plc_point_from_autonomy add = 1 }
 	}
 	if = {
 		limit = {
@@ -177,19 +189,14 @@ calculate_plc_point = {
 
 	# Compilation
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_radicals_pol }
-	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_radicals_lit }
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_loyalists_pol }
-	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_loyalists_lit }
-	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_nationalism }
-	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_pannationalism }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_prestige }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_pro_lobby }
+	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_anti_lobby }
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_positive_relations }
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_autonomy }
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_from_centralization }
 	change_global_variable = { name = plc_point_var_next add = global_var:plc_point_var_add }
-}
-
-add_plc_point = {
-	change_global_variable = { name = plc_union_progress_var add = global_var:plc_point_var_next }
 }
 
 set_plc_point_vars = {
@@ -197,8 +204,9 @@ set_plc_point_vars = {
 	set_global_variable = { name = plc_point_from_radicals_lit value = 0 }
 	set_global_variable = { name = plc_point_from_loyalists_pol value = 0 }
 	set_global_variable = { name = plc_point_from_loyalists_lit value = 0 }
-	set_global_variable = { name = plc_point_from_nationalism value = 0 }
-	set_global_variable = { name = plc_point_from_pannationalism value = 0 }
+	set_global_variable = { name = plc_point_from_prestige value = 0 }
+	set_global_variable = { name = plc_point_from_pro_lobby value = 0 }
+	set_global_variable = { name = plc_point_from_anti_lobby value = 0 }
 	set_global_variable = { name = plc_point_from_positive_relations value = 0 }
 	set_global_variable = { name = plc_point_from_autonomy value = 0 }
 	set_global_variable = { name = plc_point_from_centralization value = 0 }
@@ -212,8 +220,9 @@ clear_plc_point_vars = {
 	remove_global_variable = plc_point_from_radicals_lit
 	remove_global_variable = plc_point_from_loyalists_pol
 	remove_global_variable = plc_point_from_loyalists_lit
-	remove_global_variable = plc_point_from_nationalism
-	remove_global_variable = plc_point_from_pannationalism
+	remove_global_variable = plc_point_from_prestige
+	remove_global_variable = plc_point_from_pro_lobby
+	remove_global_variable = plc_point_from_anti_lobby
 	remove_global_variable = plc_point_from_positive_relations
 	remove_global_variable = plc_point_from_autonomy
 	remove_global_variable = plc_point_from_centralization

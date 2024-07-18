@@ -33,7 +33,7 @@
 			change_variable = { name = westernist_progress_from_characters add = prev.popularity }
 		}
 	}
-	change_variable = { name = westernist_progress_from_characters divide = 100 }
+	change_variable = { name = westernist_progress_from_characters divide = 200 }
 	# From Interest Groups
 	set_variable = { name = westernist_progress_from_igs value = 0 }
 	every_interest_group = {
@@ -65,7 +65,7 @@
 	change_variable = {
 		name = westernist_progress_from_domain 
 		add = {
-			value = 0.1
+			value = 0.05
 			multiply = num_mehmed_domain
 		}
 	}
@@ -140,18 +140,18 @@
 	change_variable = { 
 		name = westernist_progress_from_foreign_support 
 		add = {
-			value = 0.3
+			value = 0.1
 			multiply = num_support_westernists
 		}
 	}
 	change_variable = { 
 		name = westernist_progress_from_foreign_support 
 		subtract = {
-			value = 0.3
+			value = 0.1
 			multiply = num_oppose_westernists
 		}
 	}
-
+	
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_radicals }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_loyalists }
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_from_characters }
@@ -163,17 +163,7 @@
 	change_variable = { name = westernist_progress_var_next add = var:westernist_progress_var_add }
 }
 
-add_westernist_progress = {
-	change_variable = { name = westernist_progress_var add = var:westernist_progress_var_next }
-	clamp_variable = {
-		name = westernist_progress_var
-		max = 240
-		min = 0
-	}
-}
-
 set_westernist_vars = {
-	set_variable = { name = westernist_progress_var value = 0 }
 	set_variable = { name = westernist_progress_var_next value = 0 }
 	set_variable = { name = westernist_progress_from_radicals value = 0 }
 	set_variable = { name = westernist_progress_from_loyalists value = 0 }
@@ -187,6 +177,7 @@ set_westernist_vars = {
 }
 
 clear_westernist_vars = {
+	remove_variable = westernist_progress_var_next
 	remove_variable = westernist_progress_from_radicals
 	remove_variable = westernist_progress_from_loyalists
 	remove_variable = westernist_progress_from_laws
@@ -196,4 +187,55 @@ clear_westernist_vars = {
 	remove_variable = westernist_progress_from_legitimacy
 	remove_variable = westernist_progress_from_foreign_support
 	remove_variable = westernist_progress_var_add
+}
+
+check_westernist_states = {
+	if = {
+		limit = { var:westernist_progress_var_next > 0 }
+		if = {
+			limit = {
+				any_scope_state = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:turkish
+					}
+					is_capital = no
+					NOT = { has_modifier = pro_mehmed_domain }
+				}
+			}
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_region = {
+						is_homeland = cu:turkish
+					}
+					is_capital = no
+					NOT = { has_modifier = pro_mehmed_domain }
+				}
+				save_scope_as = mehmed_defector_state
+				add_modifier = {
+					name = pro_mehmed_domain
+				}
+			}
+			post_notification = westernist_state_defection
+		}
+	}
+	else_if = {
+		limit = { var:westernist_progress_var_next < 0 }
+		if = {
+			limit = {
+				any_scope_state = {
+					has_modifier = pro_mehmed_domain
+				}
+			}
+			random_scope_state = {
+				limit = {
+					has_modifier = pro_mehmed_domain
+				}
+				save_scope_as = mehmed_return_state
+				remove_modifier = pro_mehmed_domain
+			}
+			post_notification = westernist_state_return
+		}
+	}
 }

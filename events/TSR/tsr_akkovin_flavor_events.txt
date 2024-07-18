@@ -604,6 +604,42 @@ treaty_of_baglar_events.2 = { # Persia demands you to embargo their rivals
 
 	option = { #
 		name = treaty_of_baglar_events.2.a
+		if = {
+			limit = {
+				has_diplomatic_pact = { 
+					who = scope:rival_scope
+					type = trade_agreement
+				}
+			}
+			remove_diplomatic_pact = {
+				country = scope:rival_scope
+				type = trade_agreement
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_pact = { 
+					who = scope:rival_scope
+					type = foreign_investment_rights
+				}
+			}
+			remove_diplomatic_pact = {
+				country = scope:rival_scope
+				type = foreign_investment_rights
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_pact = { 
+					who = scope:rival_scope
+					type = foreign_investment_agreement
+				}
+			}
+			remove_diplomatic_pact = {
+				country = scope:rival_scope
+				type = foreign_investment_agreement
+			}
+		}
 		create_diplomatic_pact = {
 			country = scope:rival_scope
 			type = tob_embargo
@@ -611,50 +647,112 @@ treaty_of_baglar_events.2 = { # Persia demands you to embargo their rivals
 	}
 }
 
-#treaty_of_baglar_events.3 = { # Persia demands investment rights
-#	type = country_event
-#	title = treaty_of_baglar_events.3.t
-#	desc = treaty_of_baglar_events.3.d
-#	flavor =  treaty_of_baglar_events.3.f
-#	duration = 3
-#	event_image = {
-#		video = "africa_leader_arguing"
-#	}
-#
-#	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-#	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
-#	
-#	immediate = {
-#		c:PER = { save_scope_as = per_scope }
-#	}
-#	
-#	trigger = {
-#		c:AKN ?= this
-#		is_in_customs_union = no
-#		has_modifier = treaty_of_baglar_2
-#		OR = {
-#			country_rank < rank_value:major_power
-#			is_country_type = unrecognized
-#		}
-#		c:PER ?= {
-#			NOT = { has_variable = no_bullying_akkovins }
-#			has_diplomatic_pact = {
-#				who = c:AKN
-#				type = treaty_of_baglar_pact
-#			}
-#		}
-#	}
-#
-#	option = { #
-#		name = treaty_of_baglar_events.3.a
-#		c:PER = {
-#			create_diplomatic_pact = {
-#				country = c:AKN
-#				type = foreign_investment_rights
-#			}
-#		}
-#	}
-#}
+treaty_of_baglar_events.3 = { # End of the Gunpowder Alliance
+	type = country_event
+	title = treaty_of_baglar_events.3.t
+	desc = treaty_of_baglar_events.3.d
+	flavor =  treaty_of_baglar_events.3.f
+	duration = 3
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_diplomacy.dds"
+	
+	immediate = {
+		power_bloc ?= {
+			save_scope_as = gunpowder_alliance
+		}
+		set_global_variable = no_gunpowder_alliance
+	}
+	
+	trigger = {
+		gunpowder_empire_trigger = yes
+		is_power_bloc_leader = yes
+		tenure_in_current_power_bloc_years > 200
+        power_bloc ?= {
+			has_identity = identity:identity_military_treaty_organization
+		}
+		trigger_if = {
+			limit = { 
+				c:PER ?= this
+			}
+			trigger_if = {
+				limit = { exists = c:TUR }
+				NOT = { is_in_same_power_bloc = c:TUR  }
+			}
+			trigger_else = {
+				NOT = { exists = c:TUR }
+			}
+			trigger_if = {
+				limit = { exists = c:AKN }
+				NOT = { is_in_same_power_bloc = c:AKN  }
+			}
+			trigger_else = {
+				NOT = { exists = c:AKN }
+			}
+		}
+		trigger_else_if = {
+			limit = { 
+				c:TUR ?= this
+			}
+			trigger_if = {
+				limit = { exists = c:PER }
+				NOT = { is_in_same_power_bloc = c:PER  }
+			}
+			trigger_else = {
+				NOT = { exists = c:PER }
+			}
+			trigger_if = {
+				limit = { exists = c:AKN }
+				NOT = { is_in_same_power_bloc = c:AKN  }
+			}
+			trigger_else = {
+				NOT = { exists = c:AKN }
+			}
+		}
+		trigger_else_if = {
+			limit = { 
+				c:AKN ?= this
+			}
+			trigger_if = {
+				limit = { exists = c:PER }
+				NOT = { is_in_same_power_bloc = c:PER  }
+			}
+			trigger_else = {
+				NOT = { exists = c:PER }
+			}
+			trigger_if = {
+				limit = { exists = c:TUR }
+				NOT = { is_in_same_power_bloc = c:TUR  }
+			}
+			trigger_else = {
+				NOT = { exists = c:TUR }
+			}
+		}
+	}
+
+	option = {
+		name = treaty_of_baglar_events.3.a
+		if = {
+			limit = { NOT = { has_global_variable = gunpowder_alliance_disband } }
+			if = {
+				limit = { c:PER ?= this }
+				disband_gunpowder_alliance_per = yes
+			}
+			else_if = {
+				limit = { c:TUR ?= this }
+				disband_gunpowder_alliance_tur = yes
+			}
+		} 
+		
+		hidden_effect = {
+			set_country_type = unrecognized
+			set_country_type = recognized
+		}
+	}
+}
 
 treaty_of_baglar_events.4 = { # Veiled Puppet
 	type = country_event
@@ -762,15 +860,12 @@ treaty_of_baglar_events.5 = { # Persia responds to increased Ottomans aggression
 	option = {
 		name = treaty_of_baglar_events.5.a
 		default_option = yes
-		if = {
-			limit = { 
-				NOT = { has_global_variable = gunpowder_alliance_disband } 
-			}
-			disband_gunpowder_alliance_per = yes
-		}
 		change_relations = {
 			country = c:TUR
 			value = -80
+		}
+		power_bloc ?= {
+			add_leverage = { target = c:TUR value = -1000 }  
 		}
 		hidden_effect = {
 			c:TUR = {

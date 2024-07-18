@@ -4,10 +4,14 @@
 
 	visible = {
 		NOT = { has_variable = pursue_caliphate_var }
-		NOT = { has_variable = reject_caliphate }
+		NOT = { has_global_variable = reject_caliphate }
 	}
 	
 	possible = {
+		OR = {
+			is_in_power_bloc = no
+			is_power_bloc_leader = yes
+		}
 		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
 		country_or_subject_owns_entire_state_region = STATE_MEDINA
 	}
@@ -112,7 +116,7 @@ reject_ottoman_caliphate_button = { #Dismiss Caliphatist Ambitions
 		custom_tooltip = {
 			text = dismiss_ottoman_caliphate_tt
 			remove_variable = pursue_caliphate_var
-			set_variable = reject_ottoman_caliphate
+			set_global_variable = reject_caliphate
 		}
 		every_interest_group = {
 			limit = {
@@ -135,6 +139,10 @@ reject_ottoman_caliphate_button = { #Dismiss Caliphatist Ambitions
 			}
 		}
 		change_infamy = -10
+		
+		#hidden_effect to disband Ottoman Caliphate
+		set_country_type = unrecognized
+		set_country_type = recognized
 	}
 
 	ai_chance = {
@@ -178,12 +186,9 @@ westernist_coalition_suppress_westernist_faction = {
 			filter = {
 				has_ideology = ideology:ideology_westernizer
 			}
-			count = all
+			percent = 1
 			is_in_government = no
-		}
-		custom_tooltip = {
-			text = westernist_coalition_losing_power
-			var:westernist_progress_var_next < 0
+			ig_clout < 0.1
 		}
 		custom_tooltip = {
 			text = mehmed_not_in_country
@@ -211,6 +216,46 @@ westernist_coalition_suppress_westernist_faction = {
 	effect = {
 		trigger_event = { id = ottoman_flavor.9 popup = yes }
 		set_variable = { name = suppress_westernists_cooldown_var months = 6 }
+	}
+
+	ai_chance = {
+		base = 10 #AI defaults to opposing westernists
+	}
+}
+
+westernist_coalition_bolster_faction = {
+	name = "westernist_coalition_bolster_faction"
+	desc = "westernist_coalition_bolster_faction_desc"
+
+	visible = {
+		always = yes
+	}
+	
+	possible = {
+		any_interest_group = {
+			has_ideology = ideology:ideology_westernizer
+			is_in_government = yes
+		}
+		custom_tooltip = {
+			text = mehmed_in_country
+			any_scope_character = {
+				has_template = tur_mehmed_iv_character_template
+			}
+		}
+		any_scope_state = {
+			has_modifier = pro_mehmed_domain
+		}
+		custom_tooltip = {
+			text = bolster_westernists_cooldown_tt
+			NOT = {
+				has_variable = bolster_westernists_cooldown_var
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = { id = ottoman_flavor.12 popup = yes }
+		set_variable = { name = bolster_westernists_cooldown_var months = 6 }
 	}
 
 	ai_chance = {

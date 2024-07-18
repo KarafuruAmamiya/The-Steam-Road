@@ -14,4 +14,31 @@ can_lead_power_bloc = {
             has_global_variable = hre_end
         }
     }
+	trigger_if = {
+        limit = {
+            power_bloc ?= {
+				has_identity = identity:identity_military_treaty_organization
+				any_power_bloc_member = {
+					tenure_in_current_power_bloc_years > 200
+				}
+			}
+        }
+		gunpowder_empire_trigger = yes
+		NOT = { has_global_variable = no_gunpowder_alliance }
+    }
+	trigger_if = {
+        limit = {
+            power_bloc ?= {
+                has_identity = identity:identity_religious
+				any_power_bloc_member = {
+					has_variable = pursue_caliphate_var
+				}
+            }
+        }
+        NOR = {
+            has_global_variable = reject_caliphate
+            has_global_variable = westernist_coup
+            has_global_variable = turkish_empire
+        }
+    }
 }

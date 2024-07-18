@@ -2,7 +2,7 @@
 	name = "je_akkovin_crisis_button"
 	desc = "je_akkovin_crisis_button_desc"
 
-	visible = { always = yes }
+	visible = { NOT = { has_variable = erzurum_edict } }
 
 	possible = {
 		OR = {
@@ -16,7 +16,6 @@
 				}
 			}
 		}
-		NOT = { has_variable = erzurum_edict }
 	}
 
 	effect = {
@@ -24,6 +23,7 @@
 		add_radicals = {
 			value = small_radicals
 		}
+		hidden_effect = { trigger_event = { id = akkovin_crisis.5 days = 90 popup = yes } }
 	}
 	
 	ai_chance = {

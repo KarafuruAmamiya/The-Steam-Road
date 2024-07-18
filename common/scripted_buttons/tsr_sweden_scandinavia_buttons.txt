@@ -4,6 +4,7 @@
 
 	visible = { 
 		exists = c:DEN
+		NOT = { has_variable = denmark_appeased }
 	}
 	
 	ai_chance = {
@@ -54,6 +55,7 @@ scandinavian_union_norway_button = {
 
 	visible = { 
 		exists = c:NOR
+		NOT = { has_variable = norway_appeased }
 	}
 	
 	ai_chance = {
@@ -103,7 +105,7 @@ scandinavian_union_denmark_religion_button = {
 	desc = "scandinavian_union_denmark_religion_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_religion_var }
 	}
 	
 	ai_chance = {
@@ -111,9 +113,6 @@ scandinavian_union_denmark_religion_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_religion_var }
-		}
 		c:DEN = {
 			has_law = law_type:law_freedom_of_conscience
 		}
@@ -138,7 +137,7 @@ scandinavian_union_denmark_andersen_button = {
 	desc = "scandinavian_union_denmark_andersen_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_andersen_var }
 	}
 	
 	ai_chance = {
@@ -146,9 +145,6 @@ scandinavian_union_denmark_andersen_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_andersen_var }
-		}
 		custom_tooltip = {
 			text = andersen_agitate_5_years
 			c:DEN ?= {
@@ -171,7 +167,7 @@ scandinavian_union_denmark_citizenship_button = {
 	desc = "scandinavian_union_denmark_citizenship_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_citizenship_var }
 	}
 	
 	ai_chance = {
@@ -179,9 +175,6 @@ scandinavian_union_denmark_citizenship_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_citizenship_var }
-		}
 		OR = {
 			c:DEN = {
 				has_law = law_type:law_racial_segregation
@@ -203,7 +196,7 @@ scandinavian_union_denmark_nationalist_button = {
 	desc = "scandinavian_union_denmark_nationalist_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
 	}
 	
 	ai_chance = {
@@ -211,9 +204,6 @@ scandinavian_union_denmark_nationalist_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
-		}
 		c:DEN = { has_technology_researched = nationalism }
 		OR = {
 			AND = {
@@ -250,7 +240,7 @@ scandinavian_union_denmark_bribe_button = {
 	desc = "scandinavian_union_denmark_bribe_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_bribe_var }
 	}
 	
 	ai_chance = {
@@ -258,9 +248,6 @@ scandinavian_union_denmark_bribe_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_bribe_var }
-		}
 		in_default = no
 		NOT = { has_modifier = declared_bankruptcy }
 	}
@@ -290,7 +277,7 @@ scandinavian_union_denmark_martial_law_button = {
 	desc = "scandinavian_union_denmark_martial_law_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_martial_law_var }
 	}
 	
 	ai_chance = {
@@ -298,9 +285,6 @@ scandinavian_union_denmark_martial_law_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_martial_law_var }
-		}
 		OR = {
 			has_law = law_type:law_secret_police
 			has_law = law_type:law_national_guard
@@ -350,7 +334,7 @@ scandinavian_union_norway_democracy_button = {
 	desc = "scandinavian_union_norway_democracy_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_norway_democracy_var }
 	}
 	
 	ai_chance = {
@@ -358,9 +342,6 @@ scandinavian_union_norway_democracy_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_norway_democracy_var }
-		}
 		OR = {
 			c:NOR = {
 				has_law = law_type:law_oligarchy
@@ -390,7 +371,7 @@ scandinavian_union_norway_vinland_button = {
 	desc = "scandinavian_union_norway_vinland_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_norway_vinland_var }
 	}
 	
 	ai_chance = {
@@ -398,9 +379,6 @@ scandinavian_union_norway_vinland_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_norway_vinland_var }
-		}
 		trigger_if = {
 			limit = { c:KRF ?= { is_subject_of = root } }
 			c:KRF ?= {
@@ -432,7 +410,7 @@ scandinavian_union_norway_trade_button = {
 	desc = "scandinavian_union_norway_trade_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_norway_trade_var }
 	}
 	
 	ai_chance = {
@@ -440,9 +418,6 @@ scandinavian_union_norway_trade_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_norway_trade_var }
-		}
 		OR = {
 			c:NOR = {
 				has_law = law_type:law_protectionism
@@ -464,7 +439,7 @@ scandinavian_union_norway_nationalist_button = {
 	desc = "scandinavian_union_norway_nationalist_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
 	}
 	
 	ai_chance = {
@@ -472,9 +447,6 @@ scandinavian_union_norway_nationalist_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_denmark_nationalist_var }
-		}
 		c:NOR = { has_technology_researched = nationalism }
 		OR = {
 			AND = {
@@ -511,7 +483,7 @@ scandinavian_union_norway_bribe_button = {
 	desc = "scandinavian_union_norway_bribe_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_norway_bribe_var }
 	}
 	
 	ai_chance = {
@@ -519,9 +491,6 @@ scandinavian_union_norway_bribe_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_norway_bribe_var }
-		}
 		in_default = no
 		NOT = { has_modifier = declared_bankruptcy }
 	}
@@ -551,7 +520,7 @@ scandinavian_union_norway_martial_law_button = {
 	desc = "scandinavian_union_norway_martial_law_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = scandinavian_union_norway_martial_law_var }
 	}
 	
 	ai_chance = {
@@ -559,9 +528,6 @@ scandinavian_union_norway_martial_law_button = {
 	}
 
 	possible = {
-		hidden_trigger = {
-			NOT = { has_variable = scandinavian_union_norway_martial_law_var }
-		}
 		OR = {
 			has_law = law_type:law_secret_police
 			has_law = law_type:law_national_guard

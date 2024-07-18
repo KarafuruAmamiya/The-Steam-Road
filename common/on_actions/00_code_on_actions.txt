@@ -2837,13 +2837,15 @@ on_war_end = {
 		}
 		if = {
         	limit = {
-        		c:HDJ ?= this
-				has_truce_with = c:AKN
-				NOR = {
-					is_subject_type = subject_type_puppet
-					is_subject_type = subject_type_dependency
+				scope:target ?= {
+					c:HDJ ?= this
+					has_truce_with = c:AKN
+					NOR = {
+						is_subject_type = subject_type_puppet
+						is_subject_type = subject_type_dependency
+					}
+					has_variable = ottoman_protectorate_var
 				}
-				has_variable = ottoman_protectorate_var
         	}
         	c:TUR ?= {
 				trigger_event = { id = akkovin_crisis.15 popup = yes }

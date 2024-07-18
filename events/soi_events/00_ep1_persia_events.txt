@@ -1,1 +1,54 @@
-﻿
+﻿namespace = persia_events
+
+persia_events.7 = {
+	type = country_event
+	placement = scope:merv_scope
+
+	title = persia_events.7.t
+	desc = persia_events.7.d
+	flavor = persia_events.7.f
+
+	event_image = {
+		video = "ep1_central_asian_city"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	dlc = dlc010
+
+	duration = 3
+
+	trigger = {
+		# triggered by event
+	}
+
+	immediate = {
+		c:PER ?= {
+			random_scope_state = {
+				limit = {
+					state_region = s:STATE_MERV
+				}
+				save_scope_as = merv_scope
+			}
+			save_scope_as = persia_scope
+		}
+	}
+
+	option = {
+		name = persia_events.7.a
+        default_option = yes
+		s:STATE_MERV.region_state:PER = {
+			add_modifier = {
+				name = modifier_soltanbent_dam
+			}
+		}
+	}
+	option = {
+		name = persia_events.7.b
+		add_modifier = {
+			name = modifier_merv_queen_of_the_world
+		}
+	}
+}

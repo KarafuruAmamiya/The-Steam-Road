@@ -408,7 +408,6 @@ akkovin_crisis.4 = {
 	}
 
 	immediate = {
-		set_variable = pre_treaty
 		c:AKN = { save_scope_as = akn_scope }
 		c:PER = { save_scope_as = per_scope }
 		c:TUR = { save_scope_as = tur_scope }
@@ -416,8 +415,23 @@ akkovin_crisis.4 = {
 
 	option = {
 		name = akkovin_crisis.4.a
-		c:AKN = {
-			trigger_event = { id = akkovin_crisis.5 days = 3 }
+		if = {
+			limit = { c:PER ?= this }
+			disband_gunpowder_alliance_per = yes
+		}
+		if = {
+			limit = { c:TUR ?= this }
+			show_as_tooltip = {
+				disband_gunpowder_alliance_tur = yes
+			}
+		}
+		hidden_effect = {
+			c:PER = {
+				set_mutual_secret_goal = {
+					country = c:TUR
+					secret_goal = none
+				}
+			}
 		}
 	}
 }
@@ -453,7 +467,7 @@ akkovin_crisis.5 = {
 		name = akkovin_crisis.5.a
 		default_option = yes
 		trigger_event = { id = akkovin_crisis.6 days = 7 }
-		hidden_effect = { c:AKN = { trigger_event = { id = akkovin_crisis.6 days = 7 } } }
+		hidden_effect = { c:PER = { trigger_event = { id = akkovin_crisis.6 days = 7 } } }
 		
 		ai_chance = {
 			base = 10
@@ -539,62 +553,65 @@ akkovin_crisis.6 = {
 		c:AKN = { save_scope_as = akn_scope }
 		c:PER = { save_scope_as = per_scope }
 		if = {
-			limit = {
-				any_market = {
-					owner = ROOT
-					any_trade_route = {
-						goods = g:clothes
-						importer.owner = ROOT
-						exporter.owner = c:PER
-					}
-				}
-			}
-			random_market = {
+			limit = { c:AKN ?= this }
+			if = {
 				limit = {
-					owner = ROOT
-					any_trade_route = {
-						goods = g:clothes
-						importer.owner = ROOT
-						exporter.owner = c:PER
+					any_market = {
+						owner = ROOT
+						any_trade_route = {
+							goods = g:clothes
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
 					}
 				}
-				every_trade_route = {
+				random_market = {
 					limit = {
-						goods = g:clothes
-						importer.owner = ROOT
-						exporter.owner = c:PER
+						owner = ROOT
+						any_trade_route = {
+							goods = g:clothes
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
 					}
-					save_scope_as = clothes_route
-				}
-			}
-		}
-		if = {
-			limit = {
-				any_market = {
-					owner = ROOT
-					any_trade_route = {
-						goods = g:furniture
-						importer.owner = ROOT
-						exporter.owner = c:PER
+					every_trade_route = {
+						limit = {
+							goods = g:clothes
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
+						save_scope_as = clothes_route
 					}
 				}
 			}
-			random_market = {
+			if = {
 				limit = {
-					owner = ROOT
-					any_trade_route = {
-						goods = g:furniture
-						importer.owner = ROOT
-						exporter.owner = c:PER
+					any_market = {
+						owner = ROOT
+						any_trade_route = {
+							goods = g:furniture
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
 					}
 				}
-				every_trade_route = {
+				random_market = {
 					limit = {
-						goods = g:furniture
-						importer.owner = ROOT
-						exporter.owner = c:PER
+						owner = ROOT
+						any_trade_route = {
+							goods = g:furniture
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
 					}
-					save_scope_as = furniture_route
+					every_trade_route = {
+						limit = {
+							goods = g:furniture
+							importer.owner = ROOT
+							exporter.owner = c:PER
+						}
+						save_scope_as = furniture_route
+					}
 				}
 			}
 		}
@@ -717,6 +734,11 @@ akkovin_crisis.6 = {
 					}
 				}
 				post_notification = akkovin_signed_treaty
+			}
+			c:TUR ?= {
+				add_journal_entry = {
+					type = je_veiled_puppet
+				}
 			}
 		}
 		custom_tooltip = {
@@ -870,11 +892,6 @@ akkovin_crisis.7 = {
 					}
 				}
 				post_notification = akkovin_renew_treaty
-			}
-			c:TUR ?= {
-				add_journal_entry = {
-					type = je_veiled_puppet
-				}
 			}
 		}
 		
@@ -1095,12 +1112,6 @@ akkovin_crisis.9 = {
 		name = akkovin_crisis.9.a
 		default_option = yes
 		trigger = { c:TUR = ROOT }
-		if = {
-			limit = { 
-				NOT = { has_global_variable = gunpowder_alliance_disband } 
-			}
-			disband_gunpowder_alliance_tur = yes
-		}
 		create_diplomatic_pact = {
 			country = c:AKN
 			type = puppet
@@ -1123,12 +1134,6 @@ akkovin_crisis.9 = {
 		default_option = yes
 		trigger = { c:PER = ROOT }
 		show_as_tooltip = {
-			if = {
-				limit = { 
-					NOT = { has_global_variable = gunpowder_alliance_disband } 
-				}
-				disband_gunpowder_alliance_per = yes
-			}
 			if = {
 				limit = {
 					c:AKN = { has_state_in_state_region = STATE_VAN }
@@ -1297,12 +1302,6 @@ akkovin_crisis.10 = {
 		name = akkovin_crisis.10.a
 		default_option = yes
 		trigger = { c:PER = ROOT }
-		if = {
-			limit = { 
-				NOT = { has_global_variable = gunpowder_alliance_disband } 
-			}
-			disband_gunpowder_alliance_per = yes
-		}
 		create_diplomatic_pact = {
 			country = c:AKN
 			type = puppet
@@ -1325,12 +1324,6 @@ akkovin_crisis.10 = {
 		default_option = yes
 		trigger = { c:TUR = ROOT }
 		show_as_tooltip = {
-			if = {
-				limit = { 
-					NOT = { has_global_variable = gunpowder_alliance_disband } 
-				}
-				disband_gunpowder_alliance_tur = yes
-			}
 			if = {
 				limit = {
 					c:AKN = { has_state_in_state_region = STATE_DIYARBAKIR }

@@ -25,6 +25,7 @@ tsr_events_yearly = {
 		persian_flavor.13
 		persian_flavor.3
 		tartary_events.1
+		treaty_of_baglar_events.3
 	}
 	effect = {
 		change_global_variable = { name = current_year add = 1 }
@@ -209,6 +210,24 @@ tsr_events_monthly = {
 				c:ITA ?= { has_modifier = excommunicated }
 			}
 			c:ITA ?= { remove_modifier = excommunicated }
+		}
+		if = {
+			limit = {
+				c:PER ?= this
+				is_power_bloc_leader = yes
+				tenure_in_current_power_bloc_years > 200
+				NOT = { is_in_same_power_bloc = c:TUR }
+			}
+			every_country = {
+				limit = { 
+					OR = {
+						has_diplomatic_relevance = c:PER
+						has_diplomatic_relevance = c:TUR
+						has_diplomatic_relevance = c:AKN
+					}
+				}
+				trigger_event = { id = akkovin_crisis.4 popup = yes }
+			}
 		}
 		every_country = {
 			limit = {

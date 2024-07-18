@@ -1,0 +1,44 @@
+﻿persia_resettle_merv_button = {
+	name = "persia_resettle_merv_button"
+	desc = "persia_resettle_merv_button_desc"
+
+	visible = {
+		any_scope_state = {
+			state_region = s:STATE_MERV
+		}
+		NOT = {
+			has_variable = restoration_of_merv_var
+		}
+	}
+
+	possible = {
+		owns_entire_state_region = STATE_MERV
+		any_scope_state = {
+			state_region = s:STATE_MERV
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 2
+			}
+		}
+	}
+
+	effect = {
+		set_variable = restoration_of_merv_var
+		trigger_event = { id = persia_events.7 popup = yes }
+		custom_tooltip = choose_one_of_tt
+		show_as_tooltip = {
+			add_modifier = {
+				name = modifier_merv_queen_of_the_world
+			}
+			s:STATE_MERV.region_state:PER = {
+				add_modifier = {
+					name = modifier_soltanbent_dam
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 15
+	}
+}

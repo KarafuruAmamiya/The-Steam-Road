@@ -156,6 +156,11 @@ napoleonic_warfare = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 1
 		}
+		
+		if = {
+			limit = { has_journal_entry = je_pollit_defense }
+			add = 100
+		}
 	}
 }
 
@@ -392,6 +397,11 @@ general_staff = {
 		if = {
 			limit = { OR = { has_strategy = ai_strategy_territorial_expansion has_strategy = ai_strategy_unify_germany } }
 			add = 0.75
+		}
+		
+		if = {
+			limit = { has_journal_entry = je_pollit_defense }
+			add = 100
 		}
 	}
 }

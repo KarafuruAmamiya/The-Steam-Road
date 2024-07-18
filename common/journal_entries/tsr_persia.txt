@@ -1,6 +1,10 @@
 ﻿je_persian_renaissance = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_tsr_content
+	
+	immediate = {
+		s:STATE_MERV = { save_scope_as = merv_scope }
+	}
 
 	complete = {
 		scope:journal_entry = {
@@ -13,6 +17,7 @@
 	scripted_button = persian_renaissance_literature
 	scripted_button = persian_renaissance_architecture
 	scripted_button = persian_renaissance_textile_arts
+	scripted_button = persia_resettle_merv_button
 	#scripted_button = persian_renaissance_romantic_nationalism
 
 	on_complete = {

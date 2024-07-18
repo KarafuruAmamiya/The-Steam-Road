@@ -3,7 +3,7 @@
 	desc = "pollit_constitution_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = constitution_button_done }
 	}
 
 	possible = {
@@ -16,7 +16,7 @@
 				has_global_variable = union_stall_4
 				has_global_variable = union_stall_5
 			}
-			NOT = { has_variable = constitution_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 	}
@@ -37,7 +37,7 @@ pollit_industrialization_button = {
 	desc = "pollit_industrialization_button_desc"
 	
 	visible = { 
-		always = yes
+		NOT = { has_variable = industrialization_button_done }
 	}
 
 	possible = {
@@ -50,7 +50,7 @@ pollit_industrialization_button = {
 				has_global_variable = union_stall_4
 				has_global_variable = union_stall_5
 			}
-			NOT = { has_variable = industrialization_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 	}
@@ -71,7 +71,7 @@ pollit_defense_button = {
 	desc = "pollit_defense_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = defense_button_done }
 	}
 
 	possible = {
@@ -84,7 +84,7 @@ pollit_defense_button = {
 				has_global_variable = union_stall_4
 				has_global_variable = union_stall_5
 			}
-			NOT = { has_variable = defense_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 	}
@@ -105,7 +105,7 @@ pollit_sovereignty_button = {
 	desc = "pollit_sovereignty_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = sovereignty_button_done }
 	}
 
 	possible = {
@@ -118,7 +118,7 @@ pollit_sovereignty_button = {
 				has_global_variable = union_stall_4
 				has_global_variable = union_stall_5
 			}
-			NOT = { has_variable = sovereignty_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 	}
@@ -139,7 +139,7 @@ pollit_nationalism_button = {
 	desc = "pollit_nationalism_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = nationalism_button_done }
 	}
 
 	possible = {
@@ -152,7 +152,7 @@ pollit_nationalism_button = {
 				has_global_variable = union_stall_4
 				has_global_variable = union_stall_5
 			}
-			NOT = { has_variable = nationalism_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 		has_technology_researched = nationalism
@@ -174,14 +174,14 @@ pollit_pledge_button = { #"Will you pledge an equal union with this nation, to b
 	desc = "pollit_pledge_button_desc"
 
 	visible = { 
-		always = yes
+		NOT = { has_variable = pledge_button_done }
 	}
 
 	possible = {
 		custom_tooltip = {
 			text = union_final_tt
 			has_global_variable = union_stall_6
-			NOT = { has_variable = pledge_button_done }
+			has_global_variable = plc_point_freeze
 			NOT = { has_variable = checkpoint_ongoing }
 		}
 		OR = {
@@ -193,7 +193,7 @@ pollit_pledge_button = { #"Will you pledge an equal union with this nation, to b
 			has_law = law_type:law_national_supremacy
 		}
 		c:LIT = {
-			relations:root >= relations_threshold:cordial
+			relations:root >= relations_threshold:amicable
 		}
 	}
 

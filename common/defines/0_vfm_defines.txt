@@ -51,12 +51,20 @@ NPolitics = {
 }
 
 NEconomy = {
-	TRADE_ROUTE_AUTO_INCREASE_VERY_LOW_PRODUCTIVITY_THRESHOLD = 1.2 # If trade route's productivity is below this, always automatically decrease its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_INCREASE_LOW_PRODUCTIVITY_THRESHOLD = 1.3 # If trade route's productivity would drop below this, don't automatically increase its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_INCREASE_HIGH_PRODUCTIVITY_THRESHOLD = 1.4 # If trade route's productivity is above this, it's always fine to automatically increase its level (regardless of total revenue)
-	TRADE_ROUTE_AUTO_REDUCTION_ACCEPTABLE_REVENUE_DIFFERENCE = 4 # Multiply revenue of current trade route level by this for the purpose of considering whether we should auto-decrease level (means that trade routes won't level down just for the purpose of a small revenue increase)
-	
-	COMPETITIVENESS_TRADE_AGREEMENT_MULT = 2	# Competiveness is multiplied by ( 1 + this ) if trading country and market controller have a trade agreement
+	TRADE_ROUTE_MAX_LEVEL = 999
+	TRADE_ROUTE_ECONOMY_OF_SCALE = 0.05					# Each level of trade route after the first adds this % to desired trade quantity
+	TRADE_ROUTE_ECONOMY_OF_SCALE_MAX_LEVEL = 250			# After this level, trade route economy of scale no longer increases the amount per level
+	TRADE_ROUTE_REQUIRED_CONVOY_BUFFER = 0.01			# Trade routes may not increase level if you wouldn't end up with at least this 'buffer' of produced convoys
+	TRADE_ROUTE_AUTO_INCREASE_ACCEPTABLE_REVENUE_DIFFERENCE = 5.0 # Multiply revenue of new trade route level by this for the purpose of considering whether it's OK to auto-increase level (means that trade routes can level up even when slightly decreasing overall revenue)
+	TRADE_ROUTE_AUTO_INCREASE_VERY_LOW_PRODUCTIVITY_THRESHOLD = 0.0001 # If trade route's productivity is below this, always automatically decrease its level (regardless of total revenue)
+	TRADE_ROUTE_AUTO_INCREASE_LOW_PRODUCTIVITY_THRESHOLD = 0.0005 # If trade route's productivity would drop below this, don't automatically increase its level (regardless of total revenue)
+	TRADE_ROUTE_AUTO_INCREASE_HIGH_PRODUCTIVITY_THRESHOLD = 0.0010 # If trade route's productivity is above this, it's always fine to automatically increase its level (regardless of total revenue)
+	TRADE_ROUTE_AUTO_REDUCTION_ACCEPTABLE_REVENUE_DIFFERENCE = 5.0 # Multiply revenue of current trade route level by this for the purpose of considering whether we should auto-decrease level (means that trade routes won't level down just for the purpose of a small revenue increase)
+	TRADE_CENTER_NUM_LEVELS_PER_TRADE_ROUTE_LEVEL = 0.01 # Each level of a trade route generates this number of Trade Center levels to manage it
+	COMPETITIVENESS_DOMESTIC_TRADE_MULT = 0.0001	# Competiveness is multiplied by ( 1 + this ) if trading country and market controller are the same country
+	COMPETITIVENESS_TRADE_AGREEMENT_MULT = 1.0	# Competiveness is multiplied by ( 1 + this ) if trading country and market controller have a trade agreement
+	COMPETITIVENESS_DURATION_BONUS_MAX_MONTHS = 60   # The age at which a trade route receives the maximum bonus to competetiveness
+	GOODS_DEFAULT_CONVOY_COST_MULTIPLIER = 0.75			# The convoy cost of shipping a single unit of goods (can be overriden in defines)
 }
 
 NMilitary = {
@@ -97,7 +105,6 @@ NDiplomacy = {
 	WAR_GOAL_INFAMY_TRANSFER_SUBJECT = 2.5	
 	WAR_GOAL_INFAMY_ANNEX_COUNTRY = 6.0
 	WAR_GOAL_INFAMY_UNIFICATION = 0.5
-	WAR_GOAL_INFAMY_REGIME_CHANGE = 1.0
 	SWAY_OFFER_WARGOAL_MANEUVERS_COST_RETURN_STATE = 5
 	
 	WAR_GOAL_CONTAIN_THREAT_YEARS_SINCE_CONQUEST = 25
@@ -116,6 +123,8 @@ NDiplomacy = {
 	COLONY_PROVINCE_ADJACENCY_SCORE = 25 # 20 # How much will colonies prioritize adjacency to existing provinces when growing the colony
 	COLONY_PROVINCE_NO_ADJACENCY_MULT = 0.1 # Multiply by this if no adjacencies at all
 	COLONY_PROVINCE_RANDOM_FACTOR = 1.25 # 1.5 # The higher this is, the more random colonization province picking will be
+	
+	WAR_GOAL_INFAMY_REDUCE_AUTONOMY = 1.0
 }
 
 ### Pop Growth Constants

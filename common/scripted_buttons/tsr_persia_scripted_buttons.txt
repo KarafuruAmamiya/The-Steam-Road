@@ -2,12 +2,14 @@
 	name = "persian_renaissance_science_philosophy_button"
 	desc = "persian_renaissance_science_philosophy_button_desc"
 
-	visible = { always = yes }
-
-	possible = {
+	visible = { 
 		NOT = {
 			has_variable = persian_renaissance_science_philosophy
 		}
+	}
+
+	possible = {
+		
 		ig:ig_intelligentsia = {
 			is_marginal = no
 		}
@@ -42,12 +44,13 @@ persian_renaissance_historical_sites = {
 	name = "persian_renaissance_historical_sites_button"
 	desc = "persian_renaissance_historical_sites_button_desc"
 
-	visible = { always = yes }
-
-	possible = {
+	visible = { 
 		NOT = {
 			has_variable = persian_renaissance_historical_sites
 		}
+	}
+
+	possible = {
 		any_scope_building = {
 			count >= 5
 			is_building_type = building_argebam
@@ -74,12 +77,13 @@ persian_renaissance_literature = {
 	name = "persian_renaissance_literature_button"
 	desc = "persian_renaissance_literature_button_desc"
 
-	visible = { always = yes }
-
-	possible = {
+	visible = { 
 		NOT = {
 			has_variable = persian_renaissance_literature
 		}
+	}
+
+	possible = {
 		has_technology_researched = dialectics
 		trigger_if = {
 			limit = {
@@ -112,12 +116,13 @@ persian_renaissance_architecture = {
 	name = "persian_renaissance_architecture_button"
 	desc = "persian_renaissance_architecture_button_desc"
 
-	visible = { always = yes }
-
-	possible = {
+	visible = { 
 		NOT = {
 			has_variable = persian_renaissance_architecture
 		}
+	}
+
+	possible = {
 		any_scope_building = {
 			is_building_type = building_construction_sector
 			building_has_goods_shortage = no
@@ -145,12 +150,13 @@ persian_renaissance_textile_arts = {
 	name = "persian_renaissance_textile_arts_button"
 	desc = "persian_renaissance_textile_arts_button_desc"
 
-	visible = { always = yes }
-
-	possible = {
+	visible = { 
 		NOT = {
 			has_variable = persian_renaissance_textile_arts
 		}
+	}
+
+	possible = {
 		any_scope_building = {
 			count >= 3
 			is_building_type = building_textile_mills

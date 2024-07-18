@@ -58,7 +58,7 @@
 					ruler = { has_trait = sickly }
 				}
 				random_list = {
-					10 = { }
+					20 = { }
 					1 = {
 						ruler = { kill_character = yes }
 					}
@@ -72,25 +72,6 @@
 				ruler = {
 					set_character_immortal = no
 					set_variable = mortalize_halil
-				}
-			}
-			if = {
-				limit = {
-					NOT = { has_variable = pre_treaty }
-					exists = c:PER
-					c:PER = {
-						has_attitude = {
-							who = root
-							attitude = protective
-						}
-						relations:root >= relations_threshold:cordial
-					}
-					c:TUR ?= {
-						has_variable = pursue_caliphate_var
-					}
-				}
-				c:PER = {
-					trigger_event = { id = akkovin_crisis.4 popup = yes }
 				}
 			}
 		}

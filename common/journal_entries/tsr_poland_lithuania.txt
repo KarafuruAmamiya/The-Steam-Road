@@ -221,10 +221,6 @@ je_union_of_augustow_pol = {
 		c:LIT ?= {
 			save_scope_as = lit_scope
 		}
-		set_global_variable = {
-			name = plc_union_progress_var
-			value = 0
-		}
     }
 	
 	on_weekly_pulse = {
@@ -241,8 +237,11 @@ je_union_of_augustow_pol = {
 	}
 
 	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
+		custom_tooltip = {
+			text = westernist_progress_full
+			scope:journal_entry = {
+				"scripted_bar_progress(union_of_augustow_progress_bar)" >= 300
+			}
 		}
 		any_revolution_ongoing = no
 		c:LIT ?= {
@@ -254,7 +253,6 @@ je_union_of_augustow_pol = {
 			liberty_desire < 25
 			any_revolution_ongoing = no
 		}
-		#In SOI: Low Lithuanian liberty desire
 	}
 
 	on_complete = {
@@ -263,7 +261,6 @@ je_union_of_augustow_pol = {
 		show_as_tooltip = {
 			annex_with_incorporation = c:LIT
 			change_tag = PLC
-			add_journal_entry = { type = je_odrodzenie }
 		}
 	}
 	
@@ -271,7 +268,9 @@ je_union_of_augustow_pol = {
 		OR = {
 			custom_tooltip = {
 				text = plc_union_fail
-				global_var:plc_union_progress_var <= 0
+				scope:journal_entry = {
+					"scripted_bar_progress(union_of_augustow_progress_bar)" <= 0
+				}
 			}
 			is_subject = yes
 			c:LIT ?= { NOT = { is_subject_of = root } }
@@ -297,7 +296,6 @@ je_union_of_augustow_pol = {
 					}
 				}
 				calculate_plc_point = yes
-				add_plc_point = yes
 			}
 			if = {
 				limit = {
@@ -313,7 +311,12 @@ je_union_of_augustow_pol = {
 					}
 					NOT = { has_global_variable = plc_civilwar_point }
 				}
-				change_global_variable = { name = plc_union_progress_var subtract = 10 }
+				scope:journal_entry = {
+					add_progress = {
+						value = -10
+						name = union_of_augustow_progress_bar
+					}
+				}
 				set_global_variable = { name = plc_civilwar_point years = 3 }
 			}
 			if = {
@@ -324,7 +327,12 @@ je_union_of_augustow_pol = {
 					}
 					NOT = { has_global_variable = plc_default_point }
 				}
-				change_global_variable = { name = plc_union_progress_var subtract = 10 }
+				scope:journal_entry = {
+					add_progress = {
+						value = -10
+						name = union_of_augustow_progress_bar
+					}
+				}
 				set_global_variable = { name = plc_default_point }
 			}
 			if = {
@@ -333,7 +341,12 @@ je_union_of_augustow_pol = {
 					is_losing_power_rank = no
 					NOT = { has_global_variable = plc_regional_power_point }
 				}
-				change_global_variable = { name = plc_union_progress_var add = 10 }
+				scope:journal_entry = {
+					add_progress = {
+						value = 10
+						name = union_of_augustow_progress_bar
+					}
+				}
 				set_global_variable = { name = plc_regional_power_point }
 			}
 			if = {
@@ -342,14 +355,21 @@ je_union_of_augustow_pol = {
 					is_losing_power_rank = no
 					NOT = { has_global_variable = plc_great_power_point }
 				}
-				change_global_variable = { name = plc_union_progress_var add = 10 }
+				scope:journal_entry = {
+					add_progress = {
+						value = 10
+						name = union_of_augustow_progress_bar
+					}
+				}
 				set_global_variable = { name = plc_great_power_point }
 			}
 			
 			#Checkpoints
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 50
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 50
+					}
 					NOT = { has_global_variable = union_stall_1 }
 				}
 				set_global_variable = union_stall_1
@@ -357,7 +377,9 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 100
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 100
+					}
 					NOT = { has_global_variable = union_stall_2 }
 				}
 				set_global_variable = union_stall_2
@@ -369,7 +391,9 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 150
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 150
+					}
 					NOT = { has_global_variable = union_stall_3 }
 				}
 				set_global_variable = union_stall_3
@@ -381,7 +405,9 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 200
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 200
+					}
 					NOT = { has_global_variable = union_stall_4 }
 				}
 				set_global_variable = union_stall_4
@@ -393,7 +419,9 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 250
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 250
+					}
 					NOT = { has_global_variable = union_stall_5 }
 				}
 				set_global_variable = union_stall_5
@@ -405,7 +433,9 @@ je_union_of_augustow_pol = {
 			}
 			if = {
 				limit = {
-					global_var:plc_union_progress_var >= 300
+					scope:journal_entry = {
+						"scripted_bar_progress(union_of_augustow_progress_bar)" >= 300
+					}
 					NOT = { has_global_variable = union_stall_6 }
 				}
 				set_global_variable = union_stall_6
@@ -441,15 +471,7 @@ je_union_of_augustow_pol = {
 		}
 	}
 	
-	current_value = {
-		value = global_var:plc_union_progress_var
-	}
-	
-	goal_add_value = {
-		add = 360
-	}
-	
-	progressbar = yes
+	scripted_progress_bar = union_of_augustow_progress_bar
 
 	weight = 10000
 	should_be_pinned_by_default = yes
@@ -467,10 +489,6 @@ je_union_of_augustow_lit = {
 		c:LIT ?= {
 			save_scope_as = lit_scope
 		}
-		set_global_variable = {
-			name = plc_union_progress_var
-			value = 0
-		}
 	}
 	
 	on_complete = {
@@ -484,8 +502,11 @@ je_union_of_augustow_lit = {
 	}
 
 	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
+		custom_tooltip = {
+			text = westernist_progress_full
+			scope:journal_entry = {
+				"scripted_bar_progress(union_of_augustow_progress_bar)" >= 300
+			}
 		}
 		is_subject_of = c:POL
 		has_attitude = {
@@ -499,7 +520,6 @@ je_union_of_augustow_lit = {
 		hidden_trigger = {
 			has_global_variable = union_of_augustow_complete
 		}
-		#In SOI, expand to lower Lithuania's liberty desire
 	}
 	
 	fail = {
@@ -509,7 +529,9 @@ je_union_of_augustow_lit = {
 		OR = {
 			custom_tooltip = {
 				text = plc_union_fail
-				global_var:plc_union_progress_var <= 0
+				scope:journal_entry = {
+					"scripted_bar_progress(union_of_augustow_progress_bar)" <= 0
+				}
 			}
 			c:POL ?= { is_subject = yes }
 			NOT = { is_subject_of = c:POL }
@@ -548,15 +570,7 @@ je_union_of_augustow_lit = {
 		}
 	}
 	
-	current_value = {
-		value = global_var:plc_union_progress_var
-	}
-	
-	goal_add_value = {
-		add = 360
-	}
-	
-	progressbar = yes
+	scripted_progress_bar = union_of_augustow_progress_bar
 
 	weight = 10000
 	should_be_pinned_by_default = yes
@@ -585,9 +599,6 @@ je_pollit_constitution = {
 				has_law = law_type:law_appointed_bureaucrats
 				has_law = law_type:law_elected_bureaucrats
 			}
-			ig:ig_landowners = {
-				ig_clout < 0.25
-			}
 		}
 		c:LIT = {
 			OR = {
@@ -598,9 +609,6 @@ je_pollit_constitution = {
 			OR = {
 				has_law = law_type:law_appointed_bureaucrats
 				has_law = law_type:law_elected_bureaucrats
-			}
-			ig:ig_landowners = {
-				ig_clout < 0.25
 			}
 		}
 	}
@@ -620,6 +628,8 @@ je_pollit_constitution = {
 	invalid = {
 		NOT = { has_journal_entry = je_union_of_augustow_pol }
 	}
+	
+	should_be_pinned_by_default = yes
 }
 
 je_pollit_industrialization = {
@@ -642,10 +652,10 @@ je_pollit_industrialization = {
 				}
 				any_scope_building = {
 					is_building_type = building_urban_center
-					level >= 5
+					level >= 3
 				}
 				has_building = building_railway
-				percent > 0.7
+				percent > 0.5
 			}
 		}
 		c:LIT = {
@@ -657,10 +667,10 @@ je_pollit_industrialization = {
 				}
 				any_scope_building = {
 					is_building_type = building_urban_center
-					level >= 5
+					level >= 3
 				}
 				has_building = building_railway
-				percent > 0.7
+				percent > 0.5
 			}
 		}
 	}
@@ -679,6 +689,8 @@ je_pollit_industrialization = {
 	invalid = {
 		NOT = { has_journal_entry = je_union_of_augustow_pol }
 	}
+	
+	should_be_pinned_by_default = yes
 }
 
 je_pollit_defense = {
@@ -748,6 +760,8 @@ je_pollit_defense = {
 	invalid = {
 		NOT = { has_journal_entry = je_union_of_augustow_pol }
 	}
+	
+	should_be_pinned_by_default = yes
 }
 
 je_pollit_sovereignty = {
@@ -804,6 +818,8 @@ je_pollit_sovereignty = {
 	invalid = {
 		NOT = { has_journal_entry = je_union_of_augustow_pol }
 	}
+	
+	should_be_pinned_by_default = yes
 }
 
 je_pollit_nationalism = {
@@ -862,4 +878,6 @@ je_pollit_nationalism = {
 	invalid = {
 		NOT = { has_journal_entry = je_union_of_augustow_pol }
 	}
+	
+	should_be_pinned_by_default = yes
 }

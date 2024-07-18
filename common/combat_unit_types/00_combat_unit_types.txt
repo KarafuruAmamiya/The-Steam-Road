@@ -21,8 +21,12 @@ combat_unit_type_tribal_infantry = {
 
     # scope = country
     # both this and "can_build" needs to be true to build conscripts
+	can_build = {
+        NOT = { has_technology_researched = military_drill }
+    }
+	
     can_build_conscript = {
-        always = yes
+        NOT = { has_technology_researched = military_drill }
     }
 	
     combat_unit_image = {

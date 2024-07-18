@@ -612,6 +612,7 @@ tsr_misc_events.5 = {
 	duration = 3
 
 	immediate = {
+		activate_law = law_type:law_slavery_banned
 		overlord = {
 			save_scope_as = overlord_country
 		}
@@ -620,7 +621,9 @@ tsr_misc_events.5 = {
 	option = {
 		name = tsr_misc_events.5.a
 		default_option = yes
-		activate_law = law_type:law_slavery_banned
+		show_as_tooltip = {
+			activate_law = law_type:law_slavery_banned
+		}
 		every_interest_group = {
 			limit = {
 				OR = {

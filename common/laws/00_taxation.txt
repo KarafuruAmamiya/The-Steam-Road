@@ -301,7 +301,30 @@ law_per_capita_based_taxation = {
 				has_law = law_type:law_land_based_taxation
 			}
 			add = 5000
-		}			
+		}
+
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_industrialization
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 1000
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_industrialization
+				scope:target_country = {
+					c:LIT ?= this
+					has_law = law_type:law_land_based_taxation
+				}
+			}
+			add = 1000
+		}
 	}
 }
 
@@ -437,7 +460,30 @@ law_proportional_taxation = {
 				has_law = law_type:law_land_based_taxation
 			}
 			add = 5000
-		}		
+		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_industrialization
+				has_law = law_type:law_land_based_taxation
+			}
+			add = 1000
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_industrialization
+				scope:target_country = {
+					c:LIT ?= this
+					has_law = law_type:law_land_based_taxation
+				}
+			}
+			add = 1000
+		}
 	}
 }
 

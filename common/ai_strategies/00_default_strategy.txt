@@ -234,6 +234,41 @@ ai_strategy_default = {
 			}
 		}
 		
+		# AI will never side against Governorate subjects
+		if = {
+			limit = {
+				scope:country = {
+					is_subject_of = root
+					has_law = law_type:law_governorate
+				}
+				scope:enemy_country = {
+					is_revolutionary = yes
+					NOT = { has_law = law_type:law_governorate }
+				}
+			}
+			add = {
+				value = 1000
+				desc = "law_governorate"
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:enemy_country = {
+					is_subject_of = root
+					has_law = law_type:law_governorate
+				}
+				scope:country = {
+					is_revolutionary = yes
+					NOT = { has_law = law_type:law_governorate }
+				}
+			}
+			add = {
+				value = -1000
+				desc = "law_governorate"
+			}
+		}
+		
 		# challenge rivals
 		if = {
 			limit = {
@@ -330,7 +365,7 @@ ai_strategy_default = {
 				has_journal_entry = je_akkovin_crisis
 			}
 			
-			add = 50
+			add = 200
 		}
 
 		#GPs don't want to get involved with too many other GPs in the early game
@@ -3866,6 +3901,21 @@ ai_strategy_default = {
 				}
 				add = 100
 			}
+		}
+		region_danubia = {
+			if = {
+				limit = {
+					c:ITA ?= this
+				}
+				add = 100
+			}
+			if = { #Stop New World minors from declaring interest in random places
+				limit = {
+					country_rank <= rank_value:great_power
+					country_is_in_new_word = yes
+				}
+				add = -1000
+			}
 		}	
 		region_anatolia = {
 			if = {
@@ -3924,15 +3974,6 @@ ai_strategy_default = {
 			}
 		}	
 		region_caucasus = {
-			if = { #Stop New World minors from declaring interest in random places
-				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
-				}
-				add = -1000
-			}
-		}
-		region_italy = {
 			if = { #Stop New World minors from declaring interest in random places
 				limit = {
 					country_rank <= rank_value:great_power
@@ -4089,15 +4130,6 @@ ai_strategy_default = {
 				}
 
 				add = 100
-			}
-		}
-		region_danubia = {
-			if = { #Stop New World minors from declaring interest in random places
-				limit = {
-					country_rank <= rank_value:great_power
-					country_is_in_new_word = yes
-				}
-				add = -1000
 			}
 		}
 		region_dnieper = {
@@ -4457,7 +4489,7 @@ ai_strategy_default = {
 						c:SCA ?= this
 					}
 				}
-				add = 100
+				add = 1000
 			}
 			# Persia and Ottomans have no business interfering in the New World
 			if = {
@@ -4544,22 +4576,6 @@ ai_strategy_default = {
 			}
 		}
 		region_midwest = {
-			# Persia and Ottomans have no business interfering in the New World
-			if = {
-				limit = {
-					country_is_in_europe = no
-					country_is_in_new_word = no
-				}
-				add = -1000
-			}
-			if = {
-				limit = {
-					gunpowder_empire_trigger = yes
-				}
-				add = -1000
-			}
-		}
-		region_borealia = {
 			# Persia and Ottomans have no business interfering in the New World
 			if = {
 				limit = {

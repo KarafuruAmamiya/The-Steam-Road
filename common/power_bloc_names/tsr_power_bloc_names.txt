@@ -26,3 +26,11 @@ akkovin_caliphate = {
 		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
 	}
 }
+
+persian_empire = {
+	trigger = {
+	    scope:selected_identity = identity:identity_sovereign_empire
+        c:PER ?= this
+		has_law = law_type:law_monarchy
+	}
+}

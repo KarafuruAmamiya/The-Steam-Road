@@ -47,6 +47,17 @@ ottoman_flavor.1 = {
 		ai_chance = {
 			base = 1
 		}
+		if = {
+			limit = {
+				is_in_power_bloc = no
+			}
+			create_power_bloc = {
+				name = ottoman_caliphate 
+				map_color = { 0  153  0 }
+				identity = identity_religious
+				principle = principle_sacred_civics_1
+			}  
+		}
 		hidden_effect = {
 			every_country = {
 				limit = {
@@ -616,6 +627,7 @@ ottoman_flavor.8 = {
 			activate_law = law_type:law_appointed_bureaucrats
 		}
 		hidden_effect = {
+			set_strategy = ai_strategy_progressive_agenda
 			every_interest_group = {
 				limit = {
 					OR = {
@@ -661,6 +673,14 @@ ottoman_flavor.8 = {
 					remove_ruling_interest_group = yes
 				}
 			}
+			every_scope_character = {
+				limit = {
+					interest_group = {
+						has_ideology = ideology:ideology_caliphatist
+					}
+				}
+				kill_character = { hidden = yes }
+			}
 			every_country = {
 				limit = { 
 					has_variable = westernist_supporter_countries
@@ -692,14 +712,14 @@ ottoman_flavor.9 = { #Suppressing Pro-Mehmed Faction
 			}
 			save_scope_as = pro_mehmed_state_1
 		}
-		random_state = {
+		random_scope_state = {
 			limit = {
 				has_modifier = pro_mehmed_domain
 				NOT = { this = scope:pro_mehmed_state_1 }
 			}
 			save_scope_as = pro_mehmed_state_2
 		}
-		random_state = {
+		random_scope_state = {
 			limit = {
 				has_modifier = pro_mehmed_domain
 				NOT = { this = scope:pro_mehmed_state_1 }
@@ -726,7 +746,7 @@ ottoman_flavor.9 = { #Suppressing Pro-Mehmed Faction
 				add_devastation = 10
 			}
 			add_radicals_in_state = {
-				value = medium_radicals
+				value = small_radicals
 				culture = cu:turkish
 			}
 		}
@@ -751,7 +771,7 @@ ottoman_flavor.9 = { #Suppressing Pro-Mehmed Faction
 				add_devastation = 10
 			}
 			add_radicals_in_state = {
-				value = medium_radicals
+				value = small_radicals
 				culture = cu:turkish
 			}
 		}
@@ -776,36 +796,14 @@ ottoman_flavor.9 = { #Suppressing Pro-Mehmed Faction
 				add_devastation = 10
 			}
 			add_radicals_in_state = {
-				value = medium_radicals
+				value = small_radicals
 				culture = cu:turkish
 			}
 		}
 	}
 }
 
-# Hidden Event to assign new Mehmed defector state
-ottoman_flavor.10 = {
-	type = country_event
-	hidden = yes
-
-	immediate = {
-		random_scope_state = {
-			limit = {
-				is_incorporated = yes
-				state_region = {
-					is_homeland = cu:turkish
-				}
-				is_capital = no
-				NOT = { has_modifier = pro_mehmed_domain }
-			}
-			save_scope_as = mehmed_defector_state
-			add_modifier = {
-				name = pro_mehmed_domain
-			}
-		}
-		post_notification = westernist_state_defection
-	}
-}
+#ottoman_flavor.10
 
 ottoman_flavor.11 = { #Westernist Coup in Ottoman Empire
 	type = country_event
@@ -890,6 +888,14 @@ ottoman_flavor.11 = { #Westernist Coup in Ottoman Empire
 				}
 			}
 		}
+		if = {
+			limit = {
+				is_power_bloc_leader = yes
+			}
+			power_bloc ?= {
+				add_leverage = { target = c:TUR value = 500 } 
+			}
+		}
 		change_relations = {
 			country = c:TUR
 			value = 100
@@ -923,6 +929,87 @@ ottoman_flavor.11 = { #Westernist Coup in Ottoman Empire
 		
 		ai_chance = {
 			base = 0
+		}
+	}
+}
+
+ottoman_flavor.12 = { #Bolstering Mehmed IV support
+	type = country_event
+	placement = ROOT
+	title = ottoman_flavor.12.t
+	desc = ottoman_flavor.12.d
+	flavor = ottoman_flavor.12.f
+	duration = 3
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				NOT = { has_modifier = pro_mehmed_domain }
+			}
+			save_scope_as = not_mehmed_state_1
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				NOT = { has_modifier = pro_mehmed_domain }
+				NOT = { this = scope:not_mehmed_state_1 }
+			}
+			save_scope_as = not_mehmed_state_2
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				NOT = { has_modifier = pro_mehmed_domain }
+				NOT = { this = scope:not_mehmed_state_1 }
+				NOT = { this = scope:not_mehmed_state_2 }
+			}
+			save_scope_as = not_mehmed_state_3
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.12.a
+		default_option = yes
+		scope:not_mehmed_state_1 = {
+			add_modifier = pro_mehmed_domain
+			add_radicals_in_state = {
+				value = small_radicals
+				culture = cu:turkish
+			}
+		}
+	}
+
+	option = {
+		name = ottoman_flavor.12.b
+		trigger = {
+			exists = scope:not_mehmed_state_2
+		}
+		scope:not_mehmed_state_2 = {
+			add_modifier = pro_mehmed_domain
+			add_radicals_in_state = {
+				value = small_radicals
+				culture = cu:turkish
+			}
+		}
+	}
+	
+	option = {
+		name = ottoman_flavor.12.c
+		trigger = {
+			exists = scope:not_mehmed_state_3
+		}
+		scope:not_mehmed_state_3 = {
+			add_modifier = pro_mehmed_domain
+			add_radicals_in_state = {
+				value = small_radicals
+				culture = cu:turkish
+			}
 		}
 	}
 }
@@ -1064,7 +1151,7 @@ turkish_nationalism.2 = {
 	option = { 
 		name = turkish_nationalism.2.a
 		default_option = yes
-		set_variable = turkish_empire
+		set_global_variable = turkish_empire
 		scope:nationalist_ig = {
 			add_modifier = {
 				name = modifier_a_turkish_empire
@@ -1095,6 +1182,11 @@ turkish_nationalism.2 = {
 				}
 			}
 		}
+		hidden_effect = { set_strategy = ai_strategy_nationalist_agenda }
+		
+		#hidden_effect to disband Ottoman Caliphate
+		set_country_type = unrecognized
+		set_country_type = recognized
 	}
 }
 
@@ -1333,7 +1425,7 @@ turkish_nationalism.6 = {
 		default_option = yes
 		custom_tooltip = {
 			text = nationalists_seize_power_tt
-			set_variable = turkish_empire
+			set_global_variable = turkish_empire
 			every_interest_group = {
 				limit = { has_ideology = ideology:ideology_pluralist }
 				remove_ideology = ideology_pluralist
@@ -1439,6 +1531,7 @@ turkish_nationalism.6 = {
 				}
 				activate_law = law_type:law_slavery_banned
 			}
+			hidden_effect = { set_strategy = ai_strategy_nationalist_agenda }
 		}
 		add_loyalists = {
 			culture = cu:turkish
@@ -1455,6 +1548,10 @@ turkish_nationalism.6 = {
 				}
 			}
 		}
+		
+		#hidden_effect to disband Ottoman Caliphate
+		set_country_type = unrecognized
+		set_country_type = recognized
 	}
 }
 

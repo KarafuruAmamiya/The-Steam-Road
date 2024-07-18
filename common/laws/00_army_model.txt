@@ -201,7 +201,30 @@ law_professional_army = {
 				}	
 			}
 			add = 1000
-		}		
+		}
+
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_defense
+				has_law = law_type:law_peasant_levies
+			}
+			add = 1000
+		}
+	}
+	
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_pollit_defense
+				scope:target_country = {
+					c:LIT ?= this
+					has_law = law_type:law_peasant_levies
+				}
+			}
+			add = 1000
+		}
 	}
 }
 

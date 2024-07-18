@@ -28,18 +28,8 @@
 			text = claimed_caliphal_authority_tt
 			has_variable = pursue_caliphate_var
 		}
-		trigger_if = {
-			limit = {
-				c:HDJ ?= { is_country_alive = yes }
-			}
-			c:HDJ ?= {
-				is_subject_of = root
-			}
-		}
-		trigger_else = {
-			country_or_subject_owns_entire_state_region = STATE_HEDJAZ
-			country_or_subject_owns_entire_state_region = STATE_MEDINA
-		}
+		country_or_subject_owns_entire_state_region = STATE_HEDJAZ
+		country_or_subject_owns_entire_state_region = STATE_MEDINA
 	}
 
 	on_complete = {
@@ -65,7 +55,7 @@
 			}
 			custom_tooltip = {
 				text = nationalists_has_taken_over_tt
-				has_variable = turkish_empire
+				has_global_variable = turkish_empire
 			}
 			custom_tooltip = {
 				text = balkan_crisis_fail_tt
@@ -169,7 +159,9 @@ je_westernist_coalition = {
 	complete = {
 		custom_tooltip = {
 			text = westernist_progress_zero
-			var:westernist_progress_var <= 0
+			scope:journal_entry = {
+				"scripted_bar_progress(westernist_coalition_progress_bar)" <= 0
+			}
 		}
 		any_scope_state = {
 			filter = {
@@ -199,15 +191,18 @@ je_westernist_coalition = {
 	
 	on_complete = {
 		trigger_event = { id = ottoman_flavor.7 popup = yes }
-		if = {
-			limit = {
-				has_modifier = armed_forces_discord
+		hidden_effect = {
+			clear_westernist_vars = yes
+			every_scope_state = {
+				limit = { has_modifier = pro_mehmed_domain }
+				remove_modifier = pro_mehmed_domain
 			}
-			remove_modifier = armed_forces_discord
-		}
-		every_country = {
-			limit = { has_variable = westernist_supporter_countries }
-			remove_variable = westernist_supporter_countries
+			if = {
+				limit = {
+					has_modifier = armed_forces_discord
+				}
+				remove_modifier = armed_forces_discord
+			}
 		}
 	}
 	
@@ -220,8 +215,6 @@ je_westernist_coalition = {
 	on_monthly_pulse = {
 		effect = {
 			calculate_westernist_progress = yes
-			add_westernist_progress = yes
-			
 			if = {
 				limit = {
 					scope:mehmed_scope = {
@@ -270,79 +263,91 @@ je_westernist_coalition = {
 				change_variable = { name = westernist_progress_var_add subtract = 0.3 }
 			}
 			
-			#Checkpoints
-			if = {
+			every_country = {
 				limit = {
-					root.var:westernist_progress_var >= 30
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_1 }
+					has_diplomatic_pact = {
+						who = root
+						type = support_westernists
+					}
+					NOT = { has_variable = westernist_supporter_countries }
 				}
-				set_variable = westernist_coalition_checkpoint_1
-				trigger_event = { id = ottoman_flavor.10 }
+				set_variable = westernist_supporter_countries
 			}
-			if = {
+			
+			every_country = {
 				limit = {
-					root.var:westernist_progress_var >= 60
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_2 }
-				}
-				set_variable = westernist_coalition_checkpoint_2
-				trigger_event = { id = ottoman_flavor.10 }
-			}
-			if = {
-				limit = {
-					root.var:westernist_progress_var >= 90
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_3 }
-				}
-				set_variable = westernist_coalition_checkpoint_3
-				trigger_event = { id = ottoman_flavor.10 }
-			}
-			if = {
-				limit = {
-					root.var:westernist_progress_var >= 120
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_4 }
-				}
-				set_variable = westernist_coalition_checkpoint_4
-				trigger_event = { id = ottoman_flavor.10 }
-			}
-			if = {
-				limit = {
-					root.var:westernist_progress_var >= 150
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_5 }
-				}
-				set_variable = westernist_coalition_checkpoint_5
-				trigger_event = { id = ottoman_flavor.10 }
-			}
-			if = {
-				limit = {
-					root.var:westernist_progress_var >= 180
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_6 }
-				}
-				set_variable = westernist_coalition_checkpoint_6
-				trigger_event = { id = ottoman_flavor.10 }
-				trigger_event = { id = ottoman_flavor.5 popup = yes }
-			}
-			if = {
-				limit = {
-					root.var:westernist_progress_var >= 210
-					root.var:westernist_progress_var_next >= 0
-					NOT = { has_variable = westernist_coalition_checkpoint_7 }
-				}
-				set_variable = westernist_coalition_checkpoint_7
-				every_country = {
-					limit = {
+					NOT = {
 						has_diplomatic_pact = {
 							who = root
 							type = support_westernists
 						}
 					}
-					set_variable = westernist_supporter_countries
+					has_variable = westernist_supporter_countries
 				}
-				trigger_event = { id = ottoman_flavor.10 }
+				remove_variable = westernist_supporter_countries
+			}
+			
+			#Checkpoints
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 20
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_1 }
+				}
+				set_variable = westernist_coalition_checkpoint_1
+				check_westernist_states = yes
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 40
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_2 }
+				}
+				set_variable = westernist_coalition_checkpoint_2
+				check_westernist_states = yes
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 60
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_3 }
+				}
+				set_variable = westernist_coalition_checkpoint_3
+				check_westernist_states = yes
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 80
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_4 }
+				}
+				set_variable = westernist_coalition_checkpoint_4
+				check_westernist_states = yes
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 100
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_5 }
+				}
+				set_variable = westernist_coalition_checkpoint_5
+				check_westernist_states = yes
+			}
+			if = {
+				limit = {
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 120
+					}
+					NOT = { has_variable = westernist_coalition_checkpoint_6 }
+				}
+				set_variable = westernist_coalition_checkpoint_6
+				check_westernist_states = yes
+				trigger_event = { id = ottoman_flavor.5 popup = yes }
 			}
 		}
 		events = {
@@ -354,7 +359,9 @@ je_westernist_coalition = {
 		OR = {
 			custom_tooltip = {
 				text = westernist_progress_full
-				var:westernist_progress_var >= 240
+				scope:journal_entry = {
+					"scripted_bar_progress(westernist_coalition_progress_bar)" >= 150
+				}
 			}
 			AND = {
 				liberal_revolution_ongoing = yes
@@ -389,6 +396,11 @@ je_westernist_coalition = {
 	on_fail = {
 		trigger_event = { id = ottoman_flavor.8 popup = yes }
 		hidden_effect = {
+			clear_westernist_vars = yes
+			every_scope_state = {
+				limit = { has_modifier = pro_mehmed_domain }
+				remove_modifier = pro_mehmed_domain
+			}
 			set_global_variable = westernist_coup
 			if = {
 				limit = {
@@ -396,6 +408,14 @@ je_westernist_coalition = {
 				}
 				remove_modifier = armed_forces_discord
 			}
+			every_country = {
+				limit = { has_variable = westernist_supporter_countries }
+				remove_variable = westernist_supporter_countries
+			}
+			
+			#hidden_effect to disband Ottoman Caliphate
+			set_country_type = unrecognized
+			set_country_type = recognized
 		}
 	}
 	
@@ -412,6 +432,7 @@ je_westernist_coalition = {
 	
 	on_invalid = {
 		hidden_effect = {
+			clear_westernist_vars = yes
 			every_scope_state = {
 				limit = { has_modifier = pro_mehmed_domain }
 				remove_modifier = pro_mehmed_domain
@@ -429,39 +450,43 @@ je_westernist_coalition = {
 		}
 	}
 	
-	current_value = {
-		value = root.var:westernist_progress_var
-	}
-	
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
 				desc = westernist_coalition_gaining_power
 				trigger = {
-					var:westernist_progress_var < 60
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" < 40
+					}
 					var:westernist_progress_var_next >= 0
 				}
 			}
 			triggered_desc = {
 				desc = westernist_coalition_threaten_power
 				trigger = {
-					var:westernist_progress_var >= 60
-					var:westernist_progress_var < 120
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 40
+						"scripted_bar_progress(westernist_coalition_progress_bar)" < 80
+					}
 					var:westernist_progress_var_next >= 0
 				}
 			}
 			triggered_desc = {
 				desc = westernist_coalition_taking_power
 				trigger = {
-					var:westernist_progress_var >= 120
-					var:westernist_progress_var < 180
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 80
+						"scripted_bar_progress(westernist_coalition_progress_bar)" < 120
+					}
 					var:westernist_progress_var_next >= 0
 				}
 			}
 			triggered_desc = {
 				desc = westernist_coalition_usurping_power
 				trigger = {
-					var:westernist_progress_var >= 180
+					scope:journal_entry = {
+						"scripted_bar_progress(westernist_coalition_progress_bar)" >= 120
+					}
 					var:westernist_progress_var_next >= 0
 				}
 			}
@@ -473,14 +498,10 @@ je_westernist_coalition = {
 			}
 		}
 	}
-
-	goal_add_value = {
-		add = 240
-	}
 	
+	scripted_progress_bar = westernist_coalition_progress_bar
 	scripted_button = westernist_coalition_suppress_westernist_faction
-
-	progressbar = yes
+	scripted_button = westernist_coalition_bolster_faction
 
 	weight = 1000
 

@@ -14,6 +14,7 @@
   rumelian_confederation_tt: "The Rumelian Confederation has been enforced"
   one_true_caliphate: "The New Caliphate"
   ai_strategy_ottoman_caliphate: "Ottoman Caliphate"
+  ai_strategy_ottoman_caliphate_desc: "[COUNTRY.GetName] seeks to claim Caliphal Authority and become the dominant power of the Islamic World."
   
   ottoman_flavor.1.t: "The Ottoman Caliphate"
   ottoman_flavor.1.d: "The Holy Cities of Mecca and Medina has been successfully reclaimed by us. Sultan of the [SCOPE.sCountry('akn_scope').GetName], [SCOPE.sCharacter('akkovin_sultan').GetFirstName] has formally surrendered the title of caliph to [ROOT.GetCountry.GetRuler.GetFirstName], establishing the Ottoman dynasty as the new caliphal line. Now, it is time to assert our authority as the leader of the Muslim world."
@@ -35,8 +36,7 @@
   ideology_turkish_nationalist_desc: "#lore This leader demands the creation of a democratic and modernized Turkish nation-state.#!"
   
   je_westernist_coalition: "Westernist Coalition"
-  je_westernist_coalition_reason: "During the #bold First Ottoman Empire#! period, the [ROOT.GetCountry.GetName] was almost completely isolated from developments outside its own sphere, believing in its own superiority over anything outsiders could possibly produce. This was violently broken down following the devastating loss in the #bold Third Mamluk-Ottoman War#! which led to a decline of the First Empire and the resulting European enroachment. With the #bold Ottoman Civil War of 1689#! that marked the end of the First Ottoman Empire and the disbandment of the Janissaries, the gradual adoption of European military and administrative reforms, and the #bold Gunpowder Wars#! — a period of constant warfare against European powers, the influence of Western civilization within our empire has become deeply entrenched.\n\nThe current #bold Second Ottoman Empire#! period has seen further upheavals. Sultan #bold Orhan II#! undertook the #italic nizam-ı cedid#! beginning in the late 18th century that modernized the Ottoman Army into a professional standing army. His ambitions didn't stop at the military however, as he envisioned a complete Westernization of the Old Order. His radical vision led to numerous oppositions, culminating in his deposition by a conservative coalition led by his brother #bold Selim III#!. Orhan II was executed under Selim III's orders, but his son [SCOPE.sCharacter('mehmed_scope').GetFirstName] was safely kept hidden, and a reformist coalition has gathered to reclaim [SCOPE.sCharacter('mehmed_scope').GetFirstName]'s rightful place in the throne and continue the #italic nizam-ı cedid#!.\n\nOnce the progress bar is filled, the Westernists will launch a coup to put [SCOPE.sCharacter('mehmed_scope').GetFirstName] on the throne. #bold Westernist Progress#! is expected to advance by #tooltippable;tooltip:[Country.GetTooltipTag],je_westernist_coalition_special_tooltip [Country.MakeScope.Var('westernist_progress_var_next').GetValue|-=]#! next month"
-  je_westernist_coalition_special_tooltip: "This rate is determined by the following:\n#variable [Country.MakeScope.Var('westernist_progress_from_radicals').GetValue|-=]#! from Turkish [Concept('concept_state', '$concept_states$')] in [concept_turmoil]\n#variable [Country.MakeScope.Var('westernist_progress_from_characters').GetValue|-=]#! from the combined [concept_popularity] of Westernist characters\n#variable [Country.MakeScope.Var('westernist_progress_from_igs').GetValue|-=]#! from [concept_clout] of Westernist [Concept('concept_interest_group', '$concept_interest_groups$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_domain').GetValue|-=]#! from [Concept('concept_state', '$concept_states$')] with #bold Mehmed IV Support#!\n#variable [Country.MakeScope.Var('westernist_progress_from_legitimacy').GetValue|-=]#! from [concept_government] [concept_legitimacy]\n#variable [Country.MakeScope.Var('westernist_progress_from_loyalists').GetValue|-=]#! from Turkish [Concept('concept_state', '$concept_states$')] with [Concept('concept_loyalist','$concept_loyalists$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_laws').GetValue|-=]#! from #bold Free Speech#! and #bold Home Affairs#! [Concept('concept_law','$concept_laws$')] and [Concept('concept_institution', '$concept_institutions$')]\n#variable [Country.MakeScope.Var('westernist_progress_from_foreign_support').GetValue|-=]#! from 'Support Westernists' and 'Oppose Westernists' [concept_diplomatic_action] from other countries\n#variable [Country.MakeScope.Var('westernist_progress_var_add').GetValue|-=]#! from other effects"
+  je_westernist_coalition_reason: "During the #bold First Ottoman Empire#! period, the [ROOT.GetCountry.GetName] was almost completely isolated from developments outside its own sphere, believing in its own superiority over anything outsiders could possibly produce. This was violently broken down following the devastating loss in the #bold Third Mamluk-Ottoman War#! which led to a decline of the First Empire and the resulting European enroachment. With the #bold Ottoman Civil War of 1689#! that marked the end of the First Ottoman Empire and the disbandment of the Janissaries, the gradual adoption of European military and administrative reforms, and the #bold Gunpowder Wars#! — a period of constant warfare against European powers, the influence of Western civilization within our empire has become deeply entrenched.\n\nThe current #bold Second Ottoman Empire#! period has seen further upheavals. Sultan #bold Orhan II#! undertook the #italic nizam-ı cedid#! beginning in the late 18th century that modernized the Ottoman Army into a professional standing army. His ambitions didn't stop at the military however, as he envisioned a complete Westernization of the Old Order. His radical vision led to numerous oppositions, culminating in his deposition by a conservative coalition led by his brother #bold Selim III#!. Orhan II was executed under Selim III's orders, but his son [SCOPE.sCharacter('mehmed_scope').GetFirstName] was safely kept hidden, and a reformist coalition has gathered to reclaim [SCOPE.sCharacter('mehmed_scope').GetFirstName]'s rightful place in the throne and continue the #italic nizam-ı cedid#!.\n\nOnce the progress bar is filled, the Westernists will launch a coup to put [SCOPE.sCharacter('mehmed_scope').GetFirstName] on the throne."
   finished_ottoman_caliphate_je: "We have completed 'The Ottoman Caliphate' [concept_journal_entry]"
   westernist_progress_zero: "The #bold Progress Bar#! has reached #variable 0%#!"
   westernist_progress_full: "The #bold Progress Bar#! has reached #variable 100%#!"
@@ -50,10 +50,26 @@
   westernist_progress_increase_mehmed: "The progress bar of the #Bold Westernist Coalition#! [concept_journal_entry] is advanced by #variable #red #Bold 0.3#!#!#! every month as long as Mehmed IV is in another country."
   
   westernist_coalition_suppress_westernist_faction: "Suppress Westernist Faction"
-  westernist_coalition_suppress_westernist_faction_desc: "With the decreasing power of the #bold Westernist Faction#!, we must use this opportunity to suppress their activities and prevent them from spreading to other provinces."
+  westernist_coalition_suppress_westernist_faction_desc: "In order to reduce the influence of the #bold Westernist Faction#!, we can target and suppress their activities within key strongholds and prevent them from spreading to other provinces."
+  westernist_coalition_bolster_faction: "Bolster Westernist Faction"
+  westernist_coalition_bolster_faction_desc: "With increasing discreet support from the empire's own government, the #bold Westernist Faction#! can use this opportunity to propagate support in key provinces."
   suppress_westernists_cooldown_tt: "Has not used the #bold Suppress Westernist Faction#! decision in the past #bold six months#!"
+  bolster_westernists_cooldown_tt: "Has not used the #bold Bolster Westernist Faction#! decision in the past #bold six months#!"
   mehmed_not_in_country: "[SCOPE.sCharacter('mehmed_scope').GetFirstName] does not reside within our borders"
+  mehmed_in_country: "[SCOPE.sCharacter('mehmed_scope').GetFirstName] resides within our borders"
   mehmed_ruler: "[SCOPE.sCharacter('mehmed_scope').GetFirstName] is our ruler"
+  
+  westernist_coalition_progress_bar_name: "Westernist Coalition"
+  westernist_coalition_progress_bar_desc: "Progress: #v [JournalEntry.GetCurrentBarProgress(ScriptedProgressBar.Self)|%]#! ([JournalEntry.GetCurrentBarValue(ScriptedProgressBar.Self)|1]/150)"
+  westernist_progress_from_radicals: "Turkish [Concept('concept_state', '$concept_states$')] in [concept_turmoil]"
+  westernist_progress_from_loyalists: "Turkish [Concept('concept_state', '$concept_states$')] with [Concept('concept_loyalist','$concept_loyalists$')]"
+  westernist_progress_from_characters: "the combined [concept_popularity] of Westernist characters"
+  westernist_progress_from_laws: "#bold Free Speech#! and #bold Home Affairs#! [Concept('concept_law','$concept_laws$')] and [Concept('concept_institution', '$concept_institutions$')]"
+  westernist_progress_from_igs: "[concept_clout] of Westernist [Concept('concept_interest_group', '$concept_interest_groups$')]"
+  westernist_progress_from_domain: "[Concept('concept_state', '$concept_states$')] with #bold Mehmed IV Support#!"
+  westernist_progress_from_legitimacy: "[concept_government] [concept_legitimacy]"
+  westernist_progress_from_foreign_support: "#bold Support Westernists#! and #bold Oppose Westernists#! [concept_diplomatic_action] from other countries"
+  westernist_progress_var_add: "events and other effects"
   
   ottoman_flavor.3.t: "[SCOPE.sCharacter('mehmed_scope').GetFirstName] Requests Our Aid"
   ottoman_flavor.3.d: "Forced to flee for his life from [SCOPE.sCountry('tur_scope').GetName], [SCOPE.sCharacter('mehmed_scope').GetFirstName], a pretender Sultan who vouches for the Westernization of his empire, has requested asylum in [ROOT.GetCountry.GetName]. If we accept, our indirect support could further the political turmoil within our [SCOPE.sCountry('tur_scope').GetAdjectiveNoFormatting] rivals."
@@ -90,7 +106,7 @@
   westernist_takeover_negative: "Westernist Takeover"
   
   ottoman_flavor.9.t: "Suppressing Westernist Activities"
-  ottoman_flavor.9.d: "The increasing unrest in certain provinces caused by the Westernist faction's agitations has been of great concern to the Porte. They have left us with no choice but to use the harshest methods to restore order and safeguard the safety of our people."
+  ottoman_flavor.9.d: "The increasing unrest in certain provinces caused by the Westernist faction's agitations has been of great concern to the Sublime Porte. They have left us with no choice but to use the harshest methods to restore order and safeguard the safety of our people."
   ottoman_flavor.9.f: "Orders has been issued from the central authority of [ROOT.GetCountry.GetCapital.GetCityHubName], where the Valis of the following vilayets shall be granted permission to use the most effective methods in suppressing Westernist activity:"
   ottoman_flavor.9.a: "[SCOPE.sState('pro_mehmed_state_1').GetName] must take priority"
   ottoman_flavor.9.b: "[SCOPE.sState('pro_mehmed_state_2').GetName] requires our attention"
@@ -102,8 +118,18 @@
   ottoman_flavor.11.a: "The new Ottoman regime is our ally."
   ottoman_flavor.11.b: "Our goal has been achieved, what happens next is of little concern to us."
   
+  ottoman_flavor.12.t: "Increasing Support for Westernist Activities"
+  ottoman_flavor.12.d: "The Westernist faction has been pushing discreetly to gain support in key states. Their efforts are beginning to bear fruit, and we are seeing a rise in pro-Westernist sentiment in these regions."
+  ottoman_flavor.12.f: "From the shadows, our supporters have been carefully nurturing the seeds of change. Key provinces have been targeted to strengthen our cause:"
+  ottoman_flavor.12.a: "[SCOPE.sState('not_mehmed_state_1').GetName] must become a stronghold"
+  ottoman_flavor.12.b: "[SCOPE.sState('not_mehmed_state_2').GetName] should be our next focus"
+  ottoman_flavor.12.c: "[SCOPE.sState('not_mehmed_state_3').GetName] will be the beacon of revolution"
+
   notification_westernist_state_defection_name: "Westernist Faction gains support in [SCOPE.sState('mehmed_defector_state').GetName]"
   notification_westernist_state_defection_desc: "The Westernist Faction has gained significant traction in [SCOPE.sState('mehmed_defector_state').GetName]"
+  
+  notification_westernist_state_return_name: "Westernist Faction loses support in [SCOPE.sState('mehmed_return_state').GetName]"
+  notification_westernist_state_return_desc: "The Westernist Faction has lost their traction in [SCOPE.sState('mehmed_return_state').GetName]"
   
   #Veiled Puppet
   je_veiled_puppet: "Veiled Puppet"
@@ -119,7 +145,7 @@
   treaty_of_baglar_events.5.f: ""It is with heavy hearts and righteous indignation that we must expose the treacherous machinations of our erstwhile allies, the perfidious [ROOT.GetCountry.GetName]. Under the guise of friendship and cooperation, they have concocted a sinister plot to exploit our [SCOPE.sCulture('akturk_scope').GetName] brethren and subjugate them to their insatiable thirst for power and profit.""
   treaty_of_baglar_events.5.a: "We simply want to protect our [SCOPE.sCulture('akturk_scope').GetName] brethren from #italic them#!!"
   treaty_of_baglar_events.5.b: "Maintaining peace is more crucial."
-  gunpowder_alliance_disband_tt: "The Gunpowder Alliance formally disbands"
+  gunpowder_alliance_disband_tt: "The Gunpowder Alliance formally disbands."
   no_bullying_akkovins_tt: "We will not receive more opportunities to exercise authority over the Akkovins."
   
   treaty_of_baglar_events.6.t: "The End of Status Quo"

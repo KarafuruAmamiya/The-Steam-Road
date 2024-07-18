@@ -2876,6 +2876,19 @@
 				activate_production_methods={ "pm_simple_ranch" "pm_open_air_stockyards" "pm_standard_fences" "pm_unrefrigerated"  }
 			}
 			create_building={
+				building="building_tooling_workshops"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:IRE"
+						levels=1
+						region="STATE_ULSTER"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled"  }
+			}	
+			create_building={
 				building="building_logging_camp"
 				add_ownership={
 					building={
@@ -2887,6 +2900,19 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_shipyards"
+				add_ownership={
+					building={
+						type="building_shipyards"
+						country="c:IRE"
+						levels=1
+						region="STATE_LEINSTER"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_complex_shipbuilding"  }
 			}
 			create_building={
 				building="building_port"
@@ -2917,6 +2943,19 @@
 				activate_production_methods={  "pm_simple_farming" "pm_tools" "pm_potatoes" }
 			}
 			create_building={
+				building="building_iron_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:IRE"
+						levels=1
+						region="STATE_LEINSTER"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts"  }
+			}
+			create_building={
 				building="building_port"
 				add_ownership={
 					country={
@@ -2941,6 +2980,39 @@
 				}
 				reserves=1
 				activate_production_methods={ "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_horizontal_drawer_cabinets" }
+			}
+			create_building={
+				building="building_construction_sector"
+				add_ownership={
+					country={
+						country="c:IRE"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_iron_frame_buildings" }
+			}
+			create_building={
+				building="building_paper_mills"
+				add_ownership={
+					country={
+						country="c:IRE"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_sulfite_pulping" "pm_automation_disabled"  }
+			}
+			create_building={
+				building="building_arms_industry"
+				add_ownership={
+					country={
+						country="c:IRE"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_muskets"   }
 			}
 			create_building={
 				building="building_university"
@@ -2973,7 +3045,7 @@
 						type="building_manor_house"
 						country="c:IRE"
 						levels=2
-						region="STATE_LEINSTER"
+						region="STATE_MUNSTER"
 					}
 				}
 				reserves=1

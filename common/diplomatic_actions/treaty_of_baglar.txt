@@ -2,12 +2,11 @@
 	groups= {
 		general
 	}
-	can_select = no
-	can_use_obligations = yes
+	show_in_lens = no
 
 	potential = {
 		always = no
-	}
+	}	
 	
 	accept_effect = {
 		if = {
@@ -147,13 +146,10 @@
 		is_defensive_pact = yes
 		is_trade_agreement = yes
 		is_foreign_investment_rights = yes
-		has_junior_participant = yes
-		
-		relations_progress_per_day = 1 # At 100, +1 relations
-		relations_improvement_max = 80		
+		has_junior_participant = yes	
 		
 		second_modifier = {
-			country_pact_leverage_generation_add = 250
+			country_pact_leverage_generation_add = 300
 		}	
 
 		actor_can_break = {
@@ -203,5 +199,15 @@
 		auto_break_effect = {
 			create_bidirectional_truce = { country = scope:target_country months = 12 }				
 		}
+	}
+	
+	ai = {
+		evaluation_chance = {
+			value = 0
+		}		
+	
+		will_break = {
+			always = no			
+		}		
 	}
 }

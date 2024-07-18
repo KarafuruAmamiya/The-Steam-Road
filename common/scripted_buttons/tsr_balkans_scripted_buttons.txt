@@ -5,6 +5,7 @@
 	visible = { 
 		c:FRA ?= this
 		NOT = { has_variable = balkan_war_attacker }
+		NOT = { has_variable = offer_cyprus_convention }
 	}
 
 	possible = {
@@ -13,9 +14,6 @@
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		hidden_trigger = {
-			NOT = { has_variable = offer_cyprus_convention }
 		}
 	}
 
@@ -77,6 +75,7 @@ balkan_crisis_deescalate_england = {
 			c:GBR ?= this
 		}
 		NOT = { has_variable = balkan_war_attacker }
+		NOT = { has_variable = offer_crete_convention }
 	}
 
 	possible = {
@@ -85,9 +84,6 @@ balkan_crisis_deescalate_england = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		hidden_trigger = {
-			NOT = { has_variable = offer_crete_convention }
 		}
 	}
 
@@ -149,6 +145,7 @@ balkan_crisis_deescalate_sweden = {
 			c:SCA ?= this
 		}
 		NOT = { has_variable = balkan_war_attacker }
+		NOT = { has_variable = offer_crimea_convention }
 	}
 
 	possible = {
@@ -157,9 +154,6 @@ balkan_crisis_deescalate_sweden = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		hidden_trigger = {
-			NOT = { has_variable = offer_crimea_convention }
 		}
 	}
 
@@ -218,6 +212,7 @@ balkan_crisis_deescalate_iberia = {
 	visible = { 
 		c:IBE ?= this
 		NOT = { has_variable = balkan_war_attacker }
+		NOT = { has_variable = offer_algiers_convention }
 	}
 
 	possible = {
@@ -226,9 +221,6 @@ balkan_crisis_deescalate_iberia = {
 		custom_tooltip = {
 			text = balkan_crisis_50_tt
 			global_var:balkan_crisis_main_var >= 50
-		}
-		hidden_trigger = {
-			NOT = { has_variable = offer_algiers_convention }
 		}
 		exists = c:TUN
 		c:TUN ?= { is_subject_of = c:TUR }

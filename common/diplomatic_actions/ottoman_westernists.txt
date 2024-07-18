@@ -2,22 +2,27 @@
 	groups= {
 		general
 	}
+	
 	requires_approval = no
 	show_confirmation_box = yes
 	show_effect_in_tooltip = yes
+	
+	selectable = {
+		country_rank >= rank_value:great_power
+		is_revolutionary = no
+		c:TUR ?= { has_journal_entry = je_westernist_coalition }
+	}
 
 	potential = {
-		country_rank >= rank_value:great_power
 		scope:target_country = {
 			c:TUR ?= this
 			has_journal_entry = je_westernist_coalition
 			NOR = { 
-				has_variable = turkish_empire 
+				has_global_variable = turkish_empire 
 				has_global_variable = balkan_crisis_fail_var
 			}
 		}
 		has_diplomatic_relevance = c:TUR
-		is_revolutionary = no
 	}
 
 	possible = {
@@ -28,6 +33,10 @@
 		cost = 50
 		is_two_sided_pact = no
 		show_in_outliner = yes	
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = 100
+		}
 		
 		requirement_to_maintain = {
 			trigger = {
@@ -47,7 +56,7 @@
 					c:TUR ?= this
 					has_journal_entry = je_westernist_coalition
 					NOR = { 
-						has_variable = turkish_empire 
+						has_global_variable = turkish_empire 
 						has_global_variable = balkan_crisis_fail_var
 					}
 				}
@@ -83,6 +92,10 @@
 	
 	ai = {
 		max_influence_spending_fraction = 0.25
+		
+		evaluation_chance = {
+			value = 0.5
+		}
 	
 		propose_score = {
 			value = 0
@@ -209,32 +222,41 @@ oppose_westernists = {
 	groups= {
 		general
 	}
+	
 	requires_approval = no
 	show_confirmation_box = yes
 	show_effect_in_tooltip = yes
 
-	potential = {
+	selectable = {
 		country_rank >= rank_value:great_power
+		is_revolutionary = no
+		c:TUR ?= { has_journal_entry = je_westernist_coalition }
+	}
+
+	potential = {
 		scope:target_country = {
 			c:TUR ?= this
 			has_journal_entry = je_westernist_coalition
 			NOR = { 
-				has_variable = turkish_empire 
+				has_global_variable = turkish_empire 
 				has_global_variable = balkan_crisis_fail_var
 			}
 		}
 		has_diplomatic_relevance = c:TUR
-		is_revolutionary = no
 	}
 
 	possible = {
-		NOT = { has_diplomatic_pact = { who = scope:target_country type = support_westernists } }	
+		NOT = { has_diplomatic_pact = { who = scope:target_country type = oppose_westernists } }	
 	}	
 
 	pact = {	
 		cost = 50
 		is_two_sided_pact = no
 		show_in_outliner = yes	
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = 100
+		}
 		
 		requirement_to_maintain = {
 			trigger = {
@@ -254,7 +276,7 @@ oppose_westernists = {
 					c:TUR ?= this
 					has_journal_entry = je_westernist_coalition
 					NOR = { 
-						has_variable = turkish_empire 
+						has_global_variable = turkish_empire 
 						has_global_variable = balkan_crisis_fail_var
 					}
 				}
@@ -290,6 +312,10 @@ oppose_westernists = {
 	
 	ai = {
 		max_influence_spending_fraction = 0.25
+		
+		evaluation_chance = {
+			value = 0.5
+		}
 	
 		propose_score = {
 			value = 0

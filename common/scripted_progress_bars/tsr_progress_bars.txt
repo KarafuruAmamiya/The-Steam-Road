@@ -1,0 +1,106 @@
+﻿westernist_coalition_progress_bar = {
+ 	name = "westernist_coalition_progress_bar_name"
+ 	desc = "westernist_coalition_progress_bar_desc"
+	
+	default_bad = yes
+
+ 	monthly_progress = {
+		add = {
+			desc = "westernist_progress_from_radicals"
+			value = owner.var:westernist_progress_from_radicals
+		}
+		add = {
+			desc = "westernist_progress_from_loyalists"
+			value = owner.var:westernist_progress_from_loyalists
+		}
+		add = {
+			desc = "westernist_progress_from_characters"
+			value = owner.var:westernist_progress_from_characters
+		}
+		add = {
+			desc = "westernist_progress_from_laws"
+			value = owner.var:westernist_progress_from_laws
+		}
+		add = {
+			desc = "westernist_progress_from_igs"
+			value = owner.var:westernist_progress_from_igs
+		}
+		add = {
+			desc = "westernist_progress_from_domain"
+			value = owner.var:westernist_progress_from_domain
+		}
+		add = {
+			desc = "westernist_progress_from_legitimacy"
+			value = owner.var:westernist_progress_from_legitimacy
+		}
+		add = {
+			desc = "westernist_progress_from_foreign_support"
+			value = owner.var:westernist_progress_from_foreign_support
+		}
+		add = {
+			desc = "westernist_progress_var_add"
+			value = owner.var:westernist_progress_var_add
+		}
+ 	}
+
+	start_value = 0
+ 	min_value = 0
+ 	max_value = 150
+}
+
+union_of_augustow_progress_bar = {
+ 	name = "union_of_augustow_progress_bar_name"
+ 	desc = "union_of_augustow_progress_bar_desc"
+	
+	default = yes
+
+ 	monthly_progress = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = plc_point_freeze
+				}
+			}
+			add = {
+				desc = "plc_point_from_radicals_pol"
+				value = global_var:plc_point_from_radicals_pol
+			}
+			add = {
+				desc = "plc_point_from_loyalists_pol"
+				value = global_var:plc_point_from_loyalists_pol
+			}
+			add = {
+				desc = "plc_point_from_prestige"
+				value = global_var:plc_point_from_prestige
+			}
+			add = {
+				desc = "plc_point_from_pro_lobby"
+				value = global_var:plc_point_from_pro_lobby
+			}
+			add = {
+				desc = "plc_point_from_anti_lobby"
+				value = global_var:plc_point_from_anti_lobby
+			}
+			add = {
+				desc = "plc_point_from_positive_relations"
+				value = global_var:plc_point_from_positive_relations
+			}
+			add = {
+				desc = "plc_point_from_autonomy"
+				value = global_var:plc_point_from_autonomy
+			}
+			add = {
+				desc = "plc_point_from_centralization"
+				value = global_var:plc_point_from_centralization
+			}
+			add = {
+				desc = "plc_point_var_add"
+				value = global_var:plc_point_var_add
+			}
+		}
+ 	}
+
+	start_value = 10
+ 	min_value = 0
+ 	max_value = 300
+}

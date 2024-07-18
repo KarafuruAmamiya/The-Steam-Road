@@ -745,6 +745,59 @@ akkovin_crisis.6 = {
 			text = treaty_of_baglar_tt
 			set_variable = baglar_treaty_signed
 		}
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = 5
+					factor = appeasement_lobby_treaty_of_baglar_sign 
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = -5
+					factor = appeasement_lobby_treaty_of_baglar_sign 
+				}
+			}
+		}
 	}
 	
 	option = {
@@ -895,6 +948,60 @@ akkovin_crisis.7 = {
 			}
 		}
 		
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = 5
+					factor = appeasement_lobby_treaty_of_baglar_sign 
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = -5
+					factor = appeasement_lobby_treaty_of_baglar_sign 
+				}
+			}
+		}
+		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -964,6 +1071,60 @@ akkovin_crisis.7 = {
 					}
 				}
 				post_notification = akkovin_dont_renew_treaty
+			}
+		}
+		
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_pro_country
+						is_political_lobby_type = lobby_pro_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = -5
+					factor = appeasement_lobby_treaty_of_baglar_reject 
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				any_political_lobby = {
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+					target = {
+						c:PER ?= this
+					}
+				}
+			}
+			every_political_lobby = {
+				limit = {
+					target = c:PER ?= this
+					OR = {
+						is_political_lobby_type = lobby_anti_country
+						is_political_lobby_type = lobby_anti_overlord
+					}
+				}
+				change_appeasement = { 
+					amount = 5
+					factor = appeasement_lobby_treaty_of_baglar_reject 
+				}
 			}
 		}
 		

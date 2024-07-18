@@ -9,7 +9,13 @@
 			type = lobby_pro_country  
 			target = c:PER
 			add_interest_group = ig:ig_landowners
-		}	
+		}
+		create_political_lobby = {  
+			type = lobby_anti_country  
+			target = c:PER
+			add_interest_group = ig:ig_devout
+			add_interest_group = ig:ig_intelligentsia
+		}
 	}
 	
 	c:PFA ?= {

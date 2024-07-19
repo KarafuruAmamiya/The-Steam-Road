@@ -305,6 +305,12 @@ dp_reduce_autonomy = {
 	possible = {
 		OR = {
 			NOT = {
+				scope:target_country = { is_subject_type = subject_type_personal_union }
+			} 
+			has_technology_researched = nationalism
+		}
+		OR = {
+			NOT = {
 				scope:target_country = { has_government_type = gov_chartered_company }
 			} 
 			has_technology_researched = civilizing_mission
@@ -583,7 +589,7 @@ dp_revolution = {
 	on_war_end = {}
 }
 
-dp_secession = {
+﻿dp_secession = {
 	requires_interest_marker = no
 	initiator_can_add_war_goals = no
 	target_can_add_war_goals = yes

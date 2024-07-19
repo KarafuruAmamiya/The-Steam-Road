@@ -1,10 +1,10 @@
 ﻿l_english:
  ### COLONIAL
- modifier_state_unincorporated_pop_qualifications_mult:0 "[concept_pop_qualifications] in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
- modifier_state_unincorporated_pop_qualifications_mult_desc:0 "A bonus or penalty to [concept_pop_qualifications] in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
+ state_unincorporated_pop_qualifications_mult:0 "[concept_pop_qualifications] in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
+ state_unincorporated_pop_qualifications_mult_desc:0 "A bonus or penalty to [concept_pop_qualifications] in [Concept('concept_unincorporated_state', '$concept_unincorporated_states$')]"
  
  ### MISC
- zz_prussian_military_mission:0 "Prussian Military Mission"
+ prussian_military_mission:0 "Prussian Military Mission"
 
  ### LAWS
  land_redistribution_modifier:0 "Land Redistribution"
@@ -23,6 +23,13 @@
 
  ### OTTOMAN EMPIRE
  millet_system:0 "Millet System"
- modifier_country_vtm_cannot_recruit_heathens:0 "Cannot Recruit Heathens"
- modifier_country_vtm_cannot_recruit_heathens_desc:0 "#TODO modifier_country_vtm_cannot_recruit_heathens_desc#!"
+ country_vtm_cannot_recruit_heathens_bool:0 "Cannot Recruit Heathens"
+ country_vtm_cannot_recruit_heathens_bool_desc:0 "Whether or not Pops that are discriminated on the basis of their faith can become Soldiers"
  VTM_QUALIFICATIONS_CANNOT_RECRUIT_HEATHENS:0 "From [Pop.GetState.GetOwner.GetModifier.GetFullEntryDescFor('country_vtm_cannot_recruit_heathens')]"
+
+ ### INDIA
+ colonial_consolidation:0 "Colonial Consolidation"
+
+ ## FOREIGN INVESTMENT
+ VTM_HAS_LIMITED_CONSTRUCTION:0 "From limited Construction (below @construction! [SCOPE.ScriptValue('limited_construction_threshold')|0v])"
+ VTM_HAS_VERY_LIMITED_CONSTRUCTION:0 "From very limited Construction (below @construction! [SCOPE.ScriptValue('very_limited_construction_threshold')|0v])"

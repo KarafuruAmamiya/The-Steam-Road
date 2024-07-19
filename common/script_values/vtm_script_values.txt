@@ -1,31 +1,21 @@
-﻿num_active_colonies = {
+﻿limited_construction_threshold = 200
+very_limited_construction_threshold = 100
+
+num_active_colonies = {
 	value = {
 		value = 0
-		IF = {
-			LIMIT = {
+		if = {
+			limit = {
 				has_colonial_growth = yes
 			}
 			every_scope_state = {
 				limit = { 
 					is_under_colonization = yes
-					
 				}
 				add = 1
 			}
 		}
     }
-}
-
-num_active_law = {
-	value = {
-		value = 1
-		if = {
-			limit = {
-					has_law = law_type:law_no_colonial_affairs
-			}
-			add = -1
-		}
-	}
 }
 
 state_region_num_provinces_half = {
@@ -52,4 +42,11 @@ state_region_num_provinces_fifth = {
 		multiply = 0.3
 		round = yes
 	}
+}
+
+# used in loc
+spain_state_effect_authority_bonus = {
+	value = root.authority
+	divide = 1000
+	min = 0
 }

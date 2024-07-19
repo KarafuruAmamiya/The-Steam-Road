@@ -4,15 +4,17 @@
 	military_type = army
 	ai_usage = advance
     is_basic_order_type = yes
-    
-    visible = {
+
+	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -34,16 +36,18 @@ advance_reckless = {
     
     military_type = army
 	ai_usage = advance
-	
+
 	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
-    	has_trait = reckless
+        has_trait = reckless
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -69,20 +73,22 @@ advance_pillager = {
     
     military_type = army
 	ai_usage = advance
-	
+
 	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
-    	OR = {
+		OR = {
 			has_trait = cruel
 			has_trait = wrathful
             has_trait = pillager
 		}
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -109,16 +115,18 @@ advance_cautious = {
     
     military_type = army
 	ai_usage = advance
-	
+
 	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
-    	has_trait = cautious
+        has_trait = cautious
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -142,20 +150,22 @@ advance_heavy_barrage = {
     
     military_type = army
     ai_usage = advance
-    
-    visible = {
+
+	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
-    	OR = {
+        OR = {
            has_trait = basic_artillery_commander
            has_trait = experienced_artillery_commander
            has_trait = expert_artillery_commander
         }
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {
@@ -180,16 +190,14 @@ advance_cavalry_assualt = {
 
     military_type = army
     ai_usage = advance
-    
-    visible = {
+
+	visible = {
 		has_role = general
 	}
 
     possible = {
     	has_role = general
-    	ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
-    	trigger_if = {
+        trigger_if = {
             limit = {
                 has_role = general
             }
@@ -226,6 +234,11 @@ advance_cavalry_assualt = {
                 }
             }
         }
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
+
     }
 
     modifier = {
@@ -250,16 +263,14 @@ advance_tank_assualt = {
 
     military_type = army
     ai_usage = advance
-    
-    visible = {
+
+	visible = {
 		has_role = general
 	}
 
     possible = {
-		has_role = general
+    	has_role = general
         has_trait = innovative
-        ai_subject_can_advance_front = yes
-    	ai_ally_can_advance_front = yes
         trigger_if = {
             limit = {
                 has_role = general
@@ -271,6 +282,10 @@ advance_tank_assualt = {
                 }
             }
         }
+
+        ai_ally_can_advance_front = yes
+        ai_subject_can_advance_front = yes
+        ai_special_can_advance_front = yes
     }
 
     modifier = {

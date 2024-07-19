@@ -129,6 +129,7 @@ war_exhaustion = {
 		add = {
 			add = war_exhaustion_from_casualties
 			desc = "WAR_EXHAUSTION_FROM_CASUALTIES"
+		}
 			multiply = {
 				add = 1
 				add = modifier:country_war_exhaustion_casualties_mult
@@ -136,7 +137,6 @@ war_exhaustion = {
 				desc = "WAR_EXHAUSTION_FROM_country_war_exhaustion_casualties_mult"
 			}
 		}
-	}
 	
 	if = {
 		limit = { war_exhaustion_from_country_turmoil >= 0.01 }
@@ -166,22 +166,4 @@ war_exhaustion = {
 		add = "additional_war_exhaustion(scope:war.diplomatic_play)"
 		desc = "WAR_EXHAUSTION_FROM_EVENTS"
 	}
-
-	# if = {
-	# 	limit = { 
-	# 		has_technology_researched = multilateral_alliances 
-	# 		country_rank >= rank_value:major_power
-	# 		scope:war = {
-	# 			any_country = {
-	# 				has_war_with = ROOT
-	# 				country_rank >= rank_value:major_power
-	# 			}
-	# 		}
-	# 	}
-		
-	# 	multiply = {
-	# 		add = 0.2
-	# 		desc = "WAR_EXHAUSTION_MEGA_REDUCTION"
-	# 	}
-	# }
 }

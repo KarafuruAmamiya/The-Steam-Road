@@ -66,7 +66,7 @@
 	UNIFICATION_AGGRESSION_MULT_HIGHER_TIER = 1 # AI aggression is multiplied by this for calculating whether they should try to start a unification/leadership play, if the country would end up forming a nation of a higher tier
 	
 	DIPLO_PLAY_SWAY_THRESHOLD = 1.5 # 2.0 # If AI has this much military strength compared to enemy, don't bother trying to sway anyone
-	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -70 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
+	DIPLO_PLAY_NEUTRALITY_IN_SUBJECT_CONFLICT = -75 #-50 # If either side in the play is a subject, subtract this amount of neutrality score
 	DIPLO_PLAY_WEAK_ABANDON_SUPPORT_THRESHOLD = -25 # If support for the side an AI country is backing drops below this, consider abandoning it
 	DIPLO_PLAY_STRONG_ABANDON_SUPPORT_THRESHOLD = -50 # If support for the side an AI country is backing drops below this, abandon it immediately
 	
@@ -93,15 +93,18 @@
 	MIN_GOVERNMENT_LEGITIMACY = 25			# If legitimacy is below this, consider adding IGs we don't really like to the government
 	
 	# Below data is used to calculate how much weight the AI places on enacting/revoking a law
-	CHANGE_LAW_RANDOM_FACTOR = 2.5 #was 1.0 # The higher this is, the more random AI law enactment will be
+	CHANGE_LAW_RANDOM_FACTOR = 0.25 #was 1.0 # The higher this is, the more random AI law enactment will be
 	CHANGE_LAW_PRO_IG_IDEOLOGIES_FACTOR = 100 #was 100 # For enacting laws, per ideology match for IGs we approve of
 	CHANGE_LAW_ANTI_IG_IDEOLOGIES_FACTOR = -25 # For enacting laws, per ideology match for IGs we disapprove of
 	CHANGE_LAW_POLITICAL_MOVEMENT_SUPPORT_FACTOR = 4 #was 2 # Scales with movement support for movement that wants to enact the law
 	CHANGE_LAW_POLITICAL_MOVEMENT_RADICALISM_FACTOR = 8 #was 6 # Scales with movement radicalism for movement that wants to enact the law
-	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 75 #was 75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
-	CHANGE_LAW_POTENTIAL_CIVIL_WAR_ENACT_CHANCE = 20 #was 10 # Chance that the AI will proceed with a law change that could cause a civil war (1 = 1%)
-	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 40 #was 20 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
-	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 20 #was 10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
+	CHANGE_LAW_POTENTIAL_CIVIL_WAR_THRESHOLD = 85 #was 75 # If the political movement to preserve the law the AI is replacing would have at least this much radicalism, AI considers it a potential civil war cause
+	CHANGE_LAW_POTENTIAL_CIVIL_WAR_ENACT_CHANCE = 10 # Chance that the AI will proceed with a law change that could cause a civil war (1 = 1%)
+	CHANGE_LAW_CIVIL_WAR_BOLDNESS_RANGE = 100
+	CHANGE_LAW_CIVIL_WAR_BOLDNESS_TIMED_WEIGHT_DURATION = 24 # When the AI randomly sets its boldness for a particular law, how many months does that timed weight last
+	CHANGE_LAW_CIVIL_WAR_AVERSION_MOVEMENT_SUPPORT_FACTOR = 0.005 # Chance that the AI will stop enacting a law to avoid a civil war is multiplied by ( 1 + highest revolutionary movement support * this )
+	CHANGE_LAW_CIVIL_WAR_AVERSION_SUBJECT_MULTIPLIER = 20 # Chance that AI stops enacting a law to avoid a civil war is increased by this for subjects
+	CHANGE_LAW_CIVIL_WAR_AVERSION_LAW_DIRECTION_FLEXIBILITY = 10 # Revolution aversion is multiplied by this and added to the max progressiveness/regressiveness the AI is willing to stomach to avoid a revolution
 
 	DIPLO_PLAY_REVERSE_SWAY_TRANSFER_SUBJECT_VALUE_FACTOR = -1.5 #-1.0 # Multiplied by how much the AI values the subject they're offering to transfer to the sway target
 	CONSTRUCTION_RESERVES_NEW_CONSTRUCTIONS = 0.05 #0.2 # If gold reserves are less than this after adding the cost of a new construction, don't queue it
@@ -109,4 +112,9 @@
 	PRODUCTION_BUILDING_EXCESSIVE_INFRASTRUCTURE_SURPLUS = 100 #10 # If infra 'surplus' in state is at least this, AI doesn't want to improve it
 	
 	POWER_BLOC_KICK_MEMBER_LOW_COHESION_THRESHOLD = 0				# If current cohesion is less than this consider it low and add the corresponding score
+	
+	# Below data is used to calculate AI's desire for peace
+	AI_PEACE_AGREEMENT_BASE_VALUE = -30 #-10
+	AI_PEACE_AGREEMENT_SELF_WARGOAL_MULT = 1.5 # 3.0 # For each wargoal we have that's being pressed, apply wargoal value * this
+	AI_PEACE_AGREEMENT_ENEMY_WARGOAL_SELF_MULT = -10 # 8 # For each wargoal that the enemy is pressing against us, apply wargoal value * this
 }

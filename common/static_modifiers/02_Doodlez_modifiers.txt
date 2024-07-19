@@ -1,11 +1,11 @@
 ﻿## Romania
-zz_romania_unified_bonus = {
+romania_unified_bonus = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_prestige_mult = 0.1
 	country_influence_mult = 0.1
 }
 
-zz_romanian_nationalism_bonus = {
+romanian_nationalism_bonus = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
 	battle_offense_owned_province_mult = 0.1
 	battle_defense_owned_province_mult = 0.25
@@ -15,6 +15,19 @@ zz_romanian_nationalism_bonus = {
 isolated_colony_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
 	state_colony_growth_speed_mult = -10.0
+}
+
+## Land Reform
+land_redistribution_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	building_group_bg_agriculture_throughput_add = -0.10
+	building_group_bg_ranching_throughput_add = -0.10
+	country_bureaucracy_mult = -0.1
+}
+
+land_redistribution_compensation_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds	
+	country_expenses_add = 1
 }
 
 ## Turkey

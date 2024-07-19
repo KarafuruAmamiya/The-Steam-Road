@@ -62,7 +62,7 @@ base_values = {
 	
 	military_formation_organization_gain_add = 0.5 # 200 days to get max organization
 	
-	state_urbanization_per_level_add = 100
+	state_urbanization_per_level_add = 150 # 100
 	
 	unit_experience_gain_add = 1.0
 }
@@ -241,15 +241,15 @@ tax_modifier_medium = {
 
 tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -5
-	state_radicals_from_sol_change_mult = 0.25
+	country_legitimacy_base_add = -10
+	state_radicals_from_sol_change_mult = 0.5
 	interest_group_in_government_attraction_mult = -0.1
 }	
 
 tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
-	country_legitimacy_base_add = -10
-	state_radicals_from_sol_change_mult = 0.5
+	country_legitimacy_base_add = -20
+	state_radicals_from_sol_change_mult = 1.0
 	interest_group_in_government_attraction_mult = -0.2
 }	
 
@@ -420,7 +420,7 @@ legislative_efficiency = {
 political_dysfunction = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	country_opposition_ig_approval_add = -10
-	country_law_enactment_success_add = -0.10
+	state_radicals_from_sol_change_mult = 0.20
 }
 
 # Excess DIP increases Infamy decay by up to 25% at 2x production to usage
@@ -520,7 +520,7 @@ battle_navy_experience = {
 
 battle_unit_experience = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	unit_experience_gain_add = 1.0 # 5.0
+	unit_experience_gain_add = 2.0 # 5.0
 }
 
 # Scales with how much population is under low pop threshold
@@ -594,7 +594,7 @@ insufficient_tax_capacity = {
 state_turmoil = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	state_tax_waste_add = 0.25
-	state_migration_pull_mult = -0.5
+	state_migration_pull_mult = -0.15
 	state_construction_mult = -0.33
 }
 
@@ -602,15 +602,15 @@ state_turmoil = {
 state_turmoil_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	state_tax_waste_add = 0.5
-	state_migration_pull_mult = -0.75
+	state_migration_pull_mult = -0.25
 	state_construction_mult = -0.5
 }
 
 # Applied if state is above 'extreme turmoil' threshold
 state_turmoil_extreme = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	state_tax_waste_add = 1.0
-	state_migration_pull_mult = -1.0
+	state_tax_waste_add = 0.75
+	state_migration_pull_mult = -0.5
 	state_construction_mult = -0.75
 }
 
@@ -642,7 +642,7 @@ country_navy_power_projection = {
 # Scales with country literacy rate
 country_literacy_rate = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
-	country_weekly_innovation_max_add = 150
+	country_weekly_innovation_max_add = 200
 	country_tech_spread_add = 150 # 75
 }
 
@@ -746,7 +746,7 @@ country_authority_per_subject = {
 
 supported_law_cancelled = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
-	political_movement_radicalism_add = 30
+	political_movement_radicalism_add = 10
 }
 
 # Scaled by building_mobilization_cost_mult

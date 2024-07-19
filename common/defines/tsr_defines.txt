@@ -1,24 +1,9 @@
-﻿﻿NGame = { 
-}
-
-NJominiMap = {
-}
-
-NCountry = {
-	COUNTRY_FORMATION_CANDIDATE_MIN_RANK = 2
-}
-
-NPolitics = {
-	LEADER_IDEOLOGY_RANDOM_FACTOR = 1.5
-	POP_IG_RANDOM_FACTOR = 0.3
-	MAX_POP_FRACTION_LEAVE_IG = 0.1
-	
+﻿NPolitics = {
 	SECESSION_WEEKLY_CHANCE_EXCESS_DIV = 10			# Excess turmoil is divided by this and used to increase chance for secession movements
 	MIN_POP_SIZE_TO_SECEDE = 50000						# Num pops (including dependents) needed for a secession movement to start
 	SECESSION_STATE_CUTOFF_PERCENT = 0.33				# Required pop percentage in State to be egligble (oi) for secession
 	SECESSION_COOLDOWN_YEARS = 5
 	
-	POLITICAL_MOVEMENT_TO_ENACT_CHECK_TO_START_CHANCE = 0.1 # was 0.1 # Chance that a political movement is checked at all on a daily basis if it's a movement to enact (for performance reasons)
 	POLITICAL_MOVEMENT_MIN_DURATION = 18 #was 12
 	POLITICAL_MOVEMENT_MIN_SUPPORT_TO_START = 20 #was 10 # If a political movement would have less support than this, it can't start
 	POLITICAL_MOVEMENT_MIN_SUPPORT_TO_REMAIN = 10 #was 5 # If a political movement falls to less support than this, disband it
@@ -35,6 +20,7 @@ NPolitics = {
 	
 	POLITICAL_MOVEMENT_LOYALISTS_AT_SUCCESS = 0.3 #0.25 	# This fraction of pops backing a political movement become more loyalist if movement succeeds
 	POLITICAL_MOVEMENT_MONTHLY_RADICALS = 0.0015 #0.002 				# This fraction of pops backing a non-placated political movement to enact or restore become more radical each month
+	
 	MIN_IG_APPROVAL_FROM_LAWS = -10 #-5		# IG cannot have approval lower than this as a total from laws 'on the book'
 	MAX_IG_APPROVAL_FROM_LAWS = 10 #5		# IG cannot have approval higher than this as a total from laws 'on the book'
 	IG_APPROVAL_FROM_RADICAL_LAW_CHANGE = 7 #10 		# IG approval/disapproval for changing to another law, if the change is a major one
@@ -44,13 +30,36 @@ NPolitics = {
 	IG_APPROVAL_FROM_LAW = 1 		# IG approval/disapproval for laws that are for/against their ideologies
 	IG_APPROVAL_FROM_LAW_STRONG_STANCE = 3 #2 		# IG approval/disapproval for laws that are strongly for/against their ideologies
 
-	STATE_BUREAUCRACY_BASE_COST = 10		# The base cost per incorporated state
-	STATE_BUREAUCRACY_POP_BASE_COST = 4		# The base BUR multiplier per population multiple
-	STATE_BUREAUCRACY_POP_MULTIPLE = 200000 #100000	# Number of people BUR cost is based on
-	MINIMUM_INVESTMENT_COST = 10			# The absolute minimum cost in BUR per investment level
+	REVOLUTION_SUPPORT_STATE_MULTIPLIER = 0.01 # 0.015		# A revolution will have the backing of ( support * this fraction of states )
+	REVOLUTIONARY_ADJACENCY_BIAS = 2 # 4				# higher state selection bias for adjacent states
+	REVOLUTION_PROGRESS_RADICALISM_WEIGHT = 0.2  # revolutions gain progress based on the movement's radicalism, multiplied by this weight (may be affected by modifiers)
+
+	# Revolutionary states scoring
+	REVOLUTION_STATE_WEIGHT_LOCAL_CLOUT_SHARE = 1.25 # 1	 # Local clout weight at the moment of revolution secession
+	REVOLUTION_STATE_WEIGHT_NATIONAL_AVERAGE = 0.75 # 1	 # Local national revolutionary share
+
+	SECESSION_COOLDOWN_YEARS = 10
+	
+	STATE_BUREAUCRACY_POP_MULTIPLE = 150000 #100000	# Number of people BUR cost is based on
 }
 
 NEconomy = {
+	AUTO_DOWNSIZE_BUILDING_PRIVATELY_OWNED_THRESHOLD = 0.1	# 0.5			# At least this fraction of a building's levels must be privately owned for it to be considered for auto-downsizing
+	AUTO_DOWNSIZE_BUILDING_MIN_EMPTY_LEVELS = 2							# A building must be missing at least this many levels of employment (in absolute numbers) to start considering auto-downsizing (both this and the below requirement are applied)
+	AUTO_DOWNSIZE_BUILDING_MIN_EMPTY_FRACTION = 0.2						# A building must be missing at least this many levels of employment (in relative numbers) to start considering auto-downsizing (both this and the above requirement are applied)
+	AUTO_DOWNSIZE_BUILDING_MONTHS_TO_WAIT = 6 # 12							# After a building decides to start auto-downsizing, wait this many months before actually starting to downsize, in case conditions change
+
+	GOODS_SHORTAGE_PENALTY_THRESHOLD = 0.5		# If supply / demand is lower than this, start applying output penalties, by default this should be ( 1 / BUY_SELL_DIFF_AT_MAX_FACTOR )
+	GOODS_SHORTAGE_PENALTY_INCREASE_SPEED = 0.01  	# Goods shortage penalty increases by this fraction of the target each day
+    GOODS_SHORTAGE_PENALTY_DECREASE_SPEED = 0.01  	# Goods shortage penalty goes down by this fraction of GOODS_SHORTAGE_PENALTY_MAX each day
+    GOODS_SHORTAGE_PENALTY_MIN = 0.05			# Goods shortage penalty can't be lower than this if there is any shortage
+	GOODS_SHORTAGE_PENALTY_MAX = 0.75 # 0.5			# Goods shortage penalty can't be higher than this
+	
+	TRADE_ROUTE_BUREAUCRACY_COST = 10 #20					# The cost in BUR per trade route
+	TRADE_ROUTE_START_LEVEL = 1							# All new trade routes start at this level
+	TRADE_ROUTE_MIN_TOTAL_IMPORTS = 5					# This amount of a good can always be imported to a market even if there is no demand
+	TRADE_ROUTE_DEFAULT_GOODS_QUANTITY = 5				# Base quantity traded from trade routes, if not otherwise specified in goods type
+
 	TRADE_ROUTE_MAX_LEVEL = 999
 	TRADE_ROUTE_ECONOMY_OF_SCALE = 0.05					# Each level of trade route after the first adds this % to desired trade quantity
 	TRADE_ROUTE_ECONOMY_OF_SCALE_MAX_LEVEL = 250			# After this level, trade route economy of scale no longer increases the amount per level
@@ -65,6 +74,9 @@ NEconomy = {
 	COMPETITIVENESS_TRADE_AGREEMENT_MULT = 1.0	# Competiveness is multiplied by ( 1 + this ) if trading country and market controller have a trade agreement
 	COMPETITIVENESS_DURATION_BONUS_MAX_MONTHS = 60   # The age at which a trade route receives the maximum bonus to competetiveness
 	GOODS_DEFAULT_CONVOY_COST_MULTIPLIER = 0.75			# The convoy cost of shipping a single unit of goods (can be overriden in defines)
+	
+	TRADE_ROUTE_AUTO_INCREASE_EMPLOYMENT_THRESHOLD = 0.9 	# If trade route has this much of its max staffing level employed, it can automatically increase its level
+	TRADE_ROUTE_AUTO_REDUCTION_EMPLOYMENT_THRESHOLD = 0.75 	# If trade route has less than this of its max staffing level employed and could not hire anyone last week, it can automatically decrease its level
 }
 
 NMilitary = {
@@ -125,6 +137,31 @@ NDiplomacy = {
 	COLONY_PROVINCE_RANDOM_FACTOR = 1.25 # 1.5 # The higher this is, the more random colonization province picking will be
 	
 	WAR_GOAL_INFAMY_REDUCE_AUTONOMY = 1.0
+}
+
+NPops = {
+	MIN_ASSIMILATION = 100						# If there is any assmiliation at least this many people will assimilate
+	
+	CONVERSION_RATE = 0.0005 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
+	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
+	DISCRIMINATION_BASE = 33 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
+	RADICALS_MAX_FROM_DISCRIMINATION = 0.5 #was 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
+	RADICALS_MONTHLY_FROM_LOW_SOL = 0.0025	#was 0.002	# Scales by delta between SoL and expected min SoL
+	
+	LOW_POP_THRESHOLD = 7500 #was 5000					# If a state has less than this amount of pops per arable land, apply the low pop modifier
+	HIGH_POP_THRESHOLD = 500000 #was 100000					# If a state has more than this amount of pops per arable land, apply the high pop modifier
+	
+	MIN_SUPPLY_LEVEL_FOR_NEW_OBSESSION = 0.5 # 0.75	# Supply needs to be at least this times the demand
+	MIN_DEMAND_VALUE_FOR_NEW_OBSESSION = 500 #1000	# At this amount of (number of units * goods base price) needs to be demanded in a market to create a new obsession
+
+	OBSESSION_SPAWN_CHANCE = 0.5 # 0.1				# Per year (1.0 = 1%), multiplied by goods supply and market size mult
+	OBSESSION_SPAWN_CHANCE_MAX_SUPPLY_MULT = 3.0		# Supply relative to demand above this isn't factored into spawn chance
+	
+	COLONIZATION_RIGHTS_GROWTH_MULTIPLIER = 2.0			# Colonial growth AND max colonial growth are multiplied by this if you have colonization rights
+	COLONIAL_GROWTH_BASE_FACTOR = 0.00001				# Colonial growth generated by a state is ( total pops / 1000 ) * this * modifier from institution
+	MIN_BASE_COLONIAL_GROWTH = 0.01						# Country base colonial growth from population cannot be lower than this
+	MAX_BASE_COLONIAL_GROWTH = 0.05 #0.1						# Country base colonial growth from population cannot be higher than this
+	MAX_COLONIAL_GROWTH = 0.02	
 }
 
 ### Pop Growth Constants
@@ -192,7 +229,7 @@ NDiplomacy = {
 # { birthrate = sol * POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE + POP_GROWTH_MAX_BIRTHRATE }
 # else if (sol < POP_GROWTH_STABLE_SOL)
 # { birthrate = sol * POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE + POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT }
-# else { birthrate = POP_GROWTH_MIN_BIRTHRATE } 
+# else { birthrate = POP_GROWTH_MIN_BIRTHRATE }
 
 NPops = {
 	## Birthrate
@@ -218,20 +255,6 @@ NPops = {
 	POP_GROWTH_TRANSITION_SOL = @pop_growth_transition_sol		# Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
 	POP_GROWTH_MAX_SOL = @pop_growth_max_sol					# Growth Max is where net growth generally is at it's highest (only matters for mortality)
 	POP_GROWTH_STABLE_SOL = @pop_growth_stable_sol				# Stable is where birthrate and mortality stop changing and hit their minimum values
-}
-### End Pop Growth Constant defines
-
-NPops = {
-	MIN_ASSIMILATION = 100						# If there is any assmiliation at least this many people will assimilate
-	
-	CONVERSION_RATE = 0.0005 #was 0.002						# Percentage of pops who will Convert into a different Religion each month, if eligible
-	ASSIMILATION_RATE = 0.001 #was 0.002					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
-	DISCRIMINATION_BASE = 33 #was 25					# The base value of discrimination for a discriminated pop; maps to the % pay cut they take and the level of Turmoil they get
-	RADICALS_MAX_FROM_DISCRIMINATION = 0.5 #was 0.5		# If pop is already this % radical, don't add more radicals from discrimination (Scales by literacy)
-	RADICALS_MONTHLY_FROM_LOW_SOL = 0.0025	#was 0.002	# Scales by delta between SoL and expected min SoL
-	
-	LOW_POP_THRESHOLD = 7500 #was 5000					# If a state has less than this amount of pops per arable land, apply the low pop modifier
-	HIGH_POP_THRESHOLD = 500000 #was 100000					# If a state has more than this amount of pops per arable land, apply the high pop modifier
 }
 
 NEvents = {
@@ -272,4 +295,12 @@ NText = {
 }
 
 NDebug = {
+}
+
+NTravelNetwork = {
+	ARMY_DIRECT_CONNECTION_COST_MULT = 5 #10			# Travel cost multiplier for traveling in a direct line from/to a position on the map (without a travel node connection)
+
+	DIRECT_CONNECTION_NODE_MAX_NODES = 25 # 10			# Only search the closest X travel nodes for direct line map travel
+	DIRECT_CONNECTION_NODE_SEARCH_DISTANCE = 2000 #1200	# Default distance allowed to pathfind in a direct line from a (start/target) map point to a travel node (if no valid are found, it is expanded)
+	DIRECT_CONNECTION_MAP_MAX_DISTANCE = 500 #200		# Maximum distance allowed to pathfind in a direct line between start and target map points directly
 }

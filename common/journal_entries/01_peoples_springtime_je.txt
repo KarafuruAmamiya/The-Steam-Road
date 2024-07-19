@@ -40,12 +40,11 @@
 	possible = {
 		any_interest_group = {
 			OR = {
-				ig_approval < -10 # ANGERY
+				is_powerful = yes
 				is_insurrectionary = yes
 			}
 			leader = { has_ideology = ideology:ideology_radical }
 		}
-		is_revolutionary = no
 	}
 
 	immediate = {

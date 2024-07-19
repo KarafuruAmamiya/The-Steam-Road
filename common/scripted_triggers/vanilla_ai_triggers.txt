@@ -1,0 +1,72 @@
+﻿ai_desires_target_state = {
+	OR = {
+		ai_strongly_desires_target_state = yes
+		scope:target_state = { is_homeland_of_country_cultures = root } # AI is interested in homelands
+		AND = { # AI wants to unify split states
+			scope:target_state = { 
+				is_split_state = yes 
+				state_region = { 
+					any_scope_state = { owner = root }
+				}
+			}				
+		}
+		AND = { # Aggressive AI wants nearby land
+			OR = {
+				has_strategy = ai_strategy_world_revolution
+				has_strategy = ai_strategy_territorial_expansion
+			}					
+			has_strategic_adjacency = scope:target_state
+		}
+		AND = { # Colonialist AI wants colonies
+			# OR = {
+			# 	has_strategy = ai_strategy_economic_imperialism
+			 	has_strategy = ai_strategy_colonial_expansion
+			# }
+			scope:target_state.owner = { is_country_type = unrecognized }				
+			can_reach_target_state = yes
+		}
+		AND = { # AI wants nearby states if gifted them by overlord
+			has_strategic_adjacency = scope:target_state
+			any_overlord_or_above = { this = scope:target_country }
+		}	
+	}
+}
+
+ai_has_reasons_to_not_oppose_law = {
+	OR = {
+		any_political_movement = {
+			desired_law ?= scope:law.type
+			political_movement_radicalism >= 75
+		}
+		AND = {
+			has_journal_entry = je_government_petition
+			var:desired_law_var	?= scope:law			
+		}
+		AND = {
+			has_journal_entry = je_law_imposition
+			imposed_law	?= scope:law			
+		}
+	}
+}
+
+ai_has_enact_weight_modifier_journal_entries = {
+	OR = {
+		AND = {
+			has_journal_entry = je_government_petition
+			has_variable = desired_law_var
+			scope:law = var:desired_law_var
+		}
+		AND = {
+			has_journal_entry = je_law_imposition
+			scope:law = imposed_law
+		}
+		AND = {
+			has_journal_entry = je_gyojo_shinwon
+			OR = {
+				scope:law = scope:donghak_desired_law_1
+				scope:law = scope:donghak_desired_law_2
+				scope:law = scope:donghak_desired_law_3
+			}
+		}
+	}
+}

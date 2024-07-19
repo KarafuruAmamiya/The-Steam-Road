@@ -79,3 +79,26 @@ revolution_safety_check_on_action = {
 		}
 	}
 }
+
+# Root = Diplomatic Play
+on_diplo_play_start = {
+	on_actions = {
+		anti_subject_dp_liberty_desire_on_action
+	}
+}
+
+anti_subject_dp_liberty_desire_on_action = {
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					is_diplomatic_play_type = dp_annex_subject
+					is_diplomatic_play_type = dp_reduce_autonomy
+				}
+			}
+			target ?= {
+				add_liberty_desire = 100
+			}
+		}
+	}
+}

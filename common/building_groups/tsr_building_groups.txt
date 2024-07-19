@@ -21,22 +21,6 @@
 # proportionality_limit = X				How high is the building's tolerance for pop types being out of proportion? default NDefines::NEconomy::EMPLOYMENT_PROPORTIONALITY_LIMIT)
 # hires_unemployed_only = yes			If yes, buildings in this group may only hire from the unemployment pool. Default no.
 
-bg_canals = {
-	parent_group = bg_infrastructure
-	lens = special
-	inheritable_construction = yes
-
-	urbanization = 100
-
-	## Added
-	is_government_funded = yes
-	subsidized = yes
-	can_use_slaves = yes
-	ignores_productivity_when_hiring = yes
-	
-    cash_reserves_max = 25000
-}
-
 bg_illegal_opium_plantations = {
 	category = rural
 	
@@ -53,10 +37,4 @@ bg_illegal_opium_plantations = {
 	always_possible = yes
 	
 	default_building = building_illegal_opium_plantation
-}
-
-bg_financial_districts = {
-	parent_group = bg_owner_buildings
-	
-	infrastructure_usage_per_level = 0.0
 }

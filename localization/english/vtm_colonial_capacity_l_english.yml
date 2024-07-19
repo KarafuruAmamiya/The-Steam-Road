@@ -1,7 +1,7 @@
 ﻿l_english:
  ##### MODIFIERS ######
- modifier_country_colonial_capacity_cap_add:0 "Active Colonies"
- modifier_country_colonial_capacity_cap_add_desc:0 "The amount of [Concept('concept_colony', '$concept_colonies$')] that we are supporting at this time."
+ country_colonial_capacity_cap_add:0 "Active Colonies"
+ country_colonial_capacity_cap_add_desc:0 "The amount of [Concept('concept_colony', '$concept_colonies$')] that we are supporting at this time."
  COLONIAL_CAPACITY_TOOLTIP:0 "#tooltip_header $COLONIAL_CAPACITY$#!"
  COLONIES_VALUE:0 "[GetPlayer.MakeScope.ScriptValue('num_active_colonies') )|+0]"
 
@@ -21,6 +21,9 @@
  concept_colonial_gameplay_notes:0 "Colonial Gameplay Notes"
  concept_colonial_gameplay_notes_desc:0 "#BOLD Some important gameplay changes to consider:\n- [Concept('concept_country','$concept_countries$')] colonizing states in #I #BOLD Africa, Oceania or Indonesia#!#! will receive a [concept_claim] on the [concept_state_region] once they have acquired at least #BOLD 50%#! the state, turning it into a @major_colony_icon!#I Major Colony#!.\n- [Concept('concept_colony', '$concept_colonies$')] by other [Concept('concept_country','$concept_countries$')] in the same [concept_state_region] in #I #BOLD Africa, Oceania or Indonesia#!#! will be considered @minor_colony_icon!#I Minor Colonies#! once they have acquired #BOLD 20%#! of the state and will also be granted a [concept_claim] when another nation's @major_colony_icon!#I Major Colony#! is created!"
  colonial_gameplay_notes_add:0 "$TOOLTIP_DELIMITER$\n #BOLD [concept_colonial_gameplay_notes]#!"
+
+ concept_vtm_colonial_claims:0 "Colonial Claims"
+ concept_vtm_colonial_claims_desc:0 "[Concept('concept_country','$concept_countries$')] colonizing states in #I #BOLD Africa, Oceania or Indonesia#!#! will receive a [concept_claim] on the [concept_state_region] once they have acquired at least #BOLD 50%#! the state, turning it into a @major_colony_icon!#I Major Colony#!.\n[Concept('concept_colony', '$concept_colonies$')] by other [Concept('concept_country','$concept_countries$')] in the same [concept_state_region] in #I #BOLD Africa, Oceania or Indonesia#!#! will be considered @minor_colony_icon!#I Minor Colonies#! once they have acquired #BOLD 30%#! of the state and will also be granted a [concept_claim] when another nation's @major_colony_icon!#I Major Colony#! is created."
 
  ##### TOOLTIPS #####
  major_colony_tooltip:0 "This [concept_colony] is considered a @major_colony_icon!#I Major Colony#! of a [concept_great_power] as it controls at least #BOLD 50%#! of its [concept_state_region], granting a [concept_claim] to its owner!"

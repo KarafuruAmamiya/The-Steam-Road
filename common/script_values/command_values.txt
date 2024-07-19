@@ -228,6 +228,16 @@ land_battle_size = {
 		}
 	}
 	
+	# VTM
+	multiply = {
+		value = 1
+		add = root.modifier:battle_combat_width_mult
+		desc = "VTM_COMBAT_WIDTH_MODIFIER"
+	}
+	#
+
+	min = 1
+	
 	save_temporary_value_as = pre_numeric_advantage
 	
     # In a regular land battle, if we have a general and outnumber the enemy we may be able to bring additional troops

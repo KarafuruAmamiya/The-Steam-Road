@@ -13,38 +13,27 @@
 	
 	# 0% - 70% politically engaged	
 	political_engagement_base = 0.0
-	political_engagement_literacy_factor = 0.65 #0.7
+	political_engagement_literacy_factor = 0.7
 	
 	political_engagement_mult = {
 		value = 1.0
 
-		add = {
-			desc = "POP_STARVATION"	
-			
 			if = {
 				limit = { 
 					standard_of_living < 5
 				}
-				value = 1
-			}		
+			add = 1
 		}
 
 		multiply = {
-			desc = "NO_LABOR_MOVEMENT"	
-			value = 1.0
-			
+				value = 0.5
+		
 			if = {
-				limit = { 
+				limit = {
 					owner = {
-						NOT = { has_technology_researched = labor_movement }
+						has_technology_researched = labor_movement
 					}
 				}
-				value = 0.5
-			}		
-		}
-		
-		multiply = {
-			desc = "HAS_POLITICAL_AGITATION"	
 			value = 1.0
 			
 			if = {
@@ -56,6 +45,7 @@
 				value = 1.5
 			}		
 		}		
+	}
 	}
 	
 	portrait_age = {

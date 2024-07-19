@@ -1,0 +1,65 @@
+﻿vtm_formation_selected_sgui = {
+    scope = country
+
+    saved_scopes = { formation_scope }
+
+    is_valid = {
+        exists = root
+    }
+
+    effect = {
+        set_variable = {
+            name = formation_selected
+            value = scope:formation_scope
+        }
+    }
+}
+
+vtm_rightclick_move_formation_sgui = {
+    scope = country
+
+    saved_scopes = { front_scope }
+
+    is_valid = {
+        var:formation_selected ?= {
+            owner ?= root # We are doing this check here instead of vtm_formation_selected_sgui because of the way the triggers are set up in map_markers.gui 
+            is_army = yes
+        }
+        any_scope_general = {
+            root.var:formation_selected ?= commander_military_formation
+        }
+    }
+
+    effect = {
+        if = {
+            limit = {
+                OR = {
+                    NOT = {
+                        exists = var:formation_selected.front
+                    }
+                    NOT = { var:formation_selected.front = scope:front_scope }
+                }
+            }
+            if = {
+                limit = {
+                    var:formation_selected = {
+                        is_mobilized = no
+                    }
+                }
+                var:formation_selected = {
+                    mobilize_army = yes
+                }
+            }
+            if = {
+                limit = {
+                    var:formation_selected = {
+                        is_mobilized = yes # We need to do this double check to block prematurely demobilized formations from being deployed within the 90 day window, does work but WILL throw an error either way.
+                    }
+                }
+                var:formation_selected = {
+                    deploy_to_front = scope:front_scope
+                }      
+            }       
+        }
+    }
+}

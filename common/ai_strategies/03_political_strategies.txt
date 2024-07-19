@@ -1,17 +1,18 @@
-﻿ai_strategy_conservative_agenda = {
+﻿# Generic
+ai_strategy_conservative_agenda = {
 	icon = "gfx/interface/icons/ai_strategy_icons/conservative_agenda.dds"
 	
 	type = political
 	
 	revolution_aversion = {
-		value = 75
+		value = 50
 	}
 	
 	min_law_chance_to_pass = {
-		value = 30
+		value = 15
 		if = {
 			limit = { ai_has_reasons_to_not_oppose_law = yes }			
-			multiply = 0.33
+			multiply = 0.5
 		}			
 	}
 	
@@ -820,6 +821,8 @@ ai_strategy_nationalist_agenda = {
 	}
 }
 
+# Specific
+
 ai_strategy_maintain_mandate_of_heaven = {
 	icon = "gfx/interface/icons/ai_strategy_icons/reactionary_agenda.dds"
 	
@@ -883,7 +886,7 @@ ai_strategy_maintain_mandate_of_heaven = {
 					has_journal_entry = je_law_imposition
 				}
 			}
-			add = 25
+			add = 10
 		}		
 	}	
 
@@ -935,7 +938,7 @@ ai_strategy_maintain_mandate_of_heaven = {
 }
 
 ai_strategy_tanzimat_reforms = {
-	icon = "gfx/interface/icons/ai_strategy_icons/progressive_agenda.dds"
+	icon = "gfx/interface/icons/ai_strategy_icons/nationalist_agenda.dds"
 	
 	type = political
 	

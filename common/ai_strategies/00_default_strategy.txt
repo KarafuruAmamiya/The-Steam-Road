@@ -10,7 +10,7 @@ ai_strategy_default = {
 
 	# These are the tax levels the AI will try to stay within, though it can go above max tax level if in a financial emergency
 	# Using a different value in a strategy will override these values
-	desired_tax_level = medium
+	desired_tax_level = high
 	max_tax_level = very_high
 	min_tax_level = very_low
 	
@@ -357,7 +357,7 @@ ai_strategy_default = {
 	# Added to base neutrality in diplomatic plays	
 	# Using this value in other strategies will function additively
 	diplomatic_play_neutrality = {
-		value = 50
+		value = 60 #50
 		
 		# Akkovins should avoid unnecessary entanglements while trying to pursue the Tanzimat reforms
 		if = {
@@ -771,25 +771,13 @@ ai_strategy_default = {
 					add = {
 						value = scope:target_state.state_population
 						divide = 100000
-						max = 15						
-					}
-					
-					add = {
-						value = scope:target_state.state_population
-						divide = 500000
-						max = 10						
+						max = 20						
 					}
 					
 					add = {
 						value = scope:target_state.gdp
 						divide = 100000
-						max = 15
-					}	
-
-                    add = {
-						value = scope:target_state.gdp
-						divide = 600000
-						max = 10
+						max = 20
 					}						
 				}	
 
@@ -880,19 +868,12 @@ ai_strategy_default = {
 						OR = {
 							scope:target_state = { 
 								is_split_state = yes 
-								region = { 
+								state_region = { 
 									any_scope_state = { owner = ROOT }
 								}
 							}
 							scope:target_state = { has_claim_by = root } 
 						}					
-					}
-					multiply = 2.0
-				}
-
-				if = {
-					limit = { 
-						has_strategic_land_adjacency = scope:target_state
 					}
 					multiply = 2.0
 				}
@@ -933,8 +914,8 @@ ai_strategy_default = {
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
 					}
-					multiply = 3
-				}				
+					multiply = 1.5
+				}
 				if = {
 					limit = {
 						scope:target_state = { is_homeland_of_country_cultures = root }
@@ -949,7 +930,7 @@ ai_strategy_default = {
 							}
 						}
 					}
-					multiply = 6
+					multiply = 4
 				}
 			}
 
@@ -1135,7 +1116,6 @@ ai_strategy_default = {
 					has_journal_entry = je_veiled_puppet
 					scope:target_country = {
 						c:AKN ?= this
-						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
 							has_claim_by = root
 						}
@@ -1700,7 +1680,7 @@ ai_strategy_default = {
 	# Using this value in other strategies will function additively
 	# root is the AI doing the evaluation, scope:overlord is prospective overlord
 	become_subject_value = {
-		value = -100
+		value = -150
 
 		if = {
 			limit = {
@@ -2086,7 +2066,7 @@ ai_strategy_default = {
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
 	# Using this value in other strategies will function additively
 	aggression = {
-		value = 0.5
+		value = 0.25
 		
 		# More fighting between unrecognized powers
 		if = {
@@ -2095,7 +2075,7 @@ ai_strategy_default = {
 				scope:target_country = { is_country_type = unrecognized }
 			}
 			
-			add = 0.5
+			add = 0.75
 		}
 			
 		# Higher aggression against pariah countries
@@ -2198,6 +2178,63 @@ ai_strategy_default = {
 				}
 			}
 			add = 15
+		}
+		
+		#NGF for SGF
+		if = {
+			limit = {
+				OR = {
+					c:NGF ?= this
+					c:SAX ?= this
+				}
+				scope:target_country = {
+					OR = {
+						c:SGF ?= this
+						c:RHE ?= this
+					}
+				}
+			}
+			add = 50
+		}	
+		
+		#SGF for NGF
+		if = {
+			limit = {
+				c:SGF ?= this
+				scope:target_country = { 
+					OR = {
+						c:NGF ?= this
+						c:SAX ?= this
+						c:RHE ?= this
+					}
+				}
+			}
+			add = 50
+		}
+		
+		#RHE for NGF
+		if = {
+			limit = {
+				c:RHE ?= this
+				scope:target_country = { 
+					OR = {
+						c:NGF ?= this
+						c:SAX ?= this
+					}
+				}
+			}
+			add = 50
+		}
+		
+		#RHE for SGF
+		if = {
+			limit = {
+				c:RHE ?= this
+				scope:target_country = { 
+					c:SGF ?= this
+				}
+			}
+			add = 50
 		}
 		
 		if = { # acting against France
@@ -2521,7 +2558,6 @@ ai_strategy_default = {
 				has_journal_entry = je_veiled_puppet
 				scope:target_country = {
 					c:AKN ?= this
-					has_modifier = treaty_of_baglar_2
 					any_scope_state = {
 						has_claim_by = root
 					}
@@ -2888,127 +2924,67 @@ ai_strategy_default = {
 
 		add = {
 			value = investment_pool_income
-			divide = 1700 # 1 construction output per this much into the investment pool				
+			divide = 500 # 1 construction output per this much into the investment pool				
 		}
 		
 		add = {
 			value = income
-			divide = 9500 # 1 construction output per this much income
-			min = 0
-		}	
 					
+			divide = 2500 # 1 construction output per this much income
+
+			min = 0
+		}
+		
 		add = {
 			value = total_population
-			divide = 650000 # 1 construction point per 650k pop				
+			
+			divide = 1000000 # 1 construction output per this much population
 		}
-
-		add = {
-			value = gdp
-			divide = 1400000 # 1 construction point per 1.4 million gdp								
-		}			
 		
-		#VTM strats
-		#add = {
-		#	value = investment_pool_income
-		#	divide = 500 # 1 construction output per this much into the investment pool				
-		#}
-		#
-		#add = {
-		#	value = income
-		#			
-		#	divide = 3000 # 1 construction output per this much income
-		#
-		#	min = 0
-		#}
-		#
-		#add = {
-		#	value = total_population
-		#	
-		#	divide = 1000000 # 1 construction output per this much population
-		#}
-		#
 		# If above 1m population, we want to play the construction game
-		#if = {
-		#	limit = {
-		#		total_population >= 2000000
-		#	}
-		#	add = 10
-		#}
-		#
-		# Add a baseline if trying to industrialize
-		#if = {
-		#	limit = { 
-		#		OR = {
-		#			has_strategy = ai_strategy_resource_expansion
-		#			has_strategy = ai_strategy_industrial_expansion				
-		#		}
-		#	}
-		#	
-		#	if = {
-		#		limit = { country_rank >= rank_value:great_power }
-		#		add = 50
-		#	}		
-		#	else_if = {
-		#		limit = { country_rank >= rank_value:major_power }
-		#		add = 30 # 25
-		#	}	
-		#	else = {
-		#		add = 25 # 10
-		#	}				
-		#}				
-
 		if = {
-			limit = { has_law = law_type:law_traditionalism }
-			multiply = 0.85
+			limit = {
+				total_population >= 2000000 #1000000
+			}
+			add = 10
 		}
 		
 		if = {
-			limit = { 
-				OR = {
-					has_law = law_type:law_land_based_taxation 
-					has_law = law_type:law_consumption_based_taxation
-				}
-			}
-			multiply = 0.85
-		}
-		
-		if = {
-			limit = { 
-				OR = {
-					has_strategy = ai_strategy_resource_expansion
-					has_strategy = ai_strategy_industrial_expansion				
-				}
-			}
-			multiply = 1.15		
-		}
-
-		if = {
-			limit = { 
-			    game_date > 1860.1.1
-				OR = {
-					has_law = law_type:law_per_capita_based_taxation  #better tax laws = more construction
-					has_law = law_type:law_proportional_taxation
-					has_law = law_type:law_graduated_taxation
-				}
-			}
-			multiply = 1.1
+			limit = { country_rank >= rank_value:great_power }
+			add = 75
 		}		
-		
-		if = {
+		else_if = {
 			limit = { 
-				has_law = law_type:law_laissez_faire
+				OR = {
+					country_rank >= rank_value:major_power
+					country_rank >= rank_value:unrecognized_major_power
+				}
 			}
-			multiply = 1.15		
+			add = 50
 		}		
-
+				
+		
+		# Mult if trying to industrialize
 		if = {
-			limit = { has_strategy = ai_strategy_placate_population }
-			multiply = 0.75	
+			limit = {
+				has_strategy = ai_strategy_resource_expansion
+				has_strategy = ai_strategy_industrial_expansion				
+			}
+			multiply = 1.5
 		}
 
 		if = {
 			limit = { has_strategy = ai_strategy_maintain_mandate_of_heaven }
-			multiply = 0.35		
+			multiply = 0.25
+		}
+		if = {
+			limit = {
+				OR = {
+					has_journal_entry = je_meiji_restoration
+					has_journal_entry = je_meiji_main
+				}
+			}			
+			multiply = 2.0
 		}
 
 		if = {
@@ -3017,7 +2993,7 @@ ai_strategy_default = {
 		}
 
 		min = 1
-		max = 700 #VTM 1000
+		max = 2500
 	}
 	
 	# How many levels of barracks should the AI have
@@ -3088,7 +3064,7 @@ ai_strategy_default = {
 					divide = 2
 				}		
 			}
-			divide = 2000 # 1 level of barracks per 2k income					
+			divide = 3000 #2000 # 1 level of barracks per 2k income					
 		}				
 		
 		# More advanced standing armies are expensive and should be smaller relative to population
@@ -3200,9 +3176,17 @@ ai_strategy_default = {
 			}
 			min = 100
 		}
+		else_if = {
+			limit = { 
+				has_journal_entry = je_pollit_defense
+			}
+			min = 60
+		}
+		else = {
+			min = 1
+		}	
 
-		min = 1
-		max = 10000		
+		max = 500 #1000	
 	}
 	
 	# How many levels of naval base should the AI have
@@ -3291,7 +3275,7 @@ ai_strategy_default = {
 		}		
 
 		min = 0		
-		max = 500
+		max = 250 # 500
 	}		
 	
 	# Set the weights for combat unit groups, this determines the ratio that the AI aims to have of each, and thus what unit types it adds to formations
@@ -3601,10 +3585,7 @@ ai_strategy_default = {
 
 		if = {
 			limit = { 
-				OR = {
-					is_country_type = recognized
-					is_country_type = colonial
-				}
+				NOT = { is_country_type = unrecognized }
 				navy_size >= 25 				
 			}
 			add = 0.1
@@ -3612,10 +3593,7 @@ ai_strategy_default = {
 		
 		if = {
 			limit = { 
-				OR = {
-					is_country_type = recognized
-					is_country_type = colonial
-				}
+				NOT = { is_country_type = unrecognized }
 				navy_size >= 50 		
 			}
 			add = 0.1
@@ -3623,10 +3601,7 @@ ai_strategy_default = {
 		
 		if = {
 			limit = { 
-				OR = {
-					is_country_type = recognized
-					is_country_type = colonial
-				}
+				NOT = { is_country_type = unrecognized }
 				navy_size >= 75 				
 			}
 			add = 0.1
@@ -4238,6 +4213,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_west_siberia = {
 			if = {
@@ -4287,6 +4271,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_amazon = {
 			if = {
@@ -4322,6 +4315,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_borealia = {
 			if = {
@@ -4345,6 +4347,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_great_plains = {
 			if = {
@@ -4367,6 +4378,15 @@ ai_strategy_default = {
 					gunpowder_empire_trigger = yes
 				}
 				add = -1000
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
 			}
 		}
 		region_pacific_coast = {
@@ -4399,6 +4419,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_soalleiro = {
 			if = {
@@ -4429,6 +4458,15 @@ ai_strategy_default = {
 					gunpowder_empire_trigger = yes
 				}
 				add = -1000
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
 			}
 		}
 		region_vinland = {
@@ -4528,6 +4566,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_mexico = {
 			if = {
@@ -4590,6 +4637,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_caribbean = {
 			if = {
@@ -4638,6 +4694,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_andes = {
 			# Persia and Ottomans have no business interfering in the New World
@@ -4654,6 +4719,15 @@ ai_strategy_default = {
 				}
 				add = -1000
 			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
+			}
 		}
 		region_gran_colombia = {
 			# Persia and Ottomans have no business interfering in the New World
@@ -4669,6 +4743,15 @@ ai_strategy_default = {
 					gunpowder_empire_trigger = yes
 				}
 				add = -1000
+			}
+			if = {
+				limit = {
+					any_scope_state = {
+						owner = root
+						is_incorporated = no
+					}
+				}
+				add = 3000
 			}
 		}
 	}
@@ -6410,7 +6493,6 @@ ai_strategy_default = {
 					has_journal_entry = je_veiled_puppet
 					scope:target_country = {
 						c:AKN ?= this
-						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
 							has_claim_by = root
 						}
@@ -7017,7 +7099,6 @@ ai_strategy_default = {
 					has_journal_entry = je_veiled_puppet
 					scope:target_country = {
 						c:AKN ?= this
-						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
 							has_claim_by = root
 						}
@@ -7469,7 +7550,6 @@ ai_strategy_default = {
 					has_journal_entry = je_veiled_puppet
 					scope:target_country = {
 						c:AKN ?= this
-						has_modifier = treaty_of_baglar_2
 						any_scope_state = {
 							has_claim_by = root
 						}
